@@ -1,0 +1,314 @@
+/*--------------------------------------------------------------
+	Typography
+--------------------------------------------------------------*/
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  background: #f15b43;
+  font-family: 'Lato', sans-serif;
+  color: #ffffff;
+}
+
+.logo {
+  margin: 40px 0 40px 0;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navy {
+  margin: 20px 0 20px 0;
+}
+
+strong {
+  text-decoration: underline;
+}
+
+.fas {
+  margin-right: 15px;
+}
+
+/*--------------------------------------------------------------
+	Header
+--------------------------------------------------------------*/
+
+#header-voluntario-global h1 {
+  max-width: 60%;
+  margin: auto;
+}
+
+/*--------------------------------------------------------------
+	Forms
+--------------------------------------------------------------*/
+
+.forms {
+  margin: 20px 0 20px 0;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: 70px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cb3227;
+  background-color: #ed482d;
+  background-clip: padding-box;
+  border-bottom: 2px solid #f6a496;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: unset;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  padding: .375rem .75rem;
+}
+
+.input-group-text {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .375rem .75rem;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #f5d3cd;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #ed482d;
+  border-radius: 0;      
+  border-bottom: 2px solid #f6a496;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #cb3227 !important;
+  font-size: 22px;
+  font-weight: lighter;
+  text-align: right;
+  padding-right: 30px;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #cb3227 !important;
+  font-size: 22px;
+  font-weight: lighter;
+  text-align: right;
+  padding-right: 30px;
+}
+input::-moz-placeholder {  /* Firefox 19+ */
+  color: #cb3227 !important;
+  font-size: 22px;
+  font-weight: lighter;
+  text-align: right;
+  padding-right: 30px;
+}
+input:-ms-input-placeholder {  
+  color: #cb3227 !important;
+  font-size: 22px;
+  font-weight: lighter;
+  text-align: right;
+  padding-right: 30px;
+}
+
+input[type=text],
+input[type=password] {
+  font-size: 22px;
+  font-weight: lighter;
+  color: #7b1200;
+  padding-right: 30px;
+  text-align: right;
+}
+
+input[type=text]:focus, 
+input[type=password]:focus {
+  background-color: #ed482d;
+  border: none;
+  color: #7b1200;
+}
+
+.alert-warning {
+  color: #e2462d;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  font-size: 16px;
+}
+
+.alert-dismissible .close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.80rem 0.50rem;
+  color: inherit;
+  right: unset;
+}
+
+.alert-dismissible p {
+  margin: 0;
+  padding: 0 0 0 30px;
+}
+
+/*--------------------------------------------------------------
+	Buttons
+--------------------------------------------------------------*/
+
+.btn-primary {
+  color: #f15b43;
+  background-color: #feded9;
+  border-color: #feded9;  
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #f15b43;
+  border-color: #feded9;
+  border-width: 2px;
+}
+
+.btn-primary, 
+.btn-secondary {
+  font-size: 19px;
+  font-weight: bold;
+  width: 150px;
+  height: 40px;
+  line-height: 1em;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #ed482d;
+  border-color: #ed482d;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle,
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show > .btn-secondary.dropdown-toggle {
+  color: #fff;
+  background-color: #7b1200;
+  border-color: #7b1200;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.buttons {
+  margin: 70px 0 50px 0;
+}
+
+/*--------------------------------------------------------------
+	Responsive Styles
+--------------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  /* Header */
+  #header-voluntario-global h1 {
+    max-width: 60%;
+  }
+
+  /* Forms */
+  #form-voluntario-global .col-sm {
+    max-width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  /* Header */
+  #header-voluntario-global h1 {
+    max-width: 80%;
+  }
+
+  /* Forms */
+  #form-voluntario-global .col-sm {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Header */
+  #header-voluntario-global h1 {
+    max-width: 90%;    
+  }
+
+  /* Forms */
+  .form-control {    
+    height: 40px;    
+  }
+
+  #form-voluntario-global .col-sm {
+    max-width: 98%;
+  }
+  
+  .input-group-append, .input-group-prepend {
+    display: grid;
+    width: 100%;
+    height: 60px;
+  }
+
+  .input-group-text {    
+    border: none;    
+  }
+
+  input::-webkit-input-placeholder {
+    color: #d23820 !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: #d23820 !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: #d23820 !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input:-ms-input-placeholder {  
+    color: #d23820 !important;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  
+  input[type=text],
+  input[type=password] {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #7b1200;
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  input[type=text]:focus, 
+  input[type=password]:focus {
+    background-color: #ed482d;
+    border: none;
+    color: #7b1200;
+  }
+
+  /* Buttons footer*/
+  .buttons {
+    margin: 50px 0 20px 0;
+  }
+}
