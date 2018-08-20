@@ -129,7 +129,7 @@
 							</div>
 							<div class="form-row buttons">
 								<div class="col text-left">
-									<button type="button" class="btn btn-secondary">Cancelar</button>
+									<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
 								</div>
 								<div class="col text-right">
 									<button type="button" class="btn btn-primary">Próximo</button>
@@ -256,7 +256,7 @@
 								<!-- Botões -->
 								<div class="form-row buttons">
 									<div class="col text-left">
-										<button type="button" class="btn btn-secondary">Cancelar</button>
+										<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalCancelar">Cancelar</button>
 									</div>
 									<div class="col text-right">
 										<button type="button" class="btn btn-primary">Enviar <i class="fas fa-paper-plane"></i></button>
@@ -311,6 +311,71 @@
 				</div>
 			</div>
 		</section>
+	</div>
+	
+	<!-- Modal Cancelar Step 1-->		
+	<div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog" aria-labelledby="labelCancelar" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="labelCancelar">Deseja cancelar o cadastro?</h5>			
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col">
+					<button type="button" class="btn btn-primary">Sim, quero cancelar</button>									
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Não, continuar o cadastro</button>					
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="input-group">
+						<label for="lembreteEmail">
+							Deseja receber lembrete para continuar seu cadastro? Preencha com seu e-mail:
+						</label>
+						<input type="text" class="form-control" id="lembreteEmail">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><i class="fas fa-paper-plane fa-lg" style="color: #ffffff;"></i></button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-info" data-dismiss="modal">Conheça mais sobre o programa</button>			
+		</div>
+		</div>
+	</div>
+	</div>
+
+	<!-- Modal Cancelar Step 2-->		
+	<div class="modal fade" id="modalCancelar2" tabindex="-1" role="dialog" aria-labelledby="labelCancelar" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="labelCancelar">Deseja cancelar o cadastro?</h5>			
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="col">
+					<button type="button" class="btn btn-primary">Sim, quero cancelar</button>									
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Não, continuar o cadastro</button>					
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" id="receberLembrete">
+						<label class="form-check-label" for="receberLembrete">Receber um lembrete para continuar seu cadastro depois</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-info" data-dismiss="modal">Conheça mais sobre o programa</button>			
+		</div>
+		</div>
+	</div>
 	</div>
 
 </main>
