@@ -250,6 +250,37 @@ label {
   right: 0;
 }
 
+.valid-feedback {  
+  width: 20px;
+  margin-top: .25rem;
+  font-size: 100%;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+}
+
+.invalid-feedback {  
+  width: 150px;  
+  font-size: 80%;  
+  color: #ffffff;  
+  text-align: right;  
+  position: absolute;  
+  right: 5px;  
+  bottom: -20px;  
+  z-index: 1;  
+  height: 84px;  
+  padding-top: 64px;
+}
+
+.invalid-feedback .fa-times {
+  position: absolute;
+  top: 22px;  
+  right: -10px;
+  font-size: 1.5em;
+}
+
 /*--------------------------------------------------------------
 	Buttons
 --------------------------------------------------------------*/
