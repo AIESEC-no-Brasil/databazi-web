@@ -461,7 +461,7 @@ label {
   }
 
   /* Step3 */
-  #header-voluntario-global { display: none; }
+  #step3 #header-voluntario-global { display: none; }
 
   #step3 .col-sm {
     max-width: 96%;
