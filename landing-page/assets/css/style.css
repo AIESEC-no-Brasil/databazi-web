@@ -31,10 +31,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-.navy {
-  margin: 20px 0 20px 0;
-}
-
 strong {
   text-decoration: underline;
 }
@@ -69,7 +65,7 @@ strong {
 --------------------------------------------------------------*/
 
 .forms {
-  margin: 20px 0 20px 0;
+  margin-bottom: 40px;
 }
 
 .form-group {
@@ -281,6 +277,19 @@ label {
   font-size: 1.5em;
 }
 
+.custom-control {  
+  margin: 20px -2px;
+  position: initial;
+}
+
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #fcaca1;
+}
+
+.custom-radio .custom-control-input ~ .custom-control-label::before {
+  background-color: #ffffff;
+}
+
 /*--------------------------------------------------------------
 	Buttons
 --------------------------------------------------------------*/
@@ -431,7 +440,7 @@ label {
 }
 
 #modalCancelar .btn-secondary {
-  width: 49%;
+  width: 50%;
   font-size: 1em;
 }
 
@@ -513,6 +522,16 @@ label {
   #form-voluntario-global .col-sm {
     max-width: 70%;
   }
+
+  /* Dropdown */
+  .input-group-text {
+    width: 300px;
+  }
+
+  .dropdown-toggle {
+    width: 468px;
+    text-align: right;
+  }
 }
 
 @media (max-width: 767px) {
@@ -525,6 +544,34 @@ label {
   #form-voluntario-global .col-sm {
     max-width: 100%;
   }
+
+  /* Step3 */
+  #step3 .col-sm {
+    max-width: 100%;
+  }
+
+  #step3 .btn-primary {
+    font-size: 20px;
+  }
+
+  #step3 #header-resultado {
+    padding-top: 50px;
+  }
+
+  #step3 #content-resultado {
+    padding-top: 30px;
+    padding-bottom: 120px;
+  }
+
+  /* Dropdown */
+  .input-group-text {
+    width: 200px;
+  }
+
+  .dropdown-toggle {
+    width: 310px;
+    text-align: right;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -534,7 +581,7 @@ label {
   }
 
   /* Forms */
-  .form-control {    
+  .form-control {
     height: 40px;    
   }
 
@@ -592,8 +639,7 @@ label {
   
   input[type=text]:focus, 
   input[type=password]:focus {
-    background-color: #ed482d;
-    border: none;
+    background-color: #ed482d;    
     color: #7b1200;
   }
 
@@ -660,5 +706,19 @@ label {
     
   #modalCancelar .btn-secondary {
     font-size: 0.8em;
+  }
+
+  /* Dropdown */
+  .input-group-text {
+    width: 100%;
+  }
+  
+  #form-voluntario-global2 .input-group-text {
+    width: 230px;
+  }
+
+  .dropdown-toggle {
+    width: 440px;
+    text-align: right;
   }
 }
