@@ -48,7 +48,7 @@ strong {
 }
 
 .fa-10x {
-  margin-top: 80px;
+  margin-top: 20px;
 }
 
 /*--------------------------------------------------------------
@@ -75,7 +75,7 @@ strong {
 .form-control {
   display: block;
   width: 100%;
-  height: 70px;
+  height: 50px;
   font-size: 1rem;
   line-height: 1.5;
   color: #cb3227;
@@ -113,28 +113,28 @@ strong {
 
 input::-webkit-input-placeholder {
   color: #cb3227 !important;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: lighter;
   text-align: right;
   padding-right: 30px;
 }
 input:-moz-placeholder { /* Firefox 18- */
   color: #cb3227 !important;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: lighter;
   text-align: right;
   padding-right: 30px;
 }
 input::-moz-placeholder {  /* Firefox 19+ */
   color: #cb3227 !important;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: lighter;
   text-align: right;
   padding-right: 30px;
 }
 input:-ms-input-placeholder {  
   color: #cb3227 !important;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: lighter;
   text-align: right;
   padding-right: 30px;
@@ -142,7 +142,7 @@ input:-ms-input-placeholder {
 
 input[type=text],
 input[type=password] {
-  font-size: 22px;
+  font-size: 16px;
   font-weight: lighter;
   color: #7b1200;
   padding-right: 30px;
@@ -220,7 +220,7 @@ label {
 
 .dropdown, .dropleft, .dropright, .dropup {
   position: relative;
-  height: 70px;
+  height: 50px;
   display: flex;
 }
 
@@ -244,6 +244,20 @@ label {
 
 .dropdown-menu[x-placement^="bottom"], .dropdown-menu[x-placement^="left"], .dropdown-menu[x-placement^="right"], .dropdown-menu[x-placement^="top"] {
   right: 0;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: .255em;
+  vertical-align: .1em;
+  content: "";
+  border-top: .5em solid;
+  border-right: .5em solid transparent;
+  border-bottom: 0;
+  border-left: .5em solid transparent;
+  color: #f6a496;
 }
 
 .valid-feedback {  
@@ -350,7 +364,7 @@ label {
 }
 
 .buttons {
-  margin: 70px 0 50px 0;
+  margin: 30px 0 20px 0;
 }
 
 .btn-info {
@@ -378,7 +392,7 @@ label {
 }
 
 .btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle {
-  color: #fff;
+  color: #cb3227;
   background-color: #ed482d;
   border-color: transparent;
   border-bottom: 2px solid #f6a496;
@@ -389,37 +403,37 @@ label {
 }
 
 #step3 p {
-  font-size: 23px;
+  font-size: 20px;
 }
 
 #step3 #header-resultado {
-  padding-top: 80px;  
+  padding-top: 20px;
 }
 
 #step3 #content-resultado {
-  padding-top: 80px;
-  padding-bottom: 150px;  
+  padding-top: 20px;
+  padding-bottom: 50px;  
 }
 
 /* Modal */
-#modalCancelar { top: 30%; }
+.modal { top: 30%; }
 
-#modalCancelar .btn-primary,
-#modalCancelar .btn-info {
+.modal .btn-primary,
+.modal .btn-info {
   color: #f85a3f;
   background-color: #ffffff;
   border-color: #f85a3f;
 }
 
-#modalCancelar .btn-secondary {
+.modal .btn-secondary {
   color: #fff;
   background-color: #f85a3f;
   border-color: #f85a3f;
 }
 
-#modalCancelar .btn-primary, 
-#modalCancelar .btn-secondary,
-#modalCancelar .btn-info {
+.modal .btn-primary, 
+.modal .btn-secondary,
+.modal .btn-info {
   font-size: 1.2em;
   font-weight: normal;  
   height: 40px;
@@ -427,24 +441,24 @@ label {
   border-width: 2px;  
 }
 
-#modalCancelar .btn-primary:hover,
-#modalCancelar .btn-secondary:hover {
+.modal .btn-primary:hover,
+.modal .btn-secondary:hover {
   color: #ffffff;
   background-color: #932413;
   border-color: #932413;
 }
 
 /* Tamanhos dos botões */
-#modalCancelar .btn-primary {
+.modal .btn-primary {
   width: 49%;
 }
 
-#modalCancelar .btn-secondary {
+.modal .btn-secondary {
   width: 50%;
   font-size: 1em;
 }
 
-#modalCancelar .btn-info {
+.modal .btn-info {
   width: 100%;
   border: 2px solid #f85a3f;
 }
@@ -468,39 +482,39 @@ label {
   border: none;
 }
 
-#modalCancelar label {
+.modal label {
   font-weight: normal;
   font-size: 12px;
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-#modalCancelar input[type=text] {
+.modal input[type=text] {
   background-color: #ffffff;
   border: 2px solid #f85a3f;
   height: 40px;
 }
 
-#modalCancelar .btn-default {
+.modal .btn-default {
   background-color: #f85a3f;
   height: 40px;
 }
 
-#modalCancelar .fas {
+.modal .fas {
   margin: 0;
   padding: 0;
 }
 
-#modalCancelar .form-check {
+.modal .form-check {
   padding-top: 10px;
   margin-bottom: -10px;
 }
 
-#modalCancelar input[type=checkbox] {
+.modal input[type=checkbox] {
   margin-top: 12px;
 }
 
-#modalCancelar .form-check-label {
+.modal .form-check-label {
   color: #f85a3f;
   font-weight: bold;
   font-size: 0.9em;
@@ -509,18 +523,17 @@ label {
 }
 
 /*--------------------------------------------------------------
-	Responsive Styles
---------------------------------------------------------------*/
+	Start Responsive
+--------------------------------------------------------------*/  
 
-@media (min-width: 768px) {
-  /* Header */
-  #header-voluntario-global h1 {
-    max-width: 60%;
-  }
+/*--------------------------------------------------------------
+	Responsive Styles - Min 991px
+--------------------------------------------------------------*/  
 
+@media (min-width: 991px) {    
   /* Forms */
   #form-voluntario-global .col-sm {
-    max-width: 70%;
+    max-width: 768px;
   }
 
   /* Dropdown */
@@ -529,10 +542,62 @@ label {
   }
 
   .dropdown-toggle {
-    width: 538px;
+    width: 508px;
     text-align: right;
   }
+
+  /* Step 3*/
+  #step3 .col-sm {
+    max-width: 80%;
+  }
+  
+  #step3 .btn-primary {
+    padding: 15px 30px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: 20px;
+    margin-top: 10px;
+  }
 }
+
+/*--------------------------------------------------------------
+	Responsive Styles - Max 990px
+--------------------------------------------------------------*/  
+
+@media (max-width: 990px) {  
+  /* Forms */
+  #form-voluntario-global .col-sm {
+    max-width: 720px;
+  }
+
+  /* Dropdown */
+  .input-group-text {
+    width: 200px;
+  }
+
+  .dropdown-toggle {
+    width: 490px;
+    text-align: right;
+  }  
+
+  #step3 .col-sm {
+    max-width: 80%;
+  }
+  
+  #step3 .btn-primary {
+    padding: 15px 30px;
+    text-align: center;
+    width: auto;
+    height: auto;
+    font-size: 25px;
+    margin-top: 10px;
+  }
+}
+
+/*--------------------------------------------------------------
+	Responsive Styles - Max 767px
+--------------------------------------------------------------*/
 
 @media (max-width: 767px) {
   /* Header */
@@ -542,7 +607,7 @@ label {
 
   /* Forms */
   #form-voluntario-global .col-sm {
-    max-width: 100%;
+    max-width: 720px;
   }
 
   /* Step3 */
@@ -560,7 +625,7 @@ label {
 
   #step3 #content-resultado {
     padding-top: 30px;
-    padding-bottom: 120px;
+    padding-bottom: 60px;
   }
 
   /* Dropdown */
@@ -579,28 +644,28 @@ label {
     font-size: 12px;
     font-weight: bold;
     text-align: right;
-    padding-right: 0;    
+    padding-right: 0;
   }
   input:-moz-placeholder { /* Firefox 18- */
     color: #d23820 !important;
     font-size: 12px;
     font-weight: bold;
     text-align: right;
-    padding-right: 0;    
+    padding-right: 0;
   }
   input::-moz-placeholder {  /* Firefox 19+ */
     color: #d23820 !important;
     font-size: 12px;
     font-weight: bold;
     text-align: right;
-    padding-right: 0;    
+    padding-right: 0;
   }
   input:-ms-input-placeholder {  
     color: #d23820 !important;
     font-size: 12px;
     font-weight: bold;
     text-align: right;
-    padding-right: 0;    
+    padding-right: 0;
   }
 
   input[type=text],
@@ -616,9 +681,14 @@ label {
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
+  }
 }
 
-@media only screen and (max-width: 480px) {
+/*--------------------------------------------------------------
+	Responsive Styles - Max 600px
+--------------------------------------------------------------*/
+
+@media (max-width: 600px) {
   /* Header */
   #header-voluntario-global h1 {
     max-width: 90%;    
@@ -630,7 +700,7 @@ label {
   }
 
   #form-voluntario-global .col-sm {
-    max-width: 98%;
+    max-width: 480px;
   }
   
   .input-group-append, .input-group-prepend {
@@ -639,39 +709,10 @@ label {
     height: 60px;
   }
 
-  .input-group-text {    
+  .input-group-text {
     border: none;    
   }
-
-  input::-webkit-input-placeholder {
-    color: #d23820 !important;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    padding-right: 0;    
-  }
-  input:-moz-placeholder { /* Firefox 18- */
-    color: #d23820 !important;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    padding-right: 0;    
-  }
-  input::-moz-placeholder {  /* Firefox 19+ */
-    color: #d23820 !important;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    padding-right: 0;    
-  }
-  input:-ms-input-placeholder {  
-    color: #d23820 !important;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    padding-right: 0;    
-  }
-  
+ 
   input[type=text],
   input[type=password] {
     font-size: 15px;
@@ -685,12 +726,7 @@ label {
   input[type=password]:focus {
     background-color: #ed482d;    
     color: #7b1200;
-  }
-
-  /* Buttons footer*/
-  .buttons {
-    margin: 50px 0 20px 0;
-  }
+  }  
 
   /* Step3 */
   #step3 #header-voluntario-global { display: none; }
@@ -762,8 +798,23 @@ label {
   }
 
   .dropdown-toggle {
-    width: 440px;
+    width: 450px;
     text-align: right;
+  }
+
+  input[type=text],
+  input[type=password] {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #7b1200;
+    padding-right: 0;
+    text-align: left;
+  }
+  
+  input[type=text]:focus, 
+  input[type=password]:focus {
+    background-color: #ed482d;    
+    color: #7b1200;
   }
 
   /* Placeholder Dropdown */
@@ -794,5 +845,20 @@ label {
     font-weight: bold;
     text-align: left;
     padding-right: 0;    
+  }  
+}
+
+/*--------------------------------------------------------------
+	Responsive Styles - Max 400px
+--------------------------------------------------------------*/
+
+@media (max-width: 400px) {
+  #form-voluntario-global .col-sm {
+    max-width: 370px;
+  }
+
+  .dropdown-toggle {
+    width: 340px;
+    text-align: right;
   }
 }
