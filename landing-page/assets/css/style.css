@@ -525,11 +525,11 @@ label {
 
   /* Dropdown */
   .input-group-text {
-    width: 300px;
+    width: 230px;
   }
 
   .dropdown-toggle {
-    width: 468px;
+    width: 538px;
     text-align: right;
   }
 }
@@ -565,13 +565,57 @@ label {
 
   /* Dropdown */
   .input-group-text {
-    width: 200px;
+    width: 170px;
   }
 
   .dropdown-toggle {
-    width: 310px;
+    width: 340px;
     text-align: right;
   }
+
+  /* Placeholder Dropdown */
+  input::-webkit-input-placeholder {
+    color: #d23820 !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 0;    
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: #d23820 !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 0;    
+  }
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: #d23820 !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 0;    
+  }
+  input:-ms-input-placeholder {  
+    color: #d23820 !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 0;    
+  }
+
+  input[type=text],
+  input[type=password] {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #7b1200;
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  .input-group-text {    
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -720,5 +764,35 @@ label {
   .dropdown-toggle {
     width: 440px;
     text-align: right;
+  }
+
+  /* Placeholder Dropdown */
+  input::-webkit-input-placeholder {
+    color: #d23820 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input:-moz-placeholder { /* Firefox 18- */
+    color: #d23820 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input::-moz-placeholder {  /* Firefox 19+ */
+    color: #d23820 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
+  }
+  input:-ms-input-placeholder {  
+    color: #d23820 !important;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    padding-right: 0;    
   }
 }
