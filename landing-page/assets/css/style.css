@@ -44,14 +44,18 @@ strong {
 }
 
 .btn {
-  border-radius: 0;
-  border: none;
+  border-radius: 0;  
 }
 
 .form-row > .col, .form-row > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }
+
+hr {
+  border: none;
+}
+
 
 /*--------------------------------------------------------------
 	Header
@@ -140,6 +144,20 @@ input[type=password],
   font-weight: normal;    
   padding-right: 10px;
   text-align: right;
+}
+
+/* Placeholder Dropdown Help Text */
+input#inputGraduation.form-control.help-right-text::-webkit-input-placeholder {
+  padding-right: 35px;
+}
+input#inputGraduation.form-control.help-right-text:-moz-placeholder { /* Firefox 18- */
+  padding-right: 35px;
+}
+input#inputGraduation.form-control.help-right-text::-moz-placeholder {  /* Firefox 19+ */
+  padding-right: 35px;
+}
+input#inputGraduation.form-control.help-right-text:-ms-input-placeholder {
+  padding-right: 35px;
 }
 
 input[type=text]:focus, 
@@ -285,7 +303,14 @@ label {
 input[type=text]:focus,
 input[type=password]:focus {  
   border-bottom-width: 2px;
-  border-bottom-style: solid;   
+  border-bottom-style: solid;
+}
+
+.help-right-icon {
+  position: absolute;
+  width: 30px;
+  right: -10px;
+  z-index: 1;
 }
 
 /*--------------------------------------------------------------
@@ -305,7 +330,7 @@ input[type=password]:focus {
 .btn-secondary,
 .btn-info,
 .btn-default {
-  border-bottom-width: 2px;
+  border-width: 2px;
 }
 
 .btn-secondary.focus, .btn-secondary:focus,
@@ -649,7 +674,7 @@ input[type=password]:focus {
     font-size: 44px;
     margin-bottom: 20px;
     padding: 0;
-    line-height: 28px;
+    line-height: 40px;
   }
 
   #step3 h3 {
@@ -740,6 +765,20 @@ input[type=password]:focus {
 }
 
 /*--------------------------------------------------------------
+	Responsive Styles - Max 460px
+--------------------------------------------------------------*/
+
+@media (max-width: 460px) {
+  .modal .btn-primary, .modal .btn-secondary, .modal .btn-info {
+    font-size: 1em;
+  }
+
+  .modal .btn-secondary {    
+    font-size: 0.8em;    
+  }
+}
+
+/*--------------------------------------------------------------
 	Responsive Styles - Max 400px
 --------------------------------------------------------------*/
 
@@ -782,7 +821,7 @@ input[type=password]:focus {
 }
 
 /*--------------------------------------------------------------
-	Color Voluntário Global
+	Colors Voluntário Global
 --------------------------------------------------------------*/
 
 .form-volutario-global .color-icon {
@@ -962,8 +1001,29 @@ input[type=password]:focus {
   color: #f85a3f;  
 }
 
+/* Scrollbar */
+/* width */
+.form-volutario-global ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.form-volutario-global ::-webkit-scrollbar-track {
+  background: #ed482d
+}
+
+/* Handle */
+.form-volutario-global ::-webkit-scrollbar-thumb {
+  background: #a93423; 
+}
+
+/* Handle on hover */
+.form-volutario-global ::-webkit-scrollbar-thumb:hover {
+  background: #a93423; 
+}
+
 /*--------------------------------------------------------------
-	Color Talentos Globais
+	Colors Talentos Globais
 --------------------------------------------------------------*/
 
 .form-talentos-globais .color-icon {
@@ -1046,7 +1106,7 @@ input[type=password]:focus {
 }
 
 .form-talentos-globais .dropdown-toggle::after {  
-  color: #0a6e7c;
+  color: #85c0c6;
 }
 
 /* Buttons */
@@ -1139,4 +1199,25 @@ input[type=password]:focus {
 
 .form-talentos-globais .modal .form-check-label {
   color: #0a8ea0;  
+}
+
+/* Scrollbar */
+/* width */
+.form-talentos-globais ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.form-talentos-globais ::-webkit-scrollbar-track {
+  background: #0a6e7c
+}
+
+/* Handle */
+.form-talentos-globais ::-webkit-scrollbar-thumb {
+  background: #08525d; 
+}
+
+/* Handle on hover */
+.form-talentos-globais ::-webkit-scrollbar-thumb:hover {
+  background: #08525d; 
 }
