@@ -1,0 +1,9 @@
+ul {
+  li {
+    padding: 10px;
+    &:first-child {
+      cursor: pointer;
+      color:blue;
+    }
+  }
+}
