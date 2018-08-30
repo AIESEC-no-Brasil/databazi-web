@@ -15,20 +15,21 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageGvComponent } from './landing-page-gv/landing-page-gv.component';
+import { LandingFooterComponent } from './landing-footer/landing-footer.component';
 
 import { routes } from './app.routing';
-import { LandingPageGvComponent } from './landing-page-gv/landing-page-gv.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LandingPageGvComponent
+    LandingPageGvComponent,
+    LandingFooterComponent
   ],
   imports: [
     BrowserModule,
