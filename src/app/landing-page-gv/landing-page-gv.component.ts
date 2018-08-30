@@ -24,8 +24,8 @@ export class LandingPageGvComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    
+  ngOnInit() { 
+
   }
 
   }
