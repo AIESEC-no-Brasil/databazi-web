@@ -146,23 +146,24 @@ input[type=password],
   text-align: right;
 }
 
-/* Placeholder Dropdown Help Text */
-input#inputGraduation.form-control.help-right-text::-webkit-input-placeholder {
-  padding-right: 35px;
+/* Icon right for input Escolaridade */
+.icon-right {  
+  padding: 0;
+  margin: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+  height: 50px;
+  width: 25px !important;  
 }
-input#inputGraduation.form-control.help-right-text:-moz-placeholder { /* Firefox 18- */
-  padding-right: 35px;
-}
-input#inputGraduation.form-control.help-right-text::-moz-placeholder {  /* Firefox 19+ */
-  padding-right: 35px;
-}
-input#inputGraduation.form-control.help-right-text:-ms-input-placeholder {
-  padding-right: 35px;
+
+.input-icon-right {
+  margin-right: 25px;
 }
 
 input[type=text]:focus, 
 input[type=password]:focus {  
-  border: none;  
+  border: none;
 }
 
 .alert-warning {  
