@@ -1,0 +1,81 @@
+.forms-term {
+    textarea {
+        margin-bottom: 5px;
+    }
+    .forms-tem-accepted {
+        font-size: 12px;
+        display: block;
+        margin: 0 auto 15px auto;
+        text-align: center;
+    }
+}
+
+.loading-animation-gv {
+    background-image: url('../../assets/images/sent-gv.png');
+    background-size: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+}
+
+.checkbox label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+}
+
+/*Outer-box*/
+
+.checkbox label::before {
+    top: 3px;
+    left: -25px;
+}
+
+/*Checkmark*/
+
+.checkbox label::after {
+    left: -21px;
+    top: 7px;
+}
+
+/*Hide the checkmark by default*/
+
+.checkbox input[type="checkbox"]+label::after {
+    content: none;
+}
+
+/*Unhide the checkmark on the checked state*/
+
+.checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: rgb(255, 255, 255) auto 5px;
+}
