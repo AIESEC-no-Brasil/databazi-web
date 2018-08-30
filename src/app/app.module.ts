@@ -17,8 +17,10 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LandingPageGvComponent } from './landing-page-gv/landing-page-gv.component';
 import { LandingFooterComponent } from './landing-footer/landing-footer.component';
+import { FormGvComponent } from './form-gv/form-gv.component';
 
 import { routes } from './app.routing';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -29,7 +31,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     LandingPageComponent,
     LandingPageGvComponent,
-    LandingFooterComponent
+    LandingFooterComponent,
+    FormGvComponent
   ],
   imports: [
     BrowserModule,

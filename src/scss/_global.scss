@@ -1,0 +1,173 @@
+// File unyfing the stylization of the project.
+// imports
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~animate.css/animate.min.css';
+// reset 
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+// colors
+$default: #3f77bc;
+$primary-gv: #ef4231;
+$primary-ge: #41bb9b;
+$primary-gt: #0b8ea0;
+$white: #fff;
+$highlight: #fcb215;
+// typography
+h1,
+h2,
+h3,
+p {
+    color: #555;
+    margin: 5px 0;
+    &.color-white {
+        color: #fff;
+    }
+    &.bold {
+        font-weight: 700;
+    }
+    &.semibold {
+        font-weight: 600;
+    }
+    &.lighter {
+        font-weight: 400;
+    }
+    &.italic {
+        font-style: italic;
+    }
+    &.centered {
+        text-align: center;
+    }
+    &.uppercase {
+        text-transform: uppercase
+    }
+    &.highlight {
+        font-size: 1.3rem;
+    }
+    &.line-height-lower {
+        line-height: 20px
+    }
+    &.darker {
+        color: #333;
+    }
+    &.brighter {
+        color: #888;
+    }
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    color: #6d6d6d;
+    font-size: 16px;
+}
+
+// buttons
+button {
+    min-width: 80px;
+    text-align: center;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: .2s;
+    &.border-radius {
+        border-radius: 5px;
+    }
+    &.border {
+        &.border-white {
+            border: 3px solid #fff;
+        }
+		}
+		&.bold {
+			font-weight: 600;
+		}
+    &:hover {
+        transform: scale(1.025);
+    }
+    &.centered {
+        display: block;
+        margin: auto;
+    }
+    &.without-border {
+        border: 0;
+    }
+    &.with-background {
+        color: #fff;
+        &.gv {
+            background-color: $primary-gv;
+        }
+        &.ge {
+            background-color: $primary-ge;
+        }
+        &.gt {
+            background-color: $primary-gt;
+        }
+    }
+    &.background-white {
+			background-color: #fff;
+        &.gv {
+            color: $primary-gv;
+        }
+        &.ge {
+            color: $primary-ge;
+        }
+        &.gt {
+            color: $primary-gt;
+        }
+    }
+}
+
+// structure
+.round {
+    border-radius: 50%;
+    background-color: $default;
+    &.circle {
+        width: 75px;
+        height: 75px;
+    }
+    &.icon {
+        background-size: 40%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+.background-default {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+// sections
+section {
+    &.margin-top-and-bottom {
+        margin: 75px 0;
+    }
+    &.padding-top-and-bottom {
+        padding: 75px 0;
+    }
+    &.with-background {
+        h1, h2, h3, p {
+            color: #fff !important;
+        }
+        &.gv {
+            background-color: $primary-gv;
+        }
+        &.ge {
+            background-color: $primary-ge
+        }
+        &.gt {
+            background-color: $primary-gt;
+        }
+    }
+}
