@@ -216,11 +216,17 @@ _:-o-prefocus,
     }
 }
 
-/deep/ .p-inputMask {
+// TODO: ::ng-deep / /deep/ parece ser uma forma de seleção que será abolida futuramente, deve ser ecnontrada uma forma alternativa de edição desse componente sem a utilização do desses seletores.
+/*
+    Links de referência:
+    https://angular.io/guide/component-styles
+    https://stackoverflow.com/questions/42134355/the-use-of-deep-and-in-angular-2
+*/
+::ng-deep .p-inputMask {
     padding-right: 30px !important;
 }
 
-/deep/ .p-inputMask input {
+::ng-deep .p-inputMask input {
     background-color: transparent !important;
     border: 0 !important;
     position: relative;
@@ -231,7 +237,7 @@ _:-o-prefocus,
     padding: 10px 30px 6px 12px;
 }
 
-/deep/ .p-inputMask {
+::ng-deep .p-inputMask {
     &.gv {
         input {
             font-size: 16px;
@@ -875,13 +881,13 @@ label {
 
 @media (max-width: 767px) {
     //prime 
-    /deep/ .p-inputMask input {
+    ::ng-deep .p-inputMask input {
         text-align: right;
         margin: 0;
         min-width: 100%;
         padding: 10px 30px 6px 12px;
     }
-    /deep/ .p-inputMask {
+    ::ng-deep .p-inputMask {
         &.gv {
             input {
                 font-size: 16px;
@@ -999,11 +1005,11 @@ label {
 
 @media (max-width: 600px) {
     //prime 
-    /deep/ .p-inputMask input {
+    ::ng-deep .p-inputMask input {
         text-align: left;
         padding:0px 0 0 0;
     }
-    /deep/ .p-inputMask {
+    ::ng-deep .p-inputMask {
         &.gv {
             input {
                 font-size: 16px;
