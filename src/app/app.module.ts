@@ -21,6 +21,7 @@ import { LandingFooterComponent } from './landing-footer/landing-footer.componen
 import { FormGvComponent } from './form-gv/form-gv.component';
 
 import { routes } from './app.routing';
+import { LandingPageGtComponent } from './landing-page-gt/landing-page-gt.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +34,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LandingPageComponent,
     LandingPageGvComponent,
     LandingFooterComponent,
-    FormGvComponent
+    FormGvComponent,
+    LandingPageGtComponent
   ],
   imports: [
     BrowserModule,

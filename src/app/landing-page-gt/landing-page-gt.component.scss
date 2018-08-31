@@ -1,0 +1,373 @@
+@import "../../scss/global.scss";
+.col-lg-7 {
+    box-sizing: border-box;
+    padding: 0 3.5%;
+}
+
+.header-product {
+    width: 100%;
+    padding: 0 0 55px 0;
+    position: relative;
+    border-bottom: 3px solid #666;
+    .header-product-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-image: url('../../assets/products/gt/gt-intro.jpg');
+        background-position: center center;
+        filter: brightness(35%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -10
+    }
+    .header-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        .logo-aiesec {
+            background-image: url('../../assets/images/aiesec-logo.png');
+            height: 25px;
+            margin: 20px 0;
+            background-size: contain;
+            background-position: center left;
+            background-repeat: no-repeat;
+        }
+        .menu-product {
+            ul {
+                padding: 5px 0;
+                display: flex;
+                list-style: none;
+                justify-content: flex-end;
+                a:hover {
+                    text-decoration: underline;
+                    color: #fff;
+                }
+                li {
+                    font-size: 12px;
+                    padding: 20px;
+                    margin: 5px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: lighter;
+                    position: relative;
+                    &:hover ul {
+                        display: block;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    ul {
+                        border-radius: 10px;
+                        position: absolute;
+                        flex-direction: column;
+                        background-color: rgba(255, 255, 255, .5);
+                        min-width: 175px;
+                        display: none;
+                        a:hover {
+                            text-decoration: underline;
+                            color: #fff;
+                        }
+                        li {
+                            padding: 5px 10px;
+                            text-align: left;
+                            text-transform: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .product-info {
+        margin: 120px 0;
+        text-align: left;
+    }
+}
+
+.product-description {
+    display: flex;
+    align-items: center;
+    .description {
+        h2 {
+            color: #333;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 17px;
+            font-weight: lighter;
+            color: #555;
+            line-height: 28px;
+        }
+    }
+    .logo-product {
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 200px;
+        &.gt {
+            background-image: url('../../assets/products/gt/gt-logo.png');
+        }
+    }
+}
+
+.product-steps {
+    min-height: 200px;
+    .container>.row {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .product-image {
+        background-image: url('../../assets/products/gt/gt-product-step.jpg');
+        min-height: 500px;
+        position: relative;
+        box-shadow: 0 0 3px #f3f3f3;
+        border-radius: 5px;
+        .round {
+            position: absolute;
+            background-size: 65%;
+            right: -37.5px;
+            top: 50%;
+            margin-top: -37.5px;
+            background-color: $primary-gt;
+            background-image: url('../../assets/products/gt/gt-simple-logo.png');
+        }
+    }
+    .product-steps-content {
+        .row {
+            margin: 13px 0;
+            display: flex;
+            align-items: center;
+            &:nth-last-child(2) {
+                margin-bottom: 20px;
+            }
+            .round {
+                background-size: 45%;
+            }
+            &:nth-child(1) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-1.png');
+                }
+            }
+            &:nth-child(2) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-2.png');
+                }
+            }
+            &:nth-child(3) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-3.png');
+                }
+            }
+            &:nth-child(4) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-4.png');
+                }
+            }
+            &:nth-child(5) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-5.png');
+                }
+            }
+            &:nth-child(6) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-6.png');
+                }
+            }
+            &:nth-child(7) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-7.png');
+                }
+            }
+            &:nth-child(8) {
+                .round {
+                    background-image: url('../../assets/products/gt/steps-icon-8.png');
+                }
+            }
+        }
+    }
+}
+
+.faq {
+    .container>.row {
+        justify-content: space-between;
+        align-items: center;
+    }
+    .faq-info {
+        .col-sm-12 {
+            margin: 25px 0;
+        }
+    }
+    .faq-image {
+        background-image: url('../../assets/products/gt/gt-faq-image.jpg');
+        min-height: 450px;
+        position: relative;
+        border-radius: 5px;
+        .round {
+            position: absolute;
+            left: -37.5px;
+            top: 50%;
+            background-size: 65%;
+            margin-top: -37.5px;
+            background-color: $white;
+            background-image: url('../../assets/products/gt/faq.png');
+        }
+    }
+}
+
+.know-aiesec {
+    .container {
+        >.row {
+            justify-content: space-between;
+            align-items: center;
+        }
+        .row {
+            &:last-child {
+                margin-top: 25px;
+            }
+        }
+    }
+    .aiesec-info {
+        .row {
+            margin: 30px 0;
+            .round {
+                background-size: 90% !important;
+            }
+            &:nth-last-child(2) {
+                margin-bottom: 20px;
+            }
+            .round {
+                background-size: 45%;
+            }
+            &:nth-child(1) {
+                .round {
+                    background-image: url('../../assets/products/aiesec/aiesec-icon-1.png');
+                }
+            }
+            &:nth-child(2) {
+                .round {
+                    background-image: url('../../assets/products/aiesec/aiesec-icon-2.png');
+                }
+            }
+            &:nth-child(3) {
+                .round {
+                    background-image: url('../../assets/products/aiesec/aiesec-icon-3.png');
+                }
+            }
+            &:nth-child(4) {
+                .round {
+                    background-image: url('../../assets/products/aiesec/aiesec-icon-4.png');
+                }
+            }
+        }
+    }
+    .aiesec-image {
+        background-image: url('../../assets/products/aiesec/aiesec.jpg');
+        min-height: 450px;
+        position: relative;
+        border-radius: 5px;
+        .round {
+            position: absolute;
+            right: -37.5px;
+            top: 50%;
+            margin-top: -37.5px;
+            background-color: $default;
+            background-image: url('../../assets/products/aiesec/blueman.png');
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .product-description .description {
+        text-align: center;
+    }
+    .product-steps .product-image,
+    .faq .faq-image,
+    .know-aiesec .aiesec-image {
+        margin-bottom: 40px;
+        .round {
+            bottom: -37.5px;
+            top: unset;
+            margin-top: unset;
+            left: 50%;
+            margin-left: -37.5px;
+        }
+    }
+    .faq-info {
+        text-align: center;
+    }
+    .faq .container>.row {
+        flex-direction: column-reverse;
+    }
+    section {
+        &.margin-top-and-bottom {
+            margin: 0 0 75px 0;
+        }
+        &.padding-top-and-bottom {
+            padding: 0 0 75px 0;
+        }
+    }
+    div.centered+div {
+        text-align: center;
+    }
+    .menu-product ul {
+        li {
+            padding: 10px;
+            text-align: center;
+        }
+    }
+}
+
+@media (min-width:768px) {
+    .menu-icon,
+    .active-responsive-menu {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-product div.responsive-menu ul#menu {
+        display: none !important;
+    }
+    .header-product div.responsive-menu .menu-icon {
+        color: #fff;
+        display: block;
+        position: fixed;
+        right: 35px;
+        top: 15px;
+        color: $default;
+    }
+    .active-responsive-menu {
+        color: #fff;
+        flex-direction: column;
+        position: fixed;
+        right: 25px;
+        top: 35px;
+        background-color: $default;
+        border-radius: 10px;
+        z-index: 100;
+        li {
+            padding: 0 !important;
+            text-align: left !important;
+            span {
+                font-weight: bold;
+                text-align: left;
+                padding-left: 5px;
+            }
+        }
+        li ul {
+            display: flex !important;
+            position: relative !important;
+            background-color: transparent !important;
+            li {
+                ul {
+                    background-color: transparent;
+                    li {
+                        margin: 0;
+                        padding: 5px 10px;
+                    }
+                }
+            }
+        }
+    }
+}
