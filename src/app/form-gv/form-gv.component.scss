@@ -91,6 +91,7 @@ html {
 * {
     font-family: 'Lato', sans-serif;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -215,15 +216,95 @@ _:-o-prefocus,
     }
 }
 
-.p-inputMask input {
+// TODO: ::ng-deep / /deep/ 
+// Seems to be a form of selection that will be abolished in the future, an alternative form of editing of this component should be found without the use of these selectors.
+/*
+    Links de referência:
+    https://angular.io/guide/component-styles
+    https://stackoverflow.com/questions/42134355/the-use-of-deep-and-in-angular-2
+*/
+::ng-deep .p-inputMask {
+    padding-right: 30px !important;
+}
+
+::ng-deep .p-inputMask input {
     background-color: transparent !important;
     border: 0 !important;
     position: relative;
     flex: 1 1 auto;
-    width: 100%;
-    margin-bottom: 0;
+    text-align: right;
     margin: 0;
-    padding: 5px 10px;
+    min-width: 400px;
+    padding: 10px 30px 6px 12px;
+}
+
+::ng-deep .p-inputMask {
+    &.gv {
+        input {
+            font-size: 16px;
+            font-weight: lighter;
+            font-family: "Lato", sans-serif;
+            color: #7b1200;
+            :focus {
+                border: 0;
+                box-shadow: 0;
+            }
+        }
+        input::-webkit-input-placeholder {
+            font-size: 16px !important;
+            color: #d23820
+        }
+        input:-moz-placeholder {
+            font-size: 16px !important;
+            color: #d23820
+        }
+        input::-moz-placeholder {
+            font-size: 16px !important;
+            color: #d23820
+        }
+        input:-ms-input-placeholder {
+            font-size: 16px !important;
+            color: #d23820
+        }
+    }
+    &.gt {
+        input {
+            font-size: 16px;
+            font-weight: lighter;
+            font-family: "Lato", sans-serif;
+            color: #054048
+        }
+        input::-webkit-input-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input:-moz-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input::-moz-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input:-ms-input-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+    }
+}
+
+// autofill color
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 0;
+    -webkit-text-fill-color: #7b1200 !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .step-position {
@@ -800,6 +881,47 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
+    //prime 
+    ::ng-deep .p-inputMask input {
+        text-align: right;
+        margin: 0;
+        min-width: 100%;
+        padding: 10px 30px 6px 12px;
+    }
+    ::ng-deep .p-inputMask {
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #7b1200;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input:-moz-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input::-moz-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input:-ms-input-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+        }
+    }
     /* Header */
     #header-voluntario-global h1 {
         max-width: 80%;
@@ -883,6 +1005,45 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
+    //prime 
+    ::ng-deep .p-inputMask input {
+        text-align: left;
+        padding:0px 0 0 0;
+    }
+    ::ng-deep .p-inputMask {
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #7b1200;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input:-moz-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input::-moz-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+            input:-ms-input-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #d23820
+            }
+        }
+    }
     /* Header */
     #header-voluntario-global h1 {
         max-width: 90%;
