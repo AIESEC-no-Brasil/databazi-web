@@ -8,7 +8,7 @@
     width: 100%;
     padding: 0 0 55px 0;
     position: relative;
-    border-bottom: 5px solid #666;
+    border-bottom: 3px solid #666;
     .header-product-image {
         width: 100%;
         height: 100%;
@@ -16,7 +16,7 @@
         left: 0;
         top: 0;
         background-image: url('../../assets/products/gv/intro.jpg');
-        background-position: cover;
+        background-position: center center;
         filter: brightness(35%);
         background-repeat: no-repeat;
         background-size: cover;
