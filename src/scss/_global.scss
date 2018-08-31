@@ -7,6 +7,14 @@
     font-family: 'Lato', sans-serif;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+
 // colors
 $default: #3f77bc;
 $primary-gv: #ef4231;
@@ -93,10 +101,10 @@ button {
         &.border-white {
             border: 3px solid #fff;
         }
-		}
-		&.bold {
-			font-weight: 600;
-		}
+    }
+    &.bold {
+        font-weight: 600;
+    }
     &:hover {
         transform: scale(1.025);
     }
@@ -123,7 +131,7 @@ button {
         }
     }
     &.background-white {
-		background-color: #fff;
+        background-color: #fff;
         &.gv {
             color: $primary-gv;
         }
@@ -146,11 +154,32 @@ button {
     &.circle {
         width: 75px;
         height: 75px;
+        &.lower {
+            transform: scale(.75);
+        }
     }
     &.icon {
         background-size: 40%;
         background-repeat: no-repeat;
         background-position: center center;
+    }
+    &.without-background {
+        background-color: transparent;
+    }
+    &.with-border {
+        border: 3px solid transparent;
+        &.default {
+            border-color: $default;
+        }
+        &.gv {
+            border-color: $primary-gv;
+        }
+        &.gt {
+            border-color: $primary-gt;
+        }
+        &.ge {
+            border-color: $primary-ge;
+        }
     }
 }
 
@@ -158,6 +187,17 @@ button {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+div {
+    &.centered {
+        text-align: center;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
 
 // sections
@@ -169,7 +209,10 @@ section {
         padding: 75px 0;
     }
     &.with-background {
-        h1, h2, h3, p {
+        h1,
+        h2,
+        h3,
+        p {
             color: #fff !important;
         }
         &.default {
@@ -184,5 +227,29 @@ section {
         &.gt {
             background-color: $primary-gt;
         }
+    }
+}
+
+//gotoTop
+.goToTop {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $default;
+    color: $white;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    cursor: pointer;
+    transition: .3s;
+    z-index: 1000;
+    &:hover {
+        transform: scale(1.05);
+    }
+    .fas {
+        margin-top: 5px;
     }
 }

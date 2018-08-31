@@ -1,25 +1,132 @@
 <p-growl class="messages" [(value)]="msgs" [life]="5000"></p-growl>
 <main>
-  <section class="header-product">
+  <div class="goToTop" [ngx-scroll-to]="'#header-product'">
+    <i class="fas fa-sort-up"></i>
+  </div>
+  <section class="header-product" id="header-product">
     <div class="header-product-image"></div>
     <div class="container">
       <div class="row header-menu">
         <div class="logo-aiesec col-sm-3"></div>
         <div class="menu-product col-sm-8">
-          <ul>
-            <li>
-              Para jovens
-            </li>
-            <li>
-              Para organizações
-            </li>
-            <li>
-              Blog
-            </li>
-            <li>
-              Contatos
-            </li>
-          </ul>
+          <div class="responsive-menu">
+            <div class='menu-icon' (click)="toggleResponsiveMenu()">
+              <i class="fas fa-bars"></i>
+            </div>
+            <ul id="menu">
+              <li>
+                Para jovens
+                <ul class="animated fadeIn faster">
+                  <li>
+                    Voluntário Global
+                  </li>
+                  <li>
+                    Empreendedor Global
+                  </li>
+                  <li>
+                    Talento Global
+                  </li>
+                  <a href="http://aiesec.org.br/hospede-um-intercambista/">
+                    <li>
+                      Hospede um intercambista
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <li>
+                Para organizações
+                <ul class="animated fadeIn faster">
+                  <a href="http://aiesec.org.br/seja-parceiro/ong/">
+                    <li>
+                      ONG
+                    </li>
+                  </a>
+                  <a href="http://aiesec.org.br/seja-parceiro/empresas/">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <li>
+                Blog
+                <ul class="animated fadeIn faster">
+                  <a href="http://business.aiesec.org.br/">
+                    <li>
+                      Business
+                    </li>
+                  </a>
+                  <a href="http://aiesec.org.br/blog/estudantes/">
+                    <li>
+                      Estudantes
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <a href="http://aiesec.org.br/contato/">
+                <li>
+                  Contato
+                </li>
+              </a>
+            </ul>
+
+            <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster'>
+              <li>
+                <span>Para jovens</span>
+                <ul class="animated fadeIn faster">
+                  <li>
+                    Voluntário Global
+                  </li>
+                  <li>
+                    Empreendedor Global
+                  </li>
+                  <li>
+                    Talento Global
+                  </li>
+                  <a href="http://aiesec.org.br/hospede-um-intercambista/">
+                    <li>
+                      Hospede um intercambista
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <li>
+                <span>Para organizações</span>
+                <ul class="animated fadeIn faster">
+                  <a href="http://aiesec.org.br/seja-parceiro/ong/">
+                    <li>
+                      ONG
+                    </li>
+                  </a>
+                  <a href="http://aiesec.org.br/seja-parceiro/empresas/">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <li>
+                <span>Blog</span>
+                <ul class="animated fadeIn faster">
+                  <a href="http://business.aiesec.org.br/">
+                    <li>
+                      Business
+                    </li>
+                  </a>
+                  <a href="http://aiesec.org.br/blog/estudantes/">
+                    <li>
+                      Estudantes
+                    </li>
+                  </a>
+                </ul>
+              </li>
+              <a href="http://aiesec.org.br/contato/">
+                <li>
+                  <span>Contato</span>
+                </li>
+              </a>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="product-info">
@@ -36,8 +143,8 @@
   <section class="product-description margin-top-and-bottom">
     <div class="container">
       <div class="row">
-        <div class="logo-product gv col-sm-5"></div>
-        <div class="description col-sm-7">
+        <div class="logo-product gv col-lg-5 col-sm-12 col-md-12"></div>
+        <div class="description col-lg-7 col-sm-12 col-md-12">
           <h2 class="bold">
             Visão geral do programa
           </h2>
@@ -50,20 +157,20 @@
     </div>
   </section>
   <!-- Step -->
-  <app-form-gv></app-form-gv>
+  <app-form-gv id="form"></app-form-gv>
 
   <section class="product-steps margin-top-and-bottom">
     <div class="container">
       <div class="row">
-        <div class="product-image background-default col-sm-5">
+        <div class="product-image background-default col-lg-5 col-md-12 col-sm-12">
           <div class="round icon circle"></div>
         </div>
-        <div class="product-steps-content col-sm-6">
+        <div class="product-steps-content col-lg-7 col-md-12 col-sm-12 ">
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Cadastro
               </h3>
@@ -73,10 +180,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Abordado pela AIESEC
               </h3>
@@ -86,10 +193,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Aplicar em vagas
               </h3>
@@ -99,10 +206,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Ser aprovado na vaga
               </h3>
@@ -112,10 +219,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Se preparar para o intercâmbio
               </h3>
@@ -125,10 +232,10 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-2">
-              icon
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon with-border without-background gv lower"></div>
             </div>
-            <div class="col-sm-10">
+            <div class="col-lg-10 col-md-12 col-sm-12">
               <h3 class="bold line-height-lower darker">
                 Viver a experiência!
               </h3>
@@ -139,7 +246,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <button class="with-background bold gv without-border centered">
+              <button [ngx-scroll-to]="'#form'" class="with-background bold gv without-border centered">
                 Inscreva-se já
               </button>
             </div>
@@ -151,7 +258,7 @@
   <section class="faq padding-top-and-bottom with-background gv">
     <div class="container">
       <div class="row">
-        <div class="faq-info col-sm-6">
+        <div class="faq-info col-lg-7 col-sm-12 col-md-12">
           <h2 class='bold'>
             FAQ - Dúvidas Frequentes
           </h2>
@@ -183,14 +290,89 @@
               </p>
             </div>
             <div class="col-sm-12">
-              <button class="centered without-border bold background-white gv">
+              <button [ngx-scroll-to]="'#form'" class="centered without-border bold background-white gv">
                 Fale conosco
               </button>
             </div>
           </div>
         </div>
-        <div class="faq-image background-default col-sm-5">
+        <div class="faq-image background-default col-lg-5 col-sm-12 col-md-12">
           <div class="round icon circle"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='know-aiesec margin-top-and-bottom'>
+    <div class="container">
+      <div class="row">
+        <div class="aiesec-image background-default col-lg-5 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+        <div class="aiesec-info col-lg-7 col-sm-12 col-md-12">
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gv"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Auxílio para achar sua vaga
+              </h3>
+              <p class="lighter lower">
+                Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa par ao seu perfil, tirar todas suas dúvidas
+                e vai te colocar em contato com o escritório para onde você vai viajar.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gv"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Apoio logístico
+              </h3>
+              <p class="lighter lower">
+                Antes e durante o intercâmbio, a AIESEC na sua cidade e no seu destino irão te auxiliar com a logística de transporte, acomodação
+                e preparo para o seu projeto
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gv"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Descrição clara de trabalho
+              </h3>
+              <p class="lighter lower">
+                Independente do tipo de intercâmbio, nossas oportunidades têm descrições claras do tipo de projeto que você vai participar,
+                carga horária e as suas responsabilidades. Além disso, você pode conversar com a nossa equipe para esclarecer
+                qualquer dúvida.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gv"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Experiência de Liderança
+              </h3>
+              <p class="lighter lower">
+                Ao longo da sua experiência com a AIESEC, serão oferecidos diversos espaços para você refletir e aprimorar as habilidades
+                desenvolvidas no seu intercâmbio, para que você possa retornar e trazer um impacto real para sua cidade.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
+            Fale com um dos nossos representantes
+          </button>
         </div>
       </div>
     </div>

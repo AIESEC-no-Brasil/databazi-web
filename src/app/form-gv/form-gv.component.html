@@ -1,3 +1,6 @@
+<head>
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+</head>
 <div id="step1" class="form-volutario-global">
     <!-- Header -->
     <section class="header" id="header-voluntario-global">
@@ -45,7 +48,7 @@
               </p>
             </div>
             <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms" (keydown.enter)="registerUser()">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -103,7 +106,7 @@
                       <div class="input-group-text">
                         <i class="fas fa-gift"></i>Data de Nascimento</div>
                     </div>
-                    <p-inputMask class="form-control p-inputMask" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são 18 à 30 anos de idade"
+                    <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são 18 à 30 anos de idade"
                       [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
