@@ -54,6 +54,12 @@ p {
     &.brighter {
         color: #888;
     }
+    &.lower {
+        font-size: .85rem;
+    }
+    *.bigger {
+        font-size: 1.15rem;
+    }
 }
 
 h1 {
@@ -103,6 +109,9 @@ button {
     }
     &.with-background {
         color: #fff;
+        &.default {
+            background-color: $default;
+        }
         &.gv {
             background-color: $primary-gv;
         }
@@ -114,7 +123,7 @@ button {
         }
     }
     &.background-white {
-			background-color: #fff;
+		background-color: #fff;
         &.gv {
             color: $primary-gv;
         }
@@ -123,6 +132,9 @@ button {
         }
         &.gt {
             color: $primary-gt;
+        }
+        &.default {
+            background-color: $default;
         }
     }
 }
@@ -159,6 +171,9 @@ section {
     &.with-background {
         h1, h2, h3, p {
             color: #fff !important;
+        }
+        &.default {
+            background-color: $default;
         }
         &.gv {
             background-color: $primary-gv;
