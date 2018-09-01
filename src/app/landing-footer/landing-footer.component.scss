@@ -3,6 +3,51 @@
 $break-md: 768px;
 $break-sm: 576px;
 
+
+
+.partners{
+
+  h1{
+    padding-bottom: 40px;
+  }
+
+  .footer-carousel{
+    .footer-carousel-btn-left{
+      position: absolute;
+      top: 73%;
+    }
+    .footer-carousel-btn-right{
+      position: absolute;
+      top: 73%;
+      right: 0px;
+
+    }
+  }
+
+}
+
+.carousel {
+  height: 100px;
+  background-color: #FFFFFF;
+  img {
+    height: 100px;
+    width: 100px;
+    // padding-left: 65px;
+    margin-left: 33px;
+  }
+}
+
+.drag-scroll-wrapper .drag-scroll-container{
+  height: 68px;
+}
+
+.drag-scroll-content{
+  height: 70px;
+}
+
+
+
+
 footer {
 
   .footer-logo {
@@ -66,6 +111,7 @@ footer {
   }
 
 }
+
 
 
 @media only screen and (max-width: $break-md) {

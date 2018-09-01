@@ -11,6 +11,7 @@ import {MessageModule} from 'primeng/message';
 import { GrowlModule } from 'primeng/primeng';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpModule,
     TextMaskModule,
     InputMaskModule,
+    DragScrollModule,
     BrowserModule,
     BrowserAnimationsModule,
     MessagesModule,

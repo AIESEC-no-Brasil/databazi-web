@@ -4,6 +4,29 @@
     <div class="row">
       <div class="col-md-12 col-sm-12">
         <h1 class="centered italic">Os nossos parceiros premium</h1>
+        <div class="footer-carousel">
+            <drag-scroll class="carousel" #nav 
+             scrollbar-hidden="true"
+             drag-scroll-y-disabled="true"
+            >
+              <img drag-scroll-item src="../../assets/images/partners/assistcard.png" />
+              <img drag-scroll-item src="../../assets/images/partners/delivery_much.png" />
+              <img drag-scroll-item src="../../assets/images/partners/dhl.png" />
+              <img drag-scroll-item src="../../assets/images/partners/electrolux.png" />
+              <img drag-scroll-item src="../../assets/images/partners/hyva.png" />
+              <img drag-scroll-item src="../../assets/images/partners/leroymerlin.png" />
+              <img drag-scroll-item src="../../assets/images/partners/mckinseyecompany.png" />
+              <img drag-scroll-item src="../../assets/images/partners/mondelez.png" />
+              <img drag-scroll-item src="../../assets/images/partners/nestle.png" />
+              <img drag-scroll-item src="../../assets/images/partners/nokia.png" />
+              <img drag-scroll-item src="../../assets/images/partners/resultadosdigitais.png" />
+              <img drag-scroll-item src="../../assets/images/partners/sap.png" />
+              <img drag-scroll-item src="../../assets/images/partners/votorantimcimentos.png" />
+              <img drag-scroll-item src="../../assets/images/partners/Whirlpoow.png" />              
+            </drag-scroll>
+            <div class="footer-carousel-btn-left"><i (click)="moveLeft()">Left</i></div>
+            <div class="footer-carousel-btn-right"><i (click)="moveRight()">Right</i></div>
+        </div>
       </div>
     </div>
   </div>
