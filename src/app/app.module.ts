@@ -12,6 +12,7 @@ import { GrowlModule } from 'primeng/primeng';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 
 import { AppComponent } from './app.component';
@@ -21,6 +22,8 @@ import { LandingFooterComponent } from './landing-footer/landing-footer.componen
 import { FormGvComponent } from './form-gv/form-gv.component';
 
 import { routes } from './app.routing';
+import { LandingPageGtComponent } from './landing-page-gt/landing-page-gt.component';
+import { LandingPageGeComponent } from './landing-page-ge/landing-page-ge.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,7 +36,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     LandingPageComponent,
     LandingPageGvComponent,
     LandingFooterComponent,
-    FormGvComponent
+    FormGvComponent,
+    LandingPageGtComponent,
+    LandingPageGeComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GrowlModule,
     TranslateModule,
     HttpClientModule, 
+    ScrollToModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

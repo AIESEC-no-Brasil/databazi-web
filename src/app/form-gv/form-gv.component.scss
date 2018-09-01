@@ -91,6 +91,7 @@ html {
 * {
     font-family: 'Lato', sans-serif;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -155,7 +156,7 @@ body {
 .styled-select,
 .styled-select select {
     width: 100%;
-    color: #cb3227 !important;
+    color: #000 !important;
 }
 
 select:focus {
@@ -215,15 +216,95 @@ _:-o-prefocus,
     }
 }
 
-.p-inputMask input {
+// TODO: ::ng-deep / /deep/ 
+// Seems to be a form of selection that will be abolished in the future, an alternative form of editing of this component should be found without the use of these selectors.
+/*
+    Links de referência:
+    https://angular.io/guide/component-styles
+    https://stackoverflow.com/questions/42134355/the-use-of-deep-and-in-angular-2
+*/
+::ng-deep .p-inputMask {
+    padding-right: 30px !important;
+}
+
+::ng-deep .p-inputMask input {
     background-color: transparent !important;
     border: 0 !important;
     position: relative;
     flex: 1 1 auto;
-    width: 100%;
-    margin-bottom: 0;
+    text-align: right;
     margin: 0;
-    padding: 5px 10px;
+    min-width: 400px;
+    padding: 10px 30px 6px 12px;
+}
+
+::ng-deep .p-inputMask {
+    &.gv {
+        input {
+            font-size: 16px;
+            font-weight: lighter;
+            font-family: "Lato", sans-serif;
+            color: #000;
+            :focus {
+                border: 0;
+                box-shadow: 0;
+            }
+        }
+        input::-webkit-input-placeholder {
+            font-size: 16px !important;
+            color: #000
+        }
+        input:-moz-placeholder {
+            font-size: 16px !important;
+            color: #000
+        }
+        input::-moz-placeholder {
+            font-size: 16px !important;
+            color: #000
+        }
+        input:-ms-input-placeholder {
+            font-size: 16px !important;
+            color: #000
+        }
+    }
+    &.gt {
+        input {
+            font-size: 16px;
+            font-weight: lighter;
+            font-family: "Lato", sans-serif;
+            color: #054048
+        }
+        input::-webkit-input-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input:-moz-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input::-moz-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+        input:-ms-input-placeholder {
+            font-size: 16px !important;
+            color: #054048
+        }
+    }
+}
+
+// autofill color
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 0;
+    -webkit-text-fill-color: #000 !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .step-position {
@@ -800,6 +881,47 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
+    //prime 
+    ::ng-deep .p-inputMask input {
+        text-align: right;
+        margin: 0;
+        min-width: 100%;
+        padding: 10px 30px 6px 12px;
+    }
+    ::ng-deep .p-inputMask {
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #000;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input:-moz-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input::-moz-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input:-ms-input-placeholder {
+                font-size: 12px !important;
+                font-weight: bold;
+                color: #000
+            }
+        }
+    }
     /* Header */
     #header-voluntario-global h1 {
         max-width: 80%;
@@ -832,7 +954,7 @@ label {
     }
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 12px;
         font-weight: bold;
         text-align: right;
@@ -840,7 +962,7 @@ label {
     }
     input:-moz-placeholder {
         /* Firefox 18- */
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 12px;
         font-weight: bold;
         text-align: right;
@@ -848,14 +970,14 @@ label {
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 12px;
         font-weight: bold;
         text-align: right;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 12px;
         font-weight: bold;
         text-align: right;
@@ -867,7 +989,7 @@ label {
     input[type=tel] {
         font-size: 15px;
         font-weight: lighter;
-        color: #7b1200;
+        color: #000;
         padding-right: 10px;
         text-align: right;
     }
@@ -883,6 +1005,45 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
+    //prime 
+    ::ng-deep .p-inputMask input {
+        text-align: left;
+        padding:0px 0 0 0;
+    }
+    ::ng-deep .p-inputMask {
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #000;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input:-moz-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input::-moz-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #000
+            }
+            input:-ms-input-placeholder {
+                font-size: 14px !important;
+                font-weight: bold;
+                color: #000
+            }
+        }
+    }
     /* Header */
     #header-voluntario-global h1 {
         max-width: 90%;
@@ -909,7 +1070,7 @@ label {
     input[type=tel] {
         font-size: 15px;
         font-weight: lighter;
-        color: #7b1200;
+        color: #000;
         padding-right: 0;
         text-align: left;
     }
@@ -918,7 +1079,7 @@ label {
     input[type=email],
     input[type=tel] {
         background-color: #ed482d;
-        color: #7b1200;
+        color: #000;
     }
     /* Step3 */
     #step3 #header-voluntario-global {
@@ -987,7 +1148,7 @@ label {
     input[type=tel] {
         font-size: 15px;
         font-weight: lighter;
-        color: #7b1200;
+        color: #000;
         padding-right: 0;
         text-align: left;
     }
@@ -996,11 +1157,11 @@ label {
     input[type=email],
     input[type=tel] {
         background-color: #ed482d;
-        color: #7b1200;
+        color: #000;
     }
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 14px;
         font-weight: bold;
         text-align: left;
@@ -1008,7 +1169,7 @@ label {
     }
     input:-moz-placeholder {
         /* Firefox 18- */
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 14px;
         font-weight: bold;
         text-align: left;
@@ -1016,14 +1177,14 @@ label {
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 14px;
         font-weight: bold;
         text-align: left;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
-        color: #d23820 !important;
+        color: #000 !important;
         font-size: 14px;
         font-weight: bold;
         text-align: left;
@@ -1066,11 +1227,11 @@ label {
 .form-volutario-global {
     background: #f85a3f;
     font-family: 'Lato', sans-serif;
-    color: #ffffff;
+    color: #ffffff; 
 }
 
 .form-volutario-global .form-control {
-    color: #7b1200;
+    color: #000;
     background-color: #ed482d;
     border-bottom: 2px solid #f6a496;
 }
@@ -1090,21 +1251,21 @@ label {
 /* Placeholders */
 
 .form-volutario-global input::-webkit-input-placeholder {
-    color: #cb3227 !important;
+    color: #000 !important;
 }
 
 .form-volutario-global input:-moz-placeholder {
     /* Firefox 18- */
-    color: #cb3227 !important;
+    color: #000 !important;
 }
 
 .form-volutario-global input::-moz-placeholder {
     /* Firefox 19+ */
-    color: #cb3227 !important;
+    color: #000 !important;
 }
 
 .form-volutario-global input:-ms-input-placeholder {
-    color: #cb3227 !important;
+    color: #000 !important;
 }
 
 /* Inputs */
@@ -1113,7 +1274,7 @@ label {
 .form-volutario-global input[type=password],
 .form-volutario-globalinput[type=email],
 .form-volutario-globalinput[type=tel] {
-    color: #7b1200;
+    color: #000;
 }
 
 .form-volutario-global input[type=text]:focus,
@@ -1121,7 +1282,7 @@ label {
 .form-volutario-globalinput[type=email],
 .form-volutario-globalinput[type=tel] {
     background-color: #ed482d;
-    color: #7b1200;
+    color: #000;
     border-bottom: 2px solid #f6a496;
 }
 
@@ -1173,12 +1334,12 @@ label {
 .form-volutario-global .btn-secondary:not(:disabled):not(.disabled):active,
 .form-volutario-global .show>.btn-secondary.dropdown-toggle {
     color: #ffffff;
-    background-color: #7b1200;
-    border-color: #7b1200;
+    background-color: #000;
+    border-color: #000;
 }
 
 .form-volutario-global .btn-info {
-    color: #cb3227;
+    color: #000;
     background-color: #ed482d;
     border-color: #ed482d;
     border-bottom: 2px solid #f6a496;
@@ -1187,7 +1348,7 @@ label {
 }
 
 .form-volutario-global .btn-info:hover {
-    color: #cb3227;
+    color: #000;
     background-color: #ed482d;
     border-color: #ed482d;
     border-bottom: 2px solid #f6a496;
@@ -1196,7 +1357,7 @@ label {
 .form-volutario-global .btn-info:not(:disabled):not(.disabled).active,
 .form-volutario-global .btn-info:not(:disabled):not(.disabled):active,
 .form-volutario-global .show>.btn-info.dropdown-toggle {
-    color: #cb3227;
+    color: #000;
     background-color: #ed482d;
     border-color: transparent;
     border-bottom: 2px solid #f6a496;

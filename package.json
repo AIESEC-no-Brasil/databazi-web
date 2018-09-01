@@ -24,6 +24,7 @@
     "@angular/router": "^6.0.3",
     "@ngx-translate/core": "^10.0.2",
     "@ngx-translate/http-loader": "^3.0.1",
+    "@nicky-lenaers/ngx-scroll-to": "^1.0.0",
     "angular2-text-mask": "^9.0.0",
     "animate.css": "^3.7.0",
     "bootstrap": "^4.1.3",

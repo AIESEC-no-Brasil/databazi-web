@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPageGvComponent implements OnInit {
 
-
+  responsiveMenu:boolean = false;
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
@@ -28,4 +28,10 @@ export class LandingPageGvComponent implements OnInit {
 
   }
 
+  toggleResponsiveMenu(){
+    (this.responsiveMenu ? this.responsiveMenu = false : this.responsiveMenu = true)
+  }
+
+   
+  
   }
