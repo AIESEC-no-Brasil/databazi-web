@@ -16,7 +16,7 @@ input:-webkit-autofill:active {
 }
 
 // colors
-$primary-default: #3f77bc;
+$default: #3f77bc;
 $primary-gv: #ef4231;
 $primary-ge: #41bb9b;
 $primary-gt: #0b8ea0;
@@ -154,7 +154,7 @@ button {
 // structure
 .round {
     border-radius: 50%;
-    background-color: $primary-default;
+    background-color: $default;
     &.circle {
         width: 75px;
         height: 75px;
@@ -232,7 +232,7 @@ section, footer {
             background-color: $primary-gt;
         }
         &.default {
-            background-color: $primary-default;
+            background-color: $default;
         }
     }
 }
