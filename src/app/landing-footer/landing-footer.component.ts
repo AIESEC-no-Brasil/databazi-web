@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {DragScrollComponent } from 'ngx-drag-scroll';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-landing-footer',
@@ -18,9 +19,15 @@ export class LandingFooterComponent implements OnInit {
     this.ds.moveRight();
   }
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
   }
 
 }
