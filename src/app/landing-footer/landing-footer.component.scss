@@ -10,12 +10,21 @@ $break-sm: 576px;
   .footer-carousel {
     .footer-carousel-btn-left {
       position: absolute;
-      top: 73%;
+      top: 64%;
+      padding: 11px;
+      margin-left: -40px;
+      i {
+        color: $default;
+      }
     }
     .footer-carousel-btn-right {
       position: absolute;
-      top: 73%;
-      right: 0px;
+      top: 64%;
+      right: -28px;
+      padding: 11px;
+      i {
+        color: $default;
+      }
     }
   }
 }
@@ -65,7 +74,11 @@ footer {
 
     .footer-social-networks {
       display: inline;
-      padding-top: 10px;
+      i {
+        color: $white;
+        padding-right: 34px;
+        font-size: 24px;
+      }
     }
   }
 
@@ -117,6 +130,32 @@ footer {
   }
 }
 
+@media only screen and (max-width: 610px) {
+  .partners {
+    .footer-carousel-align {
+      width: 44px;
+      margin: 0 auto;
+     .footer-carousel-btn-right {
+        float: left;
+        position: inherit;
+      }
+      .footer-carousel-btn-left {
+        float: left;
+        position: inherit;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+    .footer-social-networks {
+      display: inline;
+      i {
+        padding-top: 14px;
+      }
+    }
+
+}
 
   
 
