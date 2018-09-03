@@ -1547,3 +1547,18 @@ label {
     border-bottom-color: transparent;
     border-bottom: 2px solid #0a8ea0;
 }
+
+.submit-form {
+    .fab {
+        display:inline-block;
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 300px){
+    .form-row .buttons{
+        > div {
+            
+        }
+    }
+}
