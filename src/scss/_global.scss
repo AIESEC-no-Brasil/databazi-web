@@ -205,7 +205,7 @@ div {
 }
 
 // sections
-section {
+section, footer {
     &.margin-top-and-bottom {
         margin: 75px 0;
     }
@@ -230,6 +230,9 @@ section {
         }
         &.gt {
             background-color: $primary-gt;
+        }
+        &.default {
+            background-color: $default;
         }
     }
 }
