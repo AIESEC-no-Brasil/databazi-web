@@ -95,6 +95,15 @@ export class FormGvComponent implements OnInit {
     this.fillPlacesSelect();
   }
 
+  cancelSignUp(){
+    this.router.navigate(['/landing-page']);
+  }
+
+
+  accessAiesec(){
+    window.open("https://aiesec.org/", "_blank");
+  }
+
   isValidPersonal(field) {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
   }
