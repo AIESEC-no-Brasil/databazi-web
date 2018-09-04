@@ -266,7 +266,7 @@
                           Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio social
                           na data e destina ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
                         </p>
-                        <button type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
+                        <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
                       </div>
                     </div>
                   </div>
@@ -276,11 +276,11 @@
 
             <div class="form-row buttons" *ngIf="!completedSignup">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalCancelar1">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">Cancelar</button>
               </div>
               <div class="col text-right">
                 <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary" *ngIf="studyData" [disabled]='step2Form.invalid'>
+                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='step2Form.invalid'>
                     Enviar
                     <i class="fab fa-telegram-plane"></i>
                 </button>

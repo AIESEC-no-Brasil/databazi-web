@@ -1,3 +1,94 @@
-<p>
-  Footer
-</p>
+<!-- partners -->
+<section class="partners margin-top-and-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <h1 class="centered italic">Os nossos parceiros premium</h1>
+        <div class="footer-carousel">
+            <drag-scroll class="carousel" #nav 
+             scrollbar-hidden="true"
+             drag-scroll-y-disabled="true"
+            >
+              <a target="_blank" href="https://www.assistcard.com/b2c/aiesec-br"> <img drag-scroll-item src="../../assets/images/partners/assistcard.png" /></a>
+              <a target="_blank" href="https://www.deliverymuch.com.br/"><img drag-scroll-item src="../../assets/images/partners/delivery_much.png" /></a>
+              <a target="_blank" href="https://aiesec.org/partner/286836"><img drag-scroll-item src="../../assets/images/partners/dhl.png" /></a>
+              <a target="_blank" href="https://aiesec.org/partner/272692"><img drag-scroll-item src="../../assets/images/partners/electrolux.png" /></a>
+              <a target="_blank" href="https://aiesec.org/partner/344322"><img drag-scroll-item src="../../assets/images/partners/hyva.png" /></a>
+              <a target="_blank" href="https://www.leroymerlin.com.br/blog"><img drag-scroll-item src="../../assets/images/partners/leroymerlin.png" /></a>
+              <a target="_blank" href="https://www.mckinsey.com.br/"><img drag-scroll-item src="../../assets/images/partners/mckinseyecompany.png" /></a>
+              <a target="_blank" href="https://br.mondelezinternational.com/home"><img drag-scroll-item src="../../assets/images/partners/mondelez.png" /></a>
+              <a target="_blank" href="https://www.nestle.com.br/"><img drag-scroll-item src="../../assets/images/partners/nestle.png" /></a>
+              <a target="_blank" href="https://aiesec.org/partner/330494"><img drag-scroll-item src="../../assets/images/partners/nokia.png" /></a>
+              <a target="_blank" href="https://resultadosdigitais.com.br/"><img drag-scroll-item src="../../assets/images/partners/resultadosdigitais.png" /></a>
+              <a target="_blank" href="https://www.sap.com/brazil/about.html"><img drag-scroll-item src="../../assets/images/partners/sap.png" /></a>
+              <a target="_blank" href="http://www.votorantimcimentos.com.br/"><img drag-scroll-item src="../../assets/images/partners/votorantimcimentos.png" /></a>
+              <a target="_blank" href="https://www.whirlpool.com.br/"><img drag-scroll-item src="../../assets/images/partners/Whirlpoow.png" /></a>
+            </drag-scroll>
+            <div class="footer-carousel-align">
+              <div class="footer-carousel-btn-left"><i (click)="moveLeft()" class="fas fa-chevron-left"></i></div>
+              <div class="footer-carousel-btn-right"><i (click)="moveRight()" class="fas fa-chevron-right"></i></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="padding-top-and-bottom with-background bg-footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-logo">
+        <img class="img-responsive" src="../../assets/images/aiesec-logo.png" width="200px;">
+        <p class="centered semibold">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="row">
+      <div class="footer-links col-md-6">
+        <div class="row">
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">Institucional</p>
+            <p><a href="http://aiesec.org.br/a-aiesec/">A AIESEC</a></p>
+            <p><a href="http://aiesec.org.br/faca-parte/">Faça parte</a></p>
+            <p><a href="http://aiesec.org.br/alumni/">Alummi</a></p>
+            <p><a href="http://aiesec.org.br/youthspeak/">YouthSpeak</a></p>
+          </div>
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">Institucional</p>
+            <p><a routerLink="../landing-page-ge">Empreendedor Global</a></p>
+            <p><a routerLink="../landing-page-gt">Talento Global</a></p>
+            <p><a routerLink="../landing-page-gv">Voluntário Global</a></p>
+            <p><a href="http://aiesec.org.br/hospede-um-intercambista/">Hospede um intercambista</a></p>
+          </div>
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">Seja parceiro</p>
+            <p><a href="http://aiesec.org.br/seja-parceiro/ong/">ONG</a></p>
+            <p><a href="http://aiesec.org.br/seja-parceiro/empresas/">Empresas</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links col-md-6">
+        <div class="row">
+          <div class="footer-group-links col-md-3 col-sm-6">
+            <p class="semibold footer-link-title">Blog</p>
+            <p><a href="http://business.aiesec.org.br/">Business</a></p>
+            <p><a href="http://aiesec.org.br/blog/estudantes/">Estudantes</a></p>
+          </div>
+          <div class="footer-group-links col-md-3 col-sm-6">
+            <p class="semibold footer-link-title"><a href="http://aiesec.org.br/contato/">Contato</a></p>
+          </div>
+          <div class="footer-social-networks col-md-6 col-sm-6">
+            <a target="_blank" href="https://www.facebook.com/AIESECinBrazil/"><i class="fab fa-facebook-square"></i></a>
+            <a target="_blank" href="https://instagram.com/aiesecnobrasil"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://twitter.com/AIESECBrasil"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://www.youtube.com/user/AIESECinBrazil/"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>AIESEC do Brasil 2018. Todos os direitos reservados.</p>
+  </div>
+</footer>
