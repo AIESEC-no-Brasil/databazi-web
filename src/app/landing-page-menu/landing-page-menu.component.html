@@ -77,17 +77,17 @@
             </a>
           </ul>
 
-          <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu">
+          <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
             <li>
               <span>Para jovens</span>
               <ul class="animated fadeIn faster">
-                <li routerLink="/landing-page-gv">
+                <li routerLink="/landing-page-gv" [ngx-scroll-to]="'#header-product'">
                   Voluntário Global
                 </li>
-                <li routerLink="/landing-page-ge">
+                <li routerLink="/landing-page-ge" [ngx-scroll-to]="'#header-product'">
                   Empreendedor Global
                 </li>
-                <li routerLink="/landing-page-gt">
+                <li routerLink="/landing-page-gt" [ngx-scroll-to]="'#header-product'">
                   Talento Global
                 </li>
                 <a href="http://aiesec.org.br/hospede-um-intercambista/">
