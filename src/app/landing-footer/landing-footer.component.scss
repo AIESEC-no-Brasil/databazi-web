@@ -8,20 +8,22 @@ $break-sm: 576px;
     padding-bottom: 40px;
   }
   .footer-carousel {
+    margin: auto;
+    width: 90%;
     .footer-carousel-btn-left {
       position: absolute;
-      top: 64%;
-      padding: 11px;
-      margin-left: -40px;
+      top: 46%;
+      padding: 41px 11px;
+      left: 0px;
       i {
         color: $default;
       }
     }
     .footer-carousel-btn-right {
       position: absolute;
-      top: 64%;
-      right: -28px;
-      padding: 11px;
+      top: 47%;
+      right: 0px;
+      padding: 40px 10px;
       i {
         color: $default;
       }
@@ -35,7 +37,7 @@ $break-sm: 576px;
   img {
     height: 100px;
     width: 100px;
-    margin-left: 33px;
+    margin: 0 13px;
   }
 }
 
@@ -76,7 +78,7 @@ footer {
       display: inline;
       i {
         color: $white;
-        padding-right: 34px;
+        padding-right: 28px;
         font-size: 24px;
       }
     }
@@ -117,6 +119,12 @@ footer {
       }
     }
   }
+
+  .footer-social-networks {
+    i {
+      margin: 0px 8px;
+    }
+  }
 }
 
 @media only screen and (max-width: $break-sm) {
@@ -130,31 +138,29 @@ footer {
   }
 }
 
-@media only screen and (max-width: 610px) {
-  .partners {
-    .footer-carousel-align {
-      width: 0px;
-      margin: 0 auto;
-     .footer-carousel-btn-right {
-        float: left;
-        position: inherit;
+@media only screen and (max-width: 990px) {
+    .footer-social-networks {
+      width: auto;
+      margin: auto;
+      // display: inline;
+      i {
+        padding: 12px;
+        padding-right: 0px!important;
       }
+    }
+}
+
+@media only screen and (max-width: 382px) {
+  .partners {
+    .footer-carousel {
       .footer-carousel-btn-left {
-        float: left;
-        position: inherit;
+        top: 53%;
+      }
+      .footer-carousel-btn-right {
+        top: 53%;
       }
     }
   }
-}
-
-@media only screen and (max-width: 990px) {
-    .footer-social-networks {
-      display: inline;
-      i {
-        padding-top: 14px;
-      }
-    }
-
 }
 
   
