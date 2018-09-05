@@ -7,7 +7,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm text-center">
-          <img src="assets/images/logo-voluntario-global.png" alt="Logo" class="logo">
+          <div class="logo-talentos-globais"></div>
         </div>
       </div>
       <div *ngIf="!completedSignup">
@@ -344,7 +344,7 @@
             </div>
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='step2Form.invalid || selectedItems.length == 0'>
+              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='step2Form.invalid || !hasExperience'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>

@@ -32,13 +32,18 @@ export class FormGtComponent implements OnInit {
   }
 
   experienceItems = [
-    { name: 'Ensino de Línguas', value: 0},
-    { name: 'Marketing', value: 1},
-    { name: 'Tecnologia da Informação', value: 2},
-    { name: 'Gestão', value: 3},
+    { name: 'Ensino de Línguas', value: 'language'},
+    { name: 'Marketing', value: 'marketing'},
+    { name: 'Tecnologia da Informação', value: 'information_technology'},
+    { name: 'Gestão', value: 'management'},
   ]
 
-  selectedItems : any = [];
+  selectedItems : any = {
+    language: false,
+    marketing: false,
+    information_technology: false,
+    management: false
+  };
   msgs: Message[] = [];
 
   personalData: boolean = true;
@@ -54,6 +59,7 @@ export class FormGtComponent implements OnInit {
   step2Form: FormGroup;
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
+  hasExperience:boolean = false;
   completedSignup: boolean = false;
 
   universities: any;
@@ -114,18 +120,8 @@ export class FormGtComponent implements OnInit {
   }
 
   addOrRemove(experience){
-    let selected = _.find(this.selectedItems, (element) => {
-      return element.value == experience.value
-    });
-    
-    if (selected){
-      _.remove(this.selectedItems, (element) => {
-        return element.value == selected.value;
-      })
-    }
-    else {
-      this.selectedItems.push(experience);
-    }
+    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
+    (_.find(this.selectedItems, (element) => {return element == true})) ? this.hasExperience = true : this.hasExperience = false;
   }
 
   cancelSignUp(){
@@ -222,7 +218,7 @@ export class FormGtComponent implements OnInit {
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level,
         scholarity: +this.user.scholarity,
-        experience: _.map(this.selectedItems, 'value')
+        experience: this.selectedItems
       }
     };
     this.loading = true;
