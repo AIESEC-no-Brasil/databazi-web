@@ -6,13 +6,14 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router } from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-form-gv',
-  templateUrl: './form-gv.component.html',
-  styleUrls: ['./form-gv.component.scss']
+  selector: 'app-form-gt',
+  templateUrl: './form-gt.component.html',
+  styleUrls: ['./form-gt.component.scss']
 })
-export class FormGvComponent implements OnInit {
+export class FormGtComponent implements OnInit {
 
   user = {
     fullname: '',
@@ -24,9 +25,20 @@ export class FormGvComponent implements OnInit {
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
-    cellphone_contactable: ''
+    cellphone_contactable: '', 
+    english_level: '',
+    scholarity: '',
+    experience: []
   }
 
+  experienceItems = [
+    { name: 'Ensino de Línguas', value: 0},
+    { name: 'Marketing', value: 1},
+    { name: 'Tecnologia da Informação', value: 2},
+    { name: 'Gestão', value: 3},
+  ]
+
+  selectedItems : any = [];
   msgs: Message[] = [];
 
   personalData: boolean = true;
@@ -85,7 +97,13 @@ export class FormGvComponent implements OnInit {
       local_committee_id: new FormControl(this.user.local_committee_id, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
+      english_level: new FormControl(this.user.english_level, [
+        Validators.required
+      ]),
+      scholarity: new FormControl(this.user.scholarity, [
+        Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     })
   }
 
@@ -95,10 +113,24 @@ export class FormGvComponent implements OnInit {
     this.fillPlacesSelect();
   }
 
+  addOrRemove(experience){
+    let selected = _.find(this.selectedItems, (element) => {
+      return element.value == experience.value
+    });
+    
+    if (selected){
+      _.remove(this.selectedItems, (element) => {
+        return element.value == selected.value;
+      })
+    }
+    else {
+      this.selectedItems.push(experience);
+    }
+  }
+
   cancelSignUp(){
     this.router.navigate(['/landing-page']);
   }
-
 
   accessAiesec(){
     window.open("https://aiesec.org/", "_blank");
@@ -178,7 +210,7 @@ export class FormGvComponent implements OnInit {
     this.submittedStudy = true;
 
     let user = {
-      gv_participant: {
+      gt_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
@@ -187,11 +219,14 @@ export class FormGvComponent implements OnInit {
         local_committee_id: +this.user.local_committee_id,
         university_id: +this.user.university_id,
         college_course_id: +this.user.college_course_id,
-        cellphone_contactable: (this.user.cellphone_contactable ? true : false)
+        cellphone_contactable: (this.user.cellphone_contactable ? true : false),
+        english_level: +this.user.english_level,
+        scholarity: +this.user.scholarity,
+        experience: _.map(this.selectedItems, 'value')
       }
     };
     this.loading = true;
-    this.signupService.addGvParticipant(user)
+    this.signupService.addGtParticipant(user)
       .then((res: any) => {
         this.loading = false;
         if (res.status == 'failure') {
