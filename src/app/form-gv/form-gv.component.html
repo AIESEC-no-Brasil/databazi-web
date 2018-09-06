@@ -72,7 +72,7 @@
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
                     <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
-                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" required>
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>

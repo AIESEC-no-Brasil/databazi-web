@@ -72,7 +72,7 @@
                       <i class="fas fa-mobile-alt"></i>Celular</div>
                   </div>
                   <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
-                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" email required>
+                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
                   </div>
@@ -91,7 +91,7 @@
                       <i class="fas fa-envelope"></i>E-mail</div>
                   </div>
                   <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também odiamos spam" [(ngModel)]="user.email"
-                    (blur)="checkEmail()" formControlName="email" name="email" required>
+                    (blur)="checkEmail()" formControlName="email" name="email" email required>
                   <div class="valid-feedback" *ngIf="!invalidEmail">
                     <i class="fa fa-check"></i>
                   </div>

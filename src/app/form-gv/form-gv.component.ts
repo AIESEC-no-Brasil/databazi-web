@@ -150,15 +150,7 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
-    if (this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
-    }
-
+  checkPhone(){
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
     if (cellphone.length < 10){
@@ -168,6 +160,16 @@ export class FormGvComponent implements OnInit {
     else {
       this.invalidPhone = false;
     }  
+  }
+
+  registerUser() {
+    this.submittedPersonal = true;
+    if (this.user.password != this.user.repassword) {
+      this.invalidPassword = true;
+    }
+    else {
+      this.invalidPassword = false;
+    }
 
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
