@@ -22,4 +22,8 @@ export class LandingPageMenuComponent implements OnInit {
   toggleResponsiveMenu(){
     (this.responsiveMenu ? this.responsiveMenu = false : this.responsiveMenu = true)  
   }
+
+  returnHome(){
+    this.router.navigate(['/landing-page']);
+  }
 }

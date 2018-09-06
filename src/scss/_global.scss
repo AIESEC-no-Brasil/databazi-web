@@ -119,6 +119,12 @@ button {
     &.without-border {
         border: 0;
     }
+    &.without-background {
+        background-color: transparent;
+        &.color-white {
+            color: #fff;
+        }
+    }
     &.with-background {
         color: #fff;
         &.default {
@@ -205,12 +211,12 @@ div {
 }
 
 // sections
-section, footer {
+section, footer, div {
     &.margin-top-and-bottom {
-        margin: 75px 0;
+        margin: 75px 0 !important;
     }
     &.padding-top-and-bottom {
-        padding: 75px 0;
+        padding: 75px 0 !important
     }
     &.with-background {
         h1,

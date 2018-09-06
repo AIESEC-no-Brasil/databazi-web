@@ -13,4 +13,8 @@ export class LandingPageGeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewChecked() {
+    window.scrollTo(0, 0);
+  }
+
 }

@@ -15,4 +15,8 @@ export class LandingPageGvComponent implements OnInit {
 
   }
 
+  ngAfterViewChecked() {
+    window.scrollTo(0, 0);
+  }
+
 }
