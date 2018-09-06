@@ -72,13 +72,16 @@
                       <i class="fas fa-mobile-alt"></i>Celular</div>
                   </div>
                   <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
-                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" required>
+                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" email required>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
                   </div>
                 </div>
                 <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
                   Preencha o seu número de celular.
+                </div>
+                <div *ngIf="invalidPhone" class='error-message'>
+                  Por favor, digite um número de celular válido.
                 </div>
               </div>
               <div class="form-group">
@@ -301,9 +304,6 @@
                       <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
                         name="cellphone_contactable">
                       <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                    </div>
-                    <div *ngIf="invalidPhone" class='error-message'>
-                      Por favor, digite um número de celular válido.
                     </div>
                   </div>
                 </div>

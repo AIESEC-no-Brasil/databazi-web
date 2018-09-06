@@ -80,6 +80,9 @@
                   <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
                     Preencha o seu número de celular.
                   </div>
+                  <div *ngIf="invalidPhone" class='error-message'>
+                    Por favor, digite um número de celular válido.
+                  </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
@@ -88,7 +91,7 @@
                         <i class="fas fa-envelope"></i>E-mail</div>
                     </div>
                     <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também odiamos spam" [(ngModel)]="user.email"
-                      (blur)="checkEmail()" formControlName="email" name="email" required>
+                      (blur)="checkEmail()" formControlName="email" name="email" email required>
                     <div class="valid-feedback" *ngIf="!invalidEmail">
                       <i class="fa fa-check"></i>
                     </div>
@@ -236,9 +239,6 @@
                         <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
                           name="cellphone_contactable">
                         <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                      </div>
-                      <div *ngIf="invalidPhone" class='error-message'>
-                        Por favor, digite um número de celular válido.
                       </div>
                     </div>
                   </div>
