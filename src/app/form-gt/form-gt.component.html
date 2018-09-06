@@ -316,11 +316,11 @@
               <div class="row justify-content-center">
                 <div class="col-sm">
                   <div class="row justify-content-center">
-                    <div class="col-sm-8" id="header-resultado">
+                    <div class="col-sm-9" id="header-resultado">
                       <h2>Obrigado por se increver!</h2>
                       <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <i class="fas fa-thumbs-up fa-10x color-icon"></i>
                     </div>
                   </div>
@@ -344,7 +344,7 @@
             </div>
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='step2Form.invalid || !hasExperience'>
+              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'" [disabled]='step2Form.invalid || !hasExperience'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>
