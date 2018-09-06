@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {DragScrollComponent } from 'ngx-drag-scroll';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,6 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+
+	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
+
+	moveLeft() {
+    this.ds.moveLeft();
+  }
+
+  moveRight() {
+    this.ds.moveRight();
+  }
 
   constructor() { }
 
