@@ -72,13 +72,16 @@
                       <i class="fas fa-mobile-alt"></i>Celular</div>
                   </div>
                   <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
-                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" required>
+                    [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" email required>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
                   </div>
                 </div>
                 <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
                   Preencha o seu número de celular.
+                </div>
+                <div *ngIf="invalidPhone" class='error-message'>
+                  Por favor, digite um número de celular válido.
                 </div>
               </div>
               <div class="form-group">
@@ -302,9 +305,6 @@
                         name="cellphone_contactable">
                       <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
                     </div>
-                    <div *ngIf="invalidPhone" class='error-message'>
-                      Por favor, digite um número de celular válido.
-                    </div>
                   </div>
                 </div>
               </div>
@@ -316,11 +316,11 @@
               <div class="row justify-content-center">
                 <div class="col-sm">
                   <div class="row justify-content-center">
-                    <div class="col-sm-8" id="header-resultado">
+                    <div class="col-sm-9" id="header-resultado">
                       <h2>Obrigado por se increver!</h2>
                       <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                       <i class="fas fa-thumbs-up fa-10x color-icon"></i>
                     </div>
                   </div>
@@ -344,7 +344,7 @@
             </div>
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='step2Form.invalid || !hasExperience'>
+              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'" [disabled]='step2Form.invalid || !hasExperience'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>

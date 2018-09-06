@@ -163,12 +163,13 @@ export class FormGvComponent implements OnInit {
 
     if (cellphone.length < 10){
       this.invalidPhone = true;
+      return;
     }
     else {
       this.invalidPhone = false;
     }  
 
-    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && this.matchDate && !this.isValidPersonal('password')) {
+    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
     }
