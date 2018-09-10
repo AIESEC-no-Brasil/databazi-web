@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {DragScrollComponent } from 'ngx-drag-scroll';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,17 +11,55 @@ export class LandingPageComponent implements OnInit {
 
 	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
 
+  actual: number = 1;
+  seeMoreGv:boolean = false;
+  seeMoreGe:boolean = false;
+  seeMoreGt:boolean = false;
+
 	moveLeft() {
-    this.ds.moveLeft();
+    this.actual -= 1;
+    if (this.actual < 1){
+      this.actual = 3;
+    }
   }
 
   moveRight() {
-    this.ds.moveRight();
+    this.actual += 1;
+    if (this.actual > 3){
+      this.actual = 1;
+    }
   }
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) { }
 
   ngOnInit() {
   }
+
+  toggleGv(){
+    this.seeMoreGv ? this.seeMoreGv = false : this.seeMoreGv = true;
+  }
+
+  toggleGe(){
+    this.seeMoreGe ? this.seeMoreGe = false : this.seeMoreGe = true;
+  }
+
+  toggleGt(){
+    this.seeMoreGt ? this.seeMoreGt = false : this.seeMoreGt = true;
+  }
+
+  goToGv(){
+    this.router.navigate(['/landing-page-gv']);
+  }
+
+  goToGe(){
+    this.router.navigate(['/landing-page-ge']);
+  }
+
+  goToGt(){
+    this.router.navigate(['/landing-page-gt']);
+  }
+
 
 }
