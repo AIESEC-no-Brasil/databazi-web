@@ -221,10 +221,10 @@
     }
     section {
         &.margin-top-and-bottom {
-            margin: 0 0 75px 0;
+            margin: 0 0 75px 0 !important;
         }
         &.padding-top-and-bottom {
-            padding: 0 0 75px 0;
+            padding: 0 0 75px 0 !important;
         }
     }
     div.centered+div {
