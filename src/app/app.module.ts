@@ -26,6 +26,7 @@ import { LandingPageGtComponent } from './landing-page-gt/landing-page-gt.compon
 import { LandingPageGeComponent } from './landing-page-ge/landing-page-ge.component';
 import { LandingPageMenuComponent } from './landing-page-menu/landing-page-menu.component';
 import { FormGtComponent } from './form-gt/form-gt.component';
+import { FormGeComponent } from './form-ge/form-ge.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LandingPageGtComponent,
     LandingPageGeComponent,
     LandingPageMenuComponent,
-    FormGtComponent
+    FormGtComponent,
+    FormGeComponent
   ],
   imports: [
     BrowserModule,
