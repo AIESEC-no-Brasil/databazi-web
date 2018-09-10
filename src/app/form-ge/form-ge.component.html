@@ -1,0 +1,361 @@
+<head>
+    <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+  </head>
+  <div id="step1" class="form-talentos-globais">
+    <!-- Header -->
+    <section class="header" id="header-talentos-globais">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm text-center">
+            <div class="logo-talentos-globais"></div>
+          </div>
+        </div>
+        <div *ngIf="!completedSignup">
+          <div class="row">
+            <div class="col-sm">
+              <h1>Vivencie a realidade de uma empresa internacional, desenvolva suas habilidades e traga o mundo para o seu currículo.</h1>
+            </div>
+          </div>
+          <div class="row" *ngIf="!loading && !completedSignup">
+            <div class="col text-center">
+              <div class='step-position'>
+                <ul>
+                  <li [ngClass]="{active : personalData}"></li>
+                  <li [ngClass]="{active: studyData}"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Form -->
+    <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading">
+      <div class="container">
+        <div class="row justify-content-center">
+  
+          <div class="col-sm">
+  
+            <!-- Content -->
+            <!-- Alert -->
+            <div class="alert alert-warning alert-dismissible fade show animated fadeIn" role="alert" *ngIf="invalidEmail">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="far fa-times-circle fa-lg"></i>
+              </button>
+              <p>Já existe um usuário com esse endereço de email!
+                <strong>Gostaria de acessar a plataforma?</strong>
+              </p>
+            </div>
+            <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-user"></i>Nome Completo</div>
+                    </div>
+                    <input type="text" class="form-control" id="inputNome" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname"
+                      formControlName="fullname" name="fullname" required>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidPersonal('fullname')" class='error-message'>
+                    Preencha o nome completo.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-mobile-alt"></i>Celular</div>
+                    </div>
+                    <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
+                    Preencha o seu número de celular.
+                  </div>
+                  <div *ngIf="invalidPhone" class='error-message'>
+                    Por favor, digite um número de celular válido.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-envelope"></i>E-mail</div>
+                    </div>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também odiamos spam" [(ngModel)]="user.email"
+                      (blur)="checkEmail()" formControlName="email" name="email" email required>
+                    <div class="valid-feedback" *ngIf="!invalidEmail">
+                      <i class="fa fa-check"></i>
+                    </div>
+                    <div class="invalid-feedback">Campo obrigatório
+                      <i class="fas fa-times"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidPersonal('email')" class='error-message'>
+                    Preencha com o seu email.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-gift"></i>Data de Nascimento</div>
+                    </div>
+                    <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são 18 à 30 anos de idade"
+                      [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidPersonal('birthdate')" class='error-message'>
+                    Preencha com a sua data de nascimento.
+                  </div>
+                  <div *ngIf="invalidDate" class='error-message'>
+                    Por favor, preencha com uma data válida
+                  </div>
+                  <div *ngIf="!matchDate" class='error-message'>
+                    Desculpe, nossos programas são direcionados para pessoas entre 18 e 30 anos.
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-lock"></i>Senha</div>
+                    </div>
+                    <input type="password" class="form-control" id="inputSenha" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
+                      formControlName="password" name="password" required>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-lock"></i>Confirmar Senha</div>
+                    </div>
+                    <input type="password" class="form-control" id="inputConfirmeSenha" placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
+                      name="repassword" required>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="isValidPersonal('password')" class='error-message animated fadeIn'>
+                  Preencha com a sua senha.
+                  <br>
+                  <span>
+                    (Pelo menos um caracter em maiúsculo, minúsculo, ao menos um número e no mínimo, 8 caracteres)
+                  </span>
+                </div>
+                <div *ngIf="invalidPassword" class='error-message'>
+                  As senhas não conferem! Digite novamente
+                </div>
+              </form>
+            </div>
+  
+            <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
+              <form [formGroup]="step2Form" class="forms">
+                <div>
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-graduation-cap"></i>Universidade</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
+                            <option value="">Onde você estuda?</option>
+                            <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('university_id')" class='error-message'>
+                      Selecione uma universidade.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Curso</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
+                            <option value="">Insira seu curso</option>
+                            <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
+                      Selecione um curso.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Nível de Inglês</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.english_level" formControlName="english_level" name="english_level">
+                            <option value="">Isso nos ajuda a te direcionar para as vagas mais adequadas</option>
+                            <option value="0">Não tenho</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermediário</option>
+                            <option value="3">Avançado</option>
+                            <option value="4">Fluente</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('english_level')" class='error-message'>
+                      Selecione um nível de inglês.
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="input-group select-dropdown">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-book-open"></i>Nível de espanhol</div>
+                        </div>
+                        <div class="dropdown">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.spanish_level" formControlName="spanish_level" name="spanish_level">
+                              <option value="">Isso nos ajuda a te direcionar para as vagas mais adequadas</option>
+                              <option value="0">Não tenho</option>
+                              <option value="1">Básico</option>
+                              <option value="2">Intermediário</option>
+                              <option value="3">Avançado</option>
+                              <option value="4">Fluente</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="isValidStudy('spanish_level')" class='error-message'>
+                        Selecione um nível de espanhol.
+                      </div>
+                    </div>
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Experiências</div>
+                      </div>
+                      <div class="label-experience">
+                        Escolha pelo menos uma opção abaixo.
+                      </div>
+                    </div>
+                    <div class="form-checkbox-select">
+  
+                      <div class="checkbox-item" *ngFor="let experience of experienceItems">
+                          <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
+                          <label for="language" for="{{experience.name}}">
+                            {{experience.name}}
+                          </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.local_committee_id" formControlName="local_committee_id" name="local_committee_id">
+                            <option value="">Esse é o escritório que vai cuidar de você!</option>
+                            <option *ngFor="let place of places" [value]="place.id"> {{ place.name }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
+                      Selecione a AIESEC mais próxima.
+                    </div>
+                  </div>
+  
+                  <!-- Terms -->
+                  <div class="row justify-content-center forms-term">
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <label for="inputTermos">Termos e Condições</label>
+                        <iframe class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
+                      </div>
+                      <label class="form-group forms-tem-accepted">
+                        Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
+                      </label>
+                      <div class="form-group form-check text-center checkbox">
+                        <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
+                          name="cellphone_contactable">
+                        <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+  
+            <section class="content" id="resultado" *ngIf="completedSignup">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-sm">
+                    <div class="row justify-content-center">
+                      <div class="col-sm-9" id="header-resultado">
+                        <h2>Obrigado por se increver!</h2>
+                        <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
+                      </div>
+                      <div class="col-sm-3">
+                        <i class="fas fa-thumbs-up fa-10x color-icon"></i>
+                      </div>
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="col-sm-12" id="content-resultado">
+                        <p>
+                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio social
+                          na data e destina ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
+                        </p>
+                        <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+  
+            <div class="form-row buttons" *ngIf="!completedSignup">
+              <div class="col text-left">
+                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">Cancelar</button>
+              </div>
+              <div class="col text-right">
+                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
+                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'" [disabled]='step2Form.invalid || !hasExperience'>
+                  Enviar
+                  <i class="fab fa-telegram-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class='loading-landing-page' *ngIf="loading">
+      <div class="loading-animation loading-animation-ge"></div>
+    </div>
+  </div>
