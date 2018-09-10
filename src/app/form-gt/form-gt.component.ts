@@ -178,6 +178,18 @@ export class FormGtComponent implements OnInit {
     }
   }
 
+  checkPhone(){
+    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
+
+    if (cellphone.length < 10){
+      this.invalidPhone = true;
+      return;
+    }
+    else {
+      this.invalidPhone = false;
+    }  
+  }
+
   registerUser() {
     this.submittedPersonal = true;
     if (this.user.password != this.user.repassword) {
@@ -187,16 +199,7 @@ export class FormGtComponent implements OnInit {
       this.invalidPassword = false;
     }
 
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-
-    if (cellphone.length < 10){
-      this.invalidPhone = true;
-    }
-    else {
-      this.invalidPhone = false;
-    }  
-
-    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && this.matchDate && !this.isValidPersonal('password')) {
+    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
     }
@@ -211,7 +214,7 @@ export class FormGtComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         password: this.user.password,
-        birthdate: moment(this.user.birthdate).format('YYYY-MM-DD'),
+        birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
         university_id: +this.user.university_id,
         college_course_id: +this.user.college_course_id,
