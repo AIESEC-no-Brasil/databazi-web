@@ -288,7 +288,7 @@
               </div>
               <div class="col text-right">
                 <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData"   [ngx-scroll-to]="'#header-voluntario-global'" [disabled]='step2Form.invalid'>
+                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData"   [ngx-scroll-to]="'#form'" [disabled]='step2Form.invalid'>
                     Enviar
                     <i class="fab fa-telegram-plane"></i>
                 </button>

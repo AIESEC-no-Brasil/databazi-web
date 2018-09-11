@@ -179,7 +179,6 @@ export class FormGvComponent implements OnInit {
   }
 
   toggleFormGv() {
-    console.log('teste');
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
   submit() {
