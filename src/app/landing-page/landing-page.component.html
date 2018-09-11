@@ -1,173 +1,152 @@
 <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 <main>
-  <div class="mobile">
-    <app-landing-page-menu></app-landing-page-menu>
-  </div>
-  <div class="col-xl-12 header">
-    <div class="bg-header-responsive"></div>
-    <div class="header-top-triangle"></div>
-    <div class="menu desktop">
-      <ul>
-        <li>
-          <a routerLink="/landing-page">
-            <img src="../../assets/images/logo-aiesec-white.png" class="aiesec-logo">
-          </a>
-        </li>
-        <li routerLink="/landing-page-gv">
-          VOLUNTÁRIO GLOBAL
-        </li>
-        <li routerLink="/landing-page-gv">
-          EMPREENDEDOR GLOBAL
-        </li>
-        <li routerLink="/landing-page-gv">
-          TALENTO GLOBAL
-        </li>
-        <a href="http://aiesec.org.br/hospede-um-intercambista/">
-          <li>
-            HOSPEDE UM INTERCAMBISTA
-          </li>
-        </a>
-      </ul>
-      <div class="container content">
-        <h1>
-          <strong>Liderança</strong>
-        </h1>
-        <p>Uma liderança sustentável é a
-          <br> solução para um futuro melhor</p>
-        <button type="button" [ngx-scroll-to]="'#aiesec-info'" class="btn btn-outline-light">SAIBA MAIS</button>
+  <app-landing-page-menu></app-landing-page-menu>
+  <div class="row global-columns" id="global">
+    <div class="col-lg-4 col-sm-12 column-1 align-center">
+      <div class="bg-color"></div>
+      <div class="bg-content">
+        <img src="../../assets/images/logo-voluntario-global.png">
+        <p class="desktop">
+          Ser um voluntário global é transformar
+          <br> seus valores em ação e fazer a diferença
+          <br> em diversas regiões do mundo.
+        </p>
+        <p class="mobile">
+          Intercâmbio voluntário em ONGS
+        </p>
+        <button type="button" (click)="goToGv()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
+        <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGv()">
+          Saiba mais
+          <i *ngIf="!seeMoreGv" class="fas fa-angle-down"></i>
+          <i *ngIf="seeMoreGv" class="fas fa-angle-up"></i>
+        </button>
+        <div *ngIf="seeMoreGv" class="product-items animated fadeIn faster mobile">
+          <div class="row">
+            <div class="col-3 mobile-1"></div>
+            <div class="col-9">
+              <p>
+                Ter uma experiência de voluntário em ONGs de outros países por 6 semanas
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 mobile-2"></div>
+            <div class="col-9">
+              <p>
+                Conheça projetos que são vinculados aos Objetivos de Desenvolvimento Sustentável das Nações Unidas
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 mobile-3"></div>
+            <div class="col-9">
+              <p>
+                O único requisito é a sua vontade de deixar uma marca no mundo
+              </p>
+            </div>
+          </div>
+          <button class="button" (click)="goToGv()" class="background-white gv without-border">
+            Inscreva-se
+          </button>
+        </div>
       </div>
     </div>
-    <div class="header-bottom-triangle"></div>
-  </div>
-
-  <div class="row global-columns">
-    <div class="col-sm column-1 align-center">
-      <img src="../../assets/images/logo-voluntario-global.png">
-      <p>
-        Ser um voluntário global é transformar
-        <br> seus valores em ação e fazer a diferença
-        <br> em diversas regiões do mundo.
-      </p>
-      <button type="button" (click)="goToGv()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
-      <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGv()">
-        Saiba mais
-        <i *ngIf="!seeMoreGv" class="fas fa-angle-down"></i>
-        <i *ngIf="seeMoreGv" class="fas fa-angle-up"></i>
-      </button>
-      <div *ngIf="seeMoreGv" class="product-items animated fadeIn faster mobile">
-        <div class="row">
-          <div class="col-3 mobile-1"></div>
-          <div class="col-9">
-            <p>
-              Ter uma experiência de voluntário em ONGs de outros países por 6 semanas.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-2"></div>
-          <div class="col-9">
-            <p>
-              Conheça projetos que são vinculados aos Objetivos de Desenvolvimento Sustentável das Nações Unidas
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-3"></div>
-          <div class="col-9">
-            <p>
-              O único requisito é a sua vontade de deixar uma marca no mundo
-            </p>
-          </div>
-        </div>
-        <button class="button" (click)="goToGv()" class="background-white gv without-border">
-          Inscreva-se
+    <div class="col-lg-4 col-sm-12 column-2 align-center">
+      <div class="bg-color"></div>
+      <div class="bg-content">
+        <img src="../../assets/images/logo-empreendedor-global.png">
+        <p class="desktop">
+          Assuma os desafios de trabalhar em uma
+          <br> Startup e se desenvolva como um lider
+          <br> empreendedor.
+        </p>
+        <p class="mobile">
+          Imersão em Startups
+        </p>
+        <button type="button" (click)="goToGe()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
+        <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGe()">
+          Saiba mais
+          <i *ngIf="!seeMoreGe" class="fas fa-angle-down"></i>
+          <i *ngIf="seeMoreGe" class="fas fa-angle-up"></i>
         </button>
+        <div *ngIf="seeMoreGe" class="product-items animated fadeIn faster mobile">
+          <div class="row">
+            <div class="col-3 mobile-1"></div>
+            <div class="col-9">
+              <p>
+                Ter uma experiência de imersão em uma startup durante 6 a 12 semanas
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 mobile-4"></div>
+            <div class="col-9">
+              <p>
+                Viva em um ambiente dinâmico de uma Startup e atue em Marketing, Administração, T.I. ou Design
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-3 mobile-5"></div>
+            <div class="col-9">
+              <p>
+                O jovem precisa apenas ter o inglês intermediário e alguma experiência prévia profissional
+              </p>
+            </div>
+          </div>
+          <button class="button" (click)="goToGe()" class="background-white ge without-border">
+            Inscreva-se
+          </button>
+        </div>
       </div>
     </div>
-    <div class="col-sm column-2 align-center">
-      <img src="../../assets/images/logo-empreendedor-global.png">
-      <p>
-        Assuma os desafios de trabalhar em uma
-        <br> Startup e se desenvolva como um lider
-        <br> empreendedor.
-      </p>
-      <button type="button" (click)="goToGe()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
-      <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGe()">
-        Saiba mais
-        <i *ngIf="!seeMoreGe" class="fas fa-angle-down"></i>
-        <i *ngIf="seeMoreGe" class="fas fa-angle-up"></i>
-      </button>
-      <div *ngIf="seeMoreGe" class="product-items animated fadeIn faster mobile">
-        <div class="row">
-          <div class="col-3 mobile-1"></div>
-          <div class="col-9">
-            <p>
-              Ter uma experiência de imersão em uma startup durante 6 a 12 semanas.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-6"></div>
-          <div class="col-9">
-            <p>
-              Viva em um ambiente dinâmico de uma Startup e atue em Marketing, Administração, T.I. ou Design.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-5"></div>
-          <div class="col-9">
-            <p>
-              O jovem precisa apenas ter o inglês intermediário e alguma experiência prévia profissional.
-            </p>
-          </div>
-        </div>
-        <button class="button" (click)="goToGe()" class="background-white ge without-border">
-          Inscreva-se
+    <div class="col-lg-4 col-sm-12 column-3 align-center">
+      <div class="bg-color"></div>
+      <div class="bg-content">
+        <img src="../../assets/images/logo-talentos-globais.png">
+        <p class="desktop">
+          Agregue diferencial ao seu currículo
+          <br> com essa experiência enriquecedora.
+          <br>
+        </p>
+        <p class="mobile">
+          Estágio internacional em empresas
+        </p>
+        <button type="button" (click)="goToGt()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
+        <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGt()">
+          Saiba mais
+          <i *ngIf="!seeMoreGt" class="fas fa-angle-down"></i>
+          <i *ngIf="seeMoreGt" class="fas fa-angle-up"></i>
         </button>
-      </div>
-    </div>
-    <div class="col-sm column-3 align-center">
-      <img src="../../assets/images/logo-talentos-globais.png">
-      <p>
-        Agregue diferencial ao seu currículo
-        <br> com essa experiência enriquecedora.
-        <br>
-      </p>
-      <button type="button" (click)="goToGt()" class="btn btn-outline-light desktop">SAIBA MAIS</button>
-      <button type="button" class="button centered border border-white without-background color-white mobile" (click)="toggleGt()">
-        Saiba mais
-        <i *ngIf="!seeMoreGt" class="fas fa-angle-down"></i>
-        <i *ngIf="seeMoreGt" class="fas fa-angle-up"></i>
-      </button>
-      <div *ngIf="seeMoreGt" class="product-items animated fadeIn faster mobile">
-        <div class="row">
-          <div class="col-3 mobile-1"></div>
-          <div class="col-9">
-            <p>
-              Ter uma experiência de estágio internacional em empresas durante 3 a 12 meses.
-            </p>
+        <div *ngIf="seeMoreGt" class="product-items animated fadeIn faster mobile">
+          <div class="row">
+            <div class="col-3 mobile-1"></div>
+            <div class="col-9">
+              <p>
+                Ter uma experiência de estágio internacional em empresas durante 3 a 12 meses.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-4"></div>
-          <div class="col-9">
-            <p>
-              Viva em um ambiente corporativo ensinando idiomas, trabalhando com TI ou em áreas de Administração
-            </p>
+          <div class="row">
+            <div class="col-3 mobile-6"></div>
+            <div class="col-9">
+              <p>
+                Viva em um ambiente corporativo ensinando idiomas, trabalhando com TI ou em áreas de Administração
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-3 mobile-5"></div>
-          <div class="col-9">
-            <p>
-              O jovem precisa ter o inglês avançado e experiência na área que quer atuar.
-            </p>
+          <div class="row">
+            <div class="col-3 mobile-5"></div>
+            <div class="col-9">
+              <p>
+                O jovem precisa ter o inglês avançado e experiência na área que quer atuar.
+              </p>
+            </div>
           </div>
+          <button class="button" (click)="goToGt()" class="background-white gt without-border">
+            Inscreva-se
+          </button>
         </div>
-        <button class="button" (click)="goToGt()" class="background-white gt without-border">
-          Inscreva-se
-        </button>
       </div>
     </div>
   </div>
@@ -228,7 +207,7 @@
         <strong>diferença</strong>
         todos os dias.
       </p>
-      <button type="button" class="btn btn-light">Conheça nossos programas</button>
+      <button type="button" class="btn btn-light" (click)="scrollToGlobal()">Conheça nossos programas</button>
     </div>
   </section>
 
@@ -239,7 +218,7 @@
           Numa experiência com a AIESEC você vai
         </h1>
 
-        <div class="col-lg-8 col-sm-12 col-md-12 align-left">
+        <div class="col-lg-7 col-sm-12 col-md-12 align-left">
           <ul>
             <li class="bullet-1 margin">
               <span>
@@ -267,8 +246,7 @@
             </li>
           </ul>
         </div>
-        <div class="col-lg-4 col-sm-12 col-md-12">
-          <img src="../../assets/images/hexa.png" width="250" height="275">
+        <div class="col-lg-5 col-sm-12 col-md-12 LDM">
         </div>
       </div>
     </div>
@@ -289,14 +267,13 @@
                 <div class="box-case-bg"></div>
                 <div class="box-case">
                   <div class="logo-product gv"></div>
-                  <p>
+                  <p class='product-story-info'>
                     "Meu Voluntário Global foi uma experiência muito desafiadora na qual pude me desenvolver muito e impactar o mundo ao meu
                     redor."
-                    <br>
-                    <span>
-                      Letícia Yokoi
-                    </span>
                   </p>
+                  <span>
+                    Letícia Yokoi
+                  </span>
                   <ul>
                     <li class="active"></li>
                     <li></li>
@@ -310,14 +287,13 @@
                 <div class="box-case-bg"></div>
                 <div class="box-case">
                   <div class="logo-product ge"></div>
-                  <p>
+                  <p class='product-story-info'>
                     "Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
                     eu trabalhei, também participei de um ambiente de trabalho muito multicultural! Foi uma experiência inesquecível."
-                    <br>
-                    <span>
-                      João Diogo Brites
-                    </span>
                   </p>
+                  <span>
+                    João Diogo Brites
+                  </span>
                   <ul>
                     <li></li>
                     <li class="active"></li>
@@ -332,14 +308,13 @@
                 <div class="box-case-bg"></div>
                 <div class="box-case">
                   <div class="logo-product gt"></div>
-                  <p>
+                  <p class='product-story-info'>
                     "Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
                     quanto pessoalmente. Meu ano lá foi um divisor de águas na minha carreira e pra pessoa que sou hoje!""
-                    <br>
-                    <span>
-                      Amanda Peckonick
-                    </span>
                   </p>
+                  <span>
+                    Amanda Peckonick
+                  </span>
                   <ul>
                     <li></li>
                     <li></li>
