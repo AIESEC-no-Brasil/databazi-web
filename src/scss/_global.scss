@@ -155,6 +155,12 @@ button {
             background-color: $default;
         }
     }
+    &.uppercase {
+        text-transform: uppercase;
+    }
+    &.margin{
+        margin: 10px 0;
+    }
 }
 
 // structure
