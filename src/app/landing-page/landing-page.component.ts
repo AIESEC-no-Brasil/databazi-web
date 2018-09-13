@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
+	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   actual: number = 1;
   seeMoreGv:boolean = false;
   seeMoreGe:boolean = false;
