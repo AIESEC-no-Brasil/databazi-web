@@ -44,6 +44,7 @@ export class FormGvComponent implements OnInit {
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
 
+  formToggle : boolean = false;
   universities: any;
   courses: any;
   places: any;
@@ -177,6 +178,9 @@ export class FormGvComponent implements OnInit {
     }
   }
 
+  toggleFormGv() {
+    this.formToggle ? this.formToggle = false : this.formToggle = true;
+  }
   submit() {
     this.submittedStudy = true;
 
