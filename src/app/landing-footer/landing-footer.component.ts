@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -9,15 +8,6 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class LandingFooterComponent implements OnInit {
 
-  @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
-
-  moveLeft() {
-    this.ds.moveLeft();
-  }
-
-  moveRight() {
-    this.ds.moveRight();
-  }
 
   constructor(private router: Router) { }
 
