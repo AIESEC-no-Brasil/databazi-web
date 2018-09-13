@@ -1,4 +1,4 @@
-<div id="bg-menu" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu"></div>
+<div id="bg-menu" class="mobile" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu"></div>
 <section class="header-product" id="header-product">
   <div class="header-product-image {{actualPage}}"></div>
   <div class="container">
@@ -173,5 +173,16 @@
         <b>as pessoas.</b>
       </h2>
     </div>
+    <div class="product-info" *ngIf="actualPage == 'landing-page'">
+        <h1 class='color-white bold'>
+          Liderança
+        </h1>
+        <h2 class='color-white'>
+          Uma liderança sustentável é a solução para um futuro melhor
+        </h2>
+        <button (click)="scrollToGlobal()" class="button border border-white without-background color-white uppercase margin">
+          Saiba mais
+        </button>
+      </div>
   </div>
 </section>

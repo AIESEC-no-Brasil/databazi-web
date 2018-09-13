@@ -37,6 +37,14 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  scrollToGlobal(){
+    var element = document.getElementById('global');
+    element.scrollIntoView({
+      block: 'start',
+      behavior: 'smooth'
+    });
+  }
+
   toggleGv(){
     this.seeMoreGv ? this.seeMoreGv = false : this.seeMoreGv = true;
   }

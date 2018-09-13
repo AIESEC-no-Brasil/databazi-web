@@ -14,6 +14,11 @@ main {
     flex-direction: column;
 }
 
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .col-xl-12 {
     padding: 0 !important;
 }
@@ -63,34 +68,34 @@ main {
     margin-top: 40px;
 }
 
-.header-top-triangle {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 525px 900px 0 0;
-    border-color: #3877bc transparent transparent transparent;
-    line-height: 0px;
-    _border-color: #007bff #000000 #000000 #000000;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 999;
-}
-
-.header-bottom-triangle {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 0 234px 400px;
-    border-color: transparent transparent #3877bc transparent;
-    line-height: 0px;
-    _border-color: #000000 #000000 #007bff #000000;
-    _filter: progid:DXImageTransform.Microsoft.Chroma(color='#000000');
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    opacity: 0.7;
+.product-description {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    background-color: red;
+    background-image: url('../../assets/images/header.png');
+    background-position: center center;
+    .description {
+        h2 {
+            color: #333;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 17px;
+            font-weight: lighter;
+            color: #555;
+            line-height: 28px;
+        }
+    }
+    .logo-product {
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 200px;
+        &.ge {
+            background-image: url('../../assets/products/ge/ge-logo.png');
+        }
+    }
 }
 
 .column-1,
@@ -204,7 +209,7 @@ main {
 }
 
 .menu .content {
-    margin-left: 20px;
+    margin-left: 45px;
 }
 
 .aiesec-logo {
@@ -261,7 +266,8 @@ section.experiences-session {
     background-position: bottom center;
     background-size: 25%;
 }
-section.our-stories{
+
+section.our-stories {
     background-image: url('../../assets/images/pattern1.png');
     background-position: top center;
     background-size: 25%;
@@ -343,6 +349,14 @@ section.our-stories{
     font-size: 18px;
     h1 {
         margin: 20px auto 40px auto
+    }
+    .LDM {
+        background-image: url('../../assets/images/hexa.png');
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 300px;
+        transform: scale(1.2)
     }
 }
 
@@ -467,12 +481,28 @@ drag-scroll {
     justify-content: space-evenly;
     flex-direction: column;
     z-index: 2;
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
     .logo-product {
         width: 100%;
         height: 60px;
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 75%;
         &.gv {
             background-image: url('../../assets/products/gv/gv-logo.png');
         }
@@ -487,14 +517,21 @@ drag-scroll {
         font-size: 13.5px;
         white-space: normal;
         font-weight: lighter;
-        span {
-            display: block;
-            margin: 10px auto;
-            font-style: italic;
-            font-weight: 500;
-            color: #333;
-            font-size: 1.1em;
+        margin: 5px auto 0 auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+        &.product-story-info {
+            max-height: 65px;
+            overflow: auto;
         }
+    }
+    span {
+        display: block;
+        margin: 0px auto 5px auto;
+        font-style: italic;
+        font-weight: 500;
+        color: #333;
+        font-size: 1.1em;
     }
     ul {
         list-style: none;
@@ -516,6 +553,9 @@ drag-scroll {
 }
 
 @media(max-width: 990px) {
+    .product-description .description {
+        text-align: center;
+    }
     .desktop {
         display: none;
     }
@@ -554,7 +594,6 @@ drag-scroll {
         bottom: 20%;
         height: 50%;
         top: auto;
-        overflow: scroll;
         .logo-product {
             height: 50px;
             background-size: 50%;
@@ -581,6 +620,53 @@ drag-scroll {
                 width: 50%;
                 margin: 10px 0;
             }
+        }
+    }
+    .experiences-session {
+        .LDM {
+            transform: scale(1)
+        }
+    }
+    .global-columns {
+        >div {
+            position: relative;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            .bg-color {
+                position: absolute;
+                left:0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index:2;
+            }
+            .bg-content {
+                z-index: 3;
+                position: relative;
+            }
+            &:nth-child(1){
+                background-image: url('../../assets/products/gv/gv-intro.jpg');
+                .bg-color {
+                    background-color:rgba(239, 66, 49, .9)
+                }
+            }
+            &:nth-child(2){
+                background-image: url('../../assets/products/ge/ge-intro.jpg');
+                .bg-color {
+                    background-color:rgba(65, 187, 155, .9)
+                }
+            }
+            &:nth-child(3){
+                background-image: url('../../assets/products/gt/gt-intro.jpg');
+                .bg-color {
+                    background-color:rgba(11, 142, 160, .9)
+                }
+            }
+        }
+        p.mobile {
+            height: auto;
+            font-size: 1.4em;
         }
     }
 }
