@@ -21,3 +21,4 @@ deploy:
   acl: public_read
   on:
     repo: AIESEC-no-Brasil/databazi-web
+    branch: staging
