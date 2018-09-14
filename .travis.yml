@@ -6,6 +6,7 @@ branches:
   only:
   - staging
 before_script:
+- npm install
 - npm install -g @angular/cli
 script:
 - ng build --prod --aot
@@ -15,7 +16,7 @@ deploy:
   secret_access_key:
     secure: XazFQ+tILfJNnCGSDtWzTL3O2pXQX/rR4Cf/cNJTd6agGiGZSPhygct6OUsH4tJdjhNgz8iWl/zhQfbY5QxM0memaIoxikFePeFjtM/IZ+7+bO6djEQaXHjkBbYhm4qNbkTf9X68zxLNqr3oCfmCoXLhGcnfJ/fy72h1WZ44sPNcmR9WX/Zv50YsGIjBmv4nkT4IZiN5WYckgzKj+CwQ36S+PyHWmr1l2EYH/Clo+w2yK3BXdDAea5ZNRWuEaIKrYYT7mF6GpGLtqwv9jHFANrgKn+bg5pa8cvnwEhExL713mLQ53GHpS8iaprHJQKPop9p9kUlADsllPJVLhoYR6uh7DYWqmHLGOO5Gxs/MXXe0s6jJhz/iVSB/7LgzCNzkT7dK1CodfGAYqZGFEFzMbSOVRCxAmvSL+fyX0tA1Uvmj6Mc3FbuVXLPKtaSBM/4widJ+qOLyR4+sysuR/cDfiK5U17U+h1JxvWPAQAw/GjWpcW9Nv5bCvA0ee/VHgr/uj5q6zYxVLxWyEtgYKfS0qk85fmOn13LjZqGIPbsX3yzQymTjGmBZp9TBn2UElInm7poy7UoMex79h0EI/8Mbj3egfLXEXbDAnLINSAhSOWpoAGGmQyUXSL8obU9FrjChrCrcSJKlvRMZ8k5Zdg9nw46g9MSA/Zwdp0SSyH0mOaY=
   bucket: databazi-web-staging
-  local_dir: $TRAVIS_BUILD_DIR/dist
+  local_dir: $TRAVIS_BUILD_DIR/dist/databazi-web
   acl: public_read
   on:
     repo: AIESEC-no-Brasil/databazi-web
