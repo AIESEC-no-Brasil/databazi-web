@@ -35,6 +35,13 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.sliderAnimation()
+  }
+
+  sliderAnimation(){
+    setInterval(() => {
+      this.moveRight()
+    }, 10000);
   }
 
   scrollToGlobal(){

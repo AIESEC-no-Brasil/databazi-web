@@ -3,7 +3,7 @@
   <div class="header-product-image {{actualPage}}"></div>
   <div class="container">
     <div class="row header-menu">
-      <div class="logo-aiesec col-sm-3" (click)="returnHome()"></div>
+      <div class="logo-aiesec col-sm-3" [ngClass]="{ mobile : responsiveMenu }" (click)="returnHome()"></div>
       <div class="menu-product col-sm-9">
         <div class="responsive-menu">
           <div class='menu-icon' (click)="toggleResponsiveMenu()">
