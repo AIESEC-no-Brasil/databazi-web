@@ -3,7 +3,7 @@
   <div class="header-product-image {{actualPage}}"></div>
   <div class="container">
     <div class="row header-menu">
-      <div class="logo-aiesec col-sm-3" [ngClass]="{ mobile : responsiveMenu }" (click)="returnHome()"></div>
+      <div class="logo-aiesec col-sm-3" (click)="returnHome()"></div>
       <div class="menu-product col-sm-9">
         <div class="responsive-menu">
           <div class='menu-icon' (click)="toggleResponsiveMenu()">
@@ -78,6 +78,7 @@
           </ul>
 
           <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
+            <div class="logo-menu"></div>
             <li>
               <span>Para jovens</span>
               <ul class="animated fadeIn faster">
@@ -174,15 +175,15 @@
       </h2>
     </div>
     <div class="product-info" *ngIf="actualPage == 'landing-page'">
-        <h1 class='color-white bold'>
-          Liderança
-        </h1>
-        <h2 class='color-white'>
-          Uma liderança sustentável é a solução para um futuro melhor
-        </h2>
-        <button (click)="scrollToGlobal()" class="button border border-white without-background color-white uppercase margin">
-          Saiba mais
-        </button>
-      </div>
+      <h1 class='color-white bold'>
+        Liderança
+      </h1>
+      <h2 class='color-white'>
+        Uma liderança sustentável é a solução para um futuro melhor
+      </h2>
+      <button (click)="scrollToGlobal()" class="button border border-white without-background color-white uppercase margin">
+        Saiba mais
+      </button>
+    </div>
   </div>
 </section>
