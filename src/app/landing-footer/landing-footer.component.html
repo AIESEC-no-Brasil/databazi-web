@@ -10,64 +10,94 @@
             <ng-template ngbSlide>
               <div class="partners-flex">
                 <div class="partners-item">
-                  <img [src]="partners.assistcard.img" alt="Random first slide">
+                  <a (click)="navTo(partners.assistcard.site)">
+                    <img [src]="partners.assistcard.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.delivery_much.img" alt="Random first slide">
+                  <a (click)="navTo(partners.delivery_much.site)">
+                    <img [src]="partners.delivery_much.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.dhl.img" alt="Random first slide">
+                  <a (click)="navTo(partners.dhl.site)">
+                    <img [src]="partners.dhl.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.electrolux.img" alt="Random first slide">
+                  <a (click)="navTo(partners.electrolux.site)">
+                    <img [src]="partners.electrolux.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.hyva.img" alt="Random first slide">
-                </div>
-              </div>
-            </ng-template>
-            <ng-template ngbSlide>
-              <div class="partners-flex">
-                <div class="partners-item">
-                  <img [src]="partners.leroymerlin.img" alt="Random first slide">
-                </div>
-                <div class="partners-item">
-                  <img [src]="partners.mckinseyecompany.img" alt="Random first slide">
-                </div>
-                <div class="partners-item">
-                  <img [src]="partners.mondelez.img" alt="Random first slide">
-                </div>
-                <div class="partners-item">
-                  <img [src]="partners.nestle.img" alt="Random first slide">
-                </div>
-                <div class="partners-item">
-                  <img [src]="partners.nokia.img" alt="Random first slide">
+                  <a (click)="navTo(partners.hyva.site)">
+                    <img [src]="partners.hyva.img" alt="Random first slide">
+                  </a>
                 </div>
               </div>
             </ng-template>
             <ng-template ngbSlide>
               <div class="partners-flex">
                 <div class="partners-item">
-                  <img [src]="partners.resultadosdigitais.img" alt="Random first slide">
+                  <a (click)="navTo(partners.leroymerlin.site)">
+                    <img [src]="partners.leroymerlin.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.sap.img" alt="Random first slide">
+                  <a (click)="navTo(partners.mckinseyecompany.site)">
+                    <img [src]="partners.mckinseyecompany.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.votorantimcimentos.img" alt="Random first slide">
+                  <a (click)="navTo(partners.mondelez.site)">
+                    <img [src]="partners.mondelez.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.Whirlpoow.img" alt="Random first slide">
+                  <a (click)="navTo(partners.nestle.site)">
+                    <img [src]="partners.nestle.img" alt="Random first slide">
+                  </a>
                 </div>
                 <div class="partners-item">
-                  <img [src]="partners.assistcard.img" alt="Random first slide">
+                  <a (click)="navTo(partners.nokia.site)">
+                    <img [src]="partners.nokia.img" alt="Random first slide">
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <a (click)="navTo(partners.resultadosdigitais.site)">
+                    <img [src]="partners.resultadosdigitais.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.sap.site)">
+                    <img [src]="partners.sap.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.votorantimcimentos.site)">
+                    <img [src]="partners.votorantimcimentos.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.Whirlpoow.site)">
+                    <img [src]="partners.Whirlpoow.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.assistcard.site)">
+                    <img [src]="partners.assistcard.img" alt="Random first slide">
+                  </a>
                 </div>
               </div>
             </ng-template>
           </ngb-carousel>
           <div class="partners-carousel">
-            <i (click)="next()" class="partners-next fas fa-chevron-left"></i>
-            <i (click)="prev()" class="partners-prev fas fa-chevron-right"></i>
+            <i (click)="prev()" class="partners-next fas fa-chevron-left"></i>
+            <i (click)="next()" class="partners-prev fas fa-chevron-right"></i>
           </div>
         </div>
       </div>

@@ -27,9 +27,12 @@ $break-sm: 576px;
       -webkit-box-pack: center;
       -ms-flex-pack: center;      
       .partners-item{
-        padding: 0 3px;
-        img{
-          width: 100%;
+        padding: 0 3px;        
+        a{
+          cursor: pointer;
+          img{
+            width: 100%;
+          }
         }
       }
     }
@@ -40,7 +43,7 @@ $break-sm: 576px;
       position: relative;
       cursor: pointer;
       float: left;
-      top: -108px;
+      top: -76px;
       left: -25px;
     }
 
@@ -51,7 +54,7 @@ $break-sm: 576px;
       position: relative;
       cursor: pointer;
       float: right;
-      top: -108px;
+      top: -76px;
       right: -25px;
     }
   }
@@ -149,6 +152,62 @@ footer {
   }
 }
 
+@media only screen and (min-width: 390px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -83px;
+      }
+
+      .partners-prev{
+        top: -83px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 449px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -83px;
+      }
+
+      .partners-prev{
+        top: -83px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 475px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -88px;
+      }
+
+      .partners-prev{
+        top: -88px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 520px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -97px;
+      }
+
+      .partners-prev{
+        top: -97px;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 576px){
   .partners{
     .footer-carousel{
@@ -162,7 +221,6 @@ footer {
       }
       .partners-next{
         top: -97px;
-        background: red;
       }
 
       .partners-prev{
@@ -184,12 +242,11 @@ footer {
         }
       }
       .partners-next{
-        top: -97px;
-        background: red;
+        top: -103px;
       }
 
       .partners-prev{
-        top: -97px;
+        top: -103px;
       }
     }
   }
@@ -207,12 +264,11 @@ footer {
         }
       }
       .partners-next{
-        top: -97px;
-        background: red;
+        top: -102px;
       }
 
       .partners-prev{
-        top: -97px;
+        top: -102px;
       }
     }
   }

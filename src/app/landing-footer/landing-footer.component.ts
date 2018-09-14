@@ -22,6 +22,10 @@ export class LandingFooterComponent implements OnInit {
     this.carousel.prev()
   }
 
+  navTo(partnerPage) {
+    window.open(partnerPage, '_blank');
+  }
+
   constructor(config: NgbCarouselConfig, private router: Router) { 
     config.showNavigationIndicators = false;
     config.showNavigationArrows = false;
