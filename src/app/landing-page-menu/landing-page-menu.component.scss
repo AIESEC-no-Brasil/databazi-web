@@ -2,7 +2,7 @@
 #bg-menu {
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: rgba(0,0,0,.6);
     position: fixed;
     left: 0;
     top: 0;
@@ -72,6 +72,10 @@
             background-size: contain;
             background-position: center left;
             background-repeat: no-repeat;
+            &.mobile {
+                background-position: center center;
+                position: fixed;
+            }
         }
         .menu-product {
             ul {
@@ -131,7 +135,6 @@
         display: none !important;
     }
     .header-product div.responsive-menu .menu-icon {
-        color: #fff;
         display: block;
         position: fixed;
         right: 35px;
@@ -144,7 +147,7 @@
         color: #fff;
         flex-direction: column;
         position: fixed;
-        top: 45px;
+        top: 60px;
         background-color: $default;
         border-radius: 10px;
         z-index: 100;
