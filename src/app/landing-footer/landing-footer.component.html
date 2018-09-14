@@ -6,6 +6,69 @@
         <h1 class="centered italic">Os nossos parceiros premium</h1>
         <div class="footer-carousel">
           <!-- <landing-footer-carousel></landing-footer-carousel> -->
+          <ngb-carousel class="partners-carousel" #footercarousel *ngIf="partners">
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <img [src]="partners.assistcard.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.delivery_much.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.dhl.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.electrolux.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.hyva.img" alt="Random first slide">
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <img [src]="partners.leroymerlin.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.mckinseyecompany.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.mondelez.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.nestle.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.nokia.img" alt="Random first slide">
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <img [src]="partners.resultadosdigitais.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.sap.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.votorantimcimentos.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.Whirlpoow.img" alt="Random first slide">
+                </div>
+                <div class="partners-item">
+                  <img [src]="partners.assistcard.img" alt="Random first slide">
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <div class="partners-carousel">
+            <i (click)="next()" class="partners-next fas fa-chevron-left"></i>
+            <i (click)="prev()" class="partners-prev fas fa-chevron-right"></i>
+          </div>
         </div>
       </div>
     </div>
