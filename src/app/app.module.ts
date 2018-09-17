@@ -13,6 +13,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -63,6 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule,
     HttpClientModule, 
     ScrollToModule.forRoot(),
+    NgbModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
