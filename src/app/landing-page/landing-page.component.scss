@@ -466,7 +466,7 @@ drag-scroll {
 
 .box-case {
     width: 30%;
-    height: 100px;
+    min-height: 200px;
     position: absolute;
     left: 5%;
     top: 5%;
@@ -667,7 +667,7 @@ drag-scroll {
             font-size: 1.4em;
         }
     }
-    drag-scroll {
+    drag-scroll, .drag-scroll-container, .drag-scroll-wrapper {
         height: 700px !important;
         .cases {
             height: 700px !important
