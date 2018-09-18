@@ -120,7 +120,7 @@
     }
     .faq-image {
         background-image: url('../../assets/products/gt/gt-faq-image.jpg');
-        min-height: 450px;
+        min-height: 650px;
         position: relative;
         border-radius: 5px;
         .round {
@@ -212,6 +212,9 @@
             left: 50%;
             margin-left: -37.5px;
         }
+    }
+    .faq-image {
+        min-height: 450px !important;
     }
     .faq-info {
         text-align: center;

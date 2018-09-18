@@ -58,7 +58,7 @@
                     Business
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/blog/estudantes/">
+                <a href="http://aiesec.blog.br/">
                   <li>
                     Estudantes
                   </li>
@@ -78,7 +78,7 @@
           </ul>
 
           <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
-            <div class="logo-menu"></div>
+            <div class="logo-menu" routerLink="/landing-page"></div>
             <li>
               <span>Para jovens</span>
               <ul class="animated fadeIn faster">
@@ -126,7 +126,7 @@
                     Business
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/blog/estudantes/">
+                <a href="http://aiesec.blog.br/">
                   <li>
                     Estudantes
                   </li>
@@ -158,7 +158,7 @@
     </div>
     <div class="product-info" *ngIf="actualPage == 'landing-page-ge'">
       <h1 class='color-white bold'>
-        Empresário Global
+        Empreendedor Global
       </h1>
       <h2 class='color-white'>
         Empreendedorismo é
