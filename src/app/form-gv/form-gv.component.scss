@@ -20,7 +20,7 @@
         margin: auto;
         padding: 10px;
         box-sizing: border-box;
-        background-color:#ED472D
+        background-color: #ED472D
     }
     .formB *:not(button):not(.error-message):not(.forms-term):not(.forms-term *) {
         background-color: transparent !important;
@@ -45,6 +45,10 @@
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.checkbox {
+    margin: 15px auto 0 auto;
 }
 
 .checkbox input[type="checkbox"] {
@@ -283,20 +287,24 @@ _:-o-prefocus,
             }
         }
         input::-webkit-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input::-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-ms-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
     }
     &.gt {
@@ -460,7 +468,7 @@ section.header h1 {
 }
 
 .forms {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -501,18 +509,23 @@ section.header h1 {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+    color: #fff;
+    font-style: italic;
 }
 
 input:-moz-placeholder {
     /* Firefox 18- */
-    font-size: 16px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
 }
 
 input::-moz-placeholder {
@@ -521,6 +534,9 @@ input::-moz-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
 }
 
 input:-ms-input-placeholder {
@@ -528,6 +544,9 @@ input:-ms-input-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
 }
 
 input[type=text],
@@ -942,22 +961,18 @@ label {
             }
             input::-webkit-input-placeholder {
                 font-size: 12px !important;
-                font-weight: bold;
                 color: #fff
             }
             input:-moz-placeholder {
                 font-size: 12px !important;
-                font-weight: bold;
                 color: #fff
             }
             input::-moz-placeholder {
                 font-size: 12px !important;
-                font-weight: bold;
                 color: #fff
             }
             input:-ms-input-placeholder {
                 font-size: 12px !important;
-                font-weight: bold;
                 color: #fff
             }
         }
@@ -996,7 +1011,6 @@ label {
     input::-webkit-input-placeholder {
         color: #fff !important;
         font-size: 12px;
-        font-weight: bold;
         text-align: right;
         padding-right: 0;
     }
@@ -1004,7 +1018,6 @@ label {
         /* Firefox 18- */
         color: #fff !important;
         font-size: 12px;
-        font-weight: bold;
         text-align: right;
         padding-right: 0;
     }
@@ -1012,14 +1025,12 @@ label {
         /* Firefox 19+ */
         color: #fff !important;
         font-size: 12px;
-        font-weight: bold;
         text-align: right;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
         font-size: 12px;
-        font-weight: bold;
         text-align: right;
         padding-right: 0;
     }
@@ -1064,22 +1075,18 @@ label {
             }
             input::-webkit-input-placeholder {
                 font-size: 14px !important;
-                font-weight: bold;
                 color: #fff
             }
             input:-moz-placeholder {
                 font-size: 14px !important;
-                font-weight: bold;
                 color: #fff
             }
             input::-moz-placeholder {
                 font-size: 14px !important;
-                font-weight: bold;
                 color: #fff
             }
             input:-ms-input-placeholder {
                 font-size: 14px !important;
-                font-weight: bold;
                 color: #fff
             }
         }
@@ -1203,7 +1210,6 @@ label {
     input::-webkit-input-placeholder {
         color: #fff !important;
         font-size: 14px;
-        font-weight: bold;
         text-align: left;
         padding-right: 0;
     }
@@ -1211,7 +1217,6 @@ label {
         /* Firefox 18- */
         color: #fff !important;
         font-size: 14px;
-        font-weight: bold;
         text-align: left;
         padding-right: 0;
     }
@@ -1219,14 +1224,12 @@ label {
         /* Firefox 19+ */
         color: #fff !important;
         font-size: 14px;
-        font-weight: bold;
         text-align: left;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
         font-size: 14px;
-        font-weight: bold;
         text-align: left;
         padding-right: 0;
     }

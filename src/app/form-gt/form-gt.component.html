@@ -90,7 +90,7 @@
                     <div class="input-group-text">
                       <i class="fas fa-envelope"></i>E-mail</div>
                   </div>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também odiamos spam" [(ngModel)]="user.email"
+                  <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
                     (blur)="checkEmail()" formControlName="email" name="email" email required>
                   <div class="valid-feedback" *ngIf="!invalidEmail">
                     <i class="fa fa-check"></i>
@@ -109,7 +109,7 @@
                     <div class="input-group-text">
                       <i class="fas fa-gift"></i>Data de Nascimento</div>
                   </div>
-                  <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são 18 à 30 anos de idade"
+                  <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são para pessoas de 18 à 30 anos"
                     [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
@@ -149,6 +149,11 @@
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
                   </div>
+                </div>
+                <div class="form-group form-check text-center checkbox">
+                  <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
+                    name="cellphone_contactable">
+                  <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
                 </div>
               </div>
               <div *ngIf="isValidPersonal('password')" class='error-message animated fadeIn'>
@@ -263,10 +268,10 @@
                   <div class="form-checkbox-select">
 
                     <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                        <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
-                        <label for="language" for="{{experience.name}}">
-                          {{experience.name}}
-                        </label>
+                      <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
+                      <label for="language" for="{{experience.name}}">
+                        {{experience.name}}
+                      </label>
                     </div>
                   </div>
                 </div>
@@ -300,11 +305,6 @@
                     <label class="form-group forms-tem-accepted">
                       Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
                     </label>
-                    <div class="form-group form-check text-center checkbox">
-                      <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
-                        name="cellphone_contactable">
-                      <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -344,7 +344,8 @@
             </div>
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'" [disabled]='step2Form.invalid || !hasExperience'>
+              <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
+                [disabled]='step2Form.invalid || !hasExperience'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>
