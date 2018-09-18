@@ -241,7 +241,6 @@ main {
 }
 
 .global-columns p {
-    height: 50px;
     color: white;
     margin-top: -30px;
     font-size: 14px;
@@ -356,7 +355,42 @@ section.our-stories {
         background-position: center center;
         background-repeat: no-repeat;
         min-height: 300px;
-        transform: scale(1.2)
+        transform: scale(1.1)
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        span {
+            padding: 0 0 0 20px;
+            text-align: left !important;
+        }
+        .bullet-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            flex: none;
+            margin: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            &.icon-1 {
+                background-image: url('../../assets/images/hexa-4.png');
+            }
+            &.icon-2 {
+                background-image: url('../../assets/images/hexa-3.png');
+            }
+            &.icon-3 {
+                background-image: url('../../assets/images/hexa-1.png');
+            }
+            &.icon-4 {
+                background-image: url('../../assets/images/hexa-2.png');
+            }
+        }
     }
 }
 
@@ -624,6 +658,12 @@ drag-scroll {
         .align-left {
             padding: 0 35px;
         }
+        ul {
+            .bullet-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
     }
     .global-columns {
         >div {
@@ -633,32 +673,32 @@ drag-scroll {
             background-size: cover;
             .bg-color {
                 position: absolute;
-                left:0;
+                left: 0;
                 top: 0;
                 width: 100%;
                 height: 100%;
-                z-index:2;
+                z-index: 2;
             }
             .bg-content {
                 z-index: 3;
                 position: relative;
             }
-            &:nth-child(1){
+            &:nth-child(1) {
                 background-image: url('../../assets/products/gv/gv-intro.jpg');
                 .bg-color {
-                    background-color:rgba(239, 66, 49, .9)
+                    background-color: rgba(239, 66, 49, .9)
                 }
             }
-            &:nth-child(2){
+            &:nth-child(2) {
                 background-image: url('../../assets/products/ge/ge-intro.jpg');
                 .bg-color {
-                    background-color:rgba(65, 187, 155, .9)
+                    background-color: rgba(65, 187, 155, .9)
                 }
             }
-            &:nth-child(3){
+            &:nth-child(3) {
                 background-image: url('../../assets/products/gt/gt-intro.jpg');
                 .bg-color {
-                    background-color:rgba(11, 142, 160, .9)
+                    background-color: rgba(11, 142, 160, .9)
                 }
             }
         }
@@ -667,7 +707,9 @@ drag-scroll {
             font-size: 1.4em;
         }
     }
-    drag-scroll, .drag-scroll-container, .drag-scroll-wrapper {
+    drag-scroll,
+    .drag-scroll-container,
+    .drag-scroll-wrapper {
         height: 700px !important;
         .cases {
             height: 700px !important
