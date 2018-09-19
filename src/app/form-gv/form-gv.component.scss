@@ -960,19 +960,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 12px !important;
+                font-size: 10px !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 12px !important;
+                font-size: 10px !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 12px !important;
+                font-size: 10px !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 12px !important;
+                font-size: 10px !important;
                 color: #fff
             }
         }
@@ -1010,27 +1010,27 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 12px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 12px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
     }
