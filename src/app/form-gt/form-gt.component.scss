@@ -930,9 +930,10 @@ label {
         text-align: right;
         margin: 0;
         min-width: 100%;
-        padding: 10px 30px 6px 13px;
+        padding: 10px 0 6px 12px;
     }
     ::ng-deep .p-inputMask {
+        padding-right: 10px !important;
         &.gv {
             input {
                 font-size: 16px;
@@ -945,24 +946,20 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 10px !important;
-                color: #fff;
-                font-style: italic;
+                font-size: 1.75vw !important;
+                color: #fff
             }
             input:-moz-placeholder {
-                font-size: 10px !important;
-                color: #fff;
-                font-style: italic;
+                font-size: 1.75vw !important;
+                color: #fff
             }
             input::-moz-placeholder {
-                font-size: 10px !important;
-                color: #fff;
-                font-style: italic;
+                font-size: 1.75vw !important;
+                color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 10px !important;
-                color: #fff;
-                font-style: italic;
+                font-size: 1.75vw !important;
+                color: #fff
             }
         }
     }
@@ -999,7 +996,7 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 10px;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
         font-style: italic;
@@ -1007,7 +1004,7 @@ label {
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 10px;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
         font-style: italic;
@@ -1015,14 +1012,14 @@ label {
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 10px;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
         font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 10px;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
         font-style: italic;
@@ -1067,22 +1064,22 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 13px !important;
+                font-size: 2.75vw !important;
                 color: #fff;
                 font-style: italic;
             }
             input:-moz-placeholder {
-                font-size: 13px !important;
+                font-size: 2.75vw !important;
                 color: #fff;
                 font-style: italic;
             }
             input::-moz-placeholder {
-                font-size: 13px !important;
+                font-size: 2.75vw !important;
                 color: #fff;
                 font-style: italic;
             }
             input:-ms-input-placeholder {
-                font-size: 13px !important;
+                font-size: 2.75vw !important;
                 color: #fff;
                 font-style: italic;
             }
@@ -1205,7 +1202,7 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 13px;
+        font-size: 2.75vw !important;
         text-align: left;
         font-style: italic;
         padding-right: 0;
@@ -1213,7 +1210,7 @@ label {
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 13px;
+        font-size: 2.75vw !important;
         text-align: left;
         padding-right: 0;
         font-style: italic;
@@ -1221,14 +1218,14 @@ label {
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 13px;
+        font-size: 2.75vw !important;
         text-align: left;
         padding-right: 0;
         font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 13px;
+        font-size: 2.75vw !important;
         text-align: left;
         padding-right: 0;
         font-style: italic;
