@@ -25,20 +25,13 @@ export class FormGeComponent implements OnInit {
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
-    cellphone_contactable: '', 
+    cellphone_contactable: '',
     english_level: '',
     spanish_level: '',
-    experience: []
+    scholarity: ''
   }
 
-  experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language'},
-    { name: 'Marketing', value: 'marketing'},
-    { name: 'Tecnologia da Informação', value: 'information_technology'},
-    { name: 'Gestão', value: 'management'},
-  ]
-
-  selectedItems : any = {
+  selectedItems: any = {
     language: false,
     marketing: false,
     information_technology: false,
@@ -59,7 +52,6 @@ export class FormGeComponent implements OnInit {
   step2Form: FormGroup;
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
-  hasExperience:boolean = false;
   completedSignup: boolean = false;
 
   universities: any;
@@ -91,7 +83,8 @@ export class FormGeComponent implements OnInit {
       repassword: new FormControl(this.user.repassword, [
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ])
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university_id, [
@@ -109,7 +102,9 @@ export class FormGeComponent implements OnInit {
       spanish_level: new FormControl(this.user.spanish_level, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      scholarity: new FormControl(this.user.scholarity, [
+        Validators.required
+      ]),
     })
   }
 
@@ -119,16 +114,11 @@ export class FormGeComponent implements OnInit {
     this.fillPlacesSelect();
   }
 
-  addOrRemove(experience){
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-    (_.find(this.selectedItems, (element) => {return element == true})) ? this.hasExperience = true : this.hasExperience = false;
-  }
-
-  cancelSignUp(){
+  cancelSignUp() {
     this.router.navigate(['/landing-page']);
   }
 
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
@@ -167,27 +157,62 @@ export class FormGeComponent implements OnInit {
     })
   }
 
+  changeScholarity(scholarity_level) {
+    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+      this.user.university_id = '';
+      this.user.college_course_id = '';
+    }
+  }
+
+  unableToSubmit(){
+    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  }
+
+  emptyFields(){
+    return !this.user.scholarity || !this.user.english_level || !this.user.spanish_level ||  !this.user.local_committee_id
+  }
+
+  emptyUniversity(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.university_id
+    }
+    else {
+      return false;
+    }
+  }
+
+  emptyCourse(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.college_course_id
+    }
+    else {
+      return false;
+    }
+  }
+
   checkDate() {
     let date = this.user.birthdate.split('/');
     if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
       this.invalidDate = false;
-      this.matchDate = (moment(+date[2]).isBetween((moment().year() - 30), moment().year() - 18))
+      let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+      let age = moment().diff(date, 'years', false);
+      (age >= 18 && age <= 30) ? this.matchDate = true : this.matchDate = false
     }
     else {
       this.invalidDate = true;
     }
   }
 
-  checkPhone(){
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
     else {
       this.invalidPhone = false;
-    }  
+    }
   }
 
   registerUser() {
@@ -216,15 +241,15 @@ export class FormGeComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: +this.user.university_id,
-        college_course_id: +this.user.college_course_id,
+        university_id: (!this.user.university_id ? null : +this.user.university_id),
+        college_course_id: (!this.user.college_course_id ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
+        scholarity: +this.user.scholarity,
         english_level: +this.user.english_level,
-        spanish_level: +this.user.spanish_level,
-        experience: this.selectedItems
+        spanish_level: +this.user.spanish_level
       }
     };
-    this.loading = true;
+    this.loading = true;    
     this.signupService.addGeParticipant(user)
       .then((res: any) => {
         this.loading = false;

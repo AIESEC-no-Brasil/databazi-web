@@ -4,6 +4,12 @@ $break-md: 768px;
 $break-sm: 576px;
 
 .partners {
+  &.margin-top-and-bottom {
+    margin: 75px auto 0 auto !important
+  }
+  .row > div {
+    height: 250px;
+  }
   h1 {
     padding-bottom: 40px;
   }
@@ -138,7 +144,6 @@ footer {
       margin: 0px 8px;
     }
   }
-  
 }
 
 @media only screen and (max-width: $break-sm) {

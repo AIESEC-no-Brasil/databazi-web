@@ -91,7 +91,8 @@ export class FormGtComponent implements OnInit {
       repassword: new FormControl(this.user.repassword, [
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ])
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university_id, [
@@ -109,7 +110,6 @@ export class FormGtComponent implements OnInit {
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     })
   }
 
@@ -167,11 +167,46 @@ export class FormGtComponent implements OnInit {
     })
   }
 
+  changeScholarity(scholarity_level) {
+    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+      this.user.university_id = '';
+      this.user.college_course_id = '';
+    }
+  }
+
+  unableToSubmit(){
+    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  }
+
+  emptyFields(){
+    return !this.user.scholarity || !this.user.english_level || !this.hasExperience || !this.user.local_committee_id
+  }
+
+  emptyUniversity(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.university_id
+    }
+    else {
+      return false;
+    }
+  }
+
+  emptyCourse(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.college_course_id
+    }
+    else {
+      return false;
+    }
+  }
+
   checkDate() {
     let date = this.user.birthdate.split('/');
     if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
       this.invalidDate = false;
-      this.matchDate = (moment(+date[2]).isBetween((moment().year() - 30), moment().year() - 18))
+      let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+      let age = moment().diff(date, 'years', false);
+      (age >= 18 && age <= 30) ? this.matchDate = true : this.matchDate = false
     }
     else {
       this.invalidDate = true;
@@ -216,8 +251,8 @@ export class FormGtComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: +this.user.university_id,
-        college_course_id: +this.user.college_course_id,
+        university_id: (!this.user.university_id ? null : +this.user.university_id),
+        college_course_id: (!this.user.college_course_id ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level,
         scholarity: +this.user.scholarity,
