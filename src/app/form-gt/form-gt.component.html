@@ -172,28 +172,32 @@
           <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
             <form [formGroup]="step2Form" class="forms">
               <div>
-                <div class="form-group">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-graduation-cap"></i>Escolaridade</div>
-                    </div>
-                    <div class="dropdown">
-                      <div class="styled-select">
-                        <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity">
-                          <option value="">Qual seu nível de escolaridade?</option>
-                          <option value="0">Estudante de Graduação</option>
-                          <option value="1">Mestrado ou Pós</option>
-                          <option value="2">Graduado em até 1,5 anos</option>
-                          <option value="3">Graduado há mais de 2 anos</option>
-                        </select>
+                  <div class="form-group">
+                      <div class="input-group select-dropdown">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-graduation-cap"></i>Escolaridade</div>
+                        </div>
+                        <div class="dropdown">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity" (ngModelChange)="changeScholarity(user.scholarity)">
+                              <option value="">Qual seu nível de escolaridade?</option>
+                              <option value="0">Ensino Médio Completo</option>
+                              <option value="1">Graduação Incompleta</option>
+                              <option value="2">Estudante de Graduação</option>
+                              <option value="3">Mestrado ou Pós</option>
+                              <option value="4">Graduado em até 1,5 anos</option>
+                              <option value="5">Graduado há mais de 2 anos</option>
+                              <option value="6">Outro</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="isValidStudy('scholarity')" class='error-message'>
+                        Selecione um nível de escolaridade
                       </div>
                     </div>
-                  </div>
-                  <div *ngIf="isValidStudy('scholarity')" class='error-message'>
-                    Selecione um nível de escolaridade
-                  </div>
-                </div>
+                <div *ngIf="user.scholarity >= 2 && user.scholarity != 6" class="animated fadeIn faster">                    
                 <div class="form-group">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
@@ -231,6 +235,7 @@
                   <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
                     Selecione um curso.
                   </div>
+                </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group select-dropdown">
@@ -345,7 +350,7 @@
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
               <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
-                [disabled]='step2Form.invalid || !hasExperience'>
+                [disabled]='unableToSubmit()'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>

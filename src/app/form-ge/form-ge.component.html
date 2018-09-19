@@ -176,38 +176,65 @@
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
-                        <i class="fas fa-graduation-cap"></i>Universidade</div>
+                        <i class="fas fa-graduation-cap"></i>Escolaridade</div>
                     </div>
                     <div class="dropdown">
                       <div class="styled-select">
-                        <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
-                          <option value="">Onde você estuda?</option>
-                          <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
+                        <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity" (ngModelChange)="changeScholarity(user.scholarity)">
+                          <option value="">Qual seu nível de escolaridade?</option>
+                          <option value="0">Ensino Médio Completo</option>
+                          <option value="1">Graduação Incompleta</option>
+                          <option value="2">Estudante de Graduação</option>
+                          <option value="3">Mestrado ou Pós</option>
+                          <option value="4">Graduado em até 1,5 anos</option>
+                          <option value="5">Graduado há mais de 2 anos</option>
+                          <option value="6">Outro</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValidStudy('university_id')" class='error-message'>
-                    Selecione uma universidade.
+                  <div *ngIf="isValidStudy('scholarity')" class='error-message'>
+                    Selecione um nível de escolaridade
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-book-open"></i>Curso</div>
-                    </div>
-                    <div class="dropdown">
-                      <div class="styled-select">
-                        <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
-                          <option value="">Insira seu curso</option>
-                          <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
-                        </select>
+                <div *ngIf="user.scholarity >= 2 && user.scholarity != 6" class="animated fadeIn faster">
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-graduation-cap"></i>Universidade</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
+                            <option value="">Onde você estuda?</option>
+                            <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
+                    <div *ngIf="isValidStudy('university_id')" class='error-message'>
+                      Selecione uma universidade.
+                    </div>
                   </div>
-                  <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
-                    Selecione um curso.
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Curso</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
+                            <option value="">Insira seu curso</option>
+                            <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
+                      Selecione um curso.
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -254,26 +281,6 @@
                   </div>
                   <div *ngIf="isValidStudy('spanish_level')" class='error-message'>
                     Selecione um nível de espanhol.
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-book-open"></i>Experiências</div>
-                    </div>
-                    <div class="label-experience">
-                      Escolha pelo menos uma opção abaixo.
-                    </div>
-                  </div>
-                  <div class="form-checkbox-select">
-
-                    <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                      <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
-                      <label for="language" for="{{experience.name}}">
-                        {{experience.name}}
-                      </label>
-                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -346,7 +353,7 @@
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
               <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
-                [disabled]='step2Form.invalid || !hasExperience'>
+                [disabled]='unableToSubmit()'>
                 Enviar
                 <i class="fab fa-telegram-plane"></i>
               </button>
