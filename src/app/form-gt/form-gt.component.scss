@@ -276,7 +276,8 @@ _:-o-prefocus,
         }
         input::-webkit-input-placeholder {
             font-size: 13px !important;
-            color: #fff
+            color: #fff;
+            font-style: italic;
         }
         input:-moz-placeholder {
             font-size: 13px !important;
@@ -944,22 +945,22 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 13px !important;
+                font-size: 10px !important;
                 color: #fff;
                 font-style: italic;
             }
             input:-moz-placeholder {
-                font-size: 13px !important;
+                font-size: 10px !important;
                 color: #fff;
                 font-style: italic;
             }
             input::-moz-placeholder {
-                font-size: 13px !important;
+                font-size: 10px !important;
                 color: #fff;
                 font-style: italic;
             }
             input:-ms-input-placeholder {
-                font-size: 13px !important;
+                font-size: 10px !important;
                 color: #fff;
                 font-style: italic;
             }
@@ -998,7 +999,7 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 13px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
         font-style: italic;
@@ -1006,7 +1007,7 @@ label {
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 13px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
         font-style: italic;
@@ -1014,14 +1015,14 @@ label {
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 13px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
         font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 13px;
+        font-size: 10px;
         text-align: right;
         padding-right: 0;
         font-style: italic;
