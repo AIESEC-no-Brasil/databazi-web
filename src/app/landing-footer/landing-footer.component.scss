@@ -135,6 +135,7 @@ footer {
     .footer-links {
       .footer-group-links {
         padding-bottom: 20px;
+        width: 47.5% !important
       }
     }
   }
@@ -144,6 +145,8 @@ footer {
       margin: 0px 8px;
     }
   }
+
+
 }
 
 @media only screen and (max-width: $break-sm) {
