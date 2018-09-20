@@ -641,7 +641,8 @@ label {
 
 .form-check-label {
     margin-bottom: 0;
-    text-decoration: underline;
+    text-align: left;
+    font-size:15px;
 }
 
 .dropdown,
@@ -1068,6 +1069,9 @@ label {
         font-size: 13px;
         font-weight: 400;
         line-height: 18px;
+    }
+    .form-check-label {
+        font-size: 13px;
     }
 }
 
