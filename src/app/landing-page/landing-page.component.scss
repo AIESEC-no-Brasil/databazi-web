@@ -40,7 +40,7 @@ main {
     margin-bottom: 10px;
     height: 450px;
     position: relative;
-    background-image: url('../../assets/images/header.png');
+    background-image: url('../../assets/images/header.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat
@@ -73,7 +73,7 @@ main {
     align-items: center;
     min-height: 400px;
     background-color: red;
-    background-image: url('../../assets/images/header.png');
+    background-image: url('../../assets/images/header.jpg');
     background-position: center center;
     .description {
         h2 {
@@ -283,7 +283,7 @@ section.our-stories {
 }
 
 .history-session-image {
-    background-image: url('../../assets/images/party.JPG');
+    background-image: url('../../assets/images/party.png');
     background-size: cover;
     min-height: 300px;
     position: relative;
@@ -576,6 +576,18 @@ drag-scroll {
             &.active {
                 background-color: $default;
             }
+        }
+    }
+}
+
+@media (min-width: 991px) {
+    .box-case {
+        &.box-case-gv {
+            top: 50%;
+            height: 225px;
+            margin-top: -135px;
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
     }
 }

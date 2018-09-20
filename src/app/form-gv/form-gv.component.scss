@@ -27,6 +27,33 @@
     }
 }
 
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #ED482D;
+            padding: 0 10px;
+            border-bottom: 2px solid #f6a496;
+            min-width: 35px;
+            justify-content: center;
+        }
+    }
+}
+
 // form A/B - end
 .forms-term {
     textarea {
