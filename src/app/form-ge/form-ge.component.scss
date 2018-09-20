@@ -12,6 +12,33 @@
     }
 }
 
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #1CA390;
+            padding: 0 10px;
+            border-bottom: 2px solid #37BC99;
+            min-width: 35px;
+            justify-content: center;
+        }
+    }
+}
+
 .loading-animation-ge {
     background-image: url('../../assets/images/sent-ge.png');
     background-size: 50%;
@@ -199,6 +226,7 @@ select:focus {
 
 .label-experience {
     padding: 10px 0 10px 15px;
+    font-style: italic;
 }
 
 .form-checkbox-select {

@@ -30,6 +30,8 @@ export class FormGvComponent implements OnInit {
 
   msgs: Message[] = [];
 
+  placeholderBirthdate: string;
+
   personalData: boolean = true;
   studyData: boolean = false;
 
@@ -91,13 +93,18 @@ export class FormGvComponent implements OnInit {
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
-    })
+    });
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
+  }
+
+  onResize(event){
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
   cancelSignUp(){

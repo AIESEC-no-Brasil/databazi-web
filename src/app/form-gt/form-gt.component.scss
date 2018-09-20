@@ -12,6 +12,33 @@
     }
 }
 
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #0A8191;
+            padding: 0 10px;
+            border-bottom: 2px solid #0a8ea0;
+            min-width: 35px;
+            justify-content: center;
+        }
+    }
+}
+
 .loading-animation-gt {
     background-image: url('../../assets/images/sent-gt.png');
     background-size: 50%;
@@ -21,6 +48,7 @@
 
 .checkbox {
     margin: 15px auto 0 auto;
+    width: 95%;
 }
 
 .checkbox input[type="checkbox"] {
@@ -197,6 +225,7 @@ select:focus {
 
 .label-experience {
     padding: 10px 0 10px 15px;
+    font-style: italic;
 }
 
 .form-checkbox-select {

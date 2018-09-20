@@ -38,6 +38,8 @@ export class FormGtComponent implements OnInit {
     { name: 'Gestão', value: 'management'},
   ]
 
+  placeholderBirthdate: string;
+
   selectedItems : any = {
     language: false,
     marketing: false,
@@ -59,7 +61,6 @@ export class FormGtComponent implements OnInit {
   step2Form: FormGroup;
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
-  hasExperience:boolean = false;
   completedSignup: boolean = false;
 
   universities: any;
@@ -110,7 +111,8 @@ export class FormGtComponent implements OnInit {
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
-    })
+    });
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
@@ -119,9 +121,12 @@ export class FormGtComponent implements OnInit {
     this.fillPlacesSelect();
   }
 
+  onResize(event){
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
+  }
+
   addOrRemove(experience){
     (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-    (_.find(this.selectedItems, (element) => {return element == true})) ? this.hasExperience = true : this.hasExperience = false;
   }
 
   cancelSignUp(){
@@ -179,7 +184,7 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyFields(){
-    return !this.user.scholarity || !this.user.english_level || !this.hasExperience || !this.user.local_committee_id
+    return !this.user.scholarity || !this.user.english_level || !this.user.local_committee_id
   }
 
   emptyUniversity(){
