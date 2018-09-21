@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 
 @Component({
@@ -28,7 +28,10 @@ export class FormGeComponent implements OnInit {
     cellphone_contactable: '',
     english_level: '',
     spanish_level: '',
-    scholarity: ''
+    scholarity: '',
+    source: '',
+    medium: '',
+    campaign: ''
   }
 
   placeholderBirthdate: string;
@@ -63,7 +66,8 @@ export class FormGeComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -112,6 +116,21 @@ export class FormGeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['source']) {
+        localStorage.setItem('source', param['source'])
+      }
+
+      if (param['medium']) {
+        localStorage.setItem('medium', param['medium'])
+      }
+
+      if (param['campaign']) {
+        localStorage.setItem('campaign', param['campaign'])
+      }
+
+    });
+
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
@@ -248,15 +267,18 @@ export class FormGeComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: (!this.user.university_id ? null : +this.user.university_id),
-        college_course_id: (!this.user.college_course_id ? null : +this.user.college_course_id),
+        university_id: (this.user.university_id == '' ? null : +this.user.university_id),
+        college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         scholarity: +this.user.scholarity,
         english_level: +this.user.english_level,
-        spanish_level: +this.user.spanish_level
+        spanish_level: +this.user.spanish_level,
+        source: (localStorage.getItem('source') ? localStorage.getItem('source') : null),
+        medium: (localStorage.getItem('medium') ? localStorage.getItem('medium') : null),
+        campaign: (localStorage.getItem('campaign') ? localStorage.getItem('campaign') : null)
       }
     };
-    this.loading = true;    
+    this.loading = true;
     this.signupService.addGeParticipant(user)
       .then((res: any) => {
         this.loading = false;
@@ -266,6 +288,9 @@ export class FormGeComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('source');
+          localStorage.removeItem('medium');
+          localStorage.removeItem('campaign');
         }
       },
         (err) => {

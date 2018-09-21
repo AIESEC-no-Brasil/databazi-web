@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-gv',
@@ -25,7 +25,10 @@ export class FormGvComponent implements OnInit {
     university_id: '',
     college_course_id: '',
     cellphone_contactable: '',
-    scholarity: ''
+    scholarity: '',
+    source: '',
+    medium: '',
+    campaign: ''
   }
 
   msgs: Message[] = [];
@@ -55,7 +58,8 @@ export class FormGvComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -98,6 +102,21 @@ export class FormGvComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['source']) {
+        localStorage.setItem('source', param['source'])
+      }
+
+      if (param['medium']) {
+        localStorage.setItem('medium', param['medium'])
+      }
+
+      if (param['campaign']) {
+        localStorage.setItem('campaign', param['campaign'])
+      }
+
+    });
+
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
@@ -206,7 +225,7 @@ export class FormGvComponent implements OnInit {
     }
     else {
       this.invalidPhone = false;
-    }  
+    }
   }
 
   registerUser() {
@@ -238,10 +257,13 @@ export class FormGvComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: (this.user.university_id == null ? null : +this.user.university_id),
-        college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
+        university_id: (this.user.university_id == '' ? null : +this.user.university_id),
+        college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity
+        scholarity: +this.user.scholarity,
+        source: (localStorage.getItem('source') ? localStorage.getItem('source') : null),
+        medium: (localStorage.getItem('medium') ? localStorage.getItem('medium') : null),
+        campaign: (localStorage.getItem('campaign') ? localStorage.getItem('campaign') : null)
       }
     };
     this.loading = true;
@@ -254,6 +276,9 @@ export class FormGvComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('source');
+          localStorage.removeItem('medium');
+          localStorage.removeItem('campaign');
         }
       },
         (err) => {
