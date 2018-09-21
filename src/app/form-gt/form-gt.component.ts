@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 
 @Component({
@@ -25,10 +25,13 @@ export class FormGtComponent implements OnInit {
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
-    cellphone_contactable: '', 
+    cellphone_contactable: '',
     english_level: '',
     scholarity: '',
-    experience: []
+    experience: [],
+    source: '',
+    medium: '',
+    campaign: ''
   }
 
   experienceItems = [
@@ -70,7 +73,8 @@ export class FormGtComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -116,6 +120,21 @@ export class FormGtComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['source']) {
+        localStorage.setItem('source', param['source'])
+      }
+
+      if (param['medium']) {
+        localStorage.setItem('medium', param['medium'])
+      }
+
+      if (param['campaign']) {
+        localStorage.setItem('campaign', param['campaign'])
+      }
+
+    });
+
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
@@ -227,7 +246,7 @@ export class FormGtComponent implements OnInit {
     }
     else {
       this.invalidPhone = false;
-    }  
+    }
   }
 
   registerUser() {
@@ -261,7 +280,10 @@ export class FormGtComponent implements OnInit {
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level,
         scholarity: +this.user.scholarity,
-        experience: this.selectedItems
+        experience: this.selectedItems,
+        source: (localStorage.getItem('source') ? localStorage.getItem('source') : null),
+        medium: (localStorage.getItem('medium') ? localStorage.getItem('medium') : null),
+        campaign: (localStorage.getItem('campaign') ? localStorage.getItem('campaign') : null)
       }
     };
     this.loading = true;
