@@ -296,6 +296,9 @@ export class FormGtComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('source');
+          localStorage.removeItem('medium');
+          localStorage.removeItem('campaign');
         }
       },
         (err) => {
