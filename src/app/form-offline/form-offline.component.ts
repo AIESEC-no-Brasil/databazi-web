@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -6,52 +6,38 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router } from '@angular/router';
-import * as _ from 'lodash';
 
 @Component({
-  selector: 'app-form-gt',
-  templateUrl: './form-gt.component.html',
-  styleUrls: ['./form-gt.component.scss']
+  selector: 'app-form-offline',
+  templateUrl: './form-offline.component.html',
+  styleUrls: ['./form-offline.component.scss']
 })
-export class FormGtComponent implements OnInit {
+export class FormOfflineComponent implements OnInit {
 
-  @Input() formedUser: any;
-
-  user = {
-    fullname: '',
-    cellphone: '',
-    email: '',
-    birthdate: '',
-    password: '',
-    repassword: '',
+	user = {
+    fullname: 'Gabriel Reis Cruz',
+    cellphone: '13981192306',
+    email: 'gabrielreis@devmagic.com.br',
+    birthdate: '24/01/1996',
+    password: 'DevMagic1',
+    repassword: 'DevMagic1',
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
-    cellphone_contactable: '', 
-    english_level: '',
+    cellphone_contactable: '',
     scholarity: '',
-    experience: []
+    program: ''
   }
 
-  experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language'},
-    { name: 'Marketing', value: 'marketing'},
-    { name: 'Tecnologia da Informação', value: 'information_technology'},
-    { name: 'Gestão', value: 'management'},
-  ]
+  msgs: Message[] = [];
 
   placeholderBirthdate: string;
 
-  selectedItems : any = {
-    language: false,
-    marketing: false,
-    information_technology: false,
-    management: false
-  };
-  msgs: Message[] = [];
-
   personalData: boolean = true;
   studyData: boolean = false;
+  showGVStep: boolean = false;
+  showGTStep: boolean = false;
+  showGEStep: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -65,6 +51,7 @@ export class FormGtComponent implements OnInit {
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
 
+  formToggle : boolean = false;
   universities: any;
   courses: any;
   places: any;
@@ -95,7 +82,10 @@ export class FormGtComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      program: new FormControl(this.user.program, [
+      	Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university_id, [
@@ -107,9 +97,6 @@ export class FormGtComponent implements OnInit {
       local_committee_id: new FormControl(this.user.local_committee_id, [
         Validators.required
       ]),
-      english_level: new FormControl(this.user.english_level, [
-        Validators.required
-      ]),
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
@@ -118,11 +105,6 @@ export class FormGtComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.formedUser){
-      this.user = this.formedUser;
-      this.personalData = false;
-      this.studyData = true;
-    }
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
@@ -132,13 +114,10 @@ export class FormGtComponent implements OnInit {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  addOrRemove(experience){
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-  }
-
   cancelSignUp(){
     this.router.navigate(['/landing-page']);
   }
+
 
   accessAiesec(){
     window.open("https://aiesec.org/", "_blank");
@@ -179,19 +158,16 @@ export class FormGtComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university_id = '';
-      this.user.college_course_id = '';
-    }
-  }
+  /*changeProgram(program) {
+  	this.user.program = program;
+  }*/
 
   unableToSubmit(){
     return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
   }
 
   emptyFields(){
-    return !this.user.scholarity || !this.user.english_level || !this.user.local_committee_id
+    return !this.user.scholarity || !this.user.local_committee_id
   }
 
   emptyUniversity(){
@@ -237,8 +213,17 @@ export class FormGtComponent implements OnInit {
     }  
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
+  nextStep() {
+  	if(this.user.program == '0'){
+  		this.showGVStep = true;
+  	}
+  	if(this.user.program == '1'){
+  		this.showGTStep = true;  		
+  	}
+  	if(this.user.program == '2'){
+  		this.showGEStep = true;  		
+  	}
+    /*this.submittedPersonal = true;
     if (this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
@@ -249,30 +234,31 @@ export class FormGtComponent implements OnInit {
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
-    }
+    }*/
   }
 
+  toggleFormGv() {
+    this.formToggle ? this.formToggle = false : this.formToggle = true;
+  }
   submit() {
     this.submittedStudy = true;
 
     let user = {
-      gt_participant: {
+      gv_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: (!this.user.university_id ? null : +this.user.university_id),
-        college_course_id: (!this.user.college_course_id ? null : +this.user.college_course_id),
+        university_id: (this.user.university_id == null ? null : +this.user.university_id),
+        college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        english_level: +this.user.english_level,
-        scholarity: +this.user.scholarity,
-        experience: this.selectedItems
+        scholarity: +this.user.scholarity
       }
     };
     this.loading = true;
-    this.signupService.addGtParticipant(user)
+    this.signupService.addGvParticipant(user)
       .then((res: any) => {
         this.loading = false;
         if (res.status == 'failure') {
@@ -313,7 +299,6 @@ export class FormGtComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
-  }
-
+  }  
 
 }

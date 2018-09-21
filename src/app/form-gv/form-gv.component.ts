@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-gv.component.scss']
 })
 export class FormGvComponent implements OnInit {
+
+  @Input() formedUser: any;
 
   user = {
     fullname: '',
@@ -98,6 +100,11 @@ export class FormGvComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.formedUser){
+      this.user = this.formedUser;
+      this.personalData = false;
+      this.studyData = true;
+    }
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
