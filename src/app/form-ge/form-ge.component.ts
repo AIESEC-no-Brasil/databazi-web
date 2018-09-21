@@ -8,6 +8,8 @@ import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 
+import { FormOfflineComponent } from '../form-offline/form-offline.component'
+
 @Component({
   selector: 'app-form-ge',
   templateUrl: './form-ge.component.html',
@@ -69,7 +71,8 @@ export class FormGeComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute
+    public urlScrapper: ActivatedRoute,
+    public formOfflineComponent: FormOfflineComponent
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -118,7 +121,7 @@ export class FormGeComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     if(this.formedUser){
       this.user = this.formedUser;
       this.personalData = false;
@@ -150,7 +153,11 @@ export class FormGeComponent implements OnInit {
   }
 
   cancelSignUp() {
-    this.router.navigate(['/landing-page']);
+    if(this.formedUser){
+      this.formOfflineComponent.hideGEStep();
+    }else{
+      this.router.navigate(['/landing-page']);
+    }
   }
 
   accessAiesec() {

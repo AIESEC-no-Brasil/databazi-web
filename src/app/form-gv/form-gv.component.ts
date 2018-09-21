@@ -6,6 +6,7 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormOfflineComponent } from '../form-offline/form-offline.component'
 
 @Component({
   selector: 'app-form-gv',
@@ -61,7 +62,8 @@ export class FormGvComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute
+    public urlScrapper: ActivatedRoute,
+    public formOfflineComponent: FormOfflineComponent
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -104,7 +106,7 @@ export class FormGvComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+
     if(this.formedUser){
       this.user = this.formedUser;
       this.personalData = false;
@@ -136,7 +138,11 @@ export class FormGvComponent implements OnInit {
   }
 
   cancelSignUp(){
-    this.router.navigate(['/landing-page']);
+    if(this.formedUser){
+      this.formOfflineComponent.hideGVStep();
+    }else{
+      this.router.navigate(['/landing-page']);
+    }
   }
 
 

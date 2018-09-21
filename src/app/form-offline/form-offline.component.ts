@@ -214,16 +214,8 @@ export class FormOfflineComponent implements OnInit {
   }
 
   nextStep() {
-  	if(this.user.program == '0'){
-  		this.showGVStep = true;
-  	}
-  	if(this.user.program == '1'){
-  		this.showGTStep = true;  		
-  	}
-  	if(this.user.program == '2'){
-  		this.showGEStep = true;  		
-  	}
-    /*this.submittedPersonal = true;
+
+    this.submittedPersonal = true;
     if (this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
@@ -232,9 +224,28 @@ export class FormOfflineComponent implements OnInit {
     }
 
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
-      this.personalData = false;
-      this.studyData = true;
-    }*/
+      /*this.personalData = false;
+      this.studyData = true;*/
+      if(this.user.program == '0'){
+        this.showGVStep = true;
+      }
+      if(this.user.program == '1'){
+        this.showGTStep = true;     
+      }
+      if(this.user.program == '2'){
+        this.showGEStep = true;     
+      }
+    }
+  }
+
+  hideGVStep() {
+    this.showGVStep = false;
+  }
+  hideGTStep() {
+    this.showGTStep = false;
+  }
+  hideGEStep() {
+    this.showGEStep = false;
   }
 
   toggleFormGv() {
