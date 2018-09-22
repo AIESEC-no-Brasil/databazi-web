@@ -15,12 +15,12 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class FormOfflineComponent implements OnInit {
 
 	user = {
-    fullname: 'Gabriel Reis Cruz',
-    cellphone: '13981192306',
-    email: 'gabrielreis@devmagic.com.br',
-    birthdate: '24/01/1996',
-    password: 'DevMagic1',
-    repassword: 'DevMagic1',
+    fullname: '',
+    cellphone: '',
+    email: '',
+    birthdate: '',
+    password: '',
+    repassword: '',
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
