@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 
 
-@Injectable({ 
+@Injectable({
   providedIn: 'root'
 })
 export class SignupService {
 
-	public static url: string = 'http://qa.databazi.aiesec.org.br'
+	public static url: string = 'http://api.aiesec.org.br'
 
 	constructor( public http: Http ) { }
-	
+
 	headers(){
     let headers = new Headers();
 		headers.append('Content-Type', 'application/json');
