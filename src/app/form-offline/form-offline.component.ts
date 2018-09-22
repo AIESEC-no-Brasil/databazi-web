@@ -5,7 +5,7 @@ import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-offline',
@@ -59,6 +59,7 @@ export class FormOfflineComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
+    public urlScrapper: ActivatedRoute,
     public router: Router
   ) {
     this.step1Form = new FormGroup({
@@ -105,6 +106,21 @@ export class FormOfflineComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['source']) {
+        localStorage.setItem('source', param['source'])
+      }
+
+      if (param['medium']) {
+        localStorage.setItem('medium', param['medium'])
+      }
+
+      if (param['campaign']) {
+        localStorage.setItem('campaign', param['campaign'])
+      }
+    });
+
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
