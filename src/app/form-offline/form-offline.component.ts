@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -6,18 +6,15 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormOfflineComponent } from '../form-offline/form-offline.component'
 
 @Component({
-  selector: 'app-form-gv',
-  templateUrl: './form-gv.component.html',
-  styleUrls: ['./form-gv.component.scss']
+  selector: 'app-form-offline',
+  templateUrl: './form-offline.component.html',
+  styleUrls: ['./form-offline.component.scss']
 })
-export class FormGvComponent implements OnInit {
+export class FormOfflineComponent implements OnInit {
 
-  @Input() formedUser: any;
-
-  user = {
+	user = {
     fullname: '',
     cellphone: '',
     email: '',
@@ -29,9 +26,7 @@ export class FormGvComponent implements OnInit {
     college_course_id: '',
     cellphone_contactable: '',
     scholarity: '',
-    source: '',
-    medium: '',
-    campaign: ''
+    program: ''
   }
 
   msgs: Message[] = [];
@@ -40,6 +35,9 @@ export class FormGvComponent implements OnInit {
 
   personalData: boolean = true;
   studyData: boolean = false;
+  showGVStep: boolean = false;
+  showGTStep: boolean = false;
+  showGEStep: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -61,9 +59,8 @@ export class FormGvComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
-    public router: Router,
     public urlScrapper: ActivatedRoute,
-    public formOfflineComponent: FormOfflineComponent
+    public router: Router
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -86,6 +83,9 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
+      program: new FormControl(this.user.program, [
+      	Validators.required
+      ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     this.step2Form = new FormGroup({
@@ -107,12 +107,6 @@ export class FormGvComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.formedUser){
-      this.user = this.formedUser;
-      this.personalData = false;
-      this.studyData = true;
-    }
-
     this.urlScrapper.queryParams.subscribe((param: any) => {
       if (param['source']) {
         localStorage.setItem('source', param['source'])
@@ -125,7 +119,6 @@ export class FormGvComponent implements OnInit {
       if (param['campaign']) {
         localStorage.setItem('campaign', param['campaign'])
       }
-
     });
 
     this.fillUniversitySelect();
@@ -138,11 +131,7 @@ export class FormGvComponent implements OnInit {
   }
 
   cancelSignUp(){
-    if(this.formedUser){
-      this.formOfflineComponent.hideGVStep();
-    }else{
-      this.router.navigate(['/landing-page']);
-    }
+    this.router.navigate(['/landing-page']);
   }
 
 
@@ -185,12 +174,9 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university_id = '';
-      this.user.college_course_id = '';
-    }
-  }
+  /*changeProgram(program) {
+  	this.user.program = program;
+  }*/
 
   unableToSubmit(){
     return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
@@ -240,10 +226,11 @@ export class FormGvComponent implements OnInit {
     }
     else {
       this.invalidPhone = false;
-    }
+    }  
   }
 
-  registerUser() {
+  nextStep() {
+
     this.submittedPersonal = true;
     if (this.user.password != this.user.repassword) {
       this.invalidPassword = true;
@@ -253,9 +240,28 @@ export class FormGvComponent implements OnInit {
     }
 
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
-      this.personalData = false;
-      this.studyData = true;
+      /*this.personalData = false;
+      this.studyData = true;*/
+      if(this.user.program == '0'){
+        this.showGVStep = true;
+      }
+      if(this.user.program == '1'){
+        this.showGTStep = true;     
+      }
+      if(this.user.program == '2'){
+        this.showGEStep = true;     
+      }
     }
+  }
+
+  hideGVStep() {
+    this.showGVStep = false;
+  }
+  hideGTStep() {
+    this.showGTStep = false;
+  }
+  hideGEStep() {
+    this.showGEStep = false;
   }
 
   toggleFormGv() {
@@ -272,13 +278,10 @@ export class FormGvComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: (this.user.university_id == '' ? null : +this.user.university_id),
-        college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
+        university_id: (this.user.university_id == null ? null : +this.user.university_id),
+        college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity,
-        source: (localStorage.getItem('source') ? localStorage.getItem('source') : null),
-        medium: (localStorage.getItem('medium') ? localStorage.getItem('medium') : null),
-        campaign: (localStorage.getItem('campaign') ? localStorage.getItem('campaign') : null)
+        scholarity: +this.user.scholarity
       }
     };
     this.loading = true;
@@ -291,9 +294,6 @@ export class FormGvComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
-          localStorage.removeItem('source');
-          localStorage.removeItem('medium');
-          localStorage.removeItem('campaign');
         }
       },
         (err) => {
@@ -326,7 +326,6 @@ export class FormGvComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
-  }
-
+  }  
 
 }
