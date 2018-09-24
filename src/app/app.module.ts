@@ -76,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    FormOfflineComponent
   ],
   bootstrap: [AppComponent]
 })
