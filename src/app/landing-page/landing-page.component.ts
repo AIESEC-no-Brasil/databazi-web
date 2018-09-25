@@ -64,15 +64,15 @@ export class LandingPageComponent implements OnInit {
   }
 
   goToGv(){
-    this.router.navigate(['/landing-page-gv']);
+    this.router.navigate(['/voluntario-global']);
   }
 
   goToGe(){
-    this.router.navigate(['/landing-page-ge']);
+    this.router.navigate(['/empreendedor-global']);
   }
 
   goToGt(){
-    this.router.navigate(['/landing-page-gt']);
+    this.router.navigate(['/talento-global']);
   }
 
 

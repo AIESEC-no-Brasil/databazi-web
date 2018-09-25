@@ -156,7 +156,7 @@ export class FormGeComponent implements OnInit {
     if(this.formedUser){
       this.formOfflineComponent.hideGEStep();
     }else{
-      this.router.navigate(['/landing-page']);
+      this.router.navigate(['/']);
     }
   }
 

@@ -131,7 +131,7 @@ export class FormOfflineComponent implements OnInit {
   }
 
   cancelSignUp(){
-    this.router.navigate(['/landing-page']);
+    this.router.navigate(['/']);
   }
 
 

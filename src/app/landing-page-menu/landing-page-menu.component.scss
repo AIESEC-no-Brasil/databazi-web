@@ -50,18 +50,16 @@
         background-repeat: no-repeat;
         background-size: cover;
         z-index: -10;
-        &.landing-page-gt {
+        background-image: url('../../assets/images/header.jpg');
+        z-index: 5;
+        &.talento-global {
             background-image: url('../../assets/products/gt/gt-intro.jpg');
         }
-        &.landing-page-gv {
+        &.voluntario-global {
             background-image: url('../../assets/products/gv/gv-intro.jpg');
         }
-        &.landing-page-ge {
+        &.empreendedor-global {
             background-image: url('../../assets/products/ge/ge-intro.jpg');
-        }
-        &.landing-page {
-            background-image: url('../../assets/images/header.jpg');
-            z-index: 5
         }
     }
     .header-menu {
