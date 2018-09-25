@@ -9,11 +9,10 @@ import { LandingPageGeComponent } from './landing-page-ge/landing-page-ge.compon
 import { FormOfflineComponent } from './form-offline/form-offline.component';
 
 export const router : Routes = [
-    { path: '', redirectTo:'landing-page', pathMatch:'full'},
-    { path: 'landing-page', component: LandingPageComponent },
-    { path: 'landing-page-gv', component: LandingPageGvComponent },
-    { path: 'landing-page-gt', component: LandingPageGtComponent },
-    { path: 'landing-page-ge', component: LandingPageGeComponent },
+    { path: '', component: LandingPageComponent },
+    { path: 'voluntario-global', component: LandingPageGvComponent },
+    { path: 'talento-global', component: LandingPageGtComponent },
+    { path: 'empreendedor-global', component: LandingPageGeComponent },
     { path: 'form-offline', component: FormOfflineComponent }
 ]
 

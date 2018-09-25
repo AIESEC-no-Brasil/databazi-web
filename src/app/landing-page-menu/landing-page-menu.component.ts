@@ -24,7 +24,7 @@ export class LandingPageMenuComponent implements OnInit {
   }
 
   returnHome(){
-    this.router.navigate(['/landing-page']);
+    this.router.navigate(['/']);
   }
 
   scrollToGlobal(){

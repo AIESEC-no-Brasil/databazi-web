@@ -215,7 +215,6 @@
                         <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity" (ngModelChange)="changeScholarity(user.scholarity)">
                           <option value="">Qual seu nível de escolaridade?</option>
                           <option value="0">Ensino Médio Completo</option>
-                          <option value="1">Graduação Incompleta</option>
                           <option value="2">Estudante de Graduação</option>
                           <option value="3">Mestrado ou Pós</option>
                           <option value="4">Graduado em até 1,5 anos</option>
@@ -349,6 +348,9 @@
           </div>
 
           <section class="content" id="resultado" *ngIf="completedSignup">
+            <script type="text/javascript">
+             fbq('track', 'Lead');
+            </script>
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-sm">

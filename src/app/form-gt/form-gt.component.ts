@@ -164,7 +164,7 @@ export class FormGtComponent implements OnInit {
     if(this.formedUser){
       this.formOfflineComponent.hideGTStep();
     }else{
-      this.router.navigate(['/landing-page']);
+      this.router.navigate(['/']);
     }
   }
 
