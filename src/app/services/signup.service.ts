@@ -7,7 +7,7 @@ import { Http, Headers, RequestOptions  } from '@angular/http';
 })
 export class SignupService {
 
-	public static url: string = 'http://api.aiesec.org.br'
+	public static url: string = 'http://qa.databazi.aiesec.org.br'
 
 	constructor( public http: Http ) { }
 
