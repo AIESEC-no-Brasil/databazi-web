@@ -3,15 +3,6 @@
 </head>
 
 <div id="step1" class="form-volutario-global relative-form">
-  <!-- form GV B -->
-  <div class="toggle-form" (click)="toggleFormGv()">
-    <p *ngIf="!formToggle">
-      Formulário A
-    </p>
-    <p *ngIf="formToggle">
-      Formulário B
-    </p>
-  </div>
   <!-- Header -->
   <section class="header" id="header-voluntario-global">
     <div class="container">
@@ -134,9 +125,9 @@
                     <div class="input-group-text">
                       <i class="fas fa-gift"></i>Data de Nascimento</div>
                   </div>
-                  
+
                   <i class="fas fa-gift mobile mobile-icon"></i>
-                  <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
+                  <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}"
                   [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
