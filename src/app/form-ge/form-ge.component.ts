@@ -150,7 +150,6 @@ export class FormGeComponent implements OnInit {
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
       }
-
     });
 
     this.fillUniversitySelect();
