@@ -191,7 +191,9 @@ export class FormGtComponent implements OnInit {
 
   fillUniversitySelect() {
     this.signupService.getUniversities().then((res: any) => {
-      this.universities = res;
+      let orderedList = _.orderBy(res, ['name'],['asc']);
+      let other = _.remove(orderedList, item => item.name === 'OUTRA');
+      this.universities = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -200,7 +202,9 @@ export class FormGtComponent implements OnInit {
 
   fillCourseSelect() {
     this.signupService.getCourses().then((res: any) => {
-      this.courses = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      let other = _.remove(orderedList, item => item.name === 'Outro');
+      this.courses = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados dos cursos disponíveis.' });
