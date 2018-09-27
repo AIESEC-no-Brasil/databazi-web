@@ -193,7 +193,8 @@ export class FormGvComponent implements OnInit {
 
   fillPlacesSelect() {
     this.signupService.getLocalCommittees().then((res: any) => {
-      this.places = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      this.places = orderedList;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
