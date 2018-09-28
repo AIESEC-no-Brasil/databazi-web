@@ -218,6 +218,7 @@ body {
     color: #fff !important;
     option {
         color: #000000;
+        font-size: 18px;
     }
 }
 
@@ -1106,19 +1107,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
         }
@@ -1241,27 +1242,27 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
@@ -1633,7 +1634,7 @@ label {
 .logo-voluntario-global {
     max-width: 350px;
     width: 100%;
-    height: 200px;
+    height: 110px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

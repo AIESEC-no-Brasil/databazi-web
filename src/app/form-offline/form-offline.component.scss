@@ -2,7 +2,9 @@
 @import '~animate.css/animate.min.css';
 // form A/B - start
 .relative-form {
-    position: relative;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     .toggle-form {
         position: absolute;
         left: 5px;
@@ -216,8 +218,11 @@ body {
 .styled-select select {
     width: 100%;
     color: #fff !important;
+    font-weight: lighter;
+    padding-right: 15px;
     option {
         color: #000000;
+        font-size: 18px;
     }
 }
 
@@ -314,22 +319,22 @@ _:-o-prefocus,
             }
         }
         input::-webkit-input-placeholder {
-            font-size: 13px !important;
+            font-size: 16px !important;
             color: #fff;
             font-style: italic;
         }
         input:-moz-placeholder {
-            font-size: 13px !important;
+            font-size: 16px !important;
             color: #fff;
             font-style: italic;
         }
         input::-moz-placeholder {
-            font-size: 13px !important;
+            font-size: 16px !important;
             color: #fff;
             font-style: italic;
         }
         input:-ms-input-placeholder {
-            font-size: 13px !important;
+            font-size: 16px !important;
             color: #fff;
             font-style: italic;
         }
@@ -379,7 +384,7 @@ select:-webkit-autofill:focus {
         display: flex;
         justify-content: center;
         padding: 10px 0;
-        margin: 20px 0;
+        margin: 10px 0;
         li {
             width: 15px;
             height: 15px;
@@ -536,11 +541,10 @@ section.header h1 {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
-    font-size: 13px !important;
+    font-size: 16px !important;
     color: #fff;
     font-style: italic;
 }
@@ -550,7 +554,7 @@ input:-moz-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
-    font-size: 13px !important;
+    font-size: 16px !important;
             color: #fff;
             font-style: italic;
 }
@@ -561,7 +565,7 @@ input::-moz-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
-    font-size: 13px !important;
+    font-size: 16px !important;
             color: #fff;
             font-style: italic;
 }
@@ -571,7 +575,7 @@ input:-ms-input-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
-    font-size: 13px !important;
+    font-size: 16px !important;
             color: #fff;
             font-style: italic;
 }
@@ -1086,7 +1090,7 @@ label {
 /*--------------------------------------------------------------
       Responsive Styles - Max 600px
   --------------------------------------------------------------*/
-
+/*Mobile sizes*/
 @media (max-width: 600px) {
     //prime 
     ::ng-deep .p-inputMask input {
@@ -1106,19 +1110,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 2.75vw !important;
+                font-size: 4.50vw !important;
                 color: #fff
             }
         }
@@ -1241,27 +1245,27 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 2.75vw !important;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
@@ -1312,7 +1316,7 @@ label {
 }
 
 .form-offline .input-group-text {
-    color: #4fa5f7;
+    color: #f1f1f1;
     background-color: #037ef3;
     border-bottom: 2px solid #4fa5f7;
 }
@@ -1636,7 +1640,7 @@ label {
 .logo-offline {
     max-width: 350px;
     width: 100%;
-    height: 200px;
+    height: 110px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
