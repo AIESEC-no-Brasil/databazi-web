@@ -304,7 +304,7 @@ export class FormGeComponent implements OnInit {
         english_level: +this.user.english_level,
         spanish_level: +this.user.spanish_level,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
