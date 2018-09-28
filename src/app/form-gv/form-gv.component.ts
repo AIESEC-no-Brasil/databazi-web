@@ -6,7 +6,9 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormOfflineComponent } from '../form-offline/form-offline.component'
+import * as _ from 'lodash';
+
+import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
 @Component({
   selector: 'app-form-gv',
@@ -29,9 +31,11 @@ export class FormGvComponent implements OnInit {
     college_course_id: '',
     cellphone_contactable: '',
     scholarity: '',
-    source: '',
-    medium: '',
-    campaign: ''
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: ''
   }
 
   msgs: Message[] = [];
@@ -114,18 +118,25 @@ export class FormGvComponent implements OnInit {
     }
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
-      if (param['source']) {
-        localStorage.setItem('source', param['source'])
+      if (param['utm_source']) {
+        localStorage.setItem('utm_source', param['utm_source'])
       }
 
-      if (param['medium']) {
-        localStorage.setItem('medium', param['medium'])
+      if (param['utm_medium']) {
+        localStorage.setItem('utm_medium', param['utm_medium'])
       }
 
-      if (param['campaign']) {
-        localStorage.setItem('campaign', param['campaign'])
+      if (param['utm_campaign']) {
+        localStorage.setItem('utm_campaign', param['utm_campaign'])
       }
 
+      if (param['utm_term']) {
+        localStorage.setItem('utm_term', param['utm_term'])
+      }
+
+      if (param['utm_content']) {
+        localStorage.setItem('utm_content', param['utm_content'])
+      }
     });
 
     this.fillUniversitySelect();
@@ -160,7 +171,9 @@ export class FormGvComponent implements OnInit {
 
   fillUniversitySelect() {
     this.signupService.getUniversities().then((res: any) => {
-      this.universities = res;
+      let orderedList = _.orderBy(res, ['name'],['asc']);
+      let other = _.remove(orderedList, item => item.name === 'OUTRA');
+      this.universities = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -169,7 +182,9 @@ export class FormGvComponent implements OnInit {
 
   fillCourseSelect() {
     this.signupService.getCourses().then((res: any) => {
-      this.courses = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      let other = _.remove(orderedList, item => item.name === 'Outro');
+      this.courses = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados dos cursos disponíveis.' });
@@ -178,7 +193,8 @@ export class FormGvComponent implements OnInit {
 
   fillPlacesSelect() {
     this.signupService.getLocalCommittees().then((res: any) => {
-      this.places = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      this.places = orderedList;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
@@ -276,9 +292,11 @@ export class FormGvComponent implements OnInit {
         college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         scholarity: +this.user.scholarity,
-        source: (localStorage.getItem('source') ? localStorage.getItem('source') : null),
-        medium: (localStorage.getItem('medium') ? localStorage.getItem('medium') : null),
-        campaign: (localStorage.getItem('campaign') ? localStorage.getItem('campaign') : null)
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
+        utm_utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
       }
     };
     this.loading = true;
@@ -291,9 +309,11 @@ export class FormGvComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
-          localStorage.removeItem('source');
-          localStorage.removeItem('medium');
-          localStorage.removeItem('campaign');
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
         }
       },
         (err) => {
