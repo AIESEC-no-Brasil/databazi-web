@@ -141,7 +141,14 @@ export class FormGvComponent implements OnInit {
     if(this.formedUser){
       this.formOfflineComponent.hideGVStep();
     }else{
-      this.router.navigate(['/']);
+      if(this.submittedPersonal){
+        this.submittedPersonal = false;
+        this.submittedStudy = false;
+        this.personalData = true;
+        this.studyData = false;
+      }else{
+        this.router.navigate(['/']);
+      }
     }
   }
 

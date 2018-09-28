@@ -156,7 +156,14 @@ export class FormGeComponent implements OnInit {
     if(this.formedUser){
       this.formOfflineComponent.hideGEStep();
     }else{
-      this.router.navigate(['/']);
+      if(this.submittedPersonal){
+        this.submittedPersonal = false;
+        this.submittedStudy = false;
+        this.personalData = true;
+        this.studyData = false;
+      }else{
+        this.router.navigate(['/']);
+      }
     }
   }
 

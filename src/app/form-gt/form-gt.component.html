@@ -182,11 +182,6 @@
                     <i class="fas fa-check"></i>
                   </div>
                 </div>
-                <div class="form-group form-check text-center checkbox">
-                  <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
-                    name="cellphone_contactable">
-                  <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                </div>
               </div>
               <div *ngIf="isValidPersonal('password')" class='error-message animated fadeIn'>
                 Preencha com a sua senha.
@@ -379,7 +374,7 @@
 
           <div class="form-row buttons" *ngIf="!completedSignup">
             <div class="col text-left">
-              <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">Cancelar</button>
+              <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
             </div>
             <div class="col text-right">
               <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
