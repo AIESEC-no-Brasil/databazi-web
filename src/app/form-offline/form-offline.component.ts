@@ -6,6 +6,7 @@ import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-form-offline',
@@ -26,7 +27,12 @@ export class FormOfflineComponent implements OnInit {
     college_course_id: '',
     cellphone_contactable: '',
     scholarity: '',
-    program: ''
+    program: '',
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: ''
   }
 
   msgs: Message[] = [];
@@ -108,16 +114,24 @@ export class FormOfflineComponent implements OnInit {
   ngOnInit() {
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
-      if (param['source']) {
-        localStorage.setItem('source', param['source'])
+      if (param['utm_source']) {
+        localStorage.setItem('utm_source', param['utm_source'])
       }
 
-      if (param['medium']) {
-        localStorage.setItem('medium', param['medium'])
+      if (param['utm_medium']) {
+        localStorage.setItem('utm_medium', param['utm_medium'])
       }
 
-      if (param['campaign']) {
-        localStorage.setItem('campaign', param['campaign'])
+      if (param['utm_campaign']) {
+        localStorage.setItem('utm_campaign', param['utm_campaign'])
+      }
+
+      if (param['utm_term']) {
+        localStorage.setItem('utm_term', param['utm_term'])
+      }
+
+      if (param['utm_content']) {
+        localStorage.setItem('utm_content', param['utm_content'])
       }
     });
 
@@ -149,7 +163,9 @@ export class FormOfflineComponent implements OnInit {
 
   fillUniversitySelect() {
     this.signupService.getUniversities().then((res: any) => {
-      this.universities = res;
+      let orderedList = _.orderBy(res, ['name'],['asc']);
+      let other = _.remove(orderedList, item => item.name === 'OUTRA');
+      this.universities = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -158,7 +174,9 @@ export class FormOfflineComponent implements OnInit {
 
   fillCourseSelect() {
     this.signupService.getCourses().then((res: any) => {
-      this.courses = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      let other = _.remove(orderedList, item => item.name === 'Outro');
+      this.courses = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados dos cursos disponíveis.' });
@@ -167,7 +185,8 @@ export class FormOfflineComponent implements OnInit {
 
   fillPlacesSelect() {
     this.signupService.getLocalCommittees().then((res: any) => {
-      this.places = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      this.places = orderedList;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
@@ -226,7 +245,7 @@ export class FormOfflineComponent implements OnInit {
     }
     else {
       this.invalidPhone = false;
-    }  
+    }
   }
 
   nextStep() {
@@ -246,10 +265,10 @@ export class FormOfflineComponent implements OnInit {
         this.showGVStep = true;
       }
       if(this.user.program == '1'){
-        this.showGTStep = true;     
+        this.showGTStep = true;
       }
       if(this.user.program == '2'){
-        this.showGEStep = true;     
+        this.showGEStep = true;
       }
     }
   }
@@ -281,7 +300,12 @@ export class FormOfflineComponent implements OnInit {
         university_id: (this.user.university_id == null ? null : +this.user.university_id),
         college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity
+        scholarity: +this.user.scholarity,
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
       }
     };
     this.loading = true;
@@ -294,6 +318,11 @@ export class FormOfflineComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
         }
       },
         (err) => {
@@ -326,6 +355,6 @@ export class FormOfflineComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
-  }  
+  }
 
 }
