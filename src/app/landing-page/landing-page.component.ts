@@ -34,7 +34,8 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sliderAnimation()
+    this.sliderAnimation();
+    window.scrollTo(0,0)
   }
 
   sliderAnimation(){
