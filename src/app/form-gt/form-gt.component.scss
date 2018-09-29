@@ -12,6 +12,16 @@
     }
 }
 
+.full-screen {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    display:flex;
+    align-items: center;
+    justify-content : center;
+    overflow-y: auto;
+}
+
 .desktop {
     display: flex !important;
 }
@@ -1445,7 +1455,7 @@ label {
 .logo-talentos-globais {
     max-width: 350px;
     width: 100%;
-    height: 110px;
+    height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
