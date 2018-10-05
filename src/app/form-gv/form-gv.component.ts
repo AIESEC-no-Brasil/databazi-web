@@ -336,12 +336,11 @@ export class FormGvComponent implements OnInit {
       mask: (value) => {
         if (value.replace(/[./_-]/g, '').length <= 12) {
           return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        }
-        else {
+        } else {
           return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
         }
       },
-      guide: true
+      guide: false
     };
   }
 

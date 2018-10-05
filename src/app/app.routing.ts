@@ -13,7 +13,7 @@ export const router : Routes = [
     { path: 'voluntario-global', component: LandingPageGvComponent },
     { path: 'talento-global', component: LandingPageGtComponent },
     { path: 'empreendedor-global', component: LandingPageGeComponent },
-    { path: 'form-offline', component: FormOfflineComponent }
+    { path: 'intercambio', component: FormOfflineComponent }
 ]
 
 export const routes : ModuleWithProviders = RouterModule.forRoot(router, { useHash : false });
