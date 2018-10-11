@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
+	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   actual: number = 1;
   seeMoreGv:boolean = false;
   seeMoreGe:boolean = false;
@@ -32,7 +34,8 @@ export class LandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sliderAnimation()
+    this.sliderAnimation();
+    window.scrollTo(0,0)
   }
 
   sliderAnimation(){
@@ -62,15 +65,15 @@ export class LandingPageComponent implements OnInit {
   }
 
   goToGv(){
-    this.router.navigate(['/landing-page-gv']);
+    this.router.navigate(['/voluntario-global']);
   }
 
   goToGe(){
-    this.router.navigate(['/landing-page-ge']);
+    this.router.navigate(['/empreendedor-global']);
   }
 
   goToGt(){
-    this.router.navigate(['/landing-page-gt']);
+    this.router.navigate(['/talento-global']);
   }
 
 

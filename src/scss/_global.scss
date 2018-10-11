@@ -76,10 +76,16 @@ p {
 
 h1 {
     font-size: 30px;
+    &.intro {
+        font-size:25px;
+    }
 }
 
 h2 {
     font-size: 25px;
+    &.intro {
+        font-size: 20px;
+    }
 }
 
 h3 {
@@ -270,5 +276,19 @@ section, footer, div {
     }
     .fas {
         margin-top: 5px;
+    }
+}
+
+@media (max-width: 990px) {
+    h1 {
+        &.intro {
+            font-size:5vw;
+        }
+    }
+    
+    h2 {
+        &.intro {
+            font-size: 4vw;
+        }
     }
 }

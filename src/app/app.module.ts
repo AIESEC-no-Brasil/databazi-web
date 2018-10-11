@@ -11,7 +11,9 @@ import {MessageModule} from 'primeng/message';
 import { GrowlModule } from 'primeng/primeng';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DragScrollModule } from 'ngx-drag-scroll';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +28,7 @@ import { LandingPageGeComponent } from './landing-page-ge/landing-page-ge.compon
 import { LandingPageMenuComponent } from './landing-page-menu/landing-page-menu.component';
 import { FormGtComponent } from './form-gt/form-gt.component';
 import { FormGeComponent } from './form-ge/form-ge.component';
+import { FormOfflineComponent } from './form-offline/form-offline.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -43,7 +46,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LandingPageGeComponent,
     LandingPageMenuComponent,
     FormGtComponent,
-    FormGeComponent
+    FormGeComponent,
+    FormOfflineComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpModule,
     TextMaskModule,
     InputMaskModule,
+    DragScrollModule,
     BrowserModule,
     BrowserAnimationsModule,
     MessagesModule,
@@ -61,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule,
     HttpClientModule, 
     ScrollToModule.forRoot(),
+    NgbModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -70,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
+    FormOfflineComponent
   ],
   bootstrap: [AppComponent]
 })

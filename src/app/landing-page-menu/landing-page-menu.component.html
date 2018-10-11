@@ -12,18 +12,18 @@
           </div>
           <ul id="menu">
             <li>
-              Para jovens
+              Faça um intercâmbio
               <ul class="animated fadeIn faster">
-                <li routerLink="/landing-page-gv">
+                <li routerLink="/voluntario-global">
                   Voluntário Global
                 </li>
-                <li routerLink="/landing-page-ge">
+                <li routerLink="/empreendedor-global">
                   Empreendedor Global
                 </li>
-                <li routerLink="/landing-page-gt">
+                <li routerLink="/talento-global">
                   Talento Global
                 </li>
-                <a href="http://aiesec.org.br/hospede-um-intercambista/">
+                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
                   <li>
                     Hospede um intercambista
                   </li>
@@ -31,21 +31,21 @@
               </ul>
             </li>
             <li>
-              Para organizações
+              Seja nosso Parceiro
               <ul class="animated fadeIn faster">
-                <a href="http://aiesec.org.br/seja-parceiro/ong/">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
                   <li>
                     ONG
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/seja-parceiro/empresas/">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
                   <li>
                     Empresas
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://aiesec.org.br/youthspeak/">
+            <a href="http://blog.aiesec.org.br/youthspeak/">
               <li>
                 Youthspeak
               </li>
@@ -58,19 +58,29 @@
                     Business
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/blog/estudantes/">
+                <a href="http://aiesec.blog.br/">
                   <li>
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://aiesec.org.br/cipassagensaereas/">
-              <li>
-                Passagens Aéreas
-              </li>
-            </a>
-            <a href="http://aiesec.org.br/contato/">
+            <li>
+              Planeje sua viagem
+              <ul class="animated fadeIn faster">
+                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
+                  <li>
+                    Passagens Aéreas
+                  </li>
+                </a>
+                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
+                  <li>
+                    Seguro Saúde
+                  </li>
+                </a>
+              </ul>
+            </li>
+            <a href="http://blog.aiesec.org.br/contato/">
               <li>
                 Contato
               </li>
@@ -78,20 +88,20 @@
           </ul>
 
           <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
-            <div class="logo-menu"></div>
+            <div class="logo-menu" routerLink="/"></div>
             <li>
-              <span>Para jovens</span>
+              <span>Faça um intercâmbio</span>
               <ul class="animated fadeIn faster">
-                <li routerLink="/landing-page-gv" [ngx-scroll-to]="'#header-product'">
+                <li routerLink="/voluntario-global" [ngx-scroll-to]="'#header-product'">
                   Voluntário Global
                 </li>
-                <li routerLink="/landing-page-ge" [ngx-scroll-to]="'#header-product'">
+                <li routerLink="/empreendedor-global" [ngx-scroll-to]="'#header-product'">
                   Empreendedor Global
                 </li>
-                <li routerLink="/landing-page-gt" [ngx-scroll-to]="'#header-product'">
+                <li routerLink="/talento-global" [ngx-scroll-to]="'#header-product'">
                   Talento Global
                 </li>
-                <a href="http://aiesec.org.br/hospede-um-intercambista/">
+                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
                   <li>
                     Hospede um intercambista
                   </li>
@@ -99,21 +109,21 @@
               </ul>
             </li>
             <li>
-              <span>Para organizações</span>
+              <span>Seja nosso Parceiro</span>
               <ul class="animated fadeIn faster">
-                <a href="http://aiesec.org.br/seja-parceiro/ong/">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
                   <li>
                     ONG
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/seja-parceiro/empresas/">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
                   <li>
                     Empresas
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://aiesec.org.br/youthspeak/">
+            <a href="http://blog.aiesec.org.br/youthspeak/">
               <li>
                 <span>Youthspeak</span>
               </li>
@@ -126,19 +136,29 @@
                     Business
                   </li>
                 </a>
-                <a href="http://aiesec.org.br/blog/estudantes/">
+                <a href="http://aiesec.blog.br/">
                   <li>
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://aiesec.org.br/cipassagensaereas/">
-              <li>
-                <span>Passagens Aéreas</span>
-              </li>
-            </a>
-            <a href="http://aiesec.org.br/contato/">
+            <li>
+              <span>Planeje sua viagem</span>
+              <ul class="animated fadeIn faster">
+                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
+                  <li>
+                    Passagens Aéreas
+                  </li>
+                </a>
+                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
+                  <li>
+                    Seguro Saúde
+                  </li>
+                </a>
+              </ul>
+            </li>
+            <a href="http://blog.aiesec.org.br/contato/">
               <li>
                 <span>Contato</span>
               </li>
@@ -147,7 +167,7 @@
         </div>
       </div>
     </div>
-    <div class="product-info" *ngIf="actualPage == 'landing-page-gt'">
+    <div class="product-info" *ngIf="actualPage == 'talento-global'">
       <h1 class='color-white bold'>
         Talento Global
       </h1>
@@ -156,16 +176,16 @@
         <b>seu verdadeiro talento.</b>
       </h2>
     </div>
-    <div class="product-info" *ngIf="actualPage == 'landing-page-ge'">
+    <div class="product-info" *ngIf="actualPage == 'empreendedor-global'">
       <h1 class='color-white bold'>
-        Empresário Global
+        Empreendedor Global
       </h1>
       <h2 class='color-white'>
         Empreendedorismo é
         <b>encontrar sua paixão.</b>
       </h2>
     </div>
-    <div class="product-info" *ngIf="actualPage == 'landing-page-gv'">
+    <div class="product-info" *ngIf="actualPage == 'voluntario-global'">
       <h1 class='color-white bold'>
         Voluntário Global
       </h1>
@@ -174,15 +194,15 @@
         <b>as pessoas.</b>
       </h2>
     </div>
-    <div class="product-info" *ngIf="actualPage == 'landing-page'">
-      <h1 class='color-white bold'>
-        Liderança
+    <div class="product-info" *ngIf="actualPage == ''">
+      <h1 class='color-white bold intro'>
+        A AIESEC é o maior movimento de liderança jovem do mundo
       </h1>
-      <h2 class='color-white'>
-        Uma liderança sustentável é a solução para um futuro melhor
+      <h2 class='color-white intro'>
+        Acreditamos no intercâmbio como ferramenta para desenvolver uma liderança sustentável.
       </h2>
       <button (click)="scrollToGlobal()" class="button border border-white without-background color-white uppercase margin">
-        Saiba mais
+        Conheça nossos intercâmbios
       </button>
     </div>
   </div>

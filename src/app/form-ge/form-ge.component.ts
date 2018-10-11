@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
+
+import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
 @Component({
   selector: 'app-form-ge',
@@ -14,6 +16,8 @@ import * as _ from 'lodash';
   styleUrls: ['./form-ge.component.scss']
 })
 export class FormGeComponent implements OnInit {
+
+  @Input() formedUser: any;
 
   user = {
     fullname: '',
@@ -25,20 +29,20 @@ export class FormGeComponent implements OnInit {
     local_committee_id: '',
     university_id: '',
     college_course_id: '',
-    cellphone_contactable: '', 
+    cellphone_contactable: '',
     english_level: '',
     spanish_level: '',
-    experience: []
+    scholarity: '',
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: ''
   }
 
-  experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language'},
-    { name: 'Marketing', value: 'marketing'},
-    { name: 'Tecnologia da Informação', value: 'information_technology'},
-    { name: 'Gestão', value: 'management'},
-  ]
+  placeholderBirthdate: string;
 
-  selectedItems : any = {
+  selectedItems: any = {
     language: false,
     marketing: false,
     information_technology: false,
@@ -59,7 +63,6 @@ export class FormGeComponent implements OnInit {
   step2Form: FormGroup;
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
-  hasExperience:boolean = false;
   completedSignup: boolean = false;
 
   universities: any;
@@ -69,7 +72,9 @@ export class FormGeComponent implements OnInit {
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
-    public router: Router
+    public router: Router,
+    public urlScrapper: ActivatedRoute,
+    public formOfflineComponent: FormOfflineComponent
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -91,7 +96,8 @@ export class FormGeComponent implements OnInit {
       repassword: new FormControl(this.user.repassword, [
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ])
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university_id, [
@@ -109,26 +115,68 @@ export class FormGeComponent implements OnInit {
       spanish_level: new FormControl(this.user.spanish_level, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
-    })
+      scholarity: new FormControl(this.user.scholarity, [
+        Validators.required
+      ]),
+    });
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
+
+    if(this.formedUser){
+      this.user = this.formedUser;
+      this.personalData = false;
+      this.studyData = true;
+    }
+
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['utm_source']) {
+        localStorage.setItem('utm_source', param['utm_source'])
+      }
+
+      if (param['utm_medium']) {
+        localStorage.setItem('utm_medium', param['utm_medium'])
+      }
+
+      if (param['utm_campaign']) {
+        localStorage.setItem('utm_campaign', param['utm_campaign'])
+      }
+
+      if (param['utm_term']) {
+        localStorage.setItem('utm_term', param['utm_term'])
+      }
+
+      if (param['utm_content']) {
+        localStorage.setItem('utm_content', param['utm_content'])
+      }
+    });
+
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
   }
 
-  addOrRemove(experience){
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-    (_.find(this.selectedItems, (element) => {return element == true})) ? this.hasExperience = true : this.hasExperience = false;
+  onResize(event){
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  cancelSignUp(){
-    this.router.navigate(['/landing-page']);
+  cancelSignUp() {
+    if(this.formedUser){
+      this.formOfflineComponent.hideGEStep();
+    }else{
+      if(this.submittedPersonal){
+        this.submittedPersonal = false;
+        this.submittedStudy = false;
+        this.personalData = true;
+        this.studyData = false;
+      }else{
+        this.router.navigate(['/']);
+      }
+    }
   }
 
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
@@ -142,7 +190,9 @@ export class FormGeComponent implements OnInit {
 
   fillUniversitySelect() {
     this.signupService.getUniversities().then((res: any) => {
-      this.universities = res;
+      let orderedList = _.orderBy(res, ['name'],['asc']);
+      let other = _.remove(orderedList, item => item.name === 'OUTRA');
+      this.universities = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -151,7 +201,9 @@ export class FormGeComponent implements OnInit {
 
   fillCourseSelect() {
     this.signupService.getCourses().then((res: any) => {
-      this.courses = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      let other = _.remove(orderedList, item => item.name === 'Outro');
+      this.courses = _.union(orderedList, other);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados dos cursos disponíveis.' });
@@ -160,34 +212,70 @@ export class FormGeComponent implements OnInit {
 
   fillPlacesSelect() {
     this.signupService.getLocalCommittees().then((res: any) => {
-      this.places = res;
+      let orderedList = _.orderBy(res, ['name'], ['asc']);
+      this.places = orderedList;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
     })
   }
 
+  changeScholarity(scholarity_level) {
+    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+      this.user.university_id = '';
+      this.user.college_course_id = '';
+    }
+  }
+
+  unableToSubmit(){
+    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  }
+
+  emptyFields(){
+    return !this.user.scholarity || !this.user.english_level || !this.user.spanish_level ||  !this.user.local_committee_id
+  }
+
+  emptyUniversity(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.university_id
+    }
+    else {
+      return false;
+    }
+  }
+
+  emptyCourse(){
+    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
+      return !this.user.college_course_id
+    }
+    else {
+      return false;
+    }
+  }
+
   checkDate() {
     let date = this.user.birthdate.split('/');
     if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
       this.invalidDate = false;
-      this.matchDate = (moment(+date[2]).isBetween((moment().year() - 30), moment().year() - 18))
+      let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+      let age = moment().diff(date, 'years', false);
+      (age >= 18 && age <= 30) ? this.matchDate = true : this.matchDate = false
     }
     else {
       this.invalidDate = true;
     }
   }
 
-  checkPhone(){
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
     else {
       this.invalidPhone = false;
-    }  
+    }
   }
 
   registerUser() {
@@ -216,12 +304,17 @@ export class FormGeComponent implements OnInit {
         password: this.user.password,
         birthdate: this.user.birthdate,
         local_committee_id: +this.user.local_committee_id,
-        university_id: +this.user.university_id,
-        college_course_id: +this.user.college_course_id,
+        university_id: (this.user.university_id == '' ? null : +this.user.university_id),
+        college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
+        scholarity: +this.user.scholarity,
         english_level: +this.user.english_level,
         spanish_level: +this.user.spanish_level,
-        experience: this.selectedItems
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
       }
     };
     this.loading = true;
@@ -234,6 +327,11 @@ export class FormGeComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
         }
       },
         (err) => {
@@ -249,12 +347,11 @@ export class FormGeComponent implements OnInit {
       mask: (value) => {
         if (value.replace(/[./_-]/g, '').length <= 12) {
           return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        }
-        else {
+        } else {
           return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
         }
       },
-      guide: true
+      guide: false
     };
   }
 

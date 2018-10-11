@@ -6,12 +6,14 @@ import { LandingPageGvComponent } from './landing-page-gv/landing-page-gv.compon
 import { LandingPageGtComponent } from './landing-page-gt/landing-page-gt.component';
 import { LandingPageGeComponent } from './landing-page-ge/landing-page-ge.component';
 
+import { FormOfflineComponent } from './form-offline/form-offline.component';
+
 export const router : Routes = [
-    { path: '', redirectTo:'landing-page', pathMatch:'full'},
-    { path: 'landing-page', component: LandingPageComponent },
-    { path: 'landing-page-gv', component: LandingPageGvComponent },
-    { path: 'landing-page-gt', component: LandingPageGtComponent },
-    { path: 'landing-page-ge', component: LandingPageGeComponent }
+    { path: '', component: LandingPageComponent },
+    { path: 'voluntario-global', component: LandingPageGvComponent },
+    { path: 'talento-global', component: LandingPageGtComponent },
+    { path: 'empreendedor-global', component: LandingPageGeComponent },
+    { path: 'intercambio', component: FormOfflineComponent }
 ]
 
 export const routes : ModuleWithProviders = RouterModule.forRoot(router, { useHash : false });

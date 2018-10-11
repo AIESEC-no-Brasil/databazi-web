@@ -12,6 +12,43 @@
     }
 }
 
+.full-screen {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    display:flex;
+    align-items: center;
+    justify-content : center;
+    overflow-y: auto;
+}
+
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #1CA390;
+            padding: 0 10px;
+            border-bottom: 2px solid #37BC99;
+            min-width: 35px;
+            justify-content: center;
+        }
+    }
+}
+
 .loading-animation-ge {
     background-image: url('../../assets/images/sent-ge.png');
     background-size: 50%;
@@ -19,6 +56,9 @@
     background-repeat: no-repeat;
 }
 
+.checkbox {
+    margin: 15px auto 0 auto;
+}
 .checkbox input[type="checkbox"] {
     opacity: 0;
 }
@@ -159,6 +199,10 @@ body {
     color: #fff !important;
     option {
         color: #000000;
+        font-size: 18px;
+        &:hover {
+            color:Red;
+        }
     }
 }
 
@@ -190,16 +234,18 @@ select:focus {
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
 }
+
 .label-experience {
     padding: 10px 0 10px 15px;
+    font-style: italic;
 }
 
-.form-checkbox-select{
-    padding:15px 0 10px 0;
-    display:flex;
+.form-checkbox-select {
+    padding: 15px 0 10px 0;
+    display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     label {
         display: inline-block;
         padding-left: 5px;
@@ -270,20 +316,24 @@ _:-o-prefocus,
             }
         }
         input::-webkit-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input::-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-ms-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
     }
     &.gt {
@@ -294,20 +344,24 @@ _:-o-prefocus,
             color: #fff
         }
         input::-webkit-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input::-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-ms-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
     }
 }
@@ -442,12 +496,12 @@ section.header h1 {
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
-    font-size: 14px;
+    font-size: 13px;
     background-color: rgba(255, 255, 255, .3)
 }
 
 .forms {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -488,33 +542,37 @@ section.header h1 {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-style: italic;
 }
 
 input:-moz-placeholder {
     /* Firefox 18- */
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-style: italic;
 }
 
 input::-moz-placeholder {
     /* Firefox 19+ */
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-style: italic;
 }
 
 input:-ms-input-placeholder {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-style: italic;
 }
 
 input[type=text],
@@ -594,7 +652,8 @@ label {
 
 .form-check-label {
     margin-bottom: 0;
-    text-decoration: underline;
+    text-align: left;
+    font-size:15px;
 }
 
 .dropdown,
@@ -901,7 +960,6 @@ label {
         font-size: 25px;
         margin-top: 10px;
     }
-
     .form-checkbox-select {
         flex-direction: column;
         padding: 20px 10px 10px 15px;
@@ -918,9 +976,10 @@ label {
         text-align: right;
         margin: 0;
         min-width: 100%;
-        padding: 10px 30px 6px 12px;
+        padding: 10px 0 6px 12px;
     }
     ::ng-deep .p-inputMask {
+        padding-right: 10px !important;
         &.gv {
             input {
                 font-size: 16px;
@@ -933,23 +992,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
         }
@@ -987,31 +1042,27 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
     }
@@ -1026,9 +1077,12 @@ label {
         text-align: right;
     }
     .input-group-text {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 400;
         line-height: 18px;
+    }
+    .form-check-label {
+        font-size: 13px;
     }
 }
 
@@ -1055,23 +1109,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
+                font-size: 4.50vw !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
+                font-size: 4.50vw !important;
                 color: #fff
             }
         }
@@ -1123,7 +1173,6 @@ label {
         margin: auto;
     }
     #step3 h2 {
-        font-weight: bold;
         font-size: 44px;
         margin-bottom: 20px;
         padding: 0 34px;
@@ -1194,31 +1243,27 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
     }
@@ -1348,13 +1393,6 @@ label {
     border-color: #ffffff;
 }
 
-.form-talentos-globais .btn-primary:hover,
-.form-talentos-globais .btn-secondary:hover {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
-
 .form-talentos-globais .btn-primary:not(:disabled):not(.disabled).active,
 .form-talentos-globais .btn-primary:not(:disabled):not(.disabled):active,
 .form-talentos-globais .show>.btn-primary.dropdown-toggle,
@@ -1399,13 +1437,13 @@ label {
     }
 }
 
-.logo-talentos-globais {
+.logo-empreendedor-global {
     max-width: 350px;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url('../../assets/images/logo-talentos-globais.png');
+    background-image: url('../../assets/images/logo-empreendedor-global.png');
     margin: auto
 }

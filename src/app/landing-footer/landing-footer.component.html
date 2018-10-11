@@ -5,29 +5,100 @@
       <div class="col-md-12 col-sm-12">
         <h1 class="centered italic">Os nossos parceiros premium</h1>
         <div class="footer-carousel">
-            <!-- <drag-scroll class="carousel" #nav 
-             scrollbar-hidden="true"
-             drag-scroll-y-disabled="true"
-            >
-              <a target="_blank" href="https://www.assistcard.com/b2c/aiesec-br"> <img drag-scroll-item src="../../assets/images/partners/assistcard.png" /></a>
-              <a target="_blank" href="https://www.deliverymuch.com.br/"><img drag-scroll-item src="../../assets/images/partners/delivery_much.png" /></a>
-              <a target="_blank" href="https://aiesec.org/partner/286836"><img drag-scroll-item src="../../assets/images/partners/dhl.png" /></a>
-              <a target="_blank" href="https://aiesec.org/partner/272692"><img drag-scroll-item src="../../assets/images/partners/electrolux.png" /></a>
-              <a target="_blank" href="https://aiesec.org/partner/344322"><img drag-scroll-item src="../../assets/images/partners/hyva.png" /></a>
-              <a target="_blank" href="https://www.leroymerlin.com.br/blog"><img drag-scroll-item src="../../assets/images/partners/leroymerlin.png" /></a>
-              <a target="_blank" href="https://www.mckinsey.com.br/"><img drag-scroll-item src="../../assets/images/partners/mckinseyecompany.png" /></a>
-              <a target="_blank" href="https://br.mondelezinternational.com/home"><img drag-scroll-item src="../../assets/images/partners/mondelez.png" /></a>
-              <a target="_blank" href="https://www.nestle.com.br/"><img drag-scroll-item src="../../assets/images/partners/nestle.png" /></a>
-              <a target="_blank" href="https://aiesec.org/partner/330494"><img drag-scroll-item src="../../assets/images/partners/nokia.png" /></a>
-              <a target="_blank" href="https://resultadosdigitais.com.br/"><img drag-scroll-item src="../../assets/images/partners/resultadosdigitais.png" /></a>
-              <a target="_blank" href="https://www.sap.com/brazil/about.html"><img drag-scroll-item src="../../assets/images/partners/sap.png" /></a>
-              <a target="_blank" href="http://www.votorantimcimentos.com.br/"><img drag-scroll-item src="../../assets/images/partners/votorantimcimentos.png" /></a>
-              <a target="_blank" href="https://www.whirlpool.com.br/"><img drag-scroll-item src="../../assets/images/partners/Whirlpoow.png" /></a>
-            </drag-scroll>
-            <div class="footer-carousel-align">
-              <div class="footer-carousel-btn-left" (click)="moveLeft()"><i class="fas fa-chevron-left"></i></div>
-              <div class="footer-carousel-btn-right" (click)="moveRight()"><i class="fas fa-chevron-right"></i></div>
-            </div> -->
+          <!-- <landing-footer-carousel></landing-footer-carousel> -->
+          <ngb-carousel class="partners-carousel" #footercarousel *ngIf="partners">
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <a (click)="navTo(partners.assistcard.site)">
+                    <img [src]="partners.assistcard.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.delivery_much.site)">
+                    <img [src]="partners.delivery_much.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.dhl.site)">
+                    <img [src]="partners.dhl.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.electrolux.site)">
+                    <img [src]="partners.electrolux.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.hyva.site)">
+                    <img [src]="partners.hyva.img" alt="Random first slide">
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <a (click)="navTo(partners.leroymerlin.site)">
+                    <img [src]="partners.leroymerlin.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.mckinseyecompany.site)">
+                    <img [src]="partners.mckinseyecompany.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.mondelez.site)">
+                    <img [src]="partners.mondelez.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.nestle.site)">
+                    <img [src]="partners.nestle.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.nokia.site)">
+                    <img [src]="partners.nokia.img" alt="Random first slide">
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template ngbSlide>
+              <div class="partners-flex">
+                <div class="partners-item">
+                  <a (click)="navTo(partners.resultadosdigitais.site)">
+                    <img [src]="partners.resultadosdigitais.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.sap.site)">
+                    <img [src]="partners.sap.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.votorantimcimentos.site)">
+                    <img [src]="partners.votorantimcimentos.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.Whirlpoow.site)">
+                    <img [src]="partners.Whirlpoow.img" alt="Random first slide">
+                  </a>
+                </div>
+                <div class="partners-item">
+                  <a (click)="navTo(partners.assistcard.site)">
+                    <img [src]="partners.assistcard.img" alt="Random first slide">
+                  </a>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+          <div class="partners-carousel">
+            <i (click)="prev()" class="partners-next fas fa-chevron-left"></i>
+            <i (click)="next()" class="partners-prev fas fa-chevron-right"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -49,22 +120,22 @@
         <div class="row">
           <div class="footer-group-links col-md-4 col-sm-6">
             <p class="semibold footer-link-title">Institucional</p>
-            <p><a href="http://aiesec.org.br/a-aiesec/">A AIESEC</a></p>
-            <p><a href="http://aiesec.org.br/faca-parte/">Faça parte</a></p>
-            <p><a href="http://aiesec.org.br/alumni/">Alummi</a></p>
-            <p><a href="http://aiesec.org.br/youthspeak/">YouthSpeak</a></p>
+            <p><a href="http://blog.aiesec.org.br/a-aiesec/">A AIESEC</a></p>
+            <p><a href="http://blog.aiesec.org.br/faca-parte/">Faça parte</a></p>
+            <p><a href="http://blog.aiesec.org.br/alumni/">Alummi</a></p>
+            <p><a href="http://blog.aiesec.org.br/youthspeak/">YouthSpeak</a></p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
             <p class="semibold footer-link-title">Institucional</p>
-            <p><a routerLink="../landing-page-ge">Empreendedor Global</a></p>
-            <p><a routerLink="../landing-page-gt">Talento Global</a></p>
-            <p><a routerLink="../landing-page-gv">Voluntário Global</a></p>
+            <p><a routerLink="../empreendedor-global">Empreendedor Global</a></p>
+            <p><a routerLink="../talento-global">Talento Global</a></p>
+            <p><a routerLink="../voluntario-global">Voluntário Global</a></p>
             <p><a href="http://aiesec.org.br/hospede-um-intercambista/">Hospede um intercambista</a></p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
             <p class="semibold footer-link-title">Seja parceiro</p>
-            <p><a href="http://aiesec.org.br/seja-parceiro/ong/">ONG</a></p>
-            <p><a href="http://aiesec.org.br/seja-parceiro/empresas/">Empresas</a></p>
+            <p><a href="http://blog.aiesec.org.br/seja-parceiro/ong/">ONG</a></p>
+            <p><a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">Empresas</a></p>
           </div>
         </div>
       </div>
@@ -73,10 +144,10 @@
           <div class="footer-group-links col-md-3 col-sm-6">
             <p class="semibold footer-link-title">Blog</p>
             <p><a href="http://business.aiesec.org.br/">Business</a></p>
-            <p><a href="http://aiesec.org.br/blog/estudantes/">Estudantes</a></p>
+            <p><a href="http://aiesec.blog.br/">Estudantes</a></p>
           </div>
           <div class="footer-group-links col-md-3 col-sm-6">
-            <p class="semibold footer-link-title"><a href="http://aiesec.org.br/contato/">Contato</a></p>
+            <p class="semibold footer-link-title"><a href="http://blog.aiesec.org.br/contato/">Contato</a></p>
           </div>
           <div class="footer-social-networks col-md-6 col-sm-6">
             <a target="_blank" href="https://www.facebook.com/AIESECinBrazil/"><i class="fab fa-facebook-square"></i></a>

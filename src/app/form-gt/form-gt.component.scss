@@ -5,10 +5,47 @@
         margin-bottom: 5px;
     }
     .forms-tem-accepted {
-        font-size: 12px;
+        font-size: 13px;
         display: block;
         margin: 0 auto 15px auto;
         text-align: center;
+    }
+}
+
+.full-screen {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    display:flex;
+    align-items: center;
+    justify-content : center;
+    overflow-y: auto;
+}
+
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #0A8191;
+            padding: 0 10px;
+            border-bottom: 2px solid #0a8ea0;
+            min-width: 35px;
+            justify-content: center;
+        }
     }
 }
 
@@ -17,6 +54,11 @@
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+.checkbox {
+    margin: 15px auto 0 auto;
+    width: 95%;
 }
 
 .checkbox input[type="checkbox"] {
@@ -159,6 +201,7 @@ body {
     color: #fff !important;
     option {
         color: #000000;
+        font-size: 18px;
     }
 }
 
@@ -190,16 +233,18 @@ select:focus {
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
 }
+
 .label-experience {
     padding: 10px 0 10px 15px;
+    font-style: italic;
 }
 
-.form-checkbox-select{
-    padding:15px 0 10px 0;
-    display:flex;
+.form-checkbox-select {
+    padding: 15px 0 10px 0;
+    display: flex;
     justify-content: space-around;
     flex-wrap: nowrap;
-    background-color: rgba(0,0,0,.3);
+    background-color: rgba(0, 0, 0, .3);
     label {
         display: inline-block;
         padding-left: 5px;
@@ -215,7 +260,7 @@ select:focus {
 .fa-sort-desc {
     position: absolute;
     top: 0;
-    right: 12px;
+    right: 13px;
     font-size: 24px;
 }
 
@@ -254,7 +299,7 @@ _:-o-prefocus,
     text-align: right;
     margin: 0;
     min-width: 400px;
-    padding: 10px 30px 6px 12px;
+    padding: 10px 30px 6px 13px;
 }
 
 ::ng-deep .p-inputMask {
@@ -270,44 +315,52 @@ _:-o-prefocus,
             }
         }
         input::-webkit-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic;
         }
         input:-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
         input::-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
         input:-ms-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
     }
     &.gt {
         input {
-            font-size: 16px;
+            font-size: 13px;
             font-weight: lighter;
             font-family: "Lato", sans-serif;
             color: #fff
         }
         input::-webkit-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
         input:-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
         input::-moz-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
         input:-ms-input-placeholder {
-            font-size: 16px !important;
-            color: #fff
+            font-size: 13px !important;
+            color: #fff;
+            font-style: italic
         }
     }
 }
@@ -442,12 +495,12 @@ section.header h1 {
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
-    font-size: 14px;
+    font-size: 13px;
     background-color: rgba(255, 255, 255, .3)
 }
 
 .forms {
-    margin-bottom: 40px;
+    margin-bottom: 15px;
 }
 
 .form-group {
@@ -594,7 +647,8 @@ label {
 
 .form-check-label {
     margin-bottom: 0;
-    text-decoration: underline;
+    text-align: left;
+    font-size: 15px;
 }
 
 .dropdown,
@@ -804,7 +858,7 @@ label {
 
 .modal label {
     font-weight: normal;
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 10px;
     margin-bottom: 0;
 }
@@ -828,7 +882,7 @@ label {
 }
 
 .modal input[type=checkbox] {
-    margin-top: 12px;
+    margin-top: 13px;
 }
 
 .modal .form-check-label {
@@ -901,7 +955,6 @@ label {
         font-size: 25px;
         margin-top: 10px;
     }
-
     .form-checkbox-select {
         flex-direction: column;
         padding: 20px 10px 10px 15px;
@@ -918,9 +971,10 @@ label {
         text-align: right;
         margin: 0;
         min-width: 100%;
-        padding: 10px 30px 6px 12px;
+        padding: 10px 0 6px 12px;
     }
     ::ng-deep .p-inputMask {
+        padding-right: 10px !important;
         &.gv {
             input {
                 font-size: 16px;
@@ -933,23 +987,19 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input:-moz-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input::-moz-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
             input:-ms-input-placeholder {
-                font-size: 12px !important;
-                font-weight: bold;
+                font-size: 1.75vw !important;
                 color: #fff
             }
         }
@@ -987,33 +1037,33 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
+        font-style: italic;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
+        font-style: italic;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
+        font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 12px;
-        font-weight: bold;
+        font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
+        font-style: italic;
     }
     input[type=text],
     input[type=password],
@@ -1026,9 +1076,12 @@ label {
         text-align: right;
     }
     .input-group-text {
-        font-size: 14px;
+        font-size: 13px;
         font-weight: 400;
         line-height: 18px;
+    }
+    .form-check-label {
+        font-size: 13px;
     }
 }
 
@@ -1055,24 +1108,24 @@ label {
                 }
             }
             input::-webkit-input-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
-                color: #fff
+                font-size: 4.50vw !important;
+                color: #fff;
+                font-style: italic;
             }
             input:-moz-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
-                color: #fff
+                font-size: 4.50vw !important;
+                color: #fff;
+                font-style: italic;
             }
             input::-moz-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
-                color: #fff
+                font-size: 4.50vw !important;
+                color: #fff;
+                font-style: italic;
             }
             input:-ms-input-placeholder {
-                font-size: 14px !important;
-                font-weight: bold;
-                color: #fff
+                font-size: 4.50vw !important;
+                color: #fff;
+                font-style: italic;
             }
         }
     }
@@ -1123,7 +1176,6 @@ label {
         margin: auto;
     }
     #step3 h2 {
-        font-weight: bold;
         font-size: 44px;
         margin-bottom: 20px;
         padding: 0 34px;
@@ -1194,33 +1246,33 @@ label {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
+        font-style: italic;
         padding-right: 0;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
+        font-style: italic;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
+        font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
+        font-style: italic;
     }
 }
 
@@ -1284,20 +1336,28 @@ label {
 
 .form-talentos-globais input::-webkit-input-placeholder {
     color: #fff !important;
+    font-size: 13px;
+    font-style: italic;
 }
 
 .form-talentos-globais input:-moz-placeholder {
     /* Firefox 18- */
     color: #fff !important;
+    font-size: 13px;
+    font-style: italic;
 }
 
 .form-talentos-globais input::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff !important;
+    font-size: 13px;
+    font-style: italic;
 }
 
 .form-talentos-globais input:-ms-input-placeholder {
     color: #fff !important;
+    font-size: 13px;
+    font-style: italic;
 }
 
 /* Inputs */
@@ -1348,13 +1408,6 @@ label {
     border-color: #ffffff;
 }
 
-.form-talentos-globais .btn-primary:hover,
-.form-talentos-globais .btn-secondary:hover {
-    color: #fff;
-    background-color: #fff;
-    border-color: #fff;
-}
-
 .form-talentos-globais .btn-primary:not(:disabled):not(.disabled).active,
 .form-talentos-globais .btn-primary:not(:disabled):not(.disabled):active,
 .form-talentos-globais .show>.btn-primary.dropdown-toggle,
@@ -1402,7 +1455,7 @@ label {
 .logo-talentos-globais {
     max-width: 350px;
     width: 100%;
-    height: 200px;
+    height: 150px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;

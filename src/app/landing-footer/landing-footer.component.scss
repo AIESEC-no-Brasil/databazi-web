@@ -4,50 +4,68 @@ $break-md: 768px;
 $break-sm: 576px;
 
 .partners {
+  &.margin-top-and-bottom {
+    margin: 75px auto 0 auto !important
+  }
+  .row > div {
+    height: 250px;
+  }
   h1 {
     padding-bottom: 40px;
   }
   .footer-carousel {
-    margin: auto;
-    width: 90%;
-    .footer-carousel-btn-left {
-      position: absolute;
-      top: 46%;
-      padding: 41px 11px;
-      left: 0px;
-      i {
-        color: $default;
+    .carousel{
+      outline: 0 !important;
+    }
+    .partners-carousel{
+      width: 95%;
+      margin: auto;
+    }
+    .partners-flex{
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+      margin: 1.5% auto;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;      
+      .partners-item{
+        padding: 0 3px;        
+        a{
+          cursor: pointer;
+          img{
+            width: 100%;
+          }
+        }
       }
     }
-    .footer-carousel-btn-right {
-      position: absolute;
-      top: 47%;
-      right: 0px;
-      padding: 40px 10px;
-      i {
-        color: $default;
-      }
+    .partners-next{
+      color:#037ef3;
+      font-size: 25px;
+      padding: 35px 10px;
+      position: relative;
+      cursor: pointer;
+      float: left;
+      top: -76px;
+      left: -25px;
+    }
+
+    .partners-prev{
+      color: #037ef3;
+      font-size: 25px;
+      padding: 35px 10px;
+      position: relative;
+      cursor: pointer;
+      float: right;
+      top: -76px;
+      right: -25px;
     }
   }
 }
 
-.carousel {
-  height: 100px;
-  background-color: #FFFFFF;
-  img {
-    height: 100px;
-    width: 100px;
-    margin: 0 13px;
-  }
-}
-
-.drag-scroll-wrapper .drag-scroll-container {
-  height: 68px;
-}
-
-.drag-scroll-content {
-  height: 70px;
-}
 
 footer {
   .footer-logo {
@@ -111,11 +129,13 @@ footer {
   }
 }
 
+
 @media only screen and (max-width: $break-md) {
   footer {
     .footer-links {
       .footer-group-links {
         padding-bottom: 20px;
+        width: 47.5% !important
       }
     }
   }
@@ -125,6 +145,8 @@ footer {
       margin: 0px 8px;
     }
   }
+
+
 }
 
 @media only screen and (max-width: $break-sm) {
@@ -138,14 +160,15 @@ footer {
   }
 }
 
-@media only screen and (max-width: 990px) {
-    .footer-social-networks {
-      width: auto;
-      margin: auto;
-      // display: inline;
-      i {
-        padding: 12px;
-        padding-right: 0px!important;
+@media only screen and (min-width: 390px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -83px;
+      }
+
+      .partners-prev{
+        top: -83px;
       }
     }
     .bg-footer {
@@ -155,21 +178,113 @@ footer {
         }
       }
     }
-
+  }
 }
 
-@media only screen and (max-width: 382px) {
-  .partners {
-    .footer-carousel {
-      .footer-carousel-btn-left {
-        top: 53%;
+@media only screen and (min-width: 449px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -83px;
       }
-      .footer-carousel-btn-right {
-        top: 53%;
+
+      .partners-prev{
+        top: -83px;
       }
     }
   }
 }
 
-  
+@media only screen and (min-width: 475px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -88px;
+      }
 
+      .partners-prev{
+        top: -88px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 520px){
+  .partners{
+    .footer-carousel{
+      .partners-next{
+        top: -97px;
+      }
+
+      .partners-prev{
+        top: -97px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 576px){
+  .partners{
+    .footer-carousel{
+      .partners-carousel{
+        width: 470px;
+      }
+      .partners-flex{
+        .partners-item{
+          padding: 0 5px;
+        }
+      }
+      .partners-next{
+        top: -97px;
+      }
+
+      .partners-prev{
+        top: -97px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .partners{
+    .footer-carousel{
+      .partners-carousel{
+        width: 580px;
+      }
+      .partners-flex{
+        .partners-item{
+          padding: 0 8px;
+        }
+      }
+      .partners-next{
+        top: -103px;
+      }
+
+      .partners-prev{
+        top: -103px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px){
+  .partners{
+    .footer-carousel{
+      .partners-carousel{
+        width: 700px;
+      }
+      .partners-flex{
+        .partners-item{
+          padding: 0 20px;
+        }
+      }
+      .partners-next{
+        top: -102px;
+      }
+
+      .partners-prev{
+        top: -102px;
+      }
+    }
+  }
+}

@@ -1,19 +1,20 @@
 <head>
-    <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
-  </head>
-  <div id="step1" class="form-talentos-globais">
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+</head>
+<div id="step1" class="form-talentos-globais" [ngClass]="{'full-screen': formedUser}">
+  <div>
     <!-- Header -->
     <section class="header" id="header-talentos-globais">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-sm text-center">
-            <div class="logo-talentos-globais"></div>
+            <div class="logo-empreendedor-global"></div>
           </div>
         </div>
         <div *ngIf="!completedSignup">
           <div class="row">
             <div class="col-sm">
-              <h1>Vivencie a realidade de uma empresa internacional, desenvolva suas habilidades e traga o mundo para o seu currículo.</h1>
+              <h1>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</h1>
             </div>
           </div>
           <div class="row" *ngIf="!loading && !completedSignup">
@@ -29,14 +30,14 @@
         </div>
       </div>
     </section>
-  
+
     <!-- Form -->
-    <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading">
+    <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading" (window:resize)="onResize($event)">
       <div class="container">
         <div class="row justify-content-center">
-  
+
           <div class="col-sm">
-  
+
             <!-- Content -->
             <!-- Alert -->
             <div class="alert alert-warning alert-dismissible fade show animated fadeIn" role="alert" *ngIf="invalidEmail">
@@ -51,12 +52,18 @@
               <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-user"></i>Nome Completo</div>
                     </div>
-                    <input type="text" class="form-control" id="inputNome" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname"
+                    <!-- desktop -->
+                    <input type="text" class="form-control desktop" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname"
                       formControlName="fullname" name="fullname" required>
+
+                    <!-- mobile -->
+                    <i class="fas fa-user mobile mobile-icon"></i>
+                    <input type="text" class="form-control mobile" placeholder="Nome completo" [(ngModel)]="user.fullname" formControlName="fullname"
+                      name="fullname" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -67,11 +74,17 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
-                    <input type="tel" class="form-control" id="inputCelular" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
+                    <!-- desktop -->
+                    <input type="tel" class="form-control desktop" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-mobile-alt mobile mobile-icon"></i>
+                      <input type="tel" class="form-control mobile" placeholder="Celular" [textMask]="phoneMask()"
                       [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
@@ -86,11 +99,17 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-envelope"></i>E-mail</div>
                     </div>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Relaxa, nós também odiamos spam" [(ngModel)]="user.email"
+                    <!-- desktop -->
+                    <input type="email" class="form-control desktop" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
+                      (blur)="checkEmail()" formControlName="email" name="email" email required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-envelope mobile-icon mobile"></i>
+                      <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email"
                       (blur)="checkEmail()" formControlName="email" name="email" email required>
                     <div class="valid-feedback" *ngIf="!invalidEmail">
                       <i class="fa fa-check"></i>
@@ -105,12 +124,14 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-gift"></i>Data de Nascimento</div>
                     </div>
-                    <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="Os programas da AIESEC são 18 à 30 anos de idade"
-                      [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
+                    
+                    <i class="fas fa-gift mobile mobile-icon"></i>
+                    <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
+                    [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -127,11 +148,17 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-lock"></i>Senha</div>
                     </div>
-                    <input type="password" class="form-control" id="inputSenha" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
+                    <!-- desktop -->
+                    <input type="password" class="form-control desktop" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
+                      formControlName="password" name="password" required>
+
+                    <!-- mobile -->
+                    <i class="fas fa-lock mobile mobile-icon"></i>
+                    <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password"
                       formControlName="password" name="password" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
@@ -140,12 +167,18 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <div class="input-group-prepend">
+                    <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-lock"></i>Confirmar Senha</div>
                     </div>
-                    <input type="password" class="form-control" id="inputConfirmeSenha" placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
+                    <!-- desktop -->
+                    <input type="password" class="form-control desktop" placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
                       name="repassword" required>
+
+                    <!-- mobile -->
+                    <i class="fas fa-lock mobile mobile-icon"></i>
+                    <input type="password" class="form-control mobile" [(ngModel)]="user.repassword" formControlName="repassword"
+                      name="repassword" required placeholder="Confirmar senha">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -163,7 +196,7 @@
                 </div>
               </form>
             </div>
-  
+
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
                 <div>
@@ -171,38 +204,64 @@
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
-                          <i class="fas fa-graduation-cap"></i>Universidade</div>
+                          <i class="fas fa-graduation-cap"></i>Escolaridade</div>
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
-                            <option value="">Onde você estuda?</option>
-                            <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
+                          <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity" (ngModelChange)="changeScholarity(user.scholarity)">
+                            <option value="">Qual seu nível de escolaridade?</option>
+                            <option value="0">Ensino Médio Completo</option>
+                            <option value="2">Estudante de Graduação</option>
+                            <option value="3">Mestrado ou Pós</option>
+                            <option value="4">Graduado em até 1,5 anos</option>
+                            <option value="5">Graduado há mais de 2 anos</option>
+                            <option value="6">Outro</option>
                           </select>
                         </div>
                       </div>
                     </div>
-                    <div *ngIf="isValidStudy('university_id')" class='error-message'>
-                      Selecione uma universidade.
+                    <div *ngIf="isValidStudy('scholarity')" class='error-message'>
+                      Selecione um nível de escolaridade
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-book-open"></i>Curso</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
-                            <option value="">Insira seu curso</option>
-                            <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
-                          </select>
+                  <div *ngIf="user.scholarity >= 2 && user.scholarity != 6" class="animated fadeIn faster">
+                    <div class="form-group">
+                      <div class="input-group select-dropdown">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-graduation-cap"></i>Universidade</div>
+                        </div>
+                        <div class="dropdown">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
+                              <option value="">Onde você estuda?</option>
+                              <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
+                            </select>
+                          </div>
                         </div>
                       </div>
+                      <div *ngIf="isValidStudy('university_id')" class='error-message'>
+                        Selecione uma universidade.
+                      </div>
                     </div>
-                    <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
-                      Selecione um curso.
+                    <div class="form-group">
+                      <div class="input-group select-dropdown">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-book-open"></i>Curso</div>
+                        </div>
+                        <div class="dropdown">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
+                              <option value="">Insira seu curso</option>
+                              <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
+                        Selecione um curso.
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
@@ -229,46 +288,26 @@
                     </div>
                   </div>
                   <div class="form-group">
-                      <div class="input-group select-dropdown">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-book-open"></i>Nível de espanhol</div>
-                        </div>
-                        <div class="dropdown">
-                          <div class="styled-select">
-                            <select [(ngModel)]="user.spanish_level" formControlName="spanish_level" name="spanish_level">
-                              <option value="">Isso nos ajuda a te direcionar para as vagas mais adequadas</option>
-                              <option value="0">Não tenho</option>
-                              <option value="1">Básico</option>
-                              <option value="2">Intermediário</option>
-                              <option value="3">Avançado</option>
-                              <option value="4">Fluente</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div *ngIf="isValidStudy('spanish_level')" class='error-message'>
-                        Selecione um nível de espanhol.
-                      </div>
-                    </div>
-                  <div class="form-group">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
-                          <i class="fas fa-book-open"></i>Experiências</div>
+                          <i class="fas fa-book-open"></i>Nível de espanhol</div>
                       </div>
-                      <div class="label-experience">
-                        Escolha pelo menos uma opção abaixo.
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.spanish_level" formControlName="spanish_level" name="spanish_level">
+                            <option value="">Isso nos ajuda a te direcionar para as vagas mais adequadas</option>
+                            <option value="0">Não tenho</option>
+                            <option value="1">Básico</option>
+                            <option value="2">Intermediário</option>
+                            <option value="3">Avançado</option>
+                            <option value="4">Fluente</option>
+                          </select>
+                        </div>
                       </div>
                     </div>
-                    <div class="form-checkbox-select">
-  
-                      <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                          <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
-                          <label for="language" for="{{experience.name}}">
-                            {{experience.name}}
-                          </label>
-                      </div>
+                    <div *ngIf="isValidStudy('spanish_level')" class='error-message'>
+                      Selecione um nível de espanhol.
                     </div>
                   </div>
                   <div class="form-group">
@@ -290,7 +329,7 @@
                       Selecione a AIESEC mais próxima.
                     </div>
                   </div>
-  
+
                   <!-- Terms -->
                   <div class="row justify-content-center forms-term">
                     <div class="col-sm-10">
@@ -301,18 +340,16 @@
                       <label class="form-group forms-tem-accepted">
                         Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
                       </label>
-                      <div class="form-group form-check text-center checkbox">
-                        <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
-                          name="cellphone_contactable">
-                        <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                      </div>
                     </div>
                   </div>
                 </div>
               </form>
             </div>
-  
+
             <section class="content" id="resultado" *ngIf="completedSignup">
+              <script type="text/javascript">
+               fbq('track', 'Lead');
+              </script>
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="col-sm">
@@ -328,8 +365,8 @@
                     <div class="row justify-content-center">
                       <div class="col-sm-12" id="content-resultado">
                         <p>
-                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio social
-                          na data e destina ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
+                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por imersão internacional
+                          em startup na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
                         </p>
                         <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
                       </div>
@@ -338,14 +375,15 @@
                 </div>
               </div>
             </section>
-  
+
             <div class="form-row buttons" *ngIf="!completedSignup">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">Cancelar</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'" [disabled]='step2Form.invalid || !hasExperience'>
+                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)' [ngx-scroll-to]="'#header-talentos-globais'">Próximo</button>
+                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
+                  [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>
                 </button>
@@ -359,3 +397,4 @@
       <div class="loading-animation loading-animation-ge"></div>
     </div>
   </div>
+</div>
