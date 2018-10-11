@@ -76,8 +76,13 @@
                       <div class="input-group-text ">
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
-                      <i class="fas fa-mobile-alt mobile mobile-icon"></i>
-                      <input type="tel" class="form-control telefone" placeholder="Vamos falar com você por aqui!" [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" />
+                    <!-- desktop -->
+                    <input type="tel" class="form-control desktop tel-mask" placeholder="Vamos falar com você por aqui!"
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                    <!-- mobile -->
+                    <i class="fas fa-mobile-alt mobile mobile-icon"></i>
+                    <input type="tel" class="form-control mobile tel-mask" placeholder="Celular" [(ngModel)]="user.cellphone"
+                      formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>

@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 
 import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
@@ -267,6 +268,7 @@ export class FormGeComponent implements OnInit {
   }
 
   checkPhone() {
+    this.user.cellphone = $('.tel-mask').val();
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
     if (cellphone.length < 10) {
@@ -340,19 +342,6 @@ export class FormGeComponent implements OnInit {
           this.loading = false;
         }
       )
-  }
-
-  phoneMask() {
-    return {
-      mask: (value) => {
-        if (value.replace(/[./_-]/g, '').length <= 12) {
-          return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        } else {
-          return ['(', /\d/, /\d/, ')', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
-        }
-      },
-      guide: false
-    };
   }
 
   checkEmail() {
