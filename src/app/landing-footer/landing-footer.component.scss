@@ -148,6 +148,14 @@ footer {
         padding-right: 0px!important;
       }
     }
+    .bg-footer {
+      .bg-footer-group {
+        .footer-group-links {
+          width: 50%;
+        }
+      }
+    }
+
 }
 
 @media only screen and (max-width: 382px) {
