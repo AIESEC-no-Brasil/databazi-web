@@ -117,12 +117,12 @@
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
                     <!-- desktop -->
-                    <input type="tel" class="form-control desktop" placeholder="Vamos falar com você por aqui!" [textMask]="phoneMask()"
+                    <input type="tel" class="form-control desktop tel-mask" placeholder="Vamos falar com você por aqui!"
                       [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
 
                       <!-- mobile -->
                       <i class="fas fa-mobile-alt mobile mobile-icon"></i>
-                      <input type="tel" class="form-control mobile" placeholder="Celular" [textMask]="phoneMask()"
+                      <input type="tel" class="form-control mobile tel-mask" placeholder="Celular"
                       [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
