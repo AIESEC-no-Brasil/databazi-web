@@ -205,24 +205,24 @@
                           <i class="fas fa-graduation-cap"></i>Escolaridade</div>
                       </div>
                       <div class="dropdown">
-                        <div class="styled-select">
-                          <select [(ngModel)]="user.scholarity" formControlName="scholarity" name="scholarity" (ngModelChange)="changeScholarity(user.scholarity)">
-                            <option value="">Qual seu nível de escolaridade?</option>
-                            <option value="0">Ensino Médio Completo</option>
-                            <option value="2">Estudante de Graduação</option>
-                            <option value="3">Mestrado ou Pós</option>
-                            <option value="4">Graduado em até 1,5 anos</option>
-                            <option value="5">Graduado há mais de 2 anos</option>
-                            <option value="6">Outro</option>
-                          </select>
-                        </div>
+                          <div class="styled-select">
+                            <mat-form-field class="example-full-width">
+                              <input type="text" matInput [formControl]="step2Form.controls.scholarity" [matAutocomplete]="scholarity" [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" class="autocomplete">
+                              <mat-placeholder class="autocomplete-placeholder">Qual seu nível de escolaridade?</mat-placeholder>
+                              <mat-autocomplete #scholarity="matAutocomplete" [displayWith]="display">
+                                <mat-option *ngFor="let option of filteredScholarityOptions | async" [value]="option">
+                                    {{option.name}}
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
+                          </div>
                       </div>
                     </div>
                     <div *ngIf="isValidStudy('scholarity')" class='error-message'>
                       Selecione um nível de escolaridade
                     </div>
                   </div>
-                  <div *ngIf="user.scholarity >= 2 && user.scholarity != 6" class="animated fadeIn faster">
+                  <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
                     <div class="form-group">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
@@ -231,10 +231,17 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
-                              <option value="">Onde você estuda?</option>
-                              <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
-                            </select>
+
+                            <mat-form-field class="example-full-width">
+                              <input type="text" matInput [formControl]="step2Form.controls.university_id" [matAutocomplete]="university" [(ngModel)]="user.university" class="autocomplete">
+                              <mat-placeholder class="autocomplete-placeholder">Onde você estuda?</mat-placeholder>
+                              <mat-autocomplete #university="matAutocomplete" [displayWith]="display">
+                                <mat-option *ngFor="let university of filteredUniversities | async" [value]="university">
+                                    {{university.name}}
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
+
                           </div>
                         </div>
                       </div>
@@ -242,7 +249,7 @@
                         Selecione uma universidade.
                       </div>
                     </div>
-                    <div class="form-group ">
+                    <div class="form-group">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -250,10 +257,15 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <select [(ngModel)]="user.college_course_id" formControlName="college_course_id" name="college_course_id">
-                              <option value="">Insira seu curso</option>
-                              <option *ngFor="let course of courses" [value]="course.id"> {{ course.name }}</option>
-                            </select>
+                            <mat-form-field class="example-full-width">
+                              <input type="text" matInput [formControl]="step2Form.controls.college_course_id" [matAutocomplete]="college_course" [(ngModel)]="user.college_course" class="autocomplete">
+                              <mat-placeholder class="autocomplete-placeholder">Insira seu curso</mat-placeholder>
+                              <mat-autocomplete #college_course="matAutocomplete" [displayWith]="display">
+                                <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
+                                    {{course.name}}
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
                           </div>
                         </div>
                       </div>
@@ -270,10 +282,15 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <select [(ngModel)]="user.local_committee_id" formControlName="local_committee_id" name="local_committee_id">
-                            <option value="">Esse é o escritório que vai cuidar de você!</option>
-                            <option *ngFor="let place of places" [value]="place.id"> {{ place.name }}</option>
-                          </select>
+                          <mat-form-field class="example-full-width">
+                            <input type="text" matInput [formControl]="step2Form.controls.local_committee_id" [matAutocomplete]="local_committee" [(ngModel)]="user.local_committee" class="autocomplete">
+                            <mat-placeholder class="autocomplete-placeholder">Esse é o escritório que vai cuidar de você!</mat-placeholder>
+                            <mat-autocomplete #local_committee="matAutocomplete" [displayWith]="display">
+                              <mat-option *ngFor="let place of filteredPlaces | async" [value]="place">
+                                  {{place.name}}
+                              </mat-option>
+                            </mat-autocomplete>
+                          </mat-form-field>
                         </div>
                       </div>
                     </div>
