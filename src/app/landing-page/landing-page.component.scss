@@ -8,6 +8,16 @@ main {
     background-image: url('../../assets/images/pattern1.png');
 }
 
+#fullpage {
+    width: 100%;
+    height: 100%;
+    .section {
+        width: 100%;
+        height: 100vh;
+        border:1px solid black
+    }
+}
+
 main {
     width: 100%;
     display: flex;
@@ -255,9 +265,6 @@ main {
     background-size: cover;
 }
 
-section {
-    position: relative;
-}
 
 section.history-session,
 section.experiences-session {
@@ -266,10 +273,27 @@ section.experiences-session {
     background-size: 25%;
 }
 
-section.our-stories {
-    background-image: url('../../assets/images/pattern1.png');
-    background-position: top center;
-    background-size: 25%;
+div#our-stories {
+    position: relative;
+    padding-bottom: 25px;
+    border-top: 2px solid #EDEDED;
+    #our-stories-bg {
+        width: 100%;
+        background-image: url('../../assets/images/pattern3.png');
+        height: 100%;
+        left: 0;
+        top: 0;
+        position: absolute;
+        opacity: 1;
+        filter: brightness(102%);
+    }
+    section.our-stories {
+        background-image: none;
+        h1 {
+            color: rgba(67, 122, 190, 1);
+            padding-bottom: 20px;
+        }
+    }
 }
 
 .history-session .container>.row {
