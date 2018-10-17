@@ -347,7 +347,6 @@ export class FormGeComponent implements OnInit {
   }
 
   checkPhone() {
-    this.user.cellphone = $('.tel-mask').val();
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
     if (cellphone.length < 10) {

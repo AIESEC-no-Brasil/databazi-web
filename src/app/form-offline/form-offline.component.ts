@@ -7,7 +7,6 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import * as $ from 'jquery';
 
 @Component({
   selector: 'app-form-offline',
@@ -238,7 +237,6 @@ export class FormOfflineComponent implements OnInit {
   }
 
   checkPhone(){
-    this.user.cellphone = $('.tel-mask').val();
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
     if (cellphone.length < 10){
