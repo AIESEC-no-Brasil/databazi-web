@@ -30,6 +30,8 @@ import { FormGtComponent } from './form-gt/form-gt.component';
 import { FormGeComponent } from './form-ge/form-ge.component';
 import { FormOfflineComponent } from './form-offline/form-offline.component';
 
+import { NgxMaskModule } from 'ngx-mask'
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,6 +67,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GrowlModule,
     TranslateModule,
     HttpClientModule, 
+    NgxMaskModule.forRoot(),
     ScrollToModule.forRoot(),
     NgbModule.forRoot(),
     TranslateModule.forRoot({

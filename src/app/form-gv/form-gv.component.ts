@@ -256,7 +256,6 @@ export class FormGvComponent implements OnInit {
 
   checkPhone(){
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-    
     if (cellphone.length < 10){
       this.invalidPhone = true;
       return;
