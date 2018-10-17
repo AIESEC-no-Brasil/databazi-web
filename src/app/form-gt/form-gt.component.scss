@@ -1085,11 +1085,21 @@ label {
     }
 }
 
+#inputDatadeNascimento{
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: "Lato", sans-serif;
+}
+
+
 /*--------------------------------------------------------------
       Responsive Styles - Max 600px
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
+    #inputDatadeNascimento{
+        text-align: left;
+    }
     //prime 
     ::ng-deep .p-inputMask input {
         text-align: left;
@@ -1461,4 +1471,41 @@ label {
     background-position: center center;
     background-image: url('../../assets/images/logo-talentos-globais.png');
     margin: auto
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.autocomplete {
+    height: 50px;
+    padding-top: 20px;
+}
+
+.autocomplete-placeholder {
+    font-size: 16px !important;
+    color: #fff;
+    font-style: italic;
+}
+
+/deep/ .mat-autocomplete-panel.mat-autocomplete-visible {
+    background-color: white;
+}
+
+/deep/ .mat-autocomplete {
+    background-color: red;
+}
+
+/deep/ .cdk-overlay-pane, .cdk-overlay-pane {
+    position: relative;
+}
+
+/deep/ .mat-autocomplete::-webkit-input-placeholder {
+    color: red;
 }

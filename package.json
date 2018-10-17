@@ -31,10 +31,10 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.5.4",
     "jquery": "^3.3.1",
-    "jquery.maskedinput": "^1.4.1",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "ngx-drag-scroll": "^2.0.0-beta.6",
+    "ngx-mask": "^6.5.18",
     "primeng": "^6.1.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
