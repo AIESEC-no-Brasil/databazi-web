@@ -1094,15 +1094,18 @@ label {
     }
 }
 
+#inputDatadeNascimento{
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: "Lato", sans-serif;
+}
+
 /*--------------------------------------------------------------
       Responsive Styles - Max 600px
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
     #inputDatadeNascimento{
-        font-size: 16px;
-        font-weight: lighter;
-        font-family: "Lato", sans-serif;
         text-align: left;
     }
     //prime 
