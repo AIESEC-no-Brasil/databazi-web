@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,28 +11,35 @@ import { Router } from '@angular/router';
 export class LandingPageComponent implements OnInit {
 
 	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
-  actual: number = 1;
+  sliderPosition: number = 0;
   seeMoreGv:boolean = false;
   seeMoreGe:boolean = false;
   seeMoreGt:boolean = false;
 
-	moveLeft() {
-    this.actual -= 1;
-    if (this.actual < 1){
-      this.actual = 3;
-    }
-  }
-
-  moveRight() {
-    this.actual += 1;
-    if (this.actual > 3){
-      this.actual = 1;
-    }
-  }
-
   constructor(
     public router: Router
   ) { }
+
+
+	moveLeft() {
+    if ((this.sliderPosition - 100) < 0){
+      this.sliderPosition = 200;
+    }
+    else {
+      this.sliderPosition -= 100;
+    }
+    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+  }
+
+  moveRight() {
+    if ((this.sliderPosition + 100) > 200){
+      this.sliderPosition = 0;
+    } 
+    else {
+      this.sliderPosition += 100
+    }
+    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+  }
 
   ngOnInit() {
     this.sliderAnimation();
@@ -51,7 +59,6 @@ export class LandingPageComponent implements OnInit {
       behavior: 'smooth'
     });
   }
-
   toggleGv(){
     this.seeMoreGv ? this.seeMoreGv = false : this.seeMoreGv = true;
   }
