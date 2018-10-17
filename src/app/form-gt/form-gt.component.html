@@ -80,12 +80,12 @@
                     </div>
                     <!-- desktop -->
                     <input type="tel" class="form-control desktop tel-mask" placeholder="Vamos falar com você por aqui!"
-                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" mask="(00) 0000-00009" (blur)="checkPhone()" required>
 
                       <!-- mobile -->
                       <i class="fas fa-mobile-alt mobile mobile-icon"></i>
                       <input type="tel" class="form-control mobile tel-mask" placeholder="Celular"
-                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" mask="(00) 0000-00009" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -130,8 +130,8 @@
                     </div>
                     
                     <i class="fas fa-gift mobile mobile-icon"></i>
-                    <p-inputMask class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
-                    [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" required mask="99/99/9999"></p-inputMask>
+                    <input class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
+                    [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" mask="00/00/0000"/>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
