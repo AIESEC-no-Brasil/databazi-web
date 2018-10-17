@@ -82,7 +82,6 @@ main {
     display: flex;
     align-items: center;
     min-height: 400px;
-    background-color: red;
     background-image: url('../../assets/images/header.jpg');
     background-position: center center;
     .description {
@@ -463,11 +462,53 @@ div#our-stories {
         align-items: center;
         display: flex;
         color: $default;
-        padding: 0 5%;
         box-sizing: border-box;
+        z-index:100;
+        font-size: 40px;
         i {
+            position: absolute;
             cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:#fff;
+            transition:.3s;
+            &:hover {
+                transform: scale(1.05);
+            }
+            &.fa-chevron-left{
+                left:2.5%;
+            }
+            &.fa-chevron-right{
+                right: 2.5%;
+            }
         }
+    }
+
+    .carousel-container{
+        width: 100%;
+        min-height: 350px;
+        position: relative;
+        overflow:hidden;
+        
+        .carousel-wrapper {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            .each-carousel-item {
+                width: 33%;
+                height: 100%;
+                box-sizing: border-box;
+                position:Relative; 
+                margin:0 .15%;
+                float:left;
+                cursor: pointer;
+            }
+        }
+        
     }
 }
 
@@ -609,7 +650,7 @@ drag-scroll {
         &.box-case-gv {
             top: 50%;
             height: 225px;
-            margin-top: -135px;
+            margin-top: -112.5px;
             padding-top: 10px;
             padding-bottom: 10px;
         }

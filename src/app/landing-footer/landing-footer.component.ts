@@ -1,100 +1,105 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { NgbCarouselConfig, NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-landing-footer',
   templateUrl: './landing-footer.component.html',
   styleUrls: ['./landing-footer.component.scss'],
-  providers: [NgbCarouselConfig, NgbCarousel]
 })
 export class LandingFooterComponent implements OnInit {
 
-  @ViewChild('footercarousel') carousel: NgbCarousel;
-  partners : object;
-  
-
-  next() {
-    this.carousel.next()
-  }
-
-  prev() {
-    this.carousel.prev()
-  }
+  partners: any;
+  sliderPosition: number = 0;
 
   navTo(partnerPage) {
     window.open(partnerPage, '_blank');
   }
 
-  constructor(config: NgbCarouselConfig, private router: Router) { 
-    config.showNavigationIndicators = false;
-    config.showNavigationArrows = false;
-    config.interval = 20000;
-    config.pauseOnHover = true;
-    
-  }
-  
-  ngOnInit() {
-    // this.carousel.next()
-    this.partners = {
-      assistcard: {
+  constructor(private router: Router) {
+    this.partners = [
+      {
+        title: 'assistcard',
         img: '../../assets/images/partners/assistcard.png',
         site: 'https://www.assistcard.com/b2c/aiesec-br',
       },
-      delivery_much: {
+      {
+        title: 'delivery_much',
         img: '../../assets/images/partners/delivery_much.png',
         site: 'https://www.deliverymuch.com.br/',
       },
-      dhl: {
+      {
+        title: 'dhl',
         img: '../../assets/images/partners/dhl.png',
         site: 'https://aiesec.org/partner/286836',
       },
-      electrolux: {
+      {
+        title: 'electrolux',
         img: '../../assets/images/partners/electrolux.png',
         site: 'https://aiesec.org/partner/272692',
       },
-      hyva: {
+      {
+        title: 'hyva',
         img: '../../assets/images/partners/hyva.png',
         site: 'https://aiesec.org/partner/344322',
+
       },
-      leroymerlin: {
+      {
+        title: 'leroymerlin',
         img: '../../assets/images/partners/leroymerlin.png',
         site: 'https://www.leroymerlin.com.br/blog',
       },
-      mckinseyecompany: {
+      {
+        title: 'mckinseyecompany',
         img: '../../assets/images/partners/mckinseyecompany.png',
         site: 'https://www.mckinsey.com.br/',
+
       },
-      mondelez: {
+      {
+        title: 'mondelez',
         img: '../../assets/images/partners/mondelez.png',
         site: 'https://br.mondelezinternational.com/home',
+
       },
-      nestle: {
+      {
+        title: 'nestle',
         img: '../../assets/images/partners/nestle.png',
         site: 'https://www.nestle.com.br/',
       },
-      nokia: {
+      {
+        title: 'nokia',
         img: '../../assets/images/partners/nokia.png',
         site: 'https://aiesec.org/partner/330494',
+
       },
-      resultadosdigitais: {
+      {
+        title: 'resultadosdigitais',
         img: '../../assets/images/partners/resultadosdigitais.png',
         site: 'https://resultadosdigitais.com.br/',
+
       },
-      sap: {
+      {
+        title: 'sap',
         img: '../../assets/images/partners/sap.png',
         site: 'https://www.sap.com/brazil/about.html',
+
       },
-      votorantimcimentos: {
+      {
+        title: 'votorantimcimentos',
         img: '../../assets/images/partners/votorantimcimentos.png',
         site: 'https://www.votorantimcimentos.com.br/',
       },
-      Whirlpoow: {
+      {
+        title: 'Whirlpoow',
         img: '../../assets/images/partners/Whirlpoow.png',
         site: 'https://www.whirlpool.com.br/',
       },
-    }
+    ]
+  }
 
+  ngOnInit() {
+    window.scrollTo(0, 0)
+    this.sliderAnimation();
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
@@ -103,4 +108,33 @@ export class LandingFooterComponent implements OnInit {
     });
   }
 
+  moveLeft() {
+    if ((this.sliderPosition - 100) < 0){
+      this.sliderPosition = 200;
+    }
+    else {
+      this.sliderPosition -= 100;
+    }
+    $('.footer-carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
+  }
+
+  moveRight() {
+    if ((this.sliderPosition + 100) > 200){
+      this.sliderPosition = 0;
+    } 
+    else {
+      this.sliderPosition += 100
+    }
+    $('.footer-carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
+  }
+
+  sliderAnimation() {
+    setInterval(() => {
+      this.moveRight()
+    }, 10000);
+  }
+
+  openUrl(site){
+    window.open(site);
+  }
 }

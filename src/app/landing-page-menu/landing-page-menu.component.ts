@@ -21,7 +21,7 @@ export class LandingPageMenuComponent implements OnInit {
     this.actualPage = this.router.url.replace('/','');
     $(window).scroll(function (event) {
       let scroll = $(window).scrollTop();
-      if (scroll >= 500 && window.innerWidth >= 1024) {
+      if (scroll >= 300 && window.innerWidth >= 1024) {
         $('#fixedMenu').addClass('fixedMenu');
       }
       else {
