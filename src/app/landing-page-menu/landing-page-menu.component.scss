@@ -8,6 +8,38 @@
     top: 0;
     z-index: 6;
 }
+#fixedMenu {
+    transition: .3s
+}
+
+#fixedMenu.fixedMenu {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background: $default;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .menu-product {
+        height: 50px;
+        padding: 0;
+        margin: 0;
+    }
+    .logo-aiesec {
+        margin: 0;
+    }
+    .responsive-menu ul#menu li {
+        padding: 5px 15px 10px 15px;
+        ul.animated {
+            background-color: $default;
+            // filter: brightness(85%);
+            border-radius: 0 0 10px 10px;
+        }
+    }
+}
 
 /*IE9*/
 
@@ -75,8 +107,9 @@
             cursor: pointer;
         }
         .logo-aiesec {
-            height: 25px;
+            height: 45px;
             margin: 20px 0;
+            min-height: 45px;
         }
         .logo-menu {
             width: 60%;
@@ -118,6 +151,7 @@
                         background-color: rgba(255, 255, 255, .5);
                         min-width: 175px;
                         display: none;
+                        left:0;
                         a:hover {
                             text-decoration: none;
                             color: #fff;

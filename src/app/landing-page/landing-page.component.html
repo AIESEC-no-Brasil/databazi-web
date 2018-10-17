@@ -214,7 +214,7 @@
     <div class="container">
       <div class="row">
         <h1 class="italic centered">
-          Em uma experiência com a AIESEC você vai
+          Em uma experiência com a AIESEC você vai...
         </h1>
 
         <div class="col-lg-7 col-sm-12 col-md-12 align-left">
@@ -250,86 +250,90 @@
       </div>
     </div>
   </section>
+  <div id="our-stories">
+    <div id="our-stories-bg"></div>
+    <section class="container padding align-center our-stories">
+      <h1 class='italic centered'>As nossas histórias</h1>
+      <br>
+      <div class="row">
+        <div class="col-sm">
+          <div class="footer-carousel-btn-left">
+            <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
+          </div>
+          <div class="footer-carousel">
+            <drag-scroll class="carousel" #nav scrollbar-hidden="true" drag-scroll-y-disabled="true">
+              <a routerLink="/voluntario-global" class="animated fadeIn faster" *ngIf="actual == 1">
+                <div class="cases case-1" drag-scroll-item>
+                  <div class="box-case-bg"></div>
+                  <div class="box-case box-case-gv">
+                    <div class="logo-product gv"></div>
+                    <p class='product-story-info'>
+                      "Meu Voluntário Global foi uma experiência muito desafiadora na qual pude me desenvolver muito e impactar o mundo ao meu
+                      redor."
+                    </p>
+                    <span>
+                      Letícia Yokoi
+                    </span>
+                    <ul>
+                      <li class="active"></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
+              </a>
+              <a routerLink="/empreendedor-global" class="animated fadeIn faster" *ngIf="actual == 2">
+                <div class="cases case-2" drag-scroll-item>
+                  <div class="box-case-bg"></div>
+                  <div class="box-case">
+                    <div class="logo-product ge"></div>
+                    <p class='product-story-info'>
+                      "Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
+                      eu trabalhei, também participei de um ambiente de trabalho muito multicultural! Foi uma experiência
+                      inesquecível."
+                    </p>
+                    <span>
+                      João Diogo Brites
+                    </span>
+                    <ul>
+                      <li></li>
+                      <li class="active"></li>
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
 
-  <section class="container padding align-center our-stories">
-    <h1 class='italic centered'>As nossas histórias</h1>
-    <br>
-    <div class="row">
-      <div class="col-sm">
-        <div class="footer-carousel-btn-left">
-          <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
-        </div>
-        <div class="footer-carousel">
-          <drag-scroll class="carousel" #nav scrollbar-hidden="true" drag-scroll-y-disabled="true">
-            <a routerLink="/voluntario-global" class="animated fadeIn faster" *ngIf="actual == 1">
-              <div class="cases case-1" drag-scroll-item>
-                <div class="box-case-bg"></div>
-                <div class="box-case box-case-gv">
-                  <div class="logo-product gv"></div>
-                  <p class='product-story-info'>
-                    "Meu Voluntário Global foi uma experiência muito desafiadora na qual pude me desenvolver muito e impactar o mundo ao meu
-                    redor."
-                  </p>
-                  <span>
-                    Letícia Yokoi
-                  </span>
-                  <ul>
-                    <li class="active"></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
+              </a>
+              <a routerLink="/talento-global" class="animated fadeIn faster" *ngIf="actual == 3">
+                <div class="cases case-3" drag-scroll-item>
+                  <div class="box-case-bg"></div>
+                  <div class="box-case">
+                    <div class="logo-product gt"></div>
+                    <p class='product-story-info'>
+                      "Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
+                      quanto pessoalmente. Meu ano lá foi um divisor de águas na minha carreira e pra pessoa que sou hoje!"
+                    </p>
+                    <span>
+                      Amanda Peconick
+                    </span>
+                    <ul>
+                      <li></li>
+                      <li></li>
+                      <li class="active"></li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a routerLink="/empreendedor-global" class="animated fadeIn faster" *ngIf="actual == 2">
-              <div class="cases case-2" drag-scroll-item>
-                <div class="box-case-bg"></div>
-                <div class="box-case">
-                  <div class="logo-product ge"></div>
-                  <p class='product-story-info'>
-                    "Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
-                    eu trabalhei, também participei de um ambiente de trabalho muito multicultural! Foi uma experiência inesquecível."
-                  </p>
-                  <span>
-                    João Diogo Brites
-                  </span>
-                  <ul>
-                    <li></li>
-                    <li class="active"></li>
-                    <li></li>
-                  </ul>
-                </div>
-              </div>
-
-            </a>
-            <a routerLink="/talento-global" class="animated fadeIn faster" *ngIf="actual == 3">
-              <div class="cases case-3" drag-scroll-item>
-                <div class="box-case-bg"></div>
-                <div class="box-case">
-                  <div class="logo-product gt"></div>
-                  <p class='product-story-info'>
-                    "Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
-                    quanto pessoalmente. Meu ano lá foi um divisor de águas na minha carreira e pra pessoa que sou hoje!"
-                  </p>
-                  <span>
-                    Amanda Peconick
-                  </span>
-                  <ul>
-                    <li></li>
-                    <li></li>
-                    <li class="active"></li>
-                  </ul>
-                </div>
-              </div>
-            </a>
-          </drag-scroll>
-        </div>
-        <div class="footer-carousel-btn-right">
-          <i (click)="moveRight()" class="fas fa-chevron-right"></i>
+              </a>
+            </drag-scroll>
+          </div>
+          <div class="footer-carousel-btn-right">
+            <i (click)="moveRight()" class="fas fa-chevron-right"></i>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
 </main>
 
 <app-landing-footer></app-landing-footer>
