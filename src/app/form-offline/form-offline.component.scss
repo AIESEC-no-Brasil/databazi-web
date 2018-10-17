@@ -1097,11 +1097,20 @@ label {
     }
 }
 
+#inputDatadeNascimento{
+    font-size: 16px;
+    font-weight: lighter;
+    font-family: "Lato", sans-serif;
+}
+
 /*--------------------------------------------------------------
       Responsive Styles - Max 600px
   --------------------------------------------------------------*/
 /*Mobile sizes*/
 @media (max-width: 600px) {
+    #inputDatadeNascimento{
+        text-align: left;
+    }
     //prime 
     ::ng-deep .p-inputMask input {
         text-align: left;
