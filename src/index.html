@@ -65,28 +65,3 @@
   <app-root></app-root>
 </body>
 </html>
-
-<script>
-	// apply mask for telephone
-	jQuery("input.tel-mask")
-	.mask("(99) 9999-9999?9")
-	.focusout(function (event) {
-		var target, phone, element;
-		target = (event.currentTarget) ? event.currentTarget : event.srcElement;
-		phone = target.value.replace(/\D/g, '');
-		element = $(target);
-		element.unmask();
-		if (phone.length > 10) {
-			element.mask("(99) 99999-999?9");
-		} else {
-			element.mask("(99) 9999-9999?9");
-		}
-	});
-
-
-	$("input.tel-mask").focusin(function () {
-		// set cursor in the begining
-		setTimeout(function () { $('input.tel-mask').get(0).setSelectionRange(0, 0); }, 100)
-	})
-
-	</script>

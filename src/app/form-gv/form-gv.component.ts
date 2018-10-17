@@ -8,8 +8,6 @@ import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 
-import * as $ from 'jquery';
-
 import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
 @Component({
@@ -257,8 +255,6 @@ export class FormGvComponent implements OnInit {
   }
 
   checkPhone(){
-    
-    this.user.cellphone = $('.tel-mask').val();
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
     
     if (cellphone.length < 10){
