@@ -8,6 +8,9 @@ import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 
+import {map, startWith} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+
 import { FormOfflineComponent } from '../form-offline/form-offline.component'
 
 @Component({
@@ -26,12 +29,12 @@ export class FormGtComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee_id: '',
-    university_id: '',
-    college_course_id: '',
+    local_committee: { id: ''},
+    university: { id: ''},
+    college_course: { id: ''},
     cellphone_contactable: '',
-    english_level: '',
-    scholarity: '',
+    english_level: { id: ''},
+    scholarity: { id: ''},
     experience: [],
     utm_source: '',
     utm_medium: '',
@@ -45,7 +48,30 @@ export class FormGtComponent implements OnInit {
     { name: 'Marketing', value: 'marketing'},
     { name: 'Tecnologia da Informação', value: 'information_technology'},
     { name: 'Gestão', value: 'management'},
-  ]
+  ];
+
+  scholarityOptions: any = [
+    {id: '0', name: 'Ensino Médio Completo' },
+    {id: '2', name: 'Estudante de Graduação' },
+    {id: '3', name: 'Mestrado ou Pós' },
+    {id: '4', name: 'Graduado em até 1,5 anos' },
+    {id: '5', name: 'Graduado há mais de 2 anos' },
+    {id: '6', name: 'Outro' }
+  ];
+
+  englishLevelOptions: any = [
+    { id: '0', name: 'Não tenho' },
+    { id: '1', name: 'Básico' },
+    { id: '2', name: 'Intermediário' },
+    { id: '3', name: 'Avançado' },
+    { id: '4', name: 'Fluente' }
+  ];
+
+  filteredScholarityOptions: Observable<any[]>;
+  filteredUniversities: Observable<any[]>;
+  filteredCourses: Observable<any[]>;
+  filteredEnglishLevelOptions: Observable<any[]>;
+  filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
 
@@ -107,13 +133,13 @@ export class FormGtComponent implements OnInit {
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     this.step2Form = new FormGroup({
-      university_id: new FormControl(this.user.university_id, [
+      university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
-      college_course_id: new FormControl(this.user.college_course_id, [
+      college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      local_committee_id: new FormControl(this.user.local_committee_id, [
+      local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
       english_level: new FormControl(this.user.english_level, [
@@ -156,9 +182,45 @@ export class FormGtComponent implements OnInit {
       }
     });
 
-    this.fillUniversitySelect();
-    this.fillCourseSelect();
-    this.fillPlacesSelect();
+    this.filteredScholarityOptions = this.step2Form.controls.scholarity.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value, this.scholarityOptions))
+      );
+
+    this.fillUniversitySelect().then(() => {
+      this.filteredUniversities = this.step2Form.controls.university_id.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.universities))
+        );
+    });
+    this.fillCourseSelect().then(() => {
+      this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.courses))
+        );
+    });
+
+    this.filteredEnglishLevelOptions = this.step2Form.controls.english_level.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.englishLevelOptions))
+        );
+
+    this.fillPlacesSelect().then(() => {
+      this.filteredPlaces = this.step2Form.controls.local_committee_id.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.places))
+        );
+    });
+  }
+
+  private _filter(value: string, options: any): any[] {
+    const filterValue = value.length ? value.toLowerCase() : value;
+    return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
   onResize(event){
@@ -197,7 +259,7 @@ export class FormGtComponent implements OnInit {
   }
 
   fillUniversitySelect() {
-    this.signupService.getUniversities().then((res: any) => {
+    return this.signupService.getUniversities().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'],['asc']);
       let other = _.remove(orderedList, item => item.name === 'OUTRA');
       this.universities = _.union(orderedList, other);
@@ -208,7 +270,7 @@ export class FormGtComponent implements OnInit {
   }
 
   fillCourseSelect() {
-    this.signupService.getCourses().then((res: any) => {
+    return this.signupService.getCourses().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
       let other = _.remove(orderedList, item => item.name === 'Outro');
       this.courses = _.union(orderedList, other);
@@ -219,7 +281,7 @@ export class FormGtComponent implements OnInit {
   }
 
   fillPlacesSelect() {
-    this.signupService.getLocalCommittees().then((res: any) => {
+    return this.signupService.getLocalCommittees().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
       this.places = orderedList;
     }, (err) => {
@@ -230,8 +292,8 @@ export class FormGtComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university_id = '';
-      this.user.college_course_id = '';
+      this.user.university = { id: '' };
+      this.user.college_course = { id: '' };
     }
   }
 
@@ -240,12 +302,16 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyFields(){
-    return !this.user.scholarity || !this.user.english_level || !this.user.local_committee_id
+    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyUniversity(){
-    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
-      return !this.user.university_id
+  emptyUniversity(){    
+    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+      if(this.user.university && this.user.university.id){
+        return !this.user.university.id
+      }else{
+        return true;
+      }
     }
     else {
       return false;
@@ -253,8 +319,12 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyCourse(){
-    if (+this.user.scholarity >= 3 && +this.user.scholarity <= 5) {
-      return !this.user.college_course_id
+    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+      if(this.user.college_course.id){
+        return !this.user.college_course.id
+      }else{
+        return true;
+      }
     }
     else {
       return false;
@@ -311,12 +381,12 @@ export class FormGtComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: this.user.birthdate,
-        local_committee_id: +this.user.local_committee_id,
-        university_id: (this.user.university_id == '' ? null : +this.user.university_id),
-        college_course_id: (this.user.college_course_id == '' ? null : +this.user.college_course_id),
+        local_committee_id: +this.user.local_committee.id,
+        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        english_level: +this.user.english_level,
-        scholarity: +this.user.scholarity,
+        english_level: +this.user.english_level.id,
+        scholarity: +this.user.scholarity.id,
         experience: this.selectedItems,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
@@ -360,5 +430,8 @@ export class FormGtComponent implements OnInit {
       })
   }
 
+  display(option) {
+    return option ? option.name : undefined;
+  }
 
 }

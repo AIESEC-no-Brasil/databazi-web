@@ -29,9 +29,10 @@ import { LandingPageMenuComponent } from './landing-page-menu/landing-page-menu.
 import { FormGtComponent } from './form-gt/form-gt.component';
 import { FormGeComponent } from './form-ge/form-ge.component';
 import { FormOfflineComponent } from './form-offline/form-offline.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material';
 import { NgxMaskModule } from 'ngx-mask'
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -56,6 +57,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     routes,
     FormsModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
     HttpModule,
     TextMaskModule,
     InputMaskModule,
