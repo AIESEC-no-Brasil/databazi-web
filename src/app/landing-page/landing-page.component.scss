@@ -274,8 +274,11 @@ section.experiences-session {
 
 div#our-stories {
     position: relative;
-    padding-bottom: 25px;
+    padding-bottom: 65px;
     border-top: 2px solid #EDEDED;
+    h1 {
+        position:relative;  
+    }
     #our-stories-bg {
         width: 100%;
         background-image: url('../../assets/images/pattern3.png');
@@ -465,6 +468,7 @@ div#our-stories {
         box-sizing: border-box;
         z-index:100;
         font-size: 40px;
+        z-index:2;
         i {
             position: absolute;
             cursor: pointer;
@@ -694,8 +698,15 @@ drag-scroll {
     .header-bottom-triangle {
         display: none;
     }
+    .our-stories .footer-carousel-btn-left i.fa-chevron-left {
+        left: 5%
+    }
+    .our-stories .footer-carousel-btn-right i.fa-chevron-right {
+        right: 5%;
+    }
     .box-case {
-        width: 90%;
+        left: 10%;
+        width: 80%;
         bottom: 10px;
         height: auto;
         top: auto;
