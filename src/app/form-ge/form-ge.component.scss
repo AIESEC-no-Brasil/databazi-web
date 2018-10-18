@@ -50,7 +50,7 @@
 }
 
 .loading-animation-ge {
-    background-image: url('../../assets/images/sent-ge.png');
+    background-image: url('/assets/images/sent-ge.png');
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -217,7 +217,7 @@ select:focus {
     border: 0 !important;
     /*hide default down arrow in webkit */
     -webkit-appearance: none;
-    background-image: url('../../assets/images/select.png');
+    background-image: url('/assets/images/select.png');
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -1454,7 +1454,7 @@ label {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url('../../assets/images/logo-empreendedor-global.png');
+    background-image: url('/assets/images/logo-empreendedor-global.png');
     margin: auto
 }
 

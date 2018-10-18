@@ -78,7 +78,7 @@
 }
 
 .loading-animation-gv {
-    background-image: url('../../assets/images/sent-gv.png');
+    background-image: url('/assets/images/sent-gv.png');
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -243,7 +243,7 @@ select:focus {
     border: 0 !important;
     /*hide default down arrow in webkit */
     -webkit-appearance: none;
-    background-image: url('../../assets/images/select.png');
+    background-image: url('/assets/images/select.png');
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -1650,7 +1650,7 @@ label {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-image: url('../../assets/images/logo-voluntario-global.png');
+    background-image: url('/assets/images/logo-voluntario-global.png');
     margin: auto
 }
 

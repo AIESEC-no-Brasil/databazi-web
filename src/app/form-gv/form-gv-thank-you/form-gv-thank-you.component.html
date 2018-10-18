@@ -6,29 +6,29 @@
     <section class="forms" id="form-voluntario-global" class='animated fadeIn'>
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-sm">
+          <div class="col-md">
             <section class="content" id="resultado">
               <script type="text/javascript">
-               fbq('track', 'Lead');
+                fbq('track', 'Lead');
               </script>
               <div class="container">
                 <div class="row justify-content-center">
-                  <div class="col-sm">
+                  <div class="col-md">
                     <div class="row justify-content-center">
-                      <div class="col-sm-9" id="header-resultado">
+                      <div class="col-md-12" id="header-resultado">
                         <h2>Obrigado por se increver!</h2>
-                        <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
                       </div>
-                      <div class="col-sm-3">
-                        <i class="fas fa-thumbs-up fa-10x color-icon"></i>
-                      </div>
-                    </div>
-                    <div class="row justify-content-center">
-                      <div class="col-sm-12" id="content-resultado">
-                        <p>
-                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio voluntário
-                          na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
-                        </p>
+                      <div class="col-md-12 grid-message mobile-message">
+                        <div class="col-md-10">
+                            <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
+                            <p>
+                                Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio voluntário
+                                na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
+                              </p>
+                        </div>
+                        <div class="col-md-2">
+                            <i class="fas fa-thumbs-up fa-10x color-icon"></i>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -39,67 +39,40 @@
             <section>
 
               <div class='grid-card'>
-                <div class='card'>
-                  <div class='photo-card' style="background-image: url('/assets/images/header.jpg'); background-size: cover;"></div>
-                  <div class='content-card'>
-                    Retornar para nosso site
-                    <hr>
-                    <button (click)="accessAiesec()" type="button" class="btn btn-primary">AIESEC Brasil</button>
+                <div class='card-option' (click)="goToHome()">
+                  <div class='photo-product back-to-home'></div>
+                  <div class='card-content'>
+                    <label>
+                      <i class="fas fa-home"></i> Home
+                    </label>
+                    <h2>
+                      Acessar a página inicial
+                    </h2>
                   </div>
                 </div>
-                <div class='card'>
-                  <div class='photo-card' style="background-image: url('/assets/images/case1.jpg'); background-size: cover;"></div>
-                  <div class='content-card'></div>
+                <div class='card-option' (click)="goToAiesec()">
+                  <div class='photo-product go-to-portal'></div>
+                  <div class='card-content'>
+                    <label>
+                      <i class="fas fa-briefcase"></i> Vagas
+                    </label>
+                    <h2>
+                      Acessar o portal de oportunidades
+                    </h2>
+                  </div>
                 </div>
-                <div class='card'>
-                  <div class='photo-card' style="background-image: url('/assets/images/case2.jpg'); background-size: cover;"></div>
-                  <div class='content-card'></div>
+                <div class='card-option' (click)="goToBlog()">
+                  <div class='photo-product go-to-blog'></div>
+                  <div class='card-content'>
+                    <label>
+                      <i class="fab fa-blogger-b"></i> Blog
+                    </label>
+                    <h2>
+                      Conheça mais nossas histórias
+                    </h2>
+                  </div>
                 </div>
               </div>
-
-              <!-- <div class="row">
-                <div class="col-4">
-                  <mat-card class="card">
-                    <mat-card-content>
-                      <div mat-card-image class="card-image-1"></div>
-                      <p>
-                        Retornar para nosso site
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions class="card-actions">
-                      <button (click)="accessAiesec()" type="button" class="btn btn-primary">AIESEC Brasil</button>
-                    </mat-card-actions>
-                  </mat-card>                  
-                </div>
-
-                <div class="col-4">
-                  <mat-card class="card">
-                    <mat-card-content>
-                      <div mat-card-image class="card-image-2"></div>
-                      <p>
-                        Acesse nosso portal e conheça novas oportunidades.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions class="card-actions">
-                      <button (click)="accessAiesec()" type="button" class="btn btn-primary">Portal de Oportunidades</button>
-                    </mat-card-actions>
-                  </mat-card>                  
-                </div>
-
-                <div class="col-4">
-                  <mat-card class="card">
-                    <mat-card-content>
-                      <div mat-card-image class="card-image-3"></div>
-                      <p>
-                        Leia histórias de outros intercâmbistas
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions class="card-actions">
-                      <button (click)="accessAiesec()" type="button" class="btn btn-primary">Blog AIESEC</button>
-                    </mat-card-actions>
-                  </mat-card>                  
-                </div>
-              </div> -->
             </section>
 
           </div>

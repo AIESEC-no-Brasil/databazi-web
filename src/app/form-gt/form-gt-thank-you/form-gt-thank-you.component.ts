@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-gt-thank-you',
@@ -7,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormGtThankYouComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  accessAiesec() {
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
+  goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
+  }
+
+  goToBlog() {
+    window.open("http://aiesec.blog.br/", "_blank");
   }
 
 }

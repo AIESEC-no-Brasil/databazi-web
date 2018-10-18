@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-gv-thank-you',
@@ -8,14 +9,22 @@ import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@a
 })
 export class FormGvThankYouComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public router: Router
+  ) { }
 
   ngOnInit() {
   }
 
-  accessAiesec() {
+  goToHome() {
+    this.router.navigate(['/']);
+  }
+
+  goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
-
+  goToBlog() {
+    window.open("http://aiesec.blog.br/", "_blank");
+  }
 }
