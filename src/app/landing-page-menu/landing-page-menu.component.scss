@@ -8,6 +8,7 @@
     top: 0;
     z-index: 6;
 }
+
 #fixedMenu {
     transition: .3s
 }
@@ -15,6 +16,7 @@
 #fixedMenu.fixedMenu {
     position: fixed;
     width: 100%;
+    z-index: 100;
     top: 0;
     left: 0;
     box-sizing: border-box;
@@ -35,7 +37,6 @@
         padding: 5px 15px 10px 15px;
         ul.animated {
             background-color: $default;
-            // filter: brightness(85%);
             border-radius: 0 0 10px 10px;
         }
     }
@@ -151,7 +152,7 @@
                         background-color: rgba(255, 255, 255, .5);
                         min-width: 175px;
                         display: none;
-                        left:0;
+                        left: 0;
                         a:hover {
                             text-decoration: none;
                             color: #fff;
@@ -172,17 +173,17 @@
     }
 }
 
-@media (min-width: 990px) and (max-width: 1100px){
-    #header-product .container{
+@media (min-width: 990px) and (max-width: 1100px) {
+    #header-product .container {
         ul#menu {
             li {
-                font-size:11px;
+                font-size: 11px;
                 font-weight: 500;
             }
         }
-
     }
 }
+
 @media (max-width: 990px) {
     .header-product div.responsive-menu ul#menu {
         display: none !important;

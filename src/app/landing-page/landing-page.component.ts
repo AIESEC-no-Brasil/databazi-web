@@ -15,6 +15,7 @@ export class LandingPageComponent implements OnInit {
   seeMoreGv:boolean = false;
   seeMoreGe:boolean = false;
   seeMoreGt:boolean = false;
+  timer : any;
 
   constructor(
     public router: Router
@@ -47,9 +48,13 @@ export class LandingPageComponent implements OnInit {
   }
 
   sliderAnimation(){
-    setInterval(() => {
+    this.timer = setInterval(() => {
       this.moveRight()
     }, 10000);
+  }
+
+  stopAnimation(){
+    clearInterval(this.timer);
   }
 
   scrollToGlobal(){
