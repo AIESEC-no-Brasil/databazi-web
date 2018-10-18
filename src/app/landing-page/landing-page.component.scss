@@ -526,24 +526,22 @@ div#our-stories {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    display:flex !important;
+    align-items: center;
+    height: 350px;
+    width: 100%;
 }
 
 .case-1 {
     background-image: url('../../assets/images/case1.jpg');
-    width: 100%;
-    height: 350px;
 }
 
 .case-2 {
     background-image: url('../../assets/images/case2.jpg');
-    width: 100%;
-    height: 350px;
 }
 
 .case-3 {
     background-image: url('../../assets/images/case3.jpg');
-    width: 100%;
-    height: 350px;
 }
 
 .drag-scroll-wrapper,
@@ -572,7 +570,6 @@ drag-scroll {
     min-height: 200px;
     position: absolute;
     left: 5%;
-    top: 5%;
     background-color: #fff;
     box-shadow: 0 0 5px #c3c3c3;
     box-sizing: border-box;
@@ -712,7 +709,6 @@ drag-scroll {
         top: auto;
         min-height: 250px;
         .logo-product {
-            height: 50px;
             background-size: 50%;
         }
     }
