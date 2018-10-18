@@ -6,8 +6,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { InputMaskModule } from 'primeng/inputmask';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
 import { GrowlModule } from 'primeng/primeng';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -30,9 +30,13 @@ import { FormGtComponent } from './form-gt/form-gt.component';
 import { FormGeComponent } from './form-ge/form-ge.component';
 import { FormOfflineComponent } from './form-offline/form-offline.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
 import { NgxMaskModule } from 'ngx-mask'
+import { FormGvThankYouComponent } from './form-gv/form-gv-thank-you/form-gv-thank-you.component';
+import { FormGeThankYouComponent } from './form-ge/form-ge-thank-you/form-ge-thank-you.component';
+import { FormGtThankYouComponent } from './form-gt/form-gt-thank-you/form-gt-thank-you.component'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -50,7 +54,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     LandingPageMenuComponent,
     FormGtComponent,
     FormGeComponent,
-    FormOfflineComponent
+    FormOfflineComponent,
+    FormGvThankYouComponent,
+    FormGeThankYouComponent,
+    FormGtThankYouComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +66,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatCardModule,
     MatInputModule,
     HttpModule,
     TextMaskModule,

@@ -372,6 +372,7 @@ export class FormGvComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          this.router.navigate(['/voluntario-global/obrigado']);
         }
       },
         (err) => {
