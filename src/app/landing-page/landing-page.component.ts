@@ -49,6 +49,7 @@ export class LandingPageComponent implements OnInit {
       this.sliderPosition -= 100;
     }
     $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    this.sliderAnimation();
   }
 
   moveRight() {
@@ -59,6 +60,7 @@ export class LandingPageComponent implements OnInit {
       this.sliderPosition += 100
     }
     $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    this.sliderAnimation();
   }
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   sliderAnimation(){
+    this.stopAnimation();
     this.timer = setInterval(() => {
       this.moveRight()
     }, 10000);
