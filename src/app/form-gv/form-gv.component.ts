@@ -344,7 +344,7 @@ export class FormGvComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         password: this.user.password,
-        birthdate: this.user.birthdate,
+        birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),

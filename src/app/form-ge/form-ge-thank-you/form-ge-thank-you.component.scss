@@ -1,6 +1,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
 @import '../form-ge.component.scss';
+$break-md: 768px;
+$break-sm: 576px;
 #resultado {
     .grid-message {
         display: flex;
@@ -69,13 +71,68 @@
     }
 }
 
-@media (max-width: 800px) {
+.fa-thumbs-up {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#grid-message {
+    .col-md-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: $break-md) {
+    .container {
+        max-width: 95%
+    }
+}
+
+@media (min-width: $break-md) and (max-width: 1024px) {
+    #step1.full-screen {
+        align-items: center;
+    }
+    #grid-message {
+        >div {
+            &:first-child {
+                width: 75%;
+                max-width: 75%;
+            }
+            &:last-child {
+                width: 25%;
+                max-width: 25%;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
     .full-screen {
-        height: auto !important
+        min-height: 100%;
+        height: auto !important;
+        padding: 25px;
+    }
+}
+
+@media (max-width: $break-sm) {
+    #header-resultado {
+        h2 {
+            text-align: center;
+        }
     }
     .mobile-message {
         display: flex;
         flex-direction: column-reverse;
+    }
+    #grid-message {
+        .col-md-2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px 35px 15px !important;
+        }
     }
     .grid-card {
         flex-direction: column;
