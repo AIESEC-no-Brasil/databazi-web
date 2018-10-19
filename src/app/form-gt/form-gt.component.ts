@@ -410,6 +410,7 @@ export class FormGtComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          this.router.navigate(['/talento-global/obrigado']);
         }
       },
         (err) => {
