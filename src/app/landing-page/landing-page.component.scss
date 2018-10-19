@@ -5,7 +5,7 @@ main {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-image: url('../../assets/images/pattern1.png');
+    background-image: url('/assets/images/pattern1.png');
 }
 
 #fullpage {
@@ -14,7 +14,7 @@ main {
     .section {
         width: 100%;
         height: 100vh;
-        border:1px solid black
+        border: 1px solid black
     }
 }
 
@@ -50,7 +50,7 @@ main {
     margin-bottom: 10px;
     height: 450px;
     position: relative;
-    background-image: url('../../assets/images/header.jpg');
+    background-image: url('/assets/images/header.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat
@@ -82,7 +82,7 @@ main {
     display: flex;
     align-items: center;
     min-height: 400px;
-    background-image: url('../../assets/images/header.jpg');
+    background-image: url('/assets/images/header.jpg');
     background-position: center center;
     .description {
         h2 {
@@ -102,7 +102,7 @@ main {
         background-repeat: no-repeat;
         min-height: 200px;
         &.ge {
-            background-image: url('../../assets/products/ge/ge-logo.png');
+            background-image: url('/assets/products/ge/ge-logo.png');
         }
     }
 }
@@ -156,22 +156,22 @@ main {
         background-position: center center;
         background-repeat: no-repeat;
         &.mobile-1 {
-            background-image: url('../../assets/images/mobile-1.png');
+            background-image: url('/assets/images/mobile-1.png');
         }
         &.mobile-2 {
-            background-image: url('../../assets/images/mobile-2.png');
+            background-image: url('/assets/images/mobile-2.png');
         }
         &.mobile-3 {
-            background-image: url('../../assets/images/mobile-3.png');
+            background-image: url('/assets/images/mobile-3.png');
         }
         &.mobile-4 {
-            background-image: url('../../assets/images/mobile-4.png');
+            background-image: url('/assets/images/mobile-4.png');
         }
         &.mobile-5 {
-            background-image: url('../../assets/images/mobile-5.png');
+            background-image: url('/assets/images/mobile-5.png');
         }
         &.mobile-6 {
-            background-image: url('../../assets/images/mobile-6.png');
+            background-image: url('/assets/images/mobile-6.png');
         }
     }
     .col-9 {
@@ -260,14 +260,13 @@ main {
 }
 
 .logo-empreendedor-global {
-    background-image: url('../../assets/images/logo-voluntario-global.png');
+    background-image: url('/assets/images/logo-voluntario-global.png');
     background-size: cover;
 }
 
-
 section.history-session,
 section.experiences-session {
-    background-image: url('../../assets/images/pattern1.png');
+    background-image: url('/assets/images/pattern1.png');
     background-position: bottom center;
     background-size: 25%;
 }
@@ -276,24 +275,27 @@ div#our-stories {
     position: relative;
     padding-bottom: 65px;
     border-top: 2px solid #EDEDED;
-    h1 {
-        position:relative;  
-    }
+    background-color: $default;
     #our-stories-bg {
         width: 100%;
-        background-image: url('../../assets/images/pattern3.png');
         height: 100%;
+        background-image: url('/assets/images/pattern4.png');
         left: 0;
         top: 0;
         position: absolute;
         opacity: 1;
         filter: brightness(102%);
+        background-size: 350px;
+        background-position: top center;
+        opacity: .125;
     }
     section.our-stories {
         background-image: none;
         h1 {
             color: rgba(67, 122, 190, 1);
             padding-bottom: 20px;
+            position: relative;
+            color: #fff;
         }
     }
 }
@@ -309,13 +311,13 @@ div#our-stories {
 }
 
 .history-session-image {
-    background-image: url('../../assets/images/party.png');
+    background-image: url('/assets/images/party.png');
     background-size: cover;
     min-height: 300px;
     position: relative;
     .round {
         right: -37.5px;
-        background-image: url('../../assets/images/icon-highlight.png');
+        background-image: url('/assets/images/icon-highlight.png');
         background-size: 60%;
     }
 }
@@ -342,7 +344,7 @@ div#our-stories {
     color: white;
     font-size: 30px;
     position: relative;
-    background-image: url('../../assets/images/pattern2.png');
+    background-image: url('/assets/images/pattern2.png');
     background-size: 10%;
     padding: 30px 0;
     width: 100%;
@@ -376,7 +378,7 @@ div#our-stories {
         margin: 20px auto 40px auto
     }
     .LDM {
-        background-image: url('../../assets/images/hexa.png');
+        background-image: url('/assets/images/hexa.png');
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
@@ -405,16 +407,16 @@ div#our-stories {
             background-repeat: no-repeat;
             background-position: center center;
             &.icon-1 {
-                background-image: url('../../assets/images/hexa-4.png');
+                background-image: url('/assets/images/hexa-4.png');
             }
             &.icon-2 {
-                background-image: url('../../assets/images/hexa-3.png');
+                background-image: url('/assets/images/hexa-3.png');
             }
             &.icon-3 {
-                background-image: url('../../assets/images/hexa-1.png');
+                background-image: url('/assets/images/hexa-1.png');
             }
             &.icon-4 {
-                background-image: url('../../assets/images/hexa-2.png');
+                background-image: url('/assets/images/hexa-2.png');
             }
         }
     }
@@ -466,9 +468,9 @@ div#our-stories {
         display: flex;
         color: $default;
         box-sizing: border-box;
-        z-index:100;
+        z-index: 100;
         font-size: 40px;
-        z-index:2;
+        z-index: 4;
         i {
             position: absolute;
             cursor: pointer;
@@ -476,26 +478,24 @@ div#our-stories {
             display: flex;
             justify-content: center;
             align-items: center;
-            color:#fff;
-            transition:.3s;
+            color: #fff;
+            transition: .3s;
             &:hover {
                 transform: scale(1.05);
             }
-            &.fa-chevron-left{
-                left:2.5%;
+            &.fa-chevron-left {
+                left: 2.5%;
             }
-            &.fa-chevron-right{
+            &.fa-chevron-right {
                 right: 2.5%;
             }
         }
     }
-
-    .carousel-container{
+    .carousel-container {
         width: 100%;
         min-height: 350px;
         position: relative;
-        overflow:hidden;
-        
+        overflow: hidden;
         .carousel-wrapper {
             height: 100%;
             width: 300%;
@@ -506,13 +506,12 @@ div#our-stories {
                 width: 33%;
                 height: 100%;
                 box-sizing: border-box;
-                position:Relative; 
-                margin:0 .15%;
-                float:left;
+                position: Relative;
+                margin: 0 .15%;
+                float: left;
                 cursor: pointer;
             }
         }
-        
     }
 }
 
@@ -526,22 +525,22 @@ div#our-stories {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    display:flex !important;
+    display: flex !important;
     align-items: center;
     height: 350px;
     width: 100%;
 }
 
 .case-1 {
-    background-image: url('../../assets/images/case1.jpg');
+    background-image: url('/assets/images/case1.jpg');
 }
 
 .case-2 {
-    background-image: url('../../assets/images/case2.jpg');
+    background-image: url('/assets/images/case2.jpg');
 }
 
 .case-3 {
-    background-image: url('../../assets/images/case3.jpg');
+    background-image: url('/assets/images/case3.jpg');
 }
 
 .drag-scroll-wrapper,
@@ -602,13 +601,13 @@ drag-scroll {
         background-repeat: no-repeat;
         background-size: 75%;
         &.gv {
-            background-image: url('../../assets/products/gv/gv-logo.png');
+            background-image: url('/assets/products/gv/gv-logo.png');
         }
         &.gt {
-            background-image: url('../../assets/products/gt/gt-logo.png');
+            background-image: url('/assets/products/gt/gt-logo.png');
         }
         &.ge {
-            background-image: url('../../assets/products/ge/ge-logo.png');
+            background-image: url('/assets/products/ge/ge-logo.png');
         }
     }
     p {
@@ -643,6 +642,35 @@ drag-scroll {
                 background-color: $default;
             }
         }
+    }
+}
+
+.swipe-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+@keyframes swipeAnimation {
+    0% {
+        margin-left: -5%;
+    }
+    49% {
+        margin-left: -5%;
+    }
+    99% {
+        margin-right: -5%
+    }
+    100% {
+        margin-right: -5%;
     }
 }
 
@@ -768,19 +796,19 @@ drag-scroll {
                 position: relative;
             }
             &:nth-child(1) {
-                background-image: url('../../assets/products/gv/gv-intro.jpg');
+                background-image: url('/assets/products/gv/gv-intro.jpg');
                 .bg-color {
                     background-color: rgba(239, 66, 49, .9)
                 }
             }
             &:nth-child(2) {
-                background-image: url('../../assets/products/ge/ge-intro.jpg');
+                background-image: url('/assets/products/ge/ge-intro.jpg');
                 .bg-color {
                     background-color: rgba(65, 187, 155, .9)
                 }
             }
             &:nth-child(3) {
-                background-image: url('../../assets/products/gt/gt-intro.jpg');
+                background-image: url('/assets/products/gt/gt-intro.jpg');
                 .bg-color {
                     background-color: rgba(11, 142, 160, .9)
                 }

@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import 'hammerjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -21,7 +22,25 @@ export class LandingPageComponent implements OnInit {
     public router: Router
   ) { }
 
+  swipe(side:string){
+    this.stopAnimation();
+    side == 'left' ? this.moveRight() : this.moveLeft();
+  }
 
+  redirectTo(){
+    switch (this.sliderPosition){
+      case 0:
+        this.goToGv();
+        break;
+      case 100:
+        this.goToGe();
+        break;
+      case 200:
+        this.goToGt();
+        break;
+    }
+  }
+  
 	moveLeft() {
     if ((this.sliderPosition - 100) < 0){
       this.sliderPosition = 200;

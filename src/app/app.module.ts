@@ -30,10 +30,10 @@ import { FormGtComponent } from './form-gt/form-gt.component';
 import { FormGeComponent } from './form-ge/form-ge.component';
 import { FormOfflineComponent } from './form-offline/form-offline.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { FormGvThankYouComponent } from './form-gv/form-gv-thank-you/form-gv-thank-you.component';
 import { FormGeThankYouComponent } from './form-ge/form-ge-thank-you/form-ge-thank-you.component';
 import { FormGtThankYouComponent } from './form-gt/form-gt-thank-you/form-gt-thank-you.component'
@@ -66,7 +66,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatCardModule,
     MatInputModule,
     HttpModule,
     TextMaskModule,
@@ -91,7 +90,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    FormOfflineComponent
+    FormOfflineComponent,
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerGestureConfig
+    }
   ],
   bootstrap: [AppComponent]
 })
