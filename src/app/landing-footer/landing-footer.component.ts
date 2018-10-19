@@ -111,12 +111,10 @@ export class LandingFooterComponent implements OnInit {
   }
 
   swipe(side: string) {
-    this.stopAnimation();
     side == 'left' ? this.moveRight() : this.moveLeft();
   }
 
   moveLeft() {
-    this.stopAnimation();
     if ((this.sliderPosition - 100) < 0) {
       this.sliderPosition = 200;
     }
@@ -124,10 +122,10 @@ export class LandingFooterComponent implements OnInit {
       this.sliderPosition -= 100;
     }
     $('.footer-carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
+    this.sliderAnimation();
   }
 
   moveRight() {
-    this.stopAnimation();
     if ((this.sliderPosition + 100) > 200) {
       this.sliderPosition = 0;
     }
@@ -135,9 +133,11 @@ export class LandingFooterComponent implements OnInit {
       this.sliderPosition += 100
     }
     $('.footer-carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
+    this.sliderAnimation()
   }
 
   sliderAnimation() {
+    this.stopAnimation();
     this.timer = setInterval(() => {
       this.moveRight()
     }, 10000);

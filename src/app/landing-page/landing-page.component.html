@@ -258,7 +258,7 @@
       <div class="row">
 
         <div class="col-sm swipe-area">
-          <div class='swipe-animation' (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
+          <div class='swipe-animation' [style.touch-action]="'pan-y'" (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
           <div class="footer-carousel-btn-left">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
