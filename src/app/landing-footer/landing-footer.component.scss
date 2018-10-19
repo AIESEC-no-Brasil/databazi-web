@@ -265,6 +265,15 @@ footer {
             }
         }
     }
+    .footer-each-item {
+        span {
+            font-size: .55rem !important;
+            bottom: 5px !important;
+        }
+    }
+    .partners.padding-top-and-bottom {
+        padding: 100px 0 0 0 !important
+    }
 }
 
 @media only screen and (min-width: 390px) {
