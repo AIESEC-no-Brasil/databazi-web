@@ -1,0 +1,104 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~animate.css/animate.min.css';
+@import '../form-gt.component.scss';
+#resultado {
+    .grid-message {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        .thumbs {
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+    }
+}
+
+.grid-card {
+    width: 100%;
+    max-width: 1140px;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    margin: 25px auto;
+    .card-option {
+        width: 30%;
+        height: 100%;
+        transition: .3s;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.075);
+        }
+        .photo-product {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+            &.back-to-home {
+                background-image: url('/assets/images/header.jpg');
+                background-position: right center;
+            }
+            &.go-to-portal {
+                background-image: url('/assets/images/case1.jpg');
+            }
+            &.go-to-blog {
+                background-image: url('/assets/images/case2.jpg');
+            }
+        }
+        .card-content {
+            padding: 10px 0;
+            label {
+                border-left: 1px solid rgba(255, 255, 255, .75);
+                color: rgba(255, 255, 255, .65);
+                font-weight: lighter;
+                padding-left: 5px;
+                text-transform: uppercase;
+                font-size: .7rem;
+                i {
+                    margin: 0 3.5px 0 7.5px;
+                }
+            }
+            h2 {
+                margin: 5px 0;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .full-screen {
+        height: auto !important
+    }
+    .mobile-message {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .grid-card {
+        flex-direction: column;
+        .card-option {
+            width: 100%;
+            max-width: 100% !important;
+            border-bottom: 1px solid rgba(255, 255, 255, .55);
+            padding: 0 0 15px 0;
+            margin: 0 0 35px 0;
+            .card-content {
+                text-align: left;
+                label {
+                    i {
+                        margin-left: 0;
+                    }
+                }
+                h2 {
+                    margin: 0;
+                }
+                label {
+                    border-left: 0;
+                }
+            }
+        }
+    }
+}
