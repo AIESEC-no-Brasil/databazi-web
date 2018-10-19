@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import 'hammerjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,11 +17,22 @@ export class LandingPageComponent implements OnInit {
   seeMoreGe:boolean = false;
   seeMoreGt:boolean = false;
   timer : any;
+  swipe_action = {
+    left: 'swipleft', 
+    right: 'swiperight'
+  }
 
   constructor(
     public router: Router
   ) { }
 
+  swipeRight(action = this.swipe_action.right){
+    this.stopAnimation
+    this.moveLeft();
+  }
+  swipeLeft(action = this.swipe_action.left){
+    this.moveRight();
+  }
 
 	moveLeft() {
     if ((this.sliderPosition - 100) < 0){

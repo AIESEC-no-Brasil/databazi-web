@@ -646,6 +646,14 @@ drag-scroll {
     }
 }
 
+.swipe-animation {
+    width: 150px;
+    height: 150px;
+    background-color:red;
+    position: relative;
+    margin: auto;
+}
+
 @media (min-width: 991px) {
     .box-case {
         &.box-case-gv {

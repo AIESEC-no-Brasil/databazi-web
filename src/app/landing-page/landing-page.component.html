@@ -250,8 +250,10 @@
       </div>
     </div>
   </section>
-  <div id="our-stories" (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()">
+  <div id="our-stories" (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipeRight($event.type)"
+    (swipeleft)="swipeLeft($event.type)">
     <div id="our-stories-bg"></div>
+    <div class='swipe-animation animated faster'></div>
     <section class="container padding align-center our-stories">
       <h1 class='italic centered'>As nossas histórias</h1>
       <br>
@@ -262,7 +264,7 @@
           </div>
 
           <div class="carousel-container" (click)="goToGv()">
-            <div class='carousel-wrapper'>  
+            <div class='carousel-wrapper'>
               <div class="each-carousel-item">
                 <div class="cases case-1" drag-scroll-item>
                   <div class="box-case-bg"></div>
@@ -284,50 +286,50 @@
                 </div>
               </div>
               <div class="each-carousel-item" (click)="goToGe()">
-                  <div class="cases case-2" drag-scroll-item>
-                      <div class="box-case-bg"></div>
-                      <div class="box-case">
-                        <div class="logo-product ge"></div>
-                        <p class='product-story-info'>
-                          "Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
-                          eu trabalhei, também participei de um ambiente de trabalho muito multicultural! Foi uma experiência
-                          inesquecível."
-                        </p>
-                        <span>
-                          João Diogo Brites
-                        </span>
-                        <ul>
-                          <li></li>
-                          <li class="active"></li>
-                          <li></li>
-                        </ul>
-                      </div>
-                    </div>
+                <div class="cases case-2" drag-scroll-item>
+                  <div class="box-case-bg"></div>
+                  <div class="box-case">
+                    <div class="logo-product ge"></div>
+                    <p class='product-story-info'>
+                      "Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
+                      eu trabalhei, também participei de um ambiente de trabalho muito multicultural! Foi uma experiência
+                      inesquecível."
+                    </p>
+                    <span>
+                      João Diogo Brites
+                    </span>
+                    <ul>
+                      <li></li>
+                      <li class="active"></li>
+                      <li></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
               <div class="each-carousel-item" (click)="goToGt()">
-                  <div class="cases case-3" drag-scroll-item>
-                      <div class="box-case-bg"></div>
-                      <div class="box-case">
-                        <div class="logo-product gt"></div>
-                        <p class='product-story-info'>
-                          "Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
-                          quanto pessoalmente. Meu ano lá foi um divisor de águas na minha carreira e pra pessoa que sou hoje!"
-                        </p>
-                        <span>
-                          Amanda Peconick
-                        </span>
-                        <ul>
-                          <li></li>
-                          <li></li>
-                          <li class="active"></li>
-                        </ul>
-                      </div>
-                    </div>
+                <div class="cases case-3" drag-scroll-item>
+                  <div class="box-case-bg"></div>
+                  <div class="box-case">
+                    <div class="logo-product gt"></div>
+                    <p class='product-story-info'>
+                      "Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
+                      quanto pessoalmente. Meu ano lá foi um divisor de águas na minha carreira e pra pessoa que sou hoje!"
+                    </p>
+                    <span>
+                      Amanda Peconick
+                    </span>
+                    <ul>
+                      <li></li>
+                      <li></li>
+                      <li class="active"></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          
+
           <div class="footer-carousel-btn-right">
             <i (click)="moveRight()" class="fas fa-chevron-right"></i>
           </div>

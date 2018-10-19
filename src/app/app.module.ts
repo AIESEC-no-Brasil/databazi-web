@@ -32,7 +32,8 @@ import { FormOfflineComponent } from './form-offline/form-offline.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule } from 'ngx-mask';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -83,7 +84,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     })
   ],
   providers: [
-    FormOfflineComponent
+    FormOfflineComponent,
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerGestureConfig
+    }
   ],
   bootstrap: [AppComponent]
 })
