@@ -1684,7 +1684,11 @@ label {
 }
 
 /deep/ .cdk-overlay-pane, .cdk-overlay-pane {
-    position: relative;
+    position: fixed;
+    max-height: 500px;
+    overflow:auto; 
+    padding: 0 !important;
+    z-index:1000;
 }
 
 /deep/ .mat-autocomplete::-webkit-input-placeholder {
