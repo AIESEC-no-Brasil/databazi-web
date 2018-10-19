@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
+import 'hammerjs';
 
 @Component({
   selector: 'app-landing-footer',
@@ -11,7 +12,7 @@ export class LandingFooterComponent implements OnInit {
 
   partners: any;
   sliderPosition: number = 0;
-  timer:any;
+  timer: any;
 
   navTo(partnerPage) {
     window.open(partnerPage, '_blank');
@@ -109,8 +110,14 @@ export class LandingFooterComponent implements OnInit {
     });
   }
 
+  swipe(side: string) {
+    this.stopAnimation();
+    side == 'left' ? this.moveRight() : this.moveLeft();
+  }
+
   moveLeft() {
-    if ((this.sliderPosition - 100) < 0){
+    this.stopAnimation();
+    if ((this.sliderPosition - 100) < 0) {
       this.sliderPosition = 200;
     }
     else {
@@ -120,9 +127,10 @@ export class LandingFooterComponent implements OnInit {
   }
 
   moveRight() {
-    if ((this.sliderPosition + 100) > 200){
+    this.stopAnimation();
+    if ((this.sliderPosition + 100) > 200) {
       this.sliderPosition = 0;
-    } 
+    }
     else {
       this.sliderPosition += 100
     }
@@ -135,11 +143,11 @@ export class LandingFooterComponent implements OnInit {
     }, 10000);
   }
 
-  stopAnimation(){
+  stopAnimation() {
     clearInterval(this.timer)
   }
 
-  openUrl(site){
+  openUrl(site) {
     window.open(site);
   }
 }

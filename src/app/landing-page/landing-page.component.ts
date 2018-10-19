@@ -17,23 +17,30 @@ export class LandingPageComponent implements OnInit {
   seeMoreGe:boolean = false;
   seeMoreGt:boolean = false;
   timer : any;
-  swipe_action = {
-    left: 'swipleft', 
-    right: 'swiperight'
-  }
 
   constructor(
     public router: Router
   ) { }
 
-  swipeRight(action = this.swipe_action.right){
-    this.stopAnimation
-    this.moveLeft();
-  }
-  swipeLeft(action = this.swipe_action.left){
-    this.moveRight();
+  swipe(side:string){
+    this.stopAnimation();
+    side == 'left' ? this.moveRight() : this.moveLeft();
   }
 
+  redirectTo(){
+    switch (this.sliderPosition){
+      case 0:
+        this.goToGv();
+        break;
+      case 100:
+        this.goToGe();
+        break;
+      case 200:
+        this.goToGt();
+        break;
+    }
+  }
+  
 	moveLeft() {
     if ((this.sliderPosition - 100) < 0){
       this.sliderPosition = 200;

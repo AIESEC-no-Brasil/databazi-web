@@ -250,20 +250,20 @@
       </div>
     </div>
   </section>
-  <div id="our-stories" (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipeRight($event.type)"
-    (swipeleft)="swipeLeft($event.type)">
+    <div id="our-stories">
     <div id="our-stories-bg"></div>
-    <div class='swipe-animation animated faster'></div>
     <section class="container padding align-center our-stories">
       <h1 class='italic centered'>As nossas histórias</h1>
       <br>
       <div class="row">
-        <div class="col-sm">
+
+        <div class="col-sm swipe-area">
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
           <div class="footer-carousel-btn-left">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
 
-          <div class="carousel-container" (click)="goToGv()">
+          <div class="carousel-container">
             <div class='carousel-wrapper'>
               <div class="each-carousel-item">
                 <div class="cases case-1" drag-scroll-item>
@@ -285,7 +285,7 @@
                   </div>
                 </div>
               </div>
-              <div class="each-carousel-item" (click)="goToGe()">
+              <div class="each-carousel-item">
                 <div class="cases case-2" drag-scroll-item>
                   <div class="box-case-bg"></div>
                   <div class="box-case">
@@ -306,7 +306,7 @@
                   </div>
                 </div>
               </div>
-              <div class="each-carousel-item" (click)="goToGt()">
+              <div class="each-carousel-item">
                 <div class="cases case-3" drag-scroll-item>
                   <div class="box-case-bg"></div>
                   <div class="box-case">

@@ -1,20 +1,21 @@
 <!-- partners -->
 <section class="partners padding-top-and-bottom">
   <div class="partner-icon-hanshake"></div>
-  <div class='partners-pattern'></div>
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
         <h1 class="centered italic">Os nossos parceiros premium</h1>
-        <div id="footer-carousel" (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()">
+        <div id="footer-carousel">
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
+            (swipeleft)="swipe('left')"></div>
           <div class="buttons-carousel">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
           <div class='footer-carousel-partners'>
             <div class="footer-carousel-wrapper">
-              <div class="footer-each-item" *ngFor="let partner of partners" (click)="openUrl(partner.site)">
-                <img src="{{partner.img}}" alt="{{title}}">
-                <span class='animated fadeIn faster'> {{partner.title}}  </span>
+              <div class="footer-each-item" *ngFor="let partner of partners" (click)="openUrl(partner.site)" (swiperight)="swipe('right')"
+              (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
+                <span class='animated fadeIn faster'> {{partner.title}} </span>
               </div>
             </div>
           </div>
