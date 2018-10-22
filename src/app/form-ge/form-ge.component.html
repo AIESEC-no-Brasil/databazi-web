@@ -130,7 +130,7 @@
                     </div>
                     
                     <i class="fas fa-gift mobile mobile-icon"></i>
-                    <input class="form-control p-inputMask gv" id="inputDatadeNascimento" (onBlur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
+                    <input class="form-control p-inputMask gv" id="inputDatadeNascimento" (blur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
                     [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" mask="00/00/0000">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
