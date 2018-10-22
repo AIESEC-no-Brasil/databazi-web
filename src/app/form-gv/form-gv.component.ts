@@ -295,7 +295,7 @@ export class FormGvComponent implements OnInit {
   }
 
   checkDate() {
-    let date = this.user.birthdate.split('/');
+    let date = moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY').split('/');
     if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
       this.invalidDate = false;
       let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
