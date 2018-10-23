@@ -31,6 +31,7 @@ import { FormGeComponent } from './form-ge/form-ge.component';
 import { FormOfflineComponent } from './form-offline/form-offline.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { MatInputModule } from '@angular/material';
 import { NgxMaskModule } from 'ngx-mask';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -64,6 +65,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     routes,
     FormsModule,
     ReactiveFormsModule,
+    AutoCompleteModule,
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,

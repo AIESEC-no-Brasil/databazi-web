@@ -197,24 +197,32 @@
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
                 <div>
-                  <div class="form-group">
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index2': autocompleteIsOpen}">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)" #placesAutocomplete (onFocus)="placesAutocomplete.handleDropdownClick(); placesAutocomplete.isOpen = true;" dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado" placeholder="Esse é o escritório que vai cuidar de você!" (onBlur)="placesAutocomplete.isOpen = false;"></p-autoComplete>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
+                      Selecione a AIESEC mais próxima.
+                    </div>
+                  </div>
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index': !scholarityAutocomplete.isOpen}">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
                           <i class="fas fa-graduation-cap"></i>Escolaridade</div>
                       </div>
                       <div class="dropdown">
-                          <div class="styled-select">
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.scholarity" [matAutocomplete]="scholarity" [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Qual seu nível de escolaridade?</mat-placeholder>
-                              <mat-autocomplete #scholarity="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let option of filteredScholarityOptions | async" [value]="option">
-                                    {{option.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
-                          </div>
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.scholarity" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)" #scholarityAutocomplete (onFocus)="scholarityAutocomplete.handleDropdownClick(); scholarityAutocomplete.isOpen = true; autocompleteIsOpen = true;" (onBlur)="autocompleteIsOpen = false; scholarityAutocomplete.isOpen = false;" dropdownMode="current" field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?" ></p-autoComplete>
+                        </div>
                       </div>
                     </div>
                     <div *ngIf="isValidStudy('scholarity')" class='error-message'>
@@ -222,7 +230,7 @@
                     </div>
                   </div>
                   <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'autocomplete-negative-index': !universityAutocomplete.isOpen}">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -230,17 +238,7 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.university_id" [matAutocomplete]="university" [(ngModel)]="user.university" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Onde você estuda?</mat-placeholder>
-                              <mat-autocomplete #university="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let university of filteredUniversities | async" [value]="university">
-                                    {{university.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
-
+                            <p-autoComplete [(ngModel)]="user.university" [suggestions]="filteredUniversities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete (onFocus)="universityAutocomplete.handleDropdownClick(); universityAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Onde você estuda?" (onBlur)="autocompleteIsOpen = false; universityAutocomplete.isOpen = false;"></p-autoComplete>
                           </div>
                         </div>
                       </div>
@@ -248,7 +246,7 @@
                         Selecione uma universidade.
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'autocomplete-negative-index': !coursesAutocomplete.isOpen}">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -256,15 +254,7 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.college_course_id" [matAutocomplete]="college_course" [(ngModel)]="user.college_course" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Insira seu curso</mat-placeholder>
-                              <mat-autocomplete #college_course="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
-                                    {{course.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
+                            <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)" #coursesAutocomplete (onFocus)="coursesAutocomplete.handleDropdownClick(); coursesAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado" placeholder="Insira seu curso"  (onBlur)="autocompleteIsOpen = false; coursesAutocomplete.isOpen = false;"></p-autoComplete>
                           </div>
                         </div>
                       </div>
@@ -273,33 +263,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <mat-form-field class="example-full-width">
-                            <input type="text" matInput [formControl]="step2Form.controls.local_committee_id" [matAutocomplete]="local_committee" [(ngModel)]="user.local_committee" class="autocomplete">
-                            <mat-placeholder class="autocomplete-placeholder">Esse é o escritório que vai cuidar de você!</mat-placeholder>
-                            <mat-autocomplete #local_committee="matAutocomplete" [displayWith]="display">
-                              <mat-option *ngFor="let place of filteredPlaces | async" [value]="place">
-                                  {{place.name}}
-                              </mat-option>
-                            </mat-autocomplete>
-                          </mat-form-field>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
-                      Selecione a AIESEC mais próxima.
-                    </div>
-                  </div>
 
                   <!-- Terms -->
-                  <div class="row justify-content-center forms-term">
+                  <div class="row justify-content-center forms-term autocomplete-negative-index2">
                     <div class="col-sm-10">
                       <div class="form-group">
                         <label for="inputTermos">Termos e Condições</label>

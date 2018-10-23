@@ -200,7 +200,7 @@
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
                 <div>
-                  <div class="form-group">
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !scholarityAutocomplete.isOpen}">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -208,15 +208,7 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <mat-form-field class="example-full-width">
-                            <input type="text" matInput [formControl]="step2Form.controls.scholarity" [matAutocomplete]="scholarity" [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" class="autocomplete">
-                            <mat-placeholder class="autocomplete-placeholder">Qual seu nível de escolaridade?</mat-placeholder>
-                            <mat-autocomplete #scholarity="matAutocomplete" [displayWith]="display">
-                              <mat-option *ngFor="let option of filteredScholarityOptions | async" [value]="option">
-                                  {{option.name}}
-                              </mat-option>
-                            </mat-autocomplete>
-                          </mat-form-field>
+                          <p-autoComplete [(ngModel)]="user.scholarity" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)" #scholarityAutocomplete (onFocus)="scholarityAutocomplete.handleDropdownClick(); scholarityAutocomplete.isOpen = true; autocompleteIsOpen = true;" (onBlur)="autocompleteIsOpen = false; scholarityAutocomplete.isOpen = false;" dropdownMode="current" field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?" ></p-autoComplete>
                         </div>
                       </div>
                     </div>
@@ -225,7 +217,7 @@
                     </div>
                   </div>
                   <div *ngIf="+user.scholarity.id >= 2 && +user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !universityAutocomplete.isOpen}">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -233,7 +225,8 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <mat-form-field class="example-full-width">
+                            <p-autoComplete [(ngModel)]="user.university" [suggestions]="filteredUniversities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete (onFocus)="universityAutocomplete.handleDropdownClick(); universityAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Onde você estuda?" (onBlur)="autocompleteIsOpen = false; universityAutocomplete.isOpen = false;"></p-autoComplete>
+                            <!-- <mat-form-field class="example-full-width">
                               <input type="text" matInput [formControl]="step2Form.controls.university_id" [matAutocomplete]="university_id" [(ngModel)]="user.university" class="autocomplete">
                               <mat-placeholder class="autocomplete-placeholder">Onde você estuda?</mat-placeholder>
                               <mat-autocomplete #university_id="matAutocomplete" [displayWith]="display">
@@ -241,7 +234,7 @@
                                     {{university.name}}
                                 </mat-option>
                               </mat-autocomplete>
-                            </mat-form-field>
+                            </mat-form-field> -->
                           </div>
                         </div>
                       </div>
@@ -249,7 +242,7 @@
                         Selecione uma universidade.
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !coursesAutocomplete.isOpen}">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -257,7 +250,8 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <mat-form-field class="example-full-width">
+                            <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)" #coursesAutocomplete (onFocus)="coursesAutocomplete.handleDropdownClick(); coursesAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado" placeholder="Insira seu curso"  (onBlur)="autocompleteIsOpen = false; coursesAutocomplete.isOpen = false;"></p-autoComplete>
+                            <!-- <mat-form-field class="example-full-width">
                               <input type="text" matInput [formControl]="step2Form.controls.college_course_id" [matAutocomplete]="college_course_id" [(ngModel)]="user.college_course" class="autocomplete">
                               <mat-placeholder class="autocomplete-placeholder">Insira seu curso</mat-placeholder>
                               <mat-autocomplete #college_course_id="matAutocomplete" [displayWith]="display">
@@ -265,7 +259,7 @@
                                     {{course.name}}
                                 </mat-option>
                               </mat-autocomplete>
-                            </mat-form-field>
+                            </mat-form-field> -->
                           </div>
                         </div>
                       </div>
@@ -274,7 +268,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !englishAutocomplete.isOpen}">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -282,7 +276,8 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <mat-form-field class="example-full-width">
+                          <p-autoComplete [(ngModel)]="user.english_level" [suggestions]="filteredEnglishLevelOptions" (completeMethod)="searchEnglishLevels($event)" #englishAutocomplete (onFocus)="englishAutocomplete.handleDropdownClick(); englishAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="english_level" emptyMessage="Nenhum resultado" placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas" (onBlur)="autocompleteIsOpen = false; englishAutocomplete.isOpen = false;"></p-autoComplete>
+                          <!-- <mat-form-field class="example-full-width">
                             <input type="text" matInput [formControl]="step2Form.controls.english_level" [matAutocomplete]="english_level" [(ngModel)]="user.english_level" class="autocomplete">
                             <mat-placeholder class="autocomplete-placeholder">Isso nos ajuda a te direcionar para as vagas mais adequadas</mat-placeholder>
                             <mat-autocomplete #english_level="matAutocomplete" [displayWith]="display">
@@ -290,7 +285,7 @@
                                   {{level.name}}
                               </mat-option>
                             </mat-autocomplete>
-                          </mat-form-field>
+                          </mat-form-field> -->
                         </div>
                       </div>
                     </div>
@@ -298,7 +293,7 @@
                       Selecione um nível de inglês.
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !spanishAutocomplete.isOpen}">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -306,7 +301,8 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <mat-form-field class="example-full-width">
+                          <p-autoComplete [(ngModel)]="user.spanish_level" [suggestions]="filteredSpanishLevelOptions" (completeMethod)="searchSpanishLevels($event)" #spanishAutocomplete (onFocus)="spanishAutocomplete.handleDropdownClick(); spanishAutocomplete.isOpen = true; autocompleteIsOpen = true;" dropdownMode="current" field="name" formControlName="english_level" emptyMessage="Nenhum resultado" placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas" (onBlur)="autocompleteIsOpen = false; spanishAutocomplete.isOpen = false;"></p-autoComplete>
+                          <!-- <mat-form-field class="example-full-width">
                             <input type="text" matInput [formControl]="step2Form.controls.spanish_level" [matAutocomplete]="spanish_level" [(ngModel)]="user.spanish_level" class="autocomplete">
                             <mat-placeholder class="autocomplete-placeholder">Isso nos ajuda a te direcionar para as vagas mais adequadas</mat-placeholder>
                             <mat-autocomplete #spanish_level="matAutocomplete" [displayWith]="display">
@@ -314,7 +310,7 @@
                                   {{level.name}}
                               </mat-option>
                             </mat-autocomplete>
-                          </mat-form-field>
+                          </mat-form-field> -->
                         </div>
                       </div>
                     </div>
@@ -322,7 +318,7 @@
                       Selecione um nível de espanhol.
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group" [ngClass]="{'autocomplete-negative-index2':autocompleteIsOpen && !placesAutocomplete.isOpen}">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -330,7 +326,8 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <mat-form-field class="example-full-width">
+                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)" #placesAutocomplete (onFocus)="placesAutocomplete.handleDropdownClick(); placesAutocomplete.isOpen = true;" dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado" placeholder="Esse é o escritório que vai cuidar de você!" (onBlur)="placesAutocomplete.isOpen = false;"></p-autoComplete>
+                          <!-- <mat-form-field class="example-full-width">
                             <input type="text" matInput [formControl]="step2Form.controls.local_committee_id" [matAutocomplete]="local_committee_id" [(ngModel)]="user.local_committee" class="autocomplete">
                             <mat-placeholder class="autocomplete-placeholder">Esse é o escritório que vai cuidar de você!</mat-placeholder>
                             <mat-autocomplete #local_committee_id="matAutocomplete" [displayWith]="display">
@@ -338,7 +335,7 @@
                                   {{place.name}}
                               </mat-option>
                             </mat-autocomplete>
-                          </mat-form-field>
+                          </mat-form-field> -->
                         </div>
                       </div>
                     </div>
