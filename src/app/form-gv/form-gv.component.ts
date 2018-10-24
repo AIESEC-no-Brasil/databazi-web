@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import * as $ from 'jquery';
 
 import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
@@ -40,7 +41,6 @@ export class FormGvComponent implements OnInit {
     utm_content: ''
   }
 
-  autocompleteIsOpen: boolean = false;
   msgs: Message[] = [];
 
   scholarityOptions: any = [
@@ -397,5 +397,10 @@ export class FormGvComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
+  }
+
+  selectInput(element) {
+    $('.form-group').css('z-index', '-1');
+    $('.' + element).css('z-index', '10');
   }
 }

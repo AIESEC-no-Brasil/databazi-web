@@ -507,10 +507,13 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
+    position:relative;
+    z-index:-1;
 }
 
 .form-group {
     margin-bottom: 0;
+    position:relative;
 }
 
 .form-control {
@@ -1688,6 +1691,7 @@ label {
     width: 100%;
     padding:9.5px;
     transition:.3s;
+    cursor: pointer;
     &:hover {
       background-color: #3f77bc;
       color:#fff;

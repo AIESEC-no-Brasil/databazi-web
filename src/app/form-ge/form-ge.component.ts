@@ -84,7 +84,6 @@ export class FormGeComponent implements OnInit {
     management: false
   };
   msgs: Message[] = [];
-  autocompleteIsOpen:boolean = false;
 
   personalData: boolean = true;
   studyData: boolean = false;
@@ -448,5 +447,9 @@ export class FormGeComponent implements OnInit {
     });
   };
 
+  selectInput(element) {
+    $('.form-group').css('z-index', '-1');
+    $('.' + element).css('z-index', '10');
+  }
 
 }

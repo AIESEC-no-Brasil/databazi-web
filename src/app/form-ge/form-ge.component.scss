@@ -3,6 +3,8 @@
 @import '~node_modules/primeng/resources/themes/nova-light/theme.css';
 @import '~node_modules/primeng/resources/primeng.min.css';
 .forms-term {
+    position: relative;
+    z-index: -1;
     textarea {
         margin-bottom: 5px;
     }
@@ -19,7 +21,7 @@
     width: 100% !important;
     height: 100% !important;
     display:flex;
-    flex-start: center;
+    align-items: center;
     justify-content : center;
     overflow-y: auto;
 }
@@ -502,6 +504,8 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
+    position: relative;
+    z-index: -1;
 }
 
 .form-group {
@@ -1488,6 +1492,9 @@ label {
   color: #333;
   max-height: 215px;
   overflow: auto;
+  z-index: 999;
+  position: relative;
+  cursor: pointer;
   li {
     width: 100%;
     padding:9.5px;
@@ -1497,6 +1504,11 @@ label {
       color:#fff;
     }
   }
+}
+
+.form-group {
+    position: relative;
+    z-index: -1;
 }
 
 .autocomplete-negative-index {
