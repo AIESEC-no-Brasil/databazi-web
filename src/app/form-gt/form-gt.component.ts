@@ -290,8 +290,8 @@ export class FormGtComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '' };
-      this.user.college_course = { id: '' };
+      this.user.university = { id: '', name: '' };
+      this.user.college_course = { id: '', name: '' };
     }
   }
 
