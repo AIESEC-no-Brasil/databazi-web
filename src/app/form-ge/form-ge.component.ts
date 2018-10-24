@@ -29,13 +29,13 @@ export class FormGeComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: ''},
-    college_course: { id: ''},
+    local_committee: { id: '', name: ''},
+    university: { id: '', name: ''},
+    college_course: { id: '', name: ''},
     cellphone_contactable: '',
-    english_level: { id: ''},
-    spanish_level: { id: ''},
-    scholarity: { id: ''},
+    english_level: { id: '', name: ''},
+    spanish_level: { id: '', name: ''},
+    scholarity: { id: '', name: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -452,4 +452,8 @@ export class FormGeComponent implements OnInit {
     $('.' + element).css('z-index', '10');
   }
 
+  clearField(field) {
+    console.log('eae', field, this.user[field]);
+    this.user[field] = '';
+  }
 }

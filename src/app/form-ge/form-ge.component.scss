@@ -1520,3 +1520,9 @@ label {
     z-index: -1;
     position: relative;
 }
+
+.autocomplete-clear-btn {
+    position: absolute; 
+    right: 0; 
+    top: 15px;
+}

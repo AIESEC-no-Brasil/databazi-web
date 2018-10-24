@@ -16,12 +16,12 @@ import * as _ from 'lodash';
 export class FormOfflineComponent implements OnInit {
 
 	user = {
-    fullname: 'DevMagic Teste',
-    cellphone: '(13)98119-2306',
-    email: 'contato@devmagic.com.br',
-    birthdate: '24/01/1996',
-    password: 'DevMagic1',
-    repassword: 'DevMagic1',
+    fullname: '',
+    cellphone: '',
+    email: '',
+    birthdate: '',
+    password: '',
+    repassword: '',
     local_committee_id: '',
     university_id: '',
     college_course_id: '',

@@ -31,8 +31,8 @@ export class FormGtComponent implements OnInit {
     password: '',
     repassword: '',
     local_committee: { id: ''},
-    university: { id: ''},
-    college_course: { id: ''},
+    university: { id: '', name: ''},
+    college_course: { id: '', name: ''},
     cellphone_contactable: '',
     english_level: { id: ''},
     scholarity: { id: ''},
@@ -466,5 +466,9 @@ export class FormGtComponent implements OnInit {
   selectInput(element) {
     $('.form-group').css('z-index', '-1');
     $('.' + element).css('z-index', '10');
+  }
+
+  clearField(field) {
+    this.user[field] = '';
   }
 }

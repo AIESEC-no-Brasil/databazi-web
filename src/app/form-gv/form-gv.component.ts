@@ -403,4 +403,8 @@ export class FormGvComponent implements OnInit {
     $('.form-group').css('z-index', '-1');
     $('.' + element).css('z-index', '10');
   }
+
+  clearField(field) {
+    this.user[field] = '';
+  }
 }
