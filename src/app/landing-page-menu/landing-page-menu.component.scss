@@ -1,0 +1,256 @@
+@import '../../scss/global.scss';
+#bg-menu {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 6;
+}
+
+#fixedMenu {
+    transition: .3s
+}
+
+#fixedMenu.fixedMenu {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    background: $default;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .menu-product {
+        height: 50px;
+        padding: 0;
+        margin: 0;
+    }
+    .logo-aiesec {
+        margin: 0;
+    }
+    .responsive-menu ul#menu li {
+        padding: 5px 15px 10px 15px;
+        ul.animated {
+            background-color: $default;
+            border-radius: 0 0 10px 10px;
+        }
+    }
+}
+
+/*IE9*/
+
+*::selection {
+    background-color: transparent;
+}
+
+*::-moz-selection {
+    background-color: transparent;
+}
+
+* {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#header-product .container {
+    z-index: 10;
+    position: relative;
+    width: 95%;
+    max-width: -webkit-fill-available
+}
+
+.header-product {
+    width: 100%;
+    padding: 0 0 55px 0;
+    position: relative;
+    border-bottom: 3px solid #666;
+    z-index: 11;
+    .header-product-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-position: center center;
+        filter: brightness(35%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -10;
+        background-image: url('../../assets/images/header.jpg');
+        z-index: 5;
+        &.talento-global {
+            background-image: url('../../assets/products/gt/gt-intro.jpg');
+        }
+        &.voluntario-global {
+            background-image: url('../../assets/products/gv/gv-intro.jpg');
+        }
+        &.empreendedor-global {
+            background-image: url('../../assets/products/ge/ge-intro.jpg');
+        }
+    }
+    .header-menu {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 15px;
+        .logo-aiesec,
+        .logo-menu {
+            background-image: url('../../assets/images/aiesec-logo.png');
+            background-size: contain;
+            background-position: center left;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+        .logo-aiesec {
+            height: 45px;
+            margin: 20px 0;
+            min-height: 45px;
+        }
+        .logo-menu {
+            width: 60%;
+            height: 75px;
+            display: table;
+            margin: auto;
+        }
+        .menu-product {
+            ul {
+                padding: 5px 0;
+                display: flex;
+                list-style: none;
+                justify-content: flex-end;
+                a:hover {
+                    text-decoration: none;
+                    color: #fff;
+                }
+                li {
+                    font-size: 13px;
+                    padding: 12.5px 15px;
+                    margin: 5px;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    position: relative;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    &:hover ul {
+                        display: block;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    ul {
+                        margin-top: 10px;
+                        border-radius: 10px;
+                        position: absolute;
+                        flex-direction: column;
+                        background-color: rgba(255, 255, 255, .5);
+                        min-width: 175px;
+                        display: none;
+                        left: 0;
+                        a:hover {
+                            text-decoration: none;
+                            color: #fff;
+                        }
+                        li {
+                            padding: 5px 10px;
+                            text-align: left;
+                            text-transform: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .product-info {
+        margin: 120px 0;
+        text-align: left;
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1100px) {
+    #header-product .container {
+        ul#menu {
+            li {
+                font-size: 11px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .header-product div.responsive-menu ul#menu {
+        display: none !important;
+    }
+    .header-product div.responsive-menu .menu-icon {
+        display: block;
+        position: fixed;
+        right: 35px;
+        top: 15px;
+        color: $default;
+        z-index: 100;
+        font-size: 25px;
+        .fa-times {
+            color: #fff;
+            z-index: 51
+        }
+    }
+    #active-responsive-menu {
+        color: #fff;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        background-color: $default;
+        z-index: 50;
+        left: 0;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        box-sizing: border-box;
+        padding: 2.5vh 3%;
+        justify-content: flex-start;
+        overflow: auto;
+        >a,
+        >li {
+            margin: 10px 0;
+        }
+        >a li {
+            margin-left: 0;
+        }
+        li {
+            padding: 0 !important;
+            text-align: left !important;
+        }
+        span {
+            font-weight: bold;
+            text-align: left;
+            padding-left: 5px;
+            font-size: 1.3rem;
+        }
+        li ul {
+            display: flex !important;
+            position: relative !important;
+            background-color: transparent !important;
+            li {
+                font-size: 1.2rem;
+                padding: 10px 0px !important;
+            }
+        }
+    }
+}
+
+@media (min-width:990px) {
+    .menu-icon,
+    .active-responsive-menu {
+        display: none !important;
+    }
+}

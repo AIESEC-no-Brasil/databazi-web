@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/*--------------------------------------------------------------
+	Typography
+--------------------------------------------------------------*/
+html, body {
+    margin:0 ;
+    padding: 0;
+}
+
+select, option {
+    font-style: italic;
+    font-size: 11px;
+}
+
+@media (max-width: 485px) {
+    select, option {
+        font-size: 4vw !important;
+    }
+}
