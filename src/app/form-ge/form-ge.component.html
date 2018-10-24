@@ -2,18 +2,18 @@
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 </head>
 <div id="step1" class="form-talentos-globais" [ngClass]="{'full-screen': formedUser}">
-  <div>
+  <div class="full-width">
     <!-- Header -->
     <section class="header" id="header-talentos-globais">
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" *ngIf="!embeddedForm">
           <div class="col-sm text-center">
             <div class="logo-empreendedor-global"></div>
           </div>
         </div>
         <div *ngIf="!completedSignup">
-          <div class="row">
-            <div class="col-sm">
+          <div class="row" *ngIf="!embeddedForm">
+            <div class="col-sm" >
               <h1>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</h1>
             </div>
           </div>

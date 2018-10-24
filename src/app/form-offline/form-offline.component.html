@@ -11,13 +11,13 @@
     <!-- Header -->
     <section class="header" id="header-offline">
       <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" *ngIf="!embeddedForm">
           <div class="col-sm text-center">
             <div class="logo-offline"></div>
           </div>
         </div>
         <div *ngIf="!completedSignup">
-          <div class="row">
+          <div class="row" *ngIf="!embeddedForm">
             <div class="col-sm">
               <h1>A AIESEC, como maior movimento de liderança jovem no mundo, acredita no intercâmbio como uma ferramenta para construir um futuro sustentável.</h1>
             </div>
