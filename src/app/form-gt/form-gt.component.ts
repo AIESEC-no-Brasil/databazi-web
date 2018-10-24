@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
+import * as $ from 'jquery';
 
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
@@ -30,8 +31,8 @@ export class FormGtComponent implements OnInit {
     password: '',
     repassword: '',
     local_committee: { id: ''},
-    university: { id: ''},
-    college_course: { id: ''},
+    university: { id: '', name: ''},
+    college_course: { id: '', name: ''},
     cellphone_contactable: '',
     english_level: { id: ''},
     scholarity: { id: ''},
@@ -81,6 +82,7 @@ export class FormGtComponent implements OnInit {
     information_technology: false,
     management: false
   };
+
   msgs: Message[] = [];
 
   personalData: boolean = true;
@@ -182,11 +184,7 @@ export class FormGtComponent implements OnInit {
       }
     });
 
-    this.filteredScholarityOptions = this.step2Form.controls.scholarity.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value, this.scholarityOptions))
-      );
+    this.filteredScholarityOptions = this.scholarityOptions;
 
     this.fillUniversitySelect().then(() => {
       this.filteredUniversities = this.step2Form.controls.university_id.valueChanges
@@ -292,8 +290,8 @@ export class FormGtComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '' };
-      this.user.college_course = { id: '' };
+      this.user.university = { id: '', name: '' };
+      this.user.college_course = { id: '', name: '' };
     }
   }
 
@@ -435,4 +433,42 @@ export class FormGtComponent implements OnInit {
     return option ? option.name : undefined;
   }
 
+  searchScholarity(event) {
+    this.filteredScholarityOptions = _.filter(this.scholarityOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchUnivesity(event) {
+    this.filteredUniversities = _.filter(this.universities, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchCourses(event) {
+    this.filteredCourses = _.filter(this.courses, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchPlaces(event) {
+    this.filteredPlaces =  _.filter(this.places, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchEnglishLevels(event) {
+    this.filteredEnglishLevelOptions =  _.filter(this.englishLevelOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  selectInput(element) {
+    $('.form-group').css('z-index', '-1');
+    $('.' + element).css('z-index', '10');
+  }
+
+  clearField(field) {
+    this.user[field] = '';
+  }
 }

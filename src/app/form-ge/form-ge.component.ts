@@ -29,13 +29,13 @@ export class FormGeComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: ''},
-    college_course: { id: ''},
+    local_committee: { id: '', name: ''},
+    university: { id: '', name: ''},
+    college_course: { id: '', name: ''},
     cellphone_contactable: '',
-    english_level: { id: ''},
-    spanish_level: { id: ''},
-    scholarity: { id: ''},
+    english_level: { id: '', name: ''},
+    spanish_level: { id: '', name: ''},
+    scholarity: { id: '', name: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -187,46 +187,23 @@ export class FormGeComponent implements OnInit {
       }
     });
 
-    this.filteredScholarityOptions = this.step2Form.controls.scholarity.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value, this.scholarityOptions))
-      );
+    this.filteredScholarityOptions = this.scholarityOptions;
 
     this.fillUniversitySelect().then(() => {
-      this.filteredUniversities = this.step2Form.controls.university_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.universities))
-        );
+      this.filteredUniversities = this.universities;
     });
+
     this.fillCourseSelect().then(() => {
-      this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.courses))
-        );
+      this.filteredCourses = this.courses;
     });
-
-    this.filteredEnglishLevelOptions = this.step2Form.controls.english_level.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.englishLevelOptions))
-        );
-
-    this.filteredSpanishLevelOptions = this.step2Form.controls.spanish_level.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value, this.spanishLevelOptions))
-      );
 
     this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.step2Form.controls.local_committee_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.places))
-        );
+      this.filteredPlaces = this.places;
     });
+
+    this.filteredEnglishLevelOptions = this.englishLevelOptions;
+
+    this.filteredSpanishLevelOptions = this.spanishLevelOptions;
   }
 
   onResize(event){
@@ -294,8 +271,8 @@ export class FormGeComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = {id: ''};
-      this.user.college_course = {id: ''};
+      this.user.university = {id: '', name: ''};
+      this.user.college_course = {id: '', name: ''};
     }
   }
 
@@ -434,12 +411,49 @@ export class FormGeComponent implements OnInit {
       })
   }
 
-  private _filter(value: string, options: any): any[] {
-    const filterValue = value.length ? value.toLowerCase() : value;
-    return options.filter(option => option.name.toLowerCase().includes(filterValue));
+  searchScholarity(event) {
+    this.filteredScholarityOptions = _.filter(this.scholarityOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchUnivesity(event) {
+    this.filteredUniversities = _.filter(this.universities, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchCourses(event) {
+    this.filteredCourses = _.filter(this.courses, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchPlaces(event) {
+    this.filteredPlaces =  _.filter(this.places, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchEnglishLevels(event) {
+    this.filteredEnglishLevelOptions =  _.filter(this.englishLevelOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchSpanishLevels(event) {
+    this.filteredSpanishLevelOptions =  _.filter(this.spanishLevelOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  selectInput(element) {
+    $('.form-group').css('z-index', '-1');
+    $('.' + element).css('z-index', '10');
   }
 
-  display(option) {
-    return option ? option.name : undefined;
+  clearField(field) {
+    console.log('eae', field, this.user[field]);
+    this.user[field] = '';
   }
 }

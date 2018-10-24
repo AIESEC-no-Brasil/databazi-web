@@ -33,7 +33,8 @@
     </section>
 
     <!-- Form -->
-    <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading" [ngClass]="{formB : formToggle}" (window:resize)="onResize($event)">
+    <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading" [ngClass]="{formB : formToggle}"
+      (window:resize)="onResize($event)">
       <div class="container">
         <div class="row justify-content-center">
 
@@ -58,8 +59,8 @@
                         <i class="fas fa-user"></i>Nome Completo</div>
                     </div>
                     <!-- desktop -->
-                    <input type="text" class="form-control desktop" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname"
-                      formControlName="fullname" name="fullname" required>
+                    <input type="text" class="form-control desktop" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname" formControlName="fullname"
+                      name="fullname" required>
 
                     <!-- mobile -->
                     <i class="fas fa-user mobile mobile-icon"></i>
@@ -104,10 +105,10 @@
                     <input type="email" class="form-control desktop" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
                       (blur)="checkEmail()" formControlName="email" name="email" email required>
 
-                      <!-- mobile -->
-                      <i class="fas fa-envelope mobile-icon mobile"></i>
-                      <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email"
-                      (blur)="checkEmail()" formControlName="email" name="email" email required>
+                    <!-- mobile -->
+                    <i class="fas fa-envelope mobile-icon mobile"></i>
+                    <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email" (blur)="checkEmail()" formControlName="email"
+                      name="email" email required>
                     <div class="valid-feedback" *ngIf="!invalidEmail">
                       <i class="fa fa-check"></i>
                     </div>
@@ -128,7 +129,7 @@
 
                     <i class="fas fa-gift mobile mobile-icon"></i>
                     <input class="form-control p-inputMask gv" id="inputDatadeNascimento" formControlName="birthdate" (blur)="checkDate()" placeholder="{{ placeholderBirthdate }}"
-                    [(ngModel)]="user.birthdate" name="birthdate" mask="00/00/0000"/>
+                      [(ngModel)]="user.birthdate" name="birthdate" mask="00/00/0000" />
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -155,8 +156,8 @@
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password"
-                      formControlName="password" name="password" required>
+                    <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
+                      name="password" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -174,8 +175,8 @@
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" [(ngModel)]="user.repassword" formControlName="repassword"
-                      name="repassword" required placeholder="Confirmar senha">
+                    <input type="password" class="form-control mobile" [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
+                      required placeholder="Confirmar senha">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -196,25 +197,39 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
-                <div>
-                  <div class="form-group">
+                  <div class="form-group local_committee" (click)="selectInput('local_committee')">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
+                            #placesAutocomplete (onFocus)="placesAutocomplete.handleDropdownClick();"
+                            dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
+                            placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
+                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')"  *ngIf="user.local_committee"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
+                      Selecione a AIESEC mais próxima.
+                    </div>
+                  </div>
+                  <div class="form-group scholarity" (click)="selectInput('scholarity')">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
                           <i class="fas fa-graduation-cap"></i>Escolaridade</div>
                       </div>
                       <div class="dropdown">
-                          <div class="styled-select">
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.scholarity" [matAutocomplete]="scholarity" [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Qual seu nível de escolaridade?</mat-placeholder>
-                              <mat-autocomplete #scholarity="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let option of filteredScholarityOptions | async" [value]="option">
-                                    {{option.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
-                          </div>
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)"
+                            #scholarityAutocomplete (onFocus)="scholarityAutocomplete.handleDropdownClick();" dropdownMode="current"
+                            field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
+                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')"  *ngIf="user.scholarity"></i>
+                        </div>
                       </div>
                     </div>
                     <div *ngIf="isValidStudy('scholarity')" class='error-message'>
@@ -222,7 +237,7 @@
                     </div>
                   </div>
                   <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group">
+                    <div class="form-group  university" (click)="selectInput('university')">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -230,17 +245,11 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.university_id" [matAutocomplete]="university" [(ngModel)]="user.university" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Onde você estuda?</mat-placeholder>
-                              <mat-autocomplete #university="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let university of filteredUniversities | async" [value]="university">
-                                    {{university.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
-
+                            <p-autoComplete [(ngModel)]="user.university" [suggestions]="filteredUniversities" (completeMethod)="searchUnivesity($event)"
+                              #universityAutocomplete (onFocus)="universityAutocomplete.handleDropdownClick();"
+                              dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
+                              placeholder="Onde você estuda?"></p-autoComplete>
+                              <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
                           </div>
                         </div>
                       </div>
@@ -248,7 +257,7 @@
                         Selecione uma universidade.
                       </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group college_course"  (click)="selectInput('college_course')">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -256,15 +265,11 @@
                         </div>
                         <div class="dropdown">
                           <div class="styled-select">
-                            <mat-form-field class="example-full-width">
-                              <input type="text" matInput [formControl]="step2Form.controls.college_course_id" [matAutocomplete]="college_course" [(ngModel)]="user.college_course" class="autocomplete">
-                              <mat-placeholder class="autocomplete-placeholder">Insira seu curso</mat-placeholder>
-                              <mat-autocomplete #college_course="matAutocomplete" [displayWith]="display">
-                                <mat-option *ngFor="let course of filteredCourses | async" [value]="course">
-                                    {{course.name}}
-                                </mat-option>
-                              </mat-autocomplete>
-                            </mat-form-field>
+                            <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
+                              #coursesAutocomplete (onFocus)="coursesAutocomplete.handleDropdownClick();"
+                              dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
+                              placeholder="Insira seu curso"></p-autoComplete>
+                              <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')"  *ngIf="user.college_course"></i>
                           </div>
                         </div>
                       </div>
@@ -273,33 +278,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <mat-form-field class="example-full-width">
-                            <input type="text" matInput [formControl]="step2Form.controls.local_committee_id" [matAutocomplete]="local_committee" [(ngModel)]="user.local_committee" class="autocomplete">
-                            <mat-placeholder class="autocomplete-placeholder">Esse é o escritório que vai cuidar de você!</mat-placeholder>
-                            <mat-autocomplete #local_committee="matAutocomplete" [displayWith]="display">
-                              <mat-option *ngFor="let place of filteredPlaces | async" [value]="place">
-                                  {{place.name}}
-                              </mat-option>
-                            </mat-autocomplete>
-                          </mat-form-field>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
-                      Selecione a AIESEC mais próxima.
-                    </div>
-                  </div>
 
                   <!-- Terms -->
-                  <div class="row justify-content-center forms-term">
+                  <div class="row justify-content-center forms-term autocomplete-negative-index2">
                     <div class="col-sm-10">
                       <div class="form-group">
                         <label for="inputTermos">Termos e Condições</label>
@@ -310,13 +291,12 @@
                       </label>
                     </div>
                   </div>
-                </div>
               </form>
             </div>
 
             <section class="content" id="resultado" *ngIf="completedSignup">
               <script type="text/javascript">
-               fbq('track', 'Lead');
+                fbq('track', 'Lead');
               </script>
               <div class="container">
                 <div class="row justify-content-center">
@@ -349,7 +329,8 @@
                 <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)' [ngx-scroll-to]="'#form'">Próximo</button>
+                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
+                  [ngx-scroll-to]="'#form'">Próximo</button>
                 <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#form'"
                   [disabled]='unableToSubmit()'>
                   Enviar
@@ -363,6 +344,6 @@
     </section>
     <div class='loading-landing-page' *ngIf="loading">
       <div class="loading-animation loading-animation-gv"></div>
-    </div>    
+    </div>
   </div>
 </div>

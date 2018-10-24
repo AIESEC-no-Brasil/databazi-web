@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import * as $ from 'jquery';
 
 import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
@@ -156,38 +157,43 @@ export class FormGvComponent implements OnInit {
       }
     });
 
+    this.filteredScholarityOptions = this.scholarityOptions;
+
     this.fillUniversitySelect().then((response) => {
-      this.filteredUniversities = this.step2Form.controls.university_id.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value, this.universities))
-      );
+      this.filteredUniversities = this.universities;
     });
-    this.filteredScholarityOptions = this.step2Form.controls.scholarity.valueChanges
-    .pipe(
-      startWith(''),
-      map(value => this._filter(value, this.scholarityOptions))
-    );
+
     this.fillCourseSelect().then(() => {
-      this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.courses))
-        );
+      this.filteredCourses = this.courses;
     });
     this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.step2Form.controls.local_committee_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.places))
-        );
+      this.filteredPlaces = this.places;
     }); 
   }
 
-  private _filter(value: string, options: any): any[] {
-    const filterValue = value.length ? value.toLowerCase() : value;
-    return options.filter(option => option.name.toLowerCase().includes(filterValue));
-  }
+  searchScholarity(event) {
+    this.filteredScholarityOptions = _.filter(this.scholarityOptions, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchUnivesity(event) {
+    this.filteredUniversities = _.filter(this.universities, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchCourses(event) {
+    this.filteredCourses = _.filter(this.courses, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
+
+  searchPlaces(event) {
+    this.filteredPlaces =  _.filter(this.places, (option) => {
+      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    });
+  };
 
   onResize(event){
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
@@ -393,9 +399,12 @@ export class FormGvComponent implements OnInit {
       })
   }
 
-  display(option) {
-    return option ? option.name : undefined;
+  selectInput(element) {
+    $('.form-group').css('z-index', '-1');
+    $('.' + element).css('z-index', '10');
   }
 
-
+  clearField(field) {
+    this.user[field] = '';
+  }
 }

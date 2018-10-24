@@ -1,6 +1,10 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
+@import '~node_modules/primeng/resources/themes/nova-light/theme.css';
+@import '~node_modules/primeng/resources/primeng.min.css';
 .forms-term {
+    position: relative;
+    z-index: -1;
     textarea {
         margin-bottom: 5px;
     }
@@ -190,7 +194,8 @@ body {
     box-sizing: border-box;
     border-radius: 3px;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    z-index: 9999;
 }
 
 .styled-select,
@@ -225,10 +230,11 @@ select:focus {
 
 .select-dropdown {
     justify-content: flex-start;
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
     background-color: #1CA390;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     padding-right: 10px;
+    position: relative;
 }
 
 .select-dropdown div.input-group-prepend>div {
@@ -484,10 +490,6 @@ section.header h1 {
       Forms
   --------------------------------------------------------------*/
 
-.select-dropdown {
-    flex-wrap: wrap !important;
-}
-
 .dropdown {
     padding: 0 10px;
 }
@@ -502,6 +504,8 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
+    position: relative;
+    z-index: -1;
 }
 
 .form-group {
@@ -1458,39 +1462,67 @@ label {
     margin: auto
 }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
+/deep/ .ui-autocomplete-input {
   width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
-.example-full-width {
-  width: 100%;
+/deep/ p-autoComplete {
+    input::-webkit-input-placeholder {
+        color: white;
+    }
+    input:-moz-placeholder {
+        color: white;
+    }
+    input::-moz-placeholder {
+        color: white;
+    }
+    input:-ms-input-placeholder {
+        color: white;
+    }
 }
 
-.autocomplete {
-    height: 50px;
-    padding-top: 20px;
+/deep/ .ui-autocomplete-items{
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+  max-height: 215px;
+  overflow: auto;
+  z-index: 999;
+  position: relative;
+  cursor: pointer;
+  li {
+    width: 100%;
+    padding:9.5px;
+    transition:.3s;
+    &:hover {
+      background-color: #3f77bc;
+      color:#fff;
+    }
+  }
 }
 
-.autocomplete-placeholder {
-    font-size: 16px !important;
-    color: #fff;
-    font-style: italic;
+.form-group {
+    position: relative;
+    z-index: -1;
 }
 
-/deep/ .mat-autocomplete-panel.mat-autocomplete-visible {
-    background-color: white;
-}
-
-/deep/ .mat-autocomplete {
-    background-color: red;
-}
-
-/deep/ .cdk-overlay-pane, .cdk-overlay-pane {
+.autocomplete-negative-index {
+    z-index: 0;
     position: relative;
 }
 
-/deep/ .mat-autocomplete::-webkit-input-placeholder {
-    color: red;
+.autocomplete-negative-index2 {
+    z-index: -1;
+    position: relative;
+}
+
+.autocomplete-clear-btn {
+    position: absolute; 
+    right: 0; 
+    top: 15px;
 }

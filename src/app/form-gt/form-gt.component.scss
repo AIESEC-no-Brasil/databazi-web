@@ -1,11 +1,16 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
+@import '~node_modules/primeng/resources/themes/nova-light/theme.css';
+@import '~node_modules/primeng/resources/primeng.min.css';
+
 .forms-term {
+    position: relative;
+    z-index: -1;
     textarea {
         margin-bottom: 5px;
     }
     .forms-tem-accepted {
-        font-size: 13px;
+        font-size: 12px;
         display: block;
         margin: 0 auto 15px auto;
         text-align: center;
@@ -17,7 +22,7 @@
     width: 100% !important;
     height: 100% !important;
     display:flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content : center;
     overflow-y: auto;
 }
@@ -40,12 +45,25 @@
             display: flex !important;
             margin-right: 0;
             align-items: center;
-            background: #0A8191;
+            background: #0a8191;
             padding: 0 10px;
-            border-bottom: 2px solid #0a8ea0;
+            border-bottom: 2px solid #84bfc7;
             min-width: 35px;
             justify-content: center;
         }
+    }
+}
+
+// form A/B - end
+.forms-term {
+    textarea {
+        margin-bottom: 5px;
+    }
+    .forms-tem-accepted {
+        font-size: 12px;
+        display: block;
+        margin: 0 auto 15px auto;
+        text-align: center;
     }
 }
 
@@ -58,7 +76,6 @@
 
 .checkbox {
     margin: 15px auto 0 auto;
-    width: 95%;
 }
 
 .checkbox input[type="checkbox"] {
@@ -192,7 +209,8 @@ body {
     box-sizing: border-box;
     border-radius: 3px;
     overflow: hidden;
-    position: relative;
+    position: absolute;
+    z-index: 9999;
 }
 
 .styled-select,
@@ -223,32 +241,16 @@ select:focus {
 }
 
 .select-dropdown {
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: wrap !important;
     background-color: #0a8191;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     padding-right: 10px;
+    position: relative;
 }
 
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
-}
-
-.label-experience {
-    padding: 10px 0 10px 15px;
-    font-style: italic;
-}
-
-.form-checkbox-select {
-    padding: 15px 0 10px 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    background-color: rgba(0, 0, 0, .3);
-    label {
-        display: inline-block;
-        padding-left: 5px;
-    }
 }
 
 @-moz-document url-prefix() {
@@ -260,7 +262,7 @@ select:focus {
 .fa-sort-desc {
     position: absolute;
     top: 0;
-    right: 13px;
+    right: 12px;
     font-size: 24px;
 }
 
@@ -299,7 +301,7 @@ _:-o-prefocus,
     text-align: right;
     margin: 0;
     min-width: 400px;
-    padding: 10px 30px 6px 13px;
+    padding: 10px 30px 6px 12px;
 }
 
 ::ng-deep .p-inputMask {
@@ -322,45 +324,41 @@ _:-o-prefocus,
         input:-moz-placeholder {
             font-size: 13px !important;
             color: #fff;
-            font-style: italic
+            font-style: italic;
         }
         input::-moz-placeholder {
             font-size: 13px !important;
             color: #fff;
-            font-style: italic
+            font-style: italic;
         }
         input:-ms-input-placeholder {
             font-size: 13px !important;
             color: #fff;
-            font-style: italic
+            font-style: italic;
         }
     }
     &.gt {
         input {
-            font-size: 13px;
+            font-size: 16px;
             font-weight: lighter;
             font-family: "Lato", sans-serif;
             color: #fff
         }
         input::-webkit-input-placeholder {
-            font-size: 13px !important;
-            color: #fff;
-            font-style: italic
+            font-size: 16px !important;
+            color: #fff
         }
         input:-moz-placeholder {
-            font-size: 13px !important;
-            color: #fff;
-            font-style: italic
+            font-size: 16px !important;
+            color: #fff
         }
         input::-moz-placeholder {
-            font-size: 13px !important;
-            color: #fff;
-            font-style: italic
+            font-size: 16px !important;
+            color: #fff
         }
         input:-ms-input-placeholder {
-            font-size: 13px !important;
-            color: #fff;
-            font-style: italic
+            font-size: 16px !important;
+            color: #fff
         }
     }
 }
@@ -483,10 +481,6 @@ section.header h1 {
       Forms
   --------------------------------------------------------------*/
 
-.select-dropdown {
-    flex-wrap: wrap !important;
-}
-
 .dropdown {
     padding: 0 10px;
 }
@@ -495,16 +489,37 @@ section.header h1 {
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
-    font-size: 13px;
+    font-size: 14px;
     background-color: rgba(255, 255, 255, .3)
 }
 
 .forms {
     margin-bottom: 15px;
+    position: relative;
+    z-index: -1;
 }
 
 .form-group {
     margin-bottom: 0;
+    z-index: -1;
+    position: relative;
+    &.experiences-input {
+        .select-dropdown {
+            padding: 10px 0;
+            justify-content: flex-start;
+        }
+    }
+    .form-checkbox-select {
+        padding: 15px 0 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        background-color: rgba(0,0,0,.3);
+        label {
+            display: inline-block;
+            padding-left: 5px;
+        }
+    }
 }
 
 .form-control {
@@ -541,18 +556,23 @@ section.header h1 {
 }
 
 input::-webkit-input-placeholder {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+    color: #fff;
+    font-style: italic;
 }
 
 input:-moz-placeholder {
     /* Firefox 18- */
-    font-size: 16px;
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+    color: #fff;
+    font-style: italic;
 }
 
 input::-moz-placeholder {
@@ -561,6 +581,9 @@ input::-moz-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+    color: #fff;
+    font-style: italic;
 }
 
 input:-ms-input-placeholder {
@@ -568,6 +591,9 @@ input:-ms-input-placeholder {
     font-weight: lighter;
     text-align: right;
     padding-right: 30px;
+    font-size: 13px !important;
+    color: #fff;
+    font-style: italic;
 }
 
 input[type=text],
@@ -693,7 +719,7 @@ label {
     border-right: .5em solid transparent;
     border-bottom: 0;
     border-left: .5em solid transparent;
-    color: #f6a496;
+    color: #84bfc7;
 }
 
 .valid-feedback {
@@ -858,7 +884,7 @@ label {
 
 .modal label {
     font-weight: normal;
-    font-size: 13px;
+    font-size: 12px;
     margin-top: 10px;
     margin-bottom: 0;
 }
@@ -882,7 +908,7 @@ label {
 }
 
 .modal input[type=checkbox] {
-    margin-top: 13px;
+    margin-top: 12px;
 }
 
 .modal .form-check-label {
@@ -932,6 +958,13 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 990px) {
+    .form-checkbox-select {
+        flex-direction: column;
+        .checkbox-item {
+            text-align: left;
+            padding: 0 10px;
+        }
+     }
     /* Forms */
     #form-voluntario-global .col-sm {
         max-width: 720px;
@@ -954,10 +987,6 @@ label {
         height: auto;
         font-size: 25px;
         margin-top: 10px;
-    }
-    .form-checkbox-select {
-        flex-direction: column;
-        padding: 20px 10px 10px 15px;
     }
 }
 
@@ -1040,7 +1069,6 @@ label {
         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
-        font-style: italic;
     }
     input:-moz-placeholder {
         /* Firefox 18- */
@@ -1048,7 +1076,6 @@ label {
         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
-        font-style: italic;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
@@ -1056,14 +1083,12 @@ label {
         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
-        font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
         font-size: 2vw !important;
         text-align: right;
         padding-right: 0;
-        font-style: italic;
     }
     input[type=text],
     input[type=password],
@@ -1076,7 +1101,7 @@ label {
         text-align: right;
     }
     .input-group-text {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 400;
         line-height: 18px;
     }
@@ -1090,7 +1115,6 @@ label {
     font-weight: lighter;
     font-family: "Lato", sans-serif;
 }
-
 
 /*--------------------------------------------------------------
       Responsive Styles - Max 600px
@@ -1119,23 +1143,19 @@ label {
             }
             input::-webkit-input-placeholder {
                 font-size: 4.50vw !important;
-                color: #fff;
-                font-style: italic;
+                color: #fff
             }
             input:-moz-placeholder {
                 font-size: 4.50vw !important;
-                color: #fff;
-                font-style: italic;
+                color: #fff
             }
             input::-moz-placeholder {
                 font-size: 4.50vw !important;
-                color: #fff;
-                font-style: italic;
+                color: #fff
             }
             input:-ms-input-placeholder {
                 font-size: 4.50vw !important;
-                color: #fff;
-                font-style: italic;
+                color: #fff
             }
         }
     }
@@ -1173,7 +1193,7 @@ label {
     input[type=password]:focus,
     input[type=email],
     input[type=tel] {
-        background-color: #ed482d;
+        background-color: #0a8191;
         color: #fff;
     }
     /* Step3 */
@@ -1186,6 +1206,7 @@ label {
         margin: auto;
     }
     #step3 h2 {
+        font-weight: bold;
         font-size: 44px;
         margin-bottom: 20px;
         padding: 0 34px;
@@ -1250,7 +1271,7 @@ label {
     input[type=password]:focus,
     input[type=email],
     input[type=tel] {
-        background-color: #ed482d;
+        background-color: #0a8191;
         color: #fff;
     }
     /* Placeholder Dropdown */
@@ -1258,7 +1279,6 @@ label {
         color: #fff !important;
         font-size: 4.25vw !important;
         text-align: left;
-        font-style: italic;
         padding-right: 0;
     }
     input:-moz-placeholder {
@@ -1267,7 +1287,6 @@ label {
         font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
-        font-style: italic;
     }
     input::-moz-placeholder {
         /* Firefox 19+ */
@@ -1275,14 +1294,12 @@ label {
         font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
-        font-style: italic;
     }
     input:-ms-input-placeholder {
         color: #fff !important;
         font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
-        font-style: italic;
     }
 }
 
@@ -1306,6 +1323,187 @@ label {
         width: 340px;
         text-align: right;
     }
+}
+
+/*--------------------------------------------------------------
+      Color Voluntário Global
+  --------------------------------------------------------------*/
+
+.form-volutario-global .color-icon {
+    color: #fcada0;
+}
+
+/* Forms */
+
+.form-volutario-global {
+    background: #f85a3f;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+}
+
+.form-volutario-global .form-control {
+    color: #fff;
+    background-color: #0a8191;
+    border-bottom: 2px solid #84bfc7;
+}
+
+.form-volutario-global .input-group-text {
+    color: #f5d3cd;
+    background-color: #0a8191;
+    border-bottom: 2px solid #84bfc7;
+}
+
+.form-volutario-global .form-control:disabled,
+.form-volutario-global .form-control[readonly] {
+    background-color: #0a8191;
+    color: #ffffff;
+}
+
+/* Placeholders */
+
+.form-volutario-global input::-webkit-input-placeholder {
+    color: #fff !important;
+}
+
+.form-volutario-global input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff !important;
+}
+
+.form-volutario-global input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff !important;
+}
+
+.form-volutario-global input:-ms-input-placeholder {
+    color: #fff !important;
+}
+
+/* Inputs */
+
+.form-volutario-global input[type=text],
+.form-volutario-global input[type=password],
+.form-volutario-globalinput[type=email],
+.form-volutario-globalinput[type=tel] {
+    color: #fff;
+}
+
+.form-volutario-global input[type=text]:focus,
+.form-volutario-global input[type=password]:focus,
+.form-volutario-globalinput[type=email],
+.form-volutario-globalinput[type=tel] {
+    background-color: #0a8191;
+    color: #fff;
+    border-bottom: 2px solid #84bfc7;
+}
+
+.form-volutario-global .alert-warning {
+    color: #e2462d;
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.form-volutario-global .dropdown-item {
+    color: #ca321a;
+    border-bottom: 1px solid #fbac9f;
+}
+
+.form-volutario-global .dropdown-item:last-child {
+    color: #ca321a;
+    border-bottom: transparent;
+}
+
+.form-volutario-global .dropdown-toggle::after {
+    color: #84bfc7;
+}
+
+/* Buttons */
+
+.form-volutario-global .btn-primary {
+    color: #f15b43;
+    background-color: #feded9;
+    border-color: #feded9;
+}
+
+.form-volutario-global .btn-secondary {
+    color: #fff;
+    background-color: #f15b43;
+    border-color: #feded9;
+}
+
+.form-volutario-global .btn-primary:not(:disabled):not(.disabled).active,
+.form-volutario-global .btn-primary:not(:disabled):not(.disabled):active,
+.form-volutario-global .show>.btn-primary.dropdown-toggle,
+.form-volutario-global .btn-secondary:not(:disabled):not(.disabled).active,
+.form-volutario-global .btn-secondary:not(:disabled):not(.disabled):active,
+.form-volutario-global .show>.btn-secondary.dropdown-toggle {
+    color: #ffffff;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.form-volutario-global .btn-info {
+    color: #fff;
+    background-color: #0a8191;
+    border-color: #0a8191;
+    border-bottom: 2px solid #84bfc7;
+    border-right: transparent;
+    border-left: transparent;
+}
+
+.form-volutario-global .btn-info:hover {
+    color: #fff;
+    background-color: #0a8191;
+    border-color: #0a8191;
+    border-bottom: 2px solid #84bfc7;
+}
+
+.form-volutario-global .btn-info:not(:disabled):not(.disabled).active,
+.form-volutario-global .btn-info:not(:disabled):not(.disabled):active,
+.form-volutario-global .show>.btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: #0a8191;
+    border-color: transparent;
+    border-bottom: 2px solid #84bfc7;
+}
+
+/* Modal */
+
+.form-volutario-global .modal .btn-primary,
+.form-volutario-global .modal .btn-info {
+    color: #f85a3f;
+    background-color: #ffffff;
+    border-color: #f85a3f;
+}
+
+.form-volutario-global .modal .btn-secondary {
+    color: #fff;
+    background-color: #f85a3f;
+    border-color: #f85a3f;
+}
+
+.form-volutario-global .modal .btn-primary:hover,
+.form-volutario-global .modal .btn-secondary:hover {
+    color: #ffffff;
+    background-color: #932413;
+    border-color: #932413;
+}
+
+.form-volutario-global .modal .btn-info {
+    border: 2px solid #f85a3f;
+}
+
+.form-volutario-global .modal input[type=text] {
+    background-color: #ffffff;
+    border: 2px solid #f85a3f;
+}
+
+.form-volutario-global .modal .btn-default {
+    background-color: #f85a3f;
+}
+
+.form-volutario-global .modal .form-check-label {
+    color: #f85a3f;
 }
 
 /*--------------------------------------------------------------
@@ -1346,28 +1544,20 @@ label {
 
 .form-talentos-globais input::-webkit-input-placeholder {
     color: #fff !important;
-    font-size: 13px;
-    font-style: italic;
 }
 
 .form-talentos-globais input:-moz-placeholder {
     /* Firefox 18- */
     color: #fff !important;
-    font-size: 13px;
-    font-style: italic;
 }
 
 .form-talentos-globais input::-moz-placeholder {
     /* Firefox 19+ */
     color: #fff !important;
-    font-size: 13px;
-    font-style: italic;
 }
 
 .form-talentos-globais input:-ms-input-placeholder {
     color: #fff !important;
-    font-size: 13px;
-    font-style: italic;
 }
 
 /* Inputs */
@@ -1385,7 +1575,7 @@ label {
 }
 
 .form-talentos-globais .alert-warning {
-    color: #0A8EA0;
+    color: #fff;
     background-color: #ffffff;
     border-color: #ffffff;
 }
@@ -1416,6 +1606,13 @@ label {
     color: #ffffff;
     background-color: #0a8191;
     border-color: #ffffff;
+}
+
+.form-talentos-globais .btn-primary:hover,
+.form-talentos-globais .btn-secondary:hover {
+    color: #fff;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 .form-talentos-globais .btn-primary:not(:disabled):not(.disabled).active,
@@ -1473,39 +1670,60 @@ label {
     margin: auto
 }
 
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
+/deep/ .ui-autocomplete-input {
   width: 100%;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
-.example-full-width {
-  width: 100%;
+/deep/ p-autoComplete {
+    input::-webkit-input-placeholder {
+        color: white;
+    }
+    input:-moz-placeholder {
+        color: white;
+    }
+    input::-moz-placeholder {
+        color: white;
+    }
+    input:-ms-input-placeholder {
+        color: white;
+    }
 }
 
-.autocomplete {
-    height: 50px;
-    padding-top: 20px;
+/deep/ .ui-autocomplete-items{
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  color: #333;
+  max-height: 215px;
+  overflow: auto;
+  li {
+    width: 100%;
+    padding:9.5px;
+    transition:.3s;
+    cursor: pointer;
+    &:hover {
+      background-color: #3f77bc;
+      color:#fff;
+    }
+  }
 }
 
-.autocomplete-placeholder {
-    font-size: 16px !important;
-    color: #fff;
-    font-style: italic;
-}
-
-/deep/ .mat-autocomplete-panel.mat-autocomplete-visible {
-    background-color: white;
-}
-
-/deep/ .mat-autocomplete {
-    background-color: red;
-}
-
-/deep/ .cdk-overlay-pane, .cdk-overlay-pane {
+.autocomplete-negative-index {
+    z-index: 0;
     position: relative;
 }
 
-/deep/ .mat-autocomplete::-webkit-input-placeholder {
-    color: red;
+.autocomplete-negative-index2 {
+    z-index: -1;
+    position: relative;
+}
+
+.autocomplete-clear-btn {
+    position: absolute; 
+    right: 0; 
+    top: 15px;
 }
