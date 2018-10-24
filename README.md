@@ -40,3 +40,13 @@ e.g: 192.168.0.10.
 
 Ok, your app on air for all devices on same network.
 Now only http://192.168.0.10:4200/ will work, localhost not more.
+
+#Embedded forms
+To embed program forms into other websites:
+
+<div style="height: 700px;">
+  <blockquote style="margin: 0; height: 100%; width: 100%;">
+    <iframe id="theFrame" src="http://d2r6p8mms29sdx.cloudfront.net/intercambio?embedded=true" style="width:100%; height: 100%;" frameborder="0">
+    </iframe>
+  </blockquote>
+</div>
