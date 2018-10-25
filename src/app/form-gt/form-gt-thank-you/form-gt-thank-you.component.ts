@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-gt-thank-you.component.scss']
 })
 export class FormGtThankYouComponent implements OnInit {
-
+  window: any = window;
   constructor(
     public router: Router
   ) {
-    window.fbq('track', 'Lead');
+    this.window.fbq('track', 'Lead');
   }
 
   ngOnInit() {
