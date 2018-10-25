@@ -1727,3 +1727,10 @@ label {
     right: 0; 
     top: 15px;
 }
+
+@media (min-width: 1440px){
+    div.form-talentos-globais {
+        transform: scale(1.35);
+        margin: 15vh 0;
+    }
+}
