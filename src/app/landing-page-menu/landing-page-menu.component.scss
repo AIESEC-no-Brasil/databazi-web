@@ -64,12 +64,21 @@
     z-index: 10;
     position: relative;
     width: 95%;
-    max-width: -webkit-fill-available
+    max-width: -webkit-fill-available;
+    height: 100%;
+    .product-info {
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 50vh;
+        display: flex;
+    }
 }
 
 .header-product {
     width: 100%;
-    padding: 0 0 55px 0;
     position: relative;
     border-bottom: 3px solid #666;
     z-index: 11;
@@ -121,7 +130,7 @@
         }
         .menu-product {
             ul {
-                padding: 5px 0;
+                padding: 0;
                 display: flex;
                 list-style: none;
                 justify-content: flex-end;
@@ -131,11 +140,11 @@
                 }
                 li {
                     font-size: 13px;
-                    padding: 12.5px 15px;
+                    padding: 1em .5em;
                     margin: 5px;
                     color: #fff;
                     text-transform: uppercase;
-                    font-weight: 600;
+                    font-weight: lighter;
                     position: relative;
                     cursor: pointer;
                     white-space: nowrap;
@@ -159,7 +168,7 @@
                             color: #fff;
                         }
                         li {
-                            padding: 5px 10px;
+                            padding: 0 10px;
                             text-align: left;
                             text-transform: none;
                         }
@@ -169,7 +178,6 @@
         }
     }
     .product-info {
-        margin: 120px 0;
         text-align: left;
     }
 }
@@ -252,5 +260,29 @@
     .menu-icon,
     .active-responsive-menu {
         display: none !important;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    ul#menu {
+        li ul {
+            li {
+                padding: 0 inherit 0 inherit;
+            }
+        }
+    }
+    div.responsive-menu {
+        height: 100%;
+        display:flex;
+        justify-content: flex-end
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    ul#menu {
+        >a li,
+        >li {
+            font-size: 1em;
+        }
     }
 }

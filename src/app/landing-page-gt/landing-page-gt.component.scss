@@ -115,7 +115,7 @@
     }
     .faq-info {
         .col-sm-12 {
-            margin: 25px 0;
+            margin: 15px 0;
         }
     }
     .faq-image {
@@ -241,3 +241,85 @@
     }
 }
 
+
+@media (min-width: 1280px) and (max-width: 1439px) {
+    section.product-description {
+        height: calc(30vh - 75px);
+    }
+}
+
+@media only screen and (min-width: 1440px){ 
+    .container {
+        max-width: 85%;
+    }
+    section.product-description {
+        height: 30vh;
+        .logo-product {
+            background-size: 75%;
+        }
+        .description {
+            h2 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1.3em;
+                line-height: 1.6em;
+            }
+        }
+    }
+    section.product-steps {
+        min-height: 75vh;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            font-size: 1.65em;
+        }
+        p {
+            font-size: 1.25em !important
+        }
+        .product-image {
+            min-height: 65vh;
+        }
+    } 
+    section.faq {
+        min-height: 75vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            font-size: 1.65em;
+        }
+        p {
+            font-size: 1.3em;
+        }
+        button {
+            font-size: 1.2em
+        }
+        .faq-image {
+            min-height: 65vh;
+        }
+    }
+
+    section.know-aiesec {
+        min-height: 75vh;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            font-size: 1.65em;
+        }
+        p {
+            font-size: 1.3em;
+        }
+        button {
+            font-size: 1.2em;
+            margin: 2vh auto;
+        }
+        .aiesec-image {
+            min-height: 65vh
+        }
+    }
+}

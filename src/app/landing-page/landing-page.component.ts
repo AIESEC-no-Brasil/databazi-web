@@ -80,11 +80,13 @@ export class LandingPageComponent implements OnInit {
   }
 
   scrollToGlobal(){
-    var element = document.getElementById('global');
-    element.scrollIntoView({
-      block: 'start',
-      behavior: 'smooth'
-    });
+    var element = $('#global').offset().top;
+    if (window.innerWidth >= 1024){
+      element -= 100;
+    }
+    $('html, body').animate({
+      scrollTop: element
+    }, 700)
   }
   toggleGv(){
     this.seeMoreGv ? this.seeMoreGv = false : this.seeMoreGv = true;
