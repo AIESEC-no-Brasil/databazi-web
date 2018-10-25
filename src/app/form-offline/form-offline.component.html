@@ -52,7 +52,7 @@
               </p>
             </div>
             <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="nextStep()">
 
                 <div class="form-group">
                   <div class="input-group select-dropdown">
@@ -116,14 +116,13 @@
                       <div class="input-group-text ">
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
-                    <!-- desktop -->
-                    <input type="tel" class="form-control desktop tel-mask" placeholder="Vamos falar com você por aqui!"
-                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
-
-                      <!-- mobile -->
-                      <i class="fas fa-mobile-alt mobile mobile-icon"></i>
-                      <input type="tel" class="form-control mobile tel-mask" placeholder="Celular"
-                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                   <!-- desktop -->
+                   <input type="tel" class="form-control desktop tel-mask" mask="(00) 0000-00009" placeholder="Vamos falar com você por aqui!"
+                   [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
+                 <!-- mobile -->
+                 <i class="fas fa-mobile-alt mobile mobile-icon"></i>
+                 <input type="tel" class="form-control mobile tel-mask" mask="(00) 00000-00009" placeholder="Celular" [(ngModel)]="user.cellphone"
+                   formControlName="cellphone" name="cellphone" (blur)="checkPhone()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
