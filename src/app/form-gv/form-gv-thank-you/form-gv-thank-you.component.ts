@@ -11,7 +11,9 @@ export class FormGvThankYouComponent implements OnInit {
 
   constructor(
     public router: Router
-  ) { }
+  ) {
+    fbq('track', 'Lead');
+  }
 
   ngOnInit() {
   }
