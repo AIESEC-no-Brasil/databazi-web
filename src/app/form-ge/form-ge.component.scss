@@ -21,9 +21,13 @@
     width: 100% !important;
     height: 100% !important;
     display:flex;
-    align-items: center;
+    flex-start: center;
     justify-content : center;
     overflow-y: auto;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .desktop {

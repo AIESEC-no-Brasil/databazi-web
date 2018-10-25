@@ -74,6 +74,8 @@ export class FormGvComponent implements OnInit {
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
 
+  embeddedForm: boolean = false;
+
   formToggle : boolean = false;
   universities: any;
   courses: any;
@@ -154,6 +156,10 @@ export class FormGvComponent implements OnInit {
 
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
+      }
+
+      if (param['embedded']) {
+        this.embeddedForm = true;
       }
     });
 

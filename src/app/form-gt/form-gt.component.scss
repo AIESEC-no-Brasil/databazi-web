@@ -1728,6 +1728,9 @@ label {
     top: 15px;
 }
 
+.full-width {
+    width: 100%;
+}
 @media (min-width: 1440px){
     div.form-talentos-globais {
         &:not(.full-screen){

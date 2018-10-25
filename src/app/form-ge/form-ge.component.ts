@@ -100,6 +100,8 @@ export class FormGeComponent implements OnInit {
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
 
+  embeddedForm: boolean = false;
+
   universities: any;
   courses: any;
   places: any;
@@ -184,6 +186,10 @@ export class FormGeComponent implements OnInit {
 
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
+      }
+
+      if (param['embedded']) {
+        this.embeddedForm = true;
       }
     });
 

@@ -33,9 +33,9 @@
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
-    display:flex;
+    display: flex;
     flex-start: center;
-    justify-content : center;
+    justify-content: center;
     overflow-y: auto;
 }
 
@@ -507,13 +507,13 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
-    position:relative;
-    z-index:-1;
+    position: relative;
+    z-index: -1;
 }
 
 .form-group {
     margin-bottom: 0;
-    position:relative;
+    position: relative;
 }
 
 .form-control {
@@ -1097,7 +1097,7 @@ label {
     }
 }
 
-#inputDatadeNascimento{
+#inputDatadeNascimento {
     font-size: 16px;
     font-weight: lighter;
     font-family: "Lato", sans-serif;
@@ -1108,10 +1108,9 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
-    #inputDatadeNascimento{
+    #inputDatadeNascimento {
         text-align: left;
-    }
-    //prime 
+    } //prime 
     ::ng-deep .p-inputMask input {
         text-align: left;
         padding: 0px 0 0 0;
@@ -1658,11 +1657,11 @@ label {
 }
 
 /deep/ .ui-autocomplete-input {
-  width: 100%;
-  height: 50px;
-  background-color: transparent;
-  border: none;
-  color: white;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
 /deep/ p-autoComplete {
@@ -1680,23 +1679,23 @@ label {
     }
 }
 
-/deep/ .ui-autocomplete-items{
-  list-style: none;
-  padding: 0;
-  background-color: #fff;
-  color: #333;
-  max-height: 215px;
-  overflow: auto;
-  li {
-    width: 100%;
-    padding:9.5px;
-    transition:.3s;
-    cursor: pointer;
-    &:hover {
-      background-color: #3f77bc;
-      color:#fff;
+/deep/ .ui-autocomplete-items {
+    list-style: none;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    max-height: 215px;
+    overflow: auto;
+    li {
+        width: 100%;
+        padding: 9.5px;
+        transition: .3s;
+        cursor: pointer;
+        &:hover {
+            background-color: #3f77bc;
+            color: #fff;
+        }
     }
-  }
 }
 
 .autocomplete-negative-index {
@@ -1710,16 +1709,20 @@ label {
 }
 
 .autocomplete-clear-btn {
-    position: absolute; 
-    right: 0; 
+    position: absolute;
+    right: 0;
     top: 15px;
 }
 
-@media (min-width: 1440px){
+@media (min-width: 1440px) {
     div.form-volutario-global {
-        &:not(.full-screen){
+        &:not(.full-screen) {
             transform: scale(1.3);
             margin: 15vh 0;
         }
     }
+}
+
+.full-width {
+    width: 100%;
 }
