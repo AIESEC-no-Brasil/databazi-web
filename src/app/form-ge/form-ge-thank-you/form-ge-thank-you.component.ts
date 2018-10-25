@@ -10,7 +10,9 @@ export class FormGeThankYouComponent implements OnInit {
 
   constructor(
     public router: Router
-  ) { }
+  ) {
+    fbq('track', 'Lead');
+  }
 
   ngOnInit() {
   }
