@@ -35,7 +35,7 @@ export class FormGeComponent implements OnInit {
     cellphone_contactable: '',
     english_level: { id: '', name: ''},
     spanish_level: { id: '', name: ''},
-    scholarity: { id: '', name: ''},
+    scholarity: { id: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
