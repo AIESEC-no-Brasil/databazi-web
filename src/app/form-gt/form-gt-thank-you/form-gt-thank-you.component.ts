@@ -11,7 +11,7 @@ export class FormGtThankYouComponent implements OnInit {
   constructor(
     public router: Router
   ) {
-    fbq('track', 'Lead');
+    window.fbq('track', 'Lead');
   }
 
   ngOnInit() {

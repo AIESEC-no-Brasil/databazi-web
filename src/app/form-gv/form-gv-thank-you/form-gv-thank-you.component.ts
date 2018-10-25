@@ -12,7 +12,7 @@ export class FormGvThankYouComponent implements OnInit {
   constructor(
     public router: Router
   ) {
-    fbq('track', 'Lead');
+    window.fbq('track', 'Lead');
   }
 
   ngOnInit() {
