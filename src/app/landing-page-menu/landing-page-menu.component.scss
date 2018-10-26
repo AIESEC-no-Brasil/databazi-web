@@ -33,8 +33,10 @@
     .logo-aiesec {
         margin: 0;
     }
+    ul#menu {
+        margin-bottom: 0;
+    }
     .responsive-menu ul#menu li {
-        padding: 5px 15px 10px 15px;
         ul.animated {
             background-color: $default;
             border-radius: 0 0 10px 10px;
