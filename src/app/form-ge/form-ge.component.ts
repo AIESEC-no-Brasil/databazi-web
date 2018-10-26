@@ -459,7 +459,6 @@ export class FormGeComponent implements OnInit {
   }
 
   clearField(field) {
-    console.log('eae', field, this.user[field]);
     this.user[field] = '';
   }
 }
