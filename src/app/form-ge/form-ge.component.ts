@@ -85,8 +85,8 @@ export class FormGeComponent implements OnInit {
   };
   msgs: Message[] = [];
 
-  personalData: boolean = false;
-  studyData: boolean = true;
+  personalData: boolean = true;
+  studyData: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
