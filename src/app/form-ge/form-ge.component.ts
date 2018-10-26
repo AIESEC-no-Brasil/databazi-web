@@ -101,7 +101,7 @@ export class FormGeComponent implements OnInit {
   completedSignup: boolean = false;
 
   embeddedForm: boolean = false;
-  
+
   courses: any;
   places: any;
 
@@ -240,7 +240,7 @@ export class FormGeComponent implements OnInit {
     return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect(search) {
+  fillUniversitySelect(search?) {
     return this.signupService.getUniversities(search).then((res: any) => {
       this.universities = res;
     }, (err) => {
