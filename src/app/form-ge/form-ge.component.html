@@ -249,7 +249,7 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="filteredUniversities" (completeMethod)="searchUnivesity($event)"
+                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)"
                             #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()"
                             dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
                             placeholder="Onde você estuda?"></p-autoComplete>

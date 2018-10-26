@@ -52,8 +52,8 @@ export class FormGvComponent implements OnInit {
     {id: '6', name: 'Outro' }
   ];
 
+  universities: Observable<any[]>;
   filteredScholarityOptions: Observable<any[]>;
-  filteredUniversities: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
@@ -165,9 +165,7 @@ export class FormGvComponent implements OnInit {
 
     this.filteredScholarityOptions = this.scholarityOptions;
 
-    this.fillUniversitySelect().then((response) => {
-      this.filteredUniversities = this.universities;
-    });
+    this.fillUniversitySelect();
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
@@ -182,7 +180,9 @@ export class FormGvComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    this.filteredUniversities = this._search(this.universities, event.query);
+    if(!event.originalEvent)
+      return;
+    this.fillUniversitySelect(event.query);
   };
 
   searchCourses(event) {
@@ -238,11 +238,9 @@ export class FormGvComponent implements OnInit {
     return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect() {
-    return this.signupService.getUniversities().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'],['asc']);
-      let other = _.remove(orderedList, item => item.name === 'OUTRA');
-      this.universities = _.union(orderedList, other);
+  fillUniversitySelect(search) {
+    return this.signupService.getUniversities(search).then((res: any) => {
+      this.universities = res;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });

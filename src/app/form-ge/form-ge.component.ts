@@ -68,8 +68,8 @@ export class FormGeComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
+  universities: Observable<any[]>;
   filteredScholarityOptions: Observable<any[]>;
-  filteredUniversities: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredSpanishLevelOptions: Observable<any[]>;
@@ -195,9 +195,7 @@ export class FormGeComponent implements OnInit {
 
     this.filteredScholarityOptions = this.scholarityOptions;
 
-    this.fillUniversitySelect().then(() => {
-      this.filteredUniversities = this.universities;
-    });
+    this.fillUniversitySelect();
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
@@ -243,11 +241,9 @@ export class FormGeComponent implements OnInit {
     return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect() {
-    return this.signupService.getUniversities().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'],['asc']);
-      let other = _.remove(orderedList, item => item.name === 'OUTRA');
-      this.universities = _.union(orderedList, other);
+  fillUniversitySelect(search) {
+    return this.signupService.getUniversities(search).then((res: any) => {
+      this.universities = res;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -422,7 +418,9 @@ export class FormGeComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    this.filteredUniversities = this._search(this.universities, event.query);
+    if(!event.originalEvent)
+      return;
+    this.fillUniversitySelect(event.query);
   };
 
   searchCourses(event) {
