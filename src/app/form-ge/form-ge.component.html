@@ -200,7 +200,7 @@
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
 
-                <div class="form-group local_committee" (click)="selectInput('local_committee')">
+                <div class="form-group local_committee" (tap)="selectInput('local_committee')">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -221,7 +221,7 @@
                   </div>
                 </div>
 
-                <div class="form-group scholarity" (click)="selectInput('scholarity')">
+                <div class="form-group scholarity" (tap)="selectInput('scholarity')">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -241,7 +241,7 @@
                   </div>
                 </div>
                 <div *ngIf="+user.scholarity.id >= 2 && +user.scholarity.id != 6" class="animated fadeIn faster">
-                  <div class="form-group university" (click)="selectInput('university')">
+                  <div class="form-group university" (tap)="selectInput('university')">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -261,7 +261,7 @@
                       Selecione uma universidade.
                     </div>
                   </div>
-                  <div class="form-group college_course" (click)="selectInput('college_course')">
+                  <div class="form-group college_course" (tap)="selectInput('college_course')">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -282,7 +282,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group english_level" (click)="selectInput('english_level')">
+                <div class="form-group english_level" (tap)="selectInput('english_level')">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -302,7 +302,7 @@
                     Selecione um nível de inglês.
                   </div>
                 </div>
-                <div class="form-group spanish_level" (click)="selectInput('spanish_level')">
+                <div class="form-group spanish_level" (tap)="selectInput('spanish_level')">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
