@@ -197,7 +197,7 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
-                  <div class="form-group local_committee" (tap)="selectInput('local_committee')">
+                  <div class="form-group local_committee">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -206,7 +206,7 @@
                       <div class="dropdown">
                         <div class="styled-select">
                           <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
-                            #placesAutocomplete (onFocus)="placesAutocomplete.handleDropdownClick();"
+                            #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
                             dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
                             placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
                             <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')"  *ngIf="user.local_committee"></i>
@@ -217,7 +217,7 @@
                       Selecione a AIESEC mais próxima.
                     </div>
                   </div>
-                  <div class="form-group scholarity" (tap)="selectInput('scholarity')">
+                  <div class="form-group scholarity">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -226,7 +226,7 @@
                       <div class="dropdown">
                         <div class="styled-select">
                           <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)"
-                            #scholarityAutocomplete (onFocus)="scholarityAutocomplete.handleDropdownClick();" dropdownMode="current"
+                            #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick();" dropdownMode="current"
                             field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
                             <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')"  *ngIf="user.scholarity"></i>
                         </div>
@@ -237,7 +237,7 @@
                     </div>
                   </div>
                   <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group  university" (tap)="selectInput('university')">
+                    <div class="form-group  university">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -246,7 +246,7 @@
                         <div class="dropdown">
                           <div class="styled-select">
                             <p-autoComplete [(ngModel)]="user.university" [suggestions]="filteredUniversities" (completeMethod)="searchUnivesity($event)"
-                              #universityAutocomplete (onFocus)="universityAutocomplete.handleDropdownClick();"
+                              #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick();"
                               dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
                               placeholder="Onde você estuda?"></p-autoComplete>
                               <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
@@ -257,7 +257,7 @@
                         Selecione uma universidade.
                       </div>
                     </div>
-                    <div class="form-group college_course"  (tap)="selectInput('college_course')">
+                    <div class="form-group college_course">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
@@ -266,7 +266,7 @@
                         <div class="dropdown">
                           <div class="styled-select">
                             <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
-                              #coursesAutocomplete (onFocus)="coursesAutocomplete.handleDropdownClick();"
+                              #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick();"
                               dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
                               placeholder="Insira seu curso"></p-autoComplete>
                               <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')"  *ngIf="user.college_course"></i>
