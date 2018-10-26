@@ -508,8 +508,8 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
-    position: relative;
-    z-index: -1;
+    z-index: 1;
+    position:relative;
 }
 
 .form-group {
