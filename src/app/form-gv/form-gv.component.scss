@@ -1691,9 +1691,9 @@ label {
         padding: 9.5px;
         transition: .3s;
         cursor: pointer;
-        &:hover {
+        &.ui-state-highlight{
             background-color: #3f77bc;
-            color: #fff;
+            color:#fff;
         }
     }
 }
