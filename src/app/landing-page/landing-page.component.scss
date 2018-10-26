@@ -270,6 +270,7 @@ section.experiences-session {
     background-position: bottom center;
     background-size: 25%;
 }
+
 #aiesec-info {
     min-height: calc(100vh - 75px);
     display: flex;
@@ -359,7 +360,7 @@ div#our-stories {
     min-height: 25vh;
     width: 100%;
     p.align-center {
-        margin:  20px auto;
+        margin: 20px auto;
     }
     #meet-our-programs-session-bg {
         position: absolute;
@@ -670,6 +671,33 @@ drag-scroll {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    touch-action: pan-y
+}
+
+.content-swipe-area {
+    position: relative;
+    ul#position-carousel {
+        position: absolute;
+        bottom: -20px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+        li {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: .2s;
+            margin: 0 10px;
+            opacity: .4;
+            &.active {
+                opacity: 1
+            }
+        }
+    }
 }
 
 @keyframes swipeAnimation {
@@ -698,7 +726,7 @@ drag-scroll {
         }
     }
     #global {
-        > div {
+        >div {
             height: 40vh;
             display: flex;
             flex-direction: column;
@@ -827,9 +855,21 @@ drag-scroll {
             font-size: 1.4em;
         }
     }
-    .meet-our-programs-session, #our-stories {
+    .meet-our-programs-session {
+        min-height: 35vh;
+        .meet-our-programs-content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+    #our-stories {
         min-height: 100vh;
-        display:flex;
+    }
+    .meet-our-programs-session,
+    #our-stories {
+        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -842,7 +882,7 @@ drag-scroll {
         padding: 0;
     }
     section.our-stories {
-        .carousel-container{
+        .carousel-container {
             width: 80%;
             height: 500px;
         }
@@ -863,7 +903,7 @@ drag-scroll {
     }
 }
 
-@media only screen and (min-width: 1440px){
+@media only screen and (min-width: 1440px) {
     .container {
         max-width: 85%;
     }
@@ -873,7 +913,8 @@ drag-scroll {
         }
     }
     main {
-        > section, > div {
+        >section,
+        >div {
             h1 {
                 font-size: 2.5 !important;
             }
@@ -888,14 +929,14 @@ drag-scroll {
         }
     }
     .meet-our-programs-session {
-        display:flex;
+        display: flex;
         align-items: center;
         .meet-our-programs-content {
             width: 75%;
         }
     }
     #global {
-        > div {
+        >div {
             img {
                 transform: scale(1.45);
                 margin-bottom: 25px;
@@ -916,7 +957,9 @@ drag-scroll {
             font-size: 1.45em !important;
         }
     }
-    #aiesec-info, .experiences-session, #our-stories {
+    #aiesec-info,
+    .experiences-session,
+    #our-stories {
         min-height: 65vh !important;
         .align-left {
             span {

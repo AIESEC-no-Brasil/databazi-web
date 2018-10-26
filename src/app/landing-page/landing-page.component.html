@@ -202,7 +202,10 @@
     <div id="meet-our-programs-session-bg"></div>
     <div class="col-sm align-center meet-our-programs-content padding">
       <p class="align-center margin">
-          O modelo de desenvolvimento de liderança da <strong>AIESEC</strong> prepara jovens para defenderem aquilo que eles acreditam <br> e os torna capazes de fazer a <strong>diferença</strong> todos os dias.
+        O modelo de desenvolvimento de liderança da
+        <strong>AIESEC</strong> prepara jovens para defenderem aquilo que eles acreditam
+        <br> e os torna capazes de fazer a
+        <strong>diferença</strong> todos os dias.
       </p>
       <button type="button" class="btn btn-light" (click)="scrollToGlobal()">Conheça nossos programas</button>
     </div>
@@ -255,15 +258,13 @@
     <section class="container padding align-center our-stories">
       <h1 class='italic centered'>As nossas histórias</h1>
       <br>
-      <div class="row">
-
+      <div class="row content-swipe-area">
         <div class="col-sm swipe-area">
-          <div class='swipe-animation' [style.touch-action]="'pan-y'" (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()"
-            (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
+          <div class='swipe-animation' (mouseenter)="stopAnimation()"
+            (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
           <div class="footer-carousel-btn-left">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
-
           <div class="carousel-container">
             <div class='carousel-wrapper'>
               <div class="each-carousel-item">
@@ -278,11 +279,6 @@
                     <span>
                       Letícia Yokoi
                     </span>
-                    <ul>
-                      <li class="active"></li>
-                      <li></li>
-                      <li></li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -299,11 +295,6 @@
                     <span>
                       João Diogo Brites
                     </span>
-                    <ul>
-                      <li></li>
-                      <li class="active"></li>
-                      <li></li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -319,11 +310,6 @@
                     <span>
                       Amanda Peconick
                     </span>
-                    <ul>
-                      <li></li>
-                      <li></li>
-                      <li class="active"></li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -335,6 +321,11 @@
             <i (click)="moveRight()" class="fas fa-chevron-right"></i>
           </div>
         </div>
+        <ul id='position-carousel'>
+          <li [ngClass]="{'active': sliderPosition == 0}"></li>
+          <li [ngClass]="{'active': sliderPosition == 100}"></li>
+          <li [ngClass]="{'active': sliderPosition == 200}"></li>
+        </ul>
       </div>
     </section>
   </div>
