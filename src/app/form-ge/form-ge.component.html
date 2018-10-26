@@ -13,7 +13,7 @@
         </div>
         <div *ngIf="!completedSignup">
           <div class="row" *ngIf="!embeddedForm">
-            <div class="col-sm" >
+            <div class="col-sm">
               <h1>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</h1>
             </div>
           </div>
@@ -212,7 +212,7 @@
                           #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
                           placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')"  *ngIf="user.local_committee"></i>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
                       </div>
                     </div>
                   </div>
@@ -229,10 +229,11 @@
                     </div>
                     <div class="dropdown">
                       <div class="styled-select">
-                        <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)"
-                          #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick()" dropdownMode="current"
-                          field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')"  *ngIf="user.scholarity"></i>
+                        <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions"
+                          (completeMethod)="searchScholarity($event)" #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick()"
+                          dropdownMode="current" field="name" formControlName="scholarity" emptyMessage="Nenhum resultado"
+                          placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')" *ngIf="user.scholarity"></i>
                       </div>
                     </div>
                   </div>
@@ -249,11 +250,10 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)"
-                            #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()"
-                            dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
-                            placeholder="Onde você estuda?"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
+                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete
+                            (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()" dropdownMode="current"
+                            field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Onde você estuda?"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')" *ngIf="user.university"></i>
                         </div>
                       </div>
                     </div>
@@ -273,7 +273,7 @@
                             #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick()"
                             dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
                             placeholder="Insira seu curso"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')"  *ngIf="user.college_course"></i>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')" *ngIf="user.college_course"></i>
                         </div>
                       </div>
                     </div>
@@ -294,7 +294,7 @@
                           #englishAutocomplete (onFocus)="selectInput('english_level');englishAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="english_level" emptyMessage="Nenhum resultado"
                           placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('english_level')" *ngIf="user.english_level"></i>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('english_level')" *ngIf="user.english_level"></i>
                       </div>
                     </div>
                   </div>
@@ -314,7 +314,7 @@
                           #spanishAutocomplete (onFocus)="selectInput('spanish_level');spanishAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="spanish_level" emptyMessage="Nenhum resultado"
                           placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
                       </div>
                     </div>
                   </div>
@@ -334,6 +334,11 @@
                     <label class="form-group forms-tem-accepted">
                       Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
                     </label>
+                  </div>
+                  <div class="form-group form-check text-center checkbox">
+                    <input type="checkbox" class="form-check-input" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
+                      name="cellphone_contactable">
+                    <label class="form-check-label" for="aceitoTermos">Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
                   </div>
                 </div>
               </form>
