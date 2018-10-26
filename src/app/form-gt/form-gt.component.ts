@@ -68,8 +68,8 @@ export class FormGtComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  filteredScholarityOptions: Observable<any[]>;
-  filteredUniversities: Observable<any[]>;
+  universities: Observable<any[]>;
+  filteredScholarityOptions: Observable<any[]>;  
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
@@ -192,13 +192,7 @@ export class FormGtComponent implements OnInit {
 
     this.filteredScholarityOptions = this.scholarityOptions;
 
-    this.fillUniversitySelect().then(() => {
-      this.filteredUniversities = this.step2Form.controls.university_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.universities))
-        );
-    });
+    this.fillUniversitySelect();
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
         .pipe(
@@ -262,11 +256,9 @@ export class FormGtComponent implements OnInit {
     return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect() {
-    return this.signupService.getUniversities().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'],['asc']);
-      let other = _.remove(orderedList, item => item.name === 'OUTRA');
-      this.universities = _.union(orderedList, other);
+  fillUniversitySelect(search) {
+    return this.signupService.getUniversities(search).then((res: any) => {
+      this.universities = res;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -444,7 +436,9 @@ export class FormGtComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    this.filteredUniversities = this._search(this.universities, event.query);
+    if(!event.originalEvent)
+      return;
+    this.fillUniversitySelect(event.query);
   };
 
   searchCourses(event) {
