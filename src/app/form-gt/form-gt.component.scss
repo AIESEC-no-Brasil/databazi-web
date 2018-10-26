@@ -1575,7 +1575,7 @@ label {
 }
 
 .form-talentos-globais .alert-warning {
-    color: #fff;
+    color: #0a8ea0;
     background-color: #ffffff;
     border-color: #ffffff;
 }
@@ -1705,10 +1705,14 @@ label {
     padding:9.5px;
     transition:.3s;
     cursor: pointer;
-    &:hover {
-      background-color: #3f77bc;
-      color:#fff;
+    &.ui-state-highlight{
+        background-color: #3f77bc;
+        color:#fff;
     }
+    // &:hover {
+    //   background-color: #3f77bc;
+    //   color:#fff;
+    // }
   }
 }
 

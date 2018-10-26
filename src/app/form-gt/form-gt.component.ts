@@ -440,23 +440,23 @@ export class FormGtComponent implements OnInit {
   }
 
   searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions event.query);
+    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
   };
 
   searchUnivesity(event) {
-    this.filteredUniversities = this._search(this.universities event.query);
+    this.filteredUniversities = this._search(this.universities, event.query);
   };
 
   searchCourses(event) {
-    this.filteredCourses = this._search(this.courses event.query);
+    this.filteredCourses = this._search(this.courses, event.query);
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places event.query);
+    this.filteredPlaces =  this._search(this.places, event.query);
   };
 
   searchEnglishLevels(event) {
-    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions event.query);
+    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
   };
 
   _search(options, search){
