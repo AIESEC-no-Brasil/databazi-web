@@ -40,7 +40,7 @@ $break-sm: 576px;
         justify-content: center;
         align-content: center;
         flex-wrap: nowrap;
-        position:relative;
+        position: relative;
         .buttons-carousel {
             display: flex;
             align-items: center;
@@ -48,7 +48,7 @@ $break-sm: 576px;
             font-size: 35px;
             color: $default;
             cursor: pointer;
-            z-index:4;
+            z-index: 4;
             transition: .3s;
             &:hover {
                 transform: scale(1.05);
@@ -85,10 +85,10 @@ $break-sm: 576px;
                     transition: 1s;
                     background-size: contain;
                     transition: .3s;
-                    &:hover  {
+                    &:hover {
                         transform: scale(1.25);
-                        > span {
-                            display:block;
+                        >span {
+                            display: block;
                         }
                     }
                     span {
@@ -98,8 +98,8 @@ $break-sm: 576px;
                         bottom: -20px;
                         left: 0;
                         text-align: center;
-                        color:$default;
-                        display:none;
+                        color: $default;
+                        display: none;
                         font-weight: bold;
                     }
                     img {
@@ -125,7 +125,7 @@ $break-sm: 576px;
 
 footer {
     &.padding-top-and-bottom {
-        padding:30px 0 25px 0 !important;
+        padding: 30px 0 25px 0 !important;
     }
     .footer-logo {
         width: 300px;
@@ -285,6 +285,21 @@ footer {
         .bg-footer-group {
             .footer-group-links {
                 width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .partners {
+        #footer-carousel {
+            .footer-carousel-partners {
+                .footer-carousel-wrapper {
+                    width: 500%;
+                    .footer-each-item span {
+                        bottom: -25px !important;
+                    }
+                }
             }
         }
     }

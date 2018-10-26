@@ -126,7 +126,10 @@ export class LandingFooterComponent implements OnInit {
   }
 
   moveRight() {
-    if ((this.sliderPosition + 100) > 200) {
+    if ((this.sliderPosition + 100) > 200 && (window.innerWidth >= 990)) {
+      this.sliderPosition = 0;
+    }
+    else if ((this.sliderPosition + 100) > 400 && (window.innerWidth < 990)) {
       this.sliderPosition = 0;
     }
     else {
