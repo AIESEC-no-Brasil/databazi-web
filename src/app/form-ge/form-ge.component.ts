@@ -101,8 +101,7 @@ export class FormGeComponent implements OnInit {
   completedSignup: boolean = false;
 
   embeddedForm: boolean = false;
-
-  universities: any;
+  
   courses: any;
   places: any;
 

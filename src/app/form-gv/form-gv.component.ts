@@ -77,7 +77,6 @@ export class FormGvComponent implements OnInit {
   embeddedForm: boolean = false;
 
   formToggle : boolean = false;
-  universities: any;
   courses: any;
   places: any;
 
