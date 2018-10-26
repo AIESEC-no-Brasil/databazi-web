@@ -43,6 +43,20 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
+export class BaluHammerConfig extends HammerGestureConfig {
+  overrides = {
+      pan: {
+           direction: 6
+    },
+    pinch: {
+        enable: false
+    },
+    rotate: {
+        enable: false
+    }
+};
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,7 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormOfflineComponent,
     {
       provide: HAMMER_GESTURE_CONFIG,
-      useClass: HammerGestureConfig
+      useClass: BaluHammerConfig
     }
   ],
   bootstrap: [AppComponent]

@@ -100,6 +100,8 @@ export class FormGeComponent implements OnInit {
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
 
+  embeddedForm: boolean = false;
+
   universities: any;
   courses: any;
   places: any;
@@ -184,6 +186,10 @@ export class FormGeComponent implements OnInit {
 
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
+      }
+
+      if (param['embedded']) {
+        this.embeddedForm = true;
       }
     });
 
@@ -364,7 +370,7 @@ export class FormGeComponent implements OnInit {
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity,
+        scholarity: +this.user.scholarity.id,
         english_level: +this.user.english_level.id,
         spanish_level: +this.user.spanish_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),

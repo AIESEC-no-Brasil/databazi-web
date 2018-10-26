@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./form-gv-thank-you.component.scss']
 })
 export class FormGvThankYouComponent implements OnInit {
-
+  window: any = window;
   constructor(
     public router: Router
-  ) { }
+  ) {
+    this.window.fbq('track', 'Lead');
+  }
 
   ngOnInit() {
   }

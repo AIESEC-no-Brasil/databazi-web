@@ -1645,3 +1645,10 @@ label {
     background-image: url('../../assets/images/aiesec-logo.png');
     margin: auto
 }
+
+::selection {
+  background: #ffffff; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffffff; /* Gecko Browsers */
+}

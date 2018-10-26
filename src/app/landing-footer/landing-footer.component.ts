@@ -115,8 +115,11 @@ export class LandingFooterComponent implements OnInit {
   }
 
   moveLeft() {
-    if ((this.sliderPosition - 100) < 0) {
+    if ((this.sliderPosition - 100) < 0 && (window.innerWidth >= 990)) {
       this.sliderPosition = 200;
+    }
+    else if ((this.sliderPosition - 100) < 0 && (window.innerWidth < 990)) {
+      this.sliderPosition = 400;
     }
     else {
       this.sliderPosition -= 100;
@@ -126,7 +129,10 @@ export class LandingFooterComponent implements OnInit {
   }
 
   moveRight() {
-    if ((this.sliderPosition + 100) > 200) {
+    if ((this.sliderPosition + 100) > 200 && (window.innerWidth >= 990)) {
+      this.sliderPosition = 0;
+    }
+    else if ((this.sliderPosition + 100) > 400 && (window.innerWidth < 990)) {
       this.sliderPosition = 0;
     }
     else {
