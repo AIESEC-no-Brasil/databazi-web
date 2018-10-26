@@ -178,26 +178,31 @@ export class FormGvComponent implements OnInit {
   }
 
   searchScholarity(event) {
-    this.filteredScholarityOptions = _.filter(this.scholarityOptions, (option) => {
-      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
-    });
+    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
   };
 
   searchUnivesity(event) {
-    this.filteredUniversities = _.filter(this.universities, (option) => {
-      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
-    });
+    this.filteredUniversities = this._search(this.universities, event.query);
   };
 
   searchCourses(event) {
-    this.filteredCourses = _.filter(this.courses, (option) => {
-      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
-    });
+    this.filteredCourses = this._search(this.courses, event.query);
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  _.filter(this.places, (option) => {
-      return option.name.toLowerCase().indexOf(event.query.toLowerCase()) > -1;
+    this.filteredPlaces =  this._search(this.places, event.query);
+  };
+
+  _search(options, search){
+    return _.filter(options, (option) => {
+      return option.name.toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, "")
+      .indexOf(
+        search.toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, "")
+      ) > -1;
     });
   };
 
