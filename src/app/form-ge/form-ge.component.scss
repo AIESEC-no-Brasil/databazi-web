@@ -508,8 +508,8 @@ section.header h1 {
 
 .forms {
     margin-bottom: 15px;
-    position: relative;
-    z-index: -1;
+    z-index: 1;
+    position:relative;
 }
 
 .form-group {
@@ -1503,9 +1503,9 @@ label {
     width: 100%;
     padding:9.5px;
     transition:.3s;
-    &:hover {
-      background-color: #3f77bc;
-      color:#fff;
+    &.ui-state-highlight{
+        background-color: #3f77bc;
+        color:#fff;
     }
   }
 }
