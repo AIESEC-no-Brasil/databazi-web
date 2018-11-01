@@ -2,7 +2,6 @@
 @import '~animate.css/animate.min.css';
 @import '~node_modules/primeng/resources/themes/nova-light/theme.css';
 @import '~node_modules/primeng/resources/primeng.min.css';
-
 .forms-term {
     position: relative;
     z-index: -1;
@@ -21,9 +20,9 @@
     position: absolute !important;
     width: 100% !important;
     height: 100% !important;
-    display:flex;
+    display: flex;
     align-items: flex-start;
-    justify-content : center;
+    justify-content: center;
     overflow-y: auto;
 }
 
@@ -496,7 +495,7 @@ section.header h1 {
 .forms {
     margin-bottom: 15px;
     z-index: 1;
-    position:relative;
+    position: relative;
 }
 
 .form-group {
@@ -514,7 +513,7 @@ section.header h1 {
         display: flex;
         justify-content: space-around;
         flex-wrap: nowrap;
-        background-color: rgba(0,0,0,.3);
+        background-color: rgba(0, 0, 0, .3);
         label {
             display: inline-block;
             padding-left: 5px;
@@ -964,7 +963,7 @@ label {
             text-align: left;
             padding: 0 10px;
         }
-     }
+    }
     /* Forms */
     #form-voluntario-global .col-sm {
         max-width: 720px;
@@ -1110,7 +1109,7 @@ label {
     }
 }
 
-#inputDatadeNascimento{
+#inputDatadeNascimento {
     font-size: 16px;
     font-weight: lighter;
     font-family: "Lato", sans-serif;
@@ -1121,10 +1120,9 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
-    #inputDatadeNascimento{
+    #inputDatadeNascimento {
         text-align: left;
-    }
-    //prime 
+    } //prime 
     ::ng-deep .p-inputMask input {
         text-align: left;
         padding: 0px 0 0 0;
@@ -1671,11 +1669,11 @@ label {
 }
 
 /deep/ .ui-autocomplete-input {
-  width: 100%;
-  height: 50px;
-  background-color: transparent;
-  border: none;
-  color: white;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
 }
 
 /deep/ p-autoComplete {
@@ -1693,23 +1691,23 @@ label {
     }
 }
 
-/deep/ .ui-autocomplete-items{
-  list-style: none;
-  padding: 0;
-  background-color: #fff;
-  color: #333;
-  max-height: 215px;
-  overflow: auto;
-  li {
-    width: 100%;
-    padding:9.5px;
-    transition:.3s;
-    cursor: pointer;
-    &.ui-state-highlight{
-        background-color: #3f77bc;
-        color:#fff;
+/deep/ .ui-autocomplete-items {
+    list-style: none;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    max-height: 215px;
+    overflow: auto;
+    li {
+        width: 100%;
+        padding: 9.5px;
+        transition: .3s;
+        cursor: pointer;
+        &.ui-state-highlight {
+            background-color: #3f77bc;
+            color: #fff;
+        }
     }
-  }
 }
 
 .autocomplete-negative-index {
@@ -1723,19 +1721,28 @@ label {
 }
 
 .autocomplete-clear-btn {
-    position: absolute; 
-    right: 0; 
+    position: absolute;
+    right: 0;
     top: 15px;
 }
 
 .full-width {
     width: 100%;
 }
-@media (min-width: 1440px){
+
+@media (min-width: 1440px) {
     div.form-talentos-globais {
-        &:not(.full-screen){
+        &:not(.full-screen) {
             transform: scale(1.3);
             margin: 15vh 0;
         }
     }
+}
+
+.full-screen-embedded {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
