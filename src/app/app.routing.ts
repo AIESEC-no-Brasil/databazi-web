@@ -8,6 +8,9 @@ import { FormOfflineComponent } from './form-offline/form-offline.component';
 import { FormGvThankYouComponent } from './form-gv/form-gv-thank-you/form-gv-thank-you.component'
 import { FormGeThankYouComponent } from './form-ge/form-ge-thank-you/form-ge-thank-you.component';
 import { FormGtThankYouComponent } from './form-gt/form-gt-thank-you/form-gt-thank-you.component'
+import { FormGvComponent } from './form-gv/form-gv.component';
+import { FormGeComponent } from './form-ge/form-ge.component';
+import { FormGtComponent } from './form-gt/form-gt.component';
 
 export const router : Routes = [
     { path: '', component: LandingPageComponent },
@@ -17,7 +20,10 @@ export const router : Routes = [
     { path: 'intercambio', component: FormOfflineComponent },
     { path: 'voluntario-global/obrigado', component: FormGvThankYouComponent },
     { path: 'talento-global/obrigado', component: FormGtThankYouComponent },
-    { path: 'empreendedor-global/obrigado', component: FormGeThankYouComponent }
+    { path: 'empreendedor-global/obrigado', component: FormGeThankYouComponent },
+    { path: 'formulario-voluntario-global', component: FormGvComponent },
+    { path: 'formulario-talento-global', component: FormGtComponent },
+    { path: 'formulario-empreendedor-global', component: FormGeComponent }
 ]
 
 export const routes : ModuleWithProviders = RouterModule.forRoot(router, { useHash : false });
