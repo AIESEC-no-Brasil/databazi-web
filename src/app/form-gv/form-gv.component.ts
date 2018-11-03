@@ -52,7 +52,7 @@ export class FormGvComponent implements OnInit {
     {id: '6', name: 'Outro' }
   ];
 
-  universities: Observable<any[]>;
+  universities: any[];
   filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
@@ -179,8 +179,10 @@ export class FormGvComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    if(!event.originalEvent)
+    if(!event.originalEvent){
+      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
+    }
     this.fillUniversitySelect(event.query);
   };
 
