@@ -68,7 +68,7 @@ export class FormGtComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  universities: Observable<any[]>;
+  universities: any[];
   filteredScholarityOptions: Observable<any[]>;  
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
@@ -435,8 +435,10 @@ export class FormGtComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    if(!event.originalEvent)
+    if(!event.originalEvent){
+      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
+    }
     this.fillUniversitySelect(event.query);
   };
 
