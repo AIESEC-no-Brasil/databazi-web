@@ -13,6 +13,13 @@
     transition: .3s
 }
 
+ul#menu {
+    > li, > a {
+        display:flex;
+        align-items: center;
+    }
+}
+
 #fixedMenu.fixedMenu {
     position: fixed;
     width: 100%;
@@ -142,8 +149,8 @@
                 }
                 li {
                     font-size: 13px;
-                    padding: 1em .5em;
-                    margin: 5px;
+                    padding: 15px .5em;
+                    margin: 0 5px;
                     color: #fff;
                     text-transform: uppercase;
                     font-weight: lighter;
@@ -165,12 +172,18 @@
                         min-width: 175px;
                         display: none;
                         left: 0;
+                        &.ul-products {
+                            bottom: -85px;
+                        }
+                        &.ul-partners, &.ul-blog, &.ul-travel {
+                            bottom: -35px;
+                        }
                         a:hover {
                             text-decoration: none;
                             color: #fff;
                         }
                         li {
-                            padding: 0 10px;
+                            padding: 2.5px 10px;
                             text-align: left;
                             text-transform: none;
                         }

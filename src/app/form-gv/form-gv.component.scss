@@ -508,7 +508,7 @@ section.header h1 {
 .forms {
     margin-bottom: 15px;
     z-index: 1;
-    position:relative;
+    position: relative;
 }
 
 .form-group {
@@ -1691,9 +1691,9 @@ label {
         padding: 9.5px;
         transition: .3s;
         cursor: pointer;
-        &.ui-state-highlight{
+        &.ui-state-highlight {
             background-color: #3f77bc;
-            color:#fff;
+            color: #fff;
         }
     }
 }
@@ -1725,4 +1725,12 @@ label {
 
 .full-width {
     width: 100%;
+}
+
+.full-screen-embedded {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
