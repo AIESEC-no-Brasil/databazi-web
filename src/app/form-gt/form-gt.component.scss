@@ -53,6 +53,15 @@
     }
 }
 
+
+.full-screen-embedded {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 // form A/B - end
 .forms-term {
     textarea {
@@ -1313,6 +1322,9 @@ label {
         text-align: left;
         padding-right: 0;
     }
+    .full-screen-embedded {
+        align-items: flex-start;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1751,12 +1763,4 @@ label {
             margin: 15vh 0;
         }
     }
-}
-
-.full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
 }

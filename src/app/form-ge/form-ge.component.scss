@@ -26,6 +26,14 @@
     overflow-y: auto;
 }
 
+.full-screen-embedded {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .full-width {
     width: 100%;
 }
@@ -1299,6 +1307,9 @@ label {
         text-align: left;
         padding-right: 0;
     }
+    .full-screen-embedded {
+        align-items: flex-start;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1553,10 +1564,3 @@ label {
     }
 }
 
-.full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-}
