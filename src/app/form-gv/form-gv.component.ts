@@ -32,7 +32,7 @@ export class FormGvComponent implements OnInit {
     local_committee: { id: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
-    cellphone_contactable: true,
+    cellphone_contactable: '',
     scholarity: { id: ''},
     utm_source: '',
     utm_medium: '',
@@ -110,6 +110,7 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
@@ -123,8 +124,7 @@ export class FormGvComponent implements OnInit {
       ]),
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
+      ])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
@@ -352,7 +352,6 @@ export class FormGvComponent implements OnInit {
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
-
   submit() {
     this.submittedStudy = true;
     let user = {
