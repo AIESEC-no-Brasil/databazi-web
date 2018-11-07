@@ -39,6 +39,16 @@
     overflow-y: auto;
 }
 
+
+.full-screen-embedded {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 .desktop {
     display: flex !important;
 }
@@ -63,6 +73,9 @@
             min-width: 35px;
             justify-content: center;
         }
+    }
+    i.autocomplete-clear-btn {
+        top: 0;
     }
 }
 
@@ -639,6 +652,9 @@ input[type=tel] {
 
 .forms-term {
     margin-top: 30px;
+    .col-sm-10 {
+        z-index: 0;
+    }
     .iframe {
         min-height: 150px;
         body {
@@ -975,6 +991,20 @@ label {
         font-size: 25px;
         margin-top: 10px;
     }
+    #row-with-buttons {
+        flex-direction: column-reverse;
+        > div {
+            display:flex;
+            width: 100%;
+            align-content: center;
+            justify-content: center;
+            margin: 5px 0;
+            min-height: 40px;
+            button {
+                width: 100%;
+            }
+        }
+    }
 }
 
 /*--------------------------------------------------------------
@@ -1111,6 +1141,9 @@ label {
     #inputDatadeNascimento {
         text-align: left;
     } //prime 
+    p-autoComplete {
+        font-size: 3.2vw !important
+    }
     ::ng-deep .p-inputMask input {
         text-align: left;
         padding: 0px 0 0 0;
@@ -1286,6 +1319,9 @@ label {
         font-size: 4.25vw !important;
         text-align: left;
         padding-right: 0;
+    }
+    .full-screen-embedded {
+        align-items: flex-start;
     }
 }
 
@@ -1727,10 +1763,3 @@ label {
     width: 100%;
 }
 
-.full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
