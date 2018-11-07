@@ -51,6 +51,9 @@
             justify-content: center;
         }
     }
+    i.autocomplete-clear-btn {
+        top: 0;
+    }
 }
 
 
@@ -66,6 +69,9 @@
 .forms-term {
     textarea {
         margin-bottom: 5px;
+    }
+    .col-sm-10 {
+        z-index: 0;
     }
     .forms-tem-accepted {
         font-size: 12px;
@@ -1146,6 +1152,9 @@ label {
     #inputDatadeNascimento {
         text-align: left;
     } //prime 
+    p-autoComplete {
+        font-size: 3.2vw !important
+    }
     ::ng-deep .p-inputMask input {
         text-align: left;
         padding: 0px 0 0 0;
