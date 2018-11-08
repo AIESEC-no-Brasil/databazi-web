@@ -329,13 +329,14 @@
                     <div class="col-sm-10">
                       <div class="form-group">
                         <div class="desktop" style='flex-direction: column'>
-                            <label for="inputTermos">Termos e Condições</label>
+                            <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                           <iframe height="200px" width="100%" scrolling="yes" class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
                           <label class="form-group forms-tem-accepted">
                             Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
                           </label>
                         </div>
                         <div class='mobile forms-terms-area' (click)='openModal()'>
+                          <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                           <label class='form-group forms-tem-accepted info-mobile-content'>
                             Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span> 
                           </label>

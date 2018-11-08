@@ -1565,7 +1565,7 @@ label {
   cursor: pointer;
   li {
     width: 100%;
-    padding:9.5px;
+    padding: 4.5px;
     transition:.3s;
     &.ui-state-highlight{
         background-color: #3f77bc;
@@ -1603,8 +1603,8 @@ label {
     }
 }
 
+
 .info-mobile-content {
-    padding-left: 20px;
     text-align: left;
     font-size: 13px;
 }
@@ -1618,6 +1618,7 @@ label {
     left:0;
     top:0;
     position:fixed;
+    z-index: 1001;
     .modal-bg {
         width: 100%;
         height: 100%;
@@ -1638,7 +1639,12 @@ label {
         right: 0;
         border-radius: 50%;
         font-size: 30px;
-        z-index: 20;
-        color: #fff;
+        z-index: 1003;
+        color: #3f77bc;
     }
+}
+label.input-terms-label {
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
 }
