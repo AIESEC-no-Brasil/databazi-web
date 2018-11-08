@@ -318,17 +318,24 @@
                 </div>
 
                 <!-- Terms -->
-                <div class="row justify-content-center forms-term">
-                  <div class="col-sm-10">
-                    <div class="form-group">
-                      <label for="inputTermos">Termos e Condições</label>
-                      <iframe class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
+                <div class="row justify-content-center forms-term autocomplete-negative-index2">
+                    <div class="col-sm-10">
+                      <div class="form-group">
+                        <div class="desktop" style='flex-direction: column'>
+                            <label for="inputTermos">Termos e Condições</label>
+                          <iframe height="200px" width="100%" scrolling="yes" class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
+                          <label class="form-group forms-tem-accepted">
+                            Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
+                          </label>
+                        </div>
+                        <div class='mobile forms-terms-area' (click)='openModal()'>
+                          <label class='form-group forms-tem-accepted info-mobile-content'>
+                            Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span> 
+                          </label>
+                        </div>
+                      </div>
                     </div>
-                    <label class="form-group forms-tem-accepted">
-                      Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
-                    </label>
                   </div>
-                </div>
                 <div class="form-group form-check text-center checkbox">
                   <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
                     name="cellphone_contactable">
@@ -392,3 +399,11 @@
     </div>
   </div>
 </div>
+
+<div id='modal' class='animated fadeIn faster' *ngIf="modal">
+    <div class='modal-bg' (click)='closeModal()'></div>
+    <div class='close-modal-button' (click)='closeModal()'>
+      <i class="fas fa-times-circle"></i>
+    </div>
+    <app-terms></app-terms>
+  </div>

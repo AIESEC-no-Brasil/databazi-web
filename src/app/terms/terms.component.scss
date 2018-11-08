@@ -1,0 +1,57 @@
+.modal-wrapper {
+    width: 85%;
+    height: 85%;
+    position: relative;
+    left: 7.5%;
+    margin-top: 15%;
+    z-index: 10;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #333;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 18px
+}
+
+h2 {
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+main {
+    width: 1px;
+    min-width: 100%;
+    *width: 100%;
+    overflow: auto;
+}

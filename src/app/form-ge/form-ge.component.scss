@@ -1190,7 +1190,7 @@ label {
     .input-group-prepend {
         display: grid;
         width: 100%;
-        height: 60px;
+        height: 40px;
     }
     .input-group-text {
         border: none;
@@ -1318,6 +1318,36 @@ label {
     }
     .full-screen-embedded {
         align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px){
+    /* Placeholder Dropdown */
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-ms-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
     }
 }
 
@@ -1567,9 +1597,48 @@ label {
 @media (min-width: 1440px){
     div.form-talentos-globais {
         &:not(.full-screen){
-            transform: scale(1.3);
+            transform: scale(1.2);
             margin: 15vh 0;
         }
     }
 }
 
+.info-mobile-content {
+    padding-left: 20px;
+    text-align: left;
+    font-size: 13px;
+}
+.forms-terms-area {
+    margin: 25px 0
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    position:fixed;
+    .modal-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.35);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }    
+    .close-modal-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 1.5%;
+        right: 0;
+        border-radius: 50%;
+        font-size: 30px;
+        z-index: 20;
+        color: #fff;
+    }
+}
