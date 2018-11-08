@@ -79,6 +79,7 @@ export class FormGvComponent implements OnInit {
   formToggle : boolean = false;
   courses: any;
   places: any;
+  modal:any = false;
 
   myControl = new FormControl();
 
@@ -193,6 +194,14 @@ export class FormGvComponent implements OnInit {
   searchPlaces(event) {
     this.filteredPlaces =  this._search(this.places, event.query);
   };
+
+  openModal(){
+    this.modal = true;
+  }
+
+  closeModal(){
+    this.modal = false;
+  }
 
   _search(options, search){
     return _.filter(options, (option) => {

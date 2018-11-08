@@ -197,105 +197,107 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
-                  <div class="form-group local_committee">
+                <div class="form-group local_committee">
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                    </div>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
+                          #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
+                          dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
+                          placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
+                    Selecione a AIESEC mais próxima.
+                  </div>
+                </div>
+                <div class="form-group scholarity">
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-graduation-cap"></i>Escolaridade</div>
+                    </div>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions"
+                          (completeMethod)="searchScholarity($event)" #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick();"
+                          dropdownMode="current" field="name" formControlName="scholarity" emptyMessage="Nenhum resultado"
+                          placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')" *ngIf="user.scholarity"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('scholarity')" class='error-message'>
+                    Selecione um nível de escolaridade
+                  </div>
+                </div>
+                <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
+                  <div class="form-group  university">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
-                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                          <i class="fas fa-graduation-cap"></i>Universidade</div>
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
-                            #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
-                            dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
-                            placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')"  *ngIf="user.local_committee"></i>
+                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete
+                            (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick();" dropdownMode="current"
+                            field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Onde você estuda?"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')" *ngIf="user.university"></i>
                         </div>
                       </div>
                     </div>
-                    <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
-                      Selecione a AIESEC mais próxima.
+                    <div *ngIf="isValidStudy('university_id')" class='error-message'>
+                      Selecione uma universidade.
                     </div>
                   </div>
-                  <div class="form-group scholarity">
+                  <div class="form-group college_course">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
-                          <i class="fas fa-graduation-cap"></i>Escolaridade</div>
+                          <i class="fas fa-book-open"></i>Curso</div>
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)"
-                            #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick();" dropdownMode="current"
-                            field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')"  *ngIf="user.scholarity"></i>
+                          <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
+                            #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick();"
+                            dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
+                            placeholder="Insira seu curso"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')" *ngIf="user.college_course"></i>
                         </div>
                       </div>
                     </div>
-                    <div *ngIf="isValidStudy('scholarity')" class='error-message'>
-                      Selecione um nível de escolaridade
-                    </div>
-                  </div>
-                  <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group  university">
-                      <div class="input-group select-dropdown">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-graduation-cap"></i>Universidade</div>
-                        </div>
-                        <div class="dropdown">
-                          <div class="styled-select">
-                            <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)"
-                              #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick();"
-                              dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
-                              placeholder="Onde você estuda?"></p-autoComplete>
-                              <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <div *ngIf="isValidStudy('university_id')" class='error-message'>
-                        Selecione uma universidade.
-                      </div>
-                    </div>
-                    <div class="form-group college_course">
-                      <div class="input-group select-dropdown">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-book-open"></i>Curso</div>
-                        </div>
-                        <div class="dropdown">
-                          <div class="styled-select">
-                            <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
-                              #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick();"
-                              dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
-                              placeholder="Insira seu curso"></p-autoComplete>
-                              <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')"  *ngIf="user.college_course"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
-                        Selecione um curso.
-                      </div>
+                    <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
+                      Selecione um curso.
                     </div>
                   </div>
+                </div>
 
-                  <!-- Terms -->
-                  <div class="row justify-content-center forms-term autocomplete-negative-index2">
-                    <div class="col-sm-10">
-                      <div class="form-group">
-                        <label for="inputTermos">Termos e Condições</label>
-                        <iframe class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
+                <!-- Terms -->
+                <div class="row justify-content-center forms-term autocomplete-negative-index2">
+                  <div class="col-sm-10">
+                    <div class="form-group">
+                      <div class="desktop" style='flex-direction: column'>
+                          <label for="inputTermos">Termos e Condições</label>
+                        <iframe height="200px" width="100%" scrolling="yes" class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
+                        <label class="form-group forms-tem-accepted">
+                          Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
+                        </label>
                       </div>
-                      <label class="form-group forms-tem-accepted">
-                        Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
-                      </label>
+                      <div class='mobile forms-terms-area' (click)='openModal()'>
+                        <label class='form-group forms-tem-accepted info-mobile-content'>
+                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span> 
+                        </label>
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group form-check text-center checkbox">
-                    <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
-                      name="cellphone_contactable">
-                    <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
-                  </div>
+                </div>
               </form>
             </div>
 
@@ -351,4 +353,12 @@
       <div class="loading-animation loading-animation-gv"></div>
     </div>
   </div>
+</div>
+
+<div id='modal' class='animated fadeIn faster' *ngIf="modal">
+  <div class='modal-bg' (click)='closeModal()'></div>
+  <div class='close-modal-button' (click)='closeModal()'>
+    <i class="fas fa-times-circle"></i>
+  </div>
+  <app-terms></app-terms>
 </div>
