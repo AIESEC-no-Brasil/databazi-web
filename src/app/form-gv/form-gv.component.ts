@@ -32,7 +32,7 @@ export class FormGvComponent implements OnInit {
     local_committee: { id: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
-    cellphone_contactable: '',
+    cellphone_contactable: true,
     scholarity: { id: ''},
     utm_source: '',
     utm_medium: '',

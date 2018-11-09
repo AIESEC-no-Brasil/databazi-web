@@ -33,7 +33,7 @@ export class FormGtComponent implements OnInit {
     local_committee: { id: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
-    cellphone_contactable: '',
+    cellphone_contactable: true,
     english_level: { id: ''},
     scholarity: { id: ''},
     experience: [],

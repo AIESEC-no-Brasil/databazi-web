@@ -32,7 +32,7 @@ export class FormGeComponent implements OnInit {
     local_committee: { id: '', name: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
-    cellphone_contactable: '',
+    cellphone_contactable: true,
     english_level: { id: '', name: ''},
     spanish_level: { id: '', name: ''},
     scholarity: { id: '', name: ''},
