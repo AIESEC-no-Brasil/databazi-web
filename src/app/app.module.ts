@@ -37,7 +37,8 @@ import { NgxMaskModule } from 'ngx-mask';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { FormGvThankYouComponent } from './form-gv/form-gv-thank-you/form-gv-thank-you.component';
 import { FormGeThankYouComponent } from './form-ge/form-ge-thank-you/form-ge-thank-you.component';
-import { FormGtThankYouComponent } from './form-gt/form-gt-thank-you/form-gt-thank-you.component'
+import { FormGtThankYouComponent } from './form-gt/form-gt-thank-you/form-gt-thank-you.component';
+import { TermsComponent } from './terms/terms.component'
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -72,7 +73,8 @@ export class BaluHammerConfig extends HammerGestureConfig {
     FormOfflineComponent,
     FormGvThankYouComponent,
     FormGeThankYouComponent,
-    FormGtThankYouComponent
+    FormGtThankYouComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,

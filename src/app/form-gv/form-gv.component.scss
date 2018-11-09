@@ -78,7 +78,35 @@
         top: 0;
     }
 }
-
+@media screen and (min-width: 400px) and (max-width: 600px){
+    /* Placeholder Dropdown */
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-ms-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+}
 // form A/B - end
 .forms-term {
     textarea {
@@ -1193,7 +1221,7 @@ label {
     .input-group-prepend {
         display: grid;
         width: 100%;
-        height: 60px;
+        height: 40px;
     }
     .input-group-text {
         border: none;
@@ -1724,7 +1752,7 @@ label {
     overflow: auto;
     li {
         width: 100%;
-        padding: 9.5px;
+        padding: 4.5px;
         transition: .3s;
         cursor: pointer;
         &.ui-state-highlight {
@@ -1753,7 +1781,7 @@ label {
 @media (min-width: 1440px) {
     div.form-volutario-global {
         &:not(.full-screen) {
-            transform: scale(1.3);
+            transform: scale(1.2);
             margin: 15vh 0;
         }
     }
@@ -1763,3 +1791,47 @@ label {
     width: 100%;
 }
 
+.info-mobile-content {
+    text-align: left;
+    font-size: 13px;
+}
+.forms-terms-area {
+    margin: 25px 0
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    position:fixed;
+    z-index: 1001;
+    .modal-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.35);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }    
+    .close-modal-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 1.5%;
+        right: 0;
+        border-radius: 50%;
+        font-size: 30px;
+        z-index: 1003;
+        color: #3f77bc;
+    }
+}
+label.input-terms-label {
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
+}

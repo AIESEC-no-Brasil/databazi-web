@@ -99,6 +99,7 @@ export class FormGeComponent implements OnInit {
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
+  modal: boolean = false;
 
   embeddedForm: boolean = false;
 
@@ -322,6 +323,14 @@ export class FormGeComponent implements OnInit {
     else {
       this.invalidDate = true;
     }
+  }
+
+  openModal(){
+    this.modal = true;
+  }
+
+  closeModal(){
+    this.modal = false;
   }
 
   checkPhone() {

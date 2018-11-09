@@ -99,7 +99,7 @@ export class FormGtComponent implements OnInit {
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
-
+  modal:boolean = false;
   embeddedForm: boolean = false;
 
   courses: any;
@@ -339,6 +339,14 @@ export class FormGtComponent implements OnInit {
     }
   }
 
+  openModal(){
+    this.modal = true;
+  }
+
+  closeModal(){
+    this.modal = false;
+  }
+  
   checkPhone(){
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
