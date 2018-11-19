@@ -23,7 +23,11 @@ export const router : Routes = [
     { path: 'empreendedor-global/obrigado', component: FormGeThankYouComponent },
     { path: 'formulario-voluntario-global', component: FormGvComponent },
     { path: 'formulario-talento-global', component: FormGtComponent },
-    { path: 'formulario-empreendedor-global', component: FormGeComponent }
+    { path: 'formulario-empreendedor-global', component: FormGeComponent },
+    { path: 'jovens/voluntario-global', component: LandingPageGvComponent },
+    { path: 'jovens/talentos-globais', component: LandingPageGtComponent },
+    { path: 'jovens/empreendedor-global', component: LandingPageGeComponent },
+    { path: '**', component: LandingPageComponent }
 ]
 
 export const routes : ModuleWithProviders = RouterModule.forRoot(router, { useHash : false });
