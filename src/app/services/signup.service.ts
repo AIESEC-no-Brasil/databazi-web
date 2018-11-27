@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
 
-	public static url: string = 'https://qa-databazi.aiesec.org.br'
-	//public static url: string = 'https://api.aiesec.org.br'
+	public static url: string = environment.apiUrl;
 
 	constructor( public http: Http ) { }
 
