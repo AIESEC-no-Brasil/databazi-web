@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -12,8 +12,6 @@ import * as $ from 'jquery';
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
-import { FormOfflineComponent } from '../form-offline/form-offline.component'
-
 @Component({
   selector: 'app-form-gt',
   templateUrl: './form-gt.component.html',
@@ -22,6 +20,7 @@ import { FormOfflineComponent } from '../form-offline/form-offline.component'
 export class FormGtComponent implements OnInit {
 
   @Input() formedUser: any;
+  @Output() onCancelEvent = new EventEmitter<boolean>();
 
   user = {
     fullname: '',
@@ -109,8 +108,8 @@ export class FormGtComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute,
-    public formOfflineComponent: FormOfflineComponent
+    public urlScrapper: ActivatedRoute/*,
+    public formOfflineComponent: FormOfflineComponent*/
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -230,7 +229,7 @@ export class FormGtComponent implements OnInit {
 
   cancelSignUp(){
     if(this.formedUser){
-      this.formOfflineComponent.hideGTStep();
+      this.onCancelEvent.emit();
     }else{
       if(this.submittedPersonal){
         this.submittedPersonal = false;
