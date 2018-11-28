@@ -90,8 +90,14 @@ ul#menu {
     width: 100%;
     position: relative;
     border-bottom: 3px solid #666;
-    z-index: 11;
+    z-index: 11;    
     .header-product-image {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('../../assets/images/header.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('../../assets/images/header.jpg.webp');
+        }
         width: 100%;
         height: 100%;
         position: absolute;
@@ -102,16 +108,30 @@ ul#menu {
         background-repeat: no-repeat;
         background-size: cover;
         z-index: -10;
-        background-image: url('../../assets/images/header.jpg');
         z-index: 5;
-        &.talento-global {
-            background-image: url('../../assets/products/gt/gt-intro.jpg');
+        &.talento-global {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/gt/gt-intro.jpg');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/gt/gt-intro.jpg.webp');
+            }
         }
-        &.voluntario-global {
-            background-image: url('../../assets/products/gv/gv-intro.jpg');
+        &.voluntario-global {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/gv/gv-intro.jpg');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/gv/gv-intro.jpg.webp');
+            }
         }
-        &.empreendedor-global {
-            background-image: url('../../assets/products/ge/ge-intro.jpg');
+        &.empreendedor-global {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/ge/ge-intro.jpg');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/ge/ge-intro.jpg.webp');
+            }
         }
     }
     .header-menu {
@@ -119,8 +139,13 @@ ul#menu {
         justify-content: space-between;
         padding: 0 15px;
         .logo-aiesec,
-        .logo-menu {
-            background-image: url('../../assets/images/aiesec-logo.png');
+        .logo-menu {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/images/aiesec-logo.png');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/images/aiesec-logo.png.webp');
+            }
             background-size: contain;
             background-position: center left;
             background-repeat: no-repeat;

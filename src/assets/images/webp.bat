@@ -1,0 +1,1 @@
+for /R . %I in (*.jpg) do ( "C:\DevMagic\libwebp-1.0.0-windows-x86\libwebp-1.0.0-windows-x86\bin\cwebp.exe" %I -o %~fnI.webp )
