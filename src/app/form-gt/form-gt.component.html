@@ -309,7 +309,7 @@
                   <div class="form-checkbox-select">
 
                     <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                      <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
+                      <input type="radio" id="{{experience.name}}" value="{{experience.value}}">
                       <label for="language" for="{{experience.name}}">
                         {{experience.name}}
                       </label>
