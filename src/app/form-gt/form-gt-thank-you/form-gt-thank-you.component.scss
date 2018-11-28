@@ -40,14 +40,32 @@ $break-sm: 576px;
             background-repeat: no-repeat;
             border-radius: 5px;
             &.back-to-home {
-                background-image: url('/assets/images/header.jpg');
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/header.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/header.jpg.webp');
+                }
+
                 background-position: right center;
             }
             &.go-to-portal {
-                background-image: url('/assets/images/case1.jpg');
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/case1.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/case1.jpg.webp');
+                }
+
             }
             &.go-to-blog {
-                background-image: url('/assets/images/case2.jpg');
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/case2.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/case2.jpg.webp');
+                }
+
             }
         }
         .card-content {

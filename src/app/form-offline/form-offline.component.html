@@ -2,9 +2,9 @@
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 </head>
 
-<app-form-gv id="form" class="full-screen" *ngIf="showGVStep" [formedUser]="user"></app-form-gv>
-<app-form-gt id="form" class="full-screen" *ngIf="showGTStep" [formedUser]="user"></app-form-gt>
-<app-form-ge id="form" class="full-screen" *ngIf="showGEStep" [formedUser]="user"></app-form-ge>
+<app-form-gv id="form" class="full-screen" *ngIf="showGVStep" [formedUser]="user" (onCancelEvent)="hideGVStep()"></app-form-gv>
+<app-form-gt id="form" class="full-screen" *ngIf="showGTStep" [formedUser]="user" (onCancelEvent)="hideGTStep()"></app-form-gt>
+<app-form-ge id="form" class="full-screen" *ngIf="showGEStep" [formedUser]="user" (onCancelEvent)="hideGEStep()"></app-form-ge>
 
 <div id="step1" class="full-screen form-offline relative-form" *ngIf="!showGVStep && !showGTStep && !showGEStep">
   <div>
