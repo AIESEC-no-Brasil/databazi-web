@@ -39,7 +39,6 @@
     overflow-y: auto;
 }
 
-
 .full-screen-embedded {
     min-height: 100vh;
     width: 100vw;
@@ -47,7 +46,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 .desktop {
     display: flex !important;
@@ -75,10 +73,11 @@
         }
     }
     i.autocomplete-clear-btn {
-        top: 0;
+        top: 15PX;
     }
 }
-@media screen and (min-width: 400px) and (max-width: 600px){
+
+@media screen and (min-width: 400px) and (max-width: 600px) {
     /* Placeholder Dropdown */
     input::-webkit-input-placeholder {
         color: #fff !important;
@@ -107,6 +106,7 @@
         padding-right: 0;
     }
 }
+
 // form A/B - end
 .forms-term {
     textarea {
@@ -555,6 +555,23 @@ section.header h1 {
 .form-group {
     margin-bottom: 0;
     position: relative;
+    &.experiences-input {
+        .select-dropdown {
+            padding: 10px 0;
+            justify-content: flex-start;
+        }
+    }
+    .form-checkbox-select {
+        padding: 15px 0 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: nowrap;
+        background-color: rgba(0, 0, 0, .3);
+        label {
+            display: inline-block;
+            padding-left: 5px;
+        }
+    }
 }
 
 .form-control {
@@ -707,6 +724,9 @@ input[type=tel] {
 
 label {
     font-weight: bold;
+    &.label-experience {
+        padding-left: 15px;
+    }
 }
 
 .form-check-label {
@@ -996,6 +1016,13 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 990px) {
+    .form-checkbox-select {
+        flex-direction: column;
+        .checkbox-item {
+            text-align: left;
+            padding: 0 10px;
+        }
+    }
     /* Forms */
     #form-voluntario-global .col-sm {
         max-width: 720px;
@@ -1021,8 +1048,8 @@ label {
     }
     #row-with-buttons {
         flex-direction: column-reverse;
-        > div {
-            display:flex;
+        >div {
+            display: flex;
             width: 100%;
             align-content: center;
             justify-content: center;
@@ -1795,6 +1822,7 @@ label {
     text-align: left;
     font-size: 13px;
 }
+
 .forms-terms-area {
     margin: 25px 0
 }
@@ -1802,19 +1830,19 @@ label {
 #modal {
     width: 100%;
     height: 100%;
-    left:0;
-    top:0;
-    position:fixed;
+    left: 0;
+    top: 0;
+    position: fixed;
     z-index: 1001;
     .modal-bg {
         width: 100%;
         height: 100%;
-        background-color: rgba(0,0,0,.35);
+        background-color: rgba(0, 0, 0, .35);
         position: fixed;
         left: 0;
         top: 0;
         z-index: 2;
-    }    
+    }
     .close-modal-button {
         width: 30px;
         height: 30px;
@@ -1830,6 +1858,7 @@ label {
         color: #3f77bc;
     }
 }
+
 label.input-terms-label {
     text-align: center;
     width: 100%;

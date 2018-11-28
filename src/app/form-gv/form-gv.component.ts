@@ -29,7 +29,6 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
     cellphone_contactable: '',
@@ -38,8 +37,18 @@ export class FormGvComponent implements OnInit {
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
-    utm_content: ''
+    utm_content: '',
+    when_can_travel: { id: ''},
+    city: {id: ''},
+    other_university: '',
   }
+
+  travelOptions = [
+    { id:'0', name: 'Mais breve possível'},
+    { id:'1', name: 'Proximos 3 meses'},
+    { id:'2', name: 'Próximo 6 meses'},
+    { id:'3', name: 'Em um ano'}
+  ];
 
   msgs: Message[] = [];
 
@@ -52,8 +61,15 @@ export class FormGvComponent implements OnInit {
     {id: '6', name: 'Outro' }
   ];
 
+  citiesOptions : any = [
+    {id: '0', name:'Buenos Aires'},
+    {id: '1', name:'Córdova'},
+    {id: '2', name:'Mendonza'}
+  ]
+
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
+  filteredCitiesOptions: Observable<any[]>
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
@@ -111,21 +127,25 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
-      college_course_id: new FormControl(this.user.college_course, [
+      city: new FormControl(this.user.city, [
         Validators.required
       ]),
-      local_committee_id: new FormControl(this.user.local_committee, [
+      college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ])
+      ]),
+      when_can_travel: new FormControl(this.user.when_can_travel, [
+        Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      other_university: new FormControl(this.user.other_university, [])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
@@ -164,20 +184,23 @@ export class FormGvComponent implements OnInit {
     });
 
     this.filteredScholarityOptions = this.scholarityOptions;
+    this.filteredCitiesOptions = this.citiesOptions;
 
     this.fillUniversitySelect();
+    // this.fillCitiesSelect();
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
     });
-    this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.places;
-    }); 
   }
 
   searchScholarity(event) {
     this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
   };
+
+  searchCities(event){
+    this.filteredCitiesOptions = this._search(this.filteredCitiesOptions, event.query);
+  }
 
   searchUnivesity(event) {
     if(!event.originalEvent){
@@ -257,6 +280,15 @@ export class FormGvComponent implements OnInit {
     })
   }
 
+  // fillCitiesSelect(search?) {
+  //   return this.signupService.getCities(search).then((res: any) => {
+  //     this.citiesOptions = res;
+  //   }, (err) => {
+  //     this.msgs = [];
+  //     this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das cidades disponíveis.' });
+  //   })
+  // }
+
   fillCourseSelect() {
     return this.signupService.getCourses().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
@@ -268,16 +300,6 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  fillPlacesSelect() {
-    return this.signupService.getLocalCommittees().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'], ['asc']);
-      this.places = orderedList;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
-    })
-  }
-
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
       this.user.university = { id: '', name: '' };
@@ -286,18 +308,22 @@ export class FormGvComponent implements OnInit {
   }
 
   unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse() || !this.user.when_can_travel;
   }
 
   emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+    return !(this.user.scholarity && !!this.user.scholarity.id);
   }
 
   emptyUniversity(){    
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
-      }else{
+      }
+      else if (+this.user.scholarity.id == 6) {
+        return !this.user.other_university;
+      }
+      else{
         return true;
       }
     }
@@ -361,8 +387,22 @@ export class FormGvComponent implements OnInit {
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
+
+  checkUniversityField(){
+    if (this.user.university.name != 'OUTRA'){
+      this.user.other_university = '';
+      return false;
+    }
+    else if (this.user.university.name == "OUTRA" && !this.user.other_university) {
+      return true;
+    }
+  }
+
   submit() {
     this.submittedStudy = true;
+    if(this.checkUniversityField()){
+      return;
+    };
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
@@ -370,7 +410,6 @@ export class FormGvComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        local_committee_id: +this.user.local_committee.id,
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -379,33 +418,37 @@ export class FormGvComponent implements OnInit {
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
+        when_can_travel : +this.user.when_can_travel.id,
+        city: +this.user.city.id,
+        other_university: this.user.other_university ? this.user.other_university : null
       }
     };
-    this.loading = true;
-    this.signupService.addGvParticipant(user)
-      .then((res: any) => {
-        this.loading = false;
-        if (res.status == 'failure') {
-          this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-        }
-        else {
-          this.completedSignup = true;
-          localStorage.removeItem('utm_source');
-          localStorage.removeItem('utm_medium');
-          localStorage.removeItem('utm_campaign');
-          localStorage.removeItem('utm_term');
-          localStorage.removeItem('utm_content');
-          this.router.navigate(['/voluntario-global/obrigado']);
-        }
-      },
-        (err) => {
-          this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
-        }
-      )
+    console.log('usuario', user);
+    // this.loading = true;
+    // this.signupService.addGvParticipant(user)
+    //   .then((res: any) => {
+    //     this.loading = false;
+    //     if (res.status == 'failure') {
+    //       this.msgs = [];
+    //       this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+    //     }
+    //     else {
+    //       this.completedSignup = true;
+    //       localStorage.removeItem('utm_source');
+    //       localStorage.removeItem('utm_medium');
+    //       localStorage.removeItem('utm_campaign');
+    //       localStorage.removeItem('utm_term');
+    //       localStorage.removeItem('utm_content');
+    //       this.router.navigate(['/voluntario-global/obrigado']);
+    //     }
+    //   },
+    //     (err) => {
+    //       this.msgs = [];
+    //       this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+    //       this.loading = false;
+    //     }
+    //   )
   }
 
   checkEmail() {
