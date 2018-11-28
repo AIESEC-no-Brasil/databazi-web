@@ -423,31 +423,30 @@ export class FormGvComponent implements OnInit {
         other_university: this.user.other_university ? this.user.other_university : null
       }
     };
-    console.log('usuario', user);
-    // this.loading = true;
-    // this.signupService.addGvParticipant(user)
-    //   .then((res: any) => {
-    //     this.loading = false;
-    //     if (res.status == 'failure') {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //     }
-    //     else {
-    //       this.completedSignup = true;
-    //       localStorage.removeItem('utm_source');
-    //       localStorage.removeItem('utm_medium');
-    //       localStorage.removeItem('utm_campaign');
-    //       localStorage.removeItem('utm_term');
-    //       localStorage.removeItem('utm_content');
-    //       this.router.navigate(['/voluntario-global/obrigado']);
-    //     }
-    //   },
-    //     (err) => {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //       this.loading = false;
-    //     }
-    //   )
+    this.loading = true;
+    this.signupService.addGvParticipant(user)
+      .then((res: any) => {
+        this.loading = false;
+        if (res.status == 'failure') {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+        }
+        else {
+          this.completedSignup = true;
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
+          this.router.navigate(['/voluntario-global/obrigado']);
+        }
+      },
+        (err) => {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+          this.loading = false;
+        }
+      )
   }
 
   checkEmail() {
