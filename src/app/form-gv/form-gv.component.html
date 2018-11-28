@@ -197,24 +197,24 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
-                <div class="form-group local_committee">
+                <div class="form-group city">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
-                        <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                        <i class="fas fa-home"></i> Cidade
+                      </div>
                     </div>
                     <div class="dropdown">
                       <div class="styled-select">
-                        <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
-                          #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
-                          dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
-                          placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
-                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
+                        <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" #citiesAutocomplete
+                          (onFocus)="selectInput('city'); citiesAutocomplete.handleDropdownClick();" dropdownMode="current"
+                          field="name" formControlName="city" emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('city')" *ngIf="user.city"></i>
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
-                    Selecione a AIESEC mais próxima.
+                  <div *ngIf="isValidStudy('city')" class='error-message'>
+                    Por favor, selecione sua cidade
                   </div>
                 </div>
                 <div class="form-group scholarity">
@@ -237,7 +237,7 @@
                     Selecione um nível de escolaridade
                   </div>
                 </div>
-                <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
+                <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6 && user.city" class="animated fadeIn faster">
                   <div class="form-group  university">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
@@ -255,6 +255,29 @@
                     </div>
                     <div *ngIf="isValidStudy('university_id')" class='error-message'>
                       Selecione uma universidade.
+                    </div>
+                  </div>
+                  <div class="form-group" *ngIf='user.university.name == "OUTRA"'>
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-graduation-cap"></i>
+                          Nome da Universidade
+                        </div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="text" class="form-control desktop" placeholder="Digite o nome da sua universidade" [(ngModel)]="user.other_university"
+                        formControlName="other_university" name="other_university" required>
+
+                      <!-- mobile -->
+                      <input type="text" class="form-control mobile" placeholder="Por favor, digite o nome da sua universidade" [(ngModel)]="user.other_university"
+                        formControlName="other_university" name="other_university" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('other_university') && user.university.name == 'OUTRA'" class='error-message'>
+                      Por favor, digite uma universidade válida.
                     </div>
                   </div>
                   <div class="form-group college_course">
@@ -278,6 +301,47 @@
                     </div>
                   </div>
                 </div>
+                <!-- <div class="form-group when_can_travel">
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-plane"></i> Quando pode viajar
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.when_can_travel" [suggestions]="filteredTravelOptions" (completeMethod)="searchTravel($event)"
+                          #travelAutocomplete (onFocus)="selectInput('when_can_travel'); travelAutocomplete.handleDropdownClick();"
+                          dropdownMode="current" field="name" formControlName="when_can_travel" emptyMessage="Nenhum resultado"
+                          placeholder="Quando terá disponiblidade para viajar?"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('when_can_travel')" *ngIf="user.when_can_travel"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('when_can_travel')" class='error-message'>
+                    Por favor, selecione um período de tempo que estará disponível para viajar.
+                  </div>
+                </div> -->
+
+                <div class="form-group experiences-input">
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <i class="fas fa-book-open"></i>Quando pode viajar</div>
+                    </div>
+                    <div class="label-experience">
+                      Escolha o período de tempo que você estará disponível
+                    </div>
+                  </div>
+                  <div class="form-checkbox-select">
+                    <div class="checkbox-item" *ngFor="let travel of travelOptions">
+                      <input type="radio" id="{{travel.name}}" value="{{travel.value}}" name='travel'>
+                      <label for="language" for="{{travel.name}}">
+                        {{travel.name}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Terms -->
                 <div class="row justify-content-center forms-term autocomplete-negative-index2">
@@ -293,14 +357,17 @@
                       <div class='mobile forms-terms-area' (click)='openModal()'>
                         <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                         <label class='form-group forms-tem-accepted info-mobile-content'>
-                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span> 
+                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
+                          <br>
+                          <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
                         </label>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="form-group form-check text-center checkbox">
-                  <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable" name="cellphone_contactable">
+                  <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable"
+                    formControlName="cellphone_contactable" name="cellphone_contactable">
                   <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
                 </div>
               </form>
