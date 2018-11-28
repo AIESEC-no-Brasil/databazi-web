@@ -40,7 +40,10 @@ export class FormGeComponent implements OnInit {
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
-    utm_content: ''
+    utm_content: '',
+    other_university : '',
+    when_can_travel : { id: ''},
+    preferred_destination : { id: ''}
   }
 
   scholarityOptions: any = [
@@ -68,12 +71,36 @@ export class FormGeComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  universities: any[];
+  universities: any = [{
+    id : 1,
+    name : 'Universidad Jose C Paz'
+  }, {
+    id : 2,
+    name : 'Universidad Nacional Arturo Jauretche'
+  }, {
+    id : 3,
+    name : 'Otra Universidad'
+  }];
+
+  travelOptions = [
+     { id:'0', name: 'Mais breve possível'},
+     { id:'1', name: 'Proximos 3 meses'},
+     { id:'2', name: 'Próximo 6 meses'},
+     { id:'3', name: 'Em um ano'}
+  ];
+
+  preferredDestionationOptions : any = [
+     { id: '1', name: 'Brasil'},
+     { id: '2', name: 'México'},
+     { id: '3', name: 'Peru'}
+  ];
+
   filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredSpanishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+  filteredPreferredDestinationsOptions: Observable<any[]>
 
   placeholderBirthdate: string;
 
@@ -133,8 +160,7 @@ export class FormGeComponent implements OnInit {
       repassword: new FormControl(this.user.repassword, [
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      ])
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
@@ -155,11 +181,22 @@ export class FormGeComponent implements OnInit {
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
+      other_university: new FormControl(this.user.other_university, [
+        Validators.required
+      ]),
+      when_can_travel: new FormControl(this.user.when_can_travel, [
+         Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      preferred_destination: new FormControl(this.user.preferred_destination, [
+         Validators.required
+      ]),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
+
 
     if(this.formedUser){
       this.user = this.formedUser;
@@ -208,6 +245,8 @@ export class FormGeComponent implements OnInit {
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
 
     this.filteredSpanishLevelOptions = this.spanishLevelOptions;
+
+    this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
   }
 
   onResize(event){
@@ -242,12 +281,12 @@ export class FormGeComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
+    /*return this.signupService.getUniversities(search).then((res: any) => {
       this.universities = res;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })
+    })*/
   }
 
   fillCourseSelect() {
@@ -286,7 +325,7 @@ export class FormGeComponent implements OnInit {
     return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyUniversity(){    
+  emptyUniversity(){
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
@@ -447,6 +486,10 @@ export class FormGeComponent implements OnInit {
 
   searchSpanishLevels(event) {
     this.filteredSpanishLevelOptions =  this._search(this.spanishLevelOptions, event.query);
+  };
+
+  searchPreferredDestinations(event) {
+    this.filteredPreferredDestinationsOptions =  this._search(this.preferredDestionationOptions, event.query);
   };
 
   _search(options, search){

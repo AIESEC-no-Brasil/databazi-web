@@ -196,9 +196,29 @@
                 </div>
               </form>
             </div>
-
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
+
+                <div class="form-group preferred_destination">
+                 <div class="input-group select-dropdown">
+                   <div class="input-group-prepend">
+                     <div class="input-group-text" style="text-align: left;">
+                       <i class="fas fa-plane"></i> Onde deseja viver a <br/>experiência?
+                     </div>
+                   </div>
+                   <div class="dropdown">
+                     <div class="styled-select">
+                       <p-autoComplete [(ngModel)]="user.preferred_destination" [suggestions]="filteredPreferredDestinationsOptions" #preferred_destinationAutocomplete (completeMethod)="searchPreferredDestinations($event)"
+                         (onFocus)="selectInput('preferred_destination'); preferred_destinationAutocomplete.handleDropdownClick();" dropdownMode="current"
+                         field="name" formControlName="preferred_destination" emptyMessage="Nenhum resultado" placeholder="Selecione"></p-autoComplete>
+                       <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('preferred_destination')" *ngIf="user.preferred_destination"></i>
+                     </div>
+                   </div>
+                 </div>
+                 <div *ngIf="isValidStudy('preferred_destination')" class='error-message'>
+                   Por favor, informe onde deseja viver a experiência
+                 </div>
+               </div>
 
                 <div class="form-group local_committee">
                   <div class="input-group select-dropdown">
@@ -259,6 +279,28 @@
                     </div>
                     <div *ngIf="isValidStudy('university_id')" class='error-message'>
                       Selecione uma universidade.
+                    </div>
+                  </div>
+                  <div class="form-group" *ngIf="+user.scholarity.id >= 2 && +user.scholarity.id != 6 && +user.university.id == 3">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-graduation-cap"></i>Otra Universidad</div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="text" class="form-control desktop" placeholder="¿Qué universidad?" [(ngModel)]="user.other_university" formControlName="other_university"
+                        name="other_university" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-user mobile mobile-icon"></i>
+                      <input type="text" class="form-control mobile" placeholder="¿Qué universidad?" [(ngModel)]="user.other_university" formControlName="other_university"
+                        name="other_university" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidPersonal('fullname')" class='error-message'>
+                      Preencha o nome completo.
                     </div>
                   </div>
                   <div class="form-group college_course">
@@ -323,6 +365,15 @@
                   </div>
                 </div>
 
+                <div class="form-checkbox-select">
+                   <div class="checkbox-item" *ngFor="let travel of travelOptions">
+                     <input type="radio" id="{{travel.name}}" value="{{travel.value}}" name='travel'>
+                     <label for="language" for="{{travel.name}}">
+                       {{travel.name}}
+                     </label>
+                   </div>
+                 </div>
+
 
                 <!-- Terms -->
                 <div class="row justify-content-center forms-term autocomplete-negative-index2">
@@ -338,7 +389,7 @@
                       <div class='mobile forms-terms-area' (click)='openModal()'>
                         <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                         <label class='form-group forms-tem-accepted info-mobile-content'>
-                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span> 
+                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
                         </label>
                       </div>
                     </div>
