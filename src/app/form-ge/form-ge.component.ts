@@ -42,7 +42,8 @@ export class FormGeComponent implements OnInit {
     utm_content: '',
     other_university : '',
     when_can_travel : { id: ''},
-    preferred_destination : { id: ''}
+    preferred_destination : { id: ''},
+    curriculum : {}
   }
 
   scholarityOptions: any = [
@@ -188,6 +189,9 @@ export class FormGeComponent implements OnInit {
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       preferred_destination: new FormControl(this.user.preferred_destination, [
+         Validators.required
+      ]),
+      curriculum: new FormControl(this.user.curriculum, [
          Validators.required
       ]),
     });

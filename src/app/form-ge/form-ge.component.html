@@ -370,10 +370,33 @@
                      <input type="radio" id="{{travel.name}}" value="{{travel.value}}" name='travel'>
                      <label for="language" for="{{travel.name}}">
                        {{travel.name}}
-                     </label>
-                   </div>
-                 </div>
+                    </label>
+                  </div>
+                </div>
 
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend desktop">
+                      <div class="input-group-text">
+                        <i class="fas fa-file"></i>Currículo
+                      </div>
+                    </div>
+                    <!-- desktop -->
+                    <input type="file" class="form-control desktop" [(ngModel)]="user.curriculum" formControlName="curriculum"
+                      name="curriculum" required>
+
+                    <!-- mobile -->
+                    <i class="fas fa-user mobile mobile-icon"></i>
+                    <input type="text" class="form-control mobile" [(ngModel)]="user.curriculum" formControlName="other_university"
+                      name="curriculum" required>
+                    <div class="valid-feedback">
+                      <i class="fas fa-check"></i>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('curriculum')" class='error-message'>
+                    Envie seu currículo
+                  </div>
+                </div>
 
                 <!-- Terms -->
                 <div class="row justify-content-center forms-term autocomplete-negative-index2">
