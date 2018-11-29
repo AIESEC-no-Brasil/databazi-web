@@ -41,7 +41,10 @@ export class FormGtComponent implements OnInit {
     utm_term: '',
     utm_content: '',
     city : { id : ''},
-    other_university: '',
+    other_university : '',
+    when_can_travel : { id: ''},
+    preferred_destination : { id: ''},
+    curriculum : {}
   }
 
   experienceItems = [
@@ -74,12 +77,31 @@ export class FormGtComponent implements OnInit {
     {id: '2', name:'Mendonza'}
   ];
 
+  travelOptions = [
+     { id:'0', name: 'Mais breve possível'},
+     { id:'1', name: 'Proximos 3 meses'},
+     { id:'2', name: 'Próximo 6 meses'},
+     { id:'3', name: 'Em um ano'}
+  ];
+
+  preferredDestionationOptions : any = [
+     { id: '1', name: 'Brasil'},
+     { id: '3', name: 'México'},
+     { id: '6', name: 'India'},
+     { id: '8', name: 'Romenia'},
+     { id: '9', name: 'Colombia'},
+     { id: '10', name: 'Panamá'},
+     { id: '11', name: 'Costa Rica'},
+     { id: '12', name: 'Hungria'},
+  ];
+
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
   filteredCitiesOptions: Observable<any[]>;
+  filteredPreferredDestinationsOptions: Observable<any[]>;
 
   placeholderBirthdate: string;
 
@@ -159,6 +181,15 @@ export class FormGtComponent implements OnInit {
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       other_university: new FormControl(this.user.other_university, []),
+      when_can_travel: new FormControl(this.user.when_can_travel, [
+         Validators.required
+      ]),
+      curriculum: new FormControl(this.user.curriculum, [
+         Validators.required
+      ]),
+      preferred_destination: new FormControl(this.user.preferred_destination, [
+         Validators.required
+      ]),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
@@ -200,6 +231,8 @@ export class FormGtComponent implements OnInit {
     this.filteredScholarityOptions = this.scholarityOptions;
 
     this.filteredCitiesOptions = this.citiesOptions;
+
+    this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
 
     this.fillUniversitySelect();
     this.fillCourseSelect().then(() => {
@@ -483,6 +516,10 @@ export class FormGtComponent implements OnInit {
 
   searchCities(event){
     this.filteredCitiesOptions = this._search(this.filteredCitiesOptions, event.query);
+  };
+
+  searchPreferredDestinations(event) {
+    this.filteredPreferredDestinationsOptions =  this._search(this.preferredDestionationOptions, event.query);
   };
 
   _search(options, search){

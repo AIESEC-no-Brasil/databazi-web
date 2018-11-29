@@ -334,7 +334,7 @@
                     </div>
                   </div>
                   <div class="form-checkbox-select">
-                    <div class="checkbox-item" *ngFor="let travel of travelOptions">
+                    <div class="checkbox-item" [(ngModel)]="user.when_can_travel" *ngFor="let travel of travelOptions">
                       <input type="radio" id="{{travel.name}}" value="{{travel.value}}" name='travel'>
                       <label for="language" for="{{travel.name}}">
                         {{travel.name}}

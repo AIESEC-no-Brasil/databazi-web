@@ -100,7 +100,7 @@ export class FormGeComponent implements OnInit {
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredSpanishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
-  filteredPreferredDestinationsOptions: Observable<any[]>
+  filteredPreferredDestinationsOptions: Observable<any[]>;
 
   placeholderBirthdate: string;
 
