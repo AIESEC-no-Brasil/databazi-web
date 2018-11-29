@@ -29,7 +29,6 @@ export class FormGtComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
     university: { id: '', name: ''},
     college_course: { id: '', name: ''},
     cellphone_contactable: '',
@@ -40,7 +39,12 @@ export class FormGtComponent implements OnInit {
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
-    utm_content: ''
+    utm_content: '',
+    city : { id : ''},
+    other_university : '',
+    when_can_travel : { id: ''},
+    preferred_destination : { id: ''},
+    curriculum : {}
   }
 
   experienceItems = [
@@ -67,11 +71,37 @@ export class FormGtComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
+  citiesOptions : any = [
+    {id: '0', name:'Buenos Aires'},
+    {id: '1', name:'Córdova'},
+    {id: '2', name:'Mendonza'}
+  ];
+
+  travelOptions = [
+     { id:'0', name: 'Mais breve possível'},
+     { id:'1', name: 'Proximos 3 meses'},
+     { id:'2', name: 'Próximo 6 meses'},
+     { id:'3', name: 'Em um ano'}
+  ];
+
+  preferredDestionationOptions : any = [
+     { id: '1', name: 'Brasil'},
+     { id: '3', name: 'México'},
+     { id: '6', name: 'India'},
+     { id: '8', name: 'Romenia'},
+     { id: '9', name: 'Colombia'},
+     { id: '10', name: 'Panamá'},
+     { id: '11', name: 'Costa Rica'},
+     { id: '12', name: 'Hungria'},
+  ];
+
   universities: any[];
-  filteredScholarityOptions: Observable<any[]>;  
+  filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+  filteredCitiesOptions: Observable<any[]>;
+  filteredPreferredDestinationsOptions: Observable<any[]>;
 
   placeholderBirthdate: string;
 
@@ -132,7 +162,6 @@ export class FormGtComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
@@ -141,14 +170,25 @@ export class FormGtComponent implements OnInit {
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      local_committee_id: new FormControl(this.user.local_committee, [
-        Validators.required
-      ]),
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
+      ]),
+      city: new FormControl(this.user.city, [
+        Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      other_university: new FormControl(this.user.other_university, []),
+      when_can_travel: new FormControl(this.user.when_can_travel, [
+         Validators.required
+      ]),
+      curriculum: new FormControl(this.user.curriculum, [
+         Validators.required
+      ]),
+      preferred_destination: new FormControl(this.user.preferred_destination, [
+         Validators.required
       ]),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
@@ -190,6 +230,10 @@ export class FormGtComponent implements OnInit {
 
     this.filteredScholarityOptions = this.scholarityOptions;
 
+    this.filteredCitiesOptions = this.citiesOptions;
+
+    this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
+
     this.fillUniversitySelect();
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
@@ -204,14 +248,6 @@ export class FormGtComponent implements OnInit {
           startWith(''),
           map(value => this._filter(value, this.englishLevelOptions))
         );
-
-    this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.step2Form.controls.local_committee_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.places))
-        );
-    });
   }
 
   private _filter(value: string, options: any): any[] {
@@ -296,14 +332,18 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id);
   }
 
-  emptyUniversity(){    
+  emptyUniversity(){
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
-      }else{
+      }
+      else if (+this.user.scholarity.id == 6) {
+        return !this.user.other_university;
+      }
+      else{
         return true;
       }
     }
@@ -345,7 +385,7 @@ export class FormGtComponent implements OnInit {
   closeModal(){
     this.modal = false;
   }
-  
+
   checkPhone(){
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
@@ -373,8 +413,22 @@ export class FormGtComponent implements OnInit {
     }
   }
 
+  checkUniversityField(){
+    if (this.user.university.name != 'OUTRA'){
+      this.user.other_university = '';
+      return false;
+    }
+    else if (this.user.university.name == "OUTRA" && !this.user.other_university) {
+      return true;
+    }
+  }
+
   submit() {
     this.submittedStudy = true;
+
+    if(this.checkUniversityField()){
+      return;
+    };
 
     let user = {
       gt_participant: {
@@ -383,7 +437,6 @@ export class FormGtComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        local_committee_id: +this.user.local_committee.id,
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -459,6 +512,14 @@ export class FormGtComponent implements OnInit {
 
   searchEnglishLevels(event) {
     this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
+  };
+
+  searchCities(event){
+    this.filteredCitiesOptions = this._search(this.filteredCitiesOptions, event.query);
+  };
+
+  searchPreferredDestinations(event) {
+    this.filteredPreferredDestinationsOptions =  this._search(this.preferredDestionationOptions, event.query);
   };
 
   _search(options, search){
