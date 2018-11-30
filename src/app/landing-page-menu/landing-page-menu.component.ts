@@ -47,4 +47,16 @@ export class LandingPageMenuComponent implements OnInit {
       scrollTop: element
     }, 700)
   }
+
+  goToGv(){
+    this.router.navigate(['/voluntario-global']);
+  }
+
+  goToGe(){
+    this.router.navigate(['/empreendedor-global']);
+  }
+
+  goToGt(){
+    this.router.navigate(['/talento-global']);
+  }
 }
