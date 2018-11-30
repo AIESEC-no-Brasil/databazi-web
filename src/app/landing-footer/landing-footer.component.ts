@@ -162,4 +162,16 @@ export class LandingFooterComponent implements OnInit {
   openUrl(site) {
     window.open(site);
   }
+
+  goToGv(){
+    this.router.navigate(['/voluntario-global']);
+  }
+
+  goToGe(){
+    this.router.navigate(['/empreendedor-global']);
+  }
+
+  goToGt(){
+    this.router.navigate(['/talento-global']);
+  }
 }
