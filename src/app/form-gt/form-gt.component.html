@@ -198,7 +198,7 @@
             </div>
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
-              <form [formGroup]="step2Form" class="forms">
+              <form [formGroup]="step2Form" class="forms" enctype="multipart/form-data">
 
                 <div class="form-group preferred_destination">
                  <div class="input-group select-dropdown">
@@ -221,7 +221,7 @@
                  </div>
                </div>
 
-                <div class="form-group city">
+<!--                 <div class="form-group city">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -240,8 +240,8 @@
                   <div *ngIf="isValidStudy('city')" class='error-message'>
                     Por favor, selecione sua cidade
                   </div>
-                </div>
-                <div class="form-group scholarity">
+                </div> -->
+                <!-- <div class="form-group scholarity">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -259,8 +259,9 @@
                   <div *ngIf="isValidStudy('scholarity')" class='error-message'>
                     Selecione um nível de escolaridade
                   </div>
-                </div>
-                <div *ngIf="user.scholarity.id>= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
+                </div> -->
+                <!-- <div *ngIf="user.scholarity.id>= 2 && user.scholarity.id != 6" class="animated fadeIn faster"> -->
+                <div class="animated fadeIn faster">
                   <div class="form-group university">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
@@ -352,30 +353,10 @@
                     </div>
                   </div>
                   <div class="form-checkbox-select">
-                    <div class="checkbox-item" [(ngModel)]="user.when_can_travel" *ngFor="let travel of travelOptions">
-                      <input type="radio" id="{{travel.name}}" value="{{travel.value}}" name='travel'>
-                      <label for="language" for="{{travel.name}}">
+                    <div class="checkbox-item" *ngFor="let travel of travelOptions">
+                      <label>
+                        <input type="radio" value="{{travel.id}}" [(ngModel)]="user.when_can_travel" name='when_can_travel' formControlName="when_can_travel">
                         {{travel.name}}
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group experiences-input">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-book-open"></i>Experiências</div>
-                    </div>
-                    <div class="label-experience">
-                      A escolha das experiências é algo opcional.
-                    </div>
-                  </div>
-                  <div class="form-checkbox-select">
-
-                    <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                      <input type="radio" id="{{experience.name}}" value="{{experience.value}}">
-                      <label for="language" for="{{experience.name}}">
-                        {{experience.name}}
                       </label>
                     </div>
                   </div>
@@ -388,21 +369,17 @@
                         <i class="fas fa-file"></i>Currículo
                       </div>
                     </div>
-                    <!-- desktop -->
-                    <input type="file" class="form-control desktop" [(ngModel)]="user.curriculum" formControlName="curriculum"
-                      name="curriculum" required>
+                    <input type="file" class="form-control" name="curriculum" required>
 
                     <!-- mobile -->
                     <i class="fas fa-user mobile mobile-icon"></i>
-                    <input type="text" class="form-control mobile" [(ngModel)]="user.curriculum" formControlName="other_university"
-                      name="curriculum" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidStudy('curriculum')" class='error-message'>
+                  <!-- <div *ngIf="isValidStudy('curriculum')" class='error-message'>
                     Envie seu currículo
-                  </div>
+                  </div> -->
                 </div>
 
                 <!-- Terms -->

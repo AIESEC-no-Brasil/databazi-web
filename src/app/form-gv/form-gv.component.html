@@ -197,7 +197,7 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms">
-                <div class="form-group city">
+<!--                 <div class="form-group city">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -216,8 +216,8 @@
                   <div *ngIf="isValidStudy('city')" class='error-message'>
                     Por favor, selecione sua cidade
                   </div>
-                </div>
-                <div class="form-group scholarity">
+                </div> -->
+                <!-- <div class="form-group scholarity">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -236,8 +236,9 @@
                   <div *ngIf="isValidStudy('scholarity')" class='error-message'>
                     Selecione um nível de escolaridade
                   </div>
-                </div>
-                <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6 && user.city" class="animated fadeIn faster">
+                </div> -->
+                <!-- <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6 && user.city" class="animated fadeIn faster"> -->
+                <div class="animated fadeIn faster">
                   <div class="form-group  university">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import * as moment from 'moment'; 
+import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
@@ -28,17 +28,17 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    university: { id: '', name: ''},
+    university: { id: '', name: '', local_committee_id : ''},
     college_course: { id: '', name: ''},
     cellphone_contactable: '',
-    scholarity: { id: ''},
+    scholarity: 1,
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
     utm_content: '',
     when_can_travel: { id: ''},
-    city: {id: ''},
+    /*city: {id: ''},*/
     other_university: '',
   }
 
@@ -131,15 +131,15 @@ export class FormGvComponent implements OnInit {
       university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
-      city: new FormControl(this.user.city, [
+      /*city: new FormControl(this.user.city, [
         Validators.required
-      ]),
+      ]),*/
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      scholarity: new FormControl(this.user.scholarity, [
+      /*scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),
+      ]),*/
       when_can_travel: new FormControl(this.user.when_can_travel, [
         Validators.required
       ]),
@@ -301,7 +301,7 @@ export class FormGvComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
+      this.user.university = { id: '', name: '', local_committee_id : '' };
       this.user.college_course = { id: '', name: '' };
     }
   }
@@ -311,11 +311,18 @@ export class FormGvComponent implements OnInit {
   }
 
   emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id);
+    //return !(this.user.scholarity && !!this.user.scholarity.id);
+    return false
   }
 
-  emptyUniversity(){    
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+  emptyUniversity(){
+    if(this.user.university && this.user.university.id){
+      return !this.user.university.id
+    }
+    else{
+      return true;
+    }
+    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
       }
@@ -328,11 +335,16 @@ export class FormGvComponent implements OnInit {
     }
     else {
       return false;
-    }
+    }*/
   }
 
   emptyCourse(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+    if(this.user.college_course.id){
+      return !this.user.college_course.id
+    }else{
+      return true;
+    }
+    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.college_course.id){
         return !this.user.college_course.id
       }else{
@@ -341,7 +353,7 @@ export class FormGvComponent implements OnInit {
     }
     else {
       return false;
-    }
+    }*/
   }
 
   checkDate() {
@@ -410,16 +422,17 @@ export class FormGvComponent implements OnInit {
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
+        scholarity: 1, //+this.user.scholarity.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         when_can_travel : +this.user.when_can_travel.id,
-        city: +this.user.city.id,
+        /*city: +this.user.city.id,*/
         other_university: this.user.other_university ? this.user.other_university : null
       }
     };
