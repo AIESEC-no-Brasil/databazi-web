@@ -28,13 +28,12 @@ export class FormGeComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: '', name: ''},
-    university: { id: '', name: ''},
+    university: { id: '', name: '', local_committee_id: ''},
     college_course: { id: '', name: ''},
     cellphone_contactable: '',
     english_level: { id: '', name: ''},
     spanish_level: { id: '', name: ''},
-    scholarity: { id: '', name: ''},
+    scholarity: 1,
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -43,7 +42,7 @@ export class FormGeComponent implements OnInit {
     other_university : '',
     when_can_travel : { id: ''},
     preferred_destination : { id: ''},
-    curriculum : {}
+    curriculum : ''
   }
 
   scholarityOptions: any = [
@@ -71,17 +70,6 @@ export class FormGeComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  universities: any = [{
-    id : 1,
-    name : 'Universidad Jose C Paz'
-  }, {
-    id : 2,
-    name : 'Universidad Nacional Arturo Jauretche'
-  }, {
-    id : 3,
-    name : 'Otra Universidad'
-  }];
-
   travelOptions = [
      { id:'0', name: 'Mais breve possível'},
      { id:'1', name: 'Proximos 3 meses'},
@@ -94,6 +82,8 @@ export class FormGeComponent implements OnInit {
      { id: '2', name: 'México'},
      { id: '3', name: 'Peru'}
   ];
+
+  universities : any = [];
 
   filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
@@ -169,18 +159,15 @@ export class FormGeComponent implements OnInit {
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      local_committee_id: new FormControl(this.user.local_committee, [
-        Validators.required
-      ]),
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
       spanish_level: new FormControl(this.user.spanish_level, [
         Validators.required
       ]),
-      scholarity: new FormControl(this.user.scholarity, [
+      /*scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),
+      ]),*/
       other_university: new FormControl(this.user.other_university, [
         Validators.required
       ]),
@@ -191,9 +178,9 @@ export class FormGeComponent implements OnInit {
       preferred_destination: new FormControl(this.user.preferred_destination, [
          Validators.required
       ]),
-      curriculum: new FormControl(this.user.curriculum, [
+      /*curriculum: new FormControl(this.user.curriculum, [
          Validators.required
-      ]),
+      ]),*/
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
@@ -284,12 +271,12 @@ export class FormGeComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    /*return this.signupService.getUniversities(search).then((res: any) => {
+    return this.signupService.getUniversities(search).then((res: any) => {
       this.universities = res;
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })*/
+    })
   }
 
   fillCourseSelect() {
@@ -315,7 +302,7 @@ export class FormGeComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = {id: '', name: ''};
+      this.user.university = {id: '', name: '', local_committee_id : ''};
       this.user.college_course = {id: '', name: ''};
     }
   }
@@ -325,11 +312,17 @@ export class FormGeComponent implements OnInit {
   }
 
   emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+    //return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id);
+    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id);
   }
 
   emptyUniversity(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+    if(this.user.university && this.user.university.id){
+      return !this.user.university.id
+    }else{
+      return true;
+    }
+    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
       }else{
@@ -338,11 +331,16 @@ export class FormGeComponent implements OnInit {
     }
     else {
       return false;
-    }
+    }*/
   }
 
   emptyCourse(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
+    if(this.user.college_course.id){
+      return !this.user.college_course.id
+    }else{
+      return true;
+    }
+    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.college_course.id){
         return !this.user.college_course.id
       }else{
@@ -351,7 +349,7 @@ export class FormGeComponent implements OnInit {
     }
     else {
       return false;
-    }
+    }*/
   }
 
   checkDate() {
@@ -412,11 +410,11 @@ export class FormGeComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        local_committee_id: +this.user.local_committee.id,
+        local_committee_id: +this.user.university.local_committee_id,
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
+        scholarity: 1, //+this.user.scholarity.id,
         english_level: +this.user.english_level.id,
         spanish_level: +this.user.spanish_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
