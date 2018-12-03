@@ -9,8 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-gt',
@@ -29,30 +29,30 @@ export class FormGtComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    university: { id: '', name: '', local_committee_id : ''},
-    college_course: { id: '', name: ''},
+    university: { id: '', name: '', local_committee_id: '' },
+    college_course: { id: '', name: '' },
     cellphone_contactable: '',
-    english_level: { id: ''},
+    english_level: { id: '' },
     scholarity: 1,
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
     utm_content: '',
-    /*city : { id : ''},*/
-    other_university : '',
-    when_can_travel : { id: ''},
-    preferred_destination : { id: ''},
-    curriculum : ''
+    city: { name: '' },
+    other_university: '',
+    when_can_travel: '',
+    preferred_destination: { id: '' },
+    curriculum: ''
   }
 
   scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+    { id: '0', name: 'Ensino Médio Completo' },
+    { id: '2', name: 'Estudante de Graduação' },
+    { id: '3', name: 'Mestrado ou Pós' },
+    { id: '4', name: 'Graduado em até 1,5 anos' },
+    { id: '5', name: 'Graduado há mais de 2 anos' },
+    { id: '6', name: 'Outro' }
   ];
 
   englishLevelOptions: any = [
@@ -63,29 +63,129 @@ export class FormGtComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  citiesOptions : any = [
-    {id: '0', name:'Buenos Aires'},
-    {id: '1', name:'Córdova'},
-    {id: '2', name:'Mendonza'}
-  ];
-
   travelOptions = [
-     { id:'0', name: 'Mais breve possível'},
-     { id:'1', name: 'Proximos 3 meses'},
-     { id:'2', name: 'Próximo 6 meses'},
-     { id:'3', name: 'Em um ano'}
+    { id: '0', name: 'Mais breve possível' },
+    { id: '1', name: 'Proximos 3 meses' },
+    { id: '2', name: 'Próximo 6 meses' },
+    { id: '3', name: 'Em um ano' }
   ];
 
-  preferredDestionationOptions : any = [
-     { id: '1', name: 'Brasil'},
-     { id: '3', name: 'México'},
-     { id: '6', name: 'India'},
-     { id: '8', name: 'Romenia'},
-     { id: '9', name: 'Colombia'},
-     { id: '10', name: 'Panamá'},
-     { id: '11', name: 'Costa Rica'},
-     { id: '12', name: 'Hungria'},
+  preferredDestionationOptions: any = [
+    { id: '1', name: 'Brasil' },
+    { id: '3', name: 'México' },
+    { id: '6', name: 'India' },
+    { id: '8', name: 'Romenia' },
+    { id: '9', name: 'Colombia' },
+    { id: '10', name: 'Panamá' },
+    { id: '11', name: 'Costa Rica' },
+    { id: '12', name: 'Hungria' },
   ];
+
+  // // mock Cities options
+  citiesOptions: any = [
+    {
+      name: "Bahía Blanca"
+    },
+    {
+      name: "Bariloche"
+    },
+    {
+      name: "CABA"
+    },
+    {
+      name: "Gran Buenos Aires Oeste"
+    },
+    {
+      name: "Catamarca"
+    },
+    {
+      name: "Cipolletti"
+    },
+    {
+      name: "Comodoro Rivadavia"
+    },
+    {
+      name: "Córdoba"
+    },
+    {
+      name: "Corrientes"
+    },
+    {
+      name: "Formosa"
+    },
+    {
+      name: "Jujuy"
+    },
+    {
+      name: "La Plata"
+    },
+    {
+      name: "La Rioja"
+    },
+    {
+      name: "Lomas de Zamora"
+    },
+    {
+      name: "Mar del Plata"
+    },
+    {
+      name: "Mendoza"
+    },
+    {
+      name: "Neuquén"
+    },
+    {
+      name: "Parana"
+    },
+    {
+      name: "Posadas"
+    },
+    {
+      name: "Resistencia"
+    },
+    {
+      name: "Rio Cuarto"
+    },
+    {
+      name: "Rio Gallegos"
+    },
+    {
+      name: "Rosario"
+    },
+    {
+      name: "Salta"
+    },
+    {
+      name: "San Juan"
+    },
+    {
+      name: "San Luis"
+    },
+    {
+      name: "Santa Fe"
+    },
+    {
+      name: "Santiago del Estero"
+    },
+    {
+      name: "Trelew"
+    },
+    {
+      name: "Tucumán"
+    },
+    {
+      name: "Ushuaia"
+    },
+    {
+      name: "Viedma"
+    },
+    {
+      name: "Otras ciudades"
+    },
+    {
+      name: "Santa Rosa (La Pampa)"
+    }
+  ]
 
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
@@ -97,7 +197,7 @@ export class FormGtComponent implements OnInit {
 
   placeholderBirthdate: string;
 
-  selectedItems : any = {
+  selectedItems: any = {
     language: false,
     marketing: false,
     information_technology: false,
@@ -120,7 +220,7 @@ export class FormGtComponent implements OnInit {
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
-  modal:boolean = false;
+  modal: boolean = false;
   embeddedForm: boolean = false;
 
   courses: any;
@@ -168,19 +268,19 @@ export class FormGtComponent implements OnInit {
       /*scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),*/
-      /*city: new FormControl(this.user.city, [
+      city: new FormControl(this.user.city, [
         Validators.required
-      ]),*/
+      ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       other_university: new FormControl(this.user.other_university, []),
       when_can_travel: new FormControl(this.user.when_can_travel, [
-         Validators.required
+        Validators.required
       ]),
       /*curriculum: new FormControl(this.user.curriculum, [
          Validators.required
       ]),*/
       preferred_destination: new FormControl(this.user.preferred_destination, [
-         Validators.required
+        Validators.required
       ]),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
@@ -188,7 +288,7 @@ export class FormGtComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.formedUser){
+    if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -236,10 +336,10 @@ export class FormGtComponent implements OnInit {
     });
 
     this.filteredEnglishLevelOptions = this.step2Form.controls.english_level.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.englishLevelOptions))
-        );
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value, this.englishLevelOptions))
+      );
   }
 
   private _filter(value: string, options: any): any[] {
@@ -247,26 +347,31 @@ export class FormGtComponent implements OnInit {
     return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
-  onResize(event){
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  cancelSignUp(){
-    if(this.formedUser){
+  cancelSignUp() {
+    if (this.formedUser) {
       this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
+    } else {
+      if (this.submittedPersonal) {
         this.submittedPersonal = false;
         this.submittedStudy = false;
         this.personalData = true;
         this.studyData = false;
-      }else{
+      } else {
         this.router.navigate(['/']);
       }
     }
   }
 
-  accessAiesec(){
+  filterUniversities(city) {
+    if (city)
+      this.fillUniversitySelect();
+  }
+
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
@@ -310,24 +415,24 @@ export class FormGtComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' , local_committee_id : ''};
+      this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.college_course = { id: '', name: '' };
     }
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  unableToSubmit() {
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
   }
 
-  emptyFields(){
+  emptyFields() {
     //return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id);
     return !(this.user.english_level && !!this.user.english_level.id);
   }
 
-  emptyUniversity(){
-    if(this.user.university && this.user.university.id){
+  emptyUniversity() {
+    if (this.user.university && this.user.university.id) {
       return !this.user.university.id
-    }else{
+    } else {
       return true;
     }
     /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
@@ -346,10 +451,10 @@ export class FormGtComponent implements OnInit {
     }*/
   }
 
-  emptyCourse(){
-    if(this.user.college_course.id){
+  emptyCourse() {
+    if (this.user.college_course.id) {
       return !this.user.college_course.id
-    }else{
+    } else {
       return true;
     }
     /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
@@ -377,18 +482,18 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
   }
 
-  checkPhone(){
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
@@ -412,8 +517,8 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  checkUniversityField(){
-    if (this.user.university.name != 'OUTRA'){
+  checkUniversityField() {
+    if (this.user.university.name != 'OUTRA') {
       this.user.other_university = '';
       return false;
     }
@@ -425,12 +530,9 @@ export class FormGtComponent implements OnInit {
   submit() {
     this.submittedStudy = true;
 
-    if(this.checkUniversityField()){
+    if (this.checkUniversityField()) {
       return;
     };
-
-    console.log("a pora", this.user.university);
-
     let user = {
       gt_participant: {
         fullname: this.user.fullname,
@@ -448,7 +550,11 @@ export class FormGtComponent implements OnInit {
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
+        when_can_travel: +this.user.when_can_travel,
+        city: this.user.city.name,
+        preferred_destination: +this.user.preferred_destination.id,
+        other_university: this.user.other_university ? this.user.other_university : null
       }
     };
     this.loading = true;
@@ -496,7 +602,7 @@ export class FormGtComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    if(!event.originalEvent){
+    if (!event.originalEvent) {
       this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
     }
@@ -508,31 +614,31 @@ export class FormGtComponent implements OnInit {
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
   searchEnglishLevels(event) {
-    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
+    this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
   };
 
-  searchCities(event){
+  searchCities(event) {
     this.filteredCitiesOptions = this._search(this.filteredCitiesOptions, event.query);
   };
 
   searchPreferredDestinations(event) {
-    this.filteredPreferredDestinationsOptions =  this._search(this.preferredDestionationOptions, event.query);
+    this.filteredPreferredDestinationsOptions = this._search(this.preferredDestionationOptions, event.query);
   };
 
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 

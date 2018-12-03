@@ -44,9 +44,10 @@ export class SignupService {
 			.then((res) => res.json());
 	}
 
-	getUniversities(search?){
+	getUniversities(search?, city?){
 		search = search || '';
-		return this.http.get(SignupService.url + `/universities?name=${search}&limit=10`)
+		city = city || '';
+		return this.http.get(SignupService.url + `/universities?name=${search}&city=${city.name}&limit=10`)
 			.toPromise()
 			.then((res) => res.json());
 	}
