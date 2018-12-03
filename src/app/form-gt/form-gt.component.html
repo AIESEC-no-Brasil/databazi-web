@@ -220,8 +220,7 @@
                    Por favor, informe onde deseja viver a experiência
                  </div>
                </div>
-
-<!--                 <div class="form-group city">
+               <div class="form-group city">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
@@ -232,7 +231,7 @@
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" #citiesAutocomplete
                           (onFocus)="selectInput('city'); citiesAutocomplete.handleDropdownClick();" dropdownMode="current"
-                          field="name" formControlName="city" emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"></p-autoComplete>
+                          field="name" formControlName="city" name='city' emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"  (onSelect)="filterUniversities(user.city)"></p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('city')" *ngIf="user.city"></i>
                       </div>
                     </div>
@@ -240,7 +239,7 @@
                   <div *ngIf="isValidStudy('city')" class='error-message'>
                     Por favor, selecione sua cidade
                   </div>
-                </div> -->
+                </div>
                 <!-- <div class="form-group scholarity">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
@@ -262,7 +261,7 @@
                 </div> -->
                 <!-- <div *ngIf="user.scholarity.id>= 2 && user.scholarity.id != 6" class="animated fadeIn faster"> -->
                 <div class="animated fadeIn faster">
-                  <div class="form-group university">
+                  <div class="form-group university" *ngIf='user.city.name'>
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">

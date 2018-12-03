@@ -13,7 +13,7 @@
         </div>
         <div *ngIf="!completedSignup">
           <div class="row" *ngIf="!embeddedForm">
-            <div class="col-sm" >
+            <div class="col-sm">
               <h1>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</h1>
             </div>
           </div>
@@ -200,25 +200,27 @@
               <form [formGroup]="step2Form" class="forms">
 
                 <div class="form-group preferred_destination">
-                 <div class="input-group select-dropdown">
-                   <div class="input-group-prepend">
-                     <div class="input-group-text" style="text-align: left;">
-                       <i class="fas fa-plane"></i> Onde deseja viver a <br/>experiência?
-                     </div>
-                   </div>
-                   <div class="dropdown">
-                     <div class="styled-select">
-                       <p-autoComplete [(ngModel)]="user.preferred_destination" [suggestions]="filteredPreferredDestinationsOptions" #preferred_destinationAutocomplete (completeMethod)="searchPreferredDestinations($event)"
-                         (onFocus)="selectInput('preferred_destination'); preferred_destinationAutocomplete.handleDropdownClick();" dropdownMode="current"
-                         field="name" formControlName="preferred_destination" emptyMessage="Nenhum resultado" placeholder="Selecione"></p-autoComplete>
-                       <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('preferred_destination')" *ngIf="user.preferred_destination"></i>
-                     </div>
-                   </div>
-                 </div>
-                 <div *ngIf="isValidStudy('preferred_destination')" class='error-message'>
-                   Por favor, informe onde deseja viver a experiência
-                 </div>
-               </div>
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text" style="text-align: left;">
+                        <i class="fas fa-plane"></i> Onde deseja viver a
+                        <br/>experiência?
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.preferred_destination" [suggestions]="filteredPreferredDestinationsOptions" #preferred_destinationAutocomplete
+                          (completeMethod)="searchPreferredDestinations($event)" (onFocus)="selectInput('preferred_destination'); preferred_destinationAutocomplete.handleDropdownClick();"
+                          dropdownMode="current" field="name" formControlName="preferred_destination" emptyMessage="Nenhum resultado"
+                          placeholder="Selecione"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('preferred_destination')" *ngIf="user.preferred_destination"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('preferred_destination')" class='error-message'>
+                    Por favor, informe onde deseja viver a experiência
+                  </div>
+                </div>
 
                 <!-- <div class="form-group local_committee">
                   <div class="input-group select-dropdown">
@@ -262,7 +264,28 @@
                 </div> -->
                 <!-- <div *ngIf="+user.scholarity.id >= 2 && +user.scholarity.id != 6" class="animated fadeIn faster"> -->
                 <div class="animated fadeIn faster">
-                  <div class="form-group university">
+                  <div class="form-group city">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-home"></i> Cidade
+                        </div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" #citiesAutocomplete
+                            (onFocus)="selectInput('city'); citiesAutocomplete.handleDropdownClick();" dropdownMode="current"
+                            field="name" formControlName="city" name='city' emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"
+                            (onSelect)="filterUniversities(user.city)"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('city')" *ngIf="user.city"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValidStudy('city')" class='error-message'>
+                      Por favor, selecione sua cidade
+                    </div>
+                  </div>
+                  <div class="form-group university" *ngIf='user.city.name'>
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -270,11 +293,10 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)"
-                            #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()"
-                            dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
-                            placeholder="Onde você estuda?"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
+                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete
+                            (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()" dropdownMode="current"
+                            field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Onde você estuda?"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')" *ngIf="user.university"></i>
                         </div>
                       </div>
                     </div>
@@ -282,7 +304,7 @@
                       Selecione uma universidade.
                     </div>
                   </div>
-                  <div class="form-group" *ngIf="+user.university.id == 3">
+                  <div class="form-group" *ngIf="user.university.name == 'OUTRA'">
                     <div class="input-group">
                       <div class="input-group-prepend desktop">
                         <div class="input-group-text">
@@ -316,7 +338,7 @@
                             #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick()"
                             dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
                             placeholder="Insira seu curso"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')"  *ngIf="user.college_course"></i>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')" *ngIf="user.college_course"></i>
                         </div>
                       </div>
                     </div>
@@ -337,7 +359,7 @@
                           #englishAutocomplete (onFocus)="selectInput('english_level');englishAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="english_level" emptyMessage="Nenhum resultado"
                           placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('english_level')" *ngIf="user.english_level"></i>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('english_level')" *ngIf="user.english_level"></i>
                       </div>
                     </div>
                   </div>
@@ -357,7 +379,7 @@
                           #spanishAutocomplete (onFocus)="selectInput('spanish_level');spanishAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="spanish_level" emptyMessage="Nenhum resultado"
                           placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
                       </div>
                     </div>
                   </div>
@@ -378,10 +400,9 @@
                   </div>
 
                   <div class="form-checkbox-select">
-                     <div class="checkbox-item" *ngFor="let travel of travelOptions">
+                    <div class="checkbox-item" *ngFor="let travel of travelOptions">
                       <label>
-                        <input type="radio" value="{{travel.id}}" [(ngModel)]="user.when_can_travel" name='when_can_travel' formControlName="when_can_travel">
-                        {{travel.name}}
+                        <input type="radio" value="{{travel.id}}" [(ngModel)]="user.when_can_travel" name='when_can_travel' formControlName="when_can_travel"> {{travel.name}}
                       </label>
                     </div>
                   </div>
@@ -421,14 +442,17 @@
                       <div class='mobile forms-terms-area' (click)='openModal()'>
                         <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                         <label class='form-group forms-tem-accepted info-mobile-content'>
-                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil. <br> <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
+                          Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
+                          <br>
+                          <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
                         </label>
                       </div>
                     </div>
                   </div>
                 </div>
-								<div class="form-group form-check text-center checkbox">
-                  <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable" name="cellphone_contactable">
+                <div class="form-group form-check text-center checkbox">
+                  <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable"
+                    formControlName="cellphone_contactable" name="cellphone_contactable">
                   <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
                 </div>
               </form>
@@ -489,9 +513,9 @@
 </div>
 
 <div id='modal' class='animated fadeIn faster' *ngIf="modal">
-    <div class='modal-bg' (click)='closeModal()'></div>
-    <div class='close-modal-button' (click)='closeModal()'>
-      <i class="fas fa-times-circle"></i>
-    </div>
-    <app-terms></app-terms>
+  <div class='modal-bg' (click)='closeModal()'></div>
+  <div class='close-modal-button' (click)='closeModal()'>
+    <i class="fas fa-times-circle"></i>
   </div>
+  <app-terms></app-terms>
+</div>
