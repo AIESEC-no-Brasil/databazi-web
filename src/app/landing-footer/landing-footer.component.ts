@@ -20,89 +20,93 @@ export class LandingFooterComponent implements OnInit {
   }
 
   constructor(private router: Router) {
+    this.partners = [];
+    this.window.Modernizr && this.window.Modernizr.on('webp', ( result ) => {
+      let webpSupport = false;
 
-    let webpSupport = this.window.Modernizr && this.window.Modernizr.webp && this.window.Modernizr.webp.lossless ? true : false;
+      if (result) {
+        webpSupport = result.lossless;
+      }
 
-    console.log("websupport", webpSupport);
+      this.partners = [
+        {
+          title: 'Assist Card',
+          img: webpSupport ? '../../assets/images/partners/assistcard.png.webp' : '../../assets/images/partners/assistcard.png',
+          site: 'https://www.assistcard.com/b2c/aiesec-br',
+        },
+        {
+          title: 'Delivery Much',
+          img: webpSupport ? '../../assets/images/partners/delivery_much.png.webp' : '../../assets/images/partners/delivery_much.png',
+          site: 'https://www.deliverymuch.com.br/',
+        },
+        {
+          title: 'DHL',
+          img: webpSupport ? '../../assets/images/partners/dhl.png.webp' : '../../assets/images/partners/dhl.png',
+          site: 'https://aiesec.org/partner/286836',
+        },
+        {
+          title: 'Electrolux',
+          img: webpSupport ? '../../assets/images/partners/electrolux.png.webp' : '../../assets/images/partners/electrolux.png',
+          site: 'https://aiesec.org/partner/272692',
+        },
+        {
+          title: 'Hyva',
+          img: webpSupport ? '../../assets/images/partners/hyva.png.webp' : '../../assets/images/partners/hyva.png',
+          site: 'https://aiesec.org/partner/344322',
 
-    this.partners = [
-      {
-        title: 'Assist Card',
-        img: webpSupport ? '../../assets/images/partners/assistcard.png.webp' : '../../assets/images/partners/assistcard.png',
-        site: 'https://www.assistcard.com/b2c/aiesec-br',
-      },
-      {
-        title: 'Delivery Much',
-        img: webpSupport ? '../../assets/images/partners/delivery_much.png.webp' : '../../assets/images/partners/delivery_much.png',
-        site: 'https://www.deliverymuch.com.br/',
-      },
-      {
-        title: 'DHL',
-        img: webpSupport ? '../../assets/images/partners/dhl.png.webp' : '../../assets/images/partners/dhl.png',
-        site: 'https://aiesec.org/partner/286836',
-      },
-      {
-        title: 'Electrolux',
-        img: webpSupport ? '../../assets/images/partners/electrolux.png.webp' : '../../assets/images/partners/electrolux.png',
-        site: 'https://aiesec.org/partner/272692',
-      },
-      {
-        title: 'Hyva',
-        img: webpSupport ? '../../assets/images/partners/hyva.png.webp' : '../../assets/images/partners/hyva.png',
-        site: 'https://aiesec.org/partner/344322',
+        },
+        {
+          title: 'Leroy Merlin',
+          img: webpSupport ? '../../assets/images/partners/leroymerlin.png.webp' : '../../assets/images/partners/leroymerlin.png',
+          site: 'https://www.leroymerlin.com.br/blog',
+        },
+        {
+          title: 'McKinsey & Company',
+          img: webpSupport ? '../../assets/images/partners/mckinseyecompany.png.webp' : '../../assets/images/partners/mckinseyecompany.png',
+          site: 'https://www.mckinsey.com.br/',
 
-      },
-      {
-        title: 'Leroy Merlin',
-        img: webpSupport ? '../../assets/images/partners/leroymerlin.png.webp' : '../../assets/images/partners/leroymerlin.png',
-        site: 'https://www.leroymerlin.com.br/blog',
-      },
-      {
-        title: 'McKinsey & Company',
-        img: webpSupport ? '../../assets/images/partners/mckinseyecompany.png.webp' : '../../assets/images/partners/mckinseyecompany.png',
-        site: 'https://www.mckinsey.com.br/',
+        },
+        {
+          title: 'Mondelez',
+          img: webpSupport ? '../../assets/images/partners/mondelez.png.webp' : '../../assets/images/partners/mondelez.png',
+          site: 'https://br.mondelezinternational.com/home',
 
-      },
-      {
-        title: 'Mondelez',
-        img: webpSupport ? '../../assets/images/partners/mondelez.png.webp' : '../../assets/images/partners/mondelez.png',
-        site: 'https://br.mondelezinternational.com/home',
+        },
+        {
+          title: 'Nestle',
+          img: webpSupport ? '../../assets/images/partners/nestle.png.webp' : '../../assets/images/partners/nestle.png',
+          site: 'https://www.nestle.com.br/',
+        },
+        {
+          title: 'Nokia',
+          img: webpSupport ? '../../assets/images/partners/nokia.png.webp' : '../../assets/images/partners/nokia.png',
+          site: 'https://aiesec.org/partner/330494',
 
-      },
-      {
-        title: 'Nestle',
-        img: webpSupport ? '../../assets/images/partners/nestle.png.webp' : '../../assets/images/partners/nestle.png',
-        site: 'https://www.nestle.com.br/',
-      },
-      {
-        title: 'Nokia',
-        img: webpSupport ? '../../assets/images/partners/nokia.png.webp' : '../../assets/images/partners/nokia.png',
-        site: 'https://aiesec.org/partner/330494',
+        },
+        {
+          title: 'Resultados Digitais',
+          img: webpSupport ? '../../assets/images/partners/resultadosdigitais.png.webp' : '../../assets/images/partners/resultadosdigitais.png',
+          site: 'https://resultadosdigitais.com.br/',
 
-      },
-      {
-        title: 'Resultados Digitais',
-        img: webpSupport ? '../../assets/images/partners/resultadosdigitais.png.webp' : '../../assets/images/partners/resultadosdigitais.png',
-        site: 'https://resultadosdigitais.com.br/',
+        },
+        {
+          title: 'SAP',
+          img: webpSupport ? '../../assets/images/partners/sap.png.webp' : '../../assets/images/partners/sap.png',
+          site: 'https://www.sap.com/brazil/about.html',
 
-      },
-      {
-        title: 'SAP',
-        img: webpSupport ? '../../assets/images/partners/sap.png.webp' : '../../assets/images/partners/sap.png',
-        site: 'https://www.sap.com/brazil/about.html',
-
-      },
-      {
-        title: 'Votorantim Cimentos',
-        img: webpSupport ? '../../assets/images/partners/votorantimcimentos.png.webp' : '../../assets/images/partners/votorantimcimentos.png',
-        site: 'https://www.votorantimcimentos.com.br/',
-      },
-      {
-        title: 'Whirlpool',
-        img: webpSupport ? '../../assets/images/partners/Whirlpoow.png.webp' : '../../assets/images/partners/Whirlpoow.png',
-        site: 'https://www.whirlpool.com.br/',
-      },
-    ]
+        },
+        {
+          title: 'Votorantim Cimentos',
+          img: webpSupport ? '../../assets/images/partners/votorantimcimentos.png.webp' : '../../assets/images/partners/votorantimcimentos.png',
+          site: 'https://www.votorantimcimentos.com.br/',
+        },
+        {
+          title: 'Whirlpool',
+          img: webpSupport ? '../../assets/images/partners/Whirlpoow.png.webp' : '../../assets/images/partners/Whirlpoow.png',
+          site: 'https://www.whirlpool.com.br/',
+        },
+      ];    
+    });
   }
 
   ngOnInit() {
@@ -161,5 +165,17 @@ export class LandingFooterComponent implements OnInit {
 
   openUrl(site) {
     window.open(site);
+  }
+
+  goToGv(){
+    this.router.navigate(['/voluntario-global']);
+  }
+
+  goToGe(){
+    this.router.navigate(['/empreendedor-global']);
+  }
+
+  goToGt(){
+    this.router.navigate(['/talento-global']);
   }
 }
