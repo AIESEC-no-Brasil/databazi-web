@@ -81,110 +81,42 @@ export class FormGtComponent implements OnInit {
     { id: '12', name: 'Hungria' },
   ];
 
-  // // mock Cities options
+  // list of cities - TODO: endpoint with all cities
   citiesOptions: any = [
-    {
-      name: "Bahía Blanca"
-    },
-    {
-      name: "Bariloche"
-    },
-    {
-      name: "CABA"
-    },
-    {
-      name: "Gran Buenos Aires Oeste"
-    },
-    {
-      name: "Catamarca"
-    },
-    {
-      name: "Cipolletti"
-    },
-    {
-      name: "Comodoro Rivadavia"
-    },
-    {
-      name: "Córdoba"
-    },
-    {
-      name: "Corrientes"
-    },
-    {
-      name: "Formosa"
-    },
-    {
-      name: "Jujuy"
-    },
-    {
-      name: "La Plata"
-    },
-    {
-      name: "La Rioja"
-    },
-    {
-      name: "Lomas de Zamora"
-    },
-    {
-      name: "Mar del Plata"
-    },
-    {
-      name: "Mendoza"
-    },
-    {
-      name: "Neuquén"
-    },
-    {
-      name: "Parana"
-    },
-    {
-      name: "Posadas"
-    },
-    {
-      name: "Resistencia"
-    },
-    {
-      name: "Rio Cuarto"
-    },
-    {
-      name: "Rio Gallegos"
-    },
-    {
-      name: "Rosario"
-    },
-    {
-      name: "Salta"
-    },
-    {
-      name: "San Juan"
-    },
-    {
-      name: "San Luis"
-    },
-    {
-      name: "Santa Fe"
-    },
-    {
-      name: "Santiago del Estero"
-    },
-    {
-      name: "Trelew"
-    },
-    {
-      name: "Tucumán"
-    },
-    {
-      name: "Ushuaia"
-    },
-    {
-      name: "Viedma"
-    },
-    {
-      name: "Otras ciudades"
-    },
-    {
-      name: "Santa Rosa (La Pampa)"
-    }
+    { name: "CABA" },
+    { name: "Bahía Blanca" },
+    { name: "Bariloche" },
+    { name: "Catamarca" },
+    { name: "Cipolletti" },
+    { name: "Comodoro Rivadavia" },
+    { name: "Córdoba" },
+    { name: "Corrientes" },
+    { name: "Formosa" },
+    { name: "Gran Buenos Aires Oeste" },
+    { name: "Jujuy" },
+    { name: "La Plata" },
+    { name: "La Rioja" },
+    { name: "Lomas de Zamora" },
+    { name: "Mar del Plata" },
+    { name: "Mendoza" },
+    { name: "Neuquén" },
+    { name: "Parana" },
+    { name: "Posadas" },
+    { name: "Resistencia" },
+    { name: "Rio Cuarto" },
+    { name: "Rio Gallegos" },
+    { name: "Rosario" },
+    { name: "Salta" },
+    { name: "San Juan" },
+    { name: "San Luis" },
+    { name: "Santa Fe" },
+    { name: "Santa Rosa (La Pampa)" },
+    { name: "Santiago del Estero" },
+    { name: "Trelew" },
+    { name: "Tucumán" },
+    { name: "Ushuaia" },
+    { name: "Viedma" },
+    { name: "Otras ciudades" }
   ]
 
   universities: any[];
@@ -222,6 +154,7 @@ export class FormGtComponent implements OnInit {
   completedSignup: boolean = false;
   modal: boolean = false;
   embeddedForm: boolean = false;
+  showOtherUniversityField: boolean = false;
 
   courses: any;
   places: any;
@@ -384,12 +317,26 @@ export class FormGtComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
+    return this.signupService.getUniversities(search, this.user.city).then((res: any) => {
       this.universities = res;
+      _.forEach(this.universities, (university) => {
+        if (_.includes(university.name.split(' '), "Otras")) {
+          university.other_university = true;
+        }
+      });
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
     })
+  }
+  
+  checkUniversity(university){
+    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)){
+      this.showOtherUniversityField = true;
+    }
+    else {
+      this.showOtherUniversityField = false;
+    }
   }
 
   fillCourseSelect() {
@@ -518,11 +465,11 @@ export class FormGtComponent implements OnInit {
   }
 
   checkUniversityField() {
-    if (this.user.university.name != 'OUTRA') {
+    if (!this.showOtherUniversityField) {
       this.user.other_university = '';
       return false;
     }
-    else if (this.user.university.name == "OUTRA" && !this.user.other_university) {
+    else if (this.showOtherUniversityField && !this.user.other_university) {
       return true;
     }
   }
