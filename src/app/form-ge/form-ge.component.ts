@@ -11,6 +11,8 @@ import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 
+import { FileValidatorDirective } from './../file-input-validator.directive';
+
 @Component({
   selector: 'app-form-ge',
   templateUrl: './form-ge.component.html',
@@ -56,11 +58,9 @@ export class FormGeComponent implements OnInit {
   ];
 
   englishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
     { id: '1', name: 'Básico' },
     { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
+    { id: '3', name: 'Avançado' }
   ];
 
   spanishLevelOptions: any = [
@@ -294,9 +294,9 @@ export class FormGeComponent implements OnInit {
       preferred_destination: new FormControl(this.user.preferred_destination, [
         Validators.required
       ]),
-      /*curriculum: new FormControl(this.user.curriculum, [
-         Validators.required
-      ]),*/
+      curriculum: new FormControl(this.user.curriculum, [
+         FileValidatorDirective.validate
+      ])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
@@ -437,7 +437,7 @@ export class FormGeComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.curriculum;
   }
 
   emptyFields() {
@@ -566,7 +566,8 @@ export class FormGeComponent implements OnInit {
         when_can_travel: +this.user.when_can_travel,
         city: this.user.city.name,
         preferred_destination: +this.user.preferred_destination.id,
-        other_university: this.user.other_university ? this.user.other_university : null
+        other_university: this.user.other_university ? this.user.other_university : null,
+        curriculum : this.step2Form.get('curriculum').value
       }
     };
     this.loading = true;
@@ -603,6 +604,17 @@ export class FormGeComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
+  }
+
+  onFileChange(event) {
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.step2Form.get('curriculum').setValue(file);
+      };
+    }
   }
 
   searchScholarity(event) {
