@@ -9,8 +9,13 @@ $break-sm: 576px;
     display: block;
 }
 
-.partners {
-    background-image: url("/assets/images/pattern1.png");
+.partners {    
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url("/assets/images/pattern1.png");
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url("/assets/images/pattern1.png.webp");
+    }
     position: relative;
     padding-top: 100px;
     &.padding-top-and-bottom {
@@ -32,8 +37,13 @@ $break-sm: 576px;
         top: -45px;
         background-size: cover;
         background-position: center center;
-        background-repeat: no-repeat;
-        background-image: url('../../assets/images/icon-handshake.png');
+        background-repeat: no-repeat;        
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('../../assets/images/icon-handshake.png');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('../../assets/images/icon-handshake.png.webp');
+        }
     }
     #footer-carousel {
         display: flex;
@@ -187,7 +197,15 @@ footer {
         }
     }
     &.bg-footer {
-        background: url('../../assets/images/bg-footer.jpg') no-repeat center center fixed;
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('../../assets/images/bg-footer.jpg')
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('../../assets/images/bg-footer.jpg.webp')
+        }
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
