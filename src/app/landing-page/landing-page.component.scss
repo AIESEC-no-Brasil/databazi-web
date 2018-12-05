@@ -858,13 +858,10 @@ drag-scroll {
 }
 
 @media (min-width: 991px) {
-    .box-case {
-        &.box-case-gv {
-            top: 50%;
-            height: 225px;
-            margin-top: -112.5px;
-            padding-top: 10px;
-            padding-bottom: 10px;
+    #carousel-wrapper {
+        .box-case {
+            height: 93.5%;
+            min-height: auto;
         }
     }
     #global {
@@ -1144,9 +1141,7 @@ drag-scroll {
         .cases {
             height: 100%;
             .box-case {
-                bottom: 3vh;
                 top: auto;
-                min-height: 30vh !important;
                 .logo-product {
                     min-height: 100px;
                 }
