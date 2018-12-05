@@ -4,7 +4,7 @@ body,
 main {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;    
+    overflow-x: hidden;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/pattern1.png');
     }
@@ -54,10 +54,10 @@ main {
     padding: 0px;
     margin-bottom: 10px;
     height: 450px;
-    position: relative;    
+    position: relative;
     background-size: cover;
     background-position: center center;
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/header.jpg');
     }
@@ -99,7 +99,6 @@ main {
     @at-root :host-context(.webp) #{&} {
         background-image: url('/assets/images/header.jpg.webp');
     }
-
     .description {
         h2 {
             color: #333;
@@ -115,7 +114,7 @@ main {
     .logo-product {
         background-size: 80%;
         background-position: center center;
-        background-repeat: no-repeat;   
+        background-repeat: no-repeat;
         min-height: 200px;
         &.ge {
             @at-root :host-context(.no-webp) #{&} {
@@ -176,59 +175,53 @@ main {
         background-size: auto 30px;
         background-position: center center;
         background-repeat: no-repeat;
-        &.mobile-1 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-1 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-1.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-1.png.webp');
             }
-
         }
-        &.mobile-2 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-2 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-2.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-2.png.webp');
             }
-
         }
-        &.mobile-3 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-3 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-3.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-3.png.webp');
             }
-
         }
-        &.mobile-4 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-4 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-4.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-4.png.webp');
             }
-
         }
-        &.mobile-5 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-5 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-5.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-5.png.webp');
             }
-
         }
-        &.mobile-6 {            
-            @at-root :host-context(.no-webp) #{&}{
+        &.mobile-6 {
+            @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/images/mobile-6.png');
             }
-            @at-root :host-context(.webp) #{&}{
+            @at-root :host-context(.webp) #{&} {
                 background-image: url('/assets/images/mobile-6.png.webp');
             }
-
         }
     }
     .col-9 {
@@ -316,7 +309,7 @@ main {
     margin-top: 20px;
 }
 
-.logo-empreendedor-global {    
+.logo-empreendedor-global {
     background-size: cover;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/logo-voluntario-global.png');
@@ -327,7 +320,7 @@ main {
 }
 
 section.history-session,
-section.experiences-session {    
+section.experiences-session {
     background-position: bottom center;
     background-size: 25%;
     @at-root :host-context(.no-webp) #{&} {
@@ -356,7 +349,7 @@ div#our-stories {
     justify-content: center;
     #our-stories-bg {
         width: 100%;
-        height: 100%;        
+        height: 100%;
         left: 0;
         top: 0;
         position: absolute;
@@ -393,7 +386,7 @@ div#our-stories {
     margin-bottom: 37.5px;
 }
 
-.history-session-image {    
+.history-session-image {
     background-size: cover;
     min-height: 300px;
     position: relative;
@@ -404,7 +397,7 @@ div#our-stories {
         background-image: url('/assets/images/party.png.webp');
     }
     .round {
-        right: -37.5px;        
+        right: -37.5px;
         background-size: 60%;
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('/assets/images/icon-highlight.png');
@@ -436,7 +429,7 @@ div#our-stories {
 .meet-our-programs-session {
     color: white;
     font-size: 30px;
-    position: relative;    
+    position: relative;
     background-size: 10%;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/pattern2.png');
@@ -478,7 +471,7 @@ div#our-stories {
     h1 {
         margin: 20px auto 40px auto
     }
-    .LDM {        
+    .LDM {
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
@@ -512,7 +505,7 @@ div#our-stories {
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center center;
-            &.icon-1 {                
+            &.icon-1 {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/images/hexa-4.png');
                 }
@@ -520,7 +513,7 @@ div#our-stories {
                     background-image: url('/assets/images/hexa-4.png.webp');
                 }
             }
-            &.icon-2 {                
+            &.icon-2 {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/images/hexa-3.png');
                 }
@@ -528,7 +521,7 @@ div#our-stories {
                     background-image: url('/assets/images/hexa-3.png.webp');
                 }
             }
-            &.icon-3 {                
+            &.icon-3 {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/images/hexa-1.png');
                 }
@@ -536,7 +529,7 @@ div#our-stories {
                     background-image: url('/assets/images/hexa-1.png.webp');
                 }
             }
-            &.icon-4 {                
+            &.icon-4 {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/images/hexa-2.png');
                 }
@@ -657,7 +650,7 @@ div#our-stories {
     width: 100%;
 }
 
-.case-1 {    
+.case-1 {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/case1.jpg');
     }
@@ -666,7 +659,7 @@ div#our-stories {
     }
 }
 
-.case-2 {    
+.case-2 {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/case2.jpg');
     }
@@ -675,7 +668,7 @@ div#our-stories {
     }
 }
 
-.case-3 {    
+.case-3 {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/case3.jpg');
     }
@@ -741,7 +734,7 @@ drag-scroll {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 75%;
-        &.gv {            
+        &.gv {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/products/gv/gv-logo.png');
             }
@@ -749,7 +742,7 @@ drag-scroll {
                 background-image: url('/assets/products/gv/gv-logo.png.webp');
             }
         }
-        &.gt {            
+        &.gt {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/products/gt/gt-logo.png');
             }
@@ -757,7 +750,7 @@ drag-scroll {
                 background-image: url('/assets/products/gt/gt-logo.png.webp');
             }
         }
-        &.ge {            
+        &.ge {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/products/ge/ge-logo.png');
             }
@@ -858,13 +851,10 @@ drag-scroll {
 }
 
 @media (min-width: 991px) {
-    .box-case {
-        &.box-case-gv {
-            top: 50%;
-            height: 225px;
-            margin-top: -112.5px;
-            padding-top: 10px;
-            padding-bottom: 10px;
+    #carousel-wrapper {
+        .box-case {
+            height: 93.5%;
+            min-height: auto;
         }
     }
     #global {
@@ -973,7 +963,7 @@ drag-scroll {
                 z-index: 3;
                 position: relative;
             }
-            &:nth-child(1) {                
+            &:nth-child(1) {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/products/gv/gv-intro.jpg');
                 }
@@ -984,7 +974,7 @@ drag-scroll {
                     background-color: rgba(239, 66, 49, .9)
                 }
             }
-            &:nth-child(2) {                
+            &:nth-child(2) {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/products/ge/ge-intro.jpg');
                 }
@@ -995,7 +985,7 @@ drag-scroll {
                     background-color: rgba(65, 187, 155, .9)
                 }
             }
-            &:nth-child(3) {                
+            &:nth-child(3) {
                 @at-root :host-context(.no-webp) #{&} {
                     background-image: url('/assets/products/gt/gt-intro.jpg');
                 }
@@ -1144,9 +1134,7 @@ drag-scroll {
         .cases {
             height: 100%;
             .box-case {
-                bottom: 3vh;
                 top: auto;
-                min-height: 30vh !important;
                 .logo-product {
                     min-height: 100px;
                 }
