@@ -235,7 +235,7 @@ export class FormGvComponent implements OnInit {
     }
     this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
   }
-  
+
   checkCityValue(){
     if (this.user.city){
       this.user.other_university = null;
@@ -318,7 +318,7 @@ export class FormGvComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search, this.user.city).then((res: any) => {
+    return this.signupService.getUniversities(search, this.user.city.name).then((res: any) => {
       this.universities = res;
       _.forEach(this.universities, (university) => {
         if (_.includes(university.name.split(' '), "Otras")) {

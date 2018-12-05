@@ -20,6 +20,8 @@ import { environment } from '../environments/environment';
 
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
+import { FileValueAccessorDirective } from './file-control-value-accessor.directive';
+import { FileValidatorDirective } from './file-input-validator.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -42,7 +44,9 @@ export class BaluHammerConfig extends HammerGestureConfig {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    FileValueAccessorDirective,
+    FileValidatorDirective
   ],
   imports: [
     BrowserModule,

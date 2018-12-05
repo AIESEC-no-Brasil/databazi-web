@@ -12,6 +12,8 @@ import * as $ from 'jquery';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
+import { FileValidatorDirective } from './../file-input-validator.directive';
+
 @Component({
   selector: 'app-form-gt',
   templateUrl: './form-gt.component.html',
@@ -56,11 +58,9 @@ export class FormGtComponent implements OnInit {
   ];
 
   englishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
     { id: '1', name: 'Básico' },
     { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
+    { id: '3', name: 'Avançado' }
   ];
 
   travelOptions = [
@@ -209,9 +209,9 @@ export class FormGtComponent implements OnInit {
       when_can_travel: new FormControl(this.user.when_can_travel, [
         Validators.required
       ]),
-      /*curriculum: new FormControl(this.user.curriculum, [
-         Validators.required
-      ]),*/
+      curriculum: new FormControl(this.user.curriculum, [
+         FileValidatorDirective.validate
+      ]),
       preferred_destination: new FormControl(this.user.preferred_destination, [
         Validators.required
       ]),
@@ -299,7 +299,7 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  filterUniversities(city) {
+  filterUniversities(city?) {
     if (city)
       this.fillUniversitySelect();
   }
@@ -317,7 +317,7 @@ export class FormGtComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search, this.user.city).then((res: any) => {
+    return this.signupService.getUniversities(search, this.user.city.name).then((res: any) => {
       this.universities = res;
       _.forEach(this.universities, (university) => {
         if (_.includes(university.name.split(' '), "Otras")) {
@@ -329,7 +329,7 @@ export class FormGtComponent implements OnInit {
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
     })
   }
-  
+
   checkUniversity(university){
     if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)){
       this.showOtherUniversityField = true;
@@ -368,7 +368,7 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.curriculum || !this.user.preferred_destination.id;
   }
 
   emptyFields() {
@@ -399,6 +399,7 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyCourse() {
+    return false
     if (this.user.college_course.id) {
       return !this.user.college_course.id
     } else {
@@ -486,22 +487,22 @@ export class FormGtComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         password: this.user.password,
-        birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
-        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
-        college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
+        birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('YYYY-MM-DD'),
+        university_id: (this.user.university.id == '' ? '' : +this.user.university.id),
+        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : ''),
+        college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
         scholarity: 1, //+this.user.scholarity.id,
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : ''),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : ''),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : ''),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : ''),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : ''),
         when_can_travel: +this.user.when_can_travel,
-        city: this.user.city.name,
         preferred_destination: +this.user.preferred_destination.id,
-        other_university: this.user.other_university ? this.user.other_university : null
+        other_university: this.user.other_university ? this.user.other_university : '',
+        curriculum : this.step2Form.get('curriculum').value
       }
     };
     this.loading = true;
@@ -540,6 +541,17 @@ export class FormGtComponent implements OnInit {
       })
   }
 
+  onFileChange(event) {
+    let reader = new FileReader();
+    if(event.target.files && event.target.files.length > 0) {
+      let file = event.target.files[0];
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.step2Form.get('curriculum').setValue(file);
+      };
+    }
+  }
+
   display(option) {
     return option ? option.name : undefined;
   }
@@ -574,7 +586,7 @@ export class FormGtComponent implements OnInit {
     }
     this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
   }
-  
+
   checkCityValue(){
     if (this.user.city){
       this.user.other_university = null;

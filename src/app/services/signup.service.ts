@@ -27,15 +27,41 @@ export class SignupService {
 	}
 
 	addGtParticipant(user){
-		return this.http.post(SignupService.url + '/gt_participants', user, this.headers())
+
+		let headers = new Headers();
+		headers.append('Mime-Type', 'multipart/form-data');
+		user = this.transformObjectToFormData(user);
+
+		return this.http.post(SignupService.url + '/gt_participants', user, new RequestOptions({ headers: headers }))
+			.toPromise()
+			.then((res) => res.json());
+
+	}
+
+	addGeParticipant(user){
+
+		let headers = new Headers();
+		headers.append('Mime-Type', 'multipart/form-data');
+		user = this.transformObjectToFormData(user);
+
+		return this.http.post(SignupService.url + '/ge_participants', user, new RequestOptions({ headers: headers }))
 			.toPromise()
 			.then((res) => res.json());
 	}
 
-	addGeParticipant(user){
-		return this.http.post(SignupService.url + '/ge_participants', user, this.headers())
-			.toPromise()
-			.then((res) => res.json());
+	transformObjectToFormData(object) {
+		let formData = new FormData();
+
+		let participant = Object.keys(object)[0];
+
+		for(let i = 0; i < Object.keys(object[participant]).length; i++) {
+
+			let k = Object.keys(object[participant])[i];
+			formData.append(participant + '[' + k + ']', object[participant][k]);
+
+		}
+
+		return formData;
 	}
 
 	checkValidEmail(email){
@@ -45,9 +71,15 @@ export class SignupService {
 	}
 
 	getUniversities(search?, city?){
-		search = search || '';
-		city = city || '';
-		return this.http.get(SignupService.url + `/universities?name=${search}&city=${city.name}&limit=10`)
+
+		let query = { limit : 10, search : '', city : '' };
+
+		if (search) query.search = search;
+		if (city) query.city = city;
+
+		return this.http.get(SignupService.url + `/universities`, {
+			params : query
+		})
 			.toPromise()
 			.then((res) => res.json());
 	}
