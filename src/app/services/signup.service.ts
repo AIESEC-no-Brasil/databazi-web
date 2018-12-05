@@ -72,7 +72,7 @@ export class SignupService {
 
 	getUniversities(search?, city?){
 
-		let query = { limit : 10 };
+		let query = { limit : 10, search : '', city : '' };
 
 		if (search) query.search = search;
 		if (city) query.city = city;
