@@ -71,14 +71,14 @@ export class FormGtComponent implements OnInit {
   ];
 
   preferredDestionationOptions: any = [
-    { id: '1', name: 'Brasil' },
-    { id: '3', name: 'México' },
-    { id: '6', name: 'India' },
-    { id: '8', name: 'Romenia' },
-    { id: '9', name: 'Colombia' },
-    { id: '10', name: 'Panamá' },
-    { id: '11', name: 'Costa Rica' },
-    { id: '12', name: 'Hungria' },
+    { id: '0', name: 'Brazil' },
+    { id: '1', name: 'Colombia' },
+    { id: '2', name: 'Costa Rica' },
+    { id: '3', name: 'Hungary' },
+    { id: '4', name: 'India' },
+    { id: '5', name: 'Mexico' },
+    { id: '6', name: 'Panama' },
+    { id: '7', name: 'Romania' },
   ];
 
   // list of cities - TODO: endpoint with all cities
@@ -368,7 +368,7 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id;
   }
 
   emptyFields() {
