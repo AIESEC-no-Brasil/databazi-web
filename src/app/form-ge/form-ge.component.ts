@@ -79,15 +79,10 @@ export class FormGeComponent implements OnInit {
   ];
 
   preferredDestionationOptions: any = [
-    { id: '1', name: 'Brasil' },
-    { id: '3', name: 'México' },
-    { id: '6', name: 'India' },
-    { id: '8', name: 'Romenia' },
-    { id: '9', name: 'Colombia' },
-    { id: '10', name: 'Panamá' },
-    { id: '11', name: 'Costa Rica' },
-    { id: '12', name: 'Hungria' },
-  ];
+    { id: '0', name: 'Brazil' },
+    { id: '1', name: 'Mexico' },
+    { id: '2', name: 'Peru' }
+  ]
 
   // list of cities - TODO: endpoint with all cities
   citiesOptions: any = [
@@ -384,7 +379,7 @@ export class FormGeComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id;
   }
 
   emptyFields() {
