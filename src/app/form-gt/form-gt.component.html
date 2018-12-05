@@ -298,7 +298,7 @@
                         <i class="fas fa-check"></i>
                       </div>
                     </div>
-                    <div *ngIf="isValidStudy('other_university') && user.university.name == 'OUTRA'" class='error-message'>
+                    <div *ngIf="submittedStudy && !user.other_university" class='error-message'>
                       Por favor, digite uma universidade válida.
                     </div>
                   </div>
