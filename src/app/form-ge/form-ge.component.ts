@@ -580,7 +580,17 @@ export class FormGeComponent implements OnInit {
   };
 
   searchCities(event) {
-    this.filteredCitiesOptions = this._search(this.filteredCitiesOptions, event.query);
+    if (!event.originalEvent){
+      this.filteredCitiesOptions = this.citiesOptions;
+    }
+    this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
+  }
+  
+  checkCityValue(){
+    if (this.user.city){
+      this.user.other_university = null;
+      this.user.university = null;
+    }
   }
 
   _search(options, search) {
@@ -603,5 +613,13 @@ export class FormGeComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = '';
+    if (field == 'city'){
+      this.user.university = null;
+      this.user.other_university = null;
+      this.filteredCitiesOptions = this.citiesOptions;
+    }
+    else if (field == 'university'){
+      this.user.other_university = null;
+    }
   }
 }

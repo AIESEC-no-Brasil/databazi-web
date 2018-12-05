@@ -206,7 +206,7 @@
                     </div>
                     <div class="dropdown">
                       <div class="styled-select">
-                        <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" #citiesAutocomplete
+                        <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" (onKeyUp)='checkCityValue()' #citiesAutocomplete
                           (onFocus)="selectInput('city'); citiesAutocomplete.handleDropdownClick();" dropdownMode="current"
                           field="name" formControlName="city" name='city' emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"  (onSelect)="filterUniversities(user.city)"></p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('city')" *ngIf="user.city"></i>
@@ -258,7 +258,7 @@
                       Selecione uma universidade.
                     </div>
                   </div>
-                  <div class="form-group" *ngIf='showOtherUniversityField && user.city'>
+                  <div class="form-group" *ngIf='showOtherUniversityField && user.city && user.university'>
                     <div class="input-group">
                       <div class="input-group-prepend desktop">
                         <div class="input-group-text">
