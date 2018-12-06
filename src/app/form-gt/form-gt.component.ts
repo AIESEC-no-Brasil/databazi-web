@@ -43,7 +43,6 @@ export class FormGtComponent implements OnInit {
     utm_content: '',
     city: { name: '' },
     other_university: '',
-    when_can_travel: '',
     preferred_destination: { id: '' },
     curriculum: ''
   }
@@ -61,13 +60,6 @@ export class FormGtComponent implements OnInit {
     { id: '1', name: 'Básico' },
     { id: '2', name: 'Intermediário' },
     { id: '3', name: 'Avançado' }
-  ];
-
-  travelOptions = [
-    { id: '0', name: 'Mais breve possível' },
-    { id: '1', name: 'Proximos 3 meses' },
-    { id: '2', name: 'Próximo 6 meses' },
-    { id: '3', name: 'Em um ano' }
   ];
 
   preferredDestionationOptions: any = [
@@ -206,9 +198,6 @@ export class FormGtComponent implements OnInit {
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       other_university: new FormControl(this.user.other_university, []),
-      when_can_travel: new FormControl(this.user.when_can_travel, [
-        Validators.required
-      ]),
       curriculum: new FormControl(this.user.curriculum, [
          FileValidatorDirective.validate
       ]),
@@ -368,7 +357,7 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.curriculum || !this.user.preferred_destination.id;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.curriculum || !this.user.preferred_destination.id;
   }
 
   emptyFields() {
@@ -488,20 +477,19 @@ export class FormGtComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('YYYY-MM-DD'),
-        university_id: (this.user.university.id == '' ? '' : +this.user.university.id),
-        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : ''),
+        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
         scholarity: 1, //+this.user.scholarity.id,
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : ''),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : ''),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : ''),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : ''),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : ''),
-        when_can_travel: +this.user.when_can_travel,
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         preferred_destination: +this.user.preferred_destination.id,
-        other_university: this.user.other_university ? this.user.other_university : '',
+        other_university: this.user.other_university ? this.user.other_university : null,
         curriculum : this.step2Form.get('curriculum').value
       }
     };
