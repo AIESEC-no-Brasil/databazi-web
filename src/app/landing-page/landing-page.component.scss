@@ -398,10 +398,10 @@ div#our-stories {
     min-height: 300px;
     position: relative;
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/party.png');
+        background-image: url('/assets/images/party.jpg');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/party.png.webp');
+        background-image: url('/assets/images/party.jpg.webp');
     }
     .round {
         right: -37.5px;        
@@ -657,7 +657,7 @@ div#our-stories {
     width: 100%;
 }
 
-.case-1 {    
+.case-1 {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/case1.jpg');
     }
@@ -857,7 +857,41 @@ drag-scroll {
     }
 }
 
-@media (min-width: 991px) {
+@media (min-width: 991px) {    
+    .case-1 {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+    }
+
+    .case-2 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+    }
+
+    .case-3 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+    }
+    .history-session-image{
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+    }
     #carousel-wrapper {
         .box-case {
             height: 93.5%;
