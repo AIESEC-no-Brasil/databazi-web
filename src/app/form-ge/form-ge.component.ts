@@ -34,7 +34,6 @@ export class FormGeComponent implements OnInit {
     college_course: { id: '', name: '' },
     cellphone_contactable: '',
     english_level: { id: '', name: '' },
-    spanish_level: { id: '', name: '' },
     scholarity: 1,
     utm_source: '',
     utm_medium: '',
@@ -61,14 +60,6 @@ export class FormGeComponent implements OnInit {
     { id: '1', name: 'Básico' },
     { id: '2', name: 'Intermediário' },
     { id: '3', name: 'Avançado' }
-  ];
-
-  spanishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
-    { id: '1', name: 'Básico' },
-    { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
   ];
 
   travelOptions = [
@@ -127,7 +118,6 @@ export class FormGeComponent implements OnInit {
   filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
-  filteredSpanishLevelOptions: Observable<any[]>;
   filteredCitiesOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
   filteredPreferredDestinationsOptions: Observable<any[]>;
@@ -206,9 +196,6 @@ export class FormGeComponent implements OnInit {
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
-      spanish_level: new FormControl(this.user.spanish_level, [
-        Validators.required
-      ]),
       /*scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),*/
@@ -276,8 +263,6 @@ export class FormGeComponent implements OnInit {
     });
 
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
-
-    this.filteredSpanishLevelOptions = this.spanishLevelOptions;
 
     this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
   }
@@ -384,7 +369,7 @@ export class FormGeComponent implements OnInit {
 
   emptyFields() {
     //return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id);
-    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id);
+    return !(this.user.english_level && !!this.user.english_level.id);
   }
 
   emptyUniversity() {
@@ -499,7 +484,6 @@ export class FormGeComponent implements OnInit {
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         scholarity: 1, //+this.user.scholarity.id,
         english_level: +this.user.english_level.id,
-        spanish_level: +this.user.spanish_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -581,10 +565,6 @@ export class FormGeComponent implements OnInit {
 
   searchEnglishLevels(event) {
     this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
-  };
-
-  searchSpanishLevels(event) {
-    this.filteredSpanishLevelOptions = this._search(this.spanishLevelOptions, event.query);
   };
 
   searchPreferredDestinations(event) {
