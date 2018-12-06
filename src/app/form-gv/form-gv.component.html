@@ -208,7 +208,7 @@
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.city" [suggestions]="filteredCitiesOptions" (completeMethod)="searchCities($event)" (onKeyUp)='checkCityValue()' #citiesAutocomplete
                           (onFocus)="selectInput('city'); citiesAutocomplete.handleDropdownClick();" dropdownMode="current"
-                          field="name" formControlName="city" name='city' emptyMessage="Nenhum resultado" placeholder="Qual a cidade onde você reside?"  (onSelect)="filterUniversities(user.city)"></p-autoComplete>
+                          field="name" formControlName="city" name='city' emptyMessage="Nenhum resultado" placeholder="Cidade onde estuda"  (onSelect)="filterUniversities(user.city)"></p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('city')" *ngIf="user.city"></i>
                       </div>
                     </div>
