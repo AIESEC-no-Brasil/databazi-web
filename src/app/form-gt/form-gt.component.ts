@@ -357,7 +357,7 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.curriculum || !this.user.preferred_destination.id;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id;
   }
 
   emptyFields() {

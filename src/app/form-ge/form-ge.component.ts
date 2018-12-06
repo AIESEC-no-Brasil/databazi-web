@@ -364,7 +364,7 @@ export class FormGeComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.curriculum || !this.user.preferred_destination.id;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id;
   }
 
   emptyFields() {
