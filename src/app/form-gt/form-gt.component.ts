@@ -490,9 +490,12 @@ export class FormGtComponent implements OnInit {
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         preferred_destination: +this.user.preferred_destination.id,
         other_university: this.user.other_university ? this.user.other_university : null,
-        curriculum : this.step2Form.get('curriculum').value
       }
     };
+
+    if (this.step2Form.get('curriculum').value) {
+      user.gt_participant['curriculum'] = this.step2Form.get('curriculum').value;
+    }
     this.loading = true;
     this.signupService.addGtParticipant(user)
       .then((res: any) => {
