@@ -484,7 +484,6 @@ export class FormGvComponent implements OnInit {
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         when_can_travel: +this.user.when_can_travel,
-        city: this.user.city.name,
         other_university: this.user.other_university ? this.user.other_university : null
       }
     };

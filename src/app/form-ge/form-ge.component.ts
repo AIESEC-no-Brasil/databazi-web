@@ -490,12 +490,14 @@ export class FormGeComponent implements OnInit {
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         when_can_travel: +this.user.when_can_travel,
-        city: this.user.city.name,
         preferred_destination: +this.user.preferred_destination.id,
         other_university: this.user.other_university ? this.user.other_university : null,
-        curriculum : this.step2Form.get('curriculum').value
       }
     };
+
+    if (this.step2Form.get('curriculum').value) {
+      user.ge_participant['curriculum'] = this.step2Form.get('curriculum').value;
+    }
     this.loading = true;
     this.signupService.addGeParticipant(user)
       .then((res: any) => {
