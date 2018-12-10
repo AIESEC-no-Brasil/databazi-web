@@ -64,6 +64,10 @@ export class FormOfflineComponent implements OnInit {
   courses: any;
   places: any;
 
+  cellphoneDefaultMask: string = '+00 000 000 0000';
+  cellphoneLargerMask:string = '+00 0 000 000 0000';
+  cellphoneMask : any;
+
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
@@ -242,10 +246,20 @@ export class FormOfflineComponent implements OnInit {
     }
   }
 
-  checkPhone(){
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
+    }
+  }
 
-    if (cellphone.length < 10){
+  checkPhone() {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 11) {
       this.invalidPhone = true;
       return;
     }
@@ -298,7 +312,7 @@ export class FormOfflineComponent implements OnInit {
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: this.user.birthdate,
@@ -306,7 +320,7 @@ export class FormOfflineComponent implements OnInit {
         university_id: (this.user.university_id == null ? null : +this.user.university_id),
         college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity,
+        scholarity: 1, //+this.user.scholarity,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),

@@ -47,6 +47,10 @@ export class FormGtComponent implements OnInit {
     curriculum: ''
   }
 
+  cellphoneDefaultMask: string = '+00 000 000 0000';
+  cellphoneLargerMask:string = '+00 0 000 000 0000';
+  cellphoneMask : any;
+
   scholarityOptions: any = [
     { id: '0', name: 'Ensino Médio Completo' },
     { id: '2', name: 'Estudante de Graduação' },
@@ -428,9 +432,8 @@ export class FormGtComponent implements OnInit {
   }
 
   checkPhone() {
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-
-    if (cellphone.length < 10) {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 11) {
       this.invalidPhone = true;
       return;
     }
@@ -473,7 +476,7 @@ export class FormGtComponent implements OnInit {
     let user = {
       gt_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('YYYY-MM-DD'),
@@ -582,6 +585,17 @@ export class FormGtComponent implements OnInit {
     if (this.user.city){
       this.user.other_university = null;
       this.user.university = null;
+    }
+  }
+
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
     }
   }
 

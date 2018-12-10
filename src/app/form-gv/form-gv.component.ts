@@ -42,6 +42,10 @@ export class FormGvComponent implements OnInit {
     other_university: '',
   }
 
+  cellphoneDefaultMask: string = '+00 000 000 0000';
+  cellphoneLargerMask:string = '+00 0 000 000 0000';
+  cellphoneMask : any;
+
   travelOptions = [
     { id: '0', name: 'Mais breve possível' },
     { id: '1', name: 'Proximos 3 meses' },
@@ -243,6 +247,17 @@ export class FormGvComponent implements OnInit {
     }
   }
 
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
+    }
+  }
+
   searchUnivesity(event) {
     if (!event.originalEvent) {
       this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
@@ -422,8 +437,8 @@ export class FormGvComponent implements OnInit {
   }
 
   checkPhone() {
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-    if (cellphone.length < 10) {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 11) {
       this.invalidPhone = true;
       return;
     }
@@ -469,7 +484,7 @@ export class FormGvComponent implements OnInit {
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),

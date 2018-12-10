@@ -79,13 +79,12 @@
                         <i class="fas fa-mobile-alt"></i>Celular</div>
                     </div>
                     <!-- desktop -->
-                    <input type="tel" class="form-control desktop tel-mask" placeholder="Vamos falar com você por aqui!" [(ngModel)]="user.cellphone"
-                      formControlName="cellphone" name="cellphone" mask="(00) 0000-00009" (blur)="checkPhone()" required>
-
+                    <input type="tel" class="form-control desktop tel-mask" mask="{{ cellphoneMask }}" placeholder="Vamos falar com você por aqui!"
+                      [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (keydown)='checkMaskCellphone($event)' (blur)="checkPhone()" required>
                     <!-- mobile -->
                     <i class="fas fa-mobile-alt mobile mobile-icon"></i>
-                    <input type="tel" class="form-control mobile tel-mask" placeholder="Celular" [(ngModel)]="user.cellphone" formControlName="cellphone"
-                      name="cellphone" mask="(00) 0000-00009" (blur)="checkPhone()" required>
+                    <input type="tel" class="form-control mobile tel-mask" mask="{{ cellphoneMask }}" placeholder="Celular" [(ngModel)]="user.cellphone"
+                      formControlName="cellphone" name="cellphone" (blur)="checkPhone()"  (keydown)='checkMaskCellphone($event)' required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -199,27 +198,6 @@
 
             <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
               <form [formGroup]="step2Form" class="forms" enctype="multipart/form-data">
-
-                <div class="form-group preferred_destination">
-                 <div class="input-group select-dropdown">
-                   <div class="input-group-prepend">
-                     <div class="input-group-text" style="text-align: left;">
-                       <i class="fas fa-plane"></i> Onde deseja viver a <br/>experiência?
-                     </div>
-                   </div>
-                   <div class="dropdown">
-                     <div class="styled-select">
-                       <p-autoComplete [(ngModel)]="user.preferred_destination" [suggestions]="filteredPreferredDestinationsOptions" #preferred_destinationAutocomplete (completeMethod)="searchPreferredDestinations($event)"
-                         (onFocus)="selectInput('preferred_destination'); preferred_destinationAutocomplete.handleDropdownClick();" dropdownMode="current"
-                         field="name" formControlName="preferred_destination" emptyMessage="Nenhum resultado" placeholder="Selecione"></p-autoComplete>
-                       <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('preferred_destination')" *ngIf="user.preferred_destination"></i>
-                     </div>
-                   </div>
-                 </div>
-                 <div *ngIf="isValidStudy('preferred_destination')" class='error-message'>
-                   Por favor, informe onde deseja viver a experiência
-                 </div>
-               </div>
                <div class="form-group city">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
@@ -339,6 +317,26 @@
                   </div>
                   <div *ngIf="isValidStudy('english_level')" class='error-message'>
                     Selecione um nível de inglês.
+                  </div>
+                </div>
+                <div class="form-group preferred_destination">
+                  <div class="input-group select-dropdown">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text" style="text-align: left;">
+                        <i class="fas fa-plane"></i> Onde deseja viver a <br/>experiência?
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.preferred_destination" [suggestions]="filteredPreferredDestinationsOptions" #preferred_destinationAutocomplete (completeMethod)="searchPreferredDestinations($event)"
+                          (onFocus)="selectInput('preferred_destination'); preferred_destinationAutocomplete.handleDropdownClick();" dropdownMode="current"
+                          field="name" formControlName="preferred_destination" emptyMessage="Nenhum resultado" placeholder="Selecione"></p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('preferred_destination')" *ngIf="user.preferred_destination"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isValidStudy('preferred_destination')" class='error-message'>
+                    Por favor, informe onde deseja viver a experiência
                   </div>
                 </div>
                 <div class="form-group">
