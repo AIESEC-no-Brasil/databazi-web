@@ -246,6 +246,8 @@ export class FormGtComponent implements OnInit {
       }
     });
 
+    this.cellphoneMask = this.cellphoneDefaultMask;
+    
     this.filteredScholarityOptions = this.scholarityOptions;
 
     this.filteredCitiesOptions = this.citiesOptions;

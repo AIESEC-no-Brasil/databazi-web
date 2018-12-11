@@ -269,6 +269,8 @@ export class FormGeComponent implements OnInit {
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
 
     this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
+
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   onResize(event) {

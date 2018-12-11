@@ -227,6 +227,8 @@ export class FormGvComponent implements OnInit {
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
     });
+
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   searchScholarity(event) {
