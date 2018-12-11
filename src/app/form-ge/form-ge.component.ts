@@ -62,6 +62,10 @@ export class FormGeComponent implements OnInit {
     { id: '3', name: 'Avançado' }
   ];
 
+  cellphoneDefaultMask: string = '+00 000 000 0000';
+  cellphoneLargerMask:string = '+00 0 000 000 0000';
+  cellphoneMask : any;
+
   travelOptions = [
     { id: '0', name: 'Mais breve possível' },
     { id: '1', name: 'Proximos 3 meses' },
@@ -430,9 +434,8 @@ export class FormGeComponent implements OnInit {
   }
 
   checkPhone() {
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-
-    if (cellphone.length < 10) {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 11) {
       this.invalidPhone = true;
       return;
     }
@@ -474,7 +477,7 @@ export class FormGeComponent implements OnInit {
     let user = {
       ge_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
@@ -587,6 +590,16 @@ export class FormGeComponent implements OnInit {
     }
   }
 
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
+    }
+  }
   _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
