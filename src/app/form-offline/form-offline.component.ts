@@ -148,6 +148,7 @@ export class FormOfflineComponent implements OnInit {
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   onResize(event){

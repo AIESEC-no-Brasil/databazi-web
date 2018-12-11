@@ -269,6 +269,8 @@ export class FormGeComponent implements OnInit {
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
 
     this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
+
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   onResize(event) {
@@ -324,6 +326,7 @@ export class FormGeComponent implements OnInit {
           university.other_university = true;
         }
       });
+      this.universities = this._search(this.universities, search);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -560,6 +563,12 @@ export class FormGeComponent implements OnInit {
     this.fillUniversitySelect(event.query);
   };
 
+  checkUniversityValue(event){
+    if (event.keyCode == 8 && !this.user.university) {
+      this.fillUniversitySelect('');
+    }
+  }
+
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
@@ -627,6 +636,7 @@ export class FormGeComponent implements OnInit {
     }
     else if (field == 'university'){
       this.user.other_university = null;
+      this.fillUniversitySelect();
     }
   }
 }

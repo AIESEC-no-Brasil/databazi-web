@@ -67,14 +67,14 @@ export class FormGtComponent implements OnInit {
   ];
 
   preferredDestionationOptions: any = [
-    { id: '0', name: 'Brazil' },
-    { id: '1', name: 'Colombia' },
-    { id: '2', name: 'Costa Rica' },
-    { id: '3', name: 'Hungary' },
-    { id: '4', name: 'India' },
-    { id: '5', name: 'Mexico' },
-    { id: '6', name: 'Panama' },
-    { id: '7', name: 'Romania' },
+    { id: '4', name: 'Brazil' },
+    { id: '5', name: 'Colombia' },
+    { id: '6', name: 'Costa Rica' },
+    { id: '7', name: 'Hungary' },
+    { id: '8', name: 'India' },
+    { id: '9', name: 'Mexico' },
+    { id: '10', name: 'Panama' },
+    { id: '11', name: 'Romania' },
   ];
 
   // list of cities - TODO: endpoint with all cities
@@ -246,6 +246,8 @@ export class FormGtComponent implements OnInit {
       }
     });
 
+    this.cellphoneMask = this.cellphoneDefaultMask;
+    
     this.filteredScholarityOptions = this.scholarityOptions;
 
     this.filteredCitiesOptions = this.citiesOptions;
@@ -317,6 +319,8 @@ export class FormGtComponent implements OnInit {
           university.other_university = true;
         }
       });
+      if (search)
+        this.universities = this._search(this.universities, search);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
@@ -562,6 +566,12 @@ export class FormGtComponent implements OnInit {
     this.fillUniversitySelect(event.query);
   };
 
+  checkUniversityValue(event){
+    if (event.keyCode == 8 && !this.user.university) {
+      this.fillUniversitySelect('');
+    }
+  }
+
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
@@ -630,6 +640,7 @@ export class FormGtComponent implements OnInit {
     }
     else if (field == 'university'){
       this.user.other_university = null;
+      this.fillUniversitySelect();
     }
   }
 }
