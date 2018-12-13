@@ -74,9 +74,9 @@ export class FormGeComponent implements OnInit {
   ];
 
   preferredDestionationOptions: any = [
-    { id: '0', name: 'Brazil' },
-    { id: '1', name: 'Mexico' },
-    { id: '2', name: 'Peru' }
+    { id: '1', name: 'Brazil' },
+    { id: '2', name: 'Mexico' },
+    { id: '3', name: 'Peru' }
   ]
 
   // list of cities - TODO: endpoint with all cities
