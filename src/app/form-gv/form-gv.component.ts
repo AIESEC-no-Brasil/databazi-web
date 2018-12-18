@@ -42,8 +42,8 @@ export class FormGvComponent implements OnInit {
     other_university: '',
   }
 
-  cellphoneDefaultMask: string = '+00 000 000 0000';
-  cellphoneLargerMask:string = '+00 0 000 000 0000';
+  cellphoneDefaultMask: string = '000 000 0000';
+  cellphoneLargerMask:string = '0 000 000 0000';
   cellphoneMask : any;
 
   travelOptions = [
@@ -251,7 +251,7 @@ export class FormGvComponent implements OnInit {
 
   checkMaskCellphone(event) {
     if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
-      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 10) {
         this.cellphoneMask = this.cellphoneDefaultMask;
       }
       else {
@@ -447,7 +447,7 @@ export class FormGvComponent implements OnInit {
 
   checkPhone() {
     let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
-    if (cellphone.length <= 11) {
+    if (cellphone.length <= 9) {
       this.invalidPhone = true;
       return;
     }
