@@ -471,41 +471,6 @@ div#our-stories {
     }
 }
 
-.meet-our-programs-session {
-    color: white;
-    font-size: 30px;
-    position: relative;    
-    background-size: 10%;
-    @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/pattern2.png');
-    }
-    @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/pattern2.png.webp');
-    }
-    min-height: 25vh;
-    width: 100%;
-    p.align-center {
-        margin: 20px auto;
-    }
-    #meet-our-programs-session-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        background-color: rgba(67, 122, 190, .95);
-    }
-    p {
-        color: white;
-        font-size: .75em;
-        font-weight: lighter;
-    }
-}
-
-.meet-our-programs-session button {
-    color: #437abe;
-}
-
 .experiences-session {
     font-size: 18px;
     min-height: 75vh !important;
@@ -515,6 +480,13 @@ div#our-stories {
     justify-content: center;
     h1 {
         margin: 20px auto 40px auto
+    }
+    .secundary-text  {
+        text-align: center;
+        margin: 20px 0;
+    }
+    h2 {
+        margin: 25px 0;
     }
     .LDM {        
         background-size: contain;
@@ -1081,31 +1053,15 @@ drag-scroll {
             font-size: 1.4em;
         }
     }
-    .meet-our-programs-session {
-        min-height: 35vh;
-        .meet-our-programs-content {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-        }
-    }
+    
     #our-stories {
         min-height: 100vh;
     }
-    .meet-our-programs-session,
     #our-stories {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
-    .meet-our-programs-session p.align-center {
-        max-width: 100%;
-        width: 100%;
-    }
-    .meet-our-programs-session.padding {
-        padding: 0;
     }
     section.our-stories {
         .carousel-container {
@@ -1144,21 +1100,6 @@ drag-scroll {
             h1 {
                 font-size: 2.5 !important;
             }
-        }
-        .meet-our-programs-content {
-            p {
-                font-size: .85em;
-            }
-            button {
-                font-size: .85em;
-            }
-        }
-    }
-    .meet-our-programs-session {
-        display: flex;
-        align-items: center;
-        .meet-our-programs-content {
-            width: 75%;
         }
     }
     #global {
