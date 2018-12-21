@@ -434,6 +434,7 @@ div#our-stories {
 }
 
 .membrasia{
+    height: 500px;
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
@@ -484,6 +485,9 @@ div#our-stories {
     .secundary-text  {
         text-align: center;
         margin: 20px 0;
+    }
+    .secundary-text button {
+        height: 60px;
     }
     h2 {
         margin: 25px 0;
