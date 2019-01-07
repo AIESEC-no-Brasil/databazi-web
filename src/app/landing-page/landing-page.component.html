@@ -5,7 +5,11 @@
     <div class="col-lg-4 col-sm-12 column-1 align-center">
       <div class="bg-color"></div>
       <div class="bg-content">
-        <img src="../../assets/images/logo-voluntario-global.png">
+        <picture>
+          <source srcset="../../assets/images/logo-voluntario-global.png.webp" type="image/webp">
+          <source srcset="../../assets/images/logo-voluntario-global.png" type="image/png">
+          <img src="../../assets/images/logo-voluntario-global.png">
+        </picture>
         <p class="desktop">
           Ser um voluntário global é transformar
           <br> seus valores em ação e fazer a diferença
@@ -54,7 +58,11 @@
     <div class="col-lg-4 col-sm-12 column-2 align-center">
       <div class="bg-color"></div>
       <div class="bg-content">
-        <img src="../../assets/images/logo-empreendedor-global.png">
+        <picture>
+          <source srcset="../../assets/images/logo-empreendedor-global.png.webp" type="image/webp">
+          <source srcset="../../assets/images/logo-empreendedor-global.png" type="image/png">
+          <img src="../../assets/images/logo-empreendedor-global.png">
+        </picture>
         <p class="desktop">
           Assuma os desafios de trabalhar em uma
           <br> Startup e se desenvolva como um lider
@@ -103,7 +111,11 @@
     <div class="col-lg-4 col-sm-12 column-3 align-center">
       <div class="bg-color"></div>
       <div class="bg-content">
-        <img src="../../assets/images/logo-talentos-globais.png">
+        <picture>
+          <source srcset="../../assets/images/logo-talentos-globais.png.webp" type="image/webp">
+          <source srcset="../../assets/images/logo-talentos-globais.png" type="image/png">
+          <img src="../../assets/images/logo-talentos-globais.png">
+        </picture>
         <p class="desktop">
           Agregue diferencial ao seu currículo
           <br> com essa experiência enriquecedora.
@@ -169,25 +181,41 @@
           </p>
           <div class="row margin">
             <div class="col-sm align-center">
-              <img src="../../assets/images/icon-people.png" class="coin">
+              <picture>
+                <source srcset="../../assets/images/icon-people.png.webp" type="image/webp" class="coin">
+                <source srcset="../../assets/images/icon-people.png" type="image/png" class="coin">
+                <img src="../../assets/images/icon-people.png" class="coin">
+              </picture>
               <p class="coin-text">
                 <strong>2000</strong> membros
                 <br> no Brasil</p>
             </div>
             <div class="col-sm align-center">
-              <img src="../../assets/images/icon-world.png" class="coin">
+              <picture>
+                <source srcset="../../assets/images/icon-world.png.webp" type="image/webp" class="coin">
+                <source srcset="../../assets/images/icon-world.png" type="image/png" class="coin">
+                <img src="../../assets/images/icon-world.png" class="coin">
+              </picture>
               <p class="coin-text">Presente em
                 <br>
                 <strong>+120 países</strong>
               </p>
             </div>
             <div class="col-sm align-center">
-              <img src="../../assets/images/icon-books.png" class="coin">
+              <picture>
+                <source srcset="../../assets/images/icon-books.png.webp" type="image/webp" class="coin">
+                <source srcset="../../assets/images/icon-books.png" type="image/png" class="coin">
+                <img src="../../assets/images/icon-books.png" class="coin">
+              </picture>
               <p class="coin-text">+12.000 intercâmbios
                 <br> por ano</p>
             </div>
             <div class="col-sm align-center">
-              <img src="../../assets/images/icon-handshake.png" class="coin">
+              <picture>
+                <source srcset="../../assets/images/icon-handshake.png.webp" type="image/webp" class="coin">
+                <source srcset="../../assets/images/icon-handshake.png" type="image/png" class="coin">
+                <img src="../../assets/images/icon-handshake.png" class="coin">
+              </picture>
               <p class="coin-text">+100 organizações
                 <br> parceiras no Brasil</p>
             </div>
@@ -197,17 +225,20 @@
     </div>
   </section>
 
-
-  <section class="row meet-our-programs-session">
-    <div id="meet-our-programs-session-bg"></div>
-    <div class="col-sm align-center meet-our-programs-content padding">
-      <p class="align-center margin">
-        O modelo de desenvolvimento de liderança da
-        <strong>AIESEC</strong> prepara jovens para defenderem aquilo que eles acreditam
-        <br> e os torna capazes de fazer a
-        <strong>diferença</strong> todos os dias.
-      </p>
-      <button type="button" class="btn btn-light" (click)="scrollToGlobal()">Conheça nossos programas</button>
+  <section class='membrasia'>
+    <div class='bg-membrasia'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-12">
+          <p>
+            Junte-se a nós como
+            <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
+            <br> Participe do nosso
+            <b>Processo Seletivo!</b>
+          </p>
+          <a class='btn btn-primary' target='_blank' href='http://promo.aiesec.org.br/sejamembro/'> Inscreva-se aqui </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -250,6 +281,14 @@
         </div>
         <div class="col-lg-5 col-sm-12 col-md-12 LDM">
         </div>
+        <div class="col-12 secundary-text">
+          <h2 class="italic centered">
+            O modelo de desenvolvimento de liderança da
+            <strong>AIESEC</strong> prepara jovens para defenderem aquilo que eles <br>
+            acreditam e os torna capazes de <strong>fazer a diferença todos os dias.</strong>
+          </h2>
+          <button type="button" class="btn btn-primary" (click)="scrollToGlobal()">Conheça nossos programas</button>
+        </div>
       </div>
     </div>
   </section>
@@ -260,13 +299,13 @@
       <br>
       <div class="row content-swipe-area">
         <div class="col-sm swipe-area">
-          <div class='swipe-animation' (mouseenter)="stopAnimation()"
-            (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"></div>
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
+            (swipeleft)="swipe('left')"></div>
           <div class="footer-carousel-btn-left">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
           <div class="carousel-container">
-            <div class='carousel-wrapper'>
+            <div class='carousel-wrapper' id='carousel-wrapper'>
               <div class="each-carousel-item">
                 <div class="cases case-1" drag-scroll-item>
                   <div class="box-case-bg"></div>
