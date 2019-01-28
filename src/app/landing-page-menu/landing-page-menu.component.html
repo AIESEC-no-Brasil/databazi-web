@@ -14,76 +14,76 @@
           </div>
           <ul id="menu">
             <li>
-              Faça um intercâmbio
+              <span i18n="@@makeAnExchange">Faça um intercâmbio</span>
               <ul class="animated fadeIn faster ul-products">
-                <li (click)="goToGv()">
+                <li (click)="goToGv()" i18n="@@globalVolunteer">
                   Voluntário Global
                 </li>
-                <li (click)="goToGe()">
+                <li (click)="goToGe()" i18n="@@globalEntrepreneur">
                   Empreendedor Global
                 </li>
-                <li (click)="goToGt()">
+                <li (click)="goToGt()" i18n="@@globalTalent">
                   Talento Global
                 </li>
                 <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
+                  <li i18n="@@hostAnExchange">
                     Hospede um intercambista
                   </li>
                 </a>
               </ul>
             </li>
             <li>
-              Seja nosso Parceiro
+              <span i18n="@@becomeOurPartner">Seja nosso Parceiro</span>
               <ul class="animated fadeIn faster ul-partners">
                 <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
-                  <li>
+                  <li i18n="@@ong">
                     ONG
                   </li>
                 </a>
                 <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
-                  <li>
+                  <li i18n="@@companies">
                     Empresas
                   </li>
                 </a>
               </ul>
             </li>
             <a href="http://blog.aiesec.org.br/youthspeak/">
-              <li>
+              <li i18n="@@youthspeak">
                 Youthspeak
               </li>
             </a>
             <li>
-              Blog
+              <span i18n="@@blog">Blog</span>
               <ul class="animated fadeIn faster ul-blog">
                 <a href="http://business.aiesec.org.br/">
-                  <li>
+                  <li i18n="@@business">
                     Business
                   </li>
                 </a>
                 <a href="http://aiesec.blog.br/">
-                  <li>
+                  <li i18n="@@students">
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
             <li>
-              Planeje sua viagem
+              <span i18n="@@planYourTrip">Planeje sua viagem</span>
               <ul class="animated fadeIn faster ul-travel">
                 <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li>
+                  <li i18n="@@airlineTickets">
                     Passagens Aéreas
                   </li>
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li>
+                  <li i18n="@@healthInsurance">
                     Seguro Saúde
                   </li>
                 </a>
               </ul>
             </li>
             <a href="http://blog.aiesec.org.br/contato/">
-              <li>
+              <li i18n="@@contact">
                 Contato
               </li>
             </a>
@@ -92,34 +92,34 @@
           <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
             <div class="logo-menu" routerLink="/"></div>
             <li>
-              <span>Faça um intercâmbio</span>
+              <span i18n="@@makeAnExchange">Faça um intercâmbio</span>
               <ul class="animated fadeIn faster">
-                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'" i18n="@@globalVolunteer">
                   Voluntário Global
                 </li>
-                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'" i18n="@@globalEntrepreneur">
                   Empreendedor Global
                 </li>
-                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'" i18n="@@globalTalent">
                   Talento Global
                 </li>
                 <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
+                  <li i18n="@@hostAnExchange">
                     Hospede um intercambista
                   </li>
                 </a>
               </ul>
             </li>
             <li>
-              <span>Seja nosso Parceiro</span>
+              <span i18n="@@becomeOurPartner">Seja nosso Parceiro</span>
               <ul class="animated fadeIn faster">
                 <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
-                  <li>
+                  <li i18n="@@ong">
                     ONG
                   </li>
                 </a>
                 <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
-                  <li>
+                  <li i18n="@@companies">
                     Empresas
                   </li>
                 </a>
@@ -127,34 +127,34 @@
             </li>
             <a href="http://blog.aiesec.org.br/youthspeak/">
               <li>
-                <span>Youthspeak</span>
+                <span i18n="@@youthspeak">Youthspeak</span>
               </li>
             </a>
             <li>
               <span>Blog</span>
               <ul class="animated fadeIn faster">
                 <a href="http://business.aiesec.org.br/">
-                  <li>
+                  <li i18n="@@business">
                     Business
                   </li>
                 </a>
                 <a href="http://aiesec.blog.br/">
-                  <li>
+                  <li i18n="@@students">
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
             <li>
-              <span>Planeje sua viagem</span>
+              <span i18n="@@planYourTrip">Planeje sua viagem</span>
               <ul class="animated fadeIn faster">
                 <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li>
+                  <li i18n="@@airlineTickets">
                     Passagens Aéreas
                   </li>
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li>
+                  <li i18n="@@healthInsurance">
                     Seguro Saúde
                   </li>
                 </a>
@@ -162,7 +162,7 @@
             </li>
             <a href="http://blog.aiesec.org.br/contato/">
               <li>
-                <span>Contato</span>
+                <span i18n="@@contact">Contato</span>
               </li>
             </a>
           </ul>
@@ -170,34 +170,34 @@
       </div>
     </div>
     <div class="product-info" *ngIf="actualPage == 'talento-global'">
-      <h1 class='color-white bold'>
+      <h1 class='color-white bold' i18n="@@landingGtTitle">
         Talento Global
       </h1>
-      <h2 class='color-white'>
+      <h2 class='color-white' i18n="@@landingGtDescription">
         Descubra
         <b>seu verdadeiro talento.</b>
       </h2>
     </div>
     <div class="product-info" *ngIf="actualPage == 'empreendedor-global'">
-      <h1 class='color-white bold'>
+      <h1 class='color-white bold' i18n="@@landingGeTitle">
         Empreendedor Global
       </h1>
-      <h2 class='color-white'>
+      <h2 class='color-white' i18n="@@landingGeDescription">
         Empreendedorismo é
         <b>encontrar sua paixão.</b>
       </h2>
     </div>
     <div class="product-info" *ngIf="actualPage == 'voluntario-global'">
-      <h1 class='color-white bold'>
+      <h1 class='color-white bold' i18n="@@landingGvTitle">
         Voluntário Global
       </h1>
-      <h2 class='color-white'>
+      <h2 class='color-white' i18n="@@landingGvDescription">
         Voluntário para
         <b>as pessoas.</b>
       </h2>
     </div>
     <div class="product-info" *ngIf="actualPage == ''">
-      <h1 class='color-white bold intro'>
+      <h1 class='color-white bold intro' i18n="@@landingPageIntro">
         A AIESEC é o maior movimento de liderança jovem do mundo
       </h1>
       <h2 class='color-white intro'>

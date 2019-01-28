@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MessagesModule } from 'primeng/messages';
@@ -75,6 +75,10 @@ export class BaluHammerConfig extends HammerGestureConfig {
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: BaluHammerConfig
+    },
+    { 
+      provide: LOCALE_ID, 
+      useValue: 'en' 
     }
   ],
   bootstrap: [AppComponent]

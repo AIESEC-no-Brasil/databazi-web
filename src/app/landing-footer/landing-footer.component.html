@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-sm-12">
-        <h1 class="centered italic">Os nossos parceiros premium</h1>
+        <h1 class="centered italic" i18n="@@ourPremiumPartners">Os nossos parceiros premium</h1>
         <div id="footer-carousel">
           <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
             (swipeleft)="swipe('left')" [style.touch-action]="'pan-y'"></div>
@@ -38,7 +38,7 @@
           <source srcset="../../assets/images/aiesec-logo.png" type="image/png" class="img-responsive"> 
           <img class="img-responsive" src="../../assets/images/aiesec-logo.png" width="200px;">
         </picture>
-        <p class="centered semibold">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
+        <p class="centered semibold" i18n="@@footerText">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
       </div>
     </div>
     <hr/>
@@ -46,42 +46,42 @@
       <div class="footer-links col-md-6">
         <div class="row">
           <div class="footer-group-links col-md-4 col-sm-6">
-            <p class="semibold footer-link-title">Institucional</p>
+            <p class="semibold footer-link-title" i18n="@@institutional">Institucional</p>
             <p>
-              <a href="http://blog.aiesec.org.br/a-aiesec/">A AIESEC</a>
+              <a href="http://blog.aiesec.org.br/a-aiesec/" i18n="@@theAIESEC">A AIESEC</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/faca-parte/">Faça parte</a>
+              <a href="http://blog.aiesec.org.br/faca-parte/" i18n="@@bePartOfIt">Faça parte</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/alumni/">Alummi</a>
+              <a href="http://blog.aiesec.org.br/alumni/" i18n="@@alummi">Alummi</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/youthspeak/">YouthSpeak</a>
+              <a href="http://blog.aiesec.org.br/youthspeak/" i18n="@@youthSpeak">YouthSpeak</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
-            <p class="semibold footer-link-title">Jovens</p>
+            <p class="semibold footer-link-title" i18n="@@young">Jovens</p>
             <p>
-              <a (click)="goToGe()">Empreendedor Global</a>
+              <a (click)="goToGe()" i18n="@@globalEntrepreneur">Empreendedor Global</a>
             </p>
             <p>
-              <a (click)="goToGt()">Talento Global</a>
+              <a (click)="goToGt()" i18n="@@globalTalent">Talento Global</a>
             </p>
             <p>
-              <a (click)="goToGv()">Voluntário Global</a>
+              <a (click)="goToGv()" i18n="@@globalVolunteer">Voluntário Global</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">Hospede um intercambista</a>
+              <a href="http://blog.aiesec.org.br/hospede-um-intercambista/" i18n="@@hostAnExchange">Hospede um intercambista</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6 desktop">
-            <p class="semibold footer-link-title">Seja parceiro</p>
+            <p class="semibold footer-link-title" i18n="@@becomePartner">Seja parceiro</p>
             <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">ONG</a>
+              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/" i18n="@@ong">ONG</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">Empresas</a>
+              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" i18n="@@companies">Empresas</a>
             </p>
           </div>
         </div>
@@ -89,29 +89,29 @@
       <div class="footer-links col-md-6">
         <div class="row">
           <div class="footer-group-links col-md-3 col-sm-6 mobile">
-            <p class="semibold footer-link-title">Seja parceiro</p>
+            <p class="semibold footer-link-title" i18n="@@becomePartner">Seja parceiro</p>
             <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">ONG</a>
+              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/" i18n="@@ong">ONG</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">Empresas</a>
+              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" i18n="@@companies">Empresas</a>
             </p>
           </div>
           <div class="footer-group-links col-md-3 col-sm-6">
-            <p class="semibold footer-link-title">Blog</p>
+            <p class="semibold footer-link-title" i18n="@@blog">Blog</p>
             <p>
-              <a href="http://business.aiesec.org.br/">Business</a>
+              <a href="http://business.aiesec.org.br/" i18n="@@business">Business</a>
             </p>
             <p>
-              <a href="http://aiesec.blog.br/">Estudantes</a>
+              <a href="http://aiesec.blog.br/" i18n="@@students">Estudantes</a>
             </p>
           </div>
           <div class="footer-group-links col-md-3 col-sm-12" id="label-contact">
             <p class="semibold footer-link-title desktop">
-              <a href="http://blog.aiesec.org.br/contato/">Contato</a>
+              <a href="http://blog.aiesec.org.br/contato/" i18n="@@contact">Contato</a>
             </p>
             <p class="semibold footer-link-title mobile">
-              <a href="http://blog.aiesec.org.br/contato/">Entre em contato com a gente</a>
+              <a href="http://blog.aiesec.org.br/contato/" i18n="@@contactUs">Entre em contato com a gente</a>
             </p>
           </div>
           <div class="footer-social-networks col-md-6 col-sm-6">
@@ -133,6 +133,6 @@
     </div>
   </div>
   <div class="footer-copyright">
-    <p>AIESEC do Brasil 2018. Todos os direitos reservados.</p>
+    <p i18n="@@footerCopyright">AIESEC do Brasil 2018. Todos os direitos reservados.</p>
   </div>
 </footer>
