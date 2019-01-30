@@ -90,6 +90,20 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "databazi-web:build"
+          },
+          "configurations" : {
+            "pt": {
+              "outputPath": "src/locale/",
+              "outFile": "pt.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "pt"
+            },
+            "es": {
+              "outputPath": "src/locale/",
+              "outFile": "es.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "es"
+            }
           }
         },
         "test": {
