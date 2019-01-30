@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+# i18n internationalization
+
+ng xi18n --i18n-locale pt --output-path locale --out-file pt.xlf 
+
 ## Branch
 staging: default branch
 
