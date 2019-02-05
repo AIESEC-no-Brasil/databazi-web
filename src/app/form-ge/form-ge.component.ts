@@ -34,7 +34,7 @@ export class FormGeComponent implements OnInit {
     college_course: { id: '', name: '' },
     cellphone_contactable: '',
     english_level: { id: '', name: '' },
-    scholarity: 1,
+    scholarity: {id:''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -48,12 +48,12 @@ export class FormGeComponent implements OnInit {
   }
 
   scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
+    { id: '0', name: 'Secundario Incompleto' },
+    { id: '1', name: 'Secundario Completo' },
+    { id: '2', name: 'Universitario en Curso' },
+    { id: '3', name: 'Universitario Completo' },
+    { id: '4', name: 'Grado Maestro en Curso' },
+    { id: '5', name: 'Grado Maestro Completo' }
   ];
 
   englishLevelOptions: any = [
@@ -200,9 +200,9 @@ export class FormGeComponent implements OnInit {
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
-      /*scholarity: new FormControl(this.user.scholarity, [
+      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),*/
+      ]),
       other_university: new FormControl(this.user.other_university, [
         Validators.required
       ]),
@@ -333,8 +333,8 @@ export class FormGeComponent implements OnInit {
     })
   }
 
-  checkUniversity(university){
-    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)){
+  checkUniversity(university) {
+    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)) {
       this.showOtherUniversityField = true;
     }
     else {
@@ -364,9 +364,15 @@ export class FormGeComponent implements OnInit {
   }
 
   changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+    if (scholarity_level && (+scholarity_level == 0) || (+scholarity_level == 1)) {
+      this.user.city = _.find(this.citiesOptions, (city) => { return city.name == 'Otras ciudades' });
+      this.filterUniversities(this.user.city);
+    }
+    else {
+      this.user.city = { name : '' },
       this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.college_course = { id: '', name: '' };
+      this.user.other_university = null;
     }
   }
 
@@ -375,8 +381,7 @@ export class FormGeComponent implements OnInit {
   }
 
   emptyFields() {
-    //return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id);
-    return !(this.user.english_level && !!this.user.english_level.id);
+    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id);
   }
 
   emptyUniversity() {
@@ -463,7 +468,7 @@ export class FormGeComponent implements OnInit {
   }
 
   checkUniversityField() {
-    if (!this.showOtherUniversityField) {
+    if (!this.showOtherUniversityField || +this.user.scholarity.id == 0 || +this.user.scholarity.id == 1) {
       this.user.other_university = '';
       return false;
     }
@@ -488,7 +493,7 @@ export class FormGeComponent implements OnInit {
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: 1, //+this.user.scholarity.id,
+        scholarity: +this.user.scholarity.id,
         english_level: +this.user.english_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
@@ -563,7 +568,7 @@ export class FormGeComponent implements OnInit {
     this.fillUniversitySelect(event.query);
   };
 
-  checkUniversityValue(event){
+  checkUniversityValue(event) {
     if (event.keyCode == 8 && !this.user.university) {
       this.fillUniversitySelect('');
     }
@@ -592,8 +597,8 @@ export class FormGeComponent implements OnInit {
     this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
   }
 
-  checkCityValue(){
-    if (this.user.city){
+  checkCityValue() {
+    if (this.user.city) {
       this.user.other_university = null;
       this.user.university = null;
     }
@@ -629,12 +634,12 @@ export class FormGeComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = '';
-    if (field == 'city'){
-      this.user.university = null;
+    if (field == 'city') {
+      this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.other_university = null;
       this.filteredCitiesOptions = this.citiesOptions;
     }
-    else if (field == 'university'){
+    else if (field == 'university') {
       this.user.other_university = null;
       this.fillUniversitySelect();
     }
