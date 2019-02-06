@@ -312,6 +312,13 @@ select:focus {
     position: relative;
 }
 
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
+}
+
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
 }
@@ -558,17 +565,26 @@ section.header h1 {
 
 .info-message {
     width: 100%;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, .25);
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: center; 
+    .row {
+        padding: 10px;
+        background-color: rgba(255, 255, 255, .25);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0 !important;
+    }
     p {
         margin: 0;
     }
     i {
         font-size: 1.85em;
         margin: 0 20px 0 0;
+    }
+    b {
+        display: block;
     }
 }
 

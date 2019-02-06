@@ -277,6 +277,13 @@ select:focus {
     border-bottom: 0;
 }
 
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
+}
+
 @-moz-document url-prefix() {
     .styled-select select {
         width: 110%;
@@ -523,13 +530,21 @@ section.header h1 {
     background-color: rgba(255, 255, 255, .25);
     box-sizing: border-box;
     display: flex;
-    align-items: center;
+    align-items: center; 
+    .row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
     p {
         margin: 0;
     }
     i {
         font-size: 1.85em;
         margin: 0 20px 0 0;
+    }
+    b {
+        display: block;
     }
 }
 

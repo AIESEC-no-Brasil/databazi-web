@@ -47,11 +47,11 @@ export class FormGvComponent implements OnInit {
   cellphoneMask: any;
 
   travelOptions = [
-    { id: '0', name: 'Mais breve possível' },
-    { id: '1', name: 'Proximos 3 meses' },
-    { id: '2', name: 'Próximo 6 meses' },
-    { id: '3', name: 'Em um ano' }
-  ];
+    { id: '0', name: 'Lo antes posible' },
+    { id: '1', name: 'Próximos 3 meses' },
+    { id: '2', name: 'Próximos 6 meses' },
+    { id: '3', name: 'En un año' }
+  ]
 
   msgs: Message[] = [];
 
