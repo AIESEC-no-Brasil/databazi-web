@@ -183,7 +183,7 @@ export class FormGvComponent implements OnInit {
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       other_university: new FormControl(this.user.other_university, [])
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {

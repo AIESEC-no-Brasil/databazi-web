@@ -217,7 +217,7 @@ export class FormGeComponent implements OnInit {
          FileValidatorDirective.validate
       ])
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {

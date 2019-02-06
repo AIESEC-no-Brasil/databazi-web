@@ -107,7 +107,7 @@
 
                     <!-- mobile -->
                     <i class="fas fa-envelope mobile-icon mobile"></i>
-                    <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email" (blur)="checkEmail()" formControlName="email"
+                    <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email" i18n-placeholder="@@emailPlaceholder" (blur)="checkEmail()" formControlName="email"
                       name="email" email required>
                     <div class="valid-feedback" *ngIf="!invalidEmail">
                       <i class="fa fa-check"></i>
@@ -116,7 +116,7 @@
                       <i class="fas fa-times"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('email')" class='error-message'>
+                  <div *ngIf="isValidPersonal('email')" class='error-message' i18n='@@formEmailEmpty'>
                     Preencha com o seu email.
                   </div>
                 </div>
@@ -407,7 +407,7 @@
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Regresso' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
                 <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
