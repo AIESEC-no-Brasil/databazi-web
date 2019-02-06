@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule, Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { GrowlModule } from 'primeng/primeng';
@@ -27,18 +27,18 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
-export class BaluHammerConfig extends HammerGestureConfig {
+@Injectable() export class BaluHammerConfig extends HammerGestureConfig {
   overrides = {
-      pan: {
-           direction: 6
+    pan: {
+      direction: 6
     },
     pinch: {
-        enable: false
+      enable: false
     },
     rotate: {
-        enable: false
+      enable: false
     }
-};
+  };
 }
 
 @NgModule({
@@ -76,9 +76,9 @@ export class BaluHammerConfig extends HammerGestureConfig {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: BaluHammerConfig
     },
-    { 
-      provide: LOCALE_ID, 
-      useValue: 'en' 
+    {
+      provide: LOCALE_ID,
+      useValue: 'en'
     }
   ],
   bootstrap: [AppComponent]
