@@ -849,7 +849,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">78</context>
         </context-group>
-      <target>Vamos a hablar con vos por acá!</target></trans-unit>
+      <target>Celular</target></trans-unit>
       <trans-unit id="cellphonePlaceholder" datatype="html">
         <source>Vamos falar com você por aqui!</source>
         <context-group purpose="location">
