@@ -38,8 +38,8 @@ export class LandingPageMenuComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  scrollToGlobal(){
-    var element = $('#global').offset().top;
+  scrollToForm(){
+    var element = $('#form').offset().top;
     if (window.innerWidth >= 1024){
       element -= 100;
     }
@@ -53,7 +53,7 @@ export class LandingPageMenuComponent implements OnInit {
   }
 
   goToGe(){
-    this.router.navigate(['/empreendedor-global']);
+    this.router.navigate(['/emprendedor-global']);
   }
 
   goToGt(){
