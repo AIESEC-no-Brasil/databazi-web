@@ -13,7 +13,7 @@ export const router : Routes = [
         loadChildren: './landing-page-gt/landing-page-gt.module#LandingPageGtModule'
     },
     {
-        path: 'empreendedor-global',
+        path: 'emprendedor-global',
         loadChildren: './landing-page-ge/landing-page-ge.module#LandingPageGeModule'
     },
     {
@@ -29,7 +29,7 @@ export const router : Routes = [
         loadChildren: './form-gt/form-gt.module#FormGtModule'
     },
     {
-        path: 'formulario-empreendedor-global',
+        path: 'formulario-emprendedor-global',
         loadChildren: './form-ge/form-ge.module#FormGeModule'
     },
     {
@@ -41,7 +41,7 @@ export const router : Routes = [
         loadChildren: './landing-page-gt/landing-page-gt.module#LandingPageGtModule'
     },
     {
-        path: 'jovens/empreendedor-global',
+        path: 'jovens/emprendedor-global',
         loadChildren: './landing-page-ge/landing-page-ge.module#LandingPageGeModule'
     },
     { path: '**', component: LandingPageComponent }
