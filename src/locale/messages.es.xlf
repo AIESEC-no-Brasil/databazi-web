@@ -311,7 +311,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">200</context>
         </context-group>
-      <target>AIESES es el mayor movimiento de liderazgo jóven del mundo</target></trans-unit>
+      <target>AIESEC es el mayor movimiento de liderazgo jóven del mundo</target></trans-unit>
       <trans-unit id="ourPremiumPartners" datatype="html">
         <source>Os nossos parceiros premium</source>
         <context-group purpose="location">
@@ -1146,6 +1146,23 @@
           <context context-type="linenumber">204</context>
         </context-group>
       <target>Estudios</target></trans-unit>
+       <trans-unit id="formScholarityEmpty" datatype="html">
+        <source>
+                    Selecione um nível de escolaridade
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+      <target>Elegí un nivel de estudio.</target></trans-unit>
       <trans-unit id="noResults" datatype="html">
         <source>Nenhum resultado</source>
         <context-group purpose="location">

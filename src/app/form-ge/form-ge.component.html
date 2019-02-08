@@ -212,12 +212,12 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValidStudy('scholarity')" class='error-message'>
+                  <div *ngIf="isValidStudy('scholarity')" class='error-message' i18n='@@formScholarityEmpty'>
                     Selecione um nível de escolaridade
                   </div>
                 </div>  
                 <div class="animated fadeIn faster form-group city">
-                  <div class="input-group select-dropdown" *ngIf='user.scholarity && user.scholarity.id != 0 && user.scholarity.id != 1'>
+                  <div class="input-group select-dropdown" *ngIf='user.scholarity && user.scholarity.id > 1'>
                     <div class="input-group-prepend">
                       <div class="input-group-text">
                         <i class="fas fa-home"></i>
@@ -245,13 +245,13 @@
                     </div>
                     <div class='col-11'>
                       <p>
-                        <b *ngIf='user.scholarity.id != 0 && user.scholarity.id != 1' i18n='@@formCityNotFound'>
+                        <b *ngIf='user.scholarity.id > 1' i18n='@@formCityNotFound'>
                           Não encontrou sua cidade acima?
                         </b>
-                        <span *ngIf='user.scholarity.id != 0 && user.scholarity.id != 1' i18n='@@formChoiceUniversity'>
+                        <span *ngIf='user.scholarity.id > 1' i18n='@@formChoiceUniversity'>
                           Escolha a província onde você estuda e depois insira o nome da universidade
                         </span>
-                        <span *ngIf='user.scholarity.id == 0 || user.scholarity.id == 1' i18n='@@formChoiceProvince'>
+                        <span *ngIf='user.scholarity.id <= 1' i18n='@@formChoiceProvince'>
                           Escolha a província onde você reside
                         </span>
                       </p>
@@ -271,7 +271,7 @@
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete
                           (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()" (keyup)='checkUniversityValue($event)'
-                          dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="{{ (user.scholarity.id == 0 || user.scholarity.id == 1) ? '¿Donde vives?' : '¿Donde estudias?' }}"
+                          dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="{{ user.scholarity.id <= 1 ? '¿Donde vives?' : '¿Donde estudias?' }}"
                           i18n-emptyMessage="@@noResults" (onSelect)='checkUniversity(user.university)'></p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')" *ngIf="user.university"></i>
                       </div>
@@ -281,7 +281,7 @@
                     Selecione uma universidade.
                   </div>
                 </div>
-                <div class="animated fadeIn faster form-group" *ngIf='showOtherUniversityField && user.city.name && user.university && user.scholarity.id != 0 && user.scholarity.id != 1 && user.university.id'>
+                <div class="animated fadeIn faster form-group" *ngIf='showOtherUniversityField && user.city.name && user.university && user.scholarity.id > 1 && user.university.id'>
                   <div class="input-group">
                     <div class="input-group-prepend desktop">
                       <div class="input-group-text">
@@ -305,7 +305,7 @@
                     Por favor, digite uma universidade válida.
                   </div>
                 </div>
-                <div class="animated fadeIn faster form-group college_course">
+                <div class="animated fadeIn faster form-group college_course" *ngIf='user.scholarity.id > 1'>
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">
