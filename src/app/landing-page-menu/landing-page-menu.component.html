@@ -25,9 +25,9 @@
                 <li (click)="goToGt()" i18n="@@globalTalent">
                   Talento Global
                 </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li i18n="@@hostAnExchange">
-                    Hospede um intercambista
+                <a href="https://aiesecargentina.org/sumate/">
+                  <li>
+                    Sé miembro
                   </li>
                 </a>
               </ul>
@@ -52,36 +52,6 @@
                 Youthspeak
               </li>
             </a>
-            <li>
-              <span i18n="@@blog">Blog</span>
-              <ul class="animated fadeIn faster ul-blog">
-                <a href="http://business.aiesec.org.br/">
-                  <li i18n="@@business">
-                    Business
-                  </li>
-                </a>
-                <a href="http://aiesec.blog.br/">
-                  <li i18n="@@students">
-                    Estudantes
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              <span i18n="@@planYourTrip">Planeje sua viagem</span>
-              <ul class="animated fadeIn faster ul-travel">
-                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li i18n="@@airlineTickets">
-                    Passagens Aéreas
-                  </li>
-                </a>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li i18n="@@healthInsurance">
-                    Seguro Saúde
-                  </li>
-                </a>
-              </ul>
-            </li>
             <a href="http://blog.aiesec.org.br/contato/">
               <li i18n="@@contact">
                 Contato
@@ -103,9 +73,9 @@
                 <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'" i18n="@@globalTalent">
                   Talento Global
                 </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li i18n="@@hostAnExchange">
-                    Hospede um intercambista
+                <a href="https://aiesecargentina.org/sumate/">
+                  <li>
+                    Sé miembro
                   </li>
                 </a>
               </ul>
@@ -130,36 +100,6 @@
                 <span i18n="@@youthspeak">Youthspeak</span>
               </li>
             </a>
-            <li>
-              <span>Blog</span>
-              <ul class="animated fadeIn faster">
-                <a href="http://business.aiesec.org.br/">
-                  <li i18n="@@business">
-                    Business
-                  </li>
-                </a>
-                <a href="http://aiesec.blog.br/">
-                  <li i18n="@@students">
-                    Estudantes
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              <span i18n="@@planYourTrip">Planeje sua viagem</span>
-              <ul class="animated fadeIn faster">
-                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li i18n="@@airlineTickets">
-                    Passagens Aéreas
-                  </li>
-                </a>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li i18n="@@healthInsurance">
-                    Seguro Saúde
-                  </li>
-                </a>
-              </ul>
-            </li>
             <a href="http://blog.aiesec.org.br/contato/">
               <li>
                 <span i18n="@@contact">Contato</span>
@@ -177,8 +117,9 @@
         Descubra
         <b>seu verdadeiro talento.</b>
       </h2>
+      <button class='button with-background bold gt without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
     </div>
-    <div class="product-info" *ngIf="actualPage == 'empreendedor-global'">
+    <div class="product-info" *ngIf="actualPage == 'emprendedor-global'">
       <h1 class='color-white bold' i18n="@@landingGeTitle">
         Empreendedor Global
       </h1>
@@ -186,6 +127,7 @@
         Empreendedorismo é
         <b>encontrar sua paixão.</b>
       </h2>
+      <button class='button with-background bold ge without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
     </div>
     <div class="product-info" *ngIf="actualPage == 'voluntario-global'">
       <h1 class='color-white bold' i18n="@@landingGvTitle">
@@ -195,6 +137,7 @@
         Voluntário para
         <b>as pessoas.</b>
       </h2>
+      <button class='button with-background bold gv without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
     </div>
     <div class="product-info" *ngIf="actualPage == ''">
       <h1 class='color-white bold intro' i18n="@@landingPageIntro">

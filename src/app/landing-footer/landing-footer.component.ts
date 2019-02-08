@@ -172,7 +172,7 @@ export class LandingFooterComponent implements OnInit {
   }
 
   goToGe(){
-    this.router.navigate(['/empreendedor-global']);
+    this.router.navigate(['/emprendedor-global']);
   }
 
   goToGt(){
