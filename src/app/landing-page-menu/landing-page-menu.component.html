@@ -25,11 +25,6 @@
                 <li (click)="goToGt()" i18n="@@globalTalent">
                   Talento Global
                 </li>
-                <a href="https://aiesecargentina.org/sumate/">
-                  <li>
-                    Sé miembro
-                  </li>
-                </a>
               </ul>
             </li>
             <li>
@@ -43,6 +38,46 @@
                 <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
                   <li i18n="@@companies">
                     Empresas
+                  </li>
+                </a>
+              </ul>
+            </li>
+            <a href="https://aiesecargentina.org/sumate/">
+              <li>
+                <span>Sé Miembro</span>
+              </li>
+            </a>
+            <li>
+              <span>Blog</span>
+              <ul class="animated fadeIn faster ul-partners">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
+                  <li>
+                    Historias de Emprendedores
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Historias de liderazgo
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Historias de Casas Globales
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Propósito y Motivación 
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Educación
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Talento por el mundo
                   </li>
                 </a>
               </ul>
@@ -73,11 +108,6 @@
                 <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'" i18n="@@globalTalent">
                   Talento Global
                 </li>
-                <a href="https://aiesecargentina.org/sumate/">
-                  <li>
-                    Sé miembro
-                  </li>
-                </a>
               </ul>
             </li>
             <li>
@@ -95,6 +125,11 @@
                 </a>
               </ul>
             </li>
+            <a href="https://aiesecargentina.org/sumate/">
+              <li>
+                <span>Sé Miembro</span>
+              </li>
+            </a>
             <a href="http://blog.aiesec.org.br/youthspeak/">
               <li>
                 <span i18n="@@youthspeak">Youthspeak</span>
@@ -117,7 +152,7 @@
         Descubra
         <b>seu verdadeiro talento.</b>
       </h2>
-      <button class='button with-background bold gt without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
+      <button class='button with-background bold gt without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button>
     </div>
     <div class="product-info" *ngIf="actualPage == 'emprendedor-global'">
       <h1 class='color-white bold' i18n="@@landingGeTitle">
@@ -127,7 +162,7 @@
         Empreendedorismo é
         <b>encontrar sua paixão.</b>
       </h2>
-      <button class='button with-background bold ge without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
+      <button class='button with-background bold ge without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button>
     </div>
     <div class="product-info" *ngIf="actualPage == 'voluntario-global'">
       <h1 class='color-white bold' i18n="@@landingGvTitle">
@@ -137,7 +172,7 @@
         Voluntário para
         <b>as pessoas.</b>
       </h2>
-      <button class='button with-background bold gv without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button> 
+      <button class='button with-background bold gv without-border border-radius margin' (click)='scrollToForm()'> Inscribite </button>
     </div>
     <div class="product-info" *ngIf="actualPage == ''">
       <h1 class='color-white bold intro' i18n="@@landingPageIntro">

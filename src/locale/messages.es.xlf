@@ -311,7 +311,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">200</context>
         </context-group>
-      <target>AIESEC es el mayor movimiento de liderazgo jóven del mundo</target></trans-unit>
+      <target>AIESEC es el movimiento de liderazco jóven más grande del mundo</target></trans-unit>
       <trans-unit id="ourPremiumPartners" datatype="html">
         <source>Os nossos parceiros premium</source>
         <context-group purpose="location">
@@ -591,7 +591,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">175</context>
         </context-group>
-      <target>AIESEC es el mayor movimienro de liderazgo jóven del mundo</target></trans-unit>
+      <target>AIESEC es el mayor movimiento de liderazgo jóven del mundo</target></trans-unit>
       <trans-unit id="landingHistory" datatype="html">
         <source>
             Acreditamos em liderança como a solução fundamental para os problemas do mundo e confiamos na juventude para liderar essa
@@ -718,7 +718,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">303</context>
         </context-group>
-      <target>"Mi Voluntariado Global fue una experiencia muy desafiante en la cual me pude desarrollar e impactar a mi alrededor"</target></trans-unit>
+      <target>“Mi Voluntariado Global fue una experiencia única, todavía recuerdo cada uno de los 45 días que compartí con 40 niños que me veían como su Superheroe”</target></trans-unit>
       <trans-unit id="landingOurHistory2" datatype="html">
         <source>
                       &quot;Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
@@ -729,7 +729,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">318</context>
         </context-group>
-      <target>"Mi intercambio en Egipto definió mucho de lo que será mi carrera de aquí en adelante. Más allá de aprender mucho en la Startup en la que trabaje, también fui parte de un ambiente de trabajo multicultural! Fue una experiencia inolvidable!"</target></trans-unit>
+      <target>“Me dieron libertad absoluta para ayudarlos a organizarse, para armarles los cuadros y todo lo necesario para crear la empresa y que empiecen a proyectarse estableciendo sus metas.”</target></trans-unit>
       <trans-unit id="landingOurHistory3" datatype="html">
         <source>
                       &quot;Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
@@ -739,7 +739,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">334</context>
         </context-group>
-      <target>"Hacer mi intercambio en India fue con certeza la experiencia que más me desafió y me desarrolló, tanto profesionalmente como personalmente. Mi año allá fue un antes y un después tanto en mi carrera como en la persona que soy hoy!"</target></trans-unit>
+      <target>“El intercambio me dio la oportunidad de enseñar en una universidad, y poder decirme a mí mismo y al resto del mundo “fui profesor de inglés empresarial en una universidad de ciencias económicas en Cracovia, Polonia”.</target></trans-unit>
       <trans-unit id="formGeTitle" datatype="html">
         <source>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</source>
         <context-group purpose="location">
