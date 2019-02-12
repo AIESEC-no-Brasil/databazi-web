@@ -401,22 +401,16 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyCourse() {
-    return false
-    if (this.user.college_course.id) {
+    if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
       return !this.user.college_course.id
-    } else {
-      return true;
-    }
-    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
+    } 
+    else if (+this.user.scholarity.id <= 1) {
+      this.user.college_course = { id: '', name: '' };
+      return false;
     }
     else {
-      return false;
-    }*/
+      return true;
+    }
   }
 
   checkDate() {
