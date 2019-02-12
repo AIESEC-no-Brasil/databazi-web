@@ -43,7 +43,7 @@
     }
     .product-image {
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('../../assets/products/gv/product-step.jpg');
+            background-image: url('../../assets/products/gv/product-step.jpeg');
         }
         @at-root :host-context(.webp) #{&} {
             background-image: url('../../assets/products/gv/product-step.jpg.webp');
@@ -246,10 +246,10 @@
     }
     .aiesec-image {
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg');
+            background-image: url('../../assets/products/gv/aiesec.jpeg');
         }
         @at-root :host-context(.webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg.webp');
+            background-image: url('../../assets/products/gv/aiesec.jpg.webp');
         }
         min-height: 450px;
         position: relative;

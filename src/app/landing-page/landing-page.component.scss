@@ -300,20 +300,18 @@ main {
     text-align: left;
 }
 
-.global-columns img {
-    width: 190px;
-    height: 140px;
-    margin-top: -20px;
-}
-
-.global-columns p {
-    color: white;
-    margin-top: -30px;
-    font-size: 14px;
-}
-
-.global-columns button {
-    margin-top: 20px;
+.global-columns {
+    img {
+        width: 190px;
+    }
+    p {
+        color: white;
+        font-size: 14px;
+        min-height: 50px;
+    }
+    button {
+        margin-top: 20px;
+    }
 }
 
 .logo-empreendedor-global {    
@@ -398,10 +396,10 @@ div#our-stories {
     min-height: 300px;
     position: relative;
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/party.png');
+        background-image: url('/assets/images/party.jpg');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/party.png.webp');
+        background-image: url('/assets/images/party.jpg.webp');
     }
     .round {
         right: -37.5px;        
@@ -483,10 +481,10 @@ div#our-stories {
         background-position: center center;
         background-repeat: no-repeat;
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('/assets/images/hexa.png');
+            background-image: url('/assets/images/ldm.png');
         }
         @at-root :host-context(.webp) #{&} {
-            background-image: url('/assets/images/hexa.png.webp');
+            background-image: url('/assets/images/ldm.png.webp');
         }
         min-height: 300px;
         transform: scale(1.1)
@@ -659,7 +657,7 @@ div#our-stories {
 
 .case-1 {    
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/case1.jpg');
+        background-image: url('/assets/images/case1.jpeg');
     }
     @at-root :host-context(.webp) #{&} {
         background-image: url('/assets/images/case1.jpg.webp');
@@ -668,7 +666,7 @@ div#our-stories {
 
 .case-2 {    
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/case2.jpg');
+        background-image: url('/assets/images/case2.jpeg');
     }
     @at-root :host-context(.webp) #{&} {
         background-image: url('/assets/images/case2.jpg.webp');

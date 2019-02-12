@@ -14,9 +14,15 @@
 }
 
 ul#menu {
-    > li, > a {
-        display:flex;
+    >li,
+    >a {
+        display: flex;
         align-items: center;
+        z-index: 100;
+    }
+    i {
+        font-size: 7.5px;
+        padding-left: 5px;
     }
 }
 
@@ -83,6 +89,12 @@ ul#menu {
         align-items: flex-start;
         min-height: 50vh;
         display: flex;
+        position: relative;
+        button.button {
+            position: absolute;
+            right: 25px;
+            margin-top: 100px;
+        }
     }
 }
 
@@ -90,7 +102,7 @@ ul#menu {
     width: 100%;
     position: relative;
     border-bottom: 3px solid #666;
-    z-index: 11;    
+    z-index: 11;
     .header-product-image {
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('../../assets/images/header.jpg');
@@ -109,7 +121,7 @@ ul#menu {
         background-size: cover;
         z-index: -10;
         z-index: 5;
-        &.talento-global {            
+        &.talento-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gt/gt-intro.jpg');
             }
@@ -117,7 +129,7 @@ ul#menu {
                 background-image: url('../../assets/products/gt/gt-intro.jpg.webp');
             }
         }
-        &.voluntario-global {            
+        &.voluntario-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gv/gv-intro.jpg');
             }
@@ -125,7 +137,7 @@ ul#menu {
                 background-image: url('../../assets/products/gv/gv-intro.jpg.webp');
             }
         }
-        &.empreendedor-global {            
+        &.emprendedor-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/ge/ge-intro.jpg');
             }
@@ -139,7 +151,7 @@ ul#menu {
         justify-content: space-between;
         padding: 0 15px;
         .logo-aiesec,
-        .logo-menu {            
+        .logo-menu {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/images/aiesec-logo.png');
             }
@@ -198,14 +210,17 @@ ul#menu {
                         display: none;
                         left: 0;
                         &.ul-products {
-                            bottom: -85px;
+                            bottom: -95px;
                         }
-                        &.ul-partners, &.ul-blog, &.ul-travel {
-                            bottom: -35px;
+                        &.ul-partners {
+                            bottom: -47px;
                         }
                         a:hover {
                             text-decoration: none;
                             color: #fff;
+                        }
+                        &.ul-blog {
+                            bottom: -167px;
                         }
                         li {
                             padding: 2.5px 10px;
@@ -219,6 +234,9 @@ ul#menu {
     }
     .product-info {
         text-align: left;
+        h1 {
+            margin-top: -100px;
+        }
     }
 }
 
@@ -313,7 +331,7 @@ ul#menu {
     }
     div.responsive-menu {
         height: 100%;
-        display:flex;
+        display: flex;
         justify-content: flex-end
     }
 }
