@@ -22,11 +22,11 @@ export class FormGtThankYouComponent implements OnInit {
   }
 
   goToAiesec() {
-    window.open("https://aiesec.org/", "_blank");
+    window.open("https://aiesecargentina.org/", "_blank");
   }
 
   goToBlog() {
-    window.open("http://aiesec.blog.br/", "_blank");
+    window.open("https://aiesecargentina.org/blog/", "_blank");
   }
 
 }
