@@ -13,8 +13,8 @@
           </div>
           <div class='footer-carousel-partners'>
             <div class="footer-carousel-wrapper">
-              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners" (click)="openUrl(partner.site)" (swiperight)="swipe('right')"
-              (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
+              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners" (click)="openUrl(partner.site)"
+                (swiperight)="swipe('right')" (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
                 <span class='animated fadeIn faster'> {{partner.title}} </span>
               </div>
             </div>
@@ -35,7 +35,7 @@
       <div class="footer-logo">
         <picture>
           <source srcset="../../assets/images/aiesec-logo.png.webp" type="image/webp" class="img-responsive">
-          <source srcset="../../assets/images/aiesec-logo.png" type="image/png" class="img-responsive"> 
+          <source srcset="../../assets/images/aiesec-logo.png" type="image/png" class="img-responsive">
           <img class="img-responsive" src="../../assets/images/aiesec-logo.png" width="200px;">
         </picture>
         <p class="centered semibold" i18n="@@footerText">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
@@ -46,78 +46,55 @@
       <div class="footer-links col-md-6">
         <div class="row">
           <div class="footer-group-links col-md-4 col-sm-6">
-            <p class="semibold footer-link-title" i18n="@@institutional">Institucional</p>
+            <p class="semibold footer-link-title" i18n="@@makeAnExchange">Faça um intercâmbio</p>
             <p>
-              <a href="http://blog.aiesec.org.br/a-aiesec/" i18n="@@theAIESEC">A AIESEC</a>
+              <a (click)="goToGv()" i18n='@@globalVolunteer'>Voluntário Global</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/faca-parte/" i18n="@@bePartOfIt">Faça parte</a>
+              <a (click)="goToGe()" i18n='@@globalEntrepreneur'>Empreendedor Global</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/alumni/" i18n="@@alummi">Alummi</a>
+              <a (click)="goToGt()" i18n='@@globalTalent'>Talento Global</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/youthspeak/" i18n="@@youthSpeak">YouthSpeak</a>
+              <a href="https://aiesecargentina.org/casas-globales-viejo/">Casas Globales</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
-            <p class="semibold footer-link-title" i18n="@@young">Jovens</p>
+            <p class="semibold footer-link-title" i18n="@@becomeOurPartner">Seja nosso Parceiro</p>
             <p>
-              <a (click)="goToGe()" i18n="@@globalEntrepreneur">Empreendedor Global</a>
+              <a href='https://aiesecargentina.org/ongs/' i18n="@@ong">ONG</a>
             </p>
             <p>
-              <a (click)="goToGt()" i18n="@@globalTalent">Talento Global</a>
-            </p>
-            <p>
-              <a (click)="goToGv()" i18n="@@globalVolunteer">Voluntário Global</a>
-            </p>
-            <p>
-              <a href="http://blog.aiesec.org.br/hospede-um-intercambista/" i18n="@@hostAnExchange">Hospede um intercambista</a>
+              <a href="https://aiesecargentina.org/startups-2/" i18n="@@companies">Empresas</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6 desktop">
-            <p class="semibold footer-link-title" i18n="@@becomePartner">Seja parceiro</p>
-            <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/" i18n="@@ong">ONG</a>
+            <p class="semibold footer-link-title desktop">
+              <a href="https://aiesecargentina.org/sumate/">Sé miembro</a>
             </p>
-            <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" i18n="@@companies">Empresas</a>
+            <p class="semibold footer-link-title mobile">
+              <a href="https://aiesecargentina.org/sumate/">Sé miembro</a>
             </p>
           </div>
         </div>
       </div>
       <div class="footer-links col-md-6">
         <div class="row">
-          <div class="footer-group-links col-md-3 col-sm-6 mobile">
-            <p class="semibold footer-link-title" i18n="@@becomePartner">Seja parceiro</p>
-            <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/ong/" i18n="@@ong">ONG</a>
-            </p>
-            <p>
-              <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" i18n="@@companies">Empresas</a>
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">
+              <a href="https://aiesecargentina.org/blog/" i18n="@@blog">Blog</a>
             </p>
           </div>
-          <div class="footer-group-links col-md-3 col-sm-12" id="label-contact">
-            <p class="semibold footer-link-title desktop">
-              <a href="http://blog.aiesec.org.br/contato/" i18n="@@contact">Contato</a>
-            </p>
-            <p class="semibold footer-link-title mobile">
-              <a href="http://blog.aiesec.org.br/contato/" i18n="@@contactUs">Entre em contato com a gente</a> 
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">
+              <a href="https://aiesecargentina.org/youth-speak/" i18n="@@youthSpeak">Youthspeak</a>
             </p>
           </div>
-          <div class="footer-social-networks col-md-9 col-sm-6">
-            <a target="_blank" href="https://www.facebook.com/AIESECinBrazil/" rel="noopener">
-              <i class="fab fa-facebook-square"></i>
-            </a>
-            <a target="_blank" href="https://instagram.com/aiesecnobrasil" rel="noopener">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a target="_blank" href="https://twitter.com/AIESECBrasil" rel="noopener">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a target="_blank" href="https://www.youtube.com/user/AIESECinBrazil/" rel="noopener">
-              <i class="fab fa-youtube"></i>
-            </a>
+          <div class="footer-group-links col-md-4 col-sm-6">
+            <p class="semibold footer-link-title">
+              <a href="https://aiesecargentina.org/contactanos/" i18n="@@contact">Contato</a>
+            </p>
           </div>
         </div>
       </div>
