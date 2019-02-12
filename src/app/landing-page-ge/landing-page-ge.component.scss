@@ -175,7 +175,7 @@
     }
     .faq-image {
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('../../assets/products/ge/ge-faq-image.jpg');
+            background-image: url('../../assets/products/ge/ge-faq-image.jpeg');
         }
         @at-root :host-context(.webp) #{&} {
             background-image: url('../../assets/products/ge/ge-faq-image.jpg.webp');
@@ -268,10 +268,10 @@
     }
     .aiesec-image {
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg');
+            background-image: url('../../assets/products/ge/ge-aiesec.png');
         }
         @at-root :host-context(.webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg.webp');
+            background-image: url('../../assets/products/ge/ge-aiesec.jpg.webp');
         }
         min-height: 450px;
         position: relative;

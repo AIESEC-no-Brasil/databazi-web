@@ -35,7 +35,7 @@ export class FormGtComponent implements OnInit {
     college_course: { id: '', name: '' },
     cellphone_contactable: '',
     english_level: { id: '' },
-    scholarity: 1,
+    scholarity: { id: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -52,12 +52,12 @@ export class FormGtComponent implements OnInit {
   cellphoneMask : any;
 
   scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
+    { id: '0', name: 'Secundario Incompleto' },
+    { id: '1', name: 'Secundario Completo' },
+    { id: '2', name: 'Universitario en Curso' },
+    { id: '3', name: 'Universitario Completo' },
+    { id: '4', name: 'Grado Maestro en Curso' },
+    { id: '5', name: 'Grado Maestro Completo' }
   ];
 
   englishLevelOptions: any = [
@@ -194,9 +194,9 @@ export class FormGtComponent implements OnInit {
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
-      /*scholarity: new FormControl(this.user.scholarity, [
+      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),*/
+      ]),
       city: new FormControl(this.user.city, [
         Validators.required
       ]),
@@ -209,7 +209,7 @@ export class FormGtComponent implements OnInit {
         Validators.required
       ]),
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {
@@ -327,8 +327,8 @@ export class FormGtComponent implements OnInit {
     })
   }
 
-  checkUniversity(university){
-    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)){
+  checkUniversity(university) {
+    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)) {
       this.showOtherUniversityField = true;
     }
     else {
@@ -358,9 +358,15 @@ export class FormGtComponent implements OnInit {
   }
 
   changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+    if (scholarity_level && (+scholarity_level == 0) || (+scholarity_level == 1)) {
+      this.user.city = _.find(this.citiesOptions, (city) => { return city.name == 'Otras ciudades' });
+      this.filterUniversities(this.user.city);
+    }
+    else {
+      this.user.city = { name : '' },
       this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.college_course = { id: '', name: '' };
+      this.user.other_university = null;
     }
   }
 
@@ -369,8 +375,7 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyFields() {
-    //return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id);
-    return !(this.user.english_level && !!this.user.english_level.id);
+    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id);
   }
 
   emptyUniversity() {
@@ -396,22 +401,16 @@ export class FormGtComponent implements OnInit {
   }
 
   emptyCourse() {
-    return false
-    if (this.user.college_course.id) {
+    if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
       return !this.user.college_course.id
-    } else {
-      return true;
-    }
-    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
+    } 
+    else if (+this.user.scholarity.id <= 1) {
+      this.user.college_course = { id: '', name: '' };
+      return false;
     }
     else {
-      return false;
-    }*/
+      return true;
+    }
   }
 
   checkDate() {
@@ -462,7 +461,7 @@ export class FormGtComponent implements OnInit {
   }
 
   checkUniversityField() {
-    if (!this.showOtherUniversityField) {
+    if (!this.showOtherUniversityField || +this.user.scholarity.id == 0 || +this.user.scholarity.id == 1) {
       this.user.other_university = '';
       return false;
     }
@@ -489,7 +488,7 @@ export class FormGtComponent implements OnInit {
         college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
-        scholarity: 1, //+this.user.scholarity.id,
+        scholarity: +this.user.scholarity.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -566,7 +565,7 @@ export class FormGtComponent implements OnInit {
     this.fillUniversitySelect(event.query);
   };
 
-  checkUniversityValue(event){
+  checkUniversityValue(event) {
     if (event.keyCode == 8 && !this.user.university) {
       this.fillUniversitySelect('');
     }
@@ -585,14 +584,14 @@ export class FormGtComponent implements OnInit {
   };
 
   searchCities(event) {
-    if (!event.originalEvent){
+    if (!event.originalEvent) {
       this.filteredCitiesOptions = this.citiesOptions;
     }
     this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
   }
 
-  checkCityValue(){
-    if (this.user.city){
+  checkCityValue() {
+    if (this.user.city) {
       this.user.other_university = null;
       this.user.university = null;
     }
@@ -633,12 +632,12 @@ export class FormGtComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = '';
-    if (field == 'city'){
-      this.user.university = null;
+    if (field == 'city') {
+      this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.other_university = null;
       this.filteredCitiesOptions = this.citiesOptions;
     }
-    else if (field == 'university'){
+    else if (field == 'university') {
       this.user.other_university = null;
       this.fillUniversitySelect();
     }

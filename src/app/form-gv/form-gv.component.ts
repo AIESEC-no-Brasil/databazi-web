@@ -31,7 +31,7 @@ export class FormGvComponent implements OnInit {
     university: { id: '', name: '', local_committee_id: '' },
     college_course: { id: '', name: '' },
     cellphone_contactable: '',
-    scholarity: 1,
+    scholarity: { id: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -43,25 +43,25 @@ export class FormGvComponent implements OnInit {
   }
 
   cellphoneDefaultMask: string = '000 000 0000';
-  cellphoneLargerMask:string = '0 000 000 0000';
-  cellphoneMask : any;
+  cellphoneLargerMask: string = '0 000 000 0000';
+  cellphoneMask: any;
 
   travelOptions = [
-    { id: '0', name: 'Mais breve possível' },
-    { id: '1', name: 'Proximos 3 meses' },
-    { id: '2', name: 'Próximo 6 meses' },
-    { id: '3', name: 'Em um ano' }
-  ];
+    { id: '0', name: 'Lo antes posible' },
+    { id: '1', name: 'Próximos 3 meses' },
+    { id: '2', name: 'Próximos 6 meses' },
+    { id: '3', name: 'En un año' }
+  ]
 
   msgs: Message[] = [];
 
   scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
+    { id: '0', name: 'Secundario Incompleto' },
+    { id: '1', name: 'Secundario Completo' },
+    { id: '2', name: 'Universitario en Curso' },
+    { id: '3', name: 'Universitario Completo' },
+    { id: '4', name: 'Grado Maestro en Curso' },
+    { id: '5', name: 'Grado Maestro Completo' }
   ];
 
   // list of cities - TODO: endpoint with all cities
@@ -174,16 +174,16 @@ export class FormGvComponent implements OnInit {
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      /*scholarity: new FormControl(this.user.scholarity, [
+      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ]),*/
+      ]),
       when_can_travel: new FormControl(this.user.when_can_travel, [
         Validators.required
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       other_university: new FormControl(this.user.other_university, [])
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {
@@ -236,14 +236,14 @@ export class FormGvComponent implements OnInit {
   };
 
   searchCities(event) {
-    if (!event.originalEvent){
+    if (!event.originalEvent) {
       this.filteredCitiesOptions = this.citiesOptions;
     }
     this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
   }
 
-  checkCityValue(){
-    if (this.user.city){
+  checkCityValue() {
+    if (this.user.city) {
       this.user.other_university = null;
       this.user.university = null;
     }
@@ -268,7 +268,7 @@ export class FormGvComponent implements OnInit {
     this.fillUniversitySelect(event.query);
   };
 
-  checkUniversityValue(event){
+  checkUniversityValue(event) {
     if (event.keyCode == 8 && !this.user.university) {
       this.fillUniversitySelect('');
     }
@@ -355,8 +355,8 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  checkUniversity(university){
-    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)){
+  checkUniversity(university) {
+    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)) {
       this.showOtherUniversityField = true;
     }
     else {
@@ -376,9 +376,15 @@ export class FormGvComponent implements OnInit {
   }
 
   changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
+    if (scholarity_level && (+scholarity_level == 0 || +scholarity_level == 1)) {
+      this.user.city = _.find(this.citiesOptions, (city) => { return city.name == 'Otras ciudades' });
+      this.filterUniversities(this.user.city);
+    }
+    else {
+      this.user.city = { name : '' },
       this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.college_course = { id: '', name: '' };
+      this.user.other_university = null;
     }
   }
 
@@ -387,8 +393,7 @@ export class FormGvComponent implements OnInit {
   }
 
   emptyFields() {
-    //return !(this.user.scholarity && !!this.user.scholarity.id);
-    return false
+    return !(this.user.scholarity && !!this.user.scholarity.id);
   }
 
   emptyUniversity() {
@@ -415,21 +420,16 @@ export class FormGvComponent implements OnInit {
   }
 
   emptyCourse() {
-    if (this.user.college_course.id) {
+    if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
       return !this.user.college_course.id
-    } else {
-      return true;
-    }
-    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
+    } 
+    else if (+this.user.scholarity.id <= 1) {
+      this.user.college_course = { id: '', name: '' };
+      return false;
     }
     else {
-      return false;
-    }*/
+      return true;
+    }
   }
 
   checkDate() {
@@ -476,7 +476,7 @@ export class FormGvComponent implements OnInit {
   }
 
   checkUniversityField() {
-    if (!this.showOtherUniversityField) {
+    if (!this.showOtherUniversityField || +this.user.scholarity.id == 0 || +this.user.scholarity.id == 1) {
       this.user.other_university = '';
       return false;
     }
@@ -501,7 +501,7 @@ export class FormGvComponent implements OnInit {
         local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: 1, //+this.user.scholarity.id,
+        scholarity: +this.user.scholarity.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -511,7 +511,7 @@ export class FormGvComponent implements OnInit {
         other_university: this.user.other_university ? this.user.other_university : null
       }
     };
-    this.loading = true;
+    this.loading = true; 
     this.signupService.addGvParticipant(user)
       .then((res: any) => {
         this.loading = false;
@@ -554,12 +554,12 @@ export class FormGvComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = '';
-    if (field == 'city'){
-      this.user.university = null;
+    if (field == 'city') {
+      this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.other_university = null;
       this.filteredCitiesOptions = this.citiesOptions;
     }
-    else if (field == 'university'){
+    else if (field == 'university') {
       this.user.other_university = null;
       this.fillUniversitySelect();
     }

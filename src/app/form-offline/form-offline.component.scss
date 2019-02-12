@@ -271,6 +271,13 @@ select:focus {
     padding-right: 10px;
 }
 
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
+}
+
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
 }

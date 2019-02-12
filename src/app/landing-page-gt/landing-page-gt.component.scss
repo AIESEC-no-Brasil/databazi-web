@@ -268,10 +268,10 @@
     }
     .aiesec-image {
         @at-root :host-context(.no-webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg');
+            background-image: url('../../assets/products/gt/gt-aiesec.jpg');
         }
         @at-root :host-context(.webp) #{&} {
-            background-image: url('../../assets/products/aiesec/aiesec.jpg.webp');
+            background-image: url('../../assets/products/gt/gt-aiesec.jpg.webp');
         }
         min-height: 450px;
         position: relative;

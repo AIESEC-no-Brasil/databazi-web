@@ -3,7 +3,7 @@
   <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="makeAnExchange" datatype="html">
-        <source>Faça um intercâmbio muito fodaaaaa</source>
+        <source>Faça um intercâmbio</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">17</context>
@@ -12,7 +12,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">95</context>
         </context-group>
-      </trans-unit>
+      <target>Hacé un intercambio</target></trans-unit>
       <trans-unit id="globalVolunteer" datatype="html">
         <source>
                   Voluntário Global
@@ -29,7 +29,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">72</context>
         </context-group>
-      </trans-unit>
+      <target>Voluntario Global</target></trans-unit>
       <trans-unit id="globalEntrepreneur" datatype="html">
         <source>
                   Empreendedor Global
@@ -46,7 +46,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit>
+      <target>Emprendedor Global</target></trans-unit>
       <trans-unit id="globalTalent" datatype="html">
         <source>
                   Talento Global
@@ -63,7 +63,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">69</context>
         </context-group>
-      </trans-unit>
+      <target>Talento Global</target></trans-unit>
       <trans-unit id="hostAnExchange" datatype="html">
         <source>
                     Hospede um intercambista
@@ -80,7 +80,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">75</context>
         </context-group>
-      </trans-unit>
+      <target>Hospedá a un intercambista</target></trans-unit>
       <trans-unit id="becomeOurPartner" datatype="html">
         <source>Seja nosso Parceiro</source>
         <context-group purpose="location">
@@ -91,7 +91,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">114</context>
         </context-group>
-      </trans-unit>
+      <target>Sé nuestro Aliado</target></trans-unit>
       <trans-unit id="ong" datatype="html">
         <source>
                     ONG
@@ -112,7 +112,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">94</context>
         </context-group>
-      </trans-unit>
+      <target>ONG</target></trans-unit>
       <trans-unit id="companies" datatype="html">
         <source>
                     Empresas
@@ -133,7 +133,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">97</context>
         </context-group>
-      </trans-unit>
+      <target>Empresas</target></trans-unit>
       <trans-unit id="youthspeak" datatype="html">
         <source>
                 Youthspeak
@@ -146,7 +146,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">130</context>
         </context-group>
-      </trans-unit>
+      <target>YouthSpeak </target></trans-unit>
       <trans-unit id="blog" datatype="html">
         <source>Blog</source>
         <context-group purpose="location">
@@ -157,7 +157,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">101</context>
         </context-group>
-      </trans-unit>
+      <target>Blog</target></trans-unit>
       <trans-unit id="business" datatype="html">
         <source>
                     Business
@@ -174,7 +174,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">103</context>
         </context-group>
-      </trans-unit>
+      <target>Business</target></trans-unit>
       <trans-unit id="students" datatype="html">
         <source>
                     Estudantes
@@ -191,7 +191,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">106</context>
         </context-group>
-      </trans-unit>
+      <target>Estudiantes</target></trans-unit>
       <trans-unit id="planYourTrip" datatype="html">
         <source>Planeje sua viagem</source>
         <context-group purpose="location">
@@ -202,7 +202,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">149</context>
         </context-group>
-      </trans-unit>
+      <target>Planeá tu viaje</target></trans-unit>
       <trans-unit id="airlineTickets" datatype="html">
         <source>
                     Passagens Aéreas
@@ -215,7 +215,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">152</context>
         </context-group>
-      </trans-unit>
+      <target>Pasajes Aéreos </target></trans-unit>
       <trans-unit id="healthInsurance" datatype="html">
         <source>
                     Seguro Saúde
@@ -228,7 +228,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">157</context>
         </context-group>
-      </trans-unit>
+      <target>Seguro de Salud</target></trans-unit>
       <trans-unit id="contact" datatype="html">
         <source>
                 Contato
@@ -245,7 +245,7 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">111</context>
         </context-group>
-      </trans-unit>
+      <target>Contacto</target></trans-unit>
       <trans-unit id="landingGtTitle" datatype="html">
         <source>
         Talento Global
@@ -254,7 +254,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">173</context>
         </context-group>
-      </trans-unit>
+      <target>Talento Global</target></trans-unit>
       <trans-unit id="landingGtDescription" datatype="html">
         <source>
         Descubra
@@ -264,7 +264,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">176</context>
         </context-group>
-      </trans-unit>
+      <target>Descubrí tu verdadero talento</target></trans-unit>
       <trans-unit id="landingGeTitle" datatype="html">
         <source>
         Empreendedor Global
@@ -273,7 +273,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">182</context>
         </context-group>
-      </trans-unit>
+      <target>Emprendedor Global</target></trans-unit>
       <trans-unit id="landingGeDescription" datatype="html">
         <source>
         Empreendedorismo é
@@ -283,7 +283,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">185</context>
         </context-group>
-      </trans-unit>
+      <target>Emprendimiento es encontrar tu pasión. </target></trans-unit>
       <trans-unit id="landingGvTitle" datatype="html">
         <source>
         Voluntário Global
@@ -292,7 +292,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">191</context>
         </context-group>
-      </trans-unit>
+      <target>Voluntario Global</target></trans-unit>
       <trans-unit id="landingGvDescription" datatype="html">
         <source>
         Voluntário para
@@ -302,7 +302,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">194</context>
         </context-group>
-      </trans-unit>
+      <target>Voluntario para las personas</target></trans-unit>
       <trans-unit id="landingPageIntro" datatype="html">
         <source>
         A AIESEC é o maior movimento de liderança jovem do mundo
@@ -311,63 +311,63 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">200</context>
         </context-group>
-      </trans-unit>
+      <target>AIESEC es el movimiento de liderazco jóven más grande del mundo</target></trans-unit>
       <trans-unit id="ourPremiumPartners" datatype="html">
         <source>Os nossos parceiros premium</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">7</context>
         </context-group>
-      </trans-unit>
+      <target>Nuestros aliados premium</target></trans-unit>
       <trans-unit id="footerText" datatype="html">
         <source>Aventure-se nessa nova experiência e alcance o seu potencial!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">41</context>
         </context-group>
-      </trans-unit>
+      <target>Aventurate en esta nueva experiencia y alcanzá tu potencial!</target></trans-unit>
       <trans-unit id="institutional" datatype="html">
         <source>Institucional</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">49</context>
         </context-group>
-      </trans-unit>
+      <target>Institucional</target></trans-unit>
       <trans-unit id="theAIESEC" datatype="html">
         <source>A AIESEC</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">51</context>
         </context-group>
-      </trans-unit>
+      <target>AIESEC</target></trans-unit>
       <trans-unit id="bePartOfIt" datatype="html">
         <source>Faça parte</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">54</context>
         </context-group>
-      </trans-unit>
+      <target>Sumate</target></trans-unit>
       <trans-unit id="alummi" datatype="html">
         <source>Alummi</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">57</context>
         </context-group>
-      </trans-unit>
+      <target>Alumni</target></trans-unit>
       <trans-unit id="youthSpeak" datatype="html">
         <source>YouthSpeak</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
-      </trans-unit>
+      <target>YouthSpeak</target></trans-unit>
       <trans-unit id="young" datatype="html">
         <source>Jovens</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">64</context>
         </context-group>
-      </trans-unit>
+      <target>Jóvenes</target></trans-unit>
       <trans-unit id="becomePartner" datatype="html">
         <source>Seja parceiro</source>
         <context-group purpose="location">
@@ -378,21 +378,21 @@
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">92</context>
         </context-group>
-      </trans-unit>
+      <target>Sé nuestro Aliado</target></trans-unit>
       <trans-unit id="contactUs" datatype="html">
         <source>Entre em contato com a gente</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">114</context>
         </context-group>
-      </trans-unit>
+      <target>Contactános</target></trans-unit>
       <trans-unit id="footerCopyright" datatype="html">
         <source>AIESEC do Brasil 2018. Todos os direitos reservados.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-footer/landing-footer.component.html</context>
           <context context-type="linenumber">136</context>
         </context-group>
-      </trans-unit>
+      <target>AIESEC Argentina 2019. Todos los derechos reservados. </target></trans-unit>
       <trans-unit id="landingGvAboutDesktop" datatype="html">
         <source>
           Ser um voluntário global é transformar
@@ -403,7 +403,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
-      </trans-unit>
+      <target>Ser un voluntario global es transformar tus valores en acciones y hacer la diferencia en diversas regiones del mundo</target></trans-unit>
       <trans-unit id="landingGvAboutMobile" datatype="html">
         <source>
           Intercâmbio Voluntário em Fundações
@@ -412,7 +412,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
-      </trans-unit>
+      <target>Intercambio voluntario en Fundaciones</target></trans-unit>
       <trans-unit id="learnMore" datatype="html">
         <source>SAIBA MAIS</source>
         <context-group purpose="location">
@@ -439,7 +439,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">129</context>
         </context-group>
-      </trans-unit>
+      <target>Conocé más</target></trans-unit>
       <trans-unit id="learnMoreGvItem1" datatype="html">
         <source>
                 Tenha uma experiência de voluntário em ONGs, Escolas ou Fundações de diversos países com duração de 6 a 8 semanas.
@@ -448,7 +448,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">31</context>
         </context-group>
-      </trans-unit>
+      <target>Tené una experiencia de voluntario en ONGs, Escuelas o Fundaciones de diversos países con una duración de 6 a 8 semanas.</target></trans-unit>
       <trans-unit id="learnMoreGvItem2" datatype="html">
         <source>
                 Conheça projetos que são vinculados aos Objetivos de Desenvolvimento Sustentável das Nações Unidas.
@@ -457,7 +457,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">39</context>
         </context-group>
-      </trans-unit>
+      <target>Conocé los proyectos que son vinculados a los Objetivos de Desarrollo Sostenibles de Naciones Unidas.</target></trans-unit>
       <trans-unit id="learnMoreGvItem3" datatype="html">
         <source>
                 Ter entre 18 e 30 anos é o único requisito para deixar sua marca no mundo.
@@ -466,7 +466,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">47</context>
         </context-group>
-      </trans-unit>
+      <target>Tener entre 18 y 30 años es el único requisito para dejar tu marca en el mundo.</target></trans-unit>
       <trans-unit id="signup" datatype="html">
         <source>
             Inscreva-se
@@ -483,7 +483,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">158</context>
         </context-group>
-      </trans-unit>
+      <target>Inscribite</target></trans-unit>
       <trans-unit id="landingGeAboutDesktop" datatype="html">
         <source>
           Assuma os desafios de trabalhar em uma
@@ -494,7 +494,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit>
+      <target>Asumí los desafíos de trabajar en una Startup y desarrollate como un líder emprendedor</target></trans-unit>
       <trans-unit id="landingGeAboutMobile" datatype="html">
         <source>
           Imersão em Startups
@@ -503,7 +503,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">71</context>
         </context-group>
-      </trans-unit>
+      <target>Inmersión en Startups</target></trans-unit>
       <trans-unit id="learnMoreGeItem1" datatype="html">
         <source>
                 Ter uma experiência de imersão em uma startup durante 6 a 12 semanas
@@ -512,7 +512,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">84</context>
         </context-group>
-      </trans-unit>
+      <target>Tener una experiencia de inmersión en una Startup durante 6 a 12 semanas.</target></trans-unit>
       <trans-unit id="learnMoreGeItem2" datatype="html">
         <source>
                 Viva em um ambiente dinâmico de uma Startup e atue em Marketing, Administração, T.I. ou Design
@@ -521,7 +521,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">92</context>
         </context-group>
-      </trans-unit>
+      <target>Viví en un ambiente dinámico de una Startup y trabajá en Marketing, Administración, IT o Diseño</target></trans-unit>
       <trans-unit id="learnMoreGeItem3" datatype="html">
         <source>
                 O jovem precisa apenas ter o inglês intermediário e alguma experiência prévia profissional
@@ -530,7 +530,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="landingGtAboutDesktop" datatype="html">
         <source>
           Agregue diferencial ao seu currículo
@@ -541,7 +541,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">119</context>
         </context-group>
-      </trans-unit>
+      <target>Sumá un diferencial a tu CV con esta experiencia enriquecedora</target></trans-unit>
       <trans-unit id="landingGtAboutMobile" datatype="html">
         <source>
           Estágio internacional em empresas
@@ -550,7 +550,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">124</context>
         </context-group>
-      </trans-unit>
+      <target>Práctica internacional en empresas</target></trans-unit>
       <trans-unit id="learnMoreGtItem1" datatype="html">
         <source>
                 Ter uma experiência de estágio internacional em empresas durante 3 a 12 meses.
@@ -559,7 +559,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">137</context>
         </context-group>
-      </trans-unit>
+      <target>Tener una experiencia de práctica internacional en empresas durante 3 a 12 meses</target></trans-unit>
       <trans-unit id="learnMoreGtItem2" datatype="html">
         <source>
                 Viva em um ambiente corporativo ensinando idiomas, trabalhando com TI, finanças, gestão, RH ou marketing.
@@ -568,7 +568,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">145</context>
         </context-group>
-      </trans-unit>
+      <target>Viví en un ambiente corporativo enseñando idiomas, trabajando con IT, finanzas, gestión, RRHH o Marketing</target></trans-unit>
       <trans-unit id="learnMoreGtItem3" datatype="html">
         <source>
                 O jovem precisa ter o inglês avançado e experiência na área que quer atuar.
@@ -577,21 +577,21 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">153</context>
         </context-group>
-      </trans-unit>
+      <target>Sólo necesitás tener inglés avanzado o experiencia en el área en la que querés trabajar.</target></trans-unit>
       <trans-unit id="landingHistoryTitle" datatype="html">
         <source> Desenvolvendo liderança jovem desde 1948 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">168</context>
         </context-group>
-      </trans-unit>
+      <target>Desarrollando liderazgo jóven desde 1948</target></trans-unit>
       <trans-unit id="landingHistorySubtitle" datatype="html">
         <source>AIESEC é o maior movimento de liderança jovem do mundo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">175</context>
         </context-group>
-      </trans-unit>
+      <target>AIESEC es el mayor movimiento de liderazgo jóven del mundo</target></trans-unit>
       <trans-unit id="landingHistory" datatype="html">
         <source>
             Acreditamos em liderança como a solução fundamental para os problemas do mundo e confiamos na juventude para liderar essa
@@ -602,7 +602,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">177</context>
         </context-group>
-      </trans-unit>
+      <target>Creemos en el liderazgo como la solución fundamental para los problemas del mundo y confiamos en la juventud para liderar ese cambio. A través de intercambios, proporcionamos oportunidades para que los jóvenes puedan explorar su potencial de liderazgo en ambientes desafiantes y multiculturales.</target></trans-unit>
       <trans-unit id="historyMembersInBrazil" datatype="html">
         <source>
                 <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>2000<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> membros
@@ -611,7 +611,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">189</context>
         </context-group>
-      </trans-unit>
+      <target>450 miembros en Argentina</target></trans-unit>
       <trans-unit id="historyPresentCountries" datatype="html">
         <source>Presente em
                 <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
@@ -621,7 +621,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">199</context>
         </context-group>
-      </trans-unit>
+      <target>Presente en +120 paises</target></trans-unit>
       <trans-unit id="historyExchangesPerYear" datatype="html">
         <source>+12.000 intercâmbios
                 <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> por ano</source>
@@ -629,7 +629,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">210</context>
         </context-group>
-      </trans-unit>
+      <target>+3000 intercambios al año</target></trans-unit>
       <trans-unit id="historyPartnerOrganizationsInBrazil" datatype="html">
         <source>+100 organizações
                 <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/> parceiras no Brasil</source>
@@ -637,7 +637,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">219</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="landingAIESECModel" datatype="html">
         <source>
         O modelo de desenvolvimento de liderança da
@@ -649,14 +649,14 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">232</context>
         </context-group>
-      </trans-unit>
+      <target>El modelo de desarrollo de liderazgo de AIESEC prepara a los jóvenes para defender aquello que ellos creen que los torna capaces de hacer la diferencia todos los dias.</target></trans-unit>
       <trans-unit id="getToKnowOurPrograms" datatype="html">
         <source>Conheça nossos programas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">238</context>
         </context-group>
-      </trans-unit>
+      <target>Conozca nuestro programas</target></trans-unit>
       <trans-unit id="aiesecExperienceTitle" datatype="html">
         <source>
             Em uma experiência com a AIESEC você vai...
@@ -665,7 +665,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">246</context>
         </context-group>
-      </trans-unit>
+      <target>En una experiencia con AIESEC vas a...</target></trans-unit>
       <trans-unit id="aiesecExperienceItem1" datatype="html">
         <source>
                 Conhecer e viver seus valores pessoais, enquanto explora suas paixões e seus pontos fortes.
@@ -674,7 +674,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">255</context>
         </context-group>
-      </trans-unit>
+      <target>Conocer y vivir tus valores personales, mientras exploras tus pasiones y tus fortalezas.</target></trans-unit>
       <trans-unit id="aiesecExperienceItem2" datatype="html">
         <source>
                 Provar sua habilidade de fazer uma diferença no mundo, se conectando com temas globais.
@@ -683,7 +683,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">261</context>
         </context-group>
-      </trans-unit>
+      <target>Probar tu habilidad de hacer una diferencia en el mundo, conectandote con temas globales.</target></trans-unit>
       <trans-unit id="aiesecExperienceItem3" datatype="html">
         <source>
                 Desenvolver suas habilidades de comunicação em um ambiente diverso.
@@ -692,7 +692,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">267</context>
         </context-group>
-      </trans-unit>
+      <target>Desarrollar tus habilidades de comunicación en un ambiente diverso</target></trans-unit>
       <trans-unit id="aiesecExperienceItem4" datatype="html">
         <source>
                 Tomar decisões para solucionar diversos problemas em ambientes desafiadores.
@@ -701,14 +701,14 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">273</context>
         </context-group>
-      </trans-unit>
+      <target>Tomar decisiones y solucionar diversos problemas en ambientes desafiantes</target></trans-unit>
       <trans-unit id="landingOurHistories" datatype="html">
         <source>As nossas histórias</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">287</context>
         </context-group>
-      </trans-unit>
+      <target>Nuestras historias</target></trans-unit>
       <trans-unit id="landingOurHistory1" datatype="html">
         <source>
                       &quot;Meu Voluntário Global foi uma experiência muito desafiadora na qual pude me desenvolver muito e impactar o mundo ao meu
@@ -718,7 +718,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">303</context>
         </context-group>
-      </trans-unit>
+      <target>“Mi Voluntariado Global fue una experiencia única, todavía recuerdo cada uno de los 45 días que compartí con 40 niños que me veían como su Superheroe”</target></trans-unit>
       <trans-unit id="landingOurHistory2" datatype="html">
         <source>
                       &quot;Meu intercâmbio no Egito definiu muito do que será minha carreira daqui pra frente. Além de aprender muito na Startup que
@@ -729,7 +729,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">318</context>
         </context-group>
-      </trans-unit>
+      <target>“Me dieron libertad absoluta para ayudarlos a organizarse, para armarles los cuadros y todo lo necesario para crear la empresa y que empiecen a proyectarse estableciendo sus metas.”</target></trans-unit>
       <trans-unit id="landingOurHistory3" datatype="html">
         <source>
                       &quot;Fazer meu intercâmbio na Índia foi com certeza a experiência que eu mais de desafiei e desenvolvi, tanto profissionalmente
@@ -739,14 +739,14 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">334</context>
         </context-group>
-      </trans-unit>
+      <target>“El intercambio me dio la oportunidad de enseñar en una universidad, y poder decirme a mí mismo y al resto del mundo “fui profesor de inglés empresarial en una universidad de ciencias económicas en Cracovia, Polonia”.</target></trans-unit>
       <trans-unit id="formGeTitle" datatype="html">
         <source>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
-      </trans-unit>
+      <target>Asumí los desafíos de trabajar en una Startup y desarrollate como un líder emprendedor</target></trans-unit>
       <trans-unit id="alreadyExistsUserEmail" datatype="html">
         <source>Já existe um usuário com esse endereço de email!</source>
         <context-group purpose="location">
@@ -761,7 +761,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">49</context>
         </context-group>
-      </trans-unit>
+      <target>Ya existe un usuario con esa dirección de email</target></trans-unit>
       <trans-unit id="accessThePlatformQuestion" datatype="html">
         <source>Gostaria de acessar a plataforma?</source>
         <context-group purpose="location">
@@ -776,7 +776,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
-      </trans-unit>
+      <target>Te gustaría acceder a la plataforma?</target></trans-unit>
       <trans-unit id="fullname" datatype="html">
         <source>Nome Completo</source>
         <context-group purpose="location">
@@ -791,7 +791,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">59</context>
         </context-group>
-      </trans-unit>
+      <target>Nombre Completo</target></trans-unit>
       <trans-unit id="fullnamePlaceholder" datatype="html">
         <source>Como é pra gente te chamar?</source>
         <context-group purpose="location">
@@ -806,7 +806,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
-      </trans-unit>
+      <target>Cómo preferís que te llamemos?</target></trans-unit>
       <trans-unit id="fullnameMobilePlaceholder" datatype="html">
         <source>Nome completo</source>
         <context-group purpose="location">
@@ -821,7 +821,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">67</context>
         </context-group>
-      </trans-unit>
+      <target>Nombre Completo</target></trans-unit>
       <trans-unit id="formFullnameEmpty" datatype="html">
         <source>
                     Preencha o nome completo.
@@ -834,7 +834,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
           <context context-type="linenumber">72</context>
         </context-group>
-      </trans-unit>
+      <target>Complete su nombre completo.</target></trans-unit>
       <trans-unit id="cellphone" datatype="html">
         <source>Celular</source>
         <context-group purpose="location">
@@ -849,7 +849,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">78</context>
         </context-group>
-      </trans-unit>
+      <target>Celular</target></trans-unit>
       <trans-unit id="cellphonePlaceholder" datatype="html">
         <source>Vamos falar com você por aqui!</source>
         <context-group purpose="location">
@@ -864,14 +864,14 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">81</context>
         </context-group>
-      </trans-unit>
+      <target>Vamos a hablar con vos por acá!</target></trans-unit>
       <trans-unit id="cellphoneMobilePlaceholder" datatype="html">
         <source>Celular</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
           <context context-type="linenumber">86</context>
         </context-group>
-      </trans-unit>
+      <target>Celular</target></trans-unit>
       <trans-unit id="formCellphoneEmpty" datatype="html">
         <source>
                     Preencha o seu número de celular.
@@ -888,7 +888,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">91</context>
         </context-group>
-      </trans-unit>
+      <target>Complete su número de celular</target></trans-unit>
       <trans-unit id="formCellphoneInvalid" datatype="html">
         <source>
                     Por favor, digite um número de celular válido.
@@ -905,7 +905,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">94</context>
         </context-group>
-      </trans-unit>
+      <target>Por favor, escriba un número de celular</target></trans-unit>
       <trans-unit id="emailPlaceholder" datatype="html">
         <source>Relaxa, nós também não gostamos de spam</source>
         <context-group purpose="location">
@@ -920,7 +920,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">105</context>
         </context-group>
-      </trans-unit>
+      <target>Relajate, a nosotros tampoco nos gusta el spam</target></trans-unit>
       <trans-unit id="emailMobilePlaceholder" datatype="html">
         <source>Email</source>
         <context-group purpose="location">
@@ -931,7 +931,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
           <context context-type="linenumber">112</context>
         </context-group>
-      </trans-unit>
+      <target>Email</target></trans-unit>
       <trans-unit id="mandatoryField" datatype="html">
         <source>Campo obrigatório</source>
         <context-group purpose="location">
@@ -946,7 +946,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">115</context>
         </context-group>
-      </trans-unit>
+      <target>Campo obligatorio</target></trans-unit>
       <trans-unit id="formEmailEmpty" datatype="html">
         <source>
                     Preencha com o seu email.
@@ -959,7 +959,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
           <context context-type="linenumber">121</context>
         </context-group>
-      </trans-unit>
+      <target>Complete con su mail</target></trans-unit>
       <trans-unit id="birthdate" datatype="html">
         <source>Data de Nascimento</source>
         <context-group purpose="location">
@@ -974,7 +974,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">127</context>
         </context-group>
-      </trans-unit>
+      <target>Fecha de nacimiento</target></trans-unit>
       <trans-unit id="formBirthdateEmpty" datatype="html">
         <source>
                     Preencha com a sua data de nascimento.
@@ -991,7 +991,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">137</context>
         </context-group>
-      </trans-unit>
+      <target>Completa con tu fecha de nacimiento</target></trans-unit>
       <trans-unit id="formBirthdateInvalid" datatype="html">
         <source>
                     Por favor, preencha com uma data válida
@@ -1008,7 +1008,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">140</context>
         </context-group>
-      </trans-unit>
+      <target>Por favor, complete con una fecha válida</target></trans-unit>
       <trans-unit id="formBirthdateError" datatype="html">
         <source>
                     Desculpe, nossos programas são direcionados para pessoas entre 18 e 30 anos.
@@ -1025,7 +1025,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">143</context>
         </context-group>
-      </trans-unit>
+      <target>Disculpa, nuestros programas están dirigidos a personas entre 18 y 30 años</target></trans-unit>
       <trans-unit id="password" datatype="html">
         <source>Senha</source>
         <context-group purpose="location">
@@ -1040,7 +1040,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">151</context>
         </context-group>
-      </trans-unit>
+      <target>Contraseña</target></trans-unit>
       <trans-unit id="passwordPlaceholder" datatype="html">
         <source>É para o seu perfil no aiesec.org</source>
         <context-group purpose="location">
@@ -1055,7 +1055,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">154</context>
         </context-group>
-      </trans-unit>
+      <target>Es para tu perfil en aiesec.org</target></trans-unit>
       <trans-unit id="passwordMobilePlaceholder" datatype="html">
         <source>Senha</source>
         <context-group purpose="location">
@@ -1066,7 +1066,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">159</context>
         </context-group>
-      </trans-unit>
+      <target>Contraseña</target></trans-unit>
       <trans-unit id="confirmPassword" datatype="html">
         <source>Confirmar Senha</source>
         <context-group purpose="location">
@@ -1081,7 +1081,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">170</context>
         </context-group>
-      </trans-unit>
+      <target>Confirmar contraseña</target></trans-unit>
       <trans-unit id="confirmPasswordMobilePlaceholder" datatype="html">
         <source>Confirmar senha</source>
         <context-group purpose="location">
@@ -1092,7 +1092,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">179</context>
         </context-group>
-      </trans-unit>
+      <target>Confirmar contraseña</target></trans-unit>
       <trans-unit id="formPasswordEmpty" datatype="html">
         <source>
                   Preencha com a sua senha.
@@ -1113,7 +1113,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">185</context>
         </context-group>
-      </trans-unit>
+      <target>Completa con tu contraseña. (Por lo menos un caracter en mayúscula, otro en minúscula, al menos un número y por lo menos 8 caracteres en total.)</target></trans-unit>
       <trans-unit id="formPasswordError" datatype="html">
         <source>
                   As senhas não conferem! Digite novamente
@@ -1130,12 +1130,12 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">192</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="city" datatype="html">
-        <source>Cidade</source>
+      <target>Las contraseñas no coinciden! Escriba nuevamente</target></trans-unit>
+      <trans-unit id="scholarity" datatype="html">
+        <source>Escolaridade</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">248</context>
+          <context context-type="linenumber">204</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
@@ -1145,12 +1145,33 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">204</context>
         </context-group>
-      </trans-unit>
+      <target>Estudios</target></trans-unit>
+       <trans-unit id="formScholarityEmpty" datatype="html">
+        <source>
+                    Selecione um nível de escolaridade
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+      <target>Elegí un nivel de estudio.</target></trans-unit>
       <trans-unit id="noResults" datatype="html">
         <source>Nenhum resultado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">255</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">231</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
@@ -1158,363 +1179,479 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">315</context>
+          <context context-type="linenumber">320</context>
         </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">342</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">365</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">233</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">276</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">321</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">343</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">366</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">231</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">317</context>
+        </context-group>
+      <target>Ningún resultado</target></trans-unit>
+      <trans-unit id="scholarityPlaceholder" datatype="html">
+        <source>Qual seu nível de escolaridade?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+      <target>Cual es tu nivel de estudio?</target></trans-unit>
+      <trans-unit id="city" datatype="html">
+        <source>Cidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">226</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+      <target>Ciudad</target></trans-unit>
+      <trans-unit id="cityPlaceholder" datatype="html">
+        <source>Cidade onde estuda</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">231</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">233</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">231</context>
+        </context-group>
+      <target>Ciudad donde estudias</target></trans-unit>
+      <trans-unit id="formCityEmpty" datatype="html">
+        <source>
+                    Por favor, selecione sua cidade
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">239</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+      <target>Por favor, selecciona tu ciudad</target></trans-unit>
+      <trans-unit id="formCityNotFound" datatype="html">
+        <source>
+                          Não encontrou sua cidade acima?
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">248</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">250</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">248</context>
+        </context-group>
+      <target>No encontraste tu ciudad?</target></trans-unit>
+      <trans-unit id="formChoiceUniversity" datatype="html">
+        <source>
+                          Escolha a província onde você estuda e depois insira o nome da universidade
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">251</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">253</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">251</context>
+        </context-group>
+      <target>Elegí la provincia que estudias y después elegí tu universidad</target></trans-unit>
+      <trans-unit id="formChoiceProvince" datatype="html">
+        <source>
+                          Escolha a província onde você reside
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">254</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">256</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">254</context>
+        </context-group>
+      <target>Elegí la provincia donde vivís</target></trans-unit>
+      <trans-unit id="university" datatype="html">
+        <source>Universidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">268</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+      <target>Universidad </target></trans-unit>
+      <trans-unit id="province" datatype="html">
+        <source>Província</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">267</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">269</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">267</context>
+        </context-group>
+      <target>Provincia</target></trans-unit>
+      <trans-unit id="universityPlaceholder" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ (user.scholarity.id == 0 || user.scholarity.id == 1) ? &apos;¿Donde vives?&apos; : &apos;¿Donde estudias?&apos; }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">276</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+      <target>Dónde estudias?</target></trans-unit>
+      <trans-unit id="formUniversityEmpty" datatype="html">
+        <source>
+                    Selecione uma universidade.
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+      <target>Seleccione una universidad.</target></trans-unit>
+      <trans-unit id="universityName" datatype="html">
+        <source>Nome da Universidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">289</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">291</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">289</context>
+        </context-group>
+      <target>Nombre de la universidad</target></trans-unit>
+      <trans-unit id="otherUniversityPlaceholder" datatype="html">
+        <source>¿Qué universidad?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">293</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">295</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">293</context>
+        </context-group>
+      <target>Qué universidad?</target></trans-unit>
+      <trans-unit id="otherUniversityMobilePlaceholder" datatype="html">
+        <source>¿Qué universidad?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">298</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">299</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">297</context>
+        </context-group>
+      <target>Qué universidad?</target></trans-unit>
+      <trans-unit id="formOtherUniversityInvalid" datatype="html">
+        <source>
+                    Por favor, digite uma universidade válida.
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">304</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">305</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">303</context>
+        </context-group>
+      <target>Por favor, escriba una universidad válida</target></trans-unit>
+      <trans-unit id="collegeCourse" datatype="html">
+        <source>Curso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">313</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">314</context>
+        </context-group>
+      <target>Carrera</target></trans-unit>
+      <trans-unit id="collegeCoursePlaceholder" datatype="html">
+        <source>Insira seu curso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">320</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">321</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">317</context>
+        </context-group>
+      <target>Inserte su carrera</target></trans-unit>
+      <trans-unit id="formCollegeCourseEmpty" datatype="html">
+        <source>
+                    Selecione um curso.
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">326</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">327</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">323</context>
+        </context-group>
+      <target>Seleccione una carrera</target></trans-unit>
+      <trans-unit id="englishLevel" datatype="html">
+        <source>Nível de Inglês</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
           <context context-type="linenumber">335</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">357</context>
-        </context-group>
-        <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">213</context>
+          <context context-type="linenumber">336</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">252</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">293</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">312</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">333</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">211</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">251</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">293</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="cityPlaceholder" datatype="html">
-        <source>Cidade onde estuda</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">255</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">213</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">211</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="formCityEmpty" datatype="html">
-        <source>
-                      Por favor, selecione sua cidade
-                    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">260</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">218</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">216</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="university" datatype="html">
-        <source>Universidade</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">268</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">246</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">245</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="universityPlaceholder" datatype="html">
-        <source>Onde você estuda?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">274</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">252</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">251</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="formUniversityEmpty" datatype="html">
-        <source>
-                      Selecione uma universidade.
-                    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">279</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">257</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">256</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="otherUniversity" datatype="html">
-        <source>Otra Universidad</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">287</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="otherUniversityPlaceholder" datatype="html">
-        <source>¿Qué universidad?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">290</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">270</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">269</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="otherUniversityMobilePlaceholder" datatype="html">
-        <source>¿Qué universidad?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">295</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">273</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="formOtherUniversityInvalid" datatype="html">
-        <source>
-                      Por favor, digite uma universidade válida.
-                    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">301</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">279</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">279</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="collegeCourse" datatype="html">
-        <source>Curso</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">309</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">287</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="collegeCoursePlaceholder" datatype="html">
-        <source>Insira seu curso</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">316</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">293</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">294</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="formCollegeCourseEmpty" datatype="html">
-        <source>
-                      Selecione um curso.
-                    </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">321</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">298</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">299</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="englishLevel" datatype="html">
-        <source>Nível de Inglês</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">329</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">306</context>
-        </context-group>
-      </trans-unit>
+      <target>Nivel de inglés</target></trans-unit>
       <trans-unit id="englishLevelPlaceholder" datatype="html">
         <source>Isso nos ajuda a te direcionar para as vagas mais adequadas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">336</context>
+          <context context-type="linenumber">342</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">312</context>
+          <context context-type="linenumber">343</context>
         </context-group>
-      </trans-unit>
+      <target>Eso nos ayuda a direccionarte a las oportunidades más adecuadas</target></trans-unit>
       <trans-unit id="formEnglishLevelEmpty" datatype="html">
         <source>
                     Selecione um nível de inglês.
                   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">341</context>
+          <context context-type="linenumber">348</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">317</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="preferredDestinations" datatype="html">
-        <source>Onde deseja viver a
-                        <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>experiência?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
           <context context-type="linenumber">349</context>
         </context-group>
+      <target>Seleccione un nivel de inglés</target></trans-unit>
+      <trans-unit id="preferredDestinations" datatype="html">
+        <source>Onde deseja viver a
+                          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>experiência?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">357</context>
+        </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">325</context>
+          <context context-type="linenumber">358</context>
         </context-group>
-      </trans-unit>
+      <target>Donde deseas vivir tu experiencia?</target></trans-unit>
       <trans-unit id="preferredDestinationPlaceholder" datatype="html">
         <source>Selecione</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">358</context>
+          <context context-type="linenumber">365</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">333</context>
+          <context context-type="linenumber">366</context>
         </context-group>
-      </trans-unit>
+      <target>Selecciona</target></trans-unit>
       <trans-unit id="formPreferredDestinationEmpty" datatype="html">
         <source>
                     Por favor, informe onde deseja viver a experiência
                   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">363</context>
+          <context context-type="linenumber">371</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">338</context>
+          <context context-type="linenumber">372</context>
         </context-group>
-      </trans-unit>
+      <target>Por favor, informá donde deseas vivir la experiencia</target></trans-unit>
       <trans-unit id="whenCanTravel" datatype="html">
         <source>Quando pode viajar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">371</context>
+          <context context-type="linenumber">380</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">307</context>
+          <context context-type="linenumber">332</context>
         </context-group>
-      </trans-unit>
+      <target>Cuando podés viajar</target></trans-unit>
       <trans-unit id="whenCanTravelLabel" datatype="html">
         <source>
                       Escolha o período de tempo que você estará disponível
                     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">373</context>
+          <context context-type="linenumber">383</context>
         </context-group>
-      </trans-unit>
+      <target>Eligí el período de tiempo que vas a estar disponible</target></trans-unit>
       <trans-unit id="curriculum" datatype="html">
         <source>Currículo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">391</context>
+          <context context-type="linenumber">402</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">346</context>
+          <context context-type="linenumber">381</context>
         </context-group>
-      </trans-unit>
+      <target>CV</target></trans-unit>
       <trans-unit id="termsAndConditions" datatype="html">
         <source>Termos e Condições</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">409</context>
+          <context context-type="linenumber">421</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">416</context>
+          <context context-type="linenumber">428</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">364</context>
+          <context context-type="linenumber">400</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">328</context>
+          <context context-type="linenumber">353</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">335</context>
+          <context context-type="linenumber">360</context>
         </context-group>
-      </trans-unit>
+      <target>Términos y Condiciones</target></trans-unit>
       <trans-unit id="termsAndConditionsText" datatype="html">
         <source>
                           Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">411</context>
+          <context context-type="linenumber">423</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">372</context>
+          <context context-type="linenumber">408</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">330</context>
+          <context context-type="linenumber">355</context>
         </context-group>
-      </trans-unit>
+      <target>Inscribiendote estas de acuerdo nuestros Términos y Condiciones descritos arriba.</target></trans-unit>
       <trans-unit id="termsAndConditionsMobileText" datatype="html">
         <source>
                           Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
@@ -1523,33 +1660,33 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">417</context>
+          <context context-type="linenumber">429</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">336</context>
+          <context context-type="linenumber">361</context>
         </context-group>
-      </trans-unit>
+      <target>Inscribiendote estas de acuerdo con losTérminos y Condiciones de AIESEC Argentina. Para leerlos, hacé click acá.</target></trans-unit>
       <trans-unit id="cellphoneContactable" datatype="html">
         <source> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">429</context>
+          <context context-type="linenumber">441</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">381</context>
+          <context context-type="linenumber">420</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">348</context>
+          <context context-type="linenumber">373</context>
         </context-group>
-      </trans-unit>
+      <target>Te gustaría ser contactado por llamada o mensaje en tu número de celular.</target></trans-unit>
       <trans-unit id="thanksForSubscribleText" datatype="html">
         <source>Obrigado por se increver!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">443</context>
+          <context context-type="linenumber">455</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1557,7 +1694,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">395</context>
+          <context context-type="linenumber">434</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1565,14 +1702,14 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">362</context>
+          <context context-type="linenumber">387</context>
         </context-group>
-      </trans-unit>
+      <target>Gracias por inscribirte!</target></trans-unit>
       <trans-unit id="thanksForSubscribleMessage" datatype="html">
         <source>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">444</context>
+          <context context-type="linenumber">456</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1580,7 +1717,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">396</context>
+          <context context-type="linenumber">435</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1588,9 +1725,9 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">363</context>
+          <context context-type="linenumber">388</context>
         </context-group>
-      </trans-unit>
+      <target>Quedate atento a tu mail que enviaremos informaciones útiles para vos ahí!</target></trans-unit>
       <trans-unit id="registerResult" datatype="html">
         <source>
                           Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por imersão internacional em
@@ -1598,7 +1735,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">452</context>
+          <context context-type="linenumber">464</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1606,7 +1743,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">404</context>
+          <context context-type="linenumber">443</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1614,14 +1751,14 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">371</context>
+          <context context-type="linenumber">396</context>
         </context-group>
-      </trans-unit>
+      <target>Ahora que creaste tu cuenta, podrás acceder nuestra plataforma y empezar a buscar por una experiencia internacional en una startup en la fecha y destino ideal para vos! Quedate atento al mail que pronto enviaremos más informaciones.</target></trans-unit>
       <trans-unit id="accesOpportunitiesPortal" datatype="html">
         <source>Acessar o Portal de Oportunidades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">456</context>
+          <context context-type="linenumber">468</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1629,7 +1766,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">409</context>
+          <context context-type="linenumber">448</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1637,20 +1774,20 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">375</context>
+          <context context-type="linenumber">400</context>
         </context-group>
-      </trans-unit>
+      <target>Acceder al Portal de Opportunities</target></trans-unit>
       <trans-unit id="next" datatype="html">
         <source>Próximo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">470</context>
+          <context context-type="linenumber">482</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">389</context>
+          <context context-type="linenumber">414</context>
         </context-group>
-      </trans-unit>
+      <target>Próximo</target></trans-unit>
       <trans-unit id="send" datatype="html">
         <source>
                   Enviar
@@ -1658,17 +1795,17 @@
                 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">472</context>
+          <context context-type="linenumber">484</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">426</context>
+          <context context-type="linenumber">465</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">391</context>
+          <context context-type="linenumber">416</context>
         </context-group>
-      </trans-unit>
+      <target>Enviar</target></trans-unit>
       <trans-unit id="accessHomePage" datatype="html">
         <source>
 												Acessar a página inicial
@@ -1681,7 +1818,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
           <context context-type="linenumber">44</context>
         </context-group>
-      </trans-unit>
+      <target>Acceder la página inicial</target></trans-unit>
       <trans-unit id="vacancies" datatype="html">
         <source>Vagas</source>
         <context-group purpose="location">
@@ -1692,7 +1829,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
-      </trans-unit>
+      <target>Oportunidades </target></trans-unit>
       <trans-unit id="learnMoreAboutOurStories" datatype="html">
         <source>
 												Conheça mais nossas histórias
@@ -1705,7 +1842,7 @@
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit>
+      <target>Conoza más nuestras historias</target></trans-unit>
       <trans-unit id="privacyPolicy" datatype="html">
         <source>
       Privacy Policy
@@ -1714,7 +1851,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">2</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="privacyPolicyText" datatype="html">
         <source>
       This Privacy Policy governs the way Stichting AIESEC International, registered in Rotterdam, The Netherlands (“AIESEC”) collects,
@@ -1726,7 +1863,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationYouProvideToUs" datatype="html">
         <source>
       INFORMATION YOU PROVIDE TO US
@@ -1735,7 +1872,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">12</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationYouProvideToUsText" datatype="html">
         <source>
       We collect information you provide directly to us. For example, we collect information when you visit our Sites, fill out
@@ -1760,7 +1897,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectAutomatically" datatype="html">
         <source>
       INFORMATION WE COLLECT AUTOMATICALLY WHEN YOU USE THE SITES
@@ -1769,7 +1906,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">35</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectAutomaticallyText" datatype="html">
         <source>
       When you access or use our Sites, we automatically collect information about you, including:
@@ -1778,7 +1915,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">38</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectAutomaticallyItem1" datatype="html">
         <source>
         Log Information: We log information about your use of the Sites, including the type of browser you use, access times, pages
@@ -1788,7 +1925,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">42</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectAutomaticallyItem2" datatype="html">
         <source>
         Device Information: We may collect information about the computer or mobile device you use to access our Sites, including
@@ -1798,7 +1935,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">46</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectAutomaticallyItem3" datatype="html">
         <source>
         Information Collected by Cookies and Other Tracking Technologies: We use various technologies to collect information, and
@@ -1812,7 +1949,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">50</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectFromOtherSources" datatype="html">
         <source>
       INFORMATION WE COLLECT FROM OTHER SOURCES
@@ -1821,7 +1958,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">59</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="informationWeCollectFromOtherSourcesText" datatype="html">
         <source>
       We may also obtain information from other sources and combine that with information we collect through our Sites. For example,
@@ -1833,7 +1970,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">63</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformation" datatype="html">
         <source>
       USE OF INFORMATION
@@ -1842,7 +1979,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">70</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationText" datatype="html">
         <source>
       We may use information about you for various purposes, including to:
@@ -1851,7 +1988,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">73</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem1" datatype="html">
         <source>
         Register you with an account
@@ -1864,7 +2001,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">80</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem2" datatype="html">
         <source>
         To send periodic emails We may use the email address to respond to their inquiries, questions, and/or other requests.
@@ -1873,7 +2010,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">85</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem3" datatype="html">
         <source>
         Provide, maintain and improve our Sites and send you confirmations, receipts, technical notices, updates, security alerts
@@ -1883,7 +2020,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">88</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem4" datatype="html">
         <source>
         Provide and deliver the information or products you request, process donations and transactions and send you related information,
@@ -1893,7 +2030,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">92</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem5" datatype="html">
         <source>
         Respond to your emails, submissions, comments, questions and requests, provide customer service, request feedback, and otherwise
@@ -1903,7 +2040,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">96</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem6" datatype="html">
         <source>
         Send you newsletters and otherwise provide you with information or services you request or that we think will be of interest
@@ -1914,7 +2051,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem7" datatype="html">
         <source>
         Help connect you with others and to solicit donations and support AIESEC and for issues and organizations that we support;
@@ -1923,7 +2060,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">105</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem8" datatype="html">
         <source>
         Monitor and analyze trends, usage and activities about our Sites;
@@ -1932,7 +2069,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">108</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem9" datatype="html">
         <source>
         Personalize and improve the Sites and provide advertisements, content or features that match user profiles or interests or
@@ -1942,7 +2079,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">111</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem10" datatype="html">
         <source>
         We conduct surveys and research, test features in development, and analyze the information we have to evaluate and improve
@@ -1952,7 +2089,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">115</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem11" datatype="html">
         <source>
         Carry out any other purpose for which the information was collected.
@@ -1961,7 +2098,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">119</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="useOfInformationItem12" datatype="html">
         <source>
         Comply with our legal and regulatory obligations
@@ -1970,7 +2107,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">122</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformation" datatype="html">
         <source>
       SHARING OF INFORMATION
@@ -1979,7 +2116,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">127</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationText" datatype="html">
         <source>
       We may share information about you as follows or as otherwise described in this Privacy Policy:
@@ -1988,7 +2125,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">130</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem1" datatype="html">
         <source>
         With vendors, consultants and other service providers or volunteers who need access to such information to carry out work
@@ -1998,7 +2135,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">134</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem2" datatype="html">
         <source>
         With organizations, groups or causes that we believe have similar viewpoints, principles or objectives or share similar goals
@@ -2009,7 +2146,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">138</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem3" datatype="html">
         <source>
         When we believe in good faith that we are lawfully authorized or required to do so or that doing so is reasonably necessary
@@ -2029,7 +2166,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">143</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem4" datatype="html">
         <source>
         If we believe your actions are inconsistent with the spirit or language of our user agreements or policies, or to protect
@@ -2039,7 +2176,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">157</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem5" datatype="html">
         <source>
         With your consent or at your direction, including if we notify you through our Sites that the information you provide will
@@ -2049,7 +2186,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">161</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem6" datatype="html">
         <source>
         We may also share aggregated or anonymized information that does not directly identify you.
@@ -2058,7 +2195,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">165</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationItem7" datatype="html">
         <source>
         If the ownership or control of all or part of our Services or their assets changes, we may transfer your information to the
@@ -2068,7 +2205,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">168</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="sharingOfInformationText2" datatype="html">
         <source>
       We may use third party service providers to help us operate our business and the Site or administer activities on our behalf,
@@ -2079,7 +2216,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">174</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="thirdPartyWebsitesIntegrationsOnOrUsingOurServices" datatype="html">
         <source>
       THIRD PARTY WEBSITES INTEGRATIONS ON OR USING OUR SERVICES.
@@ -2088,7 +2225,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">180</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="thirdPartyWebsitesIntegrationsOnOrUsingOurServicesText" datatype="html">
         <source>
       We also work with third party companies who help us provide and improve our Services. We transfer information to vendors,
@@ -2116,7 +2253,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">183</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="transferOfInformationOutsideTheEEA" datatype="html">
         <source>
       TRANSFER OF INFORMATION OUTSIDE THE EEA
@@ -2125,7 +2262,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">206</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="transferOfInformationOutsideTheEEAText" datatype="html">
         <source>
       Under the Data Protection Act 1998 (the &quot;Act&quot;), we are required to tell you if we transfer or intend to transfer information
@@ -2146,7 +2283,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">209</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="onlinePetitions" datatype="html">
         <source>
       ONLINE PETITIONS
@@ -2155,7 +2292,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">225</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="onlinePetitionsText" datatype="html">
         <source>
       If you sign an online petition, you understand that such petition is public information and that we may make the petition,
@@ -2167,7 +2304,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">228</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="socialSharingFeatures" datatype="html">
         <source>
       SOCIAL SHARING FEATURES
@@ -2176,7 +2313,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">235</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="socialSharingFeaturesText" datatype="html">
         <source>
       The Sites may offer social sharing features and other integrated tools (such as the Facebook “Like” button), which let you
@@ -2189,7 +2326,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">238</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsSecurity" datatype="html">
         <source>
       SECURITY
@@ -2198,7 +2335,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">246</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsSecurityText" datatype="html">
         <source>
       AIESEC takes reasonable measures to help protect information about you from loss, theft, misuse and unauthorized access,
@@ -2208,7 +2345,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">249</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsCookies" datatype="html">
         <source>
       COOKIES
@@ -2217,7 +2354,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">254</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsCookiesText" datatype="html">
         <source>
       Our Site may use &quot;cookies&quot; to enhance User experience. User&apos;s web browser places cookies on their hard drive for record-keeping
@@ -2233,7 +2370,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">258</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreCookies" datatype="html">
         <source>
       What are cookies
@@ -2242,7 +2379,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">269</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreCookiesText" datatype="html">
         <source>
       Cookies are small pieces of text sent to your web browser by a website you visit. A cookie file is stored in your web browser
@@ -2254,7 +2391,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">272</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookies" datatype="html">
         <source>
       How AIESEC uses cookies
@@ -2263,7 +2400,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">279</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesText" datatype="html">
         <source>
       When you use and access the Service, we may place a number of cookies files in your web browser. We use cookies for the following
@@ -2273,7 +2410,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">282</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem1" datatype="html">
         <source>
         To enable certain functions of the Service
@@ -2282,7 +2419,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">288</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem2" datatype="html">
         <source>
         To provide analytics
@@ -2291,7 +2428,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">291</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem3" datatype="html">
         <source>To store your preferences We use both session and persistent cookies on the Service and we use different types of cookies
         to run the Service:</source>
@@ -2299,7 +2436,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">295</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem4" datatype="html">
         <source>
             To store your preferences We use both session and persistent cookies on the Service and we use different types of cookies
@@ -2310,7 +2447,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">298</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem5" datatype="html">
         <source>
             Preferences cookies. We may use preferences cookies to remember information that changes the way the Service behaves or looks,
@@ -2320,7 +2457,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">303</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem6" datatype="html">
         <source>
             Analytics cookies. We may use analytics cookies to track information how the Service is used so that we can make improvements.
@@ -2331,7 +2468,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">307</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsHowAiesecUsersCookiesItem7" datatype="html">
         <source>
             Third-party cookies In addition to our own cookies, we may also use various third-parties cookies to report usage statistics
@@ -2341,7 +2478,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">312</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookies" datatype="html">
         <source>
       What are your choices regarding cookies
@@ -2350,7 +2487,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">319</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesText" datatype="html">
         <source>
       If you&apos;d like to delete cookies or instruct your web browser to delete or refuse cookies, please visit the help pages of
@@ -2362,35 +2499,35 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">323</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesItem1" datatype="html">
         <source>For the Chrome web browser, please visit this page from Google:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">331</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesItem2" datatype="html">
         <source>For the Internet Explorer web browser, please visit this page from Microsoft:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">336</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesItem3" datatype="html">
         <source>For the Firefox web browser, please visit this page from Mozilla:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">341</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesItem4" datatype="html">
         <source>For the Safari web browser, please visit this page from Apple:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">346</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesItem5" datatype="html">
         <source>
         For any other web browser, please visit your web browser&apos;s official web pages. Where can you find more information about
@@ -2400,7 +2537,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">350</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsWhatAreYourChoicesCookiesText2" datatype="html">
         <source>
       You can learn more about cookies and the following third-party websites:
@@ -2409,7 +2546,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">355</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="changesToThisPrivacyPolicy" datatype="html">
         <source>
       CHANGES TO THIS PRIVACY POLICY
@@ -2418,7 +2555,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">369</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="changesToThisPrivacyPolicyText" datatype="html">
         <source>
       AIESEC has the discretion to update this privacy policy at any time. When we do, we will revise the updated date at the bottom
@@ -2430,7 +2567,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">372</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="yourAcceptanceOfTheseTerms" datatype="html">
         <source>
       YOUR ACCEPTANCE OF THESE TERMS
@@ -2439,7 +2576,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">379</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="yourAcceptanceOfTheseTermsText" datatype="html">
         <source>
       By using this Site, you signify your acceptance of this policy and terms of service. If you do not agree to this policy,
@@ -2450,7 +2587,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">383</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsContactingUs" datatype="html">
         <source>
       CONTACTING US
@@ -2459,7 +2596,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">388</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsContactingUsText" datatype="html">
         <source>
       If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please
@@ -2469,7 +2606,7 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">391</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="termsUpdatedDate" datatype="html">
         <source>
       This document was last updated on April 21, 2017
@@ -2478,39 +2615,28 @@
           <context context-type="sourcefile">app/terms/terms.component.html</context>
           <context context-type="linenumber">395</context>
         </context-group>
-      </trans-unit>
+      <target></target></trans-unit>
       <trans-unit id="formGtTitle" datatype="html">
         <source>Vivencie a realidade de uma empresa internacional, desenvolva suas habilidades e traga o mundo para o seu currículo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
           <context context-type="linenumber">17</context>
         </context-group>
-      </trans-unit>
-      <trans-unit id="universityName" datatype="html">
-        <source>Nome da Universidade</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">266</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">265</context>
-        </context-group>
-      </trans-unit>
+      <target>VIví la realidad de una empresa internacional, desarrolla tus habilidades y traé el mundo a tu curriculum</target></trans-unit>
       <trans-unit id="formGvTitle" datatype="html">
         <source>Ser um voluntário global é transformar seus valores em ação e fazer a diferença em diversas regiões do mundo.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">18</context>
         </context-group>
-      </trans-unit>
+      <target>Ser voluntario global es transformar tus valores en acción y marcar la diferencia en diversas regiones del mundo</target></trans-unit>
       <trans-unit id="whenCanTravelAvailable" datatype="html">
         <source>Escolha o período de tempo que você estará disponível</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">310</context>
+          <context context-type="linenumber">336</context>
         </context-group>
-      </trans-unit>
+      <target>Elegí el período de tiempo en el que estarás disponible</target></trans-unit>
       <trans-unit id="programOverview" datatype="html">
         <source>
             Visão geral do programa
@@ -2527,7 +2653,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">13</context>
         </context-group>
-      </trans-unit>
+      <target>Visión general del programa</target></trans-unit>
       <trans-unit id="geOverview" datatype="html">
         <source>
             O Empreendedor Global é uma experiência de imersão em Startup durante 6 a 12 semanas em que o jovem tem a chance de viver
@@ -2539,7 +2665,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
-      </trans-unit>
+      <target> Emprendedor Global es una experiencia de imersión en una Startup durante 6 a 12 semanas en la que el joven tiene la chance de vivir un ambiente dinámico e innovador de una Startup. Las áreas de acción son Marketing, Administración, IT, diseño y desarrollo de negocios! El joven necesita sólo saber inglés intermedio y alguna experiencia profesional previa o académica en el área de ocupación de preferencia</target></trans-unit>
       <trans-unit id="register" datatype="html">
         <source>
                 Cadastre-se
@@ -2556,7 +2682,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">40</context>
         </context-group>
-      </trans-unit>
+      <target>Inscribite</target></trans-unit>
       <trans-unit id="registerAndSeeOpportunities" datatype="html">
         <source>
                 Preencha seu cadastro e veja as oportunidades em nosso site.
@@ -2573,7 +2699,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">43</context>
         </context-group>
-      </trans-unit>
+      <target>Llená tu inscripción y ve las oportunidades en nuestro sitio.</target></trans-unit>
       <trans-unit id="contactWithAiesec" datatype="html">
         <source>
                 Contato com a AIESEC
@@ -2590,7 +2716,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">53</context>
         </context-group>
-      </trans-unit>
+      <target>Contacto con AIESEC</target></trans-unit>
       <trans-unit id="contactWithAiesecText" datatype="html">
         <source>
                 A AIESEC mais próxima de você entrará em contato para tirar suas dúvidas e indicar vagas.
@@ -2607,7 +2733,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">56</context>
         </context-group>
-      </trans-unit>
+      <target>Tu AIESEC más cercano entrará en contacto para sacar tus dudas e indicar oportunidades.</target></trans-unit>
       <trans-unit id="cvInEnglishTitle" datatype="html">
         <source>
                 Fazer o CV em inglês
@@ -2620,7 +2746,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">69</context>
         </context-group>
-      </trans-unit>
+      <target>Hacer el CV en inglés</target></trans-unit>
       <trans-unit id="cvInEnglishText" datatype="html">
         <source>
                 É necessário preparar seu CV em inglês para apresentar para as empresas que você está se candidatando. Não se preocupe, estamos
@@ -2634,7 +2760,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">72</context>
         </context-group>
-      </trans-unit>
+      <target>Es necesario preparar tu CV en inglés para presentar a las empresas a las que estás aplicando. No te preocupes, estamos aqui para ayudarte!</target></trans-unit>
       <trans-unit id="applyInOurVacanciesTitle" datatype="html">
         <source>
                 Aplique em nossas vagas
@@ -2651,7 +2777,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit>
+      <target>Aplicá en nuestras oportunidades</target></trans-unit>
       <trans-unit id="applyInOurVacanciesText" datatype="html">
         <source>
                 No site você pode se candidatar as diversas vagas que encaixam no seu perfil, a partir da consultoria feita com seu escritório
@@ -2669,7 +2795,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">69</context>
         </context-group>
-      </trans-unit>
+      <target>En la plataforma podés aplicar a diversas oportunidades que encajan con tu perfil, a partir de la consultoría hecha con tu oficina más cercana de AIESEC.</target></trans-unit>
       <trans-unit id="interviewsForVacanciesTitle" datatype="html">
         <source>
                 Entrevistas para vagas que for selecionado
@@ -2682,7 +2808,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">97</context>
         </context-group>
-      </trans-unit>
+      <target>Entrevistas para las oportunidades en las que seas seleccionado</target></trans-unit>
       <trans-unit id="interviewsForVacanciesText" datatype="html">
         <source>
                 Você vai passar por uma entrevista com a oportunidade que você se candidatou, para se apresentar, responder algumas perguntas
@@ -2696,7 +2822,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
-      </trans-unit>
+      <target>Vas a pasar por una entrevista con la oportunidad a la que aplicaste, para presentarte, responder alguna preguntas y sacar dudas.</target></trans-unit>
       <trans-unit id="beApprovedOnTheJobTitle" datatype="html">
         <source>
                 Ser aprovado na vaga
@@ -2713,7 +2839,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">79</context>
         </context-group>
-      </trans-unit>
+      <target>Ser aprobado en la oportunidad.</target></trans-unit>
       <trans-unit id="beApprovedOnTheJobGeText" datatype="html">
         <source>
                 Depois das entrevistas, você será convidado a fechar o intercâmbio para a oportunidade que for aceito, mediante o pagamento
@@ -2727,7 +2853,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">113</context>
         </context-group>
-      </trans-unit>
+      <target>Después de las entrevistas, vas a ser invitado a cerrar tu intercamvio para la oportunidad en la que fuiste aceptad, mediante el pago de una tasa administrativa</target></trans-unit>
       <trans-unit id="getReadyForYourExchangesTitle" datatype="html">
         <source>
                 Se prepare para o seu Intercâmbio
@@ -2744,7 +2870,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">93</context>
         </context-group>
-      </trans-unit>
+      <target>Preparate para tu intercambio</target></trans-unit>
       <trans-unit id="getReadyForYourExchangesText" datatype="html">
         <source>
                 Com o suporte da AIESEC você se preparará para viajar e fazer um projeto incrível.
@@ -2761,7 +2887,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">96</context>
         </context-group>
-      </trans-unit>
+      <target>Con el soporte de AIESEC, te vas a preparar para viajar y hacer un proyecto increíble.</target></trans-unit>
       <trans-unit id="livesExperienceTitle" datatype="html">
         <source>
                 Viva a Experiência
@@ -2778,7 +2904,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">106</context>
         </context-group>
-      </trans-unit>
+      <target>#VivíLaExperiencia</target></trans-unit>
       <trans-unit id="livesExperienceText" datatype="html">
         <source>
                 Agora é só viajar e, com auxílio da AIESEC, viver uma experiência de liderança!
@@ -2795,7 +2921,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">109</context>
         </context-group>
-      </trans-unit>
+      <target>Ahora es solamente viajar y con soporte de AIESEC, vivir una experiencia de liderazgo!</target></trans-unit>
       <trans-unit id="subscribeNow" datatype="html">
         <source>
                 Inscreva-se já
@@ -2812,7 +2938,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">116</context>
         </context-group>
-      </trans-unit>
+      <target>Inscribíte</target></trans-unit>
       <trans-unit id="faqFrequentlyAskedQuestions" datatype="html">
         <source>
             FAQ - Dúvidas Frequentes
@@ -2829,7 +2955,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">129</context>
         </context-group>
-      </trans-unit>
+      <target>FAQ - Dudas frecuentes</target></trans-unit>
       <trans-unit id="faqGeItem1" datatype="html">
         <source>
                 Vou receber salário para trabalhar na Startup?
@@ -2838,7 +2964,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">164</context>
         </context-group>
-      </trans-unit>
+      <target>Voy a cobrar en la Startup?</target></trans-unit>
       <trans-unit id="faqGeItem1Answer" datatype="html">
         <source>
                 Não, a experiência não é remunerada para este tipo de intercâmbio. Mas em compensação, você irá receber acomodação pelo período
@@ -2848,7 +2974,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">167</context>
         </context-group>
-      </trans-unit>
+      <target>No, la experiencia no es remunerada para este intercambio. Pero en compensación, vas a recibir alojamiento por el periodo del intercambio.</target></trans-unit>
       <trans-unit id="faqGeItem2" datatype="html">
         <source>
                 As vagas são apenas em Startups?
@@ -2857,7 +2983,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">173</context>
         </context-group>
-      </trans-unit>
+      <target>Los vacantes son solo en Startups?</target></trans-unit>
       <trans-unit id="faqGeItem2Answer" datatype="html">
         <source>
                 Não, existem vagas também em aceleradoras e incubadoras de negócios.
@@ -2866,7 +2992,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">176</context>
         </context-group>
-      </trans-unit>
+      <target>No, existen vacantes también en aceleradoras e incubadoras de negocios.</target></trans-unit>
       <trans-unit id="faqGeItem3" datatype="html">
         <source>
                 Preciso de seguro saúde para viajar?
@@ -2875,7 +3001,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">181</context>
         </context-group>
-      </trans-unit>
+      <target>Necesito seguro de salud internacional para viajar?</target></trans-unit>
       <trans-unit id="faqGeItem3Answer" datatype="html">
         <source>
                 Sim, o seguro saúde é obrigatório no seu intercâmbio com a AIESEC, para garantir seu bem-estar durante toda a viagem. Nós
@@ -2886,7 +3012,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">184</context>
         </context-group>
-      </trans-unit>
+      <target>Sí, el seguro es obligatorio en tu intercambio con AIESEC, para garantizar tu bienestar durante todo el viaje.</target></trans-unit>
       <trans-unit id="faqGeItem4" datatype="html">
         <source>
                 Qual o tipo de acomodação que irei ficar?
@@ -2895,7 +3021,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">191</context>
         </context-group>
-      </trans-unit>
+      <target>Cual es el tipo de acomodación en la que me quedaré?</target></trans-unit>
       <trans-unit id="faqGeItem4Answer" datatype="html">
         <source>
                 Depende do seu país de destino. Você poderá ficar hospedado em uma casa com nativos, hostel ou apartamento com outros intercambistas!
@@ -2904,7 +3030,7 @@
           <context context-type="sourcefile">app/landing-page-ge/landing-page-ge.component.html</context>
           <context context-type="linenumber">194</context>
         </context-group>
-      </trans-unit>
+      <target>Depende del país de destino. Podras quedarte hospedado en una casa, hostel o departamento con otros intercambistas!</target></trans-unit>
       <trans-unit id="contactUsForm" datatype="html">
         <source>
                 Fale conosco
@@ -2921,7 +3047,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">160</context>
         </context-group>
-      </trans-unit>
+      <target>Contactános</target></trans-unit>
       <trans-unit id="programAboutItem1Title" datatype="html">
         <source>
                 Auxílio para achar sua vaga
@@ -2938,7 +3064,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">184</context>
         </context-group>
-      </trans-unit>
+      <target>Soporte para encontrar tu vacante</target></trans-unit>
       <trans-unit id="programAboutItem1Text" datatype="html">
         <source>
                 Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa para o seu perfil, tirar todas suas dúvidas
@@ -2956,7 +3082,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">187</context>
         </context-group>
-      </trans-unit>
+      <target>Al inscribirte, un voluntario de AIESEC te va a ayudar a encontrar la oportunidad correcta para tu perfil, sacar todas las dudas y ponerte en contacto con la oficina a la cual vas a viajar.</target></trans-unit>
       <trans-unit id="programAboutItem2Title" datatype="html">
         <source>
                 Apoio logístico
@@ -2973,7 +3099,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">198</context>
         </context-group>
-      </trans-unit>
+      <target>Soporte logistico</target></trans-unit>
       <trans-unit id="programAboutItem2Text" datatype="html">
         <source>
                 Antes e durante o intercâmbio, a AIESEC na sua cidade e no seu destino irão te auxiliar com a logística de transporte, acomodação
@@ -2991,7 +3117,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">201</context>
         </context-group>
-      </trans-unit>
+      <target>Antes y durante el intercambio, AIESEC en tu ciudad y en el destino van ayudarte con la logistica de transporte, acomodación y preparación para tu proyecto.</target></trans-unit>
       <trans-unit id="programAboutItem3Title" datatype="html">
         <source>
                 Descrição de trabalho
@@ -3008,7 +3134,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">212</context>
         </context-group>
-      </trans-unit>
+      <target>Descripción de trabajo</target></trans-unit>
       <trans-unit id="programAboutItem3Text" datatype="html">
         <source>
                 Independente do tipo de intercâmbio, nossas oportunidades possuem descrições do projeto que você vai participar, carga horária
@@ -3027,7 +3153,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">215</context>
         </context-group>
-      </trans-unit>
+      <target>Independiente del tipo de intercambio, nuestras oportunidades tienen descripciones del proyecto en el que vas a participar, carga horaria y  responsabilidades. Además de eso, tu puedes conversar con nuestro equipo para aclarar cualquier duda.</target></trans-unit>
       <trans-unit id="programAboutItem4Title" datatype="html">
         <source>
                 Experiência de Liderança
@@ -3044,7 +3170,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">227</context>
         </context-group>
-      </trans-unit>
+      <target>Experiencia de Liderazgo</target></trans-unit>
       <trans-unit id="programAboutItem4Text" datatype="html">
         <source>
                 Ao longo da sua experiência com a AIESEC, serão oferecidos diversos espaços para você refletir e aprimorar as habilidades
@@ -3062,7 +3188,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">230</context>
         </context-group>
-      </trans-unit>
+      <target>A lo largo de tu experiencia con AIESEC, seran brindados siversos espacios para que puedas reflexionar y mejorar las habilidades desarrolladas en tu intercambio, para que puedas volver y traer un impacto real a tu ciudad</target></trans-unit>
       <trans-unit id="talkWithOurRepresentatives" datatype="html">
         <source>
             Fale com um dos nossos representantes
@@ -3079,7 +3205,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">240</context>
         </context-group>
-      </trans-unit>
+      <target>Hablá con uno de nuestros representantes</target></trans-unit>
       <trans-unit id="gtOverview" datatype="html">
         <source>
             O Talento Global é uma experiência internacional em empresas durante 3 a 12 meses em que o jovem tem a chance de viver o
@@ -3092,7 +3218,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
-      </trans-unit>
+      <target>Talento global es una experiencia internacional en empresas durante 3 a 12 meses en la que los jóvenes tienen la chance de vivir el ambiente profesional y corporativo. Las grandes áres de trabajo de Talento Global son: Enseñanza de idiomas, IT, Administración, Finanzas, Gestión, RRHH y Marketing. Para el proceso son necesarios algunos requisitos como: inglés avanzado y experiencia en el área en la que te interesa trabajar. En esta experiencia, el intercambista recibe un soporte económico para cubrir los costos básicos durante el período de intercambio.</target></trans-unit>
       <trans-unit id="faqGtItem1" datatype="html">
         <source>
                 Como será meu contato com a AIESEC durante o intercâmbio?
@@ -3101,7 +3227,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">165</context>
         </context-group>
-      </trans-unit>
+      <target>Como será mi contacto con AIESEC durante mi intercambio?</target></trans-unit>
       <trans-unit id="faqGtItem1Answer" datatype="html">
         <source>
                 Ele será feito com frequência tanto pela AIESEC de destino quanto pela AIESEC de origem, combinado previamente por vocês.
@@ -3110,7 +3236,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">168</context>
         </context-group>
-      </trans-unit>
+      <target>Pasará con frecuencia tanto por AIESEC de tu destino cuanto por AIESEC de tu país, conversado previamente por ustedes.</target></trans-unit>
       <trans-unit id="faqGtItem2" datatype="html">
         <source>
                 Como é a questão do pagamento?
@@ -3119,7 +3245,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">173</context>
         </context-group>
-      </trans-unit>
+      <target>Vas a hacer el proceso sin costos, y solamente después de ser aprobado en un vacante firmarás el contrato con AIESEC y pagarás la tasa.</target></trans-unit>
       <trans-unit id="faqGtItem2Answer" datatype="html">
         <source>
                 Você fará o processo todo sem custos, e só após ser aprovado em uma vaga que assinará o contrato com a AIESEC e pagará a
@@ -3129,7 +3255,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">176</context>
         </context-group>
-      </trans-unit>
+      <target>Vas a hacer el proceso sin costos, y solamente después de ser aprobado en un vacante firmarás el contrato con AIESEC y pagarás la tasa.</target></trans-unit>
       <trans-unit id="faqGtItem3" datatype="html">
         <source>
                 Preciso de seguro saúde para viajar?
@@ -3138,7 +3264,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">182</context>
         </context-group>
-      </trans-unit>
+      <target>Necesito seguro de salud internacional para viajar?</target></trans-unit>
       <trans-unit id="faqGtItem3Answer" datatype="html">
         <source>
                 Sim, o seguro saúde é obrigatório no seu intercâmbio com a AIESEC, para garantir seu bem-estar durante toda a viagem. Nós
@@ -3149,7 +3275,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">185</context>
         </context-group>
-      </trans-unit>
+      <target>Sí, el seguro es obligatorio en tu intercambio con AIESEC, para garantizar tu bienestar durante todo el viaje.</target></trans-unit>
       <trans-unit id="faqGtItem4" datatype="html">
         <source>
                 Qual o perfil ideal para fazer um Talento Global?
@@ -3158,7 +3284,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">192</context>
         </context-group>
-      </trans-unit>
+      <target>Cual es el perfil ideal para hacer un Talento Global?</target></trans-unit>
       <trans-unit id="faqGtItem4Answer" datatype="html">
         <source>
                 Você não precisa ser estudante ou recém-formado para esse intercâmbio. O que é necessário é ter entre 18 e 30 anos, com inglês
@@ -3169,7 +3295,7 @@
           <context context-type="sourcefile">app/landing-page-gt/landing-page-gt.component.html</context>
           <context context-type="linenumber">195</context>
         </context-group>
-      </trans-unit>
+      <target>No necesitas ser estudiante o recién recibido para este intercambio. Lo que necesitas es tener entre 18 y 30 años, con ingles avanzado y experiencia previa en alguna de esas areas: Enseñanza de Lenguas, Marketing, Tecnologia de la Información, Gestión.</target></trans-unit>
       <trans-unit id="gvOverview" datatype="html">
         <source>
             O Voluntário Global é uma experiência voluntária em ONGs, Escolas ou Fundações em diversos países. Todos os projetos são
@@ -3181,7 +3307,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">16</context>
         </context-group>
-      </trans-unit>
+      <target>Voluntariado Global es una experiencia voluntaria en ONGs, Escuelas o Fundaciones en diversos paises. Todos los proyectos están vinculados con los Objetivos de Desarrollo Sostenible de las Naciones Unidas y tienen una gran potencia de impacto en el mundo. Los proyectos tienen una duración de 6 a 8 semanas y el unico requisito es tener entre 18 y 30 años para dejar tu huella en el mundo.</target></trans-unit>
       <trans-unit id="beApprovedOnTheJobGvText" datatype="html">
         <source>
                 Depois do contato com a AIESEC que vai te receber, você é convidado a fechar a vaga para aquele projeto, mediante o pagamento
@@ -3191,7 +3317,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">82</context>
         </context-group>
-      </trans-unit>
+      <target>Después de ser contactado por AIESEC, seras invitado para firmar el contrato de tu intercambio y hacer el pago de la tasa administrativa.</target></trans-unit>
       <trans-unit id="faqGvItem1" datatype="html">
         <source>
                 Alguém vai me acompanhar durante o intercâmbio?
@@ -3200,7 +3326,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">134</context>
         </context-group>
-      </trans-unit>
+      <target>¿Alguien me va a acompañar durante el intercambio?</target></trans-unit>
       <trans-unit id="faqGvItem1Answer" datatype="html">
         <source>
                 Sempre haverá uma pessoa da AIESEC em contato com você, tanto do país aonde você está quanto do Brasil.
@@ -3209,7 +3335,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">137</context>
         </context-group>
-      </trans-unit>
+      <target>Siempre tendrás una persona de AIESEC en contacto con vos, tanto del país donde estas como de Argentina.</target></trans-unit>
       <trans-unit id="faqGvItem2" datatype="html">
         <source>
                 Preciso de seguro saúde para viajar?
@@ -3218,7 +3344,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">142</context>
         </context-group>
-      </trans-unit>
+      <target>¿Necesito seguro de salud para viajar?</target></trans-unit>
       <trans-unit id="faqGvItem2Answer" datatype="html">
         <source>
                 Sim, o seguro saúde é obrigatório no seu intercâmbio com a AIESEC, para garantir seu bem-estar durante toda a viagem. Nós
@@ -3229,7 +3355,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">145</context>
         </context-group>
-      </trans-unit>
+      <target>Si, el seguro de salud es obligatorio para tu intercambio con AIESEC, para garantizar tu bienestar durante todo el viaje. Nosotros podemos recomendarte un servicio de seguros, pero vos podes contratar la aseguradora que más prefieras.</target></trans-unit>
       <trans-unit id="faqGvItem3" datatype="html">
         <source>
                 Qual o tipo de acomodação que irei ficar?
@@ -3238,7 +3364,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">152</context>
         </context-group>
-      </trans-unit>
+      <target>¿En qué tipo de hospedaje voy a parar?</target></trans-unit>
       <trans-unit id="faqGvItem3Answer" datatype="html">
         <source>
                 Depende do seu país de destino. Você poderá ficar hospedado em uma casa com nativos, hostel ou apartamento com outros intercambistas!
@@ -3247,7 +3373,7 @@
           <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
           <context context-type="linenumber">155</context>
         </context-group>
-      </trans-unit>
+      <target>Depende del país de destino. Podrás estar alojado en una casa con personas del país, un hostel o en un departamento con otros intercambistas!</target></trans-unit>
     </body>
   </file>
 </xliff>

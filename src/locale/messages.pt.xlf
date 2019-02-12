@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="pt" datatype="plaintext" original="ng2.template">
+  <file source-language="es" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="makeAnExchange" datatype="html">
         <source>Faça um intercâmbio</source>
@@ -1131,11 +1131,11 @@
           <context context-type="linenumber">192</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="city" datatype="html">
-        <source>Cidade</source>
+      <trans-unit id="scholarity" datatype="html">
+        <source>Escolaridade</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">248</context>
+          <context context-type="linenumber">204</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
@@ -1150,7 +1150,11 @@
         <source>Nenhum resultado</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">255</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">231</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
@@ -1158,241 +1162,361 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">315</context>
+          <context context-type="linenumber">320</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">335</context>
+          <context context-type="linenumber">342</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">357</context>
+          <context context-type="linenumber">365</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">213</context>
+          <context context-type="linenumber">212</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">252</context>
+          <context context-type="linenumber">233</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">293</context>
+          <context context-type="linenumber">276</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">312</context>
+          <context context-type="linenumber">321</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">333</context>
+          <context context-type="linenumber">343</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">366</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">211</context>
+          <context context-type="linenumber">210</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">251</context>
+          <context context-type="linenumber">231</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">293</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">317</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="scholarityPlaceholder" datatype="html">
+        <source>Qual seu nível de escolaridade?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">210</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="city" datatype="html">
+        <source>Cidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">226</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">224</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cityPlaceholder" datatype="html">
         <source>Cidade onde estuda</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">255</context>
+          <context context-type="linenumber">231</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">213</context>
+          <context context-type="linenumber">233</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">211</context>
+          <context context-type="linenumber">231</context>
         </context-group>
       </trans-unit>
       <trans-unit id="formCityEmpty" datatype="html">
         <source>
-                      Por favor, selecione sua cidade
-                    </source>
+                    Por favor, selecione sua cidade
+                  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">260</context>
+          <context context-type="linenumber">237</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">218</context>
+          <context context-type="linenumber">239</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">216</context>
+          <context context-type="linenumber">237</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="university" datatype="html">
-        <source>Universidade</source>
+      <trans-unit id="formCityNotFound" datatype="html">
+        <source>
+                          Não encontrou sua cidade acima?
+                        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">268</context>
+          <context context-type="linenumber">248</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">246</context>
+          <context context-type="linenumber">250</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">245</context>
+          <context context-type="linenumber">248</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="universityPlaceholder" datatype="html">
-        <source>Onde você estuda?</source>
+      <trans-unit id="formChoiceUniversity" datatype="html">
+        <source>
+                          Escolha a província onde você estuda e depois insira o nome da universidade
+                        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">274</context>
+          <context context-type="linenumber">251</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">252</context>
+          <context context-type="linenumber">253</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">251</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="formUniversityEmpty" datatype="html">
+      <trans-unit id="formChoiceProvince" datatype="html">
         <source>
-                      Selecione uma universidade.
-                    </source>
+                          Escolha a província onde você reside
+                        </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">279</context>
+          <context context-type="linenumber">254</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">257</context>
+          <context context-type="linenumber">256</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">256</context>
+          <context context-type="linenumber">254</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="otherUniversity" datatype="html">
-        <source>Otra Universidad</source>
+      <trans-unit id="university" datatype="html">
+        <source>Universidade</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">287</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">268</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">266</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="province" datatype="html">
+        <source>Província</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">267</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">269</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">267</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="universityPlaceholder" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ (user.scholarity.id == 0 || user.scholarity.id == 1) ? &apos;¿Donde vives?&apos; : &apos;¿Donde estudias?&apos; }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">276</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">274</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formUniversityEmpty" datatype="html">
+        <source>
+                    Selecione uma universidade.
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">280</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="universityName" datatype="html">
+        <source>Nome da Universidade</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">289</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">291</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">289</context>
         </context-group>
       </trans-unit>
       <trans-unit id="otherUniversityPlaceholder" datatype="html">
         <source>¿Qué universidad?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">290</context>
+          <context context-type="linenumber">293</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">270</context>
+          <context context-type="linenumber">295</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">269</context>
+          <context context-type="linenumber">293</context>
         </context-group>
       </trans-unit>
       <trans-unit id="otherUniversityMobilePlaceholder" datatype="html">
         <source>¿Qué universidad?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">295</context>
+          <context context-type="linenumber">298</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">299</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">273</context>
+          <context context-type="linenumber">297</context>
         </context-group>
       </trans-unit>
       <trans-unit id="formOtherUniversityInvalid" datatype="html">
         <source>
-                      Por favor, digite uma universidade válida.
-                    </source>
+                    Por favor, digite uma universidade válida.
+                  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">301</context>
+          <context context-type="linenumber">304</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">279</context>
+          <context context-type="linenumber">305</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">279</context>
+          <context context-type="linenumber">303</context>
         </context-group>
       </trans-unit>
       <trans-unit id="collegeCourse" datatype="html">
         <source>Curso</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">309</context>
+          <context context-type="linenumber">313</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">287</context>
+          <context context-type="linenumber">314</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">311</context>
         </context-group>
       </trans-unit>
       <trans-unit id="collegeCoursePlaceholder" datatype="html">
         <source>Insira seu curso</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">316</context>
+          <context context-type="linenumber">320</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">293</context>
+          <context context-type="linenumber">321</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">294</context>
+          <context context-type="linenumber">317</context>
         </context-group>
       </trans-unit>
       <trans-unit id="formCollegeCourseEmpty" datatype="html">
         <source>
-                      Selecione um curso.
-                    </source>
+                    Selecione um curso.
+                  </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">321</context>
+          <context context-type="linenumber">326</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">298</context>
+          <context context-type="linenumber">327</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">299</context>
+          <context context-type="linenumber">323</context>
         </context-group>
       </trans-unit>
       <trans-unit id="englishLevel" datatype="html">
         <source>Nível de Inglês</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">329</context>
+          <context context-type="linenumber">335</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">306</context>
+          <context context-type="linenumber">336</context>
         </context-group>
       </trans-unit>
       <trans-unit id="englishLevelPlaceholder" datatype="html">
         <source>Isso nos ajuda a te direcionar para as vagas mais adequadas</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">336</context>
+          <context context-type="linenumber">342</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">312</context>
+          <context context-type="linenumber">343</context>
         </context-group>
       </trans-unit>
       <trans-unit id="formEnglishLevelEmpty" datatype="html">
@@ -1401,34 +1525,34 @@
                   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">341</context>
+          <context context-type="linenumber">348</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">317</context>
+          <context context-type="linenumber">349</context>
         </context-group>
       </trans-unit>
       <trans-unit id="preferredDestinations" datatype="html">
         <source>Onde deseja viver a
-                        <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>experiência?</source>
+                          <x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>experiência?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">349</context>
+          <context context-type="linenumber">357</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">325</context>
+          <context context-type="linenumber">358</context>
         </context-group>
       </trans-unit>
       <trans-unit id="preferredDestinationPlaceholder" datatype="html">
         <source>Selecione</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">358</context>
+          <context context-type="linenumber">365</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">333</context>
+          <context context-type="linenumber">366</context>
         </context-group>
       </trans-unit>
       <trans-unit id="formPreferredDestinationEmpty" datatype="html">
@@ -1437,22 +1561,22 @@
                   </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">363</context>
+          <context context-type="linenumber">371</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">338</context>
+          <context context-type="linenumber">372</context>
         </context-group>
       </trans-unit>
       <trans-unit id="whenCanTravel" datatype="html">
         <source>Quando pode viajar</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">371</context>
+          <context context-type="linenumber">380</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">307</context>
+          <context context-type="linenumber">332</context>
         </context-group>
       </trans-unit>
       <trans-unit id="whenCanTravelLabel" datatype="html">
@@ -1461,41 +1585,41 @@
                     </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">373</context>
+          <context context-type="linenumber">383</context>
         </context-group>
       </trans-unit>
       <trans-unit id="curriculum" datatype="html">
         <source>Currículo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">391</context>
+          <context context-type="linenumber">402</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">346</context>
+          <context context-type="linenumber">381</context>
         </context-group>
       </trans-unit>
       <trans-unit id="termsAndConditions" datatype="html">
         <source>Termos e Condições</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">409</context>
+          <context context-type="linenumber">421</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">416</context>
+          <context context-type="linenumber">428</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">364</context>
+          <context context-type="linenumber">400</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">328</context>
+          <context context-type="linenumber">353</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">335</context>
+          <context context-type="linenumber">360</context>
         </context-group>
       </trans-unit>
       <trans-unit id="termsAndConditionsText" datatype="html">
@@ -1504,15 +1628,15 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">411</context>
+          <context context-type="linenumber">423</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">372</context>
+          <context context-type="linenumber">408</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">330</context>
+          <context context-type="linenumber">355</context>
         </context-group>
       </trans-unit>
       <trans-unit id="termsAndConditionsMobileText" datatype="html">
@@ -1523,33 +1647,33 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">417</context>
+          <context context-type="linenumber">429</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">336</context>
+          <context context-type="linenumber">361</context>
         </context-group>
       </trans-unit>
       <trans-unit id="cellphoneContactable" datatype="html">
         <source> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">429</context>
+          <context context-type="linenumber">441</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">381</context>
+          <context context-type="linenumber">420</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">348</context>
+          <context context-type="linenumber">373</context>
         </context-group>
       </trans-unit>
       <trans-unit id="thanksForSubscribleText" datatype="html">
         <source>Obrigado por se increver!</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">443</context>
+          <context context-type="linenumber">455</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1557,7 +1681,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">395</context>
+          <context context-type="linenumber">434</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1565,14 +1689,14 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">362</context>
+          <context context-type="linenumber">387</context>
         </context-group>
       </trans-unit>
       <trans-unit id="thanksForSubscribleMessage" datatype="html">
         <source>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">444</context>
+          <context context-type="linenumber">456</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1580,7 +1704,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">396</context>
+          <context context-type="linenumber">435</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1588,7 +1712,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">363</context>
+          <context context-type="linenumber">388</context>
         </context-group>
       </trans-unit>
       <trans-unit id="registerResult" datatype="html">
@@ -1598,7 +1722,7 @@
                         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">452</context>
+          <context context-type="linenumber">464</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1606,7 +1730,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">404</context>
+          <context context-type="linenumber">443</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1614,14 +1738,14 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">371</context>
+          <context context-type="linenumber">396</context>
         </context-group>
       </trans-unit>
       <trans-unit id="accesOpportunitiesPortal" datatype="html">
         <source>Acessar o Portal de Oportunidades</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">456</context>
+          <context context-type="linenumber">468</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge-thank-you/form-ge-thank-you.component.html</context>
@@ -1629,7 +1753,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">409</context>
+          <context context-type="linenumber">448</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt-thank-you/form-gt-thank-you.component.html</context>
@@ -1637,18 +1761,18 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">375</context>
+          <context context-type="linenumber">400</context>
         </context-group>
       </trans-unit>
       <trans-unit id="next" datatype="html">
         <source>Próximo</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">470</context>
+          <context context-type="linenumber">482</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">389</context>
+          <context context-type="linenumber">414</context>
         </context-group>
       </trans-unit>
       <trans-unit id="send" datatype="html">
@@ -1658,15 +1782,15 @@
                 </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
-          <context context-type="linenumber">472</context>
+          <context context-type="linenumber">484</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">426</context>
+          <context context-type="linenumber">465</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">391</context>
+          <context context-type="linenumber">416</context>
         </context-group>
       </trans-unit>
       <trans-unit id="accessHomePage" datatype="html">
@@ -2486,17 +2610,6 @@
           <context context-type="linenumber">17</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="universityName" datatype="html">
-        <source>Nome da Universidade</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
-          <context context-type="linenumber">266</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">265</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="formGvTitle" datatype="html">
         <source>Ser um voluntário global é transformar seus valores em ação e fazer a diferença em diversas regiões do mundo.</source>
         <context-group purpose="location">
@@ -2508,7 +2621,7 @@
         <source>Escolha o período de tempo que você estará disponível</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
-          <context context-type="linenumber">310</context>
+          <context context-type="linenumber">336</context>
         </context-group>
       </trans-unit>
       <trans-unit id="programOverview" datatype="html">
