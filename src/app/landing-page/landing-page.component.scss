@@ -739,7 +739,7 @@ drag-scroll {
         height: 60px;
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 85%;
         &.gv {            
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/products/gv/gv-logo.png');
