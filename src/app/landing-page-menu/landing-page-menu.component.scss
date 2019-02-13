@@ -209,18 +209,12 @@ ul#menu {
                         min-width: 175px;
                         display: none;
                         left: 0;
-                        &.ul-products {
-                            bottom: -95px;
-                        }
-                        &.ul-partners {
-                            bottom: -47px;
-                        }
                         a:hover {
                             text-decoration: none;
                             color: #fff;
                         }
-                        &.ul-blog {
-                            bottom: -167px;
+                        &.ul-partners, &.ul-products, &.ul-blog {
+                            top: 7vh;
                         }
                         li {
                             padding: 2.5px 10px;
