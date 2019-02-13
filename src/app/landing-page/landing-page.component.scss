@@ -705,13 +705,14 @@ drag-scroll {
 
 .box-case {
     width: 30%;
-    min-height: 200px;
+    height: 93.5%;
+    min-height: auto;
     position: absolute;
     left: 5%;
     background-color: #fff;
     box-shadow: 0 0 5px #c3c3c3;
     box-sizing: border-box;
-    padding: 1% 3%;
+    padding: 1% 1.5%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -738,7 +739,7 @@ drag-scroll {
         height: 60px;
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 75%;
+        background-size: 85%;
         &.gv {            
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('/assets/products/gv/gv-logo.png');
@@ -856,15 +857,6 @@ drag-scroll {
 }
 
 @media (min-width: 991px) {
-    .box-case {
-        &.box-case-gv {
-            top: 50%;
-            height: 225px;
-            margin-top: -112.5px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-    }
     #global {
         >div {
             height: 40vh;
