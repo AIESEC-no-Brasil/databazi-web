@@ -13,7 +13,7 @@ export class LandingFooterComponent implements OnInit {
   partners: any;
   sliderPosition: number = 0;
   timer: any;
-  window:any = window;
+  window: any = window;
 
   navTo(partnerPage) {
     window.open(partnerPage, '_blank');
@@ -21,7 +21,7 @@ export class LandingFooterComponent implements OnInit {
 
   constructor(private router: Router) {
     this.partners = [];
-    this.window.Modernizr && this.window.Modernizr.on('webp', ( result ) => {
+    this.window.Modernizr && this.window.Modernizr.on('webp', (result) => {
       let webpSupport = false;
 
       if (result) {
@@ -30,82 +30,87 @@ export class LandingFooterComponent implements OnInit {
 
       this.partners = [
         {
-          title: 'Assist Card',
-          img: webpSupport ? '../../assets/images/partners/assistcard.png.webp' : '../../assets/images/partners/assistcard.png',
-          site: 'https://www.assistcard.com/b2c/aiesec-br',
+          title: 'Aerlíneas Argentinas',
+          img: webpSupport ? '../../assets/images/partners/aerolineasargentinas.png.webp' : '../../assets/images/partners/aerolineasargentinas.png',
+          site: 'https://www.aerolineas.com.ar/',
         },
         {
-          title: 'Delivery Much',
-          img: webpSupport ? '../../assets/images/partners/delivery_much.png.webp' : '../../assets/images/partners/delivery_much.png',
-          site: 'https://www.deliverymuch.com.br/',
+          title: 'Aneic',
+          img: webpSupport ? '../../assets/images/partners/aneic.png.webp' : '../../assets/images/partners/aneic.png',
+          site: 'https://www.facebook.com/ANEICArgen/',
+        },
+        {
+          title: 'April',
+          img: webpSupport ? '../../assets/images/partners/april.png.webp' : '../../assets/images/partners/april.png',
+          site: 'bit.ly/Seguros-AIESECArgentina',
+        },
+        {
+          title: 'Banco de Alimentos',
+          img: webpSupport ? '../../assets/images/partners/bancodealimentos.png.webp' : '../../assets/images/partners/bancodealimentos.png',
+          site: 'https://www.facebook.com/ANEICArgen/',
+        },
+        {
+          title: 'CF',
+          img: webpSupport ? '../../assets/images/partners/cf.png.webp' : '../../assets/images/partners/cf.png',
+          site: 'http://www.circuloformacion.es/area-negocio/fiep',
+
         },
         {
           title: 'DHL',
           img: webpSupport ? '../../assets/images/partners/dhl.png.webp' : '../../assets/images/partners/dhl.png',
-          site: 'https://aiesec.org/partner/286836',
+          site: 'https://www.logistics.dhl/ar-es/home.html',
         },
         {
           title: 'Electrolux',
           img: webpSupport ? '../../assets/images/partners/electrolux.png.webp' : '../../assets/images/partners/electrolux.png',
-          site: 'https://aiesec.org/partner/272692',
-        },
-        {
-          title: 'Hyva',
-          img: webpSupport ? '../../assets/images/partners/hyva.png.webp' : '../../assets/images/partners/hyva.png',
-          site: 'https://aiesec.org/partner/344322',
+          site: 'http://www.electrolux.com.ar/',
 
         },
         {
-          title: 'Leroy Merlin',
-          img: webpSupport ? '../../assets/images/partners/leroymerlin.png.webp' : '../../assets/images/partners/leroymerlin.png',
-          site: 'https://www.leroymerlin.com.br/blog',
-        },
-        {
-          title: 'McKinsey & Company',
-          img: webpSupport ? '../../assets/images/partners/mckinseyecompany.png.webp' : '../../assets/images/partners/mckinseyecompany.png',
-          site: 'https://www.mckinsey.com.br/',
+          title: 'unjuve',
+          img: webpSupport ? '../../assets/images/partners/injuve.jpg.webp' : '../../assets/images/partners/injuve.jpg',
+          site: 'http://www.injuve.gob.sv/',
 
         },
         {
-          title: 'Mondelez',
-          img: webpSupport ? '../../assets/images/partners/mondelez.png.webp' : '../../assets/images/partners/mondelez.png',
-          site: 'https://br.mondelezinternational.com/home',
+          title: 'JCI',
+          img: webpSupport ? '../../assets/images/partners/jci.png.webp' : '../../assets/images/partners/jci.png',
+          site: 'https://jciargentina.org.ar/',
+        },
+        {
+          title: 'Scalabl',
+          img: webpSupport ? '../../assets/images/partners/scalabl.png.webp' : '../../assets/images/partners/scalabl.png',
+          site: 'https://www.scalabl.com/academy/buenos-aires-startup-academy/?gclid=Cj0KCQiA-onjBRDSARIsAEZXcKbjNL1sPADH-vzzFLkcHI17goK5Tt3tUK2R1IZd5J88wqAzwnM03ToaAgYfEALw_wcB',
 
         },
         {
-          title: 'Nestle',
-          img: webpSupport ? '../../assets/images/partners/nestle.png.webp' : '../../assets/images/partners/nestle.png',
-          site: 'https://www.nestle.com.br/',
-        },
-        {
-          title: 'Nokia',
-          img: webpSupport ? '../../assets/images/partners/nokia.png.webp' : '../../assets/images/partners/nokia.png',
-          site: 'https://aiesec.org/partner/330494',
+          title: 'Scouts',
+          img: webpSupport ? '../../assets/images/partners/scouts.png.webp' : '../../assets/images/partners/scouts.png',
+          site: 'https://www.scouts.org.ar/',
 
         },
         {
-          title: 'Resultados Digitais',
-          img: webpSupport ? '../../assets/images/partners/resultadosdigitais.png.webp' : '../../assets/images/partners/resultadosdigitais.png',
-          site: 'https://resultadosdigitais.com.br/',
+          title: 'Siglo 21',
+          img: webpSupport ? '../../assets/images/partners/siglo21.png.webp' : '../../assets/images/partners/siglo21.png',
+          site: 'http://www.tandil.siglo21.com.ar/landing/',
 
         },
         {
-          title: 'SAP',
-          img: webpSupport ? '../../assets/images/partners/sap.png.webp' : '../../assets/images/partners/sap.png',
-          site: 'https://www.sap.com/brazil/about.html',
-
+          title: 'Techo',
+          img: webpSupport ? '../../assets/images/partners/techo.png.webp' : '../../assets/images/partners/techo.png',
+          site: 'https://www.techo.org/argentina/',
         },
         {
-          title: 'Votorantim Cimentos',
-          img: webpSupport ? '../../assets/images/partners/votorantimcimentos.png.webp' : '../../assets/images/partners/votorantimcimentos.png',
-          site: 'https://www.votorantimcimentos.com.br/',
+          title: 'Unicef',
+          img: webpSupport ? '../../assets/images/partners/unicef.png.webp' : '../../assets/images/partners/unicef.png',
+          site: 'https://www.unicef.org/argentina/',
         },
         {
-          title: 'Whirlpool',
-          img: webpSupport ? '../../assets/images/partners/Whirlpoow.png.webp' : '../../assets/images/partners/Whirlpoow.png',
-          site: 'https://www.whirlpool.com.br/',
-        },
-      ];    
+          title: 'Unilever',
+          img: webpSupport ? '../../assets/images/partners/unilever.png.webp' : '../../assets/images/partners/unilever.png',
+          site: 'https://www.unilever.com.ar/',
+        }
+      ];
     });
   }
 
@@ -167,15 +172,15 @@ export class LandingFooterComponent implements OnInit {
     window.open(site);
   }
 
-  goToGv(){
+  goToGv() {
     this.router.navigate(['/voluntario-global']);
   }
 
-  goToGe(){
+  goToGe() {
     this.router.navigate(['/emprendedor-global']);
   }
 
-  goToGt(){
+  goToGt() {
     this.router.navigate(['/talento-global']);
   }
 }
