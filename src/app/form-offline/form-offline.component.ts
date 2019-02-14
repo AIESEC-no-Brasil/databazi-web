@@ -64,9 +64,9 @@ export class FormOfflineComponent implements OnInit {
   courses: any;
   places: any;
 
-  cellphoneDefaultMask: string = '+00 000 000 0000';
-  cellphoneLargerMask:string = '+00 0 000 000 0000';
-  cellphoneMask : any;
+  cellphoneDefaultMask: string = '000 000 0000';
+  cellphoneLargerMask: string = '0 000 000 0000';
+  cellphoneMask: any;
 
   constructor(
     public signupService: SignupService,
@@ -249,7 +249,7 @@ export class FormOfflineComponent implements OnInit {
 
   checkMaskCellphone(event) {
     if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
-      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 12) {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 10) {
         this.cellphoneMask = this.cellphoneDefaultMask;
       }
       else {
