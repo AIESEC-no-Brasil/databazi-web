@@ -72,9 +72,9 @@ export class SignupService {
 
 	getUniversities(search?, city?){
 
-		let query = { limit : 10, search : '', city : '' };
+		let query = { limit : 10, name : '', city : '' };
 
-		if (search) query.search = search;
+		if (search) query.name = search;
 		if (city) query.city = city;
 
 		return this.http.get(SignupService.url + `/universities`, {

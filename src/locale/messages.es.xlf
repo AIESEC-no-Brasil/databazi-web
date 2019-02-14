@@ -656,7 +656,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">238</context>
         </context-group>
-      <target>Conozca nuestro programas</target></trans-unit>
+      <target>Conocé nuestros programas</target></trans-unit>
       <trans-unit id="aiesecExperienceTitle" datatype="html">
         <source>
             Em uma experiência com a AIESEC você vai...
@@ -1753,7 +1753,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">396</context>
         </context-group>
-      <target>Ahora que creaste tu cuenta, podrás acceder nuestra plataforma y empezar a buscar por una experiencia internacional en una startup en la fecha y destino ideal para vos! Quedate atento al mail que pronto enviaremos más informaciones.</target></trans-unit>
+      <target>Ahora que creaste tu cuenta, podrás acceder a nuestra plataforma y empezar a buscar una experiencia internacional en la fecha y destino ideal para vos! Quedate atento al mail que pronto enviaremos más informacion.</target></trans-unit>
       <trans-unit id="accesOpportunitiesPortal" datatype="html">
         <source>Acessar o Portal de Oportunidades</source>
         <context-group purpose="location">
