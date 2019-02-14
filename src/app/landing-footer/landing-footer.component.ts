@@ -165,9 +165,9 @@ export class LandingFooterComponent implements OnInit {
 
   sliderAnimation() {
     this.stopAnimation();
-    // this.timer = setInterval(() => {
-    //   this.moveRight()
-    // }, 10000);
+    this.timer = setInterval(() => {
+      this.moveRight()
+    }, 10000);
   }
 
   stopAnimation() {
