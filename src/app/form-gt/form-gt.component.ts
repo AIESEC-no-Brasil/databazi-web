@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
@@ -77,7 +76,6 @@ export class FormGtComponent implements OnInit {
     { id: '11', name: 'Romania' },
   ];
 
-  // list of cities - TODO: endpoint with all cities
   citiesOptions: any = [
     { name: "CABA" },
     { name: "Bahía Blanca" },
@@ -159,8 +157,7 @@ export class FormGtComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -384,20 +381,6 @@ export class FormGtComponent implements OnInit {
     } else {
       return true;
     }
-    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
-        return !this.user.university.id
-      }
-      else if (+this.user.scholarity.id == 6) {
-        return !this.user.other_university;
-      }
-      else{
-        return true;
-      }
-    }
-    else {
-      return false;
-    }*/
   }
 
   emptyCourse() {

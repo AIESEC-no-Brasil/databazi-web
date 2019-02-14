@@ -3,11 +3,9 @@ import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 
@@ -79,7 +77,6 @@ export class FormGeComponent implements OnInit {
     { id: '3', name: 'Peru' }
   ]
 
-  // list of cities - TODO: endpoint with all cities
   citiesOptions: any = [
     { name: "CABA" },
     { name: "Bahía Blanca" },
@@ -162,8 +159,7 @@ export class FormGeComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -309,15 +305,6 @@ export class FormGeComponent implements OnInit {
     return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
   }
 
-  // fillCitiesSelect(search?) {
-  //   return this.signupService.getCities(search).then((res: any) => {
-  //     this.citiesOptions = res;
-  //   }, (err) => {
-  //     this.msgs = [];
-  //     this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das cidades disponíveis.' });
-  //   })
-  // }
-
   fillUniversitySelect(search?) {
     return this.signupService.getUniversities(search, this.user.city.name).then((res: any) => {
       this.universities = res;
@@ -390,16 +377,6 @@ export class FormGeComponent implements OnInit {
     } else {
       return true;
     }
-    /*if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
-        return !this.user.university.id
-      }else{
-        return true;
-      }
-    }
-    else {
-      return false;
-    }*/
   }
 
   emptyCourse() {
