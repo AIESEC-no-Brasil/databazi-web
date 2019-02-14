@@ -42,7 +42,7 @@ export class LandingFooterComponent implements OnInit {
         {
           title: 'April',
           img: webpSupport ? '../../assets/images/partners/april.png.webp' : '../../assets/images/partners/april.png',
-          site: 'bit.ly/Seguros-AIESECArgentina',
+          site: 'http://bit.ly/Seguros-AIESECArgentina',
         },
         {
           title: 'Banco de Alimentos',
