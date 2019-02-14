@@ -47,7 +47,7 @@ export class LandingFooterComponent implements OnInit {
         {
           title: 'Banco de Alimentos',
           img: webpSupport ? '../../assets/images/partners/bancodealimentos.png.webp' : '../../assets/images/partners/bancodealimentos.png',
-          site: 'https://www.facebook.com/ANEICArgen/',
+          site: 'https://www.bancodealimentos.org.ar/',
         },
         {
           title: 'CF',
@@ -64,6 +64,12 @@ export class LandingFooterComponent implements OnInit {
           title: 'Electrolux',
           img: webpSupport ? '../../assets/images/partners/electrolux.png.webp' : '../../assets/images/partners/electrolux.png',
           site: 'http://www.electrolux.com.ar/',
+
+        },
+        {
+          title: 'GSK',
+          img: webpSupport ? '../../assets/images/partners/gsk.png.webp' : '../../assets/images/partners/gsk.png',
+          site: 'https://ar.gsk.com/', 
 
         },
         {
@@ -131,10 +137,10 @@ export class LandingFooterComponent implements OnInit {
 
   moveLeft() {
     if ((this.sliderPosition - 100) < 0 && (window.innerWidth >= 990)) {
-      this.sliderPosition = 200;
+      this.sliderPosition = 300;
     }
     else if ((this.sliderPosition - 100) < 0 && (window.innerWidth < 990)) {
-      this.sliderPosition = 400;
+      this.sliderPosition = 500;
     }
     else {
       this.sliderPosition -= 100;
@@ -144,10 +150,10 @@ export class LandingFooterComponent implements OnInit {
   }
 
   moveRight() {
-    if ((this.sliderPosition + 100) > 200 && (window.innerWidth >= 990)) {
-      this.sliderPosition = 0;
+    if ((this.sliderPosition + 100) > 300 && (window.innerWidth >= 990)) {
+      this.sliderPosition = 0; 
     }
-    else if ((this.sliderPosition + 100) > 400 && (window.innerWidth < 990)) {
+    else if ((this.sliderPosition + 100) > 500 && (window.innerWidth < 990)) {
       this.sliderPosition = 0;
     }
     else {
