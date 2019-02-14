@@ -393,8 +393,11 @@ div#our-stories {
 
 .history-session-image {    
     background-size: cover;
-    min-height: 300px;
+    min-height: 350px;
+    height: 100%;
     position: relative;
+    background-repeat: no-repeat;
+    background-position: right center;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/party.jpg');
     }
