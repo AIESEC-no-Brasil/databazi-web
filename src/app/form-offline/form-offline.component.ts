@@ -259,7 +259,7 @@ export class FormOfflineComponent implements OnInit {
 
   checkPhone() {
     let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
-    if (cellphone.length <= 11) {
+    if (cellphone.length <= 9) {
       this.invalidPhone = true;
       return;
     }
