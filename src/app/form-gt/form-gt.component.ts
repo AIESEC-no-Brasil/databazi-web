@@ -251,7 +251,6 @@ export class FormGtComponent implements OnInit {
 
     this.filteredPreferredDestinationsOptions = this.preferredDestionationOptions;
 
-    this.fillUniversitySelect();
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.step2Form.controls.college_course_id.valueChanges
         .pipe(
