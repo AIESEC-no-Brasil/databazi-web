@@ -515,7 +515,7 @@
       <target>Tener una experiencia de inmersión en una Startup durante 6 a 12 semanas.</target></trans-unit>
       <trans-unit id="learnMoreGeItem2" datatype="html">
         <source>
-                Viva em um ambiente dinâmico de uma Startup e atue em Marketing, Administração, T.I. ou Design
+                Viva em um ambiente dinâmico de uma Startup e atue em Marketing, Administração, T.I. ou Design.
               </source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
@@ -530,7 +530,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">100</context>
         </context-group>
-      <target></target></trans-unit>
+      <target>El joven sólo necesita tener el inglés intermedio y alguna experiencia previa profesional.</target></trans-unit>
       <trans-unit id="landingGtAboutDesktop" datatype="html">
         <source>
           Agregue diferencial ao seu currículo
@@ -568,7 +568,7 @@
           <context context-type="sourcefile">app/landing-page/landing-page.component.html</context>
           <context context-type="linenumber">145</context>
         </context-group>
-      <target>Viví en un ambiente corporativo enseñando idiomas, trabajando con IT, finanzas, gestión, RRHH o Marketing</target></trans-unit>
+      <target>Viví en un ambiente corporativo enseñando idiomas, trabajando con IT, finanzas, gestión, RRHH o Marketing.</target></trans-unit>
       <trans-unit id="learnMoreGtItem3" datatype="html">
         <source>
                 O jovem precisa ter o inglês avançado e experiência na área que quer atuar.
