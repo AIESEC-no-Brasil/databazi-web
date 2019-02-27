@@ -272,7 +272,7 @@
                         <div class="dropdown">
                           <div class="styled-select">
                             <select [(ngModel)]="user.university_id" formControlName="university_id" name="university_id">
-                              <option value="">Onde você estuda?</option>
+                              <option value="">Digite aqui onde você estuda</option>
                               <option *ngFor="let university of universities" [value]="university.id"> {{ university.name }}</option>
                             </select>
                           </div>
