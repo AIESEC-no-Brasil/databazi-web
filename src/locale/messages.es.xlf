@@ -311,7 +311,7 @@
           <context context-type="sourcefile">app/landing-page-menu/landing-page-menu.component.html</context>
           <context context-type="linenumber">200</context>
         </context-group>
-      <target>AIESEC es el movimiento de liderazco jóven más grande del mundo</target></trans-unit>
+      <target>AIESEC es el movimiento de liderazgo jóven más grande del mundo</target></trans-unit>
       <trans-unit id="ourPremiumPartners" datatype="html">
         <source>Os nossos parceiros premium</source>
         <context-group purpose="location">
