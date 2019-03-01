@@ -69,7 +69,12 @@
 }
 
 .loading-animation-ge {
-    background-image: url('/assets/images/sent-ge.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/sent-ge.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/sent-ge.png.webp');
+    }
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -237,7 +242,12 @@ select:focus {
     border: 0 !important;
     /*hide default down arrow in webkit */
     -webkit-appearance: none;
-    background-image: url('/assets/images/select.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/select.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/select.png.webp');
+    }
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -250,6 +260,13 @@ select:focus {
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     padding-right: 10px;
     position: relative;
+}
+
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
 }
 
 .select-dropdown div.input-group-prepend>div {
@@ -301,7 +318,7 @@ _:-o-prefocus,
     }
 }
 
-// TODO: ::ng-deep / /deep/ 
+// TODO: ::ng-deep / /deep/
 // Seems to be a form of selection that will be abolished in the future, an alternative form of editing of this component should be found without the use of these selectors.
 /*
     Links de referência:
@@ -515,6 +532,34 @@ section.header h1 {
     padding: 15px;
     font-size: 13px;
     background-color: rgba(255, 255, 255, .3)
+}
+
+.info-message {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .25);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; 
+    .row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    p {
+        margin: 0;
+    }
+    i {
+        font-size: 1.85em;
+        margin: 0 20px 0 0;
+    }
+    b {
+        display: block;
+    }
+}
+
+.none {
+    display: none !important;
 }
 
 .forms {
@@ -1007,7 +1052,7 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
-    //prime 
+    //prime
     ::ng-deep .p-inputMask input {
         text-align: right;
         margin: 0;
@@ -1140,7 +1185,7 @@ label {
     p-autoComplete {
         font-size: 3.2vw !important
     }
-    //prime 
+    //prime
     ::ng-deep .p-inputMask input {
         text-align: left;
         padding: 0px 0 0 0;
@@ -1524,9 +1569,14 @@ label {
     width: 100%;
     height: 150px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
-    background-image: url('/assets/images/logo-empreendedor-global.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/logo-empreendedor-global.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/logo-empreendedor-global.png.webp');
+    }
     margin: auto
 }
 
@@ -1590,8 +1640,8 @@ label {
 }
 
 .autocomplete-clear-btn {
-    position: absolute; 
-    right: 0; 
+    position: absolute;
+    right: 0;
     top: 15px;
 }
 @media (min-width: 1440px){
@@ -1627,7 +1677,7 @@ label {
         left: 0;
         top: 0;
         z-index: 2;
-    }    
+    }
     .close-modal-button {
         width: 30px;
         height: 30px;
@@ -1647,4 +1697,35 @@ label.input-terms-label {
     text-align: center;
     width: 100%;
     font-size: 22px;
+}
+
+@media (max-width: 990px) {
+   .form-checkbox-select {
+       flex-direction: column;
+       .checkbox-item {
+           text-align: left;
+           padding: 0 10px;
+       }
+   }
+    .form-group {
+       margin-bottom: 0;
+       position: relative;
+       &.experiences-input {
+           .select-dropdown {
+               padding: 10px 0;
+               justify-content: flex-start;
+           }
+       }
+       .form-checkbox-select {
+           padding: 15px 0 10px;
+           display: flex;
+           justify-content: space-around;
+           flex-wrap: nowrap;
+           background-color: rgba(0, 0, 0, .3);
+           label {
+               display: inline-block;
+               padding-left: 5px;
+           }
+       }
+    }
 }

@@ -78,7 +78,12 @@
 }
 
 .loading-animation-gv {
-    background-image: url('../../assets/images/sent-gv.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('../../assets/images/sent-gv.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('../../assets/images/sent-gv.png.webp');
+    }
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -247,7 +252,12 @@ select:focus {
     border: 0 !important;
     /*hide default down arrow in webkit */
     -webkit-appearance: none;
-    background-image: url('../../assets/images/select.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('../../assets/images/select.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('../../assets/images/select.png.webp');
+    }
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -259,6 +269,13 @@ select:focus {
     background-color: #037ef3;
     border-bottom: 2px solid #4fa5f7;
     padding-right: 10px;
+}
+
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
 }
 
 .select-dropdown div.input-group-prepend>div {
@@ -1642,7 +1659,12 @@ label {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    background-image: url('../../assets/images/aiesec-logo.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('../../assets/images/aiesec-logo.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('../../assets/images/aiesec-logo.png.webp');
+    }
     margin: auto
 }
 

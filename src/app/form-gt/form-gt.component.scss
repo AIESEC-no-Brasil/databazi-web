@@ -82,7 +82,12 @@
 }
 
 .loading-animation-gt {
-    background-image: url('/assets/images/sent-gt.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/sent-gt.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/sent-gt.png.webp');
+    }
     background-size: 50%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -248,7 +253,12 @@ select:focus {
     border: 0 !important;
     /*hide default down arrow in webkit */
     -webkit-appearance: none;
-    background-image: url('/assets/images/select.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/select.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/select.png.webp');
+    }
     background-size: 13px;
     background-repeat: no-repeat;
     background-position: right center;
@@ -265,6 +275,13 @@ select:focus {
 
 .select-dropdown div.input-group-prepend>div {
     border-bottom: 0;
+}
+
+.input-group-text span {
+    width: 90%;
+    white-space: initial;
+    text-align:left;
+    font-size: .85em;
 }
 
 @-moz-document url-prefix() {
@@ -505,6 +522,30 @@ section.header h1 {
     padding: 15px;
     font-size: 14px;
     background-color: rgba(255, 255, 255, .3)
+}
+
+.info-message {
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, .25);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; 
+    .row {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    p {
+        margin: 0;
+    }
+    i {
+        font-size: 1.85em;
+        margin: 0 20px 0 0;
+    }
+    b {
+        display: block;
+    }
 }
 
 .forms {
@@ -1727,9 +1768,14 @@ label {
     width: 100%;
     height: 150px;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
-    background-image: url('/assets/images/logo-talentos-globais.png');
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/logo-talentos-globais.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/logo-talentos-globais.png.webp');
+    }
     margin: auto
 }
 

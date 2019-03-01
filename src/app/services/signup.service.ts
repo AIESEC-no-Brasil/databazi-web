@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions  } from '@angular/http';
 
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SignupService {
 
-	public static url: string = 'http://qa.databazi.aiesec.org.br'
+	public static url: string = environment.apiUrl;
 
 	constructor( public http: Http ) { }
 
@@ -25,15 +27,41 @@ export class SignupService {
 	}
 
 	addGtParticipant(user){
-		return this.http.post(SignupService.url + '/gt_participants', user, this.headers())
+
+		let headers = new Headers();
+		headers.append('Mime-Type', 'multipart/form-data');
+		user = this.transformObjectToFormData(user);
+
+		return this.http.post(SignupService.url + '/gt_participants', user, new RequestOptions({ headers: headers }))
+			.toPromise()
+			.then((res) => res.json());
+
+	}
+
+	addGeParticipant(user){
+
+		let headers = new Headers();
+		headers.append('Mime-Type', 'multipart/form-data');
+		user = this.transformObjectToFormData(user);
+
+		return this.http.post(SignupService.url + '/ge_participants', user, new RequestOptions({ headers: headers }))
 			.toPromise()
 			.then((res) => res.json());
 	}
 
-	addGeParticipant(user){
-		return this.http.post(SignupService.url + '/ge_participants', user, this.headers())
-			.toPromise()
-			.then((res) => res.json());
+	transformObjectToFormData(object) {
+		let formData = new FormData();
+
+		let participant = Object.keys(object)[0];
+
+		for(let i = 0; i < Object.keys(object[participant]).length; i++) {
+
+			let k = Object.keys(object[participant])[i];
+			formData.append(participant + '[' + k + ']', object[participant][k]);
+
+		}
+
+		return formData;
 	}
 
 	checkValidEmail(email){
@@ -42,9 +70,16 @@ export class SignupService {
 			.then((res) => res.json());
 	}
 
-	getUniversities(search?){
-		search = search || '';
-		return this.http.get(SignupService.url + `/universities?name=${search}&limit=10`)
+	getUniversities(search?, city?){
+
+		let query = { limit : 10, name : '', city : '' };
+
+		if (search) query.name = search;
+		if (city) query.city = city;
+
+		return this.http.get(SignupService.url + `/universities`, {
+			params : query
+		})
 			.toPromise()
 			.then((res) => res.json());
 	}

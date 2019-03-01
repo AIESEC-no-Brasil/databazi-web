@@ -1,17 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import * as moment from 'moment'; 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import * as $ from 'jquery';
-
-import { FormOfflineComponent } from '../form-offline/form-offline.component';
 
 @Component({
   selector: 'app-form-gv',
@@ -21,6 +17,7 @@ import { FormOfflineComponent } from '../form-offline/form-offline.component';
 export class FormGvComponent implements OnInit {
 
   @Input() formedUser: any;
+  @Output() onCancelEvent = new EventEmitter<boolean>();
 
   user = {
     fullname: '',
@@ -29,33 +26,85 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: '', name: ''},
-    college_course: { id: '', name: ''},
+    university: { id: '', name: '', local_committee_id: '' },
+    college_course: { id: '', name: '' },
     cellphone_contactable: '',
-    scholarity: { id: ''},
+    scholarity: { id: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
-    utm_content: ''
+    utm_content: '',
+    when_can_travel: '',
+    city: { name: '' },
+    other_university: '',
   }
+
+  cellphoneDefaultMask: string = '000 000 0000';
+  cellphoneLargerMask: string = '0 000 000 0000';
+  cellphoneMask: any;
+
+  travelOptions = [
+    { id: '0', name: 'Lo antes posible' },
+    { id: '1', name: 'Próximos 3 meses' },
+    { id: '2', name: 'Próximos 6 meses' },
+    { id: '3', name: 'En un año' }
+  ]
 
   msgs: Message[] = [];
 
   scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+    { id: '0', name: 'Secundario Incompleto' },
+    { id: '1', name: 'Secundario Completo' },
+    { id: '2', name: 'Universitario en Curso' },
+    { id: '3', name: 'Universitario Completo' },
+    { id: '4', name: 'Grado Maestro en Curso' },
+    { id: '5', name: 'Grado Maestro Completo' }
   ];
+
+  citiesOptions: any = [
+    { name: "CABA" },
+    { name: "Bahía Blanca" },
+    { name: "Bariloche" },
+    { name: "Catamarca" },
+    { name: "Cipolletti" },
+    { name: "Comodoro Rivadavia" },
+    { name: "Córdoba" },
+    { name: "Corrientes" },
+    { name: "Formosa" },
+    { name: "Gran Buenos Aires Oeste" },
+    { name: "Jujuy" },
+    { name: "La Plata" },
+    { name: "La Rioja" },
+    { name: "Lomas de Zamora" },
+    { name: "Mar del Plata" },
+    { name: "Mendoza" },
+    { name: "Neuquén" },
+    { name: "Parana" },
+    { name: "Posadas" },
+    { name: "Resistencia" },
+    { name: "Rio Cuarto" },
+    { name: "Rio Gallegos" },
+    { name: "Rosario" },
+    { name: "Salta" },
+    { name: "San Juan" },
+    { name: "San Luis" },
+    { name: "Santa Fe" },
+    { name: "Santa Rosa (La Pampa)" },
+    { name: "Santiago del Estero" },
+    { name: "Trelew" },
+    { name: "Tucumán" },
+    { name: "Ushuaia" },
+    { name: "Viedma" },
+    { name: "Otras ciudades" }
+  ]
 
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
+  filteredCitiesOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+  showOtherUniversityField: boolean = false;
 
   placeholderBirthdate: string;
 
@@ -76,10 +125,10 @@ export class FormGvComponent implements OnInit {
 
   embeddedForm: boolean = false;
 
-  formToggle : boolean = false;
+  formToggle: boolean = false;
   courses: any;
   places: any;
-  modal:any = false;
+  modal: any = false;
 
   myControl = new FormControl();
 
@@ -87,8 +136,7 @@ export class FormGvComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute,
-    public formOfflineComponent: FormOfflineComponent
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -111,27 +159,31 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
-      college_course_id: new FormControl(this.user.college_course, [
+      city: new FormControl(this.user.city, [
         Validators.required
       ]),
-      local_committee_id: new FormControl(this.user.local_committee, [
+      college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
-      ])
+      ]),
+      when_can_travel: new FormControl(this.user.when_can_travel, [
+        Validators.required
+      ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      other_university: new FormControl(this.user.other_university, [])
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {
-    if(this.formedUser){
+    if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -164,79 +216,113 @@ export class FormGvComponent implements OnInit {
     });
 
     this.filteredScholarityOptions = this.scholarityOptions;
-
-    this.fillUniversitySelect();
+    this.filteredCitiesOptions = this.citiesOptions;
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
     });
-    this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.places;
-    }); 
+
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   searchScholarity(event) {
     this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
   };
 
+  searchCities(event) {
+    if (!event.originalEvent) {
+      this.filteredCitiesOptions = this.citiesOptions;
+    }
+    this.filteredCitiesOptions = this._search(this.citiesOptions, event.query);
+  }
+
+  checkCityValue() {
+    if (this.user.city) {
+      this.user.other_university = null;
+      this.user.university = null;
+    }
+  }
+
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 10) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
+    }
+  }
+
   searchUnivesity(event) {
-    if(!event.originalEvent){
+    if (!event.originalEvent) {
       this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
     }
     this.fillUniversitySelect(event.query);
   };
 
+  checkUniversityValue(event) {
+    if (event.keyCode == 8 && !this.user.university) {
+      this.fillUniversitySelect('');
+    }
+  }
+
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
-  openModal(){
+  openModal() {
     this.modal = true;
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
   }
 
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 
-  onResize(event){
-    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
+  onResize(event) {
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Fecha de nacimiento");
   }
 
-  cancelSignUp(){
-    if(this.formedUser){
-      this.formOfflineComponent.hideGVStep();
-    }else{
-      if(this.submittedPersonal){
+  cancelSignUp() {
+    if (this.formedUser) {
+      this.onCancelEvent.emit();
+    } else {
+      if (this.submittedPersonal) {
         this.submittedPersonal = false;
         this.submittedStudy = false;
         this.personalData = true;
         this.studyData = false;
-      }else{
+      } else {
         this.router.navigate(['/']);
       }
     }
   }
 
+  filterUniversities(city) {
+    if (city)
+      this.fillUniversitySelect();
+  }
 
-  accessAiesec(){
+
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
@@ -249,12 +335,27 @@ export class FormGvComponent implements OnInit {
   }
 
   fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
+    return this.signupService.getUniversities(search, this.user.city.name).then((res: any) => {
       this.universities = res;
+      _.forEach(this.universities, (university) => {
+        if (_.includes(university.name.split(' '), "Otras")) {
+          university.other_university = true;
+        }
+      });
+      this.universities = this._search(this.universities, search);
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
     })
+  }
+
+  checkUniversity(university) {
+    if (university.other_university || (this.user.city.name == 'Otras ciudades' && this.user.university)) {
+      this.showOtherUniversityField = true;
+    }
+    else {
+      this.showOtherUniversityField = false;
+    }
   }
 
   fillCourseSelect() {
@@ -268,54 +369,46 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  fillPlacesSelect() {
-    return this.signupService.getLocalCommittees().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'], ['asc']);
-      this.places = orderedList;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
-    })
-  }
-
   changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
+    if (scholarity_level && (+scholarity_level == 0 || +scholarity_level == 1)) {
+      this.user.city = _.find(this.citiesOptions, (city) => { return city.name == 'Otras ciudades' });
+      this.filterUniversities(this.user.city);
+    }
+    else {
+      this.user.city = { name : '' },
+      this.user.university = { id: '', name: '', local_committee_id: '' };
       this.user.college_course = { id: '', name: '' };
+      this.user.other_university = null;
     }
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  unableToSubmit() {
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
   }
 
-  emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+  emptyFields() {
+    return !(this.user.scholarity && !!this.user.scholarity.id);
   }
 
-  emptyUniversity(){    
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
-        return !this.user.university.id
-      }else{
-        return true;
-      }
+  emptyUniversity() {
+    if (this.user.university && this.user.university.id) {
+      return !this.user.university.id
     }
     else {
-      return false;
+      return true;
     }
   }
 
-  emptyCourse(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
+  emptyCourse() {
+    if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
+      return !this.user.college_course.id
+    } 
+    else if (+this.user.scholarity.id <= 1) {
+      this.user.college_course = { id: '', name: '' };
+      return false;
     }
     else {
-      return false;
+      return true;
     }
   }
 
@@ -332,9 +425,9 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  checkPhone(){
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-    if (cellphone.length < 10){
+  checkPhone() {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 9) {
       this.invalidPhone = true;
       return;
     }
@@ -361,17 +454,31 @@ export class FormGvComponent implements OnInit {
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
+
+  checkUniversityField() {
+    if (!this.showOtherUniversityField || +this.user.scholarity.id == 0 || +this.user.scholarity.id == 1) {
+      this.user.other_university = '';
+      return false;
+    }
+    else if (this.showOtherUniversityField && !this.user.other_university) {
+      return true;
+    }
+  }
+
   submit() {
     this.submittedStudy = true;
+    if (this.checkUniversityField()) {
+      return;
+    };
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        local_committee_id: +this.user.local_committee.id,
         university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         scholarity: +this.user.scholarity.id,
@@ -379,10 +486,12 @@ export class FormGvComponent implements OnInit {
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
+        when_can_travel: +this.user.when_can_travel,
+        other_university: this.user.other_university ? this.user.other_university : null
       }
     };
-    this.loading = true;
+    this.loading = true; 
     this.signupService.addGvParticipant(user)
       .then((res: any) => {
         this.loading = false;
@@ -425,5 +534,14 @@ export class FormGvComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = '';
+    if (field == 'city') {
+      this.user.university = { id: '', name: '', local_committee_id: '' };
+      this.user.other_university = null;
+      this.filteredCitiesOptions = this.citiesOptions;
+    }
+    else if (field == 'university') {
+      this.user.other_university = null;
+      this.fillUniversitySelect();
+    }
   }
 }

@@ -3,7 +3,6 @@ import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
@@ -64,6 +63,10 @@ export class FormOfflineComponent implements OnInit {
   courses: any;
   places: any;
 
+  cellphoneDefaultMask: string = '000 000 0000';
+  cellphoneLargerMask: string = '0 000 000 0000';
+  cellphoneMask: any;
+
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
@@ -110,7 +113,7 @@ export class FormOfflineComponent implements OnInit {
         Validators.required
       ]),
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
   ngOnInit() {
@@ -144,10 +147,11 @@ export class FormOfflineComponent implements OnInit {
     this.fillUniversitySelect();
     this.fillCourseSelect();
     this.fillPlacesSelect();
+    this.cellphoneMask = this.cellphoneDefaultMask;
   }
 
   onResize(event){
-    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Fecha de nacimiento");
   }
 
   cancelSignUp(){
@@ -242,10 +246,20 @@ export class FormOfflineComponent implements OnInit {
     }
   }
 
-  checkPhone(){
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
+  checkMaskCellphone(event) {
+    if (+event.key >= 0 && +event.key <= 9 || event.key == "Backspace") {
+      if (this.user.cellphone.replace(/[()_+-\s]/g, '').length < 10) {
+        this.cellphoneMask = this.cellphoneDefaultMask;
+      }
+      else {
+        this.cellphoneMask = this.cellphoneLargerMask;
+      }
+    }
+  }
 
-    if (cellphone.length < 10){
+  checkPhone() {
+    let cellphone = this.user.cellphone.replace(/[(+)_-\s]/g, '');
+    if (cellphone.length <= 9) {
       this.invalidPhone = true;
       return;
     }
@@ -298,7 +312,7 @@ export class FormOfflineComponent implements OnInit {
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[(+)_-\s]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: this.user.birthdate,
@@ -306,7 +320,7 @@ export class FormOfflineComponent implements OnInit {
         university_id: (this.user.university_id == null ? null : +this.user.university_id),
         college_course_id: (this.user.college_course_id == null ? null : +this.user.college_course_id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity,
+        scholarity: 1, //+this.user.scholarity,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
