@@ -16,13 +16,13 @@
             <li>
               Faça um intercâmbio
               <ul class="animated fadeIn faster ul-products">
-                <li routerLink="/voluntario-global">
+                <li (click)="goToGv()">
                   Voluntário Global
                 </li>
-                <li routerLink="/empreendedor-global">
+                <li (click)="goToGe()">
                   Empreendedor Global
                 </li>
-                <li routerLink="/talento-global">
+                <li (click)="goToGt()">
                   Talento Global
                 </li>
                 <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
@@ -77,7 +77,7 @@
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
                   <li>
-                    Seguro Saúde
+                    Seguro Viagem
                   </li>
                 </a>
               </ul>
@@ -94,13 +94,13 @@
             <li>
               <span>Faça um intercâmbio</span>
               <ul class="animated fadeIn faster">
-                <li routerLink="/voluntario-global" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
                   Voluntário Global
                 </li>
-                <li routerLink="/empreendedor-global" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
                   Empreendedor Global
                 </li>
-                <li routerLink="/talento-global" [ngx-scroll-to]="'#header-product'">
+                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
                   Talento Global
                 </li>
                 <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
@@ -155,7 +155,7 @@
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
                   <li>
-                    Seguro Saúde
+                    Seguro Viagem
                   </li>
                 </a>
               </ul>

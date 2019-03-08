@@ -398,10 +398,10 @@ div#our-stories {
     min-height: 300px;
     position: relative;
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/party.png');
+        background-image: url('/assets/images/party.jpg');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/party.png.webp');
+        background-image: url('/assets/images/party.jpg.webp');
     }
     .round {
         right: -37.5px;        
@@ -433,39 +433,43 @@ div#our-stories {
     font-size: 12px;
 }
 
-.meet-our-programs-session {
-    color: white;
-    font-size: 30px;
-    position: relative;    
-    background-size: 10%;
+.membrasia{
+    height: 500px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 30%;
+    padding: 90px 0;
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/pattern2.png');
+        background-image: url('/assets/images/membrasia.jpg');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/pattern2.png.webp');
+        background-image: url('/assets/images/membrasia.webp');
     }
-    min-height: 25vh;
-    width: 100%;
-    p.align-center {
-        margin: 20px auto;
-    }
-    #meet-our-programs-session-bg {
-        position: absolute;
+    .bg-membrasia {
         width: 100%;
         height: 100%;
+        position: absolute;
+        background-color: rgba(0,0,0,.55);
         left: 0;
         top: 0;
-        background-color: rgba(67, 122, 190, .95);
     }
-    p {
-        color: white;
-        font-size: .75em;
-        font-weight: lighter;
+    div {
+        z-index: 1;
+        &.container {
+            z-index: 2;
+        }
+        p {
+            font-weight: lighter;
+            color: #fff;
+            max-width: 45%;
+            font-size: 1.3em;
+            margin: 10px 0;
+            b {
+                font-weight: bold;
+            }
+        }
     }
-}
-
-.meet-our-programs-session button {
-    color: #437abe;
 }
 
 .experiences-session {
@@ -477,6 +481,16 @@ div#our-stories {
     justify-content: center;
     h1 {
         margin: 20px auto 40px auto
+    }
+    .secundary-text  {
+        text-align: center;
+        margin: 20px 0;
+    }
+    .secundary-text button {
+        height: 60px;
+    }
+    h2 {
+        margin: 25px 0;
     }
     .LDM {        
         background-size: contain;
@@ -657,7 +671,7 @@ div#our-stories {
     width: 100%;
 }
 
-.case-1 {    
+.case-1 {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/case1.jpg');
     }
@@ -857,14 +871,45 @@ drag-scroll {
     }
 }
 
-@media (min-width: 991px) {
-    .box-case {
-        &.box-case-gv {
-            top: 50%;
-            height: 225px;
-            margin-top: -112.5px;
-            padding-top: 10px;
-            padding-bottom: 10px;
+@media (min-width: 991px) {    
+    .case-1 {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+    }
+
+    .case-2 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+    }
+
+    .case-3 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+    }
+    .history-session-image{
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+    }
+    #carousel-wrapper {
+        .box-case {
+            height: 93.5%;
+            min-height: auto;
         }
     }
     #global {
@@ -1012,31 +1057,15 @@ drag-scroll {
             font-size: 1.4em;
         }
     }
-    .meet-our-programs-session {
-        min-height: 35vh;
-        .meet-our-programs-content {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-        }
-    }
+    
     #our-stories {
         min-height: 100vh;
     }
-    .meet-our-programs-session,
     #our-stories {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
-    .meet-our-programs-session p.align-center {
-        max-width: 100%;
-        width: 100%;
-    }
-    .meet-our-programs-session.padding {
-        padding: 0;
     }
     section.our-stories {
         .carousel-container {
@@ -1075,21 +1104,6 @@ drag-scroll {
             h1 {
                 font-size: 2.5 !important;
             }
-        }
-        .meet-our-programs-content {
-            p {
-                font-size: .85em;
-            }
-            button {
-                font-size: .85em;
-            }
-        }
-    }
-    .meet-our-programs-session {
-        display: flex;
-        align-items: center;
-        .meet-our-programs-content {
-            width: 75%;
         }
     }
     #global {
@@ -1144,9 +1158,7 @@ drag-scroll {
         .cases {
             height: 100%;
             .box-case {
-                bottom: 3vh;
                 top: auto;
-                min-height: 30vh !important;
                 .logo-product {
                     min-height: 100px;
                 }
