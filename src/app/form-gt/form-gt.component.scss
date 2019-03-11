@@ -1896,3 +1896,15 @@ label.input-terms-label {
     width: 100%;
     font-size: 22px;
 }
+.select-without-background {
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    width: 100%;
+    font-style: initial;
+    option {
+        color: grey;    
+        font-size: 16px;
+        font-style: initial;
+    }
+}

@@ -38,6 +38,7 @@ export class FormGvComponent implements OnInit {
     when_can_travel: '',
     city: { name: '' },
     other_university: '',
+    referral_type: ''
   }
 
   cellphoneDefaultMask: string = '000 000 0000';
@@ -98,6 +99,27 @@ export class FormGvComponent implements OnInit {
     { name: "Viedma" },
     { name: "Otras ciudades" }
   ]
+
+  referralType = [
+    { id: 1, value: 'Me contó un amigo' },
+    { id: 2, value: 'Un amigo lo compartió en Facebook' },
+    { id: 3, value: 'Un amigo lo compartió en InstaStories' },
+    { id: 4, value: 'Un amigo lo compartió en otra red social' },
+    { id: 5, value: 'Lo encontré en Google' },
+    { id: 6, value: 'Vi una publicación en un grupo de Facebook' },
+    { id: 7, value: 'Vi una publicidad en Facebook' },
+    { id: 8, value: 'Vi una publicidad en Instagram' },
+    { id: 9, value: 'Lo escuché en una presentación en mi universidad' },
+    { id: 10, value: 'Recibí un correo de mi universidad' },
+    { id: 11, value: 'Lo escuché en un stand informativo en mi universidad' },
+    { id: 12, value: 'Lo ví en una red social / pagina web de mi universidad' },
+    { id: 13, value: 'Me enteré por un evento o feria' },
+    { id: 14, value: 'Me enteré a traves de una organización aliada' },
+    { id: 15, value: 'Fuí a un evento de Spanglish' },
+    { id: 16, value: 'Ví un anuncio de Potenciate' },
+    { id: 17, value: 'Medios / Influencers' },
+  ]
+  
 
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
@@ -177,7 +199,10 @@ export class FormGvComponent implements OnInit {
         Validators.required
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
-      other_university: new FormControl(this.user.other_university, [])
+      other_university: new FormControl(this.user.other_university, []),
+      referral_type: new FormControl(this.user.referral_type, [
+        Validators.required
+      ])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
@@ -383,7 +408,7 @@ export class FormGvComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !+this.user.referral_type;
   }
 
   emptyFields() {
@@ -488,7 +513,8 @@ export class FormGvComponent implements OnInit {
         utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
         utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null),
         when_can_travel: +this.user.when_can_travel,
-        other_university: this.user.other_university ? this.user.other_university : null
+        other_university: this.user.other_university ? this.user.other_university : null,
+        referral_type: +this.user.referral_type
       }
     };
     this.loading = true; 
