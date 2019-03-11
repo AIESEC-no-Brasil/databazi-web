@@ -200,8 +200,11 @@ ul#menu {
                         &.ul-products {
                             bottom: -85px;
                         }
-                        &.ul-partners, &.ul-blog, &.ul-travel {
+                        &.ul-partners, &.ul-blog {
                             bottom: -35px;
+                        }
+                        &.ul-travel {
+                            bottom: -5px;
                         }
                         a:hover {
                             text-decoration: none;
