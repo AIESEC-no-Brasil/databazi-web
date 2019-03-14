@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute  } from '@angular/router';
+import * as Sentry from '@sentry/browser';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   constructor(
     public activate: ActivatedRoute
   ){
+    Sentry.init({ dsn: 'https://4478f31a94964381b765142fea1afd5a@sentry.io/1411311' });
 
   }
   changeOfRoutes(){
