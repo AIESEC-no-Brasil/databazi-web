@@ -1,5 +1,6 @@
+import * as Sentry from "@sentry/browser";
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler, Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MessagesModule } from 'primeng/messages';
@@ -39,6 +40,15 @@ export class BaluHammerConfig extends HammerGestureConfig {
 };
 }
 
+@Injectable()
+export class SentryErrorHandler implements ErrorHandler {
+  constructor() {}
+  handleError(error) {
+    Sentry.captureException(error.originalError || error);
+    throw error;
+  }
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,8 +81,10 @@ export class BaluHammerConfig extends HammerGestureConfig {
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: BaluHammerConfig
-    }
+    },
+    { provide: ErrorHandler, useClass: SentryErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
