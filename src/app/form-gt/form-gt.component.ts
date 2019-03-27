@@ -241,6 +241,10 @@ export class FormGtComponent implements OnInit {
       this.studyData = true;
     }
 
+    if(this.router.url == '/intercambio-gt'){
+      this.formedUser = true;
+    }
+
     this.urlScrapper.queryParams.subscribe((param: any) => {
       if (param['utm_source']) {
         localStorage.setItem('utm_source', param['utm_source'])
