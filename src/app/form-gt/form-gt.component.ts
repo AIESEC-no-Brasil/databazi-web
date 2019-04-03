@@ -75,6 +75,7 @@ export class FormGtComponent implements OnInit {
     { id: '9', name: 'Mexico' },
     { id: '10', name: 'Panama' },
     { id: '11', name: 'Romania' },
+    { id: '12', name: 'Turquia' },
   ];
 
   citiesOptions: any = [
