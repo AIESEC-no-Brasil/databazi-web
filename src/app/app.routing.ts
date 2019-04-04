@@ -21,15 +21,15 @@ export const router : Routes = [
         loadChildren: './form-offline/form-offline.module#FormOfflineModule'
     },
     {
-        path: 'formulario-voluntario-global',
+        path: 'intercambio-gv',
         loadChildren: './form-gv/form-gv.module#FormGvModule'
     },
     {
-        path: 'formulario-talento-global',
+        path: 'intercambio-gt',
         loadChildren: './form-gt/form-gt.module#FormGtModule'
     },
     {
-        path: 'formulario-emprendedor-global',
+        path: 'intercambio-ge',
         loadChildren: './form-ge/form-ge.module#FormGeModule'
     },
     {

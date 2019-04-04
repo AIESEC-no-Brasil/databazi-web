@@ -806,7 +806,7 @@
           <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
-      <target>Cómo preferís que te llamemos?</target></trans-unit>
+      <target>Cómo te llamas?</target></trans-unit>
       <trans-unit id="fullnameMobilePlaceholder" datatype="html">
         <source>Nome completo</source>
         <context-group purpose="location">
@@ -1612,6 +1612,40 @@
           <context context-type="linenumber">381</context>
         </context-group>
       <target>CV</target></trans-unit>
+      <trans-unit id="referralType" datatype="html">
+        <source>
+                    Como conheceu a AIESEC?
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">419</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">398</context>
+        </context-group> 
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">351</context>
+        </context-group>
+      <target>Cómo conoció a AIESEC?</target></trans-unit>
+       <trans-unit id="referralTypeOption" datatype="html">
+        <source>
+                    Selecione uma opção
+                  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-ge/form-ge.component.html</context>
+          <context context-type="linenumber">424</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gt/form-gt.component.html</context>
+          <context context-type="linenumber">403</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/form-gv/form-gv.component.html</context>
+          <context context-type="linenumber">356</context>
+        </context-group>
+      <target>Seleccione una opción</target></trans-unit>
       <trans-unit id="termsAndConditions" datatype="html">
         <source>Termos e Condições</source>
         <context-group purpose="location">
