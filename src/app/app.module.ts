@@ -21,6 +21,7 @@ import { environment } from '../environments/environment';
 
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
+import { FormGvEmbeddedModule } from './form-gv-embedded/form-gv-embedded.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,7 +53,7 @@ export class SentryErrorHandler implements ErrorHandler {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,8 @@ export class SentryErrorHandler implements ErrorHandler {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LandingPageMenuModule,
-    LandingFooterModule
+    LandingFooterModule,
+    FormGvEmbeddedModule
   ],
   providers: [
     {
