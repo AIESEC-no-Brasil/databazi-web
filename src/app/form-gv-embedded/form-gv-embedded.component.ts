@@ -29,10 +29,7 @@ export class FormGvEmbeddedComponent implements OnInit {
     password: '',
     repassword: '',
     local_committee: { id: 1 },
-    university: { id: '', name: '' },
-    college_course: { id: '', name: '' },
     cellphone_contactable: true,
-    scholarity: { id: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -42,24 +39,11 @@ export class FormGvEmbeddedComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
-  ];
-
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;
-  filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
 
   personalData: boolean = true;
-  studyData: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -74,7 +58,6 @@ export class FormGvEmbeddedComponent implements OnInit {
   embeddedForm: boolean = false;
 
   formToggle: boolean = false;
-  courses: any;
   places: any;
   modal: any = false;
 
@@ -84,8 +67,7 @@ export class FormGvEmbeddedComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -150,9 +132,7 @@ export class FormGvEmbeddedComponent implements OnInit {
     });
   }
 
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
+  
   openModal() {
     this.modal = true;
   }
@@ -161,10 +141,6 @@ export class FormGvEmbeddedComponent implements OnInit {
     this.modal = false;
   }
 
-
-  searchCourses(event) {
-    this.filteredCourses = this._search(this.courses, event.query);
-  };
 
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
@@ -195,7 +171,6 @@ export class FormGvEmbeddedComponent implements OnInit {
       if (this.submittedPersonal) {
         this.submittedPersonal = false;
         this.personalData = true;
-        this.studyData = false;
       } else {
         this.router.navigate(['/']);
       }
@@ -221,8 +196,6 @@ export class FormGvEmbeddedComponent implements OnInit {
     })
   }
 
-
-
   unableToSubmit() {
     return this.emptyFields()
   }
@@ -230,10 +203,6 @@ export class FormGvEmbeddedComponent implements OnInit {
   emptyFields() {
     return !this.user.fullname || !this.user.cellphone || !this.user.email || !this.user.birthdate || this.invalidPassword || !(this.user.local_committee && !!this.user.local_committee.id);
   }
-
-
-
-
 
   checkDate() {
     let date = moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY').split('/');
@@ -256,15 +225,6 @@ export class FormGvEmbeddedComponent implements OnInit {
     }
     else {
       this.invalidPhone = false;
-    }
-  }
-
-  validPassword() {
-    if (this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
     }
   }
 

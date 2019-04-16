@@ -23,6 +23,7 @@ import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.mod
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
 import { FormGvEmbeddedModule } from './form-gv-embedded/form-gv-embedded.module';
 import { FormGtEmbeddedModule } from "./form-gt-embedded/form-gt-embedded.module";
+import { FormGeEmbeddedModule } from "./form-ge-embedded/form-ge-embedded.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -79,7 +80,8 @@ export class SentryErrorHandler implements ErrorHandler {
     LandingPageMenuModule,
     LandingFooterModule,
     FormGvEmbeddedModule,
-    FormGtEmbeddedModule
+    FormGtEmbeddedModule,
+    FormGeEmbeddedModule
   ],
   providers: [
     {

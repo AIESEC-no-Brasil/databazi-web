@@ -12,23 +12,13 @@
             <div class="logo-voluntario-global"></div>
           </div>
         </div>
-        <!-- <div *ngIf="!completedSignup">
+        <div *ngIf="!completedSignup">
           <div class="row" [ngClass]="{ headerB: formToggle }" *ngIf="!embeddedForm">
             <div class="col-sm">
               <h1>Ser um voluntário global é transformar seus valores em ação e fazer a diferença em diversas regiões do mundo.</h1>
             </div>
           </div>
-          <div class="row" *ngIf="!loading && !completedSignup">
-            <div class="col text-center">
-              <div class='step-position'>
-                <ul>
-                  <li [ngClass]="{active : personalData}"></li>
-                  <li [ngClass]="{active: studyData}"></li>
-                </ul>
-              </div>
-            </div>
-          </div> 
-        </div> -->
+        </div>
       </div>
     </section>
 
@@ -151,12 +141,12 @@
                         <i class="fas fa-lock"></i>Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
                       formControlName="password" name="password" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
                       name="password" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
@@ -170,12 +160,12 @@
                         <i class="fas fa-lock"></i>Confirmar Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop"  (blur)='validPassword()' placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
                       name="repassword" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" (blur)='validPassword()' [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
                       required placeholder="Confirmar senha">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
