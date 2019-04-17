@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
@@ -42,7 +41,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   }
 
   userData: any;
-
   englishLevelOptions: any = [
     { id: '0', name: 'Não tenho' },
     { id: '1', name: 'Básico' },
@@ -50,16 +48,12 @@ export class FormOfflineEmbeddedComponent implements OnInit {
     { id: '3', name: 'Avançado' },
     { id: '4', name: 'Fluente' }
   ];
-
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
-
   placeholderBirthdate: string;
   msgs: Message[] = [];
-
   personalData: boolean = true;
-
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
@@ -70,8 +64,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   submittedPersonal: boolean = false;
   completedSignup: boolean = false;
   modal: boolean = false;
-  embeddedForm: boolean = false;
-
   courses: any;
   places: any;
 
@@ -146,10 +138,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
       }
-
-      if (param['embedded']) {
-        this.embeddedForm = true;
-      }
     });
 
     this.fillCourseSelect().then(() => {
@@ -182,19 +170,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
 
   onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
-  }
-
-  cancelSignUp() {
-    if (this.formedUser) {
-      this.onCancelEvent.emit();
-    } else {
-      if (this.submittedPersonal) {
-        this.submittedPersonal = false;
-        this.personalData = true;
-      } else {
-        this.router.navigate(['/']);
-      }
-    }
   }
 
   accessAiesec() {
@@ -332,24 +307,24 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   signUpGvParticipant() {
     this.signupService.addGvParticipant(this.userData)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          this.router.navigate(['/voluntario-global/obrigado']);
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
         }
       )
   }
@@ -357,24 +332,24 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   signUpGtParticipant() {
     this.signupService.addGtParticipant(this.userData)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          this.router.navigate(['/talento-global/obrigado']);
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
         }
       )
   }
@@ -382,29 +357,27 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   signUpGeParticipant() {
     this.signupService.addGeParticipant(this.userData)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          this.router.navigate(['/empreendedor-global/obrigado']);
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
         }
       )
   }
-
-
 
   checkEmail() {
     this.signupService.checkValidEmail(this.user.email)
@@ -414,10 +387,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
-  }
-
-  display(option) {
-    return option ? option.name : undefined;
   }
 
   searchCourses(event) {

@@ -1,13 +1,11 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 
@@ -36,15 +34,10 @@ export class FormGvEmbeddedComponent implements OnInit {
     utm_term: '',
     utm_content: ''
   }
-
   msgs: Message[] = [];
-
   filteredPlaces: Observable<any[]>;
-
   placeholderBirthdate: string;
-
   personalData: boolean = true;
-
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
@@ -54,13 +47,8 @@ export class FormGvEmbeddedComponent implements OnInit {
   step1Form: FormGroup;
   submittedPersonal: boolean = false;
   completedSignup: boolean = false;
-
-  embeddedForm: boolean = false;
-
-  formToggle: boolean = false;
   places: any;
   modal: any = false;
-
   myControl = new FormControl();
 
   constructor(
@@ -120,19 +108,13 @@ export class FormGvEmbeddedComponent implements OnInit {
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
       }
-
-      if (param['embedded']) {
-        this.embeddedForm = true;
-      }
     });
-
 
     this.fillPlacesSelect().then(() => {
       this.filteredPlaces = this.places;
     });
   }
 
-  
   openModal() {
     this.modal = true;
   }
@@ -141,11 +123,9 @@ export class FormGvEmbeddedComponent implements OnInit {
     this.modal = false;
   }
 
-
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
   };
-
 
   _search(options, search) {
     return _.filter(options, (option) => {
@@ -164,25 +144,11 @@ export class FormGvEmbeddedComponent implements OnInit {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  cancelSignUp() {
-    if (this.formedUser) {
-      this.onCancelEvent.emit();
-    } else {
-      if (this.submittedPersonal) {
-        this.submittedPersonal = false;
-        this.personalData = true;
-      } else {
-        this.router.navigate(['/']);
-      }
-    }
-  }
-
-
   accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
-  isValidPersonal(field) {
+  isValid(field) {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
   }
 
@@ -248,13 +214,12 @@ export class FormGvEmbeddedComponent implements OnInit {
     this.loading = true;
     this.signupService.addGvParticipant(user)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
@@ -264,6 +229,7 @@ export class FormGvEmbeddedComponent implements OnInit {
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
           this.loading = false;

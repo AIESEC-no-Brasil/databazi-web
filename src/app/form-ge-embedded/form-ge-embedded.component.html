@@ -1,18 +1,18 @@
 <head>
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 </head>
-<div id="step1" class="form-talentos-globais" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
+<div id="step1" class="form-talentos-globais full-screen-embedded" [ngClass]="{'full-screen': formedUser}">
   <div class="full-width">
     <!-- Header -->
     <section class="header" id="header-talentos-globais">
       <div class="container">
-        <div class="row justify-content-center" *ngIf="!embeddedForm">
+        <div class="row justify-content-center">
           <div class="col-sm text-center">
             <div class="logo-empreendedor-global"></div>
           </div>
         </div>
         <div *ngIf="!completedSignup">
-          <div class="row" *ngIf="!embeddedForm">
+          <div class="row">
             <div class="col-sm">
               <h1>Assuma os desafios de trabalhar em uma Startup e se desenvolva como um líder empreendedor.</h1>
             </div>
@@ -143,13 +143,13 @@
                         <i class="fas fa-lock"></i>Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
-                      formControlName="password" name="password" required>
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="É para o seu perfil no aiesec.org"
+                      [(ngModel)]="user.password" formControlName="password" name="password" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" (blur)='checkPassword()' placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
-                      name="password" required>
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' placeholder="Senha" [(ngModel)]="user.password"
+                      formControlName="password" name="password" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -162,13 +162,13 @@
                         <i class="fas fa-lock"></i>Confirmar Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
-                      name="repassword" required>
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="" [(ngModel)]="user.repassword"
+                      formControlName="repassword" name="repassword" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" (blur)='checkPassword()' [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
-                      required placeholder="Confirmar senha">
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' [(ngModel)]="user.repassword" formControlName="repassword"
+                      name="repassword" required placeholder="Confirmar senha">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -321,40 +321,7 @@
               </form>
             </div>
 
-            <section class="content" id="resultado" *ngIf="completedSignup">
-              <script type="text/javascript">
-                fbq('track', 'Lead');
-              </script>
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-sm">
-                    <div class="row justify-content-center">
-                      <div class="col-sm-9" id="header-resultado">
-                        <h2>Obrigado por se increver!</h2>
-                        <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
-                      </div>
-                      <div class="col-sm-3">
-                        <i class="fas fa-thumbs-up fa-10x color-icon"></i>
-                      </div>
-                    </div>
-                    <div class="row justify-content-center">
-                      <div class="col-sm-12" id="content-resultado">
-                        <p>
-                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por imersão internacional em
-                          startup na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
-                        </p>
-                        <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
-              <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">Cancelar</button>
-              </div>
               <div class="col text-right">
                 <button type="button" (click)="submit()" class="btn btn-primary submit-form" [ngx-scroll-to]="'#header-talentos-globais'"
                   [disabled]='unableToSubmit()'>

@@ -998,20 +998,6 @@ label {
         flex-direction: column;
         padding: 20px 10px 10px 15px;
     }
-    #row-with-buttons {
-        flex-direction: column-reverse;
-        > div {
-            display:flex;
-            width: 100%;
-            align-content: center;
-            justify-content: center;
-            margin: 5px 0;
-            min-height: 40px;
-            button {
-                width: 100%;
-            }
-        }
-    }
 }
 
 /*--------------------------------------------------------------
@@ -1664,4 +1650,18 @@ label.input-terms-label {
     text-align: center;
     width: 100%;
     font-size: 22px;
+}
+#row-with-buttons {
+    flex-direction: column-reverse;
+    > div {
+        display:flex;
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        margin: 5px 0;
+        min-height: 40px;
+        button {
+            width: 100%;
+        }
+    }
 }

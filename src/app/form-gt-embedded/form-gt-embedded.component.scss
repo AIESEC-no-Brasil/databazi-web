@@ -1014,20 +1014,6 @@ label {
         font-size: 25px;
         margin-top: 10px;
     }
-    #row-with-buttons {
-        flex-direction: column-reverse;
-        > div {
-            display:flex;
-            width: 100%;
-            align-content: center;
-            justify-content: center;
-            margin: 5px 0;
-            min-height: 40px;
-            button {
-                width: 100%;
-            }
-        }
-    }
 }
 
 /*--------------------------------------------------------------
@@ -1866,4 +1852,18 @@ label.input-terms-label {
     text-align: center;
     width: 100%;
     font-size: 22px;
+}
+#row-with-buttons {
+    flex-direction: column-reverse;
+    > div {
+        display:flex;
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        margin: 5px 0;
+        min-height: 40px;
+        button {
+            width: 100%;
+        }
+    }
 }

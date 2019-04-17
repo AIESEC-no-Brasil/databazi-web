@@ -2,18 +2,18 @@
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 </head>
 
-<div id="step1" class="form-volutario-global relative-form" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
+<div id="step1" class="form-volutario-global relative-form full-screen-embedded" [ngClass]="{'full-screen': formedUser}">
   <div class="full-width">
     <!-- Header -->
     <section class="header" id="header-voluntario-global">
       <div class="container">
-        <div class="row justify-content-center" *ngIf="!embeddedForm">
+        <div class="row justify-content-center">
           <div class="col-sm text-center">
             <div class="logo-voluntario-global"></div>
           </div>
         </div>
         <div *ngIf="!completedSignup">
-          <div class="row" [ngClass]="{ headerB: formToggle }" *ngIf="!embeddedForm">
+          <div class="row" [ngClass]="{ headerB: formToggle }">
             <div class="col-sm">
               <h1>Ser um voluntário global é transformar seus valores em ação e fazer a diferença em diversas regiões do mundo.</h1>
             </div>
@@ -78,7 +78,7 @@
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
+                  <div *ngIf="isValid('cellphone')" class='error-message'>
                     Preencha o seu número de celular.
                   </div>
                   <div *ngIf="invalidPhone" class='error-message'>
@@ -106,7 +106,7 @@
                       <i class="fas fa-times"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('email')" class='error-message'>
+                  <div *ngIf="isValid('email')" class='error-message'>
                     Preencha com o seu email.
                   </div>
                 </div>
@@ -124,7 +124,7 @@
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('birthdate')" class='error-message'>
+                  <div *ngIf="isValid('birthdate')" class='error-message'>
                     Preencha com a sua data de nascimento.
                   </div>
                   <div *ngIf="invalidDate" class='error-message'>
@@ -172,7 +172,7 @@
                     </div>
                   </div>
                 </div>
-                <div *ngIf="isValidPersonal('password')" class='error-message animated fadeIn'>
+                <div *ngIf="isValid('password')" class='error-message animated fadeIn'>
                   Preencha com a sua senha.
                   <br>
                   <span>
@@ -198,7 +198,7 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('local_committee_id')" class='error-message'>
+                  <div *ngIf="isValid('local_committee_id')" class='error-message'>
                     Selecione a AIESEC mais próxima.
                   </div>
                 </div>
@@ -227,36 +227,6 @@
                 </div>
               </form>
             </div>
-
-            <section class="content" id="resultado" *ngIf="completedSignup">
-              <script type="text/javascript">
-                fbq('track', 'Lead');
-              </script>
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-sm">
-                    <div class="row justify-content-center">
-                      <div class="col-sm-9" id="header-resultado">
-                        <h2>Obrigado por se increver!</h2>
-                        <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
-                      </div>
-                      <div class="col-sm-3">
-                        <i class="fas fa-thumbs-up fa-10x color-icon"></i>
-                      </div>
-                    </div>
-                    <div class="row justify-content-center">
-                      <div class="col-sm-12" id="content-resultado">
-                        <p>
-                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio voluntário
-                          na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
-                        </p>
-                        <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
               <div class="col text-right">

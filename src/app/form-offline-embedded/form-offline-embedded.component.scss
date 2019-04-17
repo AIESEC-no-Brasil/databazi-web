@@ -1030,20 +1030,6 @@ label {
         font-size: 25px;
         margin-top: 10px;
     }
-    #row-with-buttons {
-        flex-direction: column-reverse;
-        > div {
-            display:flex;
-            width: 100%;
-            align-content: center;
-            justify-content: center;
-            margin: 5px 0;
-            min-height: 40px;
-            button {
-                width: 100%;
-            }
-        }
-    }
 }
 
 /*--------------------------------------------------------------
@@ -1882,4 +1868,18 @@ label.input-terms-label {
 
 .iframe.form-control {
     background-color:  darken(#037ef3, 15%) !important;
+}
+#row-with-buttons {
+    flex-direction: column-reverse;
+    > div {
+        display:flex;
+        width: 100%;
+        align-content: center;
+        justify-content: center;
+        margin: 5px 0;
+        min-height: 40px;
+        button {
+            width: 100%;
+        }
+    }
 }

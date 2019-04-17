@@ -86,8 +86,7 @@ export class FormGvComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
