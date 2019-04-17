@@ -238,27 +238,7 @@
                     Selecione um curso.
                   </div>
                 </div>
-                <div class="form-group experiences-input">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-book-open"></i>Experiências</div>
-                    </div>
-                    <div class="label-experience">
-                      A escolha das experiências é algo opcional.
-                    </div>
-                  </div>
-                  <div class="form-checkbox-select">
-
-                    <div class="checkbox-item" *ngFor="let experience of experienceItems">
-                      <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
-                      <label for="language" for="{{experience.name}}">
-                        {{experience.name}}
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group  english_level">
+                <div class="form-group  english_level" *ngIf='user.program != 0'>
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
                       <div class="input-group-text">

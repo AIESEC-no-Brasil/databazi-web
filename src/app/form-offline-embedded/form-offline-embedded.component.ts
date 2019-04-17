@@ -33,7 +33,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
     cellphone_contactable: true,
     english_level: { id: '' },
     college_course: { id: '' },
-    experience: [],
     program: '',
     utm_source: '',
     utm_medium: '',
@@ -43,13 +42,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   }
 
   userData: any;
-
-  experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language' },
-    { name: 'Marketing', value: 'marketing' },
-    { name: 'Tecnologia da Informação', value: 'information_technology' },
-    { name: 'Gestão', value: 'management' },
-  ];
 
   englishLevelOptions: any = [
     { id: '0', name: 'Não tenho' },
@@ -64,14 +56,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
-
-  selectedItems: any = {
-    language: false,
-    marketing: false,
-    information_technology: false,
-    management: false
-  };
-
   msgs: Message[] = [];
 
   personalData: boolean = true;
@@ -200,10 +184,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  addOrRemove(experience) {
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-  }
-
   cancelSignUp() {
     if (this.formedUser) {
       this.onCancelEvent.emit();
@@ -247,15 +227,21 @@ export class FormOfflineEmbeddedComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyCourse()
+    return this.emptyFields() || this.emptyCourse() || this.emptyEnglish();
   }
 
   emptyFields() {
-    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.program || this.invalidPassword;
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.program || this.invalidPassword;
   }
 
   emptyCourse() {
     return !this.user.college_course.id
+  }
+
+  emptyEnglish(){
+    if ((+this.user.program == 1 || +this.user.program == 2) && !this.user.english_level.id){
+      return true;
+    }
   }
 
   checkPassword() {
@@ -311,8 +297,6 @@ export class FormOfflineEmbeddedComponent implements OnInit {
       local_committee_id: +this.user.local_committee.id,
       college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
       cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-      english_level: +this.user.english_level.id,
-      experience: this.selectedItems,
       program: +this.user.program,
       utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
       utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
@@ -332,12 +316,14 @@ export class FormOfflineEmbeddedComponent implements OnInit {
         this.userData = {
           gt_participant: user
         }
+        this.userData.gt_participant.english_level = +this.user.english_level.id;
         this.signUpGtParticipant();
         break;
       case 2:
         this.userData = {
           ge_participant: user
         }
+        this.userData.ge_participant.english_level = +this.user.english_level.id;
         this.signUpGeParticipant();
         break;
     }
