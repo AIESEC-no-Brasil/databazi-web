@@ -32,7 +32,6 @@ export class FormGeEmbeddedComponent implements OnInit {
     college_course: { id: '', name: ''},
     cellphone_contactable: true,
     english_level: { id: '', name: ''},
-    spanish_level: { id: '', name: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -48,17 +47,8 @@ export class FormGeEmbeddedComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  spanishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
-    { id: '1', name: 'Básico' },
-    { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
-  ];
-
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
-  filteredSpanishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
@@ -122,9 +112,6 @@ export class FormGeEmbeddedComponent implements OnInit {
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
-      spanish_level: new FormControl(this.user.spanish_level, [
-        Validators.required
-      ]),
       local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
@@ -175,8 +162,6 @@ export class FormGeEmbeddedComponent implements OnInit {
     });
 
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
-
-    this.filteredSpanishLevelOptions = this.spanishLevelOptions;
   }
 
   onResize(event){
@@ -240,7 +225,7 @@ export class FormGeEmbeddedComponent implements OnInit {
   }
 
   emptyFields(){
-    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
   emptyCourse(){
@@ -294,7 +279,6 @@ export class FormGeEmbeddedComponent implements OnInit {
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
-        spanish_level: +this.user.spanish_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -348,10 +332,6 @@ export class FormGeEmbeddedComponent implements OnInit {
 
   searchEnglishLevels(event) {
     this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
-  };
-
-  searchSpanishLevels(event) {
-    this.filteredSpanishLevelOptions =  this._search(this.spanishLevelOptions, event.query);
   };
 
   _search(options, search){

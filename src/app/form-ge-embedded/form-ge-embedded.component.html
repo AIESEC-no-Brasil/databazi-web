@@ -224,26 +224,6 @@
                     Selecione um nível de inglês.
                   </div>
                 </div>
-                <div class="form-group spanish_level">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-book-open"></i>Nível de espanhol</div>
-                    </div>
-                    <div class="dropdown">
-                      <div class="styled-select">
-                        <p-autoComplete [(ngModel)]="user.spanish_level" [suggestions]="filteredSpanishLevelOptions" (completeMethod)="searchSpanishLevels($event)"
-                          #spanishAutocomplete (onFocus)="selectInput('spanish_level');spanishAutocomplete.handleDropdownClick();"
-                          dropdownMode="current" field="name" formControlName="spanish_level" emptyMessage="Nenhum resultado"
-                          placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div *ngIf="isValid('spanish_level')" class='error-message'>
-                    Selecione um nível de espanhol.
-                  </div>
-                </div>
                 <div class="form-group local_committee">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
