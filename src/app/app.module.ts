@@ -19,8 +19,10 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { LandingPageHostModule } from './landing-page-host/landing-page-host.module';
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
+import { LandingPageHostComponent } from './landing-page-host/landing-page-host.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,7 +54,8 @@ export class SentryErrorHandler implements ErrorHandler {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LandingPageHostComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +78,8 @@ export class SentryErrorHandler implements ErrorHandler {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LandingPageMenuModule,
-    LandingFooterModule
+    LandingFooterModule,
+    LandingPageHostModule
   ],
   providers: [
     {

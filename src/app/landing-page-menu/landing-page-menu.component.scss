@@ -133,6 +133,14 @@ ul#menu {
                 background-image: url('../../assets/products/ge/ge-intro.jpg.webp');
             }
         }
+        &.hospede-um-intercambista{
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/host/host-intro.jpg');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/host/host-intro.webp');
+            }
+        }
     }
     .header-menu {
         display: flex;
