@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FormGvEmbeddedComponent } from './form-gv-embedded.component';
-import { FormGvThankYouComponent } from './form-gv-thank-you/form-gv-thank-you.component';
 
 import { FormGvEmbeddedRoutingModule } from './form-gv-embedded-routing.module';
 import { TermsModule } from '../terms/terms.module';
@@ -17,8 +16,7 @@ import { SignupService } from '../services/signup.service';
 
 @NgModule({
   declarations: [
-  	FormGvEmbeddedComponent,
-    FormGvThankYouComponent
+  	FormGvEmbeddedComponent
   ],
   imports: [
     CommonModule,
