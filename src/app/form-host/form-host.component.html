@@ -1,0 +1,83 @@
+<div>
+  <form *ngIf='!loading' [formGroup]='signUp' (keydown.enter)='submit()'>
+    <div class='row' id='signUp'>
+      <h1>
+        Inscreva-se:
+      </h1>
+      <div class="alert alert-warning alert-dismissible fade show animated fadeIn" role="alert" *ngIf="invalidEmail">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <i class="far fa-times-circle fa-lg"></i>
+        </button>
+        <p>Já existe um usuário com esse endereço de email!
+          <strong>Gostaria de acessar a plataforma?</strong>
+        </p>
+      </div>
+      <div class='col-12'>
+        <label for='fullname' [ngClass]='{"has-content": user.fullname }'>Nome</label>
+        <input type='text' name='fullname' [(ngModel)]='user.fullname' formControlName='fullname' name='fullname' required>
+        <div *ngIf="isValid('fullname')" class='error-message'>
+          Preencha com o seu nome.
+        </div>
+      </div>
+      <div class='col-12'>
+        <label for='fullname' [ngClass]='{"has-content": user.email }'>E-mail</label>
+        <input type="email" [(ngModel)]="user.email" (blur)="checkEmail()" formControlName="email" name="email" email required>
+        <div *ngIf="isValid('email')" class='error-message'>
+          Preencha com o seu email.
+        </div>
+      </div>
+      <div class='col-12'>
+        <label for='fullname' [ngClass]='{"has-content": user.cellphone }'>Celular</label>
+        <input type="tel" [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" mask="(00) 0000-00009" (blur)="checkPhone()"
+          required>
+        <div *ngIf="isValid('cellphone')" class='error-message'>
+          Preencha o seu número de celular.
+        </div>
+        <div *ngIf="invalidPhone" class='error-message'>
+          Por favor, digite um número de celular válido.
+        </div>
+      </div>
+      <div class='col-12'>
+        <label for='neighborhood' [ngClass]='{"has-content": user.neighborhood }'>Bairro</label>
+        <input type='text' name='neighborhood' [(ngModel)]='user.neighborhood' formControlName='neighborhood' name='neighborhood'
+          required>
+        <div *ngIf="isValid('neighborhood')" class='error-message'>
+          Preencha com o seu bairro.
+        </div>
+      </div>
+      <div class='col-12'>
+        <label for='city' [ngClass]='{"has-content": user.city }'>Cidade</label>
+        <input type='text' name='city' [(ngModel)]='user.city' formControlName='city' name='city' required>
+        <div *ngIf="isValid('city')" class='error-message'>
+          Preencha com a sua cidade
+        </div>
+      </div>
+      <div class='col-12'>
+        <label for='state' [ngClass]='{"has-content": user.state }'>Estado</label>
+        <input type='text' name='state' [(ngModel)]='user.state' formControlName='state' name='state' required>
+        <div *ngIf="isValid('state')" class='error-message'>
+          Preencha com o seu estado
+        </div>
+      </div>
+      <div class='col-12 select-autocomplete'>
+        <div class="dropdown">
+          <div class="styled-select">
+            <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
+              #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();" dropdownMode="current"
+              field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado" placeholder="AIESEC mais próxima"></p-autoComplete>
+            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
+          </div>
+        </div>
+        <div *ngIf="isValid('local_committee_id')" class='error-message'>
+          Selecione uma das opções
+        </div>
+      </div>
+      <button (click)='submit()' [ngClass]='{"not-allowed": unableToSubmit()}' [disabled]='unableToSubmit()'>
+        Enviar
+      </button>
+    </div>
+  </form>
+  <div class='loading-content' *ngIf='loading'>
+    <div class='loading'>
+    </div>
+  </div>

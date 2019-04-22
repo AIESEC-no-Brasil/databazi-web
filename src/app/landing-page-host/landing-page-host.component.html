@@ -1,3 +1,6 @@
+<head>
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+</head> 
 <main>
   <div class="goToTop" [ngx-scroll-to]="'#header-product'">
     <i class="fas fa-sort-up"></i>
@@ -11,8 +14,8 @@
         <div class="description col-lg-7 col-sm-12 col-md-12">
           <h2 class="bold">
             Visão geral do programa
-          </h2>
-          <p>
+          </h2> 
+          <p> 
             Pelo programa Lar Global da AIESEC você pode viver a uma experiência de aprendizado cultural e criar conexões internacionais
             ao se voluntarias para receber um intercambista por 6 a 12 semanas.
             <br> Hospedar um intercambista é muito mais do que recebê-lo em casa, é viver a diversidade, aprender novas línguas
@@ -25,9 +28,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Form gt -->
-  <!-- <app-form-gt id="form"></app-form-gt> -->
 
   <section class="host-details padding-top-and-bottom">
     <div class="container">
@@ -82,7 +82,7 @@
       </div>
       <div class='row'>
         <div class='col-12'>
-          formulario (to do)
+          <app-form-host></app-form-host>
         </div>
       </div>
     </div>
@@ -251,24 +251,6 @@
           <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
             Inscreva-se já
           </button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class='contact padding-top-and-bottom'>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-lg-4 col-sm-12 col-md-12'>
-          <h2>Entre em contato</h2>
-        </div>
-        <div class='col-lg-8 col-sm-12 col-md-12'>
-          <h3>Entre em contato com o escritório mais próximo</h3>
-
-          <label>Cidade</label>
-          <select>
-            <option value=''>-- Selecione uma cidade --</option>
-            <option value='1'>city</option>
-          </select>
         </div>
       </div>
     </div>

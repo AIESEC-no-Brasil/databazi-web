@@ -44,38 +44,6 @@ $mainColor: #ffc845;
     }
 }
 
-section.contact {
-    .container div {
-        min-height: 200px;
-    }
-
-    h2 {
-        text-align: left;
-        font-size: 33px;
-        font-weight: 300;
-        line-height: 45px;
-        color: #31383D;
-    }
-    h3 {
-        color: #4A4A4A;
-        font-size: 20px;
-        font-style: italic;
-        font-weight: 500;
-        line-height: 24px;
-        margin-bottom: 50px;
-        margin-top: 15px;
-    }
-
-    label {
-        display: block;
-    }
-
-    select,
-    option {
-        padding: 10px;
-        font-size: 16px;
-    }
-}
 
 .host-details {
     min-height: 200px;

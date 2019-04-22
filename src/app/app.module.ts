@@ -23,6 +23,8 @@ import { LandingPageHostModule } from './landing-page-host/landing-page-host.mod
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
 import { LandingPageHostComponent } from './landing-page-host/landing-page-host.component';
+import { FormGtModule } from "./form-gt/form-gt.module";
+import { FormHostModule } from "./form-host/form-host.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -79,7 +81,8 @@ export class SentryErrorHandler implements ErrorHandler {
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LandingPageMenuModule,
     LandingFooterModule,
-    LandingPageHostModule
+    LandingPageHostModule,
+    FormHostModule
   ],
   providers: [
     {
