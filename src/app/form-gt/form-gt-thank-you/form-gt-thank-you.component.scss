@@ -3,6 +3,9 @@
 @import '../form-gt.component.scss';
 $break-md: 768px;
 $break-sm: 576px;
+.full-screen {
+    align-items: center !important;
+}
 #resultado {
     .grid-message {
         display: flex;

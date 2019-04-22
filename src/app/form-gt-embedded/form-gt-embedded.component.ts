@@ -1,22 +1,22 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import * as moment from 'moment'; 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
 import * as $ from 'jquery';
 
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+
 @Component({
-  selector: 'app-form-gv',
-  templateUrl: './form-gv.component.html',
-  styleUrls: ['./form-gv.component.scss']
+  selector: 'app-form-gt',
+  templateUrl: './form-gt-embedded.component.html',
+  styleUrls: ['./form-gt-embedded.component.scss']
 })
-export class FormGvComponent implements OnInit {
+export class FormGtEmbeddedComponent implements OnInit {
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
@@ -28,11 +28,11 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: '', name: ''},
-    college_course: { id: '', name: ''},
-    cellphone_contactable: '',
-    scholarity: { id: ''},
+    local_committee: { id: '' },
+    cellphone_contactable: true,
+    english_level: { id: '' },
+    college_course: { id: '' },
+    experience: [],
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -40,27 +40,34 @@ export class FormGvComponent implements OnInit {
     utm_content: ''
   }
 
-  msgs: Message[] = [];
-
-  scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+  experienceItems = [
+    { name: 'Ensino de Línguas', value: 'language' },
+    { name: 'Marketing', value: 'marketing' },
+    { name: 'Tecnologia da Informação', value: 'information_technology' },
+    { name: 'Gestão', value: 'management' },
   ];
 
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;
+  englishLevelOptions: any = [
+    { id: '0', name: 'Não tenho' },
+    { id: '1', name: 'Básico' },
+    { id: '2', name: 'Intermediário' },
+    { id: '3', name: 'Avançado' },
+    { id: '4', name: 'Fluente' }
+  ];
   filteredCourses: Observable<any[]>;
+  filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
-
   placeholderBirthdate: string;
+  selectedItems: any = {
+    language: false,
+    marketing: false,
+    information_technology: false,
+    management: false
+  };
+
+  msgs: Message[] = [];
 
   personalData: boolean = true;
-  studyData: boolean = false;
-
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
@@ -68,19 +75,11 @@ export class FormGvComponent implements OnInit {
   matchDate: boolean = true;
   loading: boolean = false;
   step1Form: FormGroup;
-  step2Form: FormGroup;
   submittedPersonal: boolean = false;
-  submittedStudy: boolean = false;
   completedSignup: boolean = false;
-
-  embeddedForm: boolean = false;
-
-  formToggle : boolean = false;
+  modal: boolean = false;
   courses: any;
   places: any;
-  modal:any = false;
-
-  myControl = new FormControl();
 
   constructor(
     public signupService: SignupService,
@@ -109,30 +108,25 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
-    });
-    this.step2Form = new FormGroup({
-      university_id: new FormControl(this.user.university, [
+      college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
-      college_course_id: new FormControl(this.user.college_course, [
+      english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
       local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
-      scholarity: new FormControl(this.user.scholarity, [
-        Validators.required
-      ])
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
-    if(this.formedUser){
+
+    if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
-      this.studyData = true;
     }
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
@@ -155,104 +149,50 @@ export class FormGvComponent implements OnInit {
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
       }
-
-      if (param['embedded']) {
-        this.embeddedForm = true;
-      }
     });
-
-    this.filteredScholarityOptions = this.scholarityOptions;
-
-    this.fillUniversitySelect();
 
     this.fillCourseSelect().then(() => {
-      this.filteredCourses = this.courses;
+      this.filteredCourses = this.step1Form.controls.college_course_id.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.courses))
+        );
     });
+
+    this.filteredEnglishLevelOptions = this.step1Form.controls.english_level.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value, this.englishLevelOptions))
+      );
+
     this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.places;
-    }); 
-  }
-
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
-
-  searchUnivesity(event) {
-    if(!event.originalEvent){
-      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
-      return;
-    }
-    this.fillUniversitySelect(event.query);
-  };
-
-  searchCourses(event) {
-    this.filteredCourses = this._search(this.courses, event.query);
-  };
-
-  searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
-  };
-
-  openModal(){
-    this.modal = true;
-  }
-
-  closeModal(){
-    this.modal = false;
-  }
-
-  _search(options, search){
-    return _.filter(options, (option) => {
-      return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+      this.filteredPlaces = this.step1Form.controls.local_committee_id.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.places))
+        );
     });
-  };
+  }
 
-  onResize(event){
+  private _filter(value: string, options: any): any[] {
+    const filterValue = value.length ? value.toLowerCase() : value;
+    return options.filter(option => option.name.toLowerCase().includes(filterValue));
+  }
+
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  cancelSignUp(){
-    if(this.formedUser){
-      this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
-        this.submittedPersonal = false;
-        this.submittedStudy = false;
-        this.personalData = true;
-        this.studyData = false;
-      }else{
-        this.router.navigate(['/']);
-      }
-    }
+  addOrRemove(experience) {
+    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
   }
 
-
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
-  isValidPersonal(field) {
+  isValid(field) {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
-  }
-
-  isValidStudy(field) {
-    return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
-  }
-
-  fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
-      this.universities = res;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })
   }
 
   fillCourseSelect() {
@@ -276,44 +216,24 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
-      this.user.college_course = { id: '', name: '' };
-    }
+  unableToSubmit() {
+    return this.emptyFields() || this.emptyCourse() || this.invalidPassword;
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  emptyFields() {
+    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
+  emptyCourse() {
+    return !this.user.college_course.id
   }
 
-  emptyUniversity(){    
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
-        return !this.user.university.id
-      }else{
-        return true;
-      }
+  checkPassword() {
+    if (this.user.password != this.user.repassword) {
+      this.invalidPassword = true;
     }
     else {
-      return false;
-    }
-  }
-
-  emptyCourse(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
-    }
-    else {
-      return false;
+      this.invalidPassword = false;
     }
   }
 
@@ -330,9 +250,18 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  checkPhone(){
+  openModal() {
+    this.modal = true;
+  }
+
+  closeModal() {
+    this.modal = false;
+  }
+
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-    if (cellphone.length < 10){
+
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
@@ -341,38 +270,20 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
-    if (this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
-    }
-
-    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
-      this.personalData = false;
-      this.studyData = true;
-    }
-  }
-
-  toggleFormGv() {
-    this.formToggle ? this.formToggle = false : this.formToggle = true;
-  }
   submit() {
-    this.submittedStudy = true;
+    this.submittedPersonal = true;
     let user = {
-      gv_participant: {
+      gt_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
+        english_level: +this.user.english_level.id,
+        experience: this.selectedItems,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -381,24 +292,24 @@ export class FormGvComponent implements OnInit {
       }
     };
     this.loading = true;
-    this.signupService.addGvParticipant(user)
+    this.signupService.addGtParticipant(user)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
-          this.router.navigate(['/voluntario-global/obrigado']);
+          this.router.navigate(['/talento-global/obrigado']);
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
           this.loading = false;
@@ -415,6 +326,31 @@ export class FormGvComponent implements OnInit {
         this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
       })
   }
+
+  searchCourses(event) {
+    this.filteredCourses = this._search(this.courses, event.query);
+  };
+
+  searchPlaces(event) {
+    this.filteredPlaces = this._search(this.places, event.query);
+  };
+
+  searchEnglishLevels(event) {
+    this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
+  };
+
+  _search(options, search) {
+    return _.filter(options, (option) => {
+      return option.name.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
+    });
+  };
 
   selectInput(element) {
     $('.form-group').css('z-index', '-1');
