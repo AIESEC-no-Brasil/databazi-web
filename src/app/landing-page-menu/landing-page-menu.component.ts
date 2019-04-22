@@ -22,6 +22,9 @@ export class LandingPageMenuComponent implements OnInit {
     if (window.innerWidth < 1024){
       $('#fixedMenu').removeClass('fixedMenu');
     }
+    else {
+      $('#fixedMenu').addClass('fixedMenu');
+    }
   }
 
   toggleResponsiveMenu(){
