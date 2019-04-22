@@ -2,7 +2,7 @@
 <section class="header-product" id="header-product">
   <div class="header-product-image {{actualPage}}"></div>
   <div class="container">
-    <div class="row header-menu" id="fixedMenu">
+    <div class="row header-menu fixedMenu" id="fixedMenu">
       <div class="col-sm-3" (click)="returnHome()">
         <div class='logo-aiesec'></div>
       </div>
@@ -25,34 +25,19 @@
                 <li (click)="goToGt()">
                   Talento Global
                 </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
-                    Hospede um intercambista
-                  </li>
-                </a>
               </ul>
             </li>
-            <a href="http://business.aiesec.org.br">
-              <li>
-                Seja nosso parceiro
-              </li>
-            </a>
-            <a href="http://blog.aiesec.org.br/youthspeak/">
-              <li>
-                Youthspeak
-              </li>
-            </a>
             <li>
-              Blog
-              <ul class="animated fadeIn faster ul-blog">
+              Seja nosso parceiro
+              <ul class="animated fadeIn faster ul-products">
                 <a href="http://business.aiesec.org.br/">
                   <li>
-                    Business
+                    Empresas
                   </li>
                 </a>
-                <a href="http://aiesec.blog.br/">
+                <a href='http://blog.aiesec.org.br/youthspeak/'>
                   <li>
-                    Estudantes
+                    Youthspeak
                   </li>
                 </a>
               </ul>
@@ -72,14 +57,29 @@
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
                   <li>
-                    Seguro Viagem
+                    Seguro Saúde
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://blog.aiesec.org.br/contato/">
+            <li>
+              Blog
+              <ul class="animated fadeIn faster ul-blog">
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                  <li>
+                    Empresas
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/blog/estudantes/">
+                  <li>
+                    Estudantes
+                  </li>
+                </a>
+              </ul>
+            </li>
+            <a class='aiesec-search' href='https://aiesec.org/search'>
               <li>
-                Contato
+                Veja as oportunidades
               </li>
             </a>
           </ul>
@@ -98,34 +98,19 @@
                 <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
                   Talento Global
                 </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
-                    Hospede um intercambista
-                  </li>
-                </a>
               </ul>
             </li>
-            <a href="http://business.aiesec.org.br">
-              <li>
-                <span>Seja nosso parceiro</span>
-              </li>
-            </a>
-            <a href="http://blog.aiesec.org.br/youthspeak/">
-              <li>
-                <span>Youthspeak</span>
-              </li>
-            </a>
             <li>
-              <span>Blog</span>
-              <ul class="animated fadeIn faster">
+              <span>Seja nosso parceiro</span>
+              <ul class='animated fadeIn faster'>
                 <a href="http://business.aiesec.org.br/">
                   <li>
-                    Business
+                    Empresas
                   </li>
                 </a>
-                <a href="http://aiesec.blog.br/">
+                <a href='http://blog.aiesec.org.br/youthspeak/'>
                   <li>
-                    Estudantes
+                    Youthspeak
                   </li>
                 </a>
               </ul>
@@ -145,14 +130,29 @@
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br">
                   <li>
-                    Seguro Viagem
+                    Seguro Saúde
                   </li>
                 </a>
               </ul>
             </li>
-            <a href="http://blog.aiesec.org.br/contato/">
+            <li>
+              <span>Blog</span>
+              <ul class="animated fadeIn faster">
+                  <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                  <a href="http://blog.aiesec.org.br/blog/estudantes/">
+                    <li>
+                      Estudantes
+                    </li>
+                  </a>
+              </ul>
+            </li>
+            <a class='aiesec-search' href='https://aiesec.org/search'>
               <li>
-                <span>Contato</span>
+                <span>Veja as oportunidades</span>
               </li>
             </a>
           </ul>
