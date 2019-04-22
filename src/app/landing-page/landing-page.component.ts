@@ -113,7 +113,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   goToAiesec(){
-    window.open("https://aiesec.org/");
+    window.open("https://aiesec.org/search");
   }
 
 
