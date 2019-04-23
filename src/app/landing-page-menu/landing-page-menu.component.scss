@@ -97,6 +97,18 @@ ul#menu {
         align-items: flex-start;
         min-height: 60vh;
         display: flex;
+        .product-logo {
+            width: 50%;
+            height: 40%;
+            position: absolute;
+            background-position: center left;
+            background-repeat: no-repeat;
+            bottom: 30px;
+            background-size: 80%;
+            &.gt {
+                background-image: url(../../assets/products/gt/gt-logo.png);
+            }
+        }
     }
 }
 
