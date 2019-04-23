@@ -3,30 +3,12 @@
 </head>
 <div id="step1" class="form-talentos-globais full-screen-embedded" [ngClass]="{'full-screen': formedUser}">
   <div class="full-width">
-    <!-- Header -->
-    <section class="header" id="header-talentos-globais">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-sm text-center">
-            <div class="logo-talentos-globais"></div>
-          </div>
-        </div>
-        <div *ngIf="!completedSignup">
-          <div class="row">
-            <div class="col-sm">
-              <h1>Vivencie a realidade de uma empresa internacional, desenvolva suas habilidades e traga o mundo para o seu currículo.</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Form -->
     <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading" (window:resize)="onResize($event)">
       <div class="container">
         <div class="row justify-content-center">
 
-          <div class="col-sm">
+          <div class="col-sm background-form-content">
 
             <!-- Content -->
             <!-- Alert -->
@@ -266,16 +248,9 @@
                 </div>
                 <!-- Terms -->
                 <div class="row justify-content-center forms-term autocomplete-negative-index2">
-                  <div class="col-sm-10">
+                  <div class="col-sm-12">
                     <div class="form-group">
-                      <div class="desktop" style='flex-direction: column'>
-                        <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
-                        <iframe height="200px" width="100%" scrolling="yes" class='form-control iframe' id="inputTermos" src="../assets/terms/terms.html"></iframe>
-                        <label class="form-group forms-tem-accepted">
-                          Ao se cadastrar você concorda com os nossos Termos e Condições descritos acima.
-                        </label>
-                      </div>
-                      <div class='mobile forms-terms-area' (click)='openModal()'>
+                      <div class='forms-terms-area' (click)='openModal()'>
                         <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                         <label class='form-group forms-tem-accepted info-mobile-content'>
                           Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.

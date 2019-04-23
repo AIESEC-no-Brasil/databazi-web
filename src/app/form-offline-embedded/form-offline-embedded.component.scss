@@ -58,13 +58,11 @@
 
 
 .full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
-    display: flex;
+    display: table;
     align-items: center;
     justify-content: center;
+    min-width: 50%;
 }
-
 // form A/B - end
 .forms-term {
     textarea {
@@ -111,9 +109,6 @@
     }
 }
 
-.checkbox {
-    margin: 15px auto 0 auto;
-}
 
 .checkbox input[type="checkbox"] {
     opacity: 0;
@@ -686,7 +681,6 @@ input[type=tel] {
 }
 
 .forms-term {
-    margin-top: 30px;
     .iframe {
         min-height: 150px;
         body {
@@ -1409,13 +1403,21 @@ label {
 .form-volutario-global .color-icon {
     color: #fcada0;
 }
-
+.background-form-content {
+    background-color: #037ef3;
+    padding: 0;
+}
 /* Forms */
+.background-form-content {
+    background-color: #037ef3;
+    padding: 0;
+}
 
 .form-volutario-global {
-    background: #f85a3f;
     font-family: 'Lato', sans-serif;
     color: #ffffff;
+    display: table;
+    width: auto;
 }
 
 .form-volutario-global .form-control {
