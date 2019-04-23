@@ -1,4 +1,5 @@
 @import '../../scss/global.scss';
+
 #bg-menu {
     width: 100%;
     height: 100%;
@@ -14,9 +15,17 @@
 }
 
 ul#menu {
-    > li, > a {
-        display:flex;
+
+    >li,
+    >a {
+        display: flex;
         align-items: center;
+    }
+
+    a.aiesec-search {
+        height: 40px;
+        margin-top: 5px;
+        border: 1px solid #fff;
     }
 }
 
@@ -32,17 +41,21 @@ ul#menu {
     display: flex;
     align-items: center;
     justify-content: center;
+
     .menu-product {
         height: 50px;
         padding: 0;
         margin: 0;
     }
+
     .logo-aiesec {
         margin: 0;
     }
+
     ul#menu {
         margin-bottom: 0;
     }
+
     .responsive-menu ul#menu li {
         ul.animated {
             background-color: $default;
@@ -75,13 +88,14 @@ ul#menu {
     width: 95%;
     max-width: -webkit-fill-available;
     height: 100%;
+
     .product-info {
         height: 100%;
         width: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        min-height: 50vh;
+        min-height: 60vh;
         display: flex;
     }
 }
@@ -90,14 +104,17 @@ ul#menu {
     width: 100%;
     position: relative;
     border-bottom: 3px solid #666;
-    z-index: 11;    
+    z-index: 11;
+
     .header-product-image {
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('../../assets/images/header.jpg');
         }
+
         @at-root :host-context(.webp) #{&} {
             background-image: url('../../assets/images/header.jpg.webp');
         }
+
         width: 100%;
         height: 100%;
         position: absolute;
@@ -109,69 +126,84 @@ ul#menu {
         background-size: cover;
         z-index: -10;
         z-index: 5;
-        &.talento-global {            
+
+        &.talento-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gt/gt-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/gt/gt-intro.jpg.webp');
             }
         }
-        &.voluntario-global {            
+
+        &.voluntario-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gv/gv-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/gv/gv-intro.jpg.webp');
             }
         }
-        &.empreendedor-global {            
+
+        &.empreendedor-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/ge/ge-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/ge/ge-intro.jpg.webp');
             }
         }
     }
+
     .header-menu {
         display: flex;
         justify-content: space-between;
-        padding: 0 15px;
+        padding: 5px 15px;
+
         .logo-aiesec,
-        .logo-menu {            
+        .logo-menu {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/images/aiesec-logo.png');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/images/aiesec-logo.png.webp');
             }
-            background-size: contain;
+
+            background-size: 90%;
             background-position: center left;
             background-repeat: no-repeat;
             cursor: pointer;
         }
+
         .logo-aiesec {
             height: 45px;
             margin: 20px 0;
             min-height: 45px;
         }
+
         .logo-menu {
             width: 60%;
             height: 75px;
             display: table;
-            margin: auto;
+            margin: 10px auto;
         }
+
         .menu-product {
             ul {
                 padding: 0;
                 display: flex;
                 list-style: none;
                 justify-content: flex-end;
+
                 a:hover {
                     text-decoration: none;
                     color: #fff;
                 }
+
                 li {
                     font-size: 13px;
                     padding: 15px .5em;
@@ -182,30 +214,26 @@ ul#menu {
                     position: relative;
                     cursor: pointer;
                     white-space: nowrap;
+
                     &:hover ul {
                         display: block;
                     }
+
                     &:last-child {
                         margin-right: 0;
                     }
+
                     ul {
                         margin-top: 5px;
-                        border-radius: 10px;
+                        border-radius: 5px;
                         position: absolute;
                         flex-direction: column;
                         background-color: rgba(255, 255, 255, .5);
                         min-width: 175px;
                         display: none;
                         left: 0;
-                        &.ul-products {
-                            bottom: -85px;
-                        }
-                        &.ul-partners, &.ul-blog {
-                            bottom: -35px;
-                        }
-                        &.ul-travel {
-                            bottom: -60px;
-                        }
+                        top: 40px;
+                        padding-bottom: 10px;
                         a:hover {
                             text-decoration: none;
                             color: #fff;
@@ -220,6 +248,7 @@ ul#menu {
             }
         }
     }
+
     .product-info {
         text-align: left;
     }
@@ -240,6 +269,7 @@ ul#menu {
     .header-product div.responsive-menu ul#menu {
         display: none !important;
     }
+
     .header-product div.responsive-menu .menu-icon {
         display: block;
         position: fixed;
@@ -248,11 +278,13 @@ ul#menu {
         color: $default;
         z-index: 100;
         font-size: 25px;
+
         .fa-times {
             color: #fff;
             z-index: 51
         }
     }
+
     #active-responsive-menu {
         color: #fff;
         flex-direction: column;
@@ -270,27 +302,33 @@ ul#menu {
         padding: 2.5vh 3%;
         justify-content: flex-start;
         overflow: auto;
+
         >a,
         >li {
             margin: 10px 0;
         }
+
         >a li {
             margin-left: 0;
         }
+
         li {
             padding: 0 !important;
             text-align: left !important;
         }
+
         span {
             font-weight: bold;
             text-align: left;
             padding-left: 5px;
             font-size: 1.3rem;
         }
+
         li ul {
             display: flex !important;
             position: relative !important;
             background-color: transparent !important;
+
             li {
                 font-size: 1.2rem;
                 padding: 10px 0px !important;
@@ -300,6 +338,7 @@ ul#menu {
 }
 
 @media (min-width:990px) {
+
     .menu-icon,
     .active-responsive-menu {
         display: none !important;
@@ -314,18 +353,29 @@ ul#menu {
             }
         }
     }
+
     div.responsive-menu {
         height: 100%;
-        display:flex;
+        display: flex;
         justify-content: flex-end
     }
 }
 
 @media only screen and (min-width: 1440px) {
     ul#menu {
+
         >a li,
         >li {
             font-size: 1em;
+        }
+    }
+}
+
+@media (max-width: 1023px){
+    #active-responsive-menu {
+        li ul {
+            top: 0;
+            padding: 0;
         }
     }
 }
