@@ -58,11 +58,10 @@
 
 
 .full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 50%;
 }
 
 // form A/B - end
@@ -93,9 +92,6 @@
     background-repeat: no-repeat;
 }
 
-.checkbox {
-    margin: 15px auto 0 auto;
-}
 
 .checkbox input[type="checkbox"] {
     opacity: 0;
@@ -670,7 +666,6 @@ input[type=tel] {
 }
 
 .forms-term {
-    margin-top: 30px;
     .iframe {
         min-height: 150px;
         body {
@@ -1576,11 +1571,15 @@ label {
 }
 
 /* Forms */
-
+.background-form-content {
+    background-color: #0a8ea0;
+    padding: 0;
+}
 .form-talentos-globais {
-    background: #0a8ea0;
     font-family: 'Lato', sans-serif;
     color: #ffffff;
+    display: table;
+    width: auto;
 }
 
 .form-talentos-globais .form-control {

@@ -41,11 +41,10 @@
 
 
 .full-screen-embedded {
-    min-height: 100vh;
-    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 50%;
 }
 
 
@@ -132,9 +131,6 @@
     background-repeat: no-repeat;
 }
 
-.checkbox {
-    margin: 15px auto 0 auto;
-}
 
 .checkbox input[type="checkbox"] {
     opacity: 0;
@@ -691,7 +687,6 @@ input[type=tel] {
 }
 
 .forms-term {
-    margin-top: 30px;
     .col-sm-10 {
         z-index: 0;
     }
@@ -1382,11 +1377,15 @@ label {
 }
 
 /* Forms */
-
+.background-form-content {
+    background-color: #f85a3f;
+    padding: 0;
+}
 .form-volutario-global {
-    background: #f85a3f;
     font-family: 'Lato', sans-serif;
     color: #ffffff;
+    display: table;
+    width: auto;
 }
 
 .form-volutario-global .form-control {
