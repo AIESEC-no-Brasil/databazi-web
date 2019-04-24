@@ -29,7 +29,7 @@
     </div>
   </section>
 
-  <section class="host-details padding-top-and-bottom">
+  <section class="host-details">
     <div class="container">
       <div class="row host-header">
         <div class='col-lg-4 col-sm-12 col-md-12 logo-container'>
@@ -48,34 +48,10 @@
           </h3>
         </div>
         <div class='row requirements'>
-          <div>
-            <div class='icon'></div>
+          <div *ngFor='let item of hostRequirements; let i = index'>
+            <div class='icon icon-{{i+1}}'></div> 
             <p>
-              Ao menos um colchão para o intercambista. Não é necessário quarto individual.
-            </p>
-          </div>
-          <div>
-            <div class='icon'></div>
-            <p>
-              Acesso ao banheiro, áreas comuns da casa e a residência.
-            </p>
-          </div>
-          <div>
-            <div class='icon'></div>
-            <p>
-              Acesso à internet.
-            </p>
-          </div>
-          <div>
-            <div class='icon'></div>
-            <p>
-              Água para uso.
-            </p>
-          </div>
-          <div>
-            <div class='icon'></div>
-            <p>
-              Vontade de conhecer outras culturas.
+              {{ item.description }}
             </p>
           </div>
         </div>
@@ -212,7 +188,7 @@
               <h3 class="bold line-height-lower darker">
                 Contato
               </h3>
-              <p class="lighter lower">
+              <p class="lighter ">
                 Após a sua inscrição, analisaremos as informações sobre o alojamento que você fornecerá e entraremos em contato com você.
               </p>
             </div>
@@ -225,7 +201,7 @@
               <h3 class="bold line-height-lower darker">
                 Recepção
               </h3>
-              <p class="lighter lower">
+              <p class="lighter ">
                 Assim que o jovem for designado para a sua família, iremos informá-lo para que você possa o acompanhar para lhe dar as boas
                 vindas.
               </p>
@@ -239,7 +215,7 @@
               <h3 class="bold line-height-lower darker">
                 Apoio
               </h3>
-              <p class="lighter lower">
+              <p class="lighter ">
                 Por meio do acompanhamento, garaniremos que ambas as partes tenham uma boa experiência.
               </p>
             </div>

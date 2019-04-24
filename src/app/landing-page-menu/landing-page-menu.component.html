@@ -1,6 +1,8 @@
 <div id="bg-menu" class="mobile" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu"></div>
 <section class="header-product" id="header-product">
-  <div class="header-product-image {{actualPage}}"></div>
+  <div class="header-product-image {{actualPage}}" [ngClass]='{"with-filter": actualPage != "hospede-um-intercambista" }'>
+    <div class='bg-header' *ngIf='actualPage == "hospede-um-intercambista"'></div>
+  </div>
   <div class="container">
     <div class="row header-menu fixedMenu" id="fixedMenu">
       <div class="col-sm-3" (click)="returnHome()">
@@ -195,7 +197,7 @@
       </h2>
     </div>
     <div class="product-info" *ngIf="actualPage == 'hospede-um-intercambista'">
-     
+      <div class='product-logo'></div>
     </div>
   </div>
 </section>

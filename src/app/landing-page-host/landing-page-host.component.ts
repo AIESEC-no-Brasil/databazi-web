@@ -11,6 +11,24 @@ export class LandingPageHostComponent implements OnInit {
   user = {
     fullname: ''
   }
+
+  hostRequirements = [
+    {
+      description: 'Ao menos um colchão para o intercambista. Não é necessário quarto individual.'
+    },
+    {
+      description: 'Acesso ao banheiro, áreas comuns da casa e a residência.'
+    },
+    {
+      description: 'Acesso à internet.'
+    },
+    {
+      description: 'Água para uso.'
+    },
+    {
+      description: 'Vontade de conhecer outras culturas.'
+    }
+  ]
   contactForm: FormGroup;
   submitted: boolean = false;
   loading: boolean = false;
