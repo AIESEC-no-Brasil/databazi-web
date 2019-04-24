@@ -56,7 +56,7 @@ $mainColor: #ffc845;
             width: 100%;
             height: 200px;
             background-position: center;
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
             background-image: url(../../assets/products/host/logo_larglobal.png);
         }
@@ -336,6 +336,9 @@ $mainColor: #ffc845;
         text-align: center;
     }
 
+    section.faq.middle1, section.faq.middle2 {
+        padding: 0 !important;
+    }
     .host-details .product-image,
     .faq .faq-image,
     .know-aiesec .aiesec-image {
@@ -345,7 +348,7 @@ $mainColor: #ffc845;
             bottom: -37.5px;
             top: unset;
             margin-top: unset;
-            left: 50%;
+            left: 50% !important;
             margin-left: -37.5px;
         }
     }

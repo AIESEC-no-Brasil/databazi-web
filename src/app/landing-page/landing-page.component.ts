@@ -112,6 +112,10 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/talento-global']);
   }
 
+  goToHost(){
+    this.router.navigate(['/hospede-um-intercambista']);
+  }
+
   goToAiesec(){
     window.open("https://aiesec.org/search");
   }
