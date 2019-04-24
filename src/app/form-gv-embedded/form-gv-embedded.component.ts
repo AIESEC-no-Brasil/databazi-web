@@ -1,22 +1,20 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import * as moment from 'moment'; 
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import * as $ from 'jquery';
 
 @Component({
   selector: 'app-form-gv',
-  templateUrl: './form-gv.component.html',
-  styleUrls: ['./form-gv.component.scss']
+  templateUrl: './form-gv-embedded.component.html',
+  styleUrls: ['./form-gv-embedded.component.scss']
 })
-export class FormGvComponent implements OnInit {
+export class FormGvEmbeddedComponent implements OnInit {
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
@@ -28,39 +26,18 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: '', name: ''},
-    college_course: { id: '', name: ''},
+    local_committee: { id: 1 },
     cellphone_contactable: true,
-    scholarity: { id: ''},
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
     utm_content: ''
   }
-
   msgs: Message[] = [];
-
-  scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
-  ];
-
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;
-  filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
-
   placeholderBirthdate: string;
-
   personalData: boolean = true;
-  studyData: boolean = false;
-
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
@@ -68,18 +45,10 @@ export class FormGvComponent implements OnInit {
   matchDate: boolean = true;
   loading: boolean = false;
   step1Form: FormGroup;
-  step2Form: FormGroup;
   submittedPersonal: boolean = false;
-  submittedStudy: boolean = false;
   completedSignup: boolean = false;
-
-  embeddedForm: boolean = false;
-
-  formToggle : boolean = false;
-  courses: any;
   places: any;
-  modal:any = false;
-
+  modal: any = false;
   myControl = new FormControl();
 
   constructor(
@@ -109,31 +78,15 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-    });
-    this.step2Form = new FormGroup({
-      university_id: new FormControl(this.user.university, [
-        Validators.required
-      ]),
-      college_course_id: new FormControl(this.user.college_course, [
-        Validators.required
-      ]),
       local_committee_id: new FormControl(this.user.local_committee, [
-        Validators.required
-      ]),
-      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   ngOnInit() {
-    if(this.formedUser){
-      this.user = this.formedUser;
-      this.personalData = false;
-      this.studyData = true;
-    }
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
       if (param['utm_source']) {
@@ -155,115 +108,48 @@ export class FormGvComponent implements OnInit {
       if (param['utm_content']) {
         localStorage.setItem('utm_content', param['utm_content'])
       }
-
-      if (param['embedded']) {
-        this.embeddedForm = true;
-      }
     });
 
-    this.filteredScholarityOptions = this.scholarityOptions;
-
-    this.fillUniversitySelect();
-
-    this.fillCourseSelect().then(() => {
-      this.filteredCourses = this.courses;
-    });
     this.fillPlacesSelect().then(() => {
       this.filteredPlaces = this.places;
-    }); 
+    });
   }
 
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
-
-  searchUnivesity(event) {
-    if(!event.originalEvent){
-      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
-      return;
-    }
-    this.fillUniversitySelect(event.query);
-  };
-
-  searchCourses(event) {
-    this.filteredCourses = this._search(this.courses, event.query);
-  };
-
-  searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
-  };
-
-  openModal(){
+  openModal() {
     this.modal = true;
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
   }
 
-  _search(options, search){
+  searchPlaces(event) {
+    this.filteredPlaces = this._search(this.places, event.query);
+  };
+
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 
-  onResize(event){
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  cancelSignUp(){
-    if(this.formedUser){
-      this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
-        this.submittedPersonal = false;
-        this.submittedStudy = false;
-        this.personalData = true;
-        this.studyData = false;
-      }else{
-        this.router.navigate(['/']);
-      }
-    }
-  }
-
-
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
-  isValidPersonal(field) {
+  isValid(field) {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
-  }
-
-  isValidStudy(field) {
-    return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
-  }
-
-  fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
-      this.universities = res;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })
-  }
-
-  fillCourseSelect() {
-    return this.signupService.getCourses().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'], ['asc']);
-      let other = _.remove(orderedList, item => item.name === 'Outro');
-      this.courses = _.union(orderedList, other);
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados dos cursos disponíveis.' });
-    })
   }
 
   fillPlacesSelect() {
@@ -276,45 +162,12 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
-      this.user.college_course = { id: '', name: '' };
-    }
+  unableToSubmit() {
+    return this.emptyFields()
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
-  }
-
-  emptyFields(){
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
-  }
-
-  emptyUniversity(){    
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
-        return !this.user.university.id
-      }else{
-        return true;
-      }
-    }
-    else {
-      return false;
-    }
-  }
-
-  emptyCourse(){
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
-        return !this.user.college_course.id
-      }else{
-        return true;
-      }
-    }
-    else {
-      return false;
-    }
+  emptyFields() {
+    return !this.user.fullname || !this.user.cellphone || !this.user.email || !this.user.birthdate || this.invalidPassword || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
   checkDate() {
@@ -330,9 +183,9 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  checkPhone(){
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
@@ -341,27 +194,7 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
-    if (this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
-    }
-
-    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
-      this.personalData = false;
-      this.studyData = true;
-    }
-  }
-
-  toggleFormGv() {
-    this.formToggle ? this.formToggle = false : this.formToggle = true;
-  }
-
   submit() {
-    this.submittedStudy = true;
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
@@ -370,10 +203,7 @@ export class FormGvComponent implements OnInit {
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
-        college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -384,13 +214,12 @@ export class FormGvComponent implements OnInit {
     this.loading = true;
     this.signupService.addGvParticipant(user)
       .then((res: any) => {
-        this.loading = false;
         if (res.status == 'failure') {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
@@ -400,6 +229,7 @@ export class FormGvComponent implements OnInit {
         }
       },
         (err) => {
+          this.loading = false;
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
           this.loading = false;

@@ -2,43 +2,15 @@
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
 </head>
 
-<div id="step1" class="form-volutario-global relative-form" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
+<div id="step1" class="form-volutario-global relative-form full-screen-embedded" [ngClass]="{'full-screen': formedUser}">
   <div class="full-width">
-    <!-- Header -->
-    <section class="header" id="header-voluntario-global">
-      <div class="container">
-        <div class="row justify-content-center" *ngIf="!embeddedForm">
-          <div class="col-sm text-center">
-            <div class="logo-voluntario-global"></div>
-          </div>
-        </div>
-        <div *ngIf="!completedSignup">
-          <div class="row" [ngClass]="{ headerB: formToggle }" *ngIf="!embeddedForm">
-            <div class="col-sm">
-              <h1>Ser um voluntário global é transformar seus valores em ação e fazer a diferença em diversas regiões do mundo.</h1>
-            </div>
-          </div>
-          <div class="row" *ngIf="!loading && !completedSignup">
-            <div class="col text-center">
-              <div class='step-position'>
-                <ul>
-                  <li [ngClass]="{active : personalData}"></li>
-                  <li [ngClass]="{active: studyData}"></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Form -->
     <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading" [ngClass]="{formB : formToggle}"
       (window:resize)="onResize($event)">
       <div class="container">
         <div class="row justify-content-center">
 
-          <div class="col-sm">
+          <div class="col-sm background-form-content">
 
             <!-- Content -->
             <!-- Alert -->
@@ -50,8 +22,8 @@
                 <strong>Gostaria de acessar a plataforma?</strong>
               </p>
             </div>
-            <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+            <div class="animated fadeIn" *ngIf="!completedSignup">
+              <form [formGroup]="step1Form" class="forms gv">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend desktop">
@@ -88,7 +60,7 @@
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('cellphone')" class='error-message'>
+                  <div *ngIf="isValid('cellphone')" class='error-message'>
                     Preencha o seu número de celular.
                   </div>
                   <div *ngIf="invalidPhone" class='error-message'>
@@ -116,7 +88,7 @@
                       <i class="fas fa-times"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('email')" class='error-message'>
+                  <div *ngIf="isValid('email')" class='error-message'>
                     Preencha com o seu email.
                   </div>
                 </div>
@@ -134,7 +106,7 @@
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
-                  <div *ngIf="isValidPersonal('birthdate')" class='error-message'>
+                  <div *ngIf="isValid('birthdate')" class='error-message'>
                     Preencha com a sua data de nascimento.
                   </div>
                   <div *ngIf="invalidDate" class='error-message'>
@@ -151,12 +123,12 @@
                         <i class="fas fa-lock"></i>Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
                       formControlName="password" name="password" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
                       name="password" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
@@ -170,19 +142,19 @@
                         <i class="fas fa-lock"></i>Confirmar Senha</div>
                     </div>
                     <!-- desktop -->
-                    <input type="password" class="form-control desktop" placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
+                    <input type="password" class="form-control desktop" (blur)='checkPassword()' placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
                       name="repassword" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
-                    <input type="password" class="form-control mobile" [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
+                    <input type="password" class="form-control mobile" (blur)='checkPassword()' [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
                       required placeholder="Confirmar senha">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
                   </div>
                 </div>
-                <div *ngIf="isValidPersonal('password')" class='error-message animated fadeIn'>
+                <div *ngIf="isValid('password')" class='error-message animated fadeIn'>
                   Preencha com a sua senha.
                   <br>
                   <span>
@@ -192,11 +164,6 @@
                 <div *ngIf="invalidPassword" class='error-message'>
                   As senhas não conferem! Digite novamente
                 </div>
-              </form>
-            </div>
-
-            <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
-              <form [formGroup]="step2Form" class="forms">
                 <div class="form-group local_committee">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend">
@@ -207,79 +174,16 @@
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
                           #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
-                          dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
+                          dropdownMode="current" (onSelect)='test()' field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
                           placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValidStudy('local_committee_id')" class='error-message'>
+                  <div *ngIf="isValid('local_committee_id')" class='error-message'>
                     Selecione a AIESEC mais próxima.
                   </div>
                 </div>
-                <div class="form-group scholarity">
-                  <div class="input-group select-dropdown">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">
-                        <i class="fas fa-graduation-cap"></i>Escolaridade</div>
-                    </div>
-                    <div class="dropdown">
-                      <div class="styled-select">
-                        <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions"
-                          (completeMethod)="searchScholarity($event)" #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick();"
-                          dropdownMode="current" field="name" formControlName="scholarity" emptyMessage="Nenhum resultado"
-                          placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
-                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')" *ngIf="user.scholarity"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div *ngIf="isValidStudy('scholarity')" class='error-message'>
-                    Selecione um nível de escolaridade
-                  </div>
-                </div>
-                <div *ngIf="user.scholarity.id >= 2 && user.scholarity.id != 6" class="animated fadeIn faster">
-                  <div class="form-group  university">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-graduation-cap"></i>Universidade</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)" #universityAutocomplete
-                            (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick();" dropdownMode="current"
-                            field="name" formControlName="university_id" emptyMessage="Nenhum resultado" placeholder="Digite aqui onde você estuda"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')" *ngIf="user.university"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('university_id')" class='error-message'>
-                      Selecione uma universidade.
-                    </div>
-                  </div>
-                  <div class="form-group college_course">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-book-open"></i>Curso</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
-                            #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick();"
-                            dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
-                            placeholder="Insira seu curso"></p-autoComplete>
-                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')" *ngIf="user.college_course"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('college_course_id')" class='error-message'>
-                      Selecione um curso.
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Terms -->
                 <div class="row justify-content-center forms-term autocomplete-negative-index2">
                     <div class="col-sm-12">
                       <div class="form-group">
@@ -301,44 +205,9 @@
               </form>
             </div>
 
-            <section class="content" id="resultado" *ngIf="completedSignup">
-              <script type="text/javascript">
-                fbq('track', 'Lead');
-              </script>
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-sm">
-                    <div class="row justify-content-center">
-                      <div class="col-sm-9" id="header-resultado">
-                        <h2>Obrigado por se increver!</h2>
-                        <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
-                      </div>
-                      <div class="col-sm-3">
-                        <i class="fas fa-thumbs-up fa-10x color-icon"></i>
-                      </div>
-                    </div>
-                    <div class="row justify-content-center">
-                      <div class="col-sm-12" id="content-resultado">
-                        <p>
-                          Agora que você criou a sua conta, você poderá acessar a nossa plataforma e começar a buscar por projetos de intercâmbio voluntário
-                          na data e destino ideal para você! Fique atento ao seu e-mail onde enviaremos mais informações.
-                        </p>
-                        <button (click)="accessAiesec()" type="button" class="btn btn-primary">Acessar o Portal de Oportunidades</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
-              <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
-              </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
-                  [ngx-scroll-to]="'#form'">Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#form'"
+                <button type="button" (click)="submit()" class="btn btn-primary submit-form" [ngx-scroll-to]="'#form'"
                   [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>

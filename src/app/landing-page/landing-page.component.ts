@@ -112,5 +112,9 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/talento-global']);
   }
 
+  goToAiesec(){
+    window.open("https://aiesec.org/search");
+  }
+
 
 }
