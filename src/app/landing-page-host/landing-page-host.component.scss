@@ -295,6 +295,12 @@ $mainColor: #ffc845;
                     background-image: url('../../assets/products/host/heart.svg');
                 }
             }
+            &:last-child {
+                button {
+                    font-size: 16px;
+                    background-color: #0abf85;
+                }
+            }
         }
     }
 

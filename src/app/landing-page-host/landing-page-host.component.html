@@ -1,6 +1,6 @@
 <head>
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
-</head> 
+</head>
 <main>
   <div class="goToTop" [ngx-scroll-to]="'#header-product'">
     <i class="fas fa-sort-up"></i>
@@ -14,8 +14,8 @@
         <div class="description col-lg-7 col-sm-12 col-md-12">
           <h2 class="bold">
             Visão geral do programa
-          </h2> 
-          <p> 
+          </h2>
+          <p>
             Pelo programa Lar Global da AIESEC você pode viver a uma experiência de aprendizado cultural e criar conexões internacionais
             ao se voluntarias para receber um intercambista por 6 a 12 semanas.
             <br> Hospedar um intercambista é muito mais do que recebê-lo em casa, é viver a diversidade, aprender novas línguas
@@ -49,7 +49,7 @@
         </div>
         <div class='row requirements'>
           <div *ngFor='let item of hostRequirements; let i = index'>
-            <div class='icon icon-{{i+1}}'></div> 
+            <div class='icon icon-{{i+1}}'></div>
             <p>
               {{ item.description }}
             </p>
@@ -220,13 +220,13 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-12">
-          <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
-            Inscreva-se já
-          </button>
+          <div class='row'>
+            <div class='col-12'>
+              <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
+                Inscreva-se já
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
