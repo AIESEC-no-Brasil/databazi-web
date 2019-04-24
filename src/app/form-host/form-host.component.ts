@@ -8,6 +8,7 @@ import * as _ from 'lodash';
 import * as $ from 'jquery';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-form-host',
@@ -24,9 +25,11 @@ export class FormHostComponent implements OnInit {
     cellphone: '',
     email: '',
     local_committee: { id: '' },
+    cep: '',
     neighborhood: '',
     city: '',
     state: '',
+    cellphone_contactable: true,
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -34,12 +37,15 @@ export class FormHostComponent implements OnInit {
     utm_content: ''
   }
 
+  modal: boolean = false;
   filteredPlaces: Observable<any[]>;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
   invalidPhone: boolean = false;
+  invalidZipcode: boolean = false;
+  hasZipCode: boolean = false;
   loading: boolean = false;
   signUp: FormGroup;
   places: any;
@@ -50,7 +56,8 @@ export class FormHostComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute
+    public urlScrapper: ActivatedRoute,
+    public http: Http
   ) {
     this.signUp = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -68,12 +75,18 @@ export class FormHostComponent implements OnInit {
       city: new FormControl(this.user.city, [
         Validators.required
       ]),
+      cep: new FormControl(this.user.cep, [
+        Validators.required
+      ]),
       state: new FormControl(this.user.state, [
         Validators.required
       ]),
       local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [
+        Validators.required
+      ])
     });
   }
 
@@ -113,6 +126,7 @@ export class FormHostComponent implements OnInit {
     const filterValue = value.length ? value.toLowerCase() : value;
     return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
+
   accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
@@ -120,7 +134,6 @@ export class FormHostComponent implements OnInit {
   isValid(field) {
     return !this.signUp.controls[field].valid && (this.signUp.controls[field].dirty || this.submitted)
   }
-
 
   fillPlacesSelect() {
     return this.signupService.getLocalCommittees().then((res: any) => {
@@ -152,11 +165,33 @@ export class FormHostComponent implements OnInit {
     }
   }
 
+  getZipcode(zipcode) {
+    return this.http.get('https://viacep.com.br/ws/' + zipcode + '/json/').subscribe((res: any) => {
+      let data = res.json();
+      if (!data.erro) {
+        this.invalidZipcode = false;
+        this.hasZipCode = true;
+        this.user.neighborhood = data.bairro;
+        this.user.city = data.localidade;
+        this.user.state = data.uf;
+      }
+      else {
+        this.user.neighborhood = '';
+        this.user.city = '';
+        this.user.state = ''; 
+        this.invalidZipcode = true;
+        this.hasZipCode = false;
+      }
 
+    }, (err: any) => {
+      this.invalidZipcode = true;
+      this.hasZipCode = false;
+    });
+  }
 
   submit() {
     this.submitted = true;
-    if (this.unableToSubmit()){
+    if (this.unableToSubmit()) {
       return;
     }
     let user = {
@@ -168,6 +203,7 @@ export class FormHostComponent implements OnInit {
         neighborhood: this.user.neighborhood,
         city: this.user.city,
         state: this.user.state,
+        cellphone_contactable: this.user.cellphone_contactable,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -232,11 +268,19 @@ export class FormHostComponent implements OnInit {
   };
 
   selectInput(element) {
-    $('.form-group').css('z-index', '-1');
-    $('.' + element).css('z-index', '10');
+    $('#content-terms').css('z-index', '0');
+    $('.select-autocomplete').css('z-index', '10');
   }
 
   clearField(field) {
     this.user[field] = '';
+  }
+
+  openModal(){
+    this.modal = true;
+  }
+
+  closeModal(){
+    this.modal = false;
   }
 }

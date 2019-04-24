@@ -38,25 +38,44 @@
         </div>
       </div>
       <div class='col-12'>
-        <label for='neighborhood' [ngClass]='{"has-content": user.neighborhood }'>Bairro</label>
-        <input type='text' name='neighborhood' [(ngModel)]='user.neighborhood' formControlName='neighborhood' name='neighborhood'
-          required>
-        <div *ngIf="isValid('neighborhood')" class='error-message'>
-          Preencha com o seu bairro.
+        <div class='row without-border'>
+          <div class='col-11 without-border'>
+            <label for='cep' [ngClass]='{"has-content": user.cep }'>CEP</label>
+            <input type="tel" mask="00000-000" [(ngModel)]="user.cep" formControlName="cep" name="cep" required (blur)='getZipcode(user.cep)'>
+          </div>
+          <div class='col-1'>
+            <button class='button with-background default' (click)='getZipcode(user.cep)'>
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <div *ngIf="isValid('cep') || invalidZipcode" class='error-message'>
+            Por favor, preencha um CEP válido.
+          </div>
         </div>
+
       </div>
-      <div class='col-12'>
-        <label for='city' [ngClass]='{"has-content": user.city }'>Cidade</label>
-        <input type='text' name='city' [(ngModel)]='user.city' formControlName='city' name='city' required>
-        <div *ngIf="isValid('city')" class='error-message'>
-          Preencha com a sua cidade
+      <div *ngIf='hasZipCode' class='col-12 address without-border'>
+        <div class='col-12'>
+          <label for='neighborhood' [ngClass]='{"has-content": user.neighborhood }'>Bairro</label>
+          <input type='text' disabled='true' name='neighborhood' [(ngModel)]='user.neighborhood' formControlName='neighborhood' name='neighborhood'
+            required>
+          <div *ngIf="isValid('neighborhood')" class='error-message'>
+            Preencha com o seu bairro.
+          </div>
         </div>
-      </div>
-      <div class='col-12'>
-        <label for='state' [ngClass]='{"has-content": user.state }'>Estado</label>
-        <input type='text' name='state' [(ngModel)]='user.state' formControlName='state' name='state' required>
-        <div *ngIf="isValid('state')" class='error-message'>
-          Preencha com o seu estado
+        <div class='col-12'>
+          <label for='city' [ngClass]='{"has-content": user.city }'>Cidade</label>
+          <input type='text' disabled='true' name='city' [(ngModel)]='user.city' formControlName='city' name='city' required>
+          <div *ngIf="isValid('city')" class='error-message'>
+            Preencha com a sua cidade
+          </div>
+        </div>
+        <div class='col-12'>
+          <label for='state' [ngClass]='{"has-content": user.state }'>Estado</label>
+          <input type='text' disabled='true' name='state' [(ngModel)]='user.state' formControlName='state' name='state' required>
+          <div *ngIf="isValid('state')" class='error-message'>
+            Preencha com o seu estado
+          </div>
         </div>
       </div>
       <div class='col-12 select-autocomplete'>
@@ -68,16 +87,47 @@
             <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
           </div>
         </div>
-        <div *ngIf="isValid('local_committee_id')" class='error-message'>
-          Selecione uma das opções
+      </div>
+      <div *ngIf="isValid('local_committee_id')" class='error-message'>
+        Selecione uma das opções
+      </div>
+      <!-- Terms -->
+      <div id="content-terms" style='width: 100%;'>
+      <div class="row forms-term">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <div class='forms-terms-area' (click)='openModal()'>
+              <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
+              <label class='form-group forms-tem-accepted info-mobile-content'>
+                Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
+                <br>
+                <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
+              </label>
+            </div>
+          </div>
         </div>
       </div>
-      <button (click)='submit()' [ngClass]='{"not-allowed": unableToSubmit()}' [disabled]='unableToSubmit()'>
-        Enviar
-      </button>
+      <div class='col-sm-12'>
+        <div class="form-group form-check text-center checkbox">
+          <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable"
+            formControlName="cellphone_contactable" name="cellphone_contactable">
+          <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
+        </div>
+        <button (click)='submit()' [ngClass]='{"not-allowed": unableToSubmit()}' [disabled]='unableToSubmit()'>
+          Enviar
+        </button>
+      </div>
+    </div>
     </div>
   </form>
   <div class='loading-content' *ngIf='loading'>
     <div class='loading'>
     </div>
+  </div>
+  <div id='modal' class='animated fadeIn faster' *ngIf="modal">
+    <div class='modal-bg' (click)='closeModal()'></div>
+    <div class='close-modal-button' (click)='closeModal()'>
+      <i class="fas fa-times-circle"></i>
+    </div>
+    <app-terms></app-terms>
   </div>

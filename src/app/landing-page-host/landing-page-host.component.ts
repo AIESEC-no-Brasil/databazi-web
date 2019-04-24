@@ -8,10 +8,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LandingPageHostComponent implements OnInit {
 
-  user = {
-    fullname: ''
-  }
-
   hostRequirements = [
     {
       description: 'Ao menos um colchão para o intercambista. Não é necessário quarto individual.'
@@ -34,27 +30,8 @@ export class LandingPageHostComponent implements OnInit {
   loading: boolean = false;
   constructor(
   ) { 
-    this.contactForm = new FormGroup({
-      fullname: new FormControl(this.user.fullname, [
-        Validators.required
-      ])
-    })
   }
 
   ngOnInit() {
   }
-
-  isValid(field) {
-    return !this.contactForm.controls[field].valid && (this.contactForm.controls[field].dirty || this.submitted)
-  }
-
-  submit(){
-    this.submitted = true;
-    let user = {
-      fullname : this.user.fullname
-    }
-    this.loading = true;
-    console.log(user);
-  }
-
 }

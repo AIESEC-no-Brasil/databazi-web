@@ -25,18 +25,49 @@
         }
     }
 
-    div.col-12 input {
-        width: 100%;
-        margin: 10px 0;
-        background-color: rgba(0, 0, 0, .3);
-        color: #fff;
-        border: 0;
-        padding: 10px;
+    .col-1 {
+        padding: 10px 0;
+    }
+
+    .row,
+    div.col-12,
+    div.col-11 {
+        &.without-border {
+            margin: 0;
+            padding: 0;
+
+            .button {
+                background: #037ef3;
+                width: 100%;
+                padding: 4px 10px;
+                margin: auto;
+                cursor: pointer;
+            }
+            label {
+                left: 10px;
+            }
+        }
     }
 
     div.col-12 {
         position: relative;
         margin: 5px 0;
+
+        &.address {
+            input {
+                background-color: rgba(100, 100, 100, 0.6);
+                cursor: not-allowed;
+            }
+        }
+
+        input {
+            width: 100%;
+            margin: 10px 0;
+            background-color: rgba(0, 0, 0, .3);
+            color: #fff;
+            border: 0;
+            padding: 10px;
+        }
 
         label {
             display: block;
@@ -67,6 +98,7 @@
         font-size: 20px;
         cursor: pointer;
         font-weight: 600;
+
         &.not-allowed {
             cursor: not-allowed;
             opacity: .3
@@ -178,9 +210,10 @@
     }
 }
 
-@media (max-width: 990px){
+@media (max-width: 990px) {
     #signUp {
         width: 100%;
+
         .select-autocomplete {
             flex: 0 0 94.5%;
         }
@@ -193,6 +226,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     .loading {
         width: 100px;
         height: 100px;
@@ -206,11 +240,151 @@
     }
 }
 
+.forms-term {
+    width: 100%;
+    margin: 0;
+
+    label {
+        text-align: center;
+        width: 100%;
+        font-size: 22px;
+        // color: #fff;
+        margin-top: 20px;
+    }
+
+    span {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    textarea {
+        margin-bottom: 5px;
+    }
+
+    .forms-tem-accepted {
+        font-size: 12px;
+        display: block;
+        margin: 0 auto 15px auto;
+        text-align: center;
+    }
+}
+
 @keyframes loading {
     0% {
         transform: scale(1);
     }
+
     100% {
         transform: scale(1.5);
     }
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 1001;
+
+    .modal-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .35);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }
+
+    .close-modal-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 1.5%;
+        right: 0;
+        border-radius: 50%;
+        font-size: 30px;
+        z-index: 1003;
+        color: #3f77bc;
+    }
+}
+
+label.input-terms-label {
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
+}
+
+.form-check-label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+}
+
+.checkbox label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+}
+
+/*Outer-box*/
+
+.checkbox label::before {
+    top: 3px;
+    left: -25px;
+}
+
+/*Checkmark*/
+
+.checkbox label::after {
+    left: -21px;
+    top: 7px;
+}
+
+/*Hide the checkmark by default*/
+
+.checkbox input[type="checkbox"]+label::after {
+    content: none;
+}
+
+/*Unhide the checkmark on the checked state*/
+
+.checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: rgb(255, 255, 255) auto 5px;
 }
