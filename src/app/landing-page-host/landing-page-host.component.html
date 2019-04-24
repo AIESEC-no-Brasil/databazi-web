@@ -1,0 +1,235 @@
+<head>
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+</head>
+<main>
+  <div class="goToTop" [ngx-scroll-to]="'#header-product'">
+    <i class="fas fa-sort-up"></i>
+  </div>
+
+  <app-landing-page-menu></app-landing-page-menu>
+
+  <section class="product-description padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="description col-lg-7 col-sm-12 col-md-12">
+          <h2 class="bold">
+            Visão geral do programa
+          </h2>
+          <p>
+            Pelo programa Lar Global da AIESEC você pode viver a uma experiência de aprendizado cultural e criar conexões internacionais
+            ao se voluntarias para receber um intercambista por 6 a 12 semanas.
+            <br> Hospedar um intercambista é muito mais do que recebê-lo em casa, é viver a diversidade, aprender novas línguas
+            e costumes e valores.
+        </div>
+        <div class="col-lg-5 col-sm-12 col-md-12">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/80D5Gra4QSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="host-details">
+    <div class="container">
+      <div class="row host-header">
+        <div class='col-lg-4 col-sm-12 col-md-12 logo-container'>
+          <div class='logo'></div>
+        </div>
+        <div class='col-lg-8 col-sm-12 col-md-12'>
+          <h2>
+            Hospedar um intercambista voluntariamente é sobre ajudar alguém a melhorar a sua cidade.
+          </h2>
+        </div>
+      </div>
+      <div class='row requirements-wrapper'>
+        <div class='col-lg-12 col-sm-12 col-md-12'>
+          <h3>
+            O que você precisa para hospedar um intercambista?
+          </h3>
+        </div>
+        <div class='row requirements'>
+          <div *ngFor='let item of hostRequirements; let i = index'>
+            <div class='icon icon-{{i+1}}'></div>
+            <p>
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-12'>
+          <app-form-host></app-form-host>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq middle1 padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="faq-info col-lg-7 col-sm-12 col-md-12">
+          <h2 class='bold'>
+            FAQ - Dúvidas Frequentes
+          </h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                O que é pré-requisito para participar? Preciso falar inglês?
+              </h3>
+              <p class='lighter italic'>
+                Não precisa! A experiência de é, entre outras coisas, sobre a vivência prática de uma nova língua, seja ela o inglês, espanhol,
+                alemão, romeno, italiano, ou o que for! Essa pode ser uma excelente oportunidade para aprender, para ambas
+                as partes.
+                <br> Para hoespedar um intercambista, você só precisa ter dispnibilidade para hospedar de 6-12 semanas, um local
+                para o intercambista dormir (que não precisa ser um quarto individual!), prover acesso às áreas comuns da
+                casa e uso de água e luz sem custos adicionais para o intercambista.
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                Como é o suporte da AIESEC para o Host?
+              </h3>
+              <p class='lighter italic'>
+                A AIESEC entrará em contato com você semanalmente durante a experiência para saber como estão as coisas e prestar auxílio
+                no que for necessário. Além disso, é responsabilidade da AIESEC prover um espaço de indução e contato para
+                tirar todas as suas dúvidas antes da chegada do intercambista e, ao fim da sua experiência, enviaremos um
+                formulário de feedback final.
+                <br> Estamos sempre à disposição e aertos para evoluções com o programa!
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                Quem são os intercambistas que viajam pela AIESEC?
+              </h3>
+              <p class='lighter italic'>
+                São jovens de 18 a 30 anos que buscam desenvolver ldierança através de intercâmbios transculturais providos pela organização.
+                Os intercambistas que vem para cá costumam vir de diferentes países, principalmente da América Latina e Europa,
+                e estão engajados de forma voluntária em projetos de impacto social e profissional em 43 cidades do Brasil.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-image background-default col-lg-5 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="faq middle2 padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="faq-image background-default col-lg-5 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+        <div class="faq-info col-lg-7 col-sm-12 col-md-12">
+          <h2 class='bold'>
+            FAQ - Dúvidas Frequentes
+          </h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                A AIESEC paga alguma coisa para hoespedar um intercambista?
+              </h3>
+              <p class='lighter italic'>
+                Não. A experiência do Programa Lar Global é inteiramente voluntária para ambas as partes e, portanto, não tem por objetivo
+                o ganho monetário. Em suma, o Lar Global é uma experiência multicultural voluntária de apoio à experiência
+                de intercâmbios de impacto social, social e profissional.
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                A AIESEC tem regras para os intercambistas?
+              </h3>
+              <p class='lighter italic'>
+                Todo intercambista da AIESEC no Brasil assina um contrato com a AIESEC de origem e um termo com a AIESEC de destino especificando
+                os direitos e deveres da experiência. O desrespeito a essas regras ou valores da organização implica em reincidência
+                de contrato e expulsão do trainee da experiência de intercâmbio. Você pode conferir o termo que o intercambista
+                assina especificamente a respeito de Host em: (inserir link do termo de Host)
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                Quais são os benefícios de hospedar um intercambista?
+              </h3>
+              <p class='lighter italic'>
+                Você poderá praticar um idioma diferente, fazer um amigo internacional, aprender sobre a culinária de outro pais e muito
+                mais em relação a troca de cultura. E tudo isso sem precisar sair de casa!
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <button [ngx-scroll-to]="'#form'" class="centered without-border bold with-background  host">
+                Fale conosco
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='know-aiesec with-background host padding-top-and-bottom'>
+    <div class="container">
+      <div class="row">
+        <div class="aiesec-image background-default col-lg-6 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+        <div class="aiesec-info col-lg-6 col-sm-12 col-md-12">
+          <div class="row">
+            <div class='col-12'>
+              <h1>
+                Como funciona a experiência?
+              </h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Contato
+              </h3>
+              <p class="lighter ">
+                Após a sua inscrição, analisaremos as informações sobre o alojamento que você fornecerá e entraremos em contato com você.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Recepção
+              </h3>
+              <p class="lighter ">
+                Assim que o jovem for designado para a sua família, iremos informá-lo para que você possa o acompanhar para lhe dar as boas
+                vindas.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Apoio
+              </h3>
+              <p class="lighter ">
+                Por meio do acompanhamento, garaniremos que ambas as partes tenham uma boa experiência.
+              </p>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-12'>
+              <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
+                Inscreva-se já
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-landing-footer></app-landing-footer>

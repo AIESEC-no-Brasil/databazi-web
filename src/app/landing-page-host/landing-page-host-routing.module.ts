@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FormGtThankYouComponent } from './form-gt-thank-you/form-gt-thank-you.component';
+import { LandingPageHostComponent } from './landing-page-host.component';
 
 const routes: Routes = [
-  {
-    path: 'obrigado',
-    component: FormGtThankYouComponent
+	{
+    path: 'hospede-um-intercambista',
+    component: LandingPageHostComponent
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FormGtRoutingModule { }
+export class LandingPageHostRoutingModule { }

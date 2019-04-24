@@ -19,8 +19,11 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { LandingPageHostModule } from './landing-page-host/landing-page-host.module';
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
+import { LandingPageHostComponent } from './landing-page-host/landing-page-host.component';
+import { FormHostModule } from "./form-host/form-host.module";
 import { FormGvEmbeddedModule } from './form-gv-embedded/form-gv-embedded.module';
 import { FormGtEmbeddedModule } from "./form-gt-embedded/form-gt-embedded.module";
 import { FormGeEmbeddedModule } from "./form-ge-embedded/form-ge-embedded.module";
@@ -57,6 +60,7 @@ export class SentryErrorHandler implements ErrorHandler {
   declarations: [
     AppComponent,
     LandingPageComponent,
+    LandingPageHostComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,8 @@ export class SentryErrorHandler implements ErrorHandler {
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LandingPageMenuModule,
     LandingFooterModule,
+    LandingPageHostModule,
+    FormHostModule,
     FormGvEmbeddedModule,
     FormGtEmbeddedModule,
     FormGeEmbeddedModule,
