@@ -1570,7 +1570,7 @@ label {
   padding: 0;
   background-color: #fff;
   color: #333;
-  max-height: 215px;
+  max-height: 185px;
   overflow: auto;
   z-index: 999;
   position: relative;
@@ -1588,7 +1588,6 @@ label {
 
 .form-group {
     position: relative;
-    z-index: -1;
 }
 
 .autocomplete-negative-index {
