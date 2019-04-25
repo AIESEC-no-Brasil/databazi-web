@@ -393,7 +393,7 @@ $mainColor: #ffc845;
     }
 
     section.product-description {
-        height: 30vh;
+        min-height: 30vh;
 
         .logo-product {
             background-size: 75%;
@@ -405,7 +405,7 @@ $mainColor: #ffc845;
             }
 
             p {
-                font-size: 1.3em;
+                font-size: 20px;
                 line-height: 1.6em;
             }
         }
