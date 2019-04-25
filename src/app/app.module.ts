@@ -28,7 +28,8 @@ import { FormGvEmbeddedModule } from './form-gv-embedded/form-gv-embedded.module
 import { FormGtEmbeddedModule } from "./form-gt-embedded/form-gt-embedded.module";
 import { FormGeEmbeddedModule } from "./form-ge-embedded/form-ge-embedded.module";
 import { FormOfflineEmbeddedModule } from "./form-offline-embedded/form-offline-embedded.module";
-
+import { ContactListModule } from "./contact-list/contact-list.module";
+import { ContactListComponent } from './contact-list/contact-list.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -60,7 +61,7 @@ export class SentryErrorHandler implements ErrorHandler {
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LandingPageHostComponent
+    LandingPageHostComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +90,8 @@ export class SentryErrorHandler implements ErrorHandler {
     FormGvEmbeddedModule,
     FormGtEmbeddedModule,
     FormGeEmbeddedModule,
-    FormOfflineEmbeddedModule
+    FormOfflineEmbeddedModule,
+    ContactListModule
   ],
   providers: [
     {
