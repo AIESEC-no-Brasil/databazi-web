@@ -522,7 +522,6 @@ section.header h1 {
 
 .form-group {
     margin-bottom: 0;
-    z-index: -1;
     position: relative;
     &.experiences-input {
         .select-dropdown {
@@ -1772,7 +1771,7 @@ label {
     padding: 0;
     background-color: #fff;
     color: #333;
-    max-height: 215px;
+    max-height: 185px;
     overflow: auto;
     li {
         width: 100%;
