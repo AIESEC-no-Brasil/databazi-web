@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-landing-page-host',
@@ -25,9 +24,6 @@ export class LandingPageHostComponent implements OnInit {
       description: 'Vontade de conhecer outras culturas.'
     }
   ]
-  contactForm: FormGroup;
-  submitted: boolean = false;
-  loading: boolean = false;
   constructor(
   ) { 
   }
