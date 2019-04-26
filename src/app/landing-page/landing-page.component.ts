@@ -40,16 +40,6 @@ export class LandingPageComponent implements OnInit {
         break;
     }
   }
-
-  showSnackBar() {
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-  };
-
-  hideSnackBar() {
-    var x = document.getElementById("snackbar");
-    x.className = "";
-  };
   
 	moveLeft() {
     if ((this.sliderPosition - 100) < 0){
@@ -76,7 +66,6 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     this.sliderAnimation();
     window.scrollTo(0,0);
-    this.showSnackBar();
   }
 
   sliderAnimation(){
