@@ -428,7 +428,7 @@ div#our-stories {
 
 .history-session .sub-title {
     text-align: left;
-    font-size: 20px;
+font-size: 20px;
 }
 
 .history-session .coin {
@@ -438,6 +438,81 @@ div#our-stories {
 
 .history-session .coin-text {
     font-size: 12px;
+}
+
+.slider-membrasia-host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    .swipe-area {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .swipe-action {
+            width: 95%;
+            height: 100%;
+            position: absolute;
+            left: 2.5%;
+            top: 0;
+            z-index: 10;
+        }
+    }
+    .footer-carousel-btn-left,
+    .footer-carousel-btn-right {
+        align-items: center;
+        display: flex;
+        color: $default;
+        box-sizing: border-box;
+        z-index: 100;
+        font-size: 40px;
+        z-index: 4;
+        i {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: .3s;
+            &:hover {
+                transform: scale(1.05);
+            }
+            &.fa-chevron-left {
+                left: 2.5%;
+            }
+            &.fa-chevron-right {
+                right: 2.5%;
+            }
+        }
+    }
+    .carousel-container {
+        width: 100%;
+        min-height: 450px;
+        position: relative;
+        overflow: hidden;
+        .carousel-wrapper {
+            height: 100%;
+            width: 200%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            .each-carousel-item {
+                width: 50%;
+                height: 100%;
+                box-sizing: border-box;
+                position: Relative;
+                margin: 0 .15%;
+                float: left;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 .membrasia{
@@ -888,7 +963,7 @@ drag-scroll {
 
 .content-swipe-area {
     position: relative;
-    ul#position-carousel {
+    ul#position-carousel, ul.position-carousel {
         position: absolute;
         bottom: -20px;
         padding: 0;
