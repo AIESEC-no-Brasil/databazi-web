@@ -5,11 +5,11 @@ import * as $ from 'jquery';
 import 'hammerjs';
 
 @Component({
-  selector: 'app-slider-membresia-host',
-  templateUrl: './slider-membresia-host.component.html',
-  styleUrls: ['./slider-membresia-host.component.scss']
+  selector: 'app-slider-membership-host',
+  templateUrl: './slider-membership-host.component.html',
+  styleUrls: ['./slider-membership-host.component.scss']
 })
-export class SliderMembresiaHostComponent implements OnInit {
+export class SliderMembershipHostComponent implements OnInit {
 
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   sliderPosition: number = 0;

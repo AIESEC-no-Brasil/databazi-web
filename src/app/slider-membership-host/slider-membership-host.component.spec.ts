@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SliderMembresiaHostComponent } from './slider-membresia-host.component';
+import { SliderMembershipHostComponent } from './slider-membership-host.component';
 
 describe('SliderMembresiaHostComponent', () => {
-  let component: SliderMembresiaHostComponent;
-  let fixture: ComponentFixture<SliderMembresiaHostComponent>;
+  let component: SliderMembershipHostComponent;
+  let fixture: ComponentFixture<SliderMembershipHostComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SliderMembresiaHostComponent ]
+      declarations: [ SliderMembershipHostComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SliderMembresiaHostComponent);
+    fixture = TestBed.createComponent(SliderMembershipHostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

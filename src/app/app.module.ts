@@ -30,7 +30,7 @@ import { FormGeEmbeddedModule } from "./form-ge-embedded/form-ge-embedded.module
 import { FormOfflineEmbeddedModule } from "./form-offline-embedded/form-offline-embedded.module";
 import { ContactListModule } from "./contact-list/contact-list.module";
 import { ContactListComponent } from './contact-list/contact-list.component';
-import { SliderMembresiaHostComponent } from './slider-membresia-host/slider-membresia-host.component';
+import { SliderMembershipHostComponent } from './slider-membership-host/slider-membership-host.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -63,7 +63,7 @@ export class SentryErrorHandler implements ErrorHandler {
     AppComponent,
     LandingPageComponent,
     LandingPageHostComponent,
-    SliderMembresiaHostComponent,
+    SliderMembershipHostComponent,
   ],
   imports: [
     BrowserModule,
