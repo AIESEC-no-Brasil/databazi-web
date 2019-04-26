@@ -332,6 +332,9 @@ $mainColor: #ffc845;
 }
 
 @media (max-width: 991px) {
+    .row.requirements {
+        margin: auto;
+    }
     .product-description .description {
         text-align: center;
     }
