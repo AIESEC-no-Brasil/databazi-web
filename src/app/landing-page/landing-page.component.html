@@ -219,78 +219,8 @@
     </div>
   </section>
 
-  <section class='membrasia'>
-    <div class='bg-membrasia'></div>
-    <div class='container'>
-      <div class='row'>
-        <div class="col-12">
-          <p>
-            Junte-se a nós como
-            <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
-            <br> Participe do nosso
-            <b>Processo Seletivo!</b>
-          </p>
-          <a class='btn btn-primary' target='_blank' href='http://promo.aiesec.org.br/sejamembro/'> Inscreva-se aqui </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <app-slider-membresia-host></app-slider-membresia-host>
 
-  <div class='slider-membrasia-host'>
-    <div class='swipe-area'>
-      <div class='swipe-action' (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
-      (swipeleft)="swipe('left', 'slider-membrasia-host')"></div>
-      <div class="footer-carousel-btn-left">
-        <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
-      </div>
-      <div class='carousel-container'>
-        <div class='carousel-wrapper'>
-          <div class='each-carousel-item'>
-            <section class='membrasia'>
-              <div class='bg-membrasia'></div>
-              <div class='container'>
-                <div class='row'>
-                  <div class="col-12">
-                    <p>
-                      Junte-se a nós como
-                      <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
-                      <br> Participe do nosso
-                      <b>Processo Seletivo!</b>
-                    </p>
-                    <a class='btn btn-primary' target='_blank' href='http://promo.aiesec.org.br/sejamembro/'> Inscreva-se aqui </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div class='each-carousel-item'>
-            <section class='host'>
-              <div class='bg-host'></div>
-              <div class='container'>
-                <div class='row'>
-                  <div class="col-12">
-                    <p>
-                      Viva uma experiência multicultural
-                      <br> hospedando intercambistas
-                      <br>voluntários
-                    </p>
-                    <a class='btn btn-primary' (click)='goToHost()'> Saiba mais sobre Lar Global </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div class="footer-carousel-btn-right">
-        <i (click)="moveRight()" class="fas fa-chevron-right"></i>
-      </div>
-      <!-- <ul class='position-carousel'>
-        <li [ngClass]="{'active': sliderPosition == 0}"></li>
-        <li [ngClass]="{'active': sliderPosition == 100}"></li>
-      </ul> -->
-    </div>
-  </div>
 
   <section class="padding-top-and-bottom experiences-session">
     <div class="container">
@@ -339,22 +269,6 @@
             <strong>fazer a diferença todos os dias.</strong>
           </h2>
           <button type="button" class="btn btn-primary" (click)="scrollToGlobal()">Conheça nossos programas</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class='host'>
-    <div class='bg-host'></div>
-    <div class='container'>
-      <div class='row'>
-        <div class="col-12">
-          <p>
-            Viva uma experiência multicultural
-            <br> hospedando intercambistas
-            <br>voluntários
-          </p>
-          <a class='btn btn-primary' (click)='goToHost()'> Saiba mais sobre Lar Global </a>
         </div>
       </div>
     </div>

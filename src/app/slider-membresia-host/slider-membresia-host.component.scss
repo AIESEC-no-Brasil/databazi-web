@@ -1,0 +1,308 @@
+@import "../../scss/global.scss";
+
+.slider-membrasia-host {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .swipe-area {
+        width: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .swipe-action {
+            width: 85%;
+            height: 100%;
+            position: absolute;
+            left: 7.5%;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+        }
+    }
+
+    .footer-carousel-btn-left,
+    .footer-carousel-btn-right {
+        align-items: center;
+        display: flex;
+        color: $default;
+        box-sizing: border-box;
+        z-index: 100;
+        font-size: 40px;
+        z-index: 4;
+
+        i {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: .3s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            &.fa-chevron-left {
+                left: 2.5%;
+            }
+
+            &.fa-chevron-right {
+                right: 2.5%;
+            }
+        }
+    }
+
+    .carousel-container {
+        width: 100%;
+        min-height: 500px;
+        position: relative;
+        overflow: hidden;
+
+        .carousel-wrapper {
+            height: 100%;
+            width: 200%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+
+            .each-carousel-item {
+                width: 50%;
+                height: 100%;
+                box-sizing: border-box;
+                position: Relative;
+                float: left;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .membrasia {
+        min-height: 500px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 30%;
+        padding: 90px 0;
+
+        a {
+            color: #fff !important;
+        }
+
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/membrasia.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/membrasia.webp');
+        }
+
+        .bg-membrasia {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .55);
+            left: 0;
+            top: 0;
+        }
+
+        div {
+            z-index: 1;
+
+            &.container {
+                z-index: 2;
+            }
+
+            p {
+                font-weight: lighter;
+                color: #fff;
+                max-width: 55%;
+                font-size: 25px;
+                margin: 10px 0;
+
+                b {
+                    font-weight: bold;
+                }
+            }
+
+            a {
+                border: 0;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .host {
+        min-height: 500px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 30%;
+        padding: 90px 0;
+
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/products/host/host.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/products/host/host.webp');
+        }
+
+        .bg-host {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .55);
+            left: 0;
+            top: 0;
+        }
+
+        div {
+            z-index: 1;
+
+            &.container {
+                z-index: 2;
+            }
+
+            p {
+                font-weight: lighter;
+                color: #fff;
+                max-width: 55%;
+                font-size: 25px;
+                margin: 10px 0;
+
+                b {
+                    font-weight: bold;
+                }
+            }
+
+            a {
+                background-color: #ffc845;
+                border: 0;
+                font-size: 16px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.swipe-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    touch-action: pan-y
+}
+
+.swipe-area {
+    position: relative;
+
+    ul#position-carousel,
+    ul.position-carousel {
+        position: absolute;
+        bottom: 20px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+
+        li {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: .2s;
+            margin: 0 10px;
+            opacity: .4;
+
+            &.active {
+                opacity: 1
+            }
+        }
+    }
+}
+
+@keyframes swipeAnimation {
+    0% {
+        margin-left: -5%;
+    }
+
+    49% {
+        margin-left: -5%;
+    }
+
+    99% {
+        margin-right: -5%
+    }
+
+    100% {
+        margin-right: -5%;
+    }
+}
+
+#slider {
+
+    .footer-carousel-btn-right,
+    .footer-carousel-btn-left {
+        height: 100%;
+        width: 6.5%;
+        position: absolute;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+
+        i {
+            right: auto
+        }
+    }
+
+    .footer-carousel-btn-right {
+        right: 0;
+
+        i {
+            right: auto
+        }
+    }
+
+    .footer-carousel-btn-left {
+        left: 0;
+
+        i {
+            left: auto;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    #slider {
+        .container {
+
+            padding-left: 8%;
+
+            p {
+                max-width: 80%;
+                width: 80%;
+                font-size: 22px !important;
+            }
+        }
+    }
+}

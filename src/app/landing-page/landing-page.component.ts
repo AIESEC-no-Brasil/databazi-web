@@ -58,7 +58,7 @@ export class LandingPageComponent implements OnInit {
     else {
       this.sliderPosition -= 100;
     }
-    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
     this.sliderAnimation();
   }
 
@@ -69,7 +69,7 @@ export class LandingPageComponent implements OnInit {
     else {
       this.sliderPosition += 100
     }
-    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
     this.sliderAnimation();
   }
 

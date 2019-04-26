@@ -120,7 +120,7 @@
     height: 50px;
     margin: 10px 15px 15px 15px !important;
     box-sizing: border-box;
-    flex: 0 0 96%;
+    flex: 0 0 calc(100% - 30px);
     display: flex;
 
     .dropdown {
@@ -215,7 +215,7 @@
         width: 100%;
 
         .select-autocomplete {
-            flex: 0 0 94.5%;
+            flex: 0 0 calc(100% - 30px);
         }
     }
 }
