@@ -16,8 +16,25 @@ export class AppComponent {
     public activate: ActivatedRoute
   ){
     Sentry.init({ dsn: 'https://4478f31a94964381b765142fea1afd5a@sentry.io/1411311' });
-
   }
+
+  showSnackBar() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+  };
+
+  hideSnackBar() {
+    var x = document.getElementById("snackbar");
+    x.className = "";
+    localStorage.setItem('cookies_policy', 'true');
+  };
+
+  ngOnInit() {
+    if(!localStorage.getItem('cookies_policy')){
+      this.showSnackBar();
+    }
+  }
+
   changeOfRoutes(){
     this.activate.queryParams.subscribe((param: any) => {
       if (!param['embedded']){
