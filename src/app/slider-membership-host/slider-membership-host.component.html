@@ -1,55 +1,33 @@
 <div class='slider-membrasia-host' id='slider'>
-    <div class='swipe-area'>
-      <div class='swipe-action' (mouseenter)="stopAnimation()" (tap)='redirectTo()' (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
-      (swipeleft)="swipe('left')"></div>
-      <div class="footer-carousel-btn-left" (click)="moveLeft()">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-      <div class='carousel-container'>
-        <div class='carousel-wrapper'>
-          <div class='each-carousel-item'>
-            <section class='membrasia'>
-              <div class='bg-membrasia'></div>
-              <div class='container'>
-                <div class='row'>
-                  <div class="col-12">
-                    <p>
-                      Junte-se a nós como
-                      <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
-                      <br> Participe do nosso
-                      <b>Processo Seletivo!</b>
-                    </p>
-                    <a class='btn btn-primary' (click)='redirectTo()'> Toque para se inscrever </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          <div class='each-carousel-item'>
-            <section class='host'>
-              <div class='bg-host'></div>
-              <div class='container'>
-                <div class='row'>
-                  <div class="col-12">
-                    <p>
-                      Viva uma experiência multicultural
-                      <br> hospedando intercambistas
-                      <br>voluntários
-                    </p>
-                    <a class='btn btn-primary' (click)='goToHost()'> Toque para saber mais sobre o Lar Global </a>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+  <section class='membrasia animated faster fadeIn' [ngClass]='{"fadeIn": slider, "fadeOut": !slider}'>
+    <div class='bg-membrasia'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-12">
+          <p>
+            Junte-se a nós como
+            <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
+            <br> Participe do nosso
+            <b>Processo Seletivo!</b>
+          </p>
+          <a class='btn btn-primary' (click)='goToMembership()'> Inscreva-se </a>
         </div>
       </div>
-      <div class="footer-carousel-btn-right" (click)="moveRight()">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-      <ul id='position-carousel'>
-        <li [ngClass]="{'active': sliderPosition == 0}"></li>
-        <li [ngClass]="{'active': sliderPosition == 100}"></li>
-      </ul>
     </div>
-  </div>
+  </section>
+  <section class='host animated faster fadeIn' [ngClass]='{"fadeIn": !slider, "fadeOut": slider}'>
+    <div class='bg-host'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-12">
+          <p>
+            Viva uma experiência multicultural
+            <br> hospedando intercambistas
+            <br>voluntários
+          </p>
+          <a class='btn btn-primary' (click)='goToHost()'> Saiba mais sobre o Lar Global </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
