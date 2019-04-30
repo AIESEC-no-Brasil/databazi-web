@@ -1,44 +1,73 @@
 @import '../../scss/global.scss';
 
 #contact {
-    margin: 30px auto;
     padding: 45px 0 70px 0 !important;
+    &.voluntario-global {
+        background-color: $primary-gv;
+    }
+
+    &.talento-global {
+        background-color: $primary-gt
+    }
+
+    &.empreendedor-global {
+        background-color: $primary-ge;
+    }
+
+    &.voluntario-global, &.talento-global, &.empreendedor-global {
+        p, h3 {
+            color: #fff;
+        }
+    }
+
+    &.hospede-um-intercambista { 
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        p, h3 {
+            color: #4a4a4a;
+        }
+        .contact-container {
+            color: #4a4a4a !important;
+        }
+        ul li {
+            color: #4a4a4a !important;
+        }
+        .contact-details {
+            background: rgba(0, 0, 0, 0.15);
+            color: #4a4a4a !important;
+        }
+    }
 
     h3 {
         font-size: 33px;
-        font-weight: 300;
-        line-height: 45px;
-        color: #31383D;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        margin: 0;
     }
 
     p {
-        margin-top: 20px;
-        color: #4A4A4A;
-        font-family: Lato;
         font-size: 20px;
         font-style: italic;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 24px;
+        text-align: center;
+        color: #fff;
+        margin: 0;
+    }
+
+    .contact-area {
+        margin: auto;
     }
 
     .contact-container {
         width: 100%;
         padding: 20px 0 0 0;
-
-        label {
-            color: #9B9B9B;
-            font-size: 12px;
-            font-weight: 700;
-            line-height: 15px;
-            margin-bottom: 4px;
+        select {
+            margin: auto;
             display: block;
             width: 100%;
-        }
-
-        select {
             padding: 10px 15px;
             font-size: 16px;
-
             option {
                 font-size: 16px;
                 font-style: normal;
@@ -46,10 +75,14 @@
         }
 
         .contact-details {
-            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.15);
+            color: #fff;
+            padding: 10px 15px;
+            text-align: center;
+            margin-top: 10px;
 
             b {
-                margin: 20px 0 15px 0;
+                margin: 0;
                 font-size: 18px;
                 display: block;
             }
@@ -67,14 +100,15 @@
                 padding: 0;
 
                 li {
-                    color: #242121;
+                    color: #fff;
                     font-size: 12pt;
                     display: block;
                     margin: 5px 0 5px 0;
 
                     i {
                         padding-right: 10px;
-                        color: $default;
+                        color: #3FA0FE;
+                        font-size: 20px;
                     }
                 }
             }
@@ -86,14 +120,6 @@
 
     #contact {
         >div {
-            h3 {
-                text-align: center;
-            }
-
-            p {
-                text-align: center;
-            }
-
             .contact-container {
                 display: flex;
                 flex-direction: column;
