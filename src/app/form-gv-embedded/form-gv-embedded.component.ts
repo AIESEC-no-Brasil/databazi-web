@@ -89,7 +89,7 @@ export class FormGvEmbeddedComponent implements OnInit {
   detectKeypress(){
     $(document).keyup((event) => {
       if (this.modal && event.keyCode == 27){
-        this.modal = false;
+        this.closeModal();
       }
     })
   }
@@ -124,14 +124,19 @@ export class FormGvEmbeddedComponent implements OnInit {
     });
   }
 
-  openModal() {
+  openModal(){
     this.modal = true;
+    this.toggleOverflowHtml();
   }
 
-  closeModal() {
+  closeModal(){
     this.modal = false;
+    this.toggleOverflowHtml();
   }
 
+  toggleOverflowHtml(){
+    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
+  }
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
   };

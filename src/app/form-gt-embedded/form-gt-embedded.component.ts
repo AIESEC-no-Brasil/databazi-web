@@ -126,7 +126,7 @@ export class FormGtEmbeddedComponent implements OnInit {
   detectKeypress(){
     $(document).keyup((event) => {
       if (this.modal && event.keyCode == 27){
-        this.modal = false;
+        this.closeModal()
       }
     })
   }
@@ -259,12 +259,18 @@ export class FormGtEmbeddedComponent implements OnInit {
     }
   }
 
-  openModal() {
+  openModal(){
     this.modal = true;
+    this.toggleOverflowHtml();
   }
 
-  closeModal() {
+  closeModal(){
     this.modal = false;
+    this.toggleOverflowHtml();
+  }
+
+  toggleOverflowHtml(){
+    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
   checkPhone() {

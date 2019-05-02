@@ -132,7 +132,7 @@ export class FormGvComponent implements OnInit {
   detectKeypress(){
     $(document).keyup((event) => {
       if (this.modal && event.keyCode == 27){
-        this.modal = false;
+        this.closeModal();
       }
     })
   }
@@ -204,10 +204,16 @@ export class FormGvComponent implements OnInit {
 
   openModal(){
     this.modal = true;
+    this.toggleOverflowHtml();
   }
 
   closeModal(){
     this.modal = false;
+    this.toggleOverflowHtml();
+  }
+
+  toggleOverflowHtml(){
+    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
   _search(options, search){
