@@ -1,5 +1,5 @@
 <div class='slider-membrasia-host' id='slider'>
-  <section class='membrasia animated faster fadeIn' [ngClass]='{"fadeIn": slider, "fadeOut": !slider}'>
+  <section class='membrasia animated faster fadeIn' [ngClass]='{"fadeIn": slider, "fadeContentOut": !slider}'>
     <div class='bg-membrasia'></div>
     <div class='container'>
       <div class='row'>
@@ -15,7 +15,7 @@
       </div>
     </div>
   </section>
-  <section class='host animated faster fadeIn' [ngClass]='{"fadeIn": !slider, "fadeOut": slider}'>
+  <section class='host animated faster fadeIn' [ngClass]='{"fadeIn": !slider, "fadeContentOut": slider}'>
     <div class='bg-host'></div>
     <div class='container'>
       <div class='row'>
