@@ -125,22 +125,7 @@
           <div *ngIf="isValid('cep') || invalidZipcode" class='error-message'>
             Por favor, preencha um CEP válido.
           </div>
-
-          <!-- <div class='row without-border'>
-            <div class='col-11 without-border'>
-              <label for='cep' [ngClass]='{"has-content": user.cep }'>CEP</label>
-              <input type="tel" mask="00000-000" [(ngModel)]="user.cep" formControlName="cep" name="cep" required (blur)='getZipcode(user.cep)'>
-            </div>
-            <div class='col-1'>
-              <button class='button with-background default' (click)='getZipcode(user.cep)'>
-                <i class="fas fa-search"></i>
-              </button>
-            </div>
-            <div *ngIf="isValid('cep') || invalidZipcode" class='error-message'>
-              Por favor, preencha um CEP válido.
-            </div>
-          </div> -->
-
+          
         </div>
         <div *ngIf='hasZipCode' class='col-12 address without-border'>
           <div class='col-12'>
