@@ -1,7 +1,11 @@
 <router-outlet (activate)="changeOfRoutes()"></router-outlet>
 
-<div id="snackbar">
-  Este site usa cookies para assegurar que você tenha uma ótima experiência online.
-  <a href="../../assets/politica_cookies_ptbr.pdf" target="_blank"><u>Saiba mais</u></a>
-  <button type="button" (click)="hideSnackBar()" class="btn btn-outline-light">Ok!</button>
+<div id='content-snackbar'>
+  <div id="snackbar">
+    Este site usa cookies para assegurar que você tenha uma ótima experiência online.
+    <a href="../../assets/politica_cookies_ptbr.pdf" target="_blank">
+      <u>Saiba mais</u>
+    </a>
+    <button type="button" (click)="hideSnackBar()" class="btn btn-outline-light">Ok!</button>
+  </div>
 </div>
