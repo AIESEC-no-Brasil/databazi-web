@@ -156,6 +156,15 @@ export class FormGeComponent implements OnInit {
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    this.detectKeypress();
+  }
+
+  detectKeypress(){
+    $(document).keyup((event) => {
+      if (this.modal && event.keyCode == 27){
+        this.modal = false;
+      }
+    })
   }
 
   ngOnInit() {

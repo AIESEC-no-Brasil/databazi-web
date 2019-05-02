@@ -88,6 +88,15 @@ export class FormHostComponent implements OnInit {
         Validators.required
       ])
     });
+    this.detectKeypress();
+  }
+
+  detectKeypress(){
+    $(document).keyup((event) => {
+      if (this.modal && event.keyCode == 27){
+        this.modal = false;
+      }
+    })
   }
 
   ngOnInit() {

@@ -1630,6 +1630,7 @@ label {
     top:0;
     position:fixed;
     z-index: 1001;
+    padding: 45px 30px;
     .modal-bg {
         width: 100%;
         height: 100%;
@@ -1646,12 +1647,19 @@ label {
         align-items: center;
         justify-content: center;
         position: fixed;
-        top: 1.5%;
-        right: 0;
+        top: 30px;
+        right: 20px;
         border-radius: 50%;
-        font-size: 30px;
         z-index: 1003;
-        color: #3f77bc;
+        font-size: 32px;
+        cursor: pointer;
+        color: #037ef3;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        .fas {
+            margin: 0;
+        }
     }
 }
 label.input-terms-label {

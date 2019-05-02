@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'app';
   window:any = window;
   router: Router;
+  cookies_policy : boolean = false;
 
   constructor(
     public activate: ActivatedRoute
@@ -18,20 +19,14 @@ export class AppComponent {
     Sentry.init({ dsn: 'https://4478f31a94964381b765142fea1afd5a@sentry.io/1411311' });
   }
 
-  showSnackBar() {
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-  };
-
   hideSnackBar() {
-    var x = document.getElementById("snackbar");
-    x.className = "";
     localStorage.setItem('cookies_policy', 'true');
+    this.cookies_policy = false;
   };
 
   ngOnInit() {
     if(!localStorage.getItem('cookies_policy')){
-      this.showSnackBar();
+      this.cookies_policy = true;
     }
   }
 
