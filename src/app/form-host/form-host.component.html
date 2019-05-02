@@ -106,7 +106,7 @@
 
                   <!-- mobile -->
                   <i class="fas fa-location-arrow mobile mobile-icon"></i>
-                  <input type="tel" class="form-control mobile" placeholder="Celular" mask="00000-000" (blur)="checkPhone()" [(ngModel)]="user.cep" formControlName="cep"
+                  <input type="tel" class="form-control mobile" placeholder="CEP" mask="00000-000" (blur)="checkPhone()" [(ngModel)]="user.cep" formControlName="cep"
                     name="email" required>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
@@ -226,10 +226,11 @@
 
           <div class="form-group">
             <div class="input-group select-dropdown">
-              <div class="input-group-prepend">
+              <div class="input-group-prepend desktop">
                 <div class="input-group-text">
                   <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
               </div>
+              <i class="fas fa-map-marker-alt mobile mobile-icon"></i>
               <div class="dropdown">
                 <div class="styled-select">
                   <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
