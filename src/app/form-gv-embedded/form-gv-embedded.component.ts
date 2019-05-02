@@ -83,6 +83,15 @@ export class FormGvEmbeddedComponent implements OnInit {
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
+    this.detectKeypress();
+  }
+
+  detectKeypress(){
+    $(document).keyup((event) => {
+      if (this.modal && event.keyCode == 27){
+        this.modal = false;
+      }
+    })
   }
 
   ngOnInit() {
