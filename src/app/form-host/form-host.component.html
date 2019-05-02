@@ -75,7 +75,7 @@
                 </div>
               </div>
               <!-- desktop -->
-              <input type="tel" class="form-control desktop" placeholder="Vamos falar com você por aqui!" mask="(00) 0000-00009" (blur)="checkPhone()" [(ngModel)]="user.cellphone" formControlName="fullname" name="cellphone" required>
+              <input type="tel" class="form-control desktop" placeholder="Vamos falar com você por aqui!" mask="(00) 0000-00009" (blur)="checkPhone()" [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" required>
 
               <!-- mobile -->
               <i class="fas fa-mobile-alt mobile mobile-icon"></i>
@@ -102,12 +102,12 @@
                     </div>
                   </div>
                   <!-- desktop -->
-                  <input type="tel" class="form-control desktop" placeholder="Informe seu CEP" mask="00000-000" [(ngModel)]="user.cep" formControlName="fullname" name="cep" (blur)='getZipcode(user.cep)' required>
+                  <input type="tel" class="form-control desktop" placeholder="Informe seu CEP" mask="00000-000" [(ngModel)]="user.cep" formControlName="cep" name="cep" (blur)='getZipcode(user.cep)' required>
 
                   <!-- mobile -->
                   <i class="fas fa-location-arrow mobile mobile-icon"></i>
                   <input type="tel" class="form-control mobile" placeholder="CEP" mask="00000-000" (blur)="checkPhone()" [(ngModel)]="user.cep" formControlName="cep"
-                    name="email" required>
+                    name="cep" required>
                   <div class="valid-feedback">
                     <i class="fas fa-check"></i>
                   </div>
