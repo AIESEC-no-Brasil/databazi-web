@@ -2,14 +2,22 @@
 
 section.membrasia,
 section.host {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    &.fadeIn {
+        z-index:2
+    }
     &.fadeOut {
-        display: none;
+        z-index: 1;
     }
 }
 
 .slider-membrasia-host {
     position: relative;
     width: 100%;
+    min-height: 500px;
 
     .membrasia {
         min-height: 500px;
