@@ -1825,13 +1825,19 @@ label {
         align-items: center;
         justify-content: center;
         position: fixed;
-        top: 0;
-        right: 0;
+        top: 30px;
+        right: 20px;
         border-radius: 50%;
         z-index: 1003;
-        color: #fff;
-        font-size: 20px;
+        font-size: 32px;
         cursor: pointer;
+        color: #037ef3;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        .fas {
+            margin: 0;
+        }
     }
 }
 label.input-terms-label {
