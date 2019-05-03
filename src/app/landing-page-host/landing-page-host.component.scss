@@ -5,8 +5,8 @@
     padding: 0 3.5%;
 }
 
-$mainColor: #ffc845;
-
+$mainColor: #f1c40f;
+/*$mainColor: #ffc845;*/
 
 .product-description {
     display: flex;
@@ -49,6 +49,7 @@ $mainColor: #ffc845;
     background-color: $mainColor;
     padding-top: 25px;
     padding-bottom: 25px;
+    color: #674e13;
     .logo-container {
         position: relative;
 
@@ -83,7 +84,7 @@ $mainColor: #ffc845;
         text-align: center;
         font-size: 23px;
         font-weight: 600;
-        color: #000;
+        color: #674e13;
         margin: 20px auto;
     }
 
@@ -111,15 +112,25 @@ $mainColor: #ffc845;
             width: 100%;
             display: flex;
 
+            .requirements-icon {
+                min-width: 50px;
+                height: 50px;
+                background-color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+            }
+
             >div {
                 width: 18%;
                 box-sizing: border-box;
                 margin: 1%;
                 display: flex;
                 align-items: center;
-                flex-direction: column;
+                /*flex-direction: column;*/
                 padding: 1%;
-                text-align: center;
 
                 .icon {
                     width: 100%;
@@ -149,10 +160,15 @@ $mainColor: #ffc845;
                 }
 
                 p {
-                    color: #000;
+                    color: #674e13;
                     font-weight: 600;
                     font-size: 14px;
                 }
+            }
+
+            .fas {
+                font-size: 26px;
+                color: #f1c40f;
             }
         }
     }
@@ -481,4 +497,23 @@ $mainColor: #ffc845;
             min-height: 65vh
         }
     }
+}
+
+.list-icon {
+    display: flex;
+    float: left;
+    height: 100%;
+    padding: 13px;
+    font-size: 22px;
+    color: #373737;
+}
+
+#host-header {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
 }
