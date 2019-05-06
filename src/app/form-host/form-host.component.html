@@ -222,7 +222,7 @@
                     #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
                     dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
                     placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
-                  <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee"></i>
+                  <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee.id"></i>
                 </div>
               </div>
             </div>
