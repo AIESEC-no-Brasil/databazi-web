@@ -8,10 +8,23 @@
     left: 0;
     top: 0;
     z-index: 6;
+    &.mobile {
+        display: none;
+    }
 }
 
 #fixedMenu {
-    transition: .3s
+    transition: .3s;
+    *:not(.fas, .menu-icon) {
+        text-transform: uppercase !important;
+        font-weight: 300;
+        font-size: 1.15rem;
+    }
+    i {
+        font-weight: bold;
+        margin: 10px 0;
+        font-size: 25px;
+    }
 }
 
 ul#menu {
@@ -286,7 +299,7 @@ ul#menu {
                             color: #fff;
                         }
                         li {
-                            padding: 2.5px 10px;
+                            padding: 5px 10px;
                             text-align: left;
                             text-transform: none;
                             font-size: 17px;
@@ -368,7 +381,7 @@ ul#menu {
         span {
             font-weight: bold;
             text-align: left;
-            font-size: 1.8rem;
+            font-size: 1.8rem !important;
             padding-top: 10px !important;
             display: block;
         }
