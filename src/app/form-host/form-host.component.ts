@@ -198,7 +198,6 @@ export class FormHostComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigate(['/hospede-um-intercambista/obrigado']);
     this.submitted = true;
     if (this.unableToSubmit()) {
       return;
@@ -225,7 +224,6 @@ export class FormHostComponent implements OnInit {
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
