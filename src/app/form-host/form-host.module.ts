@@ -13,10 +13,12 @@ import { NgxMaskModule } from 'ngx-mask';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { SignupService } from '../services/signup.service';
+import { FormHostThankYouComponent } from './form-host-thank-you/form-host-thank-you.component';
 
 @NgModule({
   declarations: [
-  	FormHostComponent
+  	FormHostComponent,
+  	FormHostThankYouComponent
   ],
   imports: [
     CommonModule,

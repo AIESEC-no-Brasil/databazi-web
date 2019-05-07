@@ -56,6 +56,18 @@ export class SignupService {
 			});
 	}
 
+	addHostParticipant(user){
+		return this.http.post(SignupService.url + '/exchange_student_hosts', user, this.headers())
+			.toPromise()
+			.then((res) => res.json(), (err) => {
+				try {
+	        Sentry.captureException(err);
+	      } catch (e) {
+	        console.error('sentry', e);
+	      }
+			});
+	}
+
 	checkValidEmail(email){
 		return this.http.get(SignupService.url + '/exchange_participants?email=' + email)
 			.toPromise()
