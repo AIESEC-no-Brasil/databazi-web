@@ -56,4 +56,8 @@ export class LandingPageMenuComponent implements OnInit {
   goToGt(){
     this.router.navigate(['/talento-global']);
   }
+
+  goToHost(){
+    this.router.navigate(['/hospede-um-intercambista']);
+  }
 }

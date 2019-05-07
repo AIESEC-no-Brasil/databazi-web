@@ -18,30 +18,22 @@
             <li>
               Faça um intercâmbio
               <ul class="animated fadeIn faster ul-products">
-                <a href="/voluntario-global" target="_blank">
-                  <li>
-                    Voluntário Global
-                  </li>
-                </a>
-                <a href="/empreendedor-global" target="_blank">
-                  <li>
-                    Empreendedor Global
-                  </li>
-                </a>
-                <a href="/talento-global" target="_blank">
-                  <li>
-                    Talento Global
-                  </li>
-                </a>
+                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                  Voluntário Global
+                </li>
+                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                  Empreendedor Global
+                </li>
+                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                  Talento Global
+                </li>
               </ul>
             </li>
-            <a href="http://blog.aiesec.org.br/hospede-um-intercambista/" target="_blank" class="no-hover">
-              <li>
-                Lar Global
-              </li>
-            </a>
+            <li (click)='goToHost()'>
+              Lar Global
+            </li>
             <li>
-              Seja nosso parceiroo
+              Seja nosso parceiro
               <ul class="animated fadeIn faster ul-products">
                 <a href="http://business.aiesec.org.br/" target="_blank">
                   <li>
@@ -113,11 +105,9 @@
                 </li>
               </ul>
             </li>
-            <a href="http://blog.aiesec.org.br/hospede-um-intercambista/" target="_blank" class="no-hover">
-              <li>
-                <span>Lar Global</span>
-              </li>
-            </a>
+            <li (click)='goToHost()'>
+              <span>Lar Global</span>
+            </li>
             <li>
               <span>Seja nosso parceiro</span>
               <ul class='animated fadeIn faster'>
