@@ -263,6 +263,12 @@
     }
 }
 
+@media (max-width: 1200px) {
+    #signUp {
+        width: 100%;
+    }
+}
+
 @media (max-width: 990px) {
     #signUp {
         width: 100%;
@@ -1092,6 +1098,9 @@ label {
     background-color: transparent;
     border: none;
     color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;  
+    white-space: nowrap;
 }
 
 /deep/ p-autoComplete {
