@@ -3,7 +3,7 @@
 #bg-menu {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: #037ff3;
     position: fixed;
     left: 0;
     top: 0;
@@ -16,16 +16,28 @@
 
 ul#menu {
 
-    >li,
+    >li{
+        display: flex;
+        align-items: center;
+    }
     >a {
         display: flex;
         align-items: center;
     }
 
+    a.aiesec-search>li:hover {
+        color: #007bff;
+    }
+
     a.aiesec-search {
         height: 40px;
         margin-top: 5px;
-        border: 1px solid #fff;
+        margin-left: 5px;
+        padding: 5px;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        justify-content: flex-end;
     }
 }
 
@@ -45,11 +57,12 @@ ul#menu {
     .menu-product {
         height: 50px;
         padding: 0;
-        margin: 0;
+        margin: 0 0 0 -20px
     }
 
     .logo-aiesec {
         margin: 0;
+        max-width: 300px;
     }
 
     ul#menu {
@@ -88,7 +101,6 @@ ul#menu {
     width: 95%;
     max-width: -webkit-fill-available;
     height: 100%;
-
     .product-info {
         height: 100%;
         width: 100%;
@@ -190,7 +202,8 @@ ul#menu {
     .header-menu {
         display: flex;
         justify-content: space-between;
-        padding: 5px 15px;
+        height: 74px;
+        padding: 0 50px;
 
         .logo-aiesec,
         .logo-menu {
@@ -222,24 +235,24 @@ ul#menu {
         }
 
         .menu-product {
+            margin-left: -20px;
             ul {
                 padding: 0;
                 display: flex;
                 list-style: none;
-                justify-content: flex-end;
-
                 a:hover {
                     text-decoration: none;
-                    color: #fff;
+                    color: #037ef3 ;
+                    background-color: rgba(255, 255, 255, 0.9);
                 }
 
                 li {
-                    font-size: 13px;
+                    font-size: 15px;
                     padding: 15px .5em;
-                    margin: 0 5px;
+                    margin: 0;
                     color: #fff;
-                    text-transform: uppercase;
-                    font-weight: lighter;
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
                     position: relative;
                     cursor: pointer;
                     white-space: nowrap;
@@ -271,6 +284,7 @@ ul#menu {
                             padding: 2.5px 10px;
                             text-align: left;
                             text-transform: none;
+                            font-size: 17px;
                         }
                     }
                 }
@@ -308,7 +322,7 @@ ul#menu {
         z-index: 100;
         font-size: 25px;
 
-        .fa-times {
+        .fa-times, .fa-bars {
             color: #fff;
             z-index: 51
         }
@@ -386,7 +400,7 @@ ul#menu {
     div.responsive-menu {
         height: 100%;
         display: flex;
-        justify-content: flex-end
+        justify-content: flex-start;
     }
 }
 
@@ -398,6 +412,10 @@ ul#menu {
             font-size: 1em;
         }
     }
+}
+
+a.no-hover:hover {
+    background-color: currentColor !important;
 }
 
 @media (max-width: 1023px){
