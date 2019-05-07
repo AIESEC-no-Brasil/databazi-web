@@ -48,7 +48,7 @@ export const router : Routes = [
     {
         path: 'hospede-um-intercambista/obrigado',
         component: FormHostThankYouComponent
-    }
+    },
     { path: '**', component: LandingPageComponent }
 ]
 
