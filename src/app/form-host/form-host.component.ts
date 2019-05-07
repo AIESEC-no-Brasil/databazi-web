@@ -18,7 +18,6 @@ import { Http } from '@angular/http';
 export class FormHostComponent implements OnInit {
 
   @Input() formedUser: any;
-  @Output() onCancelEvent = new EventEmitter<boolean>();
 
   user = {
     fullname: '',
@@ -204,59 +203,42 @@ export class FormHostComponent implements OnInit {
       return;
     }
     let user = {
-      gt_participant: {
+      exchange_student_host: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
         neighborhood: this.user.neighborhood,
+        zipcode: this.user.cep,
         city: this.user.city,
         state: this.user.state,
         cellphone_contactable: this.user.cellphone_contactable,
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
       }
     };
-    console.log('submit', user);
     this.loading = true;
-    // this.signupService.addGtParticipant(user)
-    //   .then((res: any) => {
-    //     this.loading = false;
-    //     if (res.status == 'failure') {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //     }
-    //     else {
-    //       this.completedSignup = true;
-    //       localStorage.removeItem('utm_source');
-    //       localStorage.removeItem('utm_medium');
-    //       localStorage.removeItem('utm_campaign');
-    //       localStorage.removeItem('utm_term');
-    //       localStorage.removeItem('utm_content');
-    //       this.router.navigate(['/talento-global/obrigado']);
-    //     }
-    //   },
-    //     (err) => {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //       this.loading = false;
-    //     }
-    //   )
-  }
-
-  checkEmail() {
-    this.signupService.checkValidEmail(this.user.email)
+    this.signupService.addHostParticipant(user)
       .then((res: any) => {
-        res.email_exists ? this.invalidEmail = true : this.invalidEmail = false;
-      }, (err) => {
-        this.msgs = [];
-        this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
-      })
+        this.loading = false;
+        if (res.status == 'failure') {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+        }
+        else {
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
+          this.router.navigate(['/hospede-um-intercambista/obrigado']);
+        }
+      },
+        (err) => {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+          this.loading = false;
+        }
+      )
   }
-
 
 
   searchPlaces(event) {

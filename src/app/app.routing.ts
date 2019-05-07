@@ -1,6 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { FormHostThankYouComponent } from './form-host/form-host-thank-you/form-host-thank-you.component';
 
 export const router : Routes = [
     { path: '', component: LandingPageComponent },
@@ -44,6 +45,10 @@ export const router : Routes = [
         path: 'jovens/empreendedor-global',
         loadChildren: './landing-page-ge/landing-page-ge.module#LandingPageGeModule'
     },
+    {
+        path: 'hospede-um-intercambista/obrigado',
+        component: FormHostThankYouComponent
+    }
     { path: '**', component: LandingPageComponent }
 ]
 
