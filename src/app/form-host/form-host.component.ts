@@ -50,6 +50,7 @@ export class FormHostComponent implements OnInit {
   places: any;
   msgs: Message[] = [];
   submitted: boolean = false;
+  completeSignup: boolean = false;
 
   constructor(
     public signupService: SignupService,
@@ -154,7 +155,7 @@ export class FormHostComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields()
+    return this.emptyFields() 
   }
 
   emptyFields() {
@@ -179,7 +180,7 @@ export class FormHostComponent implements OnInit {
       if (!data.erro) {
         this.invalidZipcode = false;
         this.hasZipCode = true;
-        this.user.neighborhood = data.bairro;
+        this.user.neighborhood = (data.bairro ? data.bairro : 'Não informado');
         this.user.city = data.localidade;
         this.user.state = data.uf;
       }
@@ -229,7 +230,7 @@ export class FormHostComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
-          this.router.navigate(['/hospede-um-intercambista/obrigado']);
+          this.completeSignup = true;
         }
       },
         (err) => {

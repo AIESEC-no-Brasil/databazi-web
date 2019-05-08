@@ -5,7 +5,6 @@ $break-md: 768px;
 $break-sm: 576px;
 
 .full-screen {
-    position: absolute !important;
     width: 100% !important;
     height: 100% !important;
     display: flex;
@@ -37,6 +36,7 @@ $break-sm: 576px;
         font-size: 40px;
         margin-bottom: 20px;
         font-weight: bold;
+        text-align: center;
     }
     p {
         font-size: 16px;
@@ -45,16 +45,22 @@ $break-sm: 576px;
 
 #resultado {
     .grid-message {
-        display: flex;
+        display: table;
+        overflow: hidden;
         margin: 0;
         padding: 0;
-        align-items: center;
-
+        .col-md-12 {
+            text-align: center;
+        }
         .thumbs {
             display: flex;
             align-items: center;
             justify-content: center
         }
+    }
+    i {
+        display: block;
+        margin: 30px !important;
     }
 }
 
@@ -166,16 +172,10 @@ $break-sm: 576px;
     }
 
     #grid-message {
-        >div {
-            &:first-child {
-                width: 75%;
-                max-width: 75%;
-            }
-
-            &:last-child {
-                width: 25%;
-                max-width: 25%;
-            }
+        div {
+            text-align: center;
+            width: 100%;
+            max-width: 100%;
         }
     }
 }
@@ -185,6 +185,22 @@ $break-sm: 576px;
         min-height: 100%;
         height: auto !important;
         padding: 25px;
+    }
+    #resultado {
+        h2, h3 {
+            text-align: center;
+            margin: 0px auto;
+        }
+        .btn {
+            margin: 30px auto;
+            display: block;
+        }
+        .grid-message {
+            display: table;
+        }
+        .fa-thumbs-up {
+            margin-top: 20px;
+        }
     }
 }
 
