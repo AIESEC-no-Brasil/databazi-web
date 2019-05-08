@@ -158,7 +158,7 @@ export class FormHostComponent implements OnInit {
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.email || !this.user.cellphone || !this.user.neighborhood || !this.user.city || !this.user.state;
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.email || !this.user.cellphone || !this.user.city || !this.user.state;
   }
 
   checkPhone() {
@@ -208,7 +208,7 @@ export class FormHostComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
-        neighborhood: this.user.neighborhood,
+        neighborhood: (this.user.neighborhood ? this.user.neighborhood : 'Não informado'),
         zipcode: this.user.cep,
         city: this.user.city,
         state: this.user.state,
