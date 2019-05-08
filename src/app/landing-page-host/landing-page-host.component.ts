@@ -10,15 +10,15 @@ export class LandingPageHostComponent implements OnInit {
   hostRequirements = [
     {
       icon: 'fas fa-bed',
-      description: 'Ao menos um colchão para o intercambista. Não é necessário quarto individual.'
+      description: 'Ter ao menos uma Cama ou Colchão individual. Não é necessário um quarto individual.'
     },
     {
       icon: 'fas fa-key',
       description: 'Acesso ao banheiro, áreas comuns da casa e a residência.'
     },
     {
-      icon: 'fas fa-wifi',
-      description: 'Acesso à internet.'
+      icon: 'fas fa-briefcase',
+      description: 'Experiência Voluntária.'
     },
     {
       icon: 'fas fa-tint',

@@ -50,6 +50,7 @@ export class FormHostComponent implements OnInit {
   places: any;
   msgs: Message[] = [];
   submitted: boolean = false;
+  completeSignup: boolean = false;
 
   constructor(
     public signupService: SignupService,
@@ -154,11 +155,11 @@ export class FormHostComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields()
+    return this.emptyFields() 
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.email || !this.user.cellphone || !this.user.neighborhood || !this.user.city || !this.user.state;
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.email || !this.user.cellphone || !this.user.city || !this.user.state;
   }
 
   checkPhone() {
@@ -179,7 +180,7 @@ export class FormHostComponent implements OnInit {
       if (!data.erro) {
         this.invalidZipcode = false;
         this.hasZipCode = true;
-        this.user.neighborhood = data.bairro;
+        this.user.neighborhood = (data.bairro ? data.bairro : 'Não informado');
         this.user.city = data.localidade;
         this.user.state = data.uf;
       }
@@ -208,7 +209,7 @@ export class FormHostComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
-        neighborhood: this.user.neighborhood,
+        neighborhood: (this.user.neighborhood ? this.user.neighborhood : 'Não informado'),
         zipcode: this.user.cep,
         city: this.user.city,
         state: this.user.state,
@@ -229,7 +230,7 @@ export class FormHostComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
-          this.router.navigate(['/hospede-um-intercambista/obrigado']);
+          this.completeSignup = true;
         }
       },
         (err) => {
