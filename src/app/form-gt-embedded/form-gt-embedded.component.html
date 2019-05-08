@@ -156,7 +156,7 @@
                     </div>
                   </div>
                 </div>
-                <div *ngIf="isValid('password')" class='error-message animated fadeIn'>
+                <div *ngIf="isValid('password') || isValid('repassword')" class='error-message animated fadeIn'>
                   Preencha com a sua senha.
                   <br>
                   <span>
