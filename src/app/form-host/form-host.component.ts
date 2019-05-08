@@ -180,7 +180,7 @@ export class FormHostComponent implements OnInit {
       if (!data.erro) {
         this.invalidZipcode = false;
         this.hasZipCode = true;
-        this.user.neighborhood = (data.bairro ? data.bairro : 'Não informado');
+        this.user.neighborhood = (data.bairro ? data.bairro : 'Não encontrado');
         this.user.city = data.localidade;
         this.user.state = data.uf;
       }
@@ -209,7 +209,7 @@ export class FormHostComponent implements OnInit {
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
-        neighborhood: (this.user.neighborhood ? this.user.neighborhood : 'Não informado'),
+        neighborhood: (this.user.neighborhood ? this.user.neighborhood : 'Não encontrado'),
         zipcode: this.user.cep,
         city: this.user.city,
         state: this.user.state,
