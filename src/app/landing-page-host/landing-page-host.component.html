@@ -60,7 +60,7 @@ Confira no vídeo ao lado o relato de um de nossos participantes!
               </p>
             </div>
             <div class="col-sm-12">
-              <button [ngx-scroll-to]="'#form'" class="centered without-border bold with-background  host">
+              <button (click)='redirectToForm()' class="centered without-border bold with-background  host">
                 Fale conosco
               </button>
             </div>
@@ -201,7 +201,7 @@ Confira no vídeo ao lado o relato de um de nossos participantes!
           </div>
           <div class='row'>
             <div class='col-12'>
-              <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
+              <button (click)='redirectToForm()' class="border-radius centered without-border with-background default">
                 Inscreva-se já
               </button>
             </div>
