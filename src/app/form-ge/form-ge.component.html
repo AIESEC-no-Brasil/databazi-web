@@ -154,7 +154,7 @@
                     </div>
                     <!-- desktop -->
                     <input type="password" class="form-control desktop" placeholder="É para o seu perfil no aiesec.org" [(ngModel)]="user.password"
-                      formControlName="password" name="password" required>
+                      formControlName="password" name="password" (keyup)="checkPassword()" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
@@ -173,7 +173,7 @@
                     </div>
                     <!-- desktop -->
                     <input type="password" class="form-control desktop" placeholder="" [(ngModel)]="user.repassword" formControlName="repassword"
-                      name="repassword" required>
+                      name="repassword" (keyup)="checkPassword()" required>
 
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
