@@ -356,15 +356,18 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
+  checkPassword() {
     if (this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
     else {
       this.invalidPassword = false;
     }
+  };
 
+  registerUser() {
+    this.submittedPersonal = true;
+    this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
