@@ -155,7 +155,7 @@ export class FormHostComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() 
+    return this.emptyFields()
   }
 
   emptyFields() {
@@ -217,6 +217,9 @@ export class FormHostComponent implements OnInit {
       }
     };
     this.loading = true;
+    $('html, body').animate({
+      scrollTop: ($('#host-details-form-area').offset().top);
+    },500);
     this.signupService.addHostParticipant(user)
       .then((res: any) => {
         this.loading = false;
