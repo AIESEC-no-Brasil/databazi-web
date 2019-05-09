@@ -218,7 +218,7 @@ export class FormHostComponent implements OnInit {
     };
     this.loading = true;
     $('html, body').animate({
-      scrollTop: ($('#host-details-form-area').offset().top);
+      scrollTop: ($('#host-details-form-area').offset().top)
     },500);
     this.signupService.addHostParticipant(user)
       .then((res: any) => {
