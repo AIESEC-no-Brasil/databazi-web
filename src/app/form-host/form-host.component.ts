@@ -217,9 +217,7 @@ export class FormHostComponent implements OnInit {
       }
     };
     this.loading = true;
-    $('html, body').animate({
-      scrollTop: ($('#host-details-form-area').offset().top)
-    },500);
+    this.redirectToForm();
     this.signupService.addHostParticipant(user)
       .then((res: any) => {
         this.loading = false;
@@ -244,7 +242,11 @@ export class FormHostComponent implements OnInit {
       )
   }
 
-
+  redirectToForm(){
+    $('html, body').animate({
+      scrollTop: ($('#host-details-form-area').offset().top)
+    },500);
+  }
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
   };
