@@ -159,7 +159,7 @@
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
                     <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password" formControlName="password"
-                      name="password" required>
+                      name="password" (keyup)="checkPassword()" required>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
@@ -178,7 +178,7 @@
                     <!-- mobile -->
                     <i class="fas fa-lock mobile mobile-icon"></i>
                     <input type="password" class="form-control mobile" [(ngModel)]="user.repassword" formControlName="repassword" name="repassword"
-                      required placeholder="Confirmar senha" (blur)="checkPassword()">
+                      required placeholder="Confirmar senha" (keyup)="checkPassword()">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
