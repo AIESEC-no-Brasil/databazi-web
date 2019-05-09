@@ -82,9 +82,24 @@
                 </a>
               </ul>
             </li>
-            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank">
+            <a class='aiesec-search' href='https://aiesec.org/search' href='https://aiesec.org/search' target="_blank" *ngIf="actualPage == ''">
               <li>
-                Veja as oportunidades
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=2&sort=-duration_min' target="_blank" *ngIf="actualPage == 'talento-global'">
+              <li>
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=5&sort=-duration_min' target="_blank" *ngIf="actualPage == 'empreendedor-global'">
+              <li>
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=1&sort=-duration_min' target="_blank" *ngIf="actualPage == 'voluntario-global'">
+              <li>
+                Veja nossas oportunidades
               </li>
             </a>
           </ul>
