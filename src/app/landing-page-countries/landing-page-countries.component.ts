@@ -30,15 +30,5 @@ export class LandingPageCountriesComponent implements OnInit {
     _.forEach(this.countries, (element) => { element.active = false});
     country.active = true;
     this.country = country;
-    if (window.innerWidth < 990){
-      this.redirectToTop();
-    }
   }
-
-  redirectToTop(){
-    $('html, body').animate({
-      scrollTop: ($('#countries li.active').offset().top)
-    },500);
-  }
-
 }

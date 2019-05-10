@@ -9,7 +9,7 @@
           <li *ngFor='let country of countries' [ngClass]='{"active": country.active }' (click)='selectCountry(country)'>
             <img src='{{ country.flag }}'>
             <label>{{ country.name }}</label>
-            <div *ngIf='country.active' class='mobile'>
+            <div *ngIf='country.active' class=' animated faster fadeIn mobile'>
               <div class='col-12'>
                 <div class='country-image'>
                   <img class='country-image-value' src='{{country.image}}'>
