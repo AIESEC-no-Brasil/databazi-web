@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-form-gv-thank-you',
@@ -9,13 +9,20 @@ import { Router } from '@angular/router';
 })
 export class FormGvThankYouComponent implements OnInit {
   window: any = window;
+  whatsappLink: string;
   constructor(
-    public router: Router
+    public router: Router,
+    public route: ActivatedRoute
   ) {
     this.window.fbq('track', 'Lead');
   }
 
   ngOnInit() {
+    this.whatsappLink = this.route.snapshot.paramMap.get('whatsappLink');
+  }
+
+  whatsappContact() {
+    window.open(this.whatsappLink, "_blank");
   }
 
   goToHome() {

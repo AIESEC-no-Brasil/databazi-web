@@ -26,7 +26,7 @@ export class FormGvComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    university: { id: '', name: '', local_committee_id: '' },
+    university: { id: '', name: '', local_committee_id: '', whatsapp_link: '' },
     college_course: { id: '', name: '' },
     cellphone_contactable: '',
     scholarity: { id: '' },
@@ -119,7 +119,7 @@ export class FormGvComponent implements OnInit {
     { id: 16, value: 'Ví un anuncio de Potenciate' },
     { id: 17, value: 'Medios / Influencers' },
   ]
-  
+
 
   universities: any[];
   filteredScholarityOptions: Observable<any[]>;
@@ -405,7 +405,7 @@ export class FormGvComponent implements OnInit {
     }
     else {
       this.user.city = { name : '' },
-      this.user.university = { id: '', name: '', local_committee_id: '' };
+      this.user.university = { id: '', name: '', local_committee_id: '', whatsapp_link: '' };
       this.user.college_course = { id: '', name: '' };
       this.user.other_university = null;
     }
@@ -431,7 +431,7 @@ export class FormGvComponent implements OnInit {
   emptyCourse() {
     if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
       return !this.user.college_course.id
-    } 
+    }
     else if (+this.user.scholarity.id <= 1) {
       this.user.college_course = { id: '', name: '' };
       return false;
@@ -521,7 +521,7 @@ export class FormGvComponent implements OnInit {
         referral_type: +this.user.referral_type
       }
     };
-    this.loading = true; 
+    this.loading = true;
     this.signupService.addGvParticipant(user)
       .then((res: any) => {
         this.loading = false;
@@ -536,7 +536,7 @@ export class FormGvComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
-          this.router.navigate(['/voluntario-global/obrigado']);
+          this.router.navigate(['/voluntario-global/obrigado', { whatsappLink: this.user.university.whatsapp_link }]);
         }
       },
         (err) => {
@@ -565,7 +565,7 @@ export class FormGvComponent implements OnInit {
   clearField(field) {
     this.user[field] = '';
     if (field == 'city') {
-      this.user.university = { id: '', name: '', local_committee_id: '' };
+      this.user.university = { id: '', name: '', local_committee_id: '', whatsapp_link: '' };
       this.user.other_university = null;
       this.filteredCitiesOptions = this.citiesOptions;
     }
