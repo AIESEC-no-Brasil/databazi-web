@@ -9,6 +9,7 @@ import { LandingFooterModule } from '../landing-footer/landing-footer.module';
 import { LandingPageGtComponent } from './landing-page-gt.component';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ContactListModule } from '../contact-list/contact-list.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
     LandingPageMenuModule,
     LandingFooterModule,
     FormGtModule,
+    ContactListModule,
     ScrollToModule.forRoot()
   ]
 })

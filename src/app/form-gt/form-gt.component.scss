@@ -93,9 +93,6 @@
     background-repeat: no-repeat;
 }
 
-.checkbox {
-    margin: 15px auto 0 auto;
-}
 
 .checkbox input[type="checkbox"] {
     opacity: 0;
@@ -525,7 +522,6 @@ section.header h1 {
 
 .form-group {
     margin-bottom: 0;
-    z-index: -1;
     position: relative;
     &.experiences-input {
         .select-dropdown {
@@ -668,7 +664,6 @@ input[type=tel] {
 }
 
 .forms-term {
-    margin-top: 30px;
     .iframe {
         min-height: 150px;
         body {
@@ -1776,7 +1771,7 @@ label {
     padding: 0;
     background-color: #fff;
     color: #333;
-    max-height: 215px;
+    max-height: 185px;
     overflow: auto;
     li {
         width: 100%;
@@ -1836,6 +1831,7 @@ label {
     top:0;
     position:fixed;
     z-index: 1001;
+    padding: 45px 30px;
     .modal-bg {
         width: 100%;
         height: 100%;
@@ -1852,12 +1848,19 @@ label {
         align-items: center;
         justify-content: center;
         position: fixed;
-        top: 1.5%;
-        right: 0;
+        top: 30px;
+        right: 20px;
         border-radius: 50%;
-        font-size: 30px;
         z-index: 1003;
-        color: #3f77bc;
+        font-size: 32px;
+        cursor: pointer;
+        color: #037ef3;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        .fas {
+            margin: 0;
+        }
     }
 }
 label.input-terms-label {

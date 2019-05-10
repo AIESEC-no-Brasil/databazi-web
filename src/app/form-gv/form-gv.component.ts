@@ -86,8 +86,7 @@ export class FormGvComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -127,6 +126,15 @@ export class FormGvComponent implements OnInit {
       ])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    this.detectKeypress();
+  }
+
+  detectKeypress(){
+    $(document).keyup((event) => {
+      if (this.modal && event.keyCode == 27){
+        this.closeModal();
+      }
+    })
   }
 
   ngOnInit() {
@@ -196,10 +204,16 @@ export class FormGvComponent implements OnInit {
 
   openModal(){
     this.modal = true;
+    this.toggleOverflowHtml();
   }
 
   closeModal(){
     this.modal = false;
+    this.toggleOverflowHtml();
+  }
+
+  toggleOverflowHtml(){
+    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
   _search(options, search){
@@ -342,15 +356,18 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
-    if (this.user.password != this.user.repassword) {
+  checkPassword() {
+    if (this.user.repassword && this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
     else {
       this.invalidPassword = false;
     }
+  };
 
+  registerUser() {
+    this.submittedPersonal = true;
+    this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;

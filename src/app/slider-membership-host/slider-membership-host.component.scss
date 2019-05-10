@@ -1,0 +1,207 @@
+@import "../../scss/global.scss";
+
+section.membrasia,
+section.host {
+    position: absolute !important;
+    left: 0;
+    top: 0;
+    width: 100%;
+    &.fadeIn {
+        z-index:2
+    }
+    &.fadeContentOut {
+        z-index: 1;
+    }
+}
+
+.slider-membrasia-host {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+
+    .membrasia {
+        min-height: 500px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 30%;
+        padding: 90px 0;
+
+        a {
+            color: #fff !important;
+        }
+
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/membrasia.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/membrasia.webp');
+        }
+
+        .bg-membrasia {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .55);
+            left: 0;
+            top: 0;
+        }
+
+        div {
+            z-index: 1;
+
+            &.container {
+                z-index: 2;
+            }
+
+            p {
+                font-weight: lighter;
+                color: #fff;
+                max-width: 55%;
+                font-size: 25px;
+                margin: 10px 0;
+
+                b {
+                    font-weight: bold;
+                }
+            }
+
+            a {
+                border: 0;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .host {
+        min-height: 500px;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 30%;
+        padding: 90px 0;
+
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/products/host/host.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/products/host/host.webp');
+        }
+
+        .bg-host {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, .55);
+            left: 0;
+            top: 0;
+        }
+
+        div {
+            z-index: 1;
+
+            &.container {
+                z-index: 2;
+            }
+
+            p {
+                font-weight: lighter;
+                color: #fff;
+                max-width: 55%;
+                font-size: 25px;
+                margin: 10px 0;
+
+                b {
+                    font-weight: bold;
+                }
+            }
+
+            a {
+                background-color: #ffc845;
+                border: 0;
+                font-size: 16px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.swipe-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    touch-action: pan-y
+}
+
+.swipe-area {
+    position: relative;
+
+    ul#position-carousel,
+    ul.position-carousel {
+        position: absolute;
+        bottom: 20px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+
+        li {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: .2s;
+            margin: 0 10px;
+            opacity: .4;
+
+            &.active {
+                opacity: 1
+            }
+        }
+    }
+}
+
+@keyframes swipeAnimation {
+    0% {
+        margin-left: -5%;
+    }
+
+    49% {
+        margin-left: -5%;
+    }
+
+    99% {
+        margin-right: -5%
+    }
+
+    100% {
+        margin-right: -5%;
+    }
+}
+
+@media (max-width: 991px) {
+    #slider {
+        .container {
+
+            padding-left: 8%;
+
+            p {
+                max-width: 80%;
+                width: 80%;
+                font-size: 22px !important;
+            }
+        }
+    }
+}

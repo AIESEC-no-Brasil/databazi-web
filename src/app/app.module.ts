@@ -19,9 +19,18 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { LandingPageHostModule } from './landing-page-host/landing-page-host.module';
 import { LandingPageMenuModule } from './landing-page-menu/landing-page-menu.module';
 import { LandingFooterModule } from './landing-footer/landing-footer.module';
-
+import { LandingPageHostComponent } from './landing-page-host/landing-page-host.component';
+import { FormHostModule } from "./form-host/form-host.module";
+import { FormGvEmbeddedModule } from './form-gv-embedded/form-gv-embedded.module';
+import { FormGtEmbeddedModule } from "./form-gt-embedded/form-gt-embedded.module";
+import { FormGeEmbeddedModule } from "./form-ge-embedded/form-ge-embedded.module";
+import { FormOfflineEmbeddedModule } from "./form-offline-embedded/form-offline-embedded.module";
+import { ContactListModule } from "./contact-list/contact-list.module";
+import { ContactListComponent } from './contact-list/contact-list.component';
+import { SliderMembershipHostComponent } from './slider-membership-host/slider-membership-host.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -52,7 +61,9 @@ export class SentryErrorHandler implements ErrorHandler {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LandingPageHostComponent,
+    SliderMembershipHostComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +86,14 @@ export class SentryErrorHandler implements ErrorHandler {
     }),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     LandingPageMenuModule,
-    LandingFooterModule
+    LandingFooterModule,
+    LandingPageHostModule,
+    FormHostModule,
+    FormGvEmbeddedModule,
+    FormGtEmbeddedModule,
+    FormGeEmbeddedModule,
+    FormOfflineEmbeddedModule,
+    ContactListModule
   ],
   providers: [
     {

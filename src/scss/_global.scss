@@ -16,12 +16,13 @@ input:-webkit-autofill:active {
 }
 
 // colors
-$default: #3f77bc;
+$default: #037ef3;
 $primary-gv: #ef4231;
 $primary-ge: #41bb9b;
 $primary-gt: #0b8ea0;
 $white: #fff;
 $highlight: #fcb215;
+$primary-host: #f1c40f;
 // typography
 h1,
 h2,
@@ -145,6 +146,9 @@ button {
         &.gt {
             background-color: $primary-gt;
         }
+        &.host{
+            background-color: $primary-host
+        }
     }
     &.background-white {
         background-color: #fff;
@@ -158,7 +162,10 @@ button {
             color: $primary-gt;
         }
         &.default {
-            background-color: $default;
+            color: $default;
+        }
+        &.host{
+            background: $primary-host
         }
     }
     &.uppercase {
@@ -251,6 +258,9 @@ section, footer, div {
         }
         &.default {
             background-color: $default;
+        }
+        &.host {
+            background-color: $primary-host;
         }
     }
 }
