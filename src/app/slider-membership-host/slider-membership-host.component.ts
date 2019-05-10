@@ -26,7 +26,7 @@ export class SliderMembershipHostComponent implements OnInit {
     }, 3000)
   }
   goToHost(){
-    this.router.navigate(['/hospede-um-intercambista']);
+    this.router.navigate(['/lar-global']);
     
   }
 

@@ -180,6 +180,6 @@ export class LandingFooterComponent implements OnInit {
   }
 
   goToHost(){
-    this.router.navigate(['/hospede-um-intercambista']);
+    this.router.navigate(['/lar-global']);
   }
 }

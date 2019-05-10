@@ -46,7 +46,7 @@ export const router : Routes = [
         loadChildren: './landing-page-ge/landing-page-ge.module#LandingPageGeModule'
     },
     {
-        path: 'hospede-um-intercambista/obrigado',
+        path: 'lar-global/obrigado',
         component: FormHostThankYouComponent
     },
     { path: '**', component: LandingPageComponent }

@@ -5,7 +5,7 @@ import { LandingPageHostComponent } from './landing-page-host.component';
 
 const routes: Routes = [
 	{
-    path: 'hospede-um-intercambista',
+    path: 'lar-global',
     component: LandingPageHostComponent
   }
 ];
