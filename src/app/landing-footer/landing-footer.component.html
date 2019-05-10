@@ -13,8 +13,8 @@
           </div>
           <div class='footer-carousel-partners'>
             <div class="footer-carousel-wrapper">
-              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners" (click)="openUrl(partner.site)" (swiperight)="swipe('right')"
-              (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
+              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners" (click)="openUrl(partner.site)"
+                (swiperight)="swipe('right')" (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
                 <span class='animated fadeIn faster'> {{partner.title}} </span>
               </div>
             </div>
@@ -35,7 +35,7 @@
       <div class="footer-logo">
         <picture>
           <source srcset="../../assets/images/aiesec-logo.png.webp" type="image/webp" class="img-responsive">
-          <source srcset="../../assets/images/aiesec-logo.png" type="image/png" class="img-responsive"> 
+          <source srcset="../../assets/images/aiesec-logo.png" type="image/png" class="img-responsive">
           <img class="img-responsive" src="../../assets/images/aiesec-logo.png" width="200px;">
         </picture>
         <p class="centered semibold">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
@@ -63,21 +63,25 @@
           <div class="footer-group-links col-md-4 col-sm-6">
             <p class="semibold footer-link-title">Jovens</p>
             <p>
-              <a href="/empreendedor-global" target="_blank">Empreendedor Global</a>
+              <a (click)="goToGe()">Empreendedor Global</a>
             </p>
             <p>
-              <a href="/talento-global" target="_blank">Talento Global</a>
+              <a (click)="goToGt()">Talento Global</a>
             </p>
             <p>
-              <a href="/voluntario-global" target="_blank">Voluntário Global</a>
+              <a (click)="goToGv()">Voluntário Global</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/hospede-um-intercambista/" target="_blank">Hospede um intercambista</a>
+              <a (click)="goToHost()">Lar Global</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6 desktop">
-            <p class="semibold footer-link-title">
-              <a href="http://business.aiesec.org.br" target="_blank">Seja nosso parceiro</a>
+            <p class="semibold footer-link-title">Seja nosso parceiro</p>
+            <p>
+              <a href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
+            </p>
+            <p>
+              <a href="http://youthspeak.aiesec.org.br/" target="_blank">Youthspeak</a>
             </p>
           </div>
         </div>
@@ -85,28 +89,44 @@
       <div class="footer-links col-md-6">
         <div class="row">
           <div class="footer-group-links col-md-3 col-sm-6 mobile">
-            <p class="semibold footer-link-title">
-              <a href="http://business.aiesec.org.br" target="_blank">Seja nosso parceiro</a>
+            <p class="semibold footer-link-title">Seja nosso parceiro</p>
+            <p>
+              <a href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
+            </p>
+            <p>
+              <a href="http://youthspeak.aiesec.org.br/" target="_blank">Youthspeak</a>
             </p>
           </div>
+          <div class="footer-group-links col-md-4 col-sm-6">
+              <p class="semibold footer-link-title">Planeje sua viagem</p>
+              <p>
+                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">Passagens Aéreas</a>
+              </p>
+              <p>
+                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">Câmbio de Moedas</a>
+              </p>
+              <p>
+                <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">Seguro Saúde</a>
+              </p>
+            </div>
           <div class="footer-group-links col-md-3 col-sm-6">
             <p class="semibold footer-link-title">Blog</p>
             <p>
               <a href="http://business.aiesec.org.br/blog/" target="_blank">Empresas</a>
             </p>
             <p>
-              <a href="http://aiesec.blog.br/" target="_blank">Estudantes</a>
+              <a href="http://blog.aiesec.org.br/blog/estudantes/" target="_blank">Estudantes</a>
             </p>
           </div>
-          <div class="footer-group-links col-md-3 col-sm-12" id="label-contact">
+          <!-- <div class="footer-group-links col-md-3 col-sm-12" id="label-contact">
             <p class="semibold footer-link-title desktop">
               <a href="http://blog.aiesec.org.br/contato/" target="_blank">Contato</a>
             </p>
             <p class="semibold footer-link-title mobile">
               <a href="http://blog.aiesec.org.br/contato/" target="_blank">Entre em contato com a gente</a>
             </p>
-          </div>
-          <div class="footer-social-networks col-md-6 col-sm-6">
+          </div> -->
+          <div class="footer-social-networks col-md-3 col-sm-6">
             <a target="_blank" href="https://www.facebook.com/AIESECinBrazil/" rel="noopener">
               <i class="fab fa-facebook-square"></i>
             </a>
