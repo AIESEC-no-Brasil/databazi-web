@@ -1,0 +1,143 @@
+@import "../../scss/global.scss";
+
+#countries {
+    padding: 75px 0 0 0 !important;
+
+    h1 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        li {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .3);
+            transition: .2s;
+            cursor: pointer;
+            padding: 20px;
+            border-bottom: 0;
+            display: flex;
+            align-items: center;
+
+            img:not(.country-image-value) {
+                width: 30px;
+                margin-right: 10px;
+            }
+
+            label {
+                font-size: 16px;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid rgba(0, 0, 0, .3);
+            }
+
+            &:hover {
+                padding-left: 25px;
+            }
+
+            &.active {
+                padding-left: 35px;
+                border-color: $primary-gt;
+
+                label {
+                    font-weight: 600
+                }
+
+                +li {
+                    border-top-color: $primary-gt;
+                }
+            }
+        }
+    }
+
+    .country-image {
+        max-width: 100%;
+        height: 300px;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0 0 20px 0;
+        }
+    }
+
+    p.description {
+        margin: 25px 0;
+    }
+
+    a {
+        display: block;
+        margin: auto;
+        font-weight: 600;
+        width: 180px;
+        text-align: center;
+        padding: 10px 25px;
+        cursor: pointer;
+        transition: .2s;
+        color: #fff;
+        outline: none;
+        border: 0;
+        background-color: $default;
+        margin: 10px 0;
+
+        &.gv {
+            background-color: $primary-gv;
+        }
+
+        &.gt {
+            background: transparent;
+            border: 3px solid #0b8ea0;
+            color: #0b8ea0;
+            font-size: 13px;
+        }
+
+        &.ge {
+            background-color: $primary-ge;
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    #countries {
+        margin-bottom: 20px;
+        ul li {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 5px !important;
+            text-align: center;
+            .country-image {
+                height: auto;
+                img {
+                    margin: 0;
+                }
+            }
+            a {
+                margin: 10px auto;
+            }
+        }
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 991px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}

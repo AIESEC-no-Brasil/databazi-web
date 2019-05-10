@@ -1,3 +1,42 @@
-<p>
-  landing-page-countries works!
-</p>
+<section class='padding-top-and-bottom' id='countries'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-lg-4'>
+        <h1>
+          Países que recomendamos
+        </h1>
+        <ul>
+          <li *ngFor='let country of countries' [ngClass]='{"active": country.active }' (click)='selectCountry(country)'>
+            <img src='{{ country.flag }}'>
+            <label>{{ country.name }}</label>
+            <div *ngIf='country.active' class='mobile'>
+              <div class='col-12'>
+                <div class='country-image'>
+                  <img class='country-image-value' src='{{country.image}}'>
+                </div>
+                <p class='description'>
+                  {{ country.description }}
+                </p>
+                <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
+                  target='_blank'> Ver oportunidades </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class='col-lg-8 desktop'>
+        <h1>
+          {{ country.name }}
+        </h1>
+        <div class='country-image'>
+          <img src='{{country.image}}'>
+        </div>
+        <p class='description'>
+          {{ country.description }}
+        </p>
+        <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
+          target='_blank'> Ver oportunidades </a>
+      </div>
+    </div>
+  </div>
+</section>
