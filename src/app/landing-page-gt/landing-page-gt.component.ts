@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page-gt',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageGtComponent implements OnInit {
 
+  actualPage : string;
   subproducts: any = [
     { name: 'Educacional', description: 'Nessa experiência você irá dar aulas de inglês ou alguma outra matéria. Podendo ser em Universidades, Escolas de línguas ou instituições de ensino. Duração de 3 meses e/ou 1 ano. Durante esse período você receberá bolsa-auxílio!', icon: './assets/images/subproduct-promotion.svg', link: 'https://aiesec.org/search?backgrounds=241,1289,251,252&type=2&sort=relevance' },
     { name: 'Tecnologia da Informação', description: 'Nessa experiência você poderá encontrar oportunidades de Back-End, Front-End, Desk Support e outros, com duração entre 3 meses e/ou 1 ano. Durante esse período você receberá bolsa-auxílio!', icon: './assets/images/subproduct-teamwork.svg', link: 'https://aiesec.org/search?backgrounds=268,1298,239,238&type=2&sort=relevance ' },
@@ -57,9 +59,15 @@ export class LandingPageGtComponent implements OnInit {
     }
   ]
   constructor(
+    public router: Router
   ) { }
 
   ngOnInit() {
+    this.checkUrl();
+  }
+
+  checkUrl(){
+    this.actualPage = this.router.url.replace('/', '');
   }
 
 
