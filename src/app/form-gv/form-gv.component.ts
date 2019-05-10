@@ -357,7 +357,7 @@ export class FormGvComponent implements OnInit {
   }
 
   checkPassword() {
-    if (this.user.password != this.user.repassword) {
+    if (this.user.repassword && this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
     else {
