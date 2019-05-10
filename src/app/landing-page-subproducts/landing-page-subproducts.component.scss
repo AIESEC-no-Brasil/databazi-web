@@ -2,14 +2,14 @@
 
 header {
     text-align: center;
-    margin-bottom: 20px;
 
     p {
-        font-size: 14px;
+        font-size: 16px;
         font-weight: lighter;
         color: #555;
         line-height: 28px;
-        min-height: 120px;
+        min-height: auto;
+        margin: 0;
     }
 
     .banner {
@@ -75,7 +75,6 @@ header {
             font-weight: lighter;
             color: #555;
             line-height: 28px;
-            min-height: 120px;
         }
 
         a {
@@ -116,6 +115,7 @@ header {
     *, #subproducts * {
         text-align: center;
         display: block;
+        min-height: auto;
     }
     a {
         margin: 0 auto 20px auto !important;
