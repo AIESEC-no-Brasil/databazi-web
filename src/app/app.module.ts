@@ -31,6 +31,9 @@ import { FormOfflineEmbeddedModule } from "./form-offline-embedded/form-offline-
 import { ContactListModule } from "./contact-list/contact-list.module";
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { SliderMembershipHostComponent } from './slider-membership-host/slider-membership-host.component';
+import { LandingPageSubproductsModule } from "./landing-page-subproducts/landing-page-subproducts.module";
+import { LandingPageCountriesComponent } from './landing-page-countries/landing-page-countries.component';
+import { LandingPageCountriesModule } from "./landing-page-countries/landing-page-countries.module";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -93,7 +96,9 @@ export class SentryErrorHandler implements ErrorHandler {
     FormGtEmbeddedModule,
     FormGeEmbeddedModule,
     FormOfflineEmbeddedModule,
-    ContactListModule
+    ContactListModule,
+    LandingPageSubproductsModule,
+    LandingPageCountriesModule
   ],
   providers: [
     {

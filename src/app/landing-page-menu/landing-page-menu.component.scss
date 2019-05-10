@@ -206,7 +206,7 @@ ul#menu {
                 background-image: url('../../assets/products/ge/ge-intro.jpg.webp');
             }
         }
-        &.hospede-um-intercambista{
+        &.lar-global{
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/host/host.jpg');
             }
