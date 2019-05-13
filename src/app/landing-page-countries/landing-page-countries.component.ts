@@ -10,25 +10,30 @@ import * as $ from 'jquery';
 })
 export class LandingPageCountriesComponent implements OnInit {
 
-  @Input() countries:any;
+  @Input() countries: any;
   country: any;
-  actualPage:any;
+  actualPage: any;
   constructor(
     public router: Router
   ) { }
 
   ngOnInit() {
     this.checkUrl();
-    this.country = _.find(this.countries, (country) => { return country.active})
+    this.country = _.find(this.countries, (country) => { return country.active })
   }
 
-  checkUrl(){
+  checkUrl() {
     this.actualPage = this.router.url.replace('/', '');
   }
 
-  selectCountry(country){
-    _.forEach(this.countries, (element) => { element.active = false});
+  selectCountry(country) {
+    _.forEach(this.countries, (element) => { element.active = false });
     country.active = true;
     this.country = country;
+    setTimeout(() => {
+      $('html, body').animate({
+        scrollTop: $('#countries li.active').offset().top
+      }, 700)
+    }, 200);
   }
 }
