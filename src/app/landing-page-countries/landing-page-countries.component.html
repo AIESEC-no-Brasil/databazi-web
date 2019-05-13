@@ -1,10 +1,14 @@
-<section class='padding-top-and-bottom' id='countries'>
+<section id='countries'>
   <div class='container'>
     <div class='row'>
-      <div class='col-lg-4'>
+      <div class='col-12 title-center'>
         <h1>
           Países que recomendamos
         </h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-lg-4'>
         <ul>
           <li *ngFor='let country of countries' [ngClass]='{"active": country.active }' (click)='selectCountry(country)'>
             <img src='{{ country.flag }}'>
@@ -25,9 +29,6 @@
         </ul>
       </div>
       <div class='col-lg-8 desktop'>
-        <h1>
-          {{ country.name }}
-        </h1>
         <div class='country-image'>
           <img src='{{country.image}}'>
         </div>

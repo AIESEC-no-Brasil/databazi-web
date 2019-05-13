@@ -102,6 +102,10 @@ header {
                 border: 3px solid #0b8ea0;
                 color: #0b8ea0;
                 font-size: 13px;
+                &:hover {
+                    background-color: $primary-gt;
+                    color: #fff;
+                }
             }
 
             &.ge {
