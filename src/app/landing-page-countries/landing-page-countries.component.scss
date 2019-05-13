@@ -1,11 +1,14 @@
 @import "../../scss/global.scss";
 
+
 #countries {
-    padding: 75px 0 0 0 !important;
+    padding: 45px 0 0 0 !important;
 
     h1 {
-        font-size: 20px;
-        margin-bottom: 25px;
+        font-size: 40px;
+        color: #555;
+        margin: 15px auto 50px auto;
+        text-align: center;
     }
 
     ul {
@@ -44,6 +47,13 @@
             &.active {
                 padding-left: 35px;
                 border-color: $primary-gt;
+                background-color: $primary-gt;
+                color: #fff;
+
+                img {
+                    border: 3px solid #fff;
+                    border-radius: 50%;
+                }
 
                 label {
                     font-weight: 600
@@ -95,6 +105,11 @@
             border: 3px solid #0b8ea0;
             color: #0b8ea0;
             font-size: 13px;
+
+            &:hover {
+                background-color: $primary-gt;
+                color: #fff;
+            }
         }
 
         &.ge {
@@ -107,17 +122,31 @@
     #countries {
         padding: 20px 0 0 0 !important;
         margin-bottom: 20px;
+
         ul li {
             display: flex;
             flex-direction: column;
             padding: 20px 5px !important;
             text-align: center;
+
+            &.active {
+                background-color: transparent;
+                color: #6d6d6d;
+
+                img {
+                    border-radius: 0;
+                    border: 0;
+                }
+            }
+
             .country-image {
                 height: auto;
+
                 img {
                     margin: 0;
                 }
             }
+
             a {
                 margin: 10px auto;
             }

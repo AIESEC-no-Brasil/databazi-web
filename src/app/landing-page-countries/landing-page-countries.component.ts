@@ -30,10 +30,12 @@ export class LandingPageCountriesComponent implements OnInit {
     _.forEach(this.countries, (element) => { element.active = false });
     country.active = true;
     this.country = country;
-    setTimeout(() => {
-      $('html, body').animate({
-        scrollTop: $('#countries li.active').offset().top
-      }, 700)
-    }, 200);
+    if (window.innerWidth <= 990) {
+      setTimeout(() => {
+        $('html, body').animate({
+          scrollTop: $('#countries li.active').offset().top
+        }, 700)
+      }, 200);
+    }
   }
 }
