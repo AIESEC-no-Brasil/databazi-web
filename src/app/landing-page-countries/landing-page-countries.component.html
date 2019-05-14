@@ -8,36 +8,40 @@
       </div>
     </div>
     <div class='row'>
-      <div class='col-lg-4'>
-        <ul>
-          <li *ngFor='let country of countries' [ngClass]='{"active": country.active }' (click)='selectCountry(country)'>
-            <img src='{{ country.flag }}'>
-            <label>{{ country.name }}</label>
-            <div *ngIf='country.active' class=' animated faster fadeIn mobile'>
-              <div class='col-12'>
-                <div class='country-image'>
-                  <img class='country-image-value' src='{{country.image}}'>
+        <div class='col-lg-3'>
+          <ul>
+            <li *ngFor='let country of countries' [ngClass]='{"active": country.active }' (click)='selectCountry(country)'>
+              <img src='{{ country.flag }}'>
+              <label>{{ country.name }}</label>
+              <div *ngIf='country.active' class=' animated faster fadeIn mobile'>
+                <div class='col-12'>
+                  <div class='country-image'>
+                    <img class='country-image-value' src='{{country.image}}'>
+                  </div>
+                  <p class='description'>
+                    "{{ country.description }}"
+                  </p>
+                  <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
+                    target='_blank'> Ver oportunidades </a>
                 </div>
-                <p class='description'>
-                  {{ country.description }}
-                </p>
-                <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
-                  target='_blank'> Ver oportunidades </a>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class='col-lg-8 desktop'>
-        <div class='country-image'>
-          <img src='{{country.image}}'>
+            </li>
+          </ul>
         </div>
-        <p class='description'>
-          {{ country.description }}
-        </p>
-        <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
-          target='_blank'> Ver oportunidades </a>
+        <div class='col-lg-9 desktop'>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <div class='country-image' [ngStyle]="{'background-image':'url(' + country.image + ')'}"></div>
+            </div>
+            <div class='col-lg-12'>
+              <p class='description'>
+                "{{ country.description }}" 
+              </p>
+              <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
+                target='_blank'> Ver oportunidades </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
 </section>

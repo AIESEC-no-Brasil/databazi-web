@@ -2,7 +2,7 @@
 
 
 #countries {
-    padding: 45px 0 0 0 !important;
+    padding: 15px 0 0 0 !important;
 
     h1 {
         font-size: 40px;
@@ -22,7 +22,7 @@
             border: 1px solid rgba(0, 0, 0, .3);
             transition: .2s;
             cursor: pointer;
-            padding: 20px;
+            padding: 15px;
             border-bottom: 0;
             display: flex;
             align-items: center;
@@ -67,18 +67,22 @@
     }
 
     .country-image {
-        max-width: 100%;
-        height: 300px;
+        width: 100%;
+        height: 210px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
-            margin: 0 0 20px 0;
-        }
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 0 10px 0;
     }
 
     p.description {
-        margin: 25px 0;
+        margin: 15px 0;
+        font-style: italic;
     }
 
     a {
