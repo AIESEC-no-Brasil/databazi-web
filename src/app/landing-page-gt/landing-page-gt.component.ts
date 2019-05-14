@@ -18,10 +18,10 @@ export class LandingPageGtComponent implements OnInit {
 
   countries: any = [
     {
-      name: 'India',
+      name: 'Índia',
       image: './assets/products/gt/country-india.jpeg',
       flag: './assets/countries/india.svg',
-      description: 'Foi um grande prazer olhar para o rosto de jovens estudantes na Amty University rindo e vibrando com todas as minhas histórias trabalhando com diferentes culturas e vivendo fora do meu país. Posso apenas agradecer á AIESEC, e à Amty University por esse momento',
+      description: 'ÍNDIA??? Tá louco? Tem nenhum país melhor pra ir não? Você é doido, vai fazer o quê lá?" Foram essas e outras perguntas que sempre surgiam quando apareceu a oportunidade de ir pra Índia. Hoje em dia quando olham Índia no meu currículo sempre salta aos olhos dos recrutadores e já recebi proposta de trabalho até em mesa de bar depois de falar sobre minha experiência lá e se não render emprego.',
       link: 'https://aiesec.org/search?home_mcs=1585&type=2&sort=relevance',
       active: true
     },
@@ -29,7 +29,7 @@ export class LandingPageGtComponent implements OnInit {
       name: 'Hungria',
       image: './assets/products/gt/country-hungria.jpeg',
       flag: './assets/countries/hungary.svg',
-      description: 'Trabalhar em uma empresa com um ambiente multicultural, fez com que eu me desafiasse e conhecesse até mesmo um pouquinho de cada canto do mundo. Essa experiência com certeza mudou minha perspectiva profissional e me fez crescer de uma maneira que nunca pudesse ter imaginado', 
+      description: 'Trabalhar em uma empresa com um ambiente multicultural fez com que eu me desafiasse, e conhecesse até mesmo um pouquinho de cada canto do mundo. Essa experiência, com certeza, mudou minha perspectiva profissional e me fez crescer de uma maneira que nunca pudesse ter imaginado', 
       link: 'https://aiesec.org/search?home_mcs=1549&is_gep=true&type=2&sort=relevance',
       active: false
     },
@@ -37,7 +37,7 @@ export class LandingPageGtComponent implements OnInit {
       name: 'Canadá', 
       image: './assets/products/gt/country-canada.jpeg',
       flag: './assets/countries/canada.svg',
-      description: 'O mais importante dessa jornada não foi tudo aquilo que eu vi, vivi ou conheci, mas sim todas as coisas dentro de mim que mudaram, graças ao autoconhecimento adquirido durante o intercâmbio eu pude me transformar numa pessoa melhor e seres humanos melhores fazem do mundo um lugar melhor.', 
+      description: 'O mais importante dessa jornada não foi tudo aquilo que eu vi, vivi ou conheci, mas sim todas as coisas dentro de mim que mudaram. Graças ao autoconhecimento adquirido durante o intercâmbio, eu pude me transformar numa pessoa melhor, e, seres humanos melhores fazem do mundo um lugar melhor.', 
       link: 'https://aiesec.org/search?home_mcs=1554&type=2&sort=relevance',
       active: false
     },
@@ -45,7 +45,7 @@ export class LandingPageGtComponent implements OnInit {
       name: 'México', 
       image: './assets/products/gt/country-mexico.jpeg',
       flag: './assets/countries/mexico.svg',
-      description: 'O intercâmbio profissional que eu vivi no México foi uma experiência divisora de águas que apesar de já ter passado ela ainda vive em mim. Me propor a trabalhar em um lugar onde eu não sabia a língua, viver em condições distantes de qualquer realidade que eu poderia haver imaginado antes e ter uma experiência que me fez crescer como profissional ao mesmo tempo foi o que eu precisava para viver com a vontade latente de estar em uma ponte aérea.', 
+      description: 'O intercâmbio profissional que eu vivi no México foi uma experiência divisora de águas, que apesar de já ter passado, ela ainda vive em mim. Me propor a trabalhar em um lugar onde eu não sabia a língua, viver em condições distantes de qualquer realidade que eu poderia haver imaginado antes, e ter uma experiência que me fez crescer como profissional ao mesmo tempo, foi o que eu precisava para viver com a vontade latente de estar em uma ponte aérea.', 
       link: 'https://aiesec.org/search?home_mcs=1589&type=2&sort=relevance',
       active: false
     },

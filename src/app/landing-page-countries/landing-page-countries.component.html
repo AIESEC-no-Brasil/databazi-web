@@ -19,7 +19,7 @@
                     <img class='country-image-value' src='{{country.image}}'>
                   </div>
                   <p class='description'>
-                    {{ country.description }}
+                    "{{ country.description }}"
                   </p>
                   <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
                     target='_blank'> Ver oportunidades </a>
@@ -35,7 +35,7 @@
             </div>
             <div class='col-lg-12'>
               <p class='description'>
-                {{ country.description }}
+                "{{ country.description }}" 
               </p>
               <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
                 target='_blank'> Ver oportunidades </a>
