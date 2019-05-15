@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page-gv',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class LandingPageGvComponent implements OnInit {
   
+  actualPage : string;
   countries: any = [
     {
       name: 'Argentina',
@@ -76,11 +78,16 @@ export class LandingPageGvComponent implements OnInit {
   ]
 
   constructor(
+    public router: Router
   ) {
   }
 
   ngOnInit() {
+    this.checkUrl();
+  }
 
+  checkUrl(){
+    this.actualPage = this.router.url.replace('/', '');
   }
 
 }

@@ -4,6 +4,55 @@
     padding: 0 3.5%;
 }
 
+header {
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    p {
+        font-size: 16px;
+        font-weight: lighter;
+        color: #555;
+        line-height: 28px;
+        min-height: auto;
+        margin: 0;
+    }
+
+    .banner {
+        width: 100%;
+        position: relative;
+        height: 60px;
+        margin-bottom: 30px;
+
+        &.gv {
+            background-color: $primary-gv;
+        }
+
+        .circle {
+            height: 90px;
+            width: 90px;
+            background: #fff;
+            top: -10px;
+            position: relative;
+            left: 50%;
+            margin-left: -45px;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+
+            &.gv {
+                border: 5px solid $primary-gv;
+                color: $primary-gv;
+            }
+        }
+    }
+}
+
+
 .product-description {
     display: flex;
     align-items: center;
@@ -37,6 +86,7 @@
 
 .product-steps {
     min-height: 200px;
+    margin: 45px auto !important;
     .container>.row {
         justify-content: space-between;
         align-items: center;

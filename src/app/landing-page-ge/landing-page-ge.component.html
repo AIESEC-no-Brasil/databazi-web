@@ -26,7 +26,22 @@
   <!-- Form ge -->
   <app-form-ge id="form"></app-form-ge>
 
-  <section class="product-steps margin-top-and-bottom">
+  <app-landing-page-countries [countries]='countries'></app-landing-page-countries>
+
+  <section class="product-steps">
+    <header>
+      <div class='banner' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+        <div class='circle' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+          <i class="fas fa-walking"></i>
+        </div>
+      </div>
+      <h1>
+        Quero participar, e agora?
+      </h1>
+      <p>
+        Confira as etapas do nosso processo
+      </p>
+    </header>
     <div class="container">
       <div class="row">
         <div class="product-image background-default col-lg-5 col-md-12 col-sm-12">
