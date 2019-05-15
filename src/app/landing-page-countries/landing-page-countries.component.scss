@@ -11,6 +11,22 @@
         text-align: center;
     }
 
+    #content-wrapper {
+        &.gv {
+            .country-image {
+                height: 425px;
+            }
+        }
+    }
+
+    .country-image {
+        width: 100%;
+        min-height: 210px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
     ul {
         list-style: none;
         padding: 0;
@@ -46,9 +62,24 @@
 
             &.active {
                 padding-left: 35px;
-                border-color: $primary-gt;
-                background-color: $primary-gt;
                 color: #fff;
+                &.gt {
+                    border-color: $primary-gt;
+                    background-color: $primary-gt;
+                    +li {
+                        border-top-color: $primary-gt;
+                    }
+                }
+                &.gv {
+                    border-color: $primary-gv;
+                    background-color: $primary-gv;
+                    +li {
+                        border-top-color: $primary-gv;
+                    }
+                    .country-image {
+                        height: 400px
+                    }
+                }
 
                 img {
                     border: 3px solid #fff;
@@ -59,20 +90,12 @@
                     font-weight: 600
                 }
 
-                +li {
-                    border-top-color: $primary-gt;
-                }
+                
             }
         }
     }
 
-    .country-image {
-        width: 100%;
-        height: 210px;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
+   
 
     img {
         max-width: 100%;
@@ -127,6 +150,14 @@
         padding: 20px 0 0 0 !important;
         margin-bottom: 20px;
 
+        #content-wrapper {
+            &.gv {
+                .country-image {
+                    height: auto;
+                    min-height: auto;
+                }
+            }
+        }
         ul li {
             display: flex;
             flex-direction: column;
@@ -134,7 +165,7 @@
             text-align: center;
 
             &.active {
-                background-color: transparent;
+                background-color: transparent !important;
                 color: #6d6d6d;
 
                 img {
