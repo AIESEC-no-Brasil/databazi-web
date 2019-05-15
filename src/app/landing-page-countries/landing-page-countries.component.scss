@@ -17,6 +17,11 @@
                 height: 425px;
             }
         }
+        &.ge {
+            .country-image {
+                height: 240px;
+            }
+        }
     }
 
     .country-image {
@@ -75,6 +80,16 @@
                     background-color: $primary-gv;
                     +li {
                         border-top-color: $primary-gv;
+                    }
+                    .country-image {
+                        height: 400px
+                    }
+                }
+                &.ge {
+                    border-color: $primary-ge;
+                    background-color: $primary-ge;
+                    +li {
+                        border-top-color: $primary-ge;
                     }
                     .country-image {
                         height: 400px
@@ -152,6 +167,12 @@
 
         #content-wrapper {
             &.gv {
+                .country-image {
+                    height: auto;
+                    min-height: auto;
+                }
+            }
+            &.ge {
                 .country-image {
                     height: auto;
                     min-height: auto;
