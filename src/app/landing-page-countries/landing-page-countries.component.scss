@@ -124,10 +124,8 @@
     }
 
     a {
-        display: block;
-        margin: auto;
+        display: table;
         font-weight: 600;
-        width: 180px;
         text-align: center;
         padding: 10px 25px;
         cursor: pointer;
@@ -143,15 +141,7 @@
         }
 
         &.gt {
-            background: transparent;
-            border: 3px solid #0b8ea0;
-            color: #0b8ea0;
-            font-size: 13px;
-
-            &:hover {
-                background-color: $primary-gt;
-                color: #fff;
-            }
+            background-color: $primary-gt;
         }
 
         &.ge {
