@@ -45,6 +45,23 @@ $mainColor: #f1c40f;
 }
 
 
+.product-description {
+    .logo-container {
+        position: relative;
+        margin-top: -20px;
+        .colored-logo {
+            margin: 20px 0 5px 0;
+            width: 100%;
+            height: 150px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(../../assets/products/host/logo_larglobal2.png);
+        }
+    }
+}
+
+
 .host-details {
     background-color: $mainColor;
     padding-top: 25px;
@@ -52,8 +69,9 @@ $mainColor: #f1c40f;
     color: #674e13;
     .logo-container {
         position: relative;
-
+        margin-top: -20px;
         .logo {
+            margin-bottom: -50px;
             width: 100%;
             height: 200px;
             background-position: center;
@@ -361,8 +379,6 @@ $mainColor: #f1c40f;
     .host-details .product-image,
     .faq .faq-image,
     .know-aiesec .aiesec-image {
-        margin-bottom: 40px;
-
         .round {
             bottom: -37.5px;
             top: unset;
@@ -386,11 +402,11 @@ $mainColor: #f1c40f;
 
     section {
         &.margin-top-and-bottom {
-            margin: 0 0 75px 0 !important;
+            margin: 0 0 35px 0 !important;
         }
 
         &.padding-top-and-bottom {
-            padding: 0 0 75px 0 !important;
+            padding: 0 0 35px 0 !important;
         }
     }
 
