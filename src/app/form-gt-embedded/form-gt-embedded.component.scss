@@ -1799,9 +1799,10 @@ label {
 
 @media (min-width: 1440px) {
     div.form-talentos-globais {
+        height: 100vh;
         &:not(.full-screen) {
-            transform: scale(1.175);
-            margin: 15vh 0;
+            transform: scale(1.5);
+            transform-origin: 0% 0%; 
         }
     }
 }
