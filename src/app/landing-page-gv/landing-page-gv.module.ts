@@ -10,6 +10,7 @@ import { LandingPageGvComponent } from './landing-page-gv.component';
 
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { ContactListModule } from '../contact-list/contact-list.module';
+import { LandingPageCountriesModule } from '../landing-page-countries/landing-page-countries.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ContactListModule } from '../contact-list/contact-list.module';
     LandingFooterModule,
     FormGvModule,
     ContactListModule,
+    LandingPageCountriesModule,
     ScrollToModule.forRoot()
   ]
 })

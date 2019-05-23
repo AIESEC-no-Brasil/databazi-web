@@ -1,0 +1,32 @@
+<header>
+  <div class='banner' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+    <div class='circle' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+      <i class="fas fa-briefcase"></i>
+    </div>
+  </div>
+  <h1>
+    Áreas de Atuação
+  </h1>
+  <p>
+    Impulsione sua carreira com uma experiência profissional internacional
+  </p>
+</header>
+<section id='subproducts'>
+  <div class='container'>
+    <div class='row'>
+    <div class='col-lg-3 col-sm-12 col-md-12 each-subproduct' *ngFor='let subproduct of subproducts'>
+        <div class='icon col-12'>
+          <img src='{{subproduct.icon}}'>
+        </div>
+        <div class='col-12'>
+          <h3>
+            {{ subproduct.name }} 
+          </h3>
+          <p>
+            {{ subproduct.description }}
+          </p>
+          <a href='{{subproduct.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" target="_blank"> Ver oportunidades </a>
+        </div>
+      </div>
+    </div>
+  </div>

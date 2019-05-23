@@ -1025,7 +1025,7 @@ export class ContactListComponent implements OnInit {
     this.actualPage = this.router.url.replace('/', '');
     let list = null;
     switch (this.actualPage) {
-      case 'hospede-um-intercambista':
+      case 'lar-global':
         list = this.allProgramsContacts.host;
         break;
       case 'voluntario-global':

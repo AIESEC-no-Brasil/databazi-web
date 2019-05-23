@@ -51,12 +51,12 @@
                   </div>
                 </div>
                 <!-- desktop -->
-                <input type="text" class="form-control desktop" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
+                <input type="email" class="form-control desktop" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
                   formControlName="email" name="email" required>
 
                 <!-- mobile -->
                 <i class="fas fa-envelope mobile mobile-icon"></i>
-                <input type="text" class="form-control mobile" placeholder="E-mail" (blur)="checkEmail()" [(ngModel)]="user.email" formControlName="email"
+                <input type="email" class="form-control mobile" placeholder="E-mail" (blur)="checkEmail()" [(ngModel)]="user.email" formControlName="email"
                   name="email" required>
                 <div class="valid-feedback">
                   <i class="fas fa-check"></i>
@@ -245,12 +245,12 @@
             <div class="row forms-term">
               <div class="col-sm-12">
                 <div>
-                  <div class='forms-terms-area' (click)='openModal()'>
+                  <div class='forms-terms-area'>
                     <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
                     <label class='forms-tem-accepted info-mobile-content'>
                       Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
                       <br>
-                      <span style='text-decoration: underline'> Para ler os termos, basta clicar aqui. </span>
+                      <span style='text-decoration: underline; cursor: pointer;' (click)='openModal()'> Para ler os termos, basta clicar aqui. </span>
                     </label>
                   </div>
                 </div>

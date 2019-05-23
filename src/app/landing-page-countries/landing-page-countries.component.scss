@@ -1,0 +1,219 @@
+@import "../../scss/global.scss";
+
+
+#countries {
+    padding: 15px 0 0 0 !important;
+
+    h1 {
+        font-size: 40px;
+        color: #555;
+        margin: 15px auto 50px auto;
+        text-align: center;
+    }
+
+    #content-wrapper {
+        &.gv {
+            .country-image {
+                height: 425px;
+            }
+        }
+        &.ge {
+            .country-image {
+                height: 240px;
+            }
+        }
+    }
+
+    .country-image {
+        width: 100%;
+        min-height: 210px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+
+        li {
+            width: 100%;
+            border: 1px solid rgba(0, 0, 0, .3);
+            transition: .2s;
+            cursor: pointer;
+            padding: 15px;
+            border-bottom: 0;
+            display: flex;
+            align-items: center;
+
+            img:not(.country-image-value) {
+                width: 30px;
+                margin-right: 10px;
+            }
+
+            label {
+                font-size: 16px;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid rgba(0, 0, 0, .3);
+            }
+
+            &:hover {
+                padding-left: 25px;
+            }
+
+            &.active {
+                padding-left: 35px;
+                color: #fff;
+                &.gt {
+                    border-color: $primary-gt;
+                    background-color: $primary-gt;
+                    +li {
+                        border-top-color: $primary-gt;
+                    }
+                }
+                &.gv {
+                    border-color: $primary-gv;
+                    background-color: $primary-gv;
+                    +li {
+                        border-top-color: $primary-gv;
+                    }
+                    .country-image {
+                        height: 400px
+                    }
+                }
+                &.ge {
+                    border-color: $primary-ge;
+                    background-color: $primary-ge;
+                    +li {
+                        border-top-color: $primary-ge;
+                    }
+                    .country-image {
+                        height: 400px
+                    }
+                }
+
+                img {
+                    border: 3px solid #fff;
+                    border-radius: 50%;
+                }
+
+                label {
+                    font-weight: 600
+                }
+
+                
+            }
+        }
+    }
+
+   
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0 0 10px 0;
+    }
+
+    p.description {
+        margin: 15px 0;
+        font-style: italic;
+    }
+
+    a {
+        display: table;
+        font-weight: 600;
+        text-align: center;
+        padding: 10px 25px;
+        cursor: pointer;
+        transition: .2s;
+        color: #fff;
+        outline: none;
+        border: 0;
+        background-color: $default;
+        margin: 10px 0;
+
+        &.gv {
+            background-color: $primary-gv;
+        }
+
+        &.gt {
+            background-color: $primary-gt;
+        }
+
+        &.ge {
+            background-color: $primary-ge;
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    #countries {
+        padding: 20px 0 0 0 !important;
+        margin-bottom: 20px;
+
+        #content-wrapper {
+            &.gv {
+                .country-image {
+                    height: auto;
+                    min-height: auto;
+                }
+            }
+            &.ge {
+                .country-image {
+                    height: auto;
+                    min-height: auto;
+                }
+            }
+        }
+        ul li {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 5px !important;
+            text-align: center;
+
+            &.active {
+                background-color: transparent !important;
+                color: #6d6d6d;
+
+                img {
+                    border-radius: 0;
+                    border: 0;
+                }
+            }
+
+            .country-image {
+                height: auto;
+
+                img {
+                    margin: 0;
+                }
+            }
+
+            a {
+                margin: 10px auto;
+            }
+        }
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .desktop {
+        display: none;
+    }
+}
+
+@media (min-width: 991px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: block;
+    }
+}

@@ -80,10 +80,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   scrollToGlobal(){
-    var element = $('#global').offset().top;
-    if (window.innerWidth >= 1024){
-      element -= 100;
-    }
+    var element = $('#header-product').offset().top;
     $('html, body').animate({
       scrollTop: element
     }, 700)
@@ -113,7 +110,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   goToHost(){
-    this.router.navigate(['/hospede-um-intercambista']);
+    this.router.navigate(['/lar-global']);
   }
 
   goToAiesec(){

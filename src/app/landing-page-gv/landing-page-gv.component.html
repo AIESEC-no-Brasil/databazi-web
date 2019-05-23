@@ -25,7 +25,22 @@
   <!-- Step -->
   <app-form-gv id="form"></app-form-gv>
 
-  <section class="product-steps margin-top-and-bottom">
+  <app-landing-page-countries [countries]='countries'></app-landing-page-countries>
+
+  <section class="product-steps">
+    <header>
+      <div class='banner' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+        <div class='circle' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+          <i class="fas fa-walking"></i>
+        </div>
+      </div>
+      <h1>
+        Quero participar, e agora?
+      </h1>
+      <p>
+        Confira as etapas do nosso processo
+      </p>
+    </header>
     <div class="container">
       <div class="row">
         <div class="product-image background-default col-lg-5 col-md-12 col-sm-12">
@@ -184,7 +199,7 @@
               <h3 class="bold line-height-lower darker">
                 Auxílio para achar sua vaga
               </h3>
-              <p class="lighter lower">
+              <p class="lighter">
                 Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa para o seu perfil, tirar todas suas dúvidas
                 e vai te colocar em contato com o escritório para onde você vai viajar.
               </p>
@@ -198,7 +213,7 @@
               <h3 class="bold line-height-lower darker">
                 Apoio logístico
               </h3>
-              <p class="lighter lower">
+              <p class="lighter">
                 Antes e durante o intercâmbio, a AIESEC na sua cidade e no seu destino irão te auxiliar com a logística de transporte, acomodação
                 e preparo para o seu projeto.
               </p>
@@ -212,7 +227,7 @@
               <h3 class="bold line-height-lower darker">
                 Descrição de trabalho
               </h3>
-              <p class="lighter lower">
+              <p class="lighter">
                 Independente do tipo de intercâmbio, nossas oportunidades possuem descrições do projeto que você vai participar, carga horária
                 e as suas responsabilidades. Além disso, você pode conversar com a nossa equipe para esclarecer qualquer
                 dúvida.
@@ -227,7 +242,7 @@
               <h3 class="bold line-height-lower darker">
                 Experiência de Liderança
               </h3>
-              <p class="lighter lower">
+              <p class="lighter">
                 Ao longo da sua experiência com a AIESEC, serão oferecidos diversos espaços para você refletir e aprimorar as habilidades
                 desenvolvidas no seu intercâmbio, para que você possa retornar e trazer um impacto real para sua cidade.
               </p>

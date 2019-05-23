@@ -1,0 +1,133 @@
+@import "../../scss/global.scss";
+
+header {
+    text-align: center;
+    padding: 20px 0;
+
+    p {
+        font-size: 16px;
+        font-weight: lighter;
+        color: #555;
+        line-height: 28px;
+        min-height: auto;
+        margin: 0;
+    }
+
+    .banner {
+        width: 100%;
+        position: relative;
+        height: 60px;
+        margin-bottom: 30px;
+
+        &.gt {
+            background-color: $primary-gt;
+        }
+
+        .circle {
+            height: 90px;
+            width: 90px;
+            background: #fff;
+            top: -10px;
+            position: relative;
+            left: 50%;
+            margin-left: -45px;
+            background-size: 50%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+
+            &.gt {
+                border: 5px solid $primary-gt;
+                color: $primary-gt;
+            }
+        }
+    }
+}
+
+#subproducts {
+    margin-bottom: 45px;
+
+    .each-subproduct {
+        margin: 20px 0;
+
+        .icon {
+            width: 140px;
+            height: 140px;
+            margin: auto;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        h3 {
+            color: #333;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: lighter;
+            color: #555;
+            line-height: 28px;
+        }
+
+        a {
+            display: block;
+            margin: auto;
+            font-weight: 600;
+            width: 180px;
+            text-align: center;
+            padding: 10px 25px;
+            cursor: pointer;
+            transition: .2s;
+            color: #fff;
+            outline: none;
+            border: 0;
+            background-color: $default;
+            margin: 10px 0;
+
+            &.gv {
+                background-color: $primary-gv;
+            }
+
+            &.gt {
+                background: transparent;
+                border: 3px solid #0b8ea0;
+                color: #0b8ea0;
+                font-size: 13px;
+                &:hover {
+                    background-color: $primary-gt;
+                    color: #fff;
+                }
+            }
+
+            &.ge {
+                background-color: $primary-ge;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 991px) {
+    #subproducts p {
+        min-height: 200px;
+    }
+}
+@media (max-width: 990px) {
+    *, #subproducts * {
+        text-align: center;
+        display: block;
+        min-height: auto;
+    }
+    a {
+        margin: 0 auto 20px auto !important;
+    }
+} 
