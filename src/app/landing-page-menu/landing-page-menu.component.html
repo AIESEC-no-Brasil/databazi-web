@@ -10,9 +10,14 @@
       </div>
       <div class="menu-product col-sm-9">
         <div class="responsive-menu">
-          <div class='menu-icon' (click)="toggleResponsiveMenu()">
-            <i *ngIf="!responsiveMenu" class="fas fa-bars"></i>
-            <i *ngIf="responsiveMenu" class="fas fa-times"></i>
+          <div class='menu-icon'>
+            <div class="aiesec-favicon" (click)="toggleResponsiveMenu()">
+              <i class="far fa-chevron-down favicon-arrow" *ngIf="!responsiveMenu"></i>
+              <i class="far fa-chevron-up favicon-arrow" *ngIf="responsiveMenu"></i>
+            </div>
+            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank">
+              <button type="button" class="btn btn-primary">Veja as oportunidades</button>
+            </a>
           </div>
           <ul id="menu">
             <li>
@@ -104,63 +109,62 @@
             </a>
           </ul>
 
-          <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
-            <div class="logo-menu" routerLink="/"></div>
-            <li>
-              <span>Faça um intercâmbio</span>
-              <ul class="animated fadeIn faster">
-                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
-                  Voluntário Global
-                </li>
-                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
-                  Empreendedor Global
-                </li>
-                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
-                  Talento Global
-                </li>
-              </ul>
-            </li>
-            <li (click)='goToHost()'>
-              <span>Lar Global</span>
-            </li>
-            <li>
-              <span>Seja nosso parceiro</span>
-              <ul class='animated fadeIn faster'>
-                <a href="http://business.aiesec.org.br/" target="_blank">
-                  <li>
-                    Empresas
+          <div class="mobile-dropdown-menu vis animated faster" *ngIf="responsiveMenu" [ngClass]="{fadeIn: responsiveMenu, fadeOut: !responsiveMenu}">
+            <div class="mobile-dropdown-container">
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Faça um intercâmbio</span>
+                  <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                    Voluntário Global
                   </li>
-                </a>
-                <a href='http://blog.aiesec.org.br/youthspeak/' target="_blank">
-                  <li>
-                    Youthspeak
+                  <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                    Empreendedor Global
                   </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              <span>Planeje sua viagem</span>
-              <ul class="animated fadeIn faster">
-                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
-                  <li>
-                    Passagens Aéreas
+                  <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                    Talento Global
+                  </li>                  
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <li (click)='goToHost()'>
+                    Lar Global
                   </li>
-                </a>
-                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
-                  <li>
-                    Câmbio de Moedas
-                  </li>
-                </a>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
-                  <li>
-                    Seguro Saúde
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              <span>Blog</span>
-              <ul class="animated fadeIn faster">
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Seja nosso parceiro</span>
+                  <a href="http://business.aiesec.org.br/" target="_blank">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                  <a href='http://blog.aiesec.org.br/youthspeak/' target="_blank">
+                    <li>
+                      Youthspeak
+                    </li>
+                  </a>
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Planeje sua viagem</span>
+                  <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
+                    <li>
+                      Passagens Aéreas
+                    </li>
+                  </a>
+                  <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
+                    <li>
+                      Câmbio de Moedas
+                    </li>
+                  </a>
+                  <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
+                    <li>
+                      Seguro Saúde
+                    </li>
+                  </a>
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Blog</span>
                   <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" target="_blank">
                     <li>
                       Empresas
@@ -171,14 +175,9 @@
                       Estudantes
                     </li>
                   </a>
-              </ul>
-            </li>
-            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank">
-              <li>
-                <span>Veja as oportunidades</span>
-              </li>
-            </a> 
-          </ul>
+                </ul>             
+            </div>            
+          </div>
         </div>
       </div>
     </div>
