@@ -67,8 +67,7 @@ export class FormHostComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required,
-        Validators.pattern('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        Validators.required
       ]),
       neighborhood: new FormControl(this.user.neighborhood, [
         Validators.required
@@ -208,7 +207,7 @@ export class FormHostComponent implements OnInit {
       exchange_student_host: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-        email: this.user.email.toLowerCase(),
+        email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
         neighborhood: (this.user.neighborhood ? this.user.neighborhood : 'Não encontrado'),
         zipcode: this.user.cep,
