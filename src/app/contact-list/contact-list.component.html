@@ -1,0 +1,36 @@
+<section class='padding-top-and-bottom {{ actualPage }}' id='contact'>
+  <div class='container'>
+    <div class='row'>
+      <div class='contact-area col-lg-6 col-sm-12 col-md-12'>
+          <h3>
+              Entre em contato
+            </h3>
+        <p>
+          Contate o escritório mais próximo
+        </p>
+        <div class='contact-container'>
+          <select (change)='onSelect($event.target.value)'>
+            <option value=''>-- Selecione uma cidade -- </option>
+            <option *ngFor='let contact of contactList' value='{{contact.id}}'>{{ contact.city }}</option>
+          </select>
+          <div *ngIf='contact' class='contact-details'>
+            <b>
+              AIESEC EM {{ contact.city }}
+            </b>
+            <span>
+              {{ contact.name }}
+            </span>
+            <ul>
+              <li>
+                <i class="fas fa-phone"></i> {{ contact.cellphone }}
+              </li>
+              <li>
+                <i class="fas fa-envelope"></i> {{ contact.email }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

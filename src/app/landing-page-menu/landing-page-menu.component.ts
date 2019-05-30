@@ -19,15 +19,12 @@ export class LandingPageMenuComponent implements OnInit {
 
   ngOnInit() {
     this.actualPage = this.router.url.replace('/','');
-    $(window).scroll(function (event) {
-      let scroll = $(window).scrollTop();
-      if (scroll >= 300 && window.innerWidth >= 1024) {
-        $('#fixedMenu').addClass('fixedMenu');
-      }
-      else {
-        $('#fixedMenu').removeClass('fixedMenu');
-      }
-    });
+    if (window.innerWidth < 1024){
+      $('#fixedMenu').removeClass('fixedMenu');
+    }
+    else {
+      $('#fixedMenu').addClass('fixedMenu');
+    }
   }
 
   toggleResponsiveMenu(){
@@ -58,5 +55,9 @@ export class LandingPageMenuComponent implements OnInit {
 
   goToGt(){
     this.router.navigate(['/talento-global']);
+  }
+
+  goToHost(){
+    this.router.navigate(['/lar-global']);
   }
 }

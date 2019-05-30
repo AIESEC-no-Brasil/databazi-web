@@ -1,0 +1,1212 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~animate.css/animate.min.css';
+@import '~node_modules/primeng/resources/themes/nova-light/theme.css';
+@import '~node_modules/primeng/resources/primeng.min.css';
+
+.desktop {
+    display: flex !important;
+}
+
+.mobile {
+    display: none !important;
+}
+
+input, input.mobile, .border-bottom {
+    border-bottom: 1px solid rgba(255,255,255,.5) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@media (max-width: 600px) {
+    .desktop {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        &.mobile-icon {
+            display: flex !important;
+            margin-right: 0;
+            align-items: center;
+            background: #b28c30;
+            color: #FFF;
+            padding: 0 10px;
+            border-bottom: 1px solid rgba(255,255,255,.5);
+            min-width: 35px;
+            justify-content: center;
+        }
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 600px){
+    /* Placeholder Dropdown */
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-ms-input-placeholder {
+        color: #fff !important;
+        font-size: 16px !important;
+        text-align: left;
+        padding-right: 0;
+    }
+}
+
+#signUp {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
+    h1 {
+        text-align: center;
+        margin: 10px auto 20px auto;
+        font-weight: 600
+    }
+
+    .alert {
+        width: 95%;
+        display: block;
+        margin: auto;
+
+        p {
+            font-size: 1.2em;
+            margin: 0;
+        }
+    }
+
+    .col-1 {
+        padding: 0;
+    }
+
+    .row,
+    div.col-12,
+    div.col-11 {
+        &.without-border {
+            margin: 0;
+            padding: 0;
+
+            .button {
+                background: #b28c30 !important;
+                width: 100%;
+                height: 50px;
+                padding: 4px 10px;
+                margin: auto;
+                cursor: pointer;
+            }
+            .button i {
+                margin: 0;
+            }
+            label {
+                left: 10px;
+            }
+        }
+    }
+
+    div.col-12 {
+        position: relative;
+        margin: 5px 0;
+
+        &.address {
+            input {
+                background-color: rgba(100, 100, 100, 0.6);
+                cursor: not-allowed;
+            }
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            position: absolute;
+            left: 25px;
+            top: 15px;
+            font-size: 16px;
+            color: #fff;
+            transition: .3s;
+
+            &.has-content {
+                left: 15px;
+                top: -10px;
+                font-size: 10px;
+                color: rgba(0, 0, 0, .8)
+            }
+        }
+    }
+
+    button {
+        margin: auto;
+        padding: 15px;
+        border: 0;
+        background-color: transparent;
+        text-transform: uppercase;
+        color: #b28c30;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        background-color: rgba(255,255,255, 0.9);
+        margin-top: 15px;
+
+        &.not-allowed {
+            cursor: not-allowed;
+            opacity: .3
+        }
+    }
+
+    .error-message {
+        background-color: #ba6308;
+        padding: 10px;
+        text-align: left;
+        color: #fff;
+    }
+}
+
+.select-autocomplete {
+    background-color: rgba(0, 0, 0, .3);
+    position: relative;
+    height: 50px;
+    margin: 10px 15px 15px 15px !important;
+    box-sizing: border-box;
+    flex: 0 0 calc(100% - 30px);
+    display: flex;
+
+    .dropdown {
+        padding: 0;
+        position: relative;
+        width: 100%;
+
+        .styled-select {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            position: relative;
+
+            i {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        ::ng-deep .p-inputMask {
+            padding-right: 30px !important;
+        }
+
+        ::ng-deep .p-inputMask input {
+            background-color: transparent !important;
+            border: 0 !important;
+            position: relative;
+            flex: 1 1 auto;
+            text-align: right;
+            margin: 0;
+            min-width: 400px;
+            padding: 10px 30px 6px 0;
+        }
+    }
+
+    /deep/ .ui-autocomplete-input {
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        color: white;
+    }
+
+    /deep/ p-autoComplete {
+        width: 100%;
+
+        input::-webkit-input-placeholder {
+            color: white;
+        }
+
+        input:-moz-placeholder {
+            color: white;
+        }
+
+        input::-moz-placeholder {
+            color: white;
+        }
+
+        input:-ms-input-placeholder {
+            color: white;
+        }
+    }
+
+    /deep/ .ui-autocomplete-items {
+        list-style: none;
+        padding: 0;
+        background-color: #fff;
+        border: 1px solid grey;
+        color: #333;
+        max-height: 185px;
+        overflow: auto;
+        position: absolute;
+        width: 90%;
+
+        li {
+            width: 100%;
+            padding: 4.5px;
+            transition: .3s;
+            cursor: pointer;
+            text-align: left;
+
+            &.ui-state-highlight {
+                background-color: #3f77bc;
+                color: #fff;
+            }
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    #signUp {
+        width: 100%;
+    }
+}
+
+@media (max-width: 990px) {
+    #signUp {
+        width: 100%;
+
+        .select-autocomplete {
+            flex: 0 0 calc(100% - 30px);
+        }
+    }
+}
+
+.loading-content {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loading {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: loading infinite alternate 1s;
+        background-image: url(../../assets/products/host/loading.png);
+        background-position: center center;
+        background-size: 50%;
+        background-repeat: no-repeat;
+    }
+}
+
+.forms-term {
+    width: 100%;
+    margin: 0;
+
+    label {
+        text-align: center;
+        width: 100%;
+        font-size: 22px;
+        // color: #fff;
+        margin-top: 20px;
+    }
+
+    span {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    textarea {
+        margin-bottom: 5px;
+    }
+
+    .forms-tem-accepted {
+        font-size: 12px;
+        display: block;
+        margin: 0 auto 15px auto;
+        text-align: center;
+    }
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.5);
+    }
+}
+
+#modal {
+    width: 100%;
+    height: 100%;
+    left:0;
+    top:0;
+    position:fixed;
+    z-index: 1001;
+    padding: 45px 30px;
+    .modal-bg {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.35);
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 2;
+    }    
+    .close-modal-button {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 30px;
+        right: 20px;
+        border-radius: 50%;
+        z-index: 1003;
+        font-size: 32px;
+        cursor: pointer;
+        color: #037ef3;
+        background-color: #fff;
+        padding: 0;
+        margin: 0;
+        .fas {
+            margin: 0;
+        }
+    }
+}
+
+label.input-terms-label {
+    text-align: center;
+    width: 100%;
+    font-size: 22px;
+}
+
+.form-check-label {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.checkbox label::before {
+    content: "";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    border: 1px solid;
+}
+
+.checkbox label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+}
+
+/*Outer-box*/
+
+.checkbox label::before {
+    top: 3px;
+    left: -25px;
+}
+
+/*Checkmark*/
+
+.checkbox label::after {
+    left: -21px;
+    top: 7px;
+}
+
+/*Hide the checkmark by default*/
+
+.checkbox input[type="checkbox"]+label::after {
+    content: none;
+}
+
+/*Unhide the checkmark on the checked state*/
+
+.checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+
+.checkbox input[type="checkbox"]:focus+label::before {
+    outline: rgb(255, 255, 255) auto 5px;
+}
+
+.select-dropdown {
+    justify-content: space-between;
+    flex-wrap: wrap !important;
+    background-color: #b28c30 !important;
+    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    padding-right: 10px;
+    position: relative;
+}
+
+.select-dropdown div.input-group-prepend>div {
+    border-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+      Forms
+  --------------------------------------------------------------*/
+
+.dropdown {
+    padding: 0 10px;
+}
+
+.error-message {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, .3)
+}
+
+.forms {
+    margin-bottom: 15px;
+    z-index: 1;
+    position: relative;
+}
+
+.form-group {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-clip: padding-box;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: unset;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    padding: .375rem .75rem;
+    background: #b28c30 !important;
+    color: #FFF;
+}
+
+.fas {
+    margin-right: 15px;
+}
+
+.input-group-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #b28c30 !important;
+    color: #FFF;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 16px !important;
+    font-weight: lighter;
+    text-align: right;
+    padding-right: 30px;
+    font-style: italic;
+    color: #FFF !important;
+}
+
+input:-moz-placeholder {
+    /* Firefox 18- */
+    font-weight: lighter;
+    text-align: right;
+    padding-right: 30px;
+    font-size: 16px !important;
+    color: #FFF !important;
+    font-style: italic;
+}
+
+input::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 16px !important;
+    font-weight: lighter;
+    text-align: right;
+    padding-right: 30px;
+    font-size: 13px !important;
+    color: #FFF !important;
+    font-style: italic;
+}
+
+input:-ms-input-placeholder {
+    font-size: 16px !important;
+    font-weight: lighter;
+    text-align: right;
+    padding-right: 30px;
+    font-size: 13px !important;
+    color: #FFF !important;
+    font-style: italic;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel] {
+    font-size: 16px;
+    font-weight: lighter;
+    padding-right: 30px;
+    text-align: right;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email],
+input[type=tel] {
+    border: none;
+    color: #FFF !important;
+}
+
+.alert-warning {
+    font-size: 16px;
+}
+
+.alert-dismissible .close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.80rem 0.50rem;
+    color: inherit;
+    right: unset;
+}
+
+.alert-dismissible p {
+    margin: 0;
+    padding: 0 0 0 30px;
+}
+
+.text-muted {
+    color: #ffffff !important;
+    width: 100%;
+    text-align: right;
+    bottom: 0px;
+    right: 5px;
+    margin-bottom: -18px;
+    font-size: 70%;
+    position: absolute;
+    z-index: 1;
+}
+
+.forms-term {
+    .col-sm-10 {
+        z-index: 0;
+    }
+    .iframe {
+        min-height: 150px;
+        body {
+            color: #fff !important
+        }
+    }
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    opacity: 1;
+    padding: 10px 15px 10px 15px;
+    margin-bottom: 20px;
+}
+
+.form-control:focus,
+.form-control:active {
+    box-shadow: none;
+    border-radius: 0;
+    border: none;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 15px;
+}
+
+.dropdown,
+.dropleft,
+.dropright,
+.dropup {
+    position: relative;
+    height: 50px;
+    display: flex;
+    flex: 1;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    margin: 0;
+    border: transparent;
+}
+
+.dropdown-item {
+    text-align: right;
+}
+
+.dropdown-item:last-child {
+    text-align: right;
+}
+
+.dropdown-menu[x-placement^="bottom"],
+.dropdown-menu[x-placement^="left"],
+.dropdown-menu[x-placement^="right"],
+.dropdown-menu[x-placement^="top"] {
+    right: 0;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    vertical-align: .1em;
+    content: "";
+    border-top: .5em solid;
+    border-right: .5em solid transparent;
+    border-bottom: 0;
+    border-left: .5em solid transparent;
+    color: #f6a496;
+}
+
+.valid-feedback {
+    width: 20px;
+    margin-top: .25rem;
+    font-size: 100%;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    right: 5px;
+    top: 20px;
+}
+
+.invalid-feedback {
+    width: 150px;
+    font-size: 80%;
+    color: #ffffff;
+    text-align: right;
+    position: absolute;
+    right: 5px;
+    bottom: -20px;
+    z-index: 1;
+    height: 84px;
+    padding-top: 64px;
+}
+
+.invalid-feedback .fa-times {
+    position: absolute;
+    top: 22px;
+    right: -10px;
+    font-size: 1.5em;
+}
+
+.custom-control {
+    margin: 20px -2px;
+    position: initial;
+}
+
+/*--------------------------------------------------------------
+      Buttons
+  --------------------------------------------------------------*/
+
+.btn {
+    border-radius: 5px;
+}
+
+.btn-primary,
+.btn-secondary {
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+    line-height: 1em;
+    border-width: 2px;
+}
+
+.btn-secondary.focus,
+.btn-secondary:focus,
+.btn-primary.focus,
+.btn-primary:focus {
+    box-shadow: none;
+}
+
+/*--------------------------------------------------------------
+      Start Responsive
+  --------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+      Responsive Styles - Min 991px
+  --------------------------------------------------------------*/
+
+@media (min-width: 991px) {
+    /* Forms */
+    .forms .col-sm {
+        max-width: 850px;
+    }
+    /* Dropdown */
+    .input-group-text {
+        width: 230px;
+    }
+    .dropdown-toggle {
+        width: 508px;
+        text-align: right;
+    }
+}
+
+/*--------------------------------------------------------------
+      Responsive Styles - Max 990px
+  --------------------------------------------------------------*/
+
+@media (max-width: 990px) {
+    /* Forms */
+    .forms .col-sm {
+        max-width: 720px;
+    }
+    /* Dropdown */
+    .input-group-text {
+        width: 200px;
+    }
+    .dropdown-toggle {
+        width: 490px;
+        text-align: right;
+    }
+    #row-with-buttons {
+        flex-direction: column-reverse;
+        > div {
+            display:flex;
+            width: 100%;
+            align-content: center;
+            justify-content: center;
+            margin: 5px 0;
+            min-height: 40px;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+      Responsive Styles - Max 767px
+  --------------------------------------------------------------*/
+
+@media (max-width: 767px) {
+    //prime 
+    ::ng-deep .p-inputMask input {
+        text-align: right;
+        margin: 0;
+        min-width: 100%;
+        padding: 10px 0 6px 12px;
+    }
+    ::ng-deep .p-inputMask {
+        padding-right: 10px !important;
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #fff;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 1.75vw !important;
+                color: #fff
+            }
+            input:-moz-placeholder {
+                font-size: 1.75vw !important;
+                color: #fff
+            }
+            input::-moz-placeholder {
+                font-size: 1.75vw !important;
+                color: #fff
+            }
+            input:-ms-input-placeholder {
+                font-size: 1.75vw !important;
+                color: #fff
+            }
+        }
+    }
+    /* Forms */
+    .forms .col-sm {
+        max-width: 720px;
+    }
+    /* Dropdown */
+    .input-group-text {
+        width: 170px;
+    }
+    .dropdown-toggle {
+        width: 340px;
+        text-align: right;
+    }
+    /* Placeholder Dropdown */
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+        font-size: 2vw !important;
+        text-align: right;
+        padding-right: 0;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff !important;
+        font-size: 2vw !important;
+        text-align: right;
+        padding-right: 0;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff !important;
+        font-size: 2vw !important;
+        text-align: right;
+        padding-right: 0;
+    }
+    input:-ms-input-placeholder {
+        color: #fff !important;
+        font-size: 2vw !important;
+        text-align: right;
+        padding-right: 0;
+    }
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=tel] {
+        font-size: 15px;
+        font-weight: lighter;
+        color: #fff;
+        padding-right: 10px;
+        text-align: right;
+    }
+    .input-group-text {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+    .form-check-label {
+        font-size: 13px;
+    }
+}
+
+/*--------------------------------------------------------------
+      Responsive Styles - Max 600px
+  --------------------------------------------------------------*/
+
+@media (max-width: 600px) {
+     //prime 
+    p-autoComplete {
+        font-size: 3.2vw !important
+    }
+    ::ng-deep .p-inputMask input {
+        text-align: left;
+        padding: 0px 0 0 0;
+    }
+    ::ng-deep .p-inputMask {
+        &.gv {
+            input {
+                font-size: 16px;
+                font-weight: lighter;
+                font-family: "Lato", sans-serif;
+                color: #fff;
+                :focus {
+                    border: 0;
+                    box-shadow: 0;
+                }
+            }
+            input::-webkit-input-placeholder {
+                font-size: 4.50vw !important;
+                color: #fff
+            }
+            input:-moz-placeholder {
+                font-size: 4.50vw !important;
+                color: #fff
+            }
+            input::-moz-placeholder {
+                font-size: 4.50vw !important;
+                color: #fff
+            }
+            input:-ms-input-placeholder {
+                font-size: 4.50vw !important;
+                color: #fff
+            }
+        }
+    }
+    /* Forms */
+    .form-control {
+        height: 40px;
+    }
+    #signUp {
+        .search-btn button {
+            height: 40px !important;
+            i {
+                margin-left: -15px !important;
+            }
+        }
+    }
+    .forms .col-sm {
+        max-width: 480px;
+    }
+    .input-group-append,
+    .input-group-prepend {
+        display: grid;
+        width: 100%;
+        height: 40px;
+    }
+    .input-group-text {
+        border: none;
+    }
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=tel] {
+        font-size: 15px;
+        font-weight: lighter;
+        color: #fff;
+        padding-right: 0;
+        text-align: left;
+    }
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email],
+    input[type=tel] {
+        background-color: #ed482d;
+        color: #fff;
+    }
+    /* Dropdown */
+    .input-group-text {
+        width: 100%;
+    }
+    .dropdown-toggle {
+        width: 450px;
+        text-align: right;
+    }
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=tel] {
+        font-size: 15px;
+        font-weight: lighter;
+        color: #fff;
+        padding-right: 0;
+        text-align: left;
+    }
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email],
+    input[type=tel] {
+        background-color: #ed482d;
+        color: #fff;
+    }
+    /* Placeholder Dropdown */
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+        font-size: 4.25vw !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff !important;
+        font-size: 4.25vw !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff !important;
+        font-size: 4.25vw !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    input:-ms-input-placeholder {
+        color: #fff !important;
+        font-size: 4.25vw !important;
+        text-align: left;
+        padding-right: 0;
+    }
+    .full-screen-embedded {
+        align-items: flex-start;
+    }
+}
+
+/*--------------------------------------------------------------
+      Responsive Styles - Max 400px
+  --------------------------------------------------------------*/
+
+@media (max-width: 400px) {
+    .forms .col-sm {
+        max-width: 370px;
+    }
+    .forms .justify-content-center {
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+        .col-sm-4 {
+            margin: 0 0 20px 0
+        }
+    }
+    .dropdown-toggle {
+        width: 340px;
+        text-align: right;
+    }
+}
+
+.input-group > .custom-file, .input-group > .custom-select, .input-group > .form-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+/deep/ .ui-autocomplete-input {
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-overflow: ellipsis;
+    overflow: hidden;  
+    white-space: nowrap;
+}
+
+/deep/ p-autoComplete {
+    input::-webkit-input-placeholder {
+        color: white;
+    }
+    input:-moz-placeholder {
+        color: white;
+    }
+    input::-moz-placeholder {
+        color: white;
+    }
+    input:-ms-input-placeholder {
+        color: white;
+    }
+}
+
+/deep/ .ui-autocomplete-items {
+    list-style: none;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    max-height: 185px;
+    overflow: auto;
+    li {
+        width: 100%;
+        padding: 4.5px;
+        transition: .3s;
+        cursor: pointer;
+        &.ui-state-highlight {
+            background-color: #3f77bc;
+            color: #fff;
+        }
+        text-align: left !important;
+    }
+}
+
+.autocomplete-clear-btn {
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+
+.fa-times {
+    color: #FFF;
+}
+
+.styled-select {
+    border: 0 !important;
+    box-sizing: border-box;
+    border-radius: 3px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 9999;
+}
+
+.styled-select,
+.styled-select select {
+    width: 100%;
+    color: #fff !important;
+    option {
+        color: #000000;
+        font-size: 18px;
+    }
+}
+
+select:focus {
+    outline: none;
+}
+
+.styled-select select {
+    height: 50px;
+    padding: 5px 20px 5px 5px;
+    background: transparent;
+    border: 0 !important;
+    /*hide default down arrow in webkit */
+    -webkit-appearance: none;
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/select.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/select.png.webp');
+    }
+    background-size: 13px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+i.fa-search {
+    color: #FFF !important;
+}

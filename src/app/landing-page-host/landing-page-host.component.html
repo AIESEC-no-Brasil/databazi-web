@@ -1,0 +1,218 @@
+<head>
+  <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+</head>
+<main>
+  <div class="goToTop" [ngx-scroll-to]="'#header-product'">
+    <i class="fas fa-sort-up"></i>
+  </div>
+
+  <app-landing-page-menu></app-landing-page-menu>
+
+  <section class="product-description padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class='col-md-12 logo-container'>
+          <div class='colored-logo'></div>
+        </div>
+        <div class="description col-lg-7 col-sm-12 col-md-12">
+          <h2 class="bold">
+            Visão geral do programa
+          </h2>
+          <p>
+            Pelo programa <strong>Lar Global da AIESEC</strong> você pode viver uma experiência de aprendizado multicultural ao se <strong>voluntariar para receber um intercambista por 6 a 12 semanas</strong>.<br/><br/>
+
+É sua chance de <strong>colocar em prática uma língua estrangeira</strong>, viver novas experiências e <strong>trocas culturais</strong>, criar <strong>conexões internacionais</strong> e, principalmente, <strong>viver a diversidade</strong>!<br/><br/>
+
+Confira no vídeo o relato de um de nossos participantes!
+        </div>
+        <div class="col-lg-5 col-sm-12 col-md-12 margin-top-and-bottom">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/80D5Gra4QSc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq middle2 padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="faq-image background-default col-lg-5 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+        <div class="faq-info col-lg-7 col-sm-12 col-md-12">
+          <h2 class='bold'>
+            Por quê hospedar um intercambista?
+          </h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="list-icon"><i class="far fa-check-circle"></i></div>
+              <p class='lighter'>
+                <strong>Trocas culturais</strong> - da culinária, música e dança até os hábitos mais pequenos, conviver com alguém de outro país certamente nos proporciona um dialogo multicultural incrivel! Escolha se conectar com o mundo!
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <div class="list-icon"><i class="far fa-check-circle"></i></div>
+              <p class='lighter'>
+                <strong>Novas experiências</strong> - A gente bem sabe que a rotina pode cansar às vezes não é mesmo? Agora imagina fazer o que você faz todos os dias com uma nova pessoa ao seu lado! Revolucione a sua rotina com a vivência surpreendente de receber um estrangeiro na sua casa.
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <div class="list-icon"><i class="far fa-check-circle"></i></div>
+              <p class='lighter'>
+                <strong>Aprender uma nova lingua na prática</strong> - Sempre quis aprender uma nova lingua mas não tem tempo, dinheiro, ou cabeça para um curso formal? Estudos dizem que aprender um novo idioma no dia-a-dia é a melhor forma para exercitar o conhecimento e ativar as conexões cerebrais
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <button (click)='redirectToForm()' class="centered without-border bold with-background  host">
+                Fale conosco
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="host-details" id='host-details-form-area'>
+    <div class="container">
+      <div class="row host-header" id="host-header">
+        <div class='col-lg-4 col-sm-12 col-md-12 logo-container'>
+          <div class='logo'></div>
+        </div>
+        <div class='col-lg-8 col-sm-12 col-md-12'>
+          <h2>
+            Hospedar um intercambista voluntariamente é sobre ajudar alguém a melhorar a sua cidade.
+          </h2>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-lg-4 col-sm-12 col-md-12 requirements-wrapper'>
+          <div class='col-lg-12 col-sm-12 col-md-12'>
+            <h3>
+              O que você precisa para hospedar um intercambista?
+            </h3>
+          </div>
+          <div class='row requirements'>
+            <div *ngFor='let item of hostRequirements; let i = index' class='col-12'>
+              <div class="requirements-icon"><i class='{{item.icon}}'></i></div>
+              <p>
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class='col-lg-8 col-sm-12 col-md-12'>
+          <app-form-host></app-form-host>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq middle1 padding-top-and-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="faq-info col-lg-7 col-sm-12 col-md-12 margin-top-and-bottom">
+          <h2 class='bold'>
+            FAQ - Dúvidas Frequentes
+          </h2>
+          <div class="row">
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                O que é pré-requisito para participar? Preciso falar inglês?
+              </h3>
+              <p class='lighter italic justify'>
+                <strong>Não precisa falar inglês!</strong> A experiência de é, entre outras coisas, sobre a vivência prática de uma nova língua e essa pode ser uma excelente oportunidade para aprender. Para hospedar um intercambista, você só precisa ter <strong>disponibilidade para hospedar de 6-12 semanas</strong>, um <strong>local para o intercambista dormir</strong> (que não precisa ser um quarto individual!), prover <strong>acesso às áreas comuns da casa</strong> e <strong>uso de água e luz</strong> sem custos adicionais para o intercambista. 
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                Como é o suporte da AIESEC para o Host? A AIESEC paga alguma coisa?
+              </h3>
+              <p class='lighter italic justify'>
+                <strong>Não há nenhum custo ou recompensa pela hospedagem, o objetivo é receber um intercambista voluntariamente.</strong> A AIESEC  irá te encontrar e apresentar o intercambista, bem como  acompanhar semanalmente durante a experiência para saber como estão as coisas e prestar auxílio no que for necessário. Além disso, é responsabilidade da AIESEC prover um espaço de indução e contato para tirar todas as suas dúvidas antes da chegada do intercambista. <strong>Estamos sempre à disposição e abertos para ajudar!</strong>
+              </p>
+            </div>
+            <div class="col-sm-12">
+              <h3 class='semibold'>
+                Quem são os intercambistas que viajam pela AIESEC?
+              </h3>
+              <p class='lighter italic justify'>
+                São <strong>jovens de 18 a 30 anos que buscam desenvolver liderança através de intercâmbios transculturais providos pela organização.</strong> Os intercambistas que vem para cá costumam vir de diferentes países, principalmente da América Latina e Europa, e estão engajados de forma voluntária em projetos de impacto social e profissional em 43 cidades do Brasil.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-image background-default col-lg-5 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='know-aiesec with-background host'>
+    <div class="container">
+      <div class="row">
+        <div class="aiesec-image background-default col-lg-6 col-sm-12 col-md-12">
+          <div class="round icon circle"></div>
+        </div>
+        <div class="aiesec-info col-lg-6 col-sm-12 col-md-12 margin-top-and-bottom">
+          <div class="row">
+            <div class='col-12'>
+              <h1>
+                Como funciona a experiência?
+              </h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Contato
+              </h3>
+              <p class="lighter ">
+                Após a sua inscrição, analisaremos as informações sobre o alojamento que você fornecerá e entraremos em contato com você.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Recepção
+              </h3>
+              <p class="lighter ">
+                Assim que o jovem for designado para a sua família, iremos informá-lo para que você possa o acompanhar para lhe dar as boas
+                vindas.
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-2 col-md-12 col-sm-12 centered">
+              <div class="round circle icon without-background gt"></div>
+            </div>
+            <div class="col-lg-10 col-md-12 col-sm-12">
+              <h3 class="bold line-height-lower darker">
+                Apoio
+              </h3>
+              <p class="lighter ">
+                Por meio do acompanhamento, garaniremos que ambas as partes tenham uma boa experiência.
+              </p>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-12'>
+              <button (click)='redirectToForm()' class="border-radius centered without-border with-background default">
+                Inscreva-se já
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-contact-list></app-contact-list>
+</main>
+<app-landing-footer></app-landing-footer>

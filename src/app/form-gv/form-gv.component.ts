@@ -86,8 +86,7 @@ export class FormGvComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -97,7 +96,8 @@ export class FormGvComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required
+        Validators.required,
+        Validators.pattern('^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
       ]),
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
@@ -127,6 +127,15 @@ export class FormGvComponent implements OnInit {
       ])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    this.detectKeypress();
+  }
+
+  detectKeypress(){
+    $(document).keyup((event) => {
+      if (this.modal && event.keyCode == 27){
+        this.closeModal();
+      }
+    })
   }
 
   ngOnInit() {
@@ -196,10 +205,16 @@ export class FormGvComponent implements OnInit {
 
   openModal(){
     this.modal = true;
+    this.toggleOverflowHtml();
   }
 
   closeModal(){
     this.modal = false;
+    this.toggleOverflowHtml();
+  }
+
+  toggleOverflowHtml(){
+    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
   _search(options, search){
@@ -342,15 +357,18 @@ export class FormGvComponent implements OnInit {
     }
   }
 
-  registerUser() {
-    this.submittedPersonal = true;
-    if (this.user.password != this.user.repassword) {
+  checkPassword() {
+    if (this.user.repassword && this.user.password != this.user.repassword) {
       this.invalidPassword = true;
     }
     else {
       this.invalidPassword = false;
     }
+  };
 
+  registerUser() {
+    this.submittedPersonal = true;
+    this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
@@ -366,7 +384,7 @@ export class FormGvComponent implements OnInit {
       gv_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-        email: this.user.email,
+        email: this.user.email.toLowerCase(),
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,

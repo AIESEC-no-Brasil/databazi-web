@@ -134,6 +134,9 @@ $break-sm: 576px;
 }
 
 footer {
+    a {
+        cursor: pointer;
+    }
     &.padding-top-and-bottom {
         padding: 30px 0 25px 0 !important;
     }

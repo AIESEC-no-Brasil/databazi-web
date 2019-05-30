@@ -1,0 +1,33 @@
+<div class='slider-membrasia-host' id='slider'>
+  <section class='membrasia animated faster fadeIn' [ngClass]='{"fadeIn": slider, "fadeContentOut": !slider}'>
+    <div class='bg-membrasia'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-12">
+          <p>
+            Junte-se a nós como
+            <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
+            <br> Participe do nosso
+            <b>Processo Seletivo!</b>
+          </p>
+          <a class='btn btn-primary' (click)='goToMembership()'> Inscreva-se </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='host animated faster fadeIn' [ngClass]='{"fadeIn": !slider, "fadeContentOut": slider}'>
+    <div class='bg-host'></div>
+    <div class='container'>
+      <div class='row'>
+        <div class="col-12">
+          <p>
+            Viva uma experiência multicultural
+            <br> hospedando intercambistas
+            <br>voluntários
+          </p>
+          <a class='btn btn-primary' (click)='goToHost()'> Saiba mais sobre o Lar Global </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

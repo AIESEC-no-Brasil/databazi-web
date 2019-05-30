@@ -1,0 +1,535 @@
+@import "../../scss/global.scss";
+
+.col-lg-7 {
+    box-sizing: border-box;
+    padding: 0 3.5%;
+}
+
+$mainColor: #f1c40f;
+/*$mainColor: #ffc845;*/
+
+.product-description {
+    display: flex;
+    align-items: center;
+
+    .description {
+        h2 {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        p {
+            font-size: 17px;
+            font-weight: lighter;
+            color: #555;
+            line-height: 28px;
+        }
+    }
+
+    .logo-product {
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        min-height: 200px;
+
+        &.gt {
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/gt/gt-logo.png');
+            }
+
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/gt/gt-logo.png.webp');
+            }
+        }
+    }
+}
+
+
+.product-description {
+    .logo-container {
+        position: relative;
+        margin-top: -20px;
+        .colored-logo {
+            margin: 20px 0 5px 0;
+            width: 100%;
+            height: 150px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(../../assets/products/host/logo_larglobal2.png);
+        }
+    }
+}
+
+
+.host-details {
+    background-color: $mainColor;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #674e13;
+    .logo-container {
+        position: relative;
+        margin-top: -20px;
+        .logo {
+            margin-bottom: -50px;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-image: url(../../assets/products/host/logo_larglobal.png);
+        }
+    }
+
+    .host-header {
+        margin: 20px auto;
+
+        h2 {
+            font-size: 27px;
+            color: #fff;
+            font-weight: 700;
+            margin: 20px auto;
+            text-align: center;
+        }
+        > div:last-child{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    h3 {
+        text-align: center;
+        font-size: 23px;
+        font-weight: 600;
+        color: #674e13;
+        margin: 20px auto;
+    }
+
+    .container>.row {
+        justify-content: space-between;
+    }
+
+    .product-image {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('../../assets/products/gt/gt-product-step.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('../../assets/products/gt/gt-product-step.jpg.webp');
+        }
+
+        min-height: 400px;
+        position: relative;
+        box-shadow: 0 0 3px #f3f3f3;
+        border-radius: 5px;
+    }
+
+    .requirements-wrapper {
+        .requirements {
+            width: 100%;
+            display: flex;
+
+            .requirements-icon {
+                min-width: 50px;
+                height: 50px;
+                background-color: #fff;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+            }
+
+            >div {
+                width: 18%;
+                box-sizing: border-box;
+                margin: 1%;
+                display: flex;
+                align-items: center;
+                /*flex-direction: column;*/
+                padding: 1%;
+
+                .icon {
+                    width: 100%;
+                    height: 120px;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    &.icon-1 {
+                        background-image: url(../../assets/products/host/bed.svg);
+                    }
+                    &.icon-2 {
+                        background-image: url(../../assets/products/host/key.svg);
+                    }
+                    &.icon-3 {
+                        background-image: url(../../assets/products/host/wifi.svg);
+                    }
+                    &.icon-4 {
+                        background-image: url(../../assets/products/host/water.svg);
+                    }
+                    &.icon-5 {
+                        background-image: url(../../assets/products/host/internet.svg);
+                    }
+                }
+
+                @media (max-width: 991px) {
+                    width: 100%;
+                }
+
+                p {
+                    color: #674e13;
+                    font-weight: 600;
+                    font-size: 14px;
+                }
+            }
+
+            .fas {
+                font-size: 26px;
+                color: #f1c40f;
+            }
+        }
+    }
+}
+
+.faq {
+    .container>.row {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .faq-info {
+        .col-sm-12 {
+            margin: 15px 0;
+        }
+    }
+
+    .faq-image {
+        min-height: 650px;
+        position: relative;
+        border-radius: 5px;
+
+        .round {
+            position: absolute;
+            top: 15px;
+            background-size: 90%;
+            margin-top: -50px;
+            left: 50px;
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    button {
+        font-size: 16px;
+    }
+    &.middle1 {
+        .faq-image {
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/host/middle1.jpg');
+            }
+
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/host/middle1.webp');
+            }
+
+            .round {
+                background-color: transparent;
+                left: -37.5px;
+                background-image: url('../../assets/products/host/chat.svg');
+            }
+        }
+    }
+
+    &.middle2 {
+        .round {
+            left: -15px !important;
+        }
+        .faq-image {
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/host/middle2.jpg');
+            }
+
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/host/middle2.webp');
+            }
+
+            .round {
+                right: -37.5px;
+                background-image: url('../../assets/products/host/hug.svg');
+            }
+        }
+    }
+}
+
+.know-aiesec {
+    h1 {
+        text-align: center;
+    }
+    .container {
+        >.row {
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .row {
+            &:last-child {
+                margin-top: 25px;
+            }
+        }
+    }
+
+    .aiesec-info {
+        .row {
+            margin: 30px 0;
+            &:first-child {
+                margin-top: 0;
+            }
+
+            .round {
+                background-size: 90% !important;
+            }
+
+            &:nth-last-child(2) {
+                margin-bottom: 20px;
+            }
+
+            .round {
+                background-size: 45%;
+            }
+
+            &:nth-child(1) {
+                .round {
+                    @at-root :host-context(.no-webp) #{&} {
+                        background-image: url('../../assets/products/aiesec/aiesec-icon-1.png');
+                    }
+
+                    @at-root :host-context(.webp) #{&} {
+                        background-image: url('../../assets/products/aiesec/aiesec-icon-1.png.webp');
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                .round {
+                    background-image: url('../../assets/products/host/email.svg');
+                }
+            }
+
+            &:nth-child(3) {
+                .round {
+                    background-color: #F9D409;
+                    background-size: 90%;
+                    background-image: url('../../assets/products/host/family-2.svg');
+                }
+            }
+
+            &:nth-child(4) {
+                .round {
+                    background-image: url('../../assets/products/host/heart.svg');
+                }
+            }
+            &:last-child {
+                button {
+                    font-size: 16px;
+                    background-color: #0abf85;
+                }
+            }
+        }
+    }
+
+    .aiesec-image {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('../../assets/products/host/bottom.jpg');
+        }
+
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('../../assets/products/host/bottom.jpg');
+        }
+
+        min-height: 450px;
+        position: relative;
+        border-radius: 5px;
+
+        .round {
+            position: absolute;
+            background-color: transparent;
+            right: -35px;
+            width: 100px;
+            height: 100px;
+            margin-top: -30px;
+            background-size: 100%;
+            top: 0;
+            background-image: url('../../assets/products/host/family.svg');
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .row.requirements {
+        margin: auto;
+    }
+    .product-description .description {
+        text-align: center;
+    }
+
+    section.faq.middle1, section.faq.middle2 {
+        padding: 0 !important;
+    }
+    .host-details .product-image,
+    .faq .faq-image,
+    .know-aiesec .aiesec-image {
+        .round {
+            bottom: -37.5px;
+            top: unset;
+            margin-top: unset;
+            left: 50% !important;
+            margin-left: -37.5px;
+        }
+    }
+
+    .faq-image {
+        min-height: 450px !important;
+    }
+
+    .faq-info {
+        text-align: center;
+    }
+
+    .faq .container>.row {
+        flex-direction: column-reverse;
+    }
+
+    section {
+        &.margin-top-and-bottom {
+            margin: 0 0 35px 0 !important;
+        }
+
+        &.padding-top-and-bottom {
+            padding: 0 0 35px 0 !important;
+        }
+    }
+
+    div.centered+div {
+        text-align: center;
+    }
+
+    .menu-product ul {
+        li {
+            padding: 10px;
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .container {
+        max-width: 85%;
+    }
+
+    section.product-description {
+        min-height: 30vh;
+
+        .logo-product {
+            background-size: 75%;
+        }
+
+        .description {
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 20px;
+                line-height: 1.6em;
+            }
+        }
+    }
+
+    section.host-details {
+        min-height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-size: 1.65em;
+        }
+
+        p {
+            font-size: 1.25em !important
+        }
+
+        .product-image {
+            min-height: 65vh;
+        }
+    }
+
+    section.faq {
+        min-height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-size: 1.65em;
+        }
+
+        p {
+            font-size: 1.3em;
+        }
+
+        button {
+            font-size: 1.2em
+        }
+
+        .faq-image {
+            min-height: 65vh;
+        }
+    }
+
+    section.know-aiesec {
+        min-height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-size: 1.65em;
+        }
+
+        p {
+            font-size: 1.3em;
+        }
+
+        button {
+            font-size: 1.2em;
+            margin: 2vh auto;
+        }
+
+        .aiesec-image {
+            min-height: 65vh
+        }
+    }
+}
+
+.list-icon {
+    display: flex;
+    float: left;
+    height: 100%;
+    padding: 13px;
+    font-size: 22px;
+    color: #373737;
+}
+
+#host-header {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}

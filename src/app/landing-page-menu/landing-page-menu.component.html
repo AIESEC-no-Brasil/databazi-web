@@ -1,99 +1,28 @@
 <div id="bg-menu" class="mobile" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu"></div>
 <section class="header-product" id="header-product">
-  <div class="header-product-image {{actualPage}}"></div>
+  <div class="header-product-image {{actualPage}}" [ngClass]='{"with-filter": actualPage != "lar-global" }'>
+    <div class='bg-header' *ngIf='actualPage == "lar-global"'></div>
+  </div>
   <div class="container">
-    <div class="row header-menu" id="fixedMenu">
+    <div class="row header-menu fixedMenu" id="fixedMenu">
       <div class="col-sm-3" (click)="returnHome()">
         <div class='logo-aiesec'></div>
       </div>
       <div class="menu-product col-sm-9">
         <div class="responsive-menu">
-          <div class='menu-icon' (click)="toggleResponsiveMenu()">
-            <i *ngIf="!responsiveMenu" class="fas fa-bars"></i>
-            <i *ngIf="responsiveMenu" class="fas fa-times"></i>
+          <div class='menu-icon'>
+            <div class="aiesec-favicon" (click)="toggleResponsiveMenu()">
+              <i class="far fa-chevron-down favicon-arrow" *ngIf="!responsiveMenu"></i>
+              <i class="far fa-chevron-up favicon-arrow" *ngIf="responsiveMenu"></i>
+            </div>
+            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank">
+              <button type="button" class="btn btn-primary">Veja as oportunidades</button>
+            </a>
           </div>
           <ul id="menu">
             <li>
               Faça um intercâmbio
               <ul class="animated fadeIn faster ul-products">
-                <li (click)="goToGv()">
-                  Voluntário Global
-                </li>
-                <li (click)="goToGe()">
-                  Empreendedor Global
-                </li>
-                <li (click)="goToGt()">
-                  Talento Global
-                </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
-                    Hospede um intercambista
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              Seja nosso Parceiro
-              <ul class="animated fadeIn faster ul-partners">
-                <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
-                  <li>
-                    ONG
-                  </li>
-                </a>
-                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
-                  <li>
-                    Empresas
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <a href="http://blog.aiesec.org.br/youthspeak/">
-              <li>
-                Youthspeak
-              </li>
-            </a>
-            <li>
-              Blog
-              <ul class="animated fadeIn faster ul-blog">
-                <a href="http://business.aiesec.org.br/">
-                  <li>
-                    Business
-                  </li>
-                </a>
-                <a href="http://aiesec.blog.br/">
-                  <li>
-                    Estudantes
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <li>
-              Planeje sua viagem
-              <ul class="animated fadeIn faster ul-travel">
-                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li>
-                    Passagens Aéreas
-                  </li>
-                </a>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li>
-                    Seguro Viagem
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <a href="http://blog.aiesec.org.br/contato/">
-              <li>
-                Contato
-              </li>
-            </a>
-          </ul>
-
-          <ul *ngIf="responsiveMenu" class='active-responsive-menu animated fadeIn faster' id="active-responsive-menu" (click)="toggleResponsiveMenu()">
-            <div class="logo-menu" routerLink="/"></div>
-            <li>
-              <span>Faça um intercâmbio</span>
-              <ul class="animated fadeIn faster">
                 <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
                   Voluntário Global
                 </li>
@@ -103,69 +32,152 @@
                 <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
                   Talento Global
                 </li>
-                <a href="http://blog.aiesec.org.br/hospede-um-intercambista/">
-                  <li>
-                    Hospede um intercambista
-                  </li>
-                </a>
               </ul>
             </li>
+            <li (click)='goToHost()'>
+              Lar Global
+            </li>
             <li>
-              <span>Seja nosso Parceiro</span>
-              <ul class="animated fadeIn faster">
-                <a href="http://blog.aiesec.org.br/seja-parceiro/ong/">
-                  <li>
-                    ONG
-                  </li>
-                </a>
-                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/">
+              Seja nosso parceiro
+              <ul class="animated fadeIn faster ul-products">
+                <a href="http://business.aiesec.org.br/" target="_blank">
                   <li>
                     Empresas
                   </li>
                 </a>
-              </ul>
-            </li>
-            <a href="http://blog.aiesec.org.br/youthspeak/">
-              <li>
-                <span>Youthspeak</span>
-              </li>
-            </a>
-            <li>
-              <span>Blog</span>
-              <ul class="animated fadeIn faster">
-                <a href="http://business.aiesec.org.br/">
+                <a href='http://youthspeak.aiesec.org.br/' target="_blank">
                   <li>
-                    Business
+                    Youthspeak
                   </li>
                 </a>
-                <a href="http://aiesec.blog.br/">
+              </ul>
+            </li>
+            <li>
+              Planeje sua viagem
+              <ul class="animated fadeIn faster ul-travel">
+                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
+                  <li>
+                    Passagens Aéreas
+                  </li>
+                </a>
+                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
+                  <li>
+                    Câmbio de Moedas
+                  </li>
+                </a>
+                <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
+                  <li>
+                    Seguro Saúde
+                  </li>
+                </a>
+              </ul>
+            </li>
+            <li>
+              Blog
+              <ul class="animated fadeIn faster ul-blog">
+                <a href="http://business.aiesec.org.br/blog/" target="_blank">
+                  <li>
+                    Empresas
+                  </li>
+                </a>
+                <a href="http://blog.aiesec.org.br/blog/estudantes/" target="_blank">
                   <li>
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
-            <li>
-              <span>Planeje sua viagem</span>
-              <ul class="animated fadeIn faster">
-                <a href="http://blog.aiesec.org.br/cipassagensaereas/">
-                  <li>
-                    Passagens Aéreas
-                  </li>
-                </a>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br">
-                  <li>
-                    Seguro Viagem
-                  </li>
-                </a>
-              </ul>
-            </li>
-            <a href="http://blog.aiesec.org.br/contato/">
+            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank" *ngIf="actualPage == '' || actualPage == 'lar-global'">
               <li>
-                <span>Contato</span>
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=2&sort=-duration_min' target="_blank" *ngIf="actualPage == 'talento-global'">
+              <li>
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=5&sort=-duration_min' target="_blank" *ngIf="actualPage == 'empreendedor-global'">
+              <li>
+                Veja nossas oportunidades
+              </li>
+            </a>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=1&sort=-duration_min' target="_blank" *ngIf="actualPage == 'voluntario-global'">
+              <li>
+                Veja nossas oportunidades
               </li>
             </a>
           </ul>
+
+          <div class="mobile-dropdown-menu vis animated faster" *ngIf="responsiveMenu" [ngClass]="{fadeIn: responsiveMenu, fadeOut: !responsiveMenu}">
+            <div class="mobile-dropdown-container">
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Faça um intercâmbio</span>
+                  <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                    Voluntário Global
+                  </li>
+                  <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                    Empreendedor Global
+                  </li>
+                  <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                    Talento Global
+                  </li>                  
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <li (click)='goToHost()'>
+                    Lar Global
+                  </li>
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Seja nosso parceiro</span>
+                  <a href="http://business.aiesec.org.br/" target="_blank">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                  <a href='http://blog.aiesec.org.br/youthspeak/' target="_blank">
+                    <li>
+                      Youthspeak
+                    </li>
+                  </a>
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Planeje sua viagem</span>
+                  <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
+                    <li>
+                      Passagens Aéreas
+                    </li>
+                  </a>
+                  <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
+                    <li>
+                      Câmbio de Moedas
+                    </li>
+                  </a>
+                  <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
+                    <li>
+                      Seguro Saúde
+                    </li>
+                  </a>
+                </ul>
+                <hr>
+                <ul class="mobile-nav-menu">
+                  <span class="menu-header">Blog</span>
+                  <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" target="_blank">
+                    <li>
+                      Empresas
+                    </li>
+                  </a>
+                  <a href="http://blog.aiesec.org.br/blog/estudantes/" target="_blank">
+                    <li>
+                      Estudantes
+                    </li>
+                  </a>
+                </ul>             
+            </div>            
+          </div>
         </div>
       </div>
     </div>
@@ -203,6 +215,9 @@
       <h2 class='color-white intro'>
         Acreditamos no intercâmbio como ferramenta para desenvolver uma liderança sustentável.
       </h2>
+    </div>
+    <div class="product-info" *ngIf="actualPage == 'lar-global'">
+      <div class='product-logo'></div>
     </div>
   </div>
 </section>

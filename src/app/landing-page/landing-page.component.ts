@@ -48,7 +48,7 @@ export class LandingPageComponent implements OnInit {
     else {
       this.sliderPosition -= 100;
     }
-    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
     this.sliderAnimation();
   }
 
@@ -59,13 +59,13 @@ export class LandingPageComponent implements OnInit {
     else {
       this.sliderPosition += 100
     }
-    $('.carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
     this.sliderAnimation();
   }
 
   ngOnInit() {
     this.sliderAnimation();
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
   }
 
   sliderAnimation(){
@@ -80,10 +80,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   scrollToGlobal(){
-    var element = $('#global').offset().top;
-    if (window.innerWidth >= 1024){
-      element -= 100;
-    }
+    var element = $('#header-product').offset().top;
     $('html, body').animate({
       scrollTop: element
     }, 700)
@@ -110,6 +107,14 @@ export class LandingPageComponent implements OnInit {
 
   goToGt(){
     this.router.navigate(['/talento-global']);
+  }
+
+  goToHost(){
+    this.router.navigate(['/lar-global']);
+  }
+
+  goToAiesec(){
+    window.open("https://aiesec.org/search");
   }
 
 

@@ -1,22 +1,60 @@
 @import '../../scss/global.scss';
+
 #bg-menu {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: #037ff3;
     position: fixed;
     left: 0;
     top: 0;
     z-index: 6;
+    &.mobile {
+        display: none;
+    }
 }
 
 #fixedMenu {
-    transition: .3s
+    transition: .3s;
+    *:not(.fas, .menu-icon) {
+        text-transform: uppercase !important;
+        font-weight: 300;
+        font-size: 14px;
+    }
+    i {
+        font-weight: bold;
+        margin: 10px 0;
+        font-size: 25px;
+    }
 }
 
 ul#menu {
-    > li, > a {
-        display:flex;
+
+    align-items: center;
+    justify-content: space-between !important;
+    width: 100%;
+    justify-content: center;
+
+    >li{
+        display: flex;
         align-items: center;
+    }
+    >a {
+        display: flex;
+        align-items: center;
+    }
+
+    a.aiesec-search>li:hover {
+        color: #007bff;
+    }
+
+    a.aiesec-search {
+        height: 40px;
+        margin-left: 5px;
+        padding: 5px;
+        border: 2px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        justify-content: flex-end;
     }
 }
 
@@ -32,17 +70,22 @@ ul#menu {
     display: flex;
     align-items: center;
     justify-content: center;
+
     .menu-product {
         height: 50px;
         padding: 0;
-        margin: 0;
+        margin: 0 0 0 -20px
     }
+
     .logo-aiesec {
         margin: 0;
+        max-width: 300px;
     }
+
     ul#menu {
         margin-bottom: 0;
     }
+
     .responsive-menu ul#menu li {
         ul.animated {
             background-color: $default;
@@ -81,8 +124,19 @@ ul#menu {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        min-height: 50vh;
+        min-height: 60vh;
         display: flex;
+        .product-logo {
+            width: 40%;
+            height: 300px;
+            padding: 10px;
+            position: absolute;
+            bottom: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center left;
+            background-image: url(../../assets/products/host/logo_larglobal.png);
+        }
     }
 }
 
@@ -90,133 +144,171 @@ ul#menu {
     width: 100%;
     position: relative;
     border-bottom: 3px solid #666;
-    z-index: 11;    
+    z-index: 11;
+
+    .bg-header {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(255,200,69, .4);
+    }
+
     .header-product-image {
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('../../assets/images/header.jpg');
         }
+
         @at-root :host-context(.webp) #{&} {
             background-image: url('../../assets/images/header.jpg.webp');
         }
+
         width: 100%;
         height: 100%;
         position: absolute;
         left: 0;
         top: 0;
         background-position: center center;
-        filter: brightness(35%);
         background-repeat: no-repeat;
         background-size: cover;
         z-index: -10;
         z-index: 5;
-        &.talento-global {            
+
+        &.with-filter {
+            filter: brightness(35%);
+        }
+
+        &.talento-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gt/gt-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/gt/gt-intro.jpg.webp');
             }
         }
-        &.voluntario-global {            
+
+        &.voluntario-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/gv/gv-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/gv/gv-intro.jpg.webp');
             }
         }
-        &.empreendedor-global {            
+
+        &.empreendedor-global {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/products/ge/ge-intro.jpg');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/products/ge/ge-intro.jpg.webp');
             }
         }
+        &.lar-global{
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('../../assets/products/host/host.jpg');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('../../assets/products/host/host.webp');
+            }
+        }
     }
+
     .header-menu {
         display: flex;
         justify-content: space-between;
-        padding: 0 15px;
+        height: 74px;
+        padding: 0 50px;
+
         .logo-aiesec,
-        .logo-menu {            
+        .logo-menu {
             @at-root :host-context(.no-webp) #{&} {
                 background-image: url('../../assets/images/aiesec-logo.png');
             }
+
             @at-root :host-context(.webp) #{&} {
                 background-image: url('../../assets/images/aiesec-logo.png.webp');
             }
-            background-size: contain;
+
+            background-size: 90%;
             background-position: center left;
             background-repeat: no-repeat;
             cursor: pointer;
         }
+
         .logo-aiesec {
             height: 45px;
             margin: 20px 0;
             min-height: 45px;
         }
+
         .logo-menu {
             width: 60%;
             height: 75px;
             display: table;
-            margin: auto;
+            margin: 10px auto;
         }
+
         .menu-product {
+            margin-left: -20px;
             ul {
                 padding: 0;
                 display: flex;
                 list-style: none;
-                justify-content: flex-end;
                 a:hover {
                     text-decoration: none;
-                    color: #fff;
+                    color: #037ef3 ;
+                    background-color: rgba(255, 255, 255, 0.9);
                 }
+
                 li {
-                    font-size: 13px;
+                    font-size: 15px;
                     padding: 15px .5em;
-                    margin: 0 5px;
+                    margin: 0;
                     color: #fff;
-                    text-transform: uppercase;
-                    font-weight: lighter;
+                    font-family: 'Lato', sans-serif;
+                    font-weight: bold;
                     position: relative;
                     cursor: pointer;
                     white-space: nowrap;
+
                     &:hover ul {
                         display: block;
                     }
+
                     &:last-child {
                         margin-right: 0;
                     }
+
                     ul {
                         margin-top: 5px;
-                        border-radius: 10px;
+                        border-radius: 5px;
                         position: absolute;
                         flex-direction: column;
                         background-color: rgba(255, 255, 255, .5);
                         min-width: 175px;
                         display: none;
                         left: 0;
-                        &.ul-products {
-                            bottom: -85px;
-                        }
-                        &.ul-partners, &.ul-blog, &.ul-travel {
-                            bottom: -35px;
-                        }
+                        top: 40px;
+                        padding-bottom: 10px;
                         a:hover {
                             text-decoration: none;
                             color: #fff;
                         }
                         li {
-                            padding: 2.5px 10px;
+                            padding: 5px 10px;
                             text-align: left;
                             text-transform: none;
+                            font-size: 17px;
                         }
                     }
                 }
             }
         }
     }
+
     .product-info {
         text-align: left;
     }
@@ -234,22 +326,67 @@ ul#menu {
 }
 
 @media (max-width: 990px) {
+    #fixedMenu {
+        background-color: white;
+        height: 50px;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16);
+        transition: top .5s linear;
+        i {
+            font-weight: bold;
+            font-size: 25px;
+            color: #037ef3;
+            margin: 0px;
+        };
+        .aiesec-favicon {
+            height: 40px;
+            width: 40px;
+            background-image: url(../../assets/images/favicon-white.png);
+            background-size: contain;
+            position: fixed;
+            top: 5px;
+            left: 20px;
+        };
+        .favicon-arrow {
+            position: fixed;
+            top: 10px;
+            left: 56px;
+            color: gray;
+            font-size: 18px;
+        };
+        .logo-aiesec {
+            display: none;
+        };
+        button {
+            font-size: 10px;
+            position: fixed;
+            top: 12px;
+            right: 20px;
+            font-weight: bold;
+        }
+    }
+
+    #bg-menu {
+        background-color: transparent;
+    }
+
     .header-product div.responsive-menu ul#menu {
         display: none !important;
     }
+
     .header-product div.responsive-menu .menu-icon {
-        display: block;
+        background-color: white;
         position: fixed;
-        right: 35px;
-        top: 15px;
-        color: $default;
-        z-index: 100;
-        font-size: 25px;
-        .fa-times {
+        width: 100%;
+        height: 55px;
+        top: 0;
+        left: 0;
+
+        .fa-times, .fa-bars {
             color: #fff;
             z-index: 51
         }
     }
+
     #active-responsive-menu {
         color: #fff;
         flex-direction: column;
@@ -267,40 +404,136 @@ ul#menu {
         padding: 2.5vh 3%;
         justify-content: flex-start;
         overflow: auto;
+
         >a,
         >li {
             margin: 10px 0;
         }
+
         >a li {
             margin-left: 0;
         }
+
         li {
             padding: 0 !important;
             text-align: left !important;
         }
+
         span {
             font-weight: bold;
             text-align: left;
-            padding-left: 5px;
-            font-size: 1.3rem;
+            font-size: 18px !important;
+            padding-top: 10px !important;
+            display: block;
         }
+
         li ul {
             display: flex !important;
             position: relative !important;
             background-color: transparent !important;
+
             li {
-                font-size: 1.2rem;
-                padding: 10px 0px !important;
+                font-size: 18px;
+                padding: 15px 0px !important;
             }
         }
     }
+
+    #fixedMenu.fixedMenu .logo-aiesec {
+        margin: 15px 0;
+    }
+
+    .navbar-mobile-flex {
+        width: 100%;
+        height: 50px;
+        padding: 0 10px;
+        background-color: #fff;
+        border-radius: 0;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        z-index: 998;
+    }
+
+    .mobile-dropdown-menu {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        transition: max-height .5s ease-in-out;
+        background: #e5feff;
+        overflow: hidden;
+    }
+
+    .mobile-dropdown-menu.vis {
+        max-height: 100%;
+        background-color: rgba(0,0,0,.7);
+    }
+
+    .mobile-dropdown-menu .mobile-dropdown-container {
+        box-shadow: inset 0 7px 12px -10px #8f8f8f;
+        background-color: #fff;
+        padding: 30px 20px;
+        overflow-y: scroll;
+        max-height: 450px
+    }
+
+    .mobile-dropdown-menu .mobile-dropdown-container .mobile-nav-menu {
+        list-style: none;
+        padding: 0 15px;
+    }
+
+    .mobile-dropdown-menu .mobile-dropdown-container .mobile-nav-menu .menu-item {
+        font-size: 20px;
+        padding: 7px 0;
+        color: #555;
+        font-weight: 300;
+    }
+
+    .mobile-dropdown-menu .mobile-dropdown-container .mobile-nav-menu .menu-header {
+        font-weight: bold !important;
+        font-size: 20px !important;
+    }
+
+
+    hr {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0,0,0,.1);
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+    }
+
+    .menu-product {
+        li {
+            font-size: 20px !important;
+            padding: 7px 0 !important;
+            color: #555 !important;
+            font-weight: 300 !important;
+        }
+        ul {
+            display: table !important;
+        }
+    }
+
+
+
 }
 
 @media (min-width:990px) {
+
     .menu-icon,
     .active-responsive-menu {
         display: none !important;
     }
+
 }
 
 @media only screen and (min-width: 1280px) {
@@ -311,18 +544,33 @@ ul#menu {
             }
         }
     }
+
     div.responsive-menu {
         height: 100%;
-        display:flex;
-        justify-content: flex-end
+        display: flex;
+        justify-content: flex-start;
     }
 }
 
 @media only screen and (min-width: 1440px) {
     ul#menu {
+
         >a li,
         >li {
             font-size: 1em;
+        }
+    }
+}
+
+a.no-hover:hover {
+    background-color: currentColor !important;
+}
+
+@media (max-width: 1023px){
+    #active-responsive-menu {
+        li ul {
+            top: 0;
+            padding: 0;
         }
     }
 }

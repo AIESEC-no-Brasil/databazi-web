@@ -1,0 +1,129 @@
+@import '../../scss/global.scss';
+
+#contact {
+    padding: 45px 0 70px 0 !important;
+    &.voluntario-global {
+        background-color: $primary-gv;
+    }
+
+    &.talento-global {
+        background-color: $primary-gt
+    }
+
+    &.empreendedor-global {
+        background-color: $primary-ge;
+    }
+
+    &.voluntario-global, &.talento-global, &.empreendedor-global {
+        p, h3 {
+            color: #fff;
+        }
+    }
+
+    &.lar-global { 
+        border-bottom: 1px solid rgba(0,0,0,.1);
+        p, h3 {
+            color: #4a4a4a;
+        }
+        .contact-container {
+            color: #4a4a4a !important;
+        }
+        ul li {
+            color: #4a4a4a !important;
+        }
+        .contact-details {
+            background: rgba(0, 0, 0, 0.15);
+            color: #4a4a4a !important;
+        }
+    }
+
+    h3 {
+        font-size: 33px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+    }
+
+    p {
+        font-size: 20px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: center;
+        color: #fff;
+        margin: 0;
+    }
+
+    .contact-area {
+        margin: auto;
+    }
+
+    .contact-container {
+        width: 100%;
+        padding: 20px 0 0 0;
+        select {
+            margin: auto;
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            option {
+                font-size: 16px;
+                font-style: normal;
+            }
+        }
+
+        .contact-details {
+            background: rgba(0, 0, 0, 0.15);
+            color: #fff;
+            padding: 10px 15px;
+            text-align: center;
+            margin-top: 10px;
+
+            b {
+                margin: 0;
+                font-size: 18px;
+                display: block;
+            }
+
+            p,
+            span {
+                font-size: 22px;
+                font-weight: 500;
+                font-style: normal;
+                margin: 5px 0;
+            }
+
+            ul {
+                margin: 10px 0 0 0;
+                padding: 0;
+
+                li {
+                    color: #fff;
+                    font-size: 12pt;
+                    display: block;
+                    margin: 5px 0 5px 0;
+
+                    i {
+                        padding-right: 10px;
+                        color: #3FA0FE;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+
+    #contact {
+        >div {
+            .contact-container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
