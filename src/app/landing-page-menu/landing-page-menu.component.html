@@ -113,21 +113,15 @@
             <div class="mobile-dropdown-container">
                 <ul class="mobile-nav-menu">
                   <span class="menu-header">Faça um intercâmbio</span>
-                  <a href="/voluntario-global">
-                    <li>
-                      Voluntário Global
-                    </li>
-                  </a>
-                  <a href="/empreendedor-global">
-                    <li>
-                      Empreendedor Global
-                    </li>
-                  </a>
-                  <a href="/talento-global">
-                    <li>
-                      Talento Global
-                    </li>
-                  </a>
+                  <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                    Voluntário Global
+                  </li>
+                  <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                    Empreendedor Global
+                  </li>
+                  <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                    Talento Global
+                  </li>
                 </ul>
                 <hr>
                 <ul class="mobile-nav-menu">
