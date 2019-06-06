@@ -255,9 +255,6 @@ export class FormGvComponent implements OnInit {
   }
 
   isValidPersonal(field) {
-    /*if(field == 'email'){
-      console.log('eae', , this.step1Form.controls[field].valid, this.step1Form.controls[field].dirty, this.submittedPersonal);
-    }*/
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
   }
 
