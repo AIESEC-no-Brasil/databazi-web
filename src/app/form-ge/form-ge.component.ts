@@ -120,7 +120,8 @@ export class FormGeComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]),
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
