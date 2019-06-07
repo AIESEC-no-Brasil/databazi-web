@@ -4,7 +4,7 @@
 <div id="step1" class="form-talentos-globais" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
   <div class="full-width">
     <!-- Header -->
-    <section class="header" id="header-talentos-globais">
+    <section class="header" id="header-talentos-globais" #headerGERef>
       <div class="container">
         <div class="row justify-content-center" *ngIf="!embeddedForm">
           <div class="col-sm text-center">
@@ -49,7 +49,7 @@
               </p>
             </div>
             <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser(headerGERef)">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend desktop">
@@ -381,10 +381,8 @@
                 <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
-                  [ngx-scroll-to]="'#header-talentos-globais'">Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
-                  [disabled]='unableToSubmit()'>
+                <button type="button" (click)="registerUser(headerGERef)" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
+                <button type="button" (click)="submit(headerGERef)" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>
                 </button>
