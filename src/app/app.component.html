@@ -1,1 +1,22 @@
 <router-outlet (activate)="changeOfRoutes()"></router-outlet>
+<div id='content-snackbar' class='animated faster' [ngClass]="{fadeIn: cookies_policy, fadeOut: !cookies_policy}">
+  <div id="snackbar">
+  	<div class="row">
+  		<div class="col-md-12 title">
+  			<p>TU PRIVACIDAD ES MUY IMPORTANTE PARA NOSOTROS</p>
+  		</div>
+  	</div>
+    <div class="row">
+    	<div class="col-md-9 message">
+    		<p>Utilizamos cookies proprias y de terceros para mejorar nuestros servicios y mostrarte publicidad relacionada con tus preferencias mediante el análisis de tus hábitos de navegacíon y la generacíon de los correspondientes perfiles. Si seguís navegando en nuestro sitio, consideramos que aceptás su uso.
+    		<a href="../../assets/politica_cookies_esar.pdf" target="_blank">
+		      <u>Ver más</u>
+		    </a>
+		    </p>
+    	</div>    	
+    	<div class="col-md-3 arg-btn-container arg-btn-container">
+    		<button type="button" (click)="hideSnackBar()" class="btn btn-outline-light arg-btn">ACEPTO</button>
+    	</div>
+    </div>
+  </div>
+</div>
