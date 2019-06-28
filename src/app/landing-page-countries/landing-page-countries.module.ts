@@ -6,6 +6,8 @@ import { LandingPageCountriesComponent } from './landing-page-countries.componen
 
 import { LandingPageCountriesRoutingModule  } from './landing-page-countries-routing.module';
 
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { LandingPageCountriesRoutingModule  } from './landing-page-countries-rou
   imports: [
     CommonModule,
     LandingPageCountriesRoutingModule,
-    HttpModule
+    HttpModule,
+    ScrollToModule.forRoot()
   ],
   exports : [
   	LandingPageCountriesComponent
