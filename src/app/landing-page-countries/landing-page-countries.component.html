@@ -21,8 +21,9 @@
                   <p class='description'>
                     "{{ country.description }}"
                   </p>
-                  <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
-                    target='_blank'> Ver oportunidades </a>
+                  <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage != 'talento-global'" target='_blank'> Ver oportunidades </a>
+
+                  <a [ngx-scroll-to]="'#form'" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
                 </div>
               </div>
             </li>
@@ -37,8 +38,9 @@
               <p class='description'>
                 "{{ country.description }}" 
               </p>
-              <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}"
-                target='_blank'> Ver oportunidades </a>
+              <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage != 'talento-global'" target='_blank'> Ver oportunidades </a>
+
+              <a [ngx-scroll-to]="'#form'" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
             </div>
           </div>
         </div>
