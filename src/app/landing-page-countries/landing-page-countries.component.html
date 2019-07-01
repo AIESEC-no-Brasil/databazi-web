@@ -10,20 +10,25 @@
     <div class='row'  id='content-wrapper'  [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
         <div class='col-lg-3'>
           <ul>
-            <li *ngFor='let country of countries' class='li-country' [ngClass]="{'active': country.active, 'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }" (click)='selectCountry(country)'>
-              <img src='{{ country.flag }}'>
-              <label>{{ country.name }}</label>
+            <li *ngFor='let country of countries' class='li-country' [ngClass]="{'active': country.active, 'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
+              <div (click)='selectCountry(country)'>
+                <img src='{{ country.flag }}'>
+                <label>{{ country.name }}</label>
+              </div>
               <div *ngIf='country.active' class=' animated faster fadeIn mobile'>
                 <div class='col-12'>
-                  <div class='country-image'>
-                    <img class='country-image-value' src='{{country.image}}'>
+                  <div (click)='selectCountry(country)'>
+                    <div class='country-image'>
+                      <img class='country-image-value' src='{{country.image}}'>
+                    </div>
+                    <p class='description'>
+                      "{{ country.description }}"
+                    </p>
                   </div>
-                  <p class='description'>
-                    "{{ country.description }}"
-                  </p>
                   <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage != 'talento-global'" target='_blank'> Ver oportunidades </a>
 
                   <a [ngx-scroll-to]="'#form'" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
+
                 </div>
               </div>
             </li>
