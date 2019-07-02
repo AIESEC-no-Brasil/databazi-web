@@ -6,9 +6,7 @@
 
   <div class="full-width">
     <!-- Header -->
-    <section class="header" id="header-voluntario-global">     
-
-      <div class="friend-day-header"></div>
+    <section class="header" id="header-voluntario-global">
 
       <div class="container">
         <div class="row justify-content-center" *ngIf="!embeddedForm">
@@ -296,7 +294,7 @@
                     <!-- desktop -->
                     <input type="text" class="form-control desktop" placeholder="Digite o nome da sua universidade" [(ngModel)]="user.other_university"
                       formControlName="other_university" i18n-placeholder="@@otherUniversityPlaceholder" name="other_university" required>
-            
+
                     <!-- mobile -->
                     <input type="text" class="form-control mobile" placeholder="Por favor, digite o nome da sua universidade" i18n-placeholder="@@otherUniversityMobilePlaceholder"
                       [(ngModel)]="user.other_university" formControlName="other_university" name="other_university" required>
