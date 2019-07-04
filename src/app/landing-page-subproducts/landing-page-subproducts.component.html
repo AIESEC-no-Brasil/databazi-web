@@ -25,7 +25,8 @@
           <p>
             {{ subproduct.description }}
           </p>
-          <a href='{{subproduct.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" target="_blank"> Ver oportunidades </a>
+          <a href='{{subproduct.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" target="_blank" *ngIf="actualPage != 'talento-global'"> Ver oportunidades </a>
+          <a [ngx-scroll-to]="'#form'" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" target="_blank" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
         </div>
       </div>
     </div>

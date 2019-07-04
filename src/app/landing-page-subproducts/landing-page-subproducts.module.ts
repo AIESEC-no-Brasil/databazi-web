@@ -6,6 +6,8 @@ import { LandingPageSubproductsComponent } from './landing-page-subproducts.comp
 
 import { LandingPageSubproductsRoutingModule  } from './landing-page-subproducts-routing.module';
 
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { LandingPageSubproductsRoutingModule  } from './landing-page-subproducts
   imports: [
     CommonModule,
     LandingPageSubproductsRoutingModule,
+    ScrollToModule.forRoot(),
     HttpModule
   ],
   exports : [
