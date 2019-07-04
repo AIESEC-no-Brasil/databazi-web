@@ -1,7 +1,7 @@
 @import "../../scss/global.scss";
 .col-lg-7 {
     box-sizing: border-box;
-    padding: 0 3.5%;
+    padding: 0 0 0 7%;
 }
 
 .product-description {
@@ -186,23 +186,19 @@
         }
         .row {
             &:last-child {
-                margin-top: 25px;
+                margin-bottom: 25px;
             }
         }
     }
     .aiesec-info {
         .row {
-            margin: 30px 0;
             .round {
                 background-size: 90% !important;
-            }
-            &:nth-last-child(2) {
-                margin-bottom: 20px;
             }
             .round {
                 background-size: 45%;
             }
-            &:nth-child(1) {
+            &:nth-child(2) {
                 .round {
                     @at-root :host-context(.no-webp) #{&} {
                         background-image: url('../../assets/products/aiesec/aiesec-icon-1.png');
@@ -212,7 +208,17 @@
                     }
                 }
             }
-            &:nth-child(2) {
+            &:nth-child(3) {
+                .round {
+                    @at-root :host-context(.no-webp) #{&} {
+                        background-image: url('../../assets/products/aiesec/aiesec-icon-5.png');
+                    }
+                    @at-root :host-context(.webp) #{&} {
+                        background-image: url('../../assets/products/aiesec/aiesec-icon-5.png');
+                    }
+                }
+            }
+            &:nth-child(4) {
                 .round {
                     @at-root :host-context(.no-webp) #{&} {
                         background-image: url('../../assets/products/aiesec/aiesec-icon-2.png');
@@ -222,7 +228,7 @@
                     }
                 }
             }
-            &:nth-child(3) {
+            &:nth-child(5) {
                 .round {
                     @at-root :host-context(.no-webp) #{&} {
                         background-image: url('../../assets/products/aiesec/aiesec-icon-3.png');
@@ -232,7 +238,7 @@
                     }
                 }
             }
-            &:nth-child(4) {
+            &:nth-child(6) {
                 .round {
                     @at-root :host-context(.no-webp) #{&} {
                         background-image: url('../../assets/products/aiesec/aiesec-icon-4.png');

@@ -3099,6 +3099,33 @@
           <context context-type="linenumber">184</context>
         </context-group>
       <target>Soporte para encontrar tu vacante</target></trans-unit>
+      <trans-unit id="programAboutTitle" datatype="html">
+        <source>
+                Benefícios
+              </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
+          <context context-type="linenumber">180</context>
+        </context-group>
+      <target>Beneficios</target></trans-unit>
+      <trans-unit id="programAboutItem5Title" datatype="html">
+        <source>
+                Comida e alojamento
+              </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+      <target>Comida y Alojamiento</target></trans-unit>
+      <trans-unit id="programAboutItem5Text" datatype="html">
+        <source>
+                Muitas das oportunidades disponíveis em nossas plataformas oferecem pelo menos 1 refeição por dia e acomodação sem custos, geralmente em uma casa de família.
+              </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/landing-page-gv/landing-page-gv.component.html</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+      <target>Gran parte de las oportunidades disponibles en nuestras plataformas te ofrecen al menos 1 comida al día y alojamiento sin costos, generalmente en una casa de familia.</target></trans-unit>
       <trans-unit id="programAboutItem1Text" datatype="html">
         <source>
                 Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa para o seu perfil, tirar todas suas dúvidas
