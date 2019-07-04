@@ -10,7 +10,7 @@
     <div class='row'  id='content-wrapper'  [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
         <div class='col-lg-3'>
           <ul>
-            <<li *ngFor='let country of countries' class='li-country' [ngClass]="{'active': country.active, 'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
+            <li *ngFor='let country of countries' class='li-country' [ngClass]="{'active': country.active, 'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
               <div (click)='selectCountry(country)'>
                 <img src='{{ country.flag }}'>
                 <label>{{ country.name }}</label>
