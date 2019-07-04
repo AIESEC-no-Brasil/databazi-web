@@ -1,7 +1,7 @@
 @import "../../scss/global.scss";
 .col-lg-7 {
     box-sizing: border-box;
-    padding: 0 0 0 7%;
+    padding: 0 3.5%;
 }
 
 .product-description {
@@ -192,6 +192,7 @@
     }
     .aiesec-info {
         .row {
+            margin: 15px 0;
             .round {
                 background-size: 90% !important;
             }
@@ -277,6 +278,9 @@
 }
 
 @media (max-width: 991px) {
+    h2  {
+        text-align: center;
+    }
     .product-description .description {
         text-align: center;
     }
