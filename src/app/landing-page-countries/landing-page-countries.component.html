@@ -11,7 +11,7 @@
         <div class='col-lg-3'>
           <ul>
             <li *ngFor='let country of countries' class='li-country' [ngClass]="{'active': country.active, 'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global' }">
-              <div (click)='selectCountry(country)'>
+              <div class="max-width-and-height" (click)='selectCountry(country)'>
                 <img src='{{ country.flag }}'>
                 <label>{{ country.name }}</label>
               </div>
@@ -26,7 +26,7 @@
                     </p>
                   </div>
                   <a href='{{country.link}}' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage != 'talento-global'" target='_blank'> Ver oportunidades </a>
-                  <a [ngx-scroll-to]="'#form'" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
+                  <a [ngx-scroll-to]="'#form'" [ngx-scroll-to-offset]="-60" [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}" *ngIf="actualPage == 'talento-global'"> Ver oportunidades </a>
                 </div>
               </div>
             </li>
