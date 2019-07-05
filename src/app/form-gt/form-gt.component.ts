@@ -175,6 +175,29 @@ export class FormGtComponent implements OnInit {
   courses: any;
   places: any;
 
+  curriculumFile : any;
+
+  pondOptions = {
+    name: 'file',
+    multiple: false,
+    labelIdle: '',
+    labelFileProcessing: '',
+    labelFileProcessingComplete: '',
+    labelTapToCancel: '',
+    labelTapToRetry: '',
+    labelTapToUndo: '',
+    labelButtonRemoveItem: '',
+    labelButtonAbortItemLoad: '',
+    labelButtonRetryItemLoad: '',
+    labelButtonAbortItemProcessing: '',
+    labelFileProcessingError: '',
+    labelFileProcessingAborted: '',
+  }
+
+  pondHandleAddFile(event: any) {
+    this.curriculumFile = event.file.file;
+  }
+
   constructor(
     public signupService: SignupService,
     public translate: TranslateService,
@@ -273,7 +296,7 @@ export class FormGtComponent implements OnInit {
     });
 
     this.cellphoneMask = this.cellphoneDefaultMask;
-    
+
     this.filteredScholarityOptions = this.scholarityOptions;
 
     this.filteredCitiesOptions = this.citiesOptions;
@@ -414,7 +437,7 @@ export class FormGtComponent implements OnInit {
   emptyCourse() {
     if (+this.user.scholarity.id > 1 && this.user.college_course.id) {
       return !this.user.college_course.id
-    } 
+    }
     else if (+this.user.scholarity.id <= 1) {
       this.user.college_course = { id: '', name: '' };
       return false;
@@ -511,9 +534,10 @@ export class FormGtComponent implements OnInit {
       }
     };
 
-    if (this.step2Form.get('curriculum').value) {
-      user.gt_participant['curriculum'] = this.step2Form.get('curriculum').value;
+    if( this.curriculumFile){
+      user.gt_participant['curriculum'] = this.curriculumFile;
     }
+
     this.loading = true;
     this.signupService.addGtParticipant(user)
       .then((res: any) => {
