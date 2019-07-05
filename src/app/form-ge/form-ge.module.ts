@@ -15,6 +15,8 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { SignupService } from '../services/signup.service';
 
+import { FilePondModule } from 'ngx-filepond';
+
 @NgModule({
   declarations: [
   	FormGeComponent,
@@ -29,7 +31,8 @@ import { SignupService } from '../services/signup.service';
     AutoCompleteModule,
     NgxMaskModule.forRoot(),
     ScrollToModule.forRoot(),
-    HttpModule
+    HttpModule,
+    FilePondModule
   ],
   exports : [
   	FormGeComponent,

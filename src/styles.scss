@@ -19,3 +19,15 @@ select, option {
         font-size: 4vw !important;
     }
 }
+
+.filepond--list-scroller, .filepond--assistant{
+  display: none;
+}
+
+.filepond-remove-icon{
+  width: 17px;
+}
+
+.filepond-selected-file{
+  margin-left: 10px;
+}
