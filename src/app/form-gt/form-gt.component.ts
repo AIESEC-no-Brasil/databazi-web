@@ -536,7 +536,7 @@ export class FormGtComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('YYYY-MM-DD'),
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        university_id: (this.user.university.id == '' ? '' : +this.user.university.id),
         local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
