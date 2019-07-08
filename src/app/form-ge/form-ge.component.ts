@@ -173,6 +173,8 @@ export class FormGeComponent implements OnInit {
 
   embeddedForm: boolean = false;
 
+  invalidateArchiveExtension: boolean = false;
+
   courses: any;
   places: any;
 
@@ -197,6 +199,20 @@ export class FormGeComponent implements OnInit {
 
   pondHandleAddFile(event: any) {
     this.curriculumFile = event.file.file;
+    const extensionExpected = '.pdf'; 
+    const fileExtension = this.curriculumFile.name.substr(-4);
+    if(fileExtension != extensionExpected){
+      this.invalidateArchiveExtension = true;
+      this.unableToSubmit();
+    }
+    else{
+      this.invalidateArchiveExtension = false;
+    }
+    
+  }
+
+  removeFile(){
+    this.invalidateArchiveExtension = false;
   }
 
   constructor(
@@ -415,7 +431,11 @@ export class FormGeComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id || !+this.user.referral_type;;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id || !+this.user.referral_type || this.invalidExtension();
+  }
+
+  invalidExtension(){
+    return this.invalidateArchiveExtension;
   }
 
   emptyFields() {
@@ -513,8 +533,8 @@ export class FormGeComponent implements OnInit {
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.university.local_committee_id,
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
-        college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
+        university_id: (this.user.university.id == '' ? '' : +this.user.university.id),
+        college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         scholarity: +this.user.scholarity.id,
         english_level: +this.user.english_level.id,

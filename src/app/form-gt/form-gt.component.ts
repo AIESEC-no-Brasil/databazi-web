@@ -171,6 +171,7 @@ export class FormGtComponent implements OnInit {
   modal: boolean = false;
   embeddedForm: boolean = false;
   showOtherUniversityField: boolean = false;
+  invalidateArchiveExtension: boolean = false;
 
   courses: any;
   places: any;
@@ -196,6 +197,20 @@ export class FormGtComponent implements OnInit {
 
   pondHandleAddFile(event: any) {
     this.curriculumFile = event.file.file;
+    const extensionExpected = '.pdf'; 
+    const fileExtension = this.curriculumFile.name.substr(-4);
+    if(fileExtension != extensionExpected){
+      this.invalidateArchiveExtension = true;
+      this.unableToSubmit();
+    }
+    else{
+      this.invalidateArchiveExtension = false;
+    }
+    
+  }
+
+  removeFile(){
+    this.invalidateArchiveExtension = false;
   }
 
   constructor(
@@ -419,7 +434,11 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id || !+this.user.referral_type;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id || !+this.user.referral_type || this.invalidExtension();
+  }
+
+  invalidExtension(){
+    return this.invalidateArchiveExtension;
   }
 
   emptyFields() {
@@ -517,7 +536,7 @@ export class FormGtComponent implements OnInit {
         email: this.user.email,
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('YYYY-MM-DD'),
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
+        university_id: (this.user.university.id == '' ? '' : +this.user.university.id),
         local_committee_id: (this.user.university ? +this.user.university.local_committee_id : null),
         college_course_id: (this.user.college_course.id == '' ? '' : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
