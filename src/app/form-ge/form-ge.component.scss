@@ -531,7 +531,10 @@ section.header h1 {
     box-sizing: border-box;
     padding: 15px;
     font-size: 13px;
-    background-color: rgba(255, 255, 255, .3)
+    background-color: rgba(255, 255, 255, .3);
+    p {
+        margin: 0;
+    }
 }
 
 .info-message {
@@ -603,6 +606,14 @@ section.header h1 {
     border-top: none;
     border-left: none;
     border-right: none;
+}
+
+.input-file {
+    height: 40px;
+    align-items: inherit;
+}
+.filepond-wrapper {
+    padding: 10px;   
 }
 
 input::-webkit-input-placeholder {

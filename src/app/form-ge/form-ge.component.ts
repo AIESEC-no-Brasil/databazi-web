@@ -155,8 +155,8 @@ export class FormGeComponent implements OnInit {
   };
   msgs: Message[] = [];
 
-  personalData: boolean = false;
-  studyData: boolean = true;
+  personalData: boolean = true;
+  studyData: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -284,8 +284,8 @@ export class FormGeComponent implements OnInit {
 
     if (this.formedUser) {
       this.user = this.formedUser;
-      this.personalData = true;
-      this.studyData = false;
+      this.personalData = false;
+      this.studyData = true;
     }
 
     if(this.router.url == '/intercambio-ge'){
