@@ -154,8 +154,8 @@ export class FormGtComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  personalData: boolean = false;
-  studyData: boolean = true;
+  personalData: boolean = true;
+  studyData: boolean = false;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -199,7 +199,6 @@ export class FormGtComponent implements OnInit {
     this.curriculumFile = event.file.file;
     const extensionExpected = '.pdf'; 
     const fileExtension = this.curriculumFile.name.substr(-4);
-    console.log(fileExtension);
     if(fileExtension != extensionExpected){
       this.invalidateArchiveExtension = true;
       this.unableToSubmit();
