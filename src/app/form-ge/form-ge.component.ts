@@ -155,8 +155,8 @@ export class FormGeComponent implements OnInit {
   };
   msgs: Message[] = [];
 
-  personalData: boolean = true;
-  studyData: boolean = false;
+  personalData: boolean = false;
+  studyData: boolean = true;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -172,6 +172,8 @@ export class FormGeComponent implements OnInit {
   modal: boolean = false;
 
   embeddedForm: boolean = false;
+
+  invalidateArchiveExtension: boolean = false;
 
   courses: any;
   places: any;
@@ -197,6 +199,20 @@ export class FormGeComponent implements OnInit {
 
   pondHandleAddFile(event: any) {
     this.curriculumFile = event.file.file;
+    const extensionExpected = '.pdf'; 
+    const fileExtension = this.curriculumFile.name.substr(-4);
+    if(fileExtension != extensionExpected){
+      this.invalidateArchiveExtension = true;
+      this.unableToSubmit();
+    }
+    else{
+      this.invalidateArchiveExtension = false;
+    }
+    
+  }
+
+  removeFile(){
+    this.invalidateArchiveExtension = false;
   }
 
   constructor(
@@ -268,8 +284,8 @@ export class FormGeComponent implements OnInit {
 
     if (this.formedUser) {
       this.user = this.formedUser;
-      this.personalData = false;
-      this.studyData = true;
+      this.personalData = true;
+      this.studyData = false;
     }
 
     if(this.router.url == '/intercambio-ge'){
@@ -415,7 +431,11 @@ export class FormGeComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.when_can_travel || !this.user.preferred_destination.id || !+this.user.referral_type;;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id || !+this.user.referral_type || this.invalidExtension();
+  }
+
+  invalidExtension(){
+    return this.invalidateArchiveExtension;
   }
 
   emptyFields() {
