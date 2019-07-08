@@ -154,8 +154,8 @@ export class FormGtComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  personalData: boolean = true;
-  studyData: boolean = false;
+  personalData: boolean = false;
+  studyData: boolean = true;
 
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
@@ -171,6 +171,7 @@ export class FormGtComponent implements OnInit {
   modal: boolean = false;
   embeddedForm: boolean = false;
   showOtherUniversityField: boolean = false;
+  invalidateArchiveExtension: boolean = false;
 
   courses: any;
   places: any;
@@ -196,6 +197,21 @@ export class FormGtComponent implements OnInit {
 
   pondHandleAddFile(event: any) {
     this.curriculumFile = event.file.file;
+    const extensionExpected = '.pdf'; 
+    const fileExtension = this.curriculumFile.name.substr(-4);
+    console.log(fileExtension);
+    if(fileExtension != extensionExpected){
+      this.invalidateArchiveExtension = true;
+      this.unableToSubmit();
+    }
+    else{
+      this.invalidateArchiveExtension = false;
+    }
+    
+  }
+
+  removeFile(){
+    this.invalidateArchiveExtension = false;
   }
 
   constructor(
@@ -419,7 +435,11 @@ export class FormGtComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id || !+this.user.referral_type;
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse() || !this.user.preferred_destination.id || !+this.user.referral_type || this.invalidExtension();
+  }
+
+  invalidExtension(){
+    return this.invalidateArchiveExtension;
   }
 
   emptyFields() {
