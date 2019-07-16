@@ -80,11 +80,11 @@
                     </div>
                      <!-- desktop -->
                      <input type="tel" class="form-control desktop tel-mask" mask="{{ cellphoneMask }}" placeholder="Vamos falar com você por aqui!"  i18n-placeholder="@@cellphonePlaceholder"
-                     [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (keydown)='checkMaskCellphone($event)' (blur)="checkPhone()" required>
+                     [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" (keydown)='checkMaskCellphone($event)' (blur)="checkPhone()" required autocomplete="new-cellphone">
                    <!-- mobile -->
                    <i class="fas fa-mobile-alt mobile mobile-icon"></i>
                    <input type="tel" class="form-control mobile tel-mask" mask="{{ cellphoneMask }}" placeholder="Celular" i18n-placeholder="@@cellphoneMobilePlaceholder" [(ngModel)]="user.cellphone"
-                     formControlName="cellphone" name="cellphone" (blur)="checkPhone()"  (keydown)='checkMaskCellphone($event)' required>
+                     formControlName="cellphone" name="cellphone" (blur)="checkPhone()"  (keydown)='checkMaskCellphone($event)' required autocomplete="new-cellphone">
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
