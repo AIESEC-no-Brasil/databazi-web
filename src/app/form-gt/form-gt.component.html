@@ -49,7 +49,7 @@
               </p>
             </div>
             <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()" autocomplete="off">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend desktop">
@@ -84,8 +84,7 @@
                       [(ngModel)]="user.cellphone" i18n-placeholder="@@cellphonePlaceholder" formControlName="cellphone" name="cellphone" (keydown)='checkMaskCellphone($event)' (blur)="checkPhone()" required autocomplete="new-cellphone">
                     <!-- mobile -->
                     <i class="fas fa-mobile-alt mobile mobile-icon"></i>
-                    <input type="tel" class="form-control mobile tel-mask" mask="{{ cellphoneMask }}" placeholder="Celular" [(ngModel)]="user.cellphone"
-                      formControlName="cellphone" name="cellphone" (blur)="checkPhone()"  (keydown)='checkMaskCellphone($event)' required autocomplete="new-cellphone">
+                    <input name="q" placeholder="Número" type="tel" autocomplete="false" class="form-control mobile" mask="{{ cellphoneMask }}" [(ngModel)]="user.cellphone" (blur)="checkPhone()" (keydown)='checkMaskCellphone($event)' formControlName="cellphone" required autocomplete="new-cellphone"/>
                     <div class="valid-feedback">
                       <i class="fas fa-check"></i>
                     </div>
