@@ -207,6 +207,16 @@ export class FormGvComponent implements OnInit {
     window.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 a 30 años" : this.placeholderBirthdate = "Fecha de nacimiento";
   }
 
+  private setAttribute(feild, attribute , value): void {
+    document.getElementsByName(feild).forEach ( x => {
+      x.setAttribute(attribute, value)
+    })
+  }
+
+  ngAfterViewInit() {
+    this.setAttribute('new-user-pass', 'autocomplete', 'new-user-pass')
+  }
+
   ngOnInit() {
     if (this.formedUser) {
       this.user = this.formedUser;
