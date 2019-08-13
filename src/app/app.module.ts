@@ -41,6 +41,7 @@ import { LandingPageSubproductsModule } from "./landing-page-subproducts/landing
 import { LandingPageCountriesComponent } from './landing-page-countries/landing-page-countries.component';
 import { LandingPageCountriesModule } from "./landing-page-countries/landing-page-countries.module";
 import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
+import { FormMembershipModule } from "./form-membership/form-membership.module";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -109,6 +110,7 @@ export class SentryErrorHandler implements ErrorHandler {
     FormGtEmbeddedModule,
     FormGeEmbeddedModule,
     FormOfflineEmbeddedModule,
+    FormMembershipModule,
     ContactListModule,
     LandingPageSubproductsModule,
     LandingPageCountriesModule
