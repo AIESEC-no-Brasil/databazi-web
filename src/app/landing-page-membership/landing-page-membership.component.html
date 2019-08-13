@@ -127,7 +127,8 @@
       <br>
       <div class="row content-swipe-area">
         <div class="col-sm swipe-area">
-          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
+            <!-- sliderAnimation -->
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="stopAnimation()" (swiperight)="swipe('right')"
             (swipeleft)="swipe('left')"></div>
           <div class="footer-carousel-btn-left">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
@@ -138,7 +139,7 @@
                 <div class="cases case-1" drag-scroll-item>
                 </div>
                 <div class="showcase-description row">
-                  <div class="col-6"></div>
+                  <div class="col-6 desktop"></div>
                   <div class="col-6 brief">
                     <p>
                       "Fui de uma menina assustada e metódica para alguém resiliente que sabe gerir tempo, pessoas e informações de formas criativas e eficientes porque todos dias vivo desafios que me desenvolvem de fato — <strong>e não existe nenhum desafio que não possa ser superado quando se é AIESEC</strong>" <br>
@@ -157,14 +158,14 @@
                     </p>
                     <span><p>Denyson Morais - <strong>AIESEC em Belém</strong></p></span>
                   </div>
-                  <div class="col-6"></div>
+                  <div class="col-6 desktop"></div>
                 </div>
               </div>
               <div class="each-carousel-item">
                 <div class="cases case-3" drag-scroll-item>
                 </div>
                 <div class="showcase-description row">
-                  <div class="col-6"></div>
+                  <div class="col-6 desktop"></div>
                   <div class="col-6 brief">
                     <p>
                       "Quando eu penso em AIESEC, eu penso em ferramentas que proporcionam ondas de mudanças. Hoje vejo na AIESEC uma forma de fazer ainda mais, me unindo a milhares de pessoas que lutam todos os dias por um mundo melhor, como eu, e nos tornando assim uma <strong>onda de mudança sem limites</strong>"<br>
@@ -183,7 +184,7 @@
                     </p>
                     <span><p>Aline d'Avila - <strong>AIESEC em Natal</strong></p></span>
                   </div>
-                  <div class="col-6"></div>
+                  <div class="col-6 desktop"></div>
                 </div>
               </div>
             </div>

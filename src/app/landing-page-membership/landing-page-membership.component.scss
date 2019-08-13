@@ -885,7 +885,9 @@ drag-scroll {
 }
 
 @media (min-width: 991px) {    
-    
+    .float-right {
+        right: 60px;
+    }
     .case-1 {
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('/assets/images/case1-original.jpg');
@@ -1110,6 +1112,69 @@ drag-scroll {
                 background-size: 50%;
             }
         }
+    }
+    #signUp {
+        width: 100%;
+
+        .select-autocomplete {
+            flex: 0 0 calc(100% - 30px);
+        }
+
+        .col-1 {
+            padding: 0;
+            margin-left: -24px;
+        }
+    }
+
+    #our-stories {
+        .showcase-description {
+            width: 80%;
+            margin: 0 auto !important;
+            display: block;
+            height: auto;
+        }
+        .each-carousel-item {
+            background-color: #037ef3 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .carousel-container {
+            width: 100%;
+        }
+        .cases {
+            margin: 10px auto;
+            width: 130px;
+            height: 130px;
+            position: relative;
+            text-align: center;
+        }
+        .brief {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+            flex: 1;
+        }
+        .float-right {
+            float: initial!important;
+        }
+        .brief-left {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            margin: 0 !important;
+            max-width: 100%;
+        }
+    }
+    .content-swipe-area {
+        padding: 0;
+        .swipe-area {
+            padding: 0;
+        }
+    }
+    .fas.fa-chevron-right {
+        right: 1.5% !important;
     }
 }
 
@@ -1504,21 +1569,6 @@ select:-webkit-autofill:focus {
 @media (max-width: 1200px) {
     #signUp {
         width: 100%;
-    }
-}
-
-@media (max-width: 990px) {
-    #signUp {
-        width: 100%;
-
-        .select-autocomplete {
-            flex: 0 0 calc(100% - 30px);
-        }
-
-        .col-1 {
-            padding: 0;
-            margin-left: -24px;
-        }
     }
 }
 
@@ -2726,11 +2776,6 @@ section.host-details {
         }
     }
 }
-
-.float-right {
-    right: 60px;
-}
-
 .showcase-description {
     background-color: #037ef3;
     height: 300px;
