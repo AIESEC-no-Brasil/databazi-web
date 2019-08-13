@@ -179,60 +179,6 @@ main {
         background-size: auto 30px;
         background-position: center center;
         background-repeat: no-repeat;
-        &.mobile-1 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-1.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-1.png.webp');
-            }
-
-        }
-        &.mobile-2 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-2.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-2.png.webp');
-            }
-
-        }
-        &.mobile-3 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-3.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-3.png.webp');
-            }
-
-        }
-        &.mobile-4 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-4.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-4.png.webp');
-            }
-
-        }
-        &.mobile-5 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-5.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-5.png.webp');
-            }
-
-        }
-        &.mobile-6 {            
-            @at-root :host-context(.no-webp) #{&}{
-                background-image: url('/assets/images/mobile-6.png');
-            }
-            @at-root :host-context(.webp) #{&}{
-                background-image: url('/assets/images/mobile-6.png.webp');
-            }
-
-        }
     }
     .col-9 {
         text-align: left;
@@ -1175,6 +1121,24 @@ drag-scroll {
     }
     .fas.fa-chevron-right {
         right: 1.5% !important;
+    }
+    .job-description-session {
+        .adapt-height {
+            height: 40.0vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+        }
+        .bottom-header {
+            position: relative;
+            text-align: center;
+            top: inherit !important;
+        }
+        .job-description-info {
+            .row {
+                margin: 30px 0 !important;
+            }
+        }
     }
 }
 
@@ -2641,7 +2605,7 @@ section.host-details {
 }
 
 .experience-idea {
-    background-image: url('/assets/images/idea.png');
+    background-image: url('/assets/images/brainstorm.svg');
     background-position: center;
     height: 100px;
     background-size: contain;
@@ -2650,13 +2614,13 @@ section.host-details {
 
 .experience-idea-header {
     font-size: 24px;
-    color: #fef160;
+    color: #FFCA4F;
     font-weight: bold;
-    text-shadow: 2px 2px #9E9E9E;
+    padding: 10px 0;
 }
 
 .experience-handshake {
-    background-image: url('/assets/images/handshake.png');
+    background-image: url('/assets/images/discussion.svg');
     background-position: center;
     height: 100px;
     background-size: contain;
@@ -2665,13 +2629,13 @@ section.host-details {
 
 .experience-handshake-header {
     font-size: 24px;
-    color: #3fe54e;
+    color: #025F80;
     font-weight: bold;
-    text-shadow: 2px 2px #9E9E9E;
+    padding: 10px 0;
 }
 
 .experience-earth {
-    background-image: url('/assets/images/earth.png');
+    background-image: url('/assets/images/globe.svg');
     background-position: center;
     height: 100px;
     background-size: contain;
@@ -2680,9 +2644,9 @@ section.host-details {
 
 .experience-earth-header {
     font-size: 24px;
-    color: #1682dc;
+    color: #6DAFDF;
     font-weight: bold;
-    text-shadow: 2px 2px #9E9E9E;
+    padding: 10px 0;
 }
 
 .bottom-header {
@@ -2691,13 +2655,18 @@ section.host-details {
     left: 0;
 }
 
+.job-description-session {
+    .bottom-header {
+        top: -20px;
+    }
+}
+
 .adapt-height {
     height: 61.0vh;
 }
 
 .job-description-info {
-    background-color: #037ef3;
-    margin-bottom: 20px;
+    height: 100%;
     p {
         color: #fff !important;
     }
@@ -2706,13 +2675,19 @@ section.host-details {
         height: 60px;
     }
     .row {
-        margin: 30px 0;
-        .round {
-            background-size: 70% !important;
-            background-color: #fff !important;
+        margin: 35px 0;
+        display: flex;
+        align-items: center;
+        p {
+            font-weight: 700;
+            font-size: 18px;
         }
-        &:nth-last-child(2) {
-            margin-bottom: 10px;
+        i {
+            font-size: 30px;
+            background: #fff;
+            color: #037ef3;
+            padding: 15px;
+            border-radius: 50%;
         }
         &:nth-child(1) {
             .round {

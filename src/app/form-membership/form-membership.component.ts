@@ -262,7 +262,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   emptyFields(){
-    return  !(this.user.local_committee && !!this.user.local_committee.id);
+    return  !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || !this.user.state;
   }
 
   checkDate() {
