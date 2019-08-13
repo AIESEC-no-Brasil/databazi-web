@@ -1,0 +1,553 @@
+<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+<main>
+  <app-landing-page-menu></app-landing-page-menu>
+
+  <app-slider-membership-host></app-slider-membership-host>
+
+
+  <section class="padding-top-and-bottom experiences-session">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="italic align-left">
+            Ser membro da <strong>AIESEC</strong> é...
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-idea"></div>
+          <h3 class="centered experience-idea-header">
+            Ter experiências <br> práticas
+          </h3>
+          <p class="centered">
+            Desenvolver habilidades <br> essenciais, lidando com <br> pessoas e problemas reais!
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-handshake"></div>
+          <h3 class="centered experience-handshake-header">
+            Responsabillidade <br> social
+          </h3>
+          <p class="centered">
+            Sentir que está fazendo algo <br> efetivo para transformar a sua <br> realidade local!
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-earth"></div>
+          <h3 class="centered experience-earth-header">
+            Ser parte de uma rede <br>
+            global
+          </h3>
+          <p class="centered">
+            Estar conectado com pessoas e <br> organizações de diversos países, <br> que compartilham da crença de <br> um mundo melhor!
+          </p>
+        </div>        
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="host-details" id='host-details-form-area'>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12 col-md-12">
+          <form *ngIf='!loading' [formGroup]='signUp' (keydown.enter)='submit()' class='forms'>
+            <div class='row' id='signUp'>
+              <div class="col-sm">
+                <h1 class="white-header">
+                  Inscreva-se:
+                </h1>
+                <div class="alert alert-warning alert-dismissible fade show animated fadeIn" role="alert" *ngIf="invalidEmail">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="far fa-times-circle fa-lg"></i>
+                  </button>
+                  <p>Já existe um usuário com esse endereço de email!
+                    <strong>Gostaria de acessar a plataforma?</strong>
+                  </p>
+                </div>
+                <div class='col-12'>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-user"></i>Nome Completo
+                        </div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="text" class="form-control desktop" placeholder="Como é pra gente te chamar?" [(ngModel)]="user.fullname" formControlName="fullname"
+                        name="fullname" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-user mobile mobile-icon"></i>
+                      <input type="text" class="form-control mobile" placeholder="Nome completo" [(ngModel)]="user.fullname" formControlName="fullname"
+                        name="fullname" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <div *ngIf="isValid('fullname')" class='error-message'>
+                        Preencha com o seu nome.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-gift"></i>Data de Nascimento</div>
+                      </div>
+
+                      <i class="fas fa-gift mobile mobile-icon"></i>
+                      <input class="form-control p-inputMask gv" id="inputDatadeNascimento" (blur)="checkDate()" placeholder="{{ placeholderBirthdate }}"
+                        [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" mask="00/00/0000">
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                    <div *ngIf="isValid('birthdate')" class='error-message'>
+                      Preencha com a sua data de nascimento.
+                    </div>
+                    <div *ngIf="invalidDate" class='error-message'>
+                      Por favor, preencha com uma data válida
+                    </div>
+                    <div *ngIf="!matchDate" class='error-message'>
+                      Desculpe, nossos programas são direcionados para pessoas entre 18 e 30 anos.
+                    </div>
+                  </div>                  
+                </div>
+
+                <div class='col-12'>
+
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-mobile-alt"></i>Celular
+                        </div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="tel" class="form-control desktop" placeholder="Vamos falar com você por aqui!" mask="(00) 0000-00009" (blur)="checkPhone()"
+                        [(ngModel)]="user.cellphone" formControlName="cellphone" name="cellphone" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-mobile-alt mobile mobile-icon"></i>
+                      <input type="tel" class="form-control mobile" placeholder="Celular" mask="(00) 0000-00009" (blur)="checkPhone()" [(ngModel)]="user.cellphone"
+                        formControlName="cellphone" name="cellphone" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <div *ngIf="invalidPhone || isValid('cellphone')" class='error-message'>
+                        Por favor, digite um número de celular válido.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='col-12'>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-envelope"></i>E-mail
+                        </div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="email" class="form-control desktop" placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
+                        formControlName="email" name="email" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-envelope mobile mobile-icon"></i>
+                      <input type="email" class="form-control mobile" placeholder="E-mail" (blur)="checkEmail()" [(ngModel)]="user.email" formControlName="email"
+                        name="email" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <div *ngIf="isValid('email')" class='error-message'>
+                        Preencha com o seu email.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='col-12'>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-map-marked-alt"></i>Cidade
+                        </div>
+                      </div>
+                      <!-- desktop -->
+                      <input type="text" class="form-control desktop" placeholder="Informe sua cidade" [(ngModel)]="user.city" formControlName="city"
+                        name="city" required>
+
+                      <!-- mobile -->
+                      <i class="fas fa-map-marked-alt mobile mobile-icon"></i>
+                      <input type="text" class="form-control mobile" placeholder="Cidade" [(ngModel)]="user.city" formControlName="city"
+                        name="city" required>
+                      <div class="valid-feedback">
+                        <i class="fas fa-check"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf='hasZipCode' class='col-12 address without-border'>
+                  <div class='col-12'>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend desktop">
+                          <div class="input-group-text">
+                            <i class="fas fa-map-marked-alt"></i>Bairro
+                          </div>
+                        </div>
+                        <!-- desktop -->
+                        <input type="text" class="form-control desktop" disabled='true' placeholder="Bairro" name='neighborhood' [(ngModel)]='user.neighborhood'
+                          formControlName='neighborhood' required>
+
+                        <!-- mobile -->
+                        <i class="fas fa-map-marked-alt mobile mobile-icon"></i>
+                        <input type="tel" class="form-control mobile" disabled='true' placeholder="Bairro" name='neighborhood' [(ngModel)]='user.neighborhood'
+                          formControlName='neighborhood' required>
+                        <div class="valid-feedback">
+                          <i class="fas fa-check"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class='col-12'>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend desktop">
+                          <div class="input-group-text">
+                            <i class="fas fa-map-marked-alt"></i>Cidade
+                          </div>
+                        </div>
+                        <!-- desktop -->
+                        <input type="text" class="form-control desktop" disabled='true' placeholder="Cidade" name='city' [(ngModel)]='user.city'
+                          formControlName='city' required>
+
+                        <!-- mobile -->
+                        <i class="fas fa-map-marked-alt mobile mobile-icon"></i>
+                        <input type="tel" class="form-control mobile" disabled='true' placeholder="Cidade" name='city' [(ngModel)]='user.city' formControlName='city'
+                          required>
+                        <div class="valid-feedback">
+                          <i class="fas fa-check"></i>
+                        </div>
+
+                        <div *ngIf="isValid('city')" class='error-message'>
+                          Preencha com a sua cidade.
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class='col-12'>
+
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-prepend desktop">
+                          <div class="input-group-text">
+                            <i class="fas fa-map-marked-alt"></i>Estado
+                          </div>
+                        </div>
+                        <!-- desktop -->
+                        <input type="text" class="form-control desktop" disabled='true' placeholder="Estado" name='state' [(ngModel)]='user.state'
+                          formControlName='state' required>
+
+                        <!-- mobile -->
+                        <i class="fas fa-map-marked-alt mobile mobile-icon"></i>
+                        <input type="tel" class="form-control mobile" disabled='true' placeholder="Estado" [(ngModel)]='user.state' formControlName='state'
+                          name='state' required>
+                        <div class="valid-feedback">
+                          <i class="fas fa-check"></i>
+                        </div>
+
+                        <div *ngIf="isValid('state')" class='error-message'>
+                          Preencha com o seu estado.
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="form-group college_course">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Curso</div>
+                      </div>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses" (completeMethod)="searchCourses($event)"
+                            #coursesAutocomplete (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick()"
+                            dropdownMode="current" field="name" formControlName="college_course_id" emptyMessage="Nenhum resultado"
+                            placeholder="Insira seu curso"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('college_course')" *ngIf="user.college_course"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="isValid('college_course_id')" class='error-message'>
+                      Selecione um curso.
+                    </div>
+                  </div>                  
+                </div>
+
+                <div class='col-12'>
+
+                  <div class="form-group">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend desktop">
+                        <div class="input-group-text">
+                          <i class="fas fa-map-marker-alt"></i>AIESEC mais próxima</div>
+                      </div>
+                      <i class="fas fa-map-marker-alt mobile mobile-icon"></i>
+                      <div class="dropdown">
+                        <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
+                            #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();" dropdownMode="current"
+                            field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado" placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
+                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')"  *ngIf="user.local_committee"></i>
+                        </div>
+                        <!-- <div class="styled-select">
+                          <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces" (completeMethod)="searchPlaces($event)"
+                            #placesAutocomplete (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
+                            dropdownMode="current" field="name" formControlName="local_committee_id" emptyMessage="Nenhum resultado"
+                            placeholder="Esse é o escritório que vai cuidar de você!"></p-autoComplete>
+                          <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('local_committee')" *ngIf="user.local_committee.id"></i>
+                        </div> -->
+                      </div>
+                    </div>
+                    <div *ngIf="isValid('local_committee_id')" class='error-message'>
+                      Selecione uma das opções
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Terms -->
+                <div id="content-terms" style='width: 100%;'>
+                  <div class="row forms-term">
+                    <div class="col-sm-12">
+                      <div>
+                        <div class='forms-terms-area'>
+                          <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
+                          <label class='forms-tem-accepted info-mobile-content'>
+                            Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
+                            <br>
+                            <span style='text-decoration: underline; cursor: pointer;' (click)='openModal()'> Para ler os termos, basta clicar aqui. </span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class='col-sm-12'>
+                    <div class="form-group form-check text-center checkbox">
+                      <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable" id="aceitoTermos" [(ngModel)]="user.cellphone_contactable"
+                        formControlName="cellphone_contactable" name="cellphone_contactable">
+                      <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens no meu número de celular.</label>
+                    </div>
+                    <button type="button" (click)="submit()" [ngClass]='{"not-allowed": unableToSubmit(), "submit-form": true, "btn-primary": true}'
+                      [disabled]='unableToSubmit()'>
+                      Enviar
+                      <i class="fab fa-telegram-plane"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class='loading-content' *ngIf='loading'>
+            <div class='loading'>
+            </div>
+          </div>
+          <div id='modal' class='animated fadeIn faster' *ngIf="modal">
+            <div class='modal-bg' (click)='closeModal()'></div>
+            <div class='close-modal-button' (click)='closeModal()'>
+              <i class="fas fa-times-circle"></i>
+            </div>
+            <app-terms></app-terms>
+          </div>
+        </div>
+        <!-- <div *ngIf='completeSignup'>
+          <app-form-host-thank-you></app-form-host-thank-you>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="job-description-session">
+    <div class="col-lg-6 col-sm-12 col-md-12 adapt-height">
+      <h1 class="italic align-left white-header bottom-header">
+        Aprenda trabalhando <br> nas <strong>mais diversas <br> áreas</strong>
+      </h1>
+    </div>
+    <div class="col-lg-6 col-sm-12 col-md-12 job-description-info">
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Vendas para jovens, ONGs e empresas
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Marketing virtual e físico B2C e B2B
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Gestão de Times e processos de Recursos Humanos
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Operações e trabalho com processos
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Entrega das nossas experiências de intercâmbio
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-2 col-md-12 col-sm-12 centered">
+          <div class="round circle icon without-background gt"></div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-sm-12">
+          <p>
+            Gestao de recursos financeiros e investimentos
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="our-stories">
+    <div id="our-stories-bg"></div>
+    <section class="container align-center our-stories">
+      <h1 class='italic centered'>As nossas histórias</h1>
+      <br>
+      <div class="row content-swipe-area">
+        <div class="col-sm swipe-area">
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
+            (swipeleft)="swipe('left')"></div>
+          <div class="footer-carousel-btn-left">
+            <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
+          </div>
+          <div class="carousel-container">
+            <div class='carousel-wrapper' id='carousel-wrapper'>
+              <div class="each-carousel-item">
+                <div class="cases case-1" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6"></div>
+                  <div class="col-6 brief">
+                    <p>
+                      "Fui de uma menina assustada e metódica para alguém resiliente que sabe gerir tempo, pessoas e informações de formas criativas e eficientes porque todos dias vivo desafios que me desenvolvem de fato — <strong>e não existe nenhum desafio que não possa ser superado quando se é AIESEC</strong>" <br>
+                    </p>
+                    <span><p>Ariadne Alexandra - <strong>AIESEC no Insper</strong></p></span>
+                  </div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-2 float-right" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 brief-left">
+                    <p>
+                      "Minha comunicação e expressividade se mostram muito mais vivas, me ensinando a lidar com prazos, metas e objetivos. Estou aprendendo da melhor forma possível com as pessoas certas o que irei enfrentar numa <strong>futura carreira fora da organização</strong>"<br>
+                    </p>
+                    <span><p>Denyson Morais - <strong>AIESEC em Belém</strong></p></span>
+                  </div>
+                  <div class="col-6"></div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-3" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6"></div>
+                  <div class="col-6 brief">
+                    <p>
+                      "Quando eu penso em AIESEC, eu penso em ferramentas que proporcionam ondas de mudanças. Hoje vejo na AIESEC uma forma de fazer ainda mais, me unindo a milhares de pessoas que lutam todos os dias por um mundo melhor, como eu, e nos tornando assim uma <strong>onda de mudança sem limites</strong>"<br>
+                    </p>
+                    <span><p>Carine Muller - <strong>AIESEC em Cuiabá</strong></p></span>
+                  </div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-4 float-right" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 brief-left">
+                    <p>
+                      "A AIESEC me permitiu o contato com pessoas do mundo inteiro e, mais importante que isso, entender das realidades dos outros países e de como temos responsabilidade sobre elas. Por meio da AIESEC, me enxerguei como uma cidadã global ativa, que tem a oportunidade de participar ativamente nas mudanças e melhorias que podemos trazer pro mundo"<br>
+                    </p>
+                    <span><p>Aline d'Avila - <strong>AIESEC em Natal</strong></p></span>
+                  </div>
+                  <div class="col-6"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-carousel-btn-right">
+            <i (click)="moveRight()" class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        <ul id='position-carousel'>
+          <li [ngClass]="{'active': sliderPosition == 0}"></li>
+          <li [ngClass]="{'active': sliderPosition == 100}"></li>
+          <li [ngClass]="{'active': sliderPosition == 200}"></li>
+          <li [ngClass]="{'active': sliderPosition == 300}"></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="engage-session">
+    <div class="col-6 adapt-height">
+      <h1 class="italic align-left white-header bottom-header">
+        Somos mais de <strong>40.000 membros</strong> <br> ao redor de mais de <strong>120 países</strong>! <br> Junte-se ao nosso time! <br>
+        <button type="button" class="btn-primary"><!-- (click)="submit()" -->
+          Inscreva-se
+        </button>
+      </h1>
+    </div>
+    <div class="col-6"></div>
+  </section>
+
+
+</main>
+<app-landing-footer></app-landing-footer>

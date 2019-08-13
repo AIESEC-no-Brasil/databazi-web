@@ -2,6 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FormHostThankYouComponent } from './form-host/form-host-thank-you/form-host-thank-you.component';
+import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
 
 export const router : Routes = [
     { path: '', component: LandingPageComponent },
@@ -48,6 +49,10 @@ export const router : Routes = [
     {
         path: 'lar-global/obrigado',
         component: FormHostThankYouComponent
+    },
+    {
+        path: 'membresia',
+        component: LandingPageMembershipComponent
     },
     { path: '**', component: LandingPageComponent }
 ]

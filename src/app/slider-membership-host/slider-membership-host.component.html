@@ -10,12 +10,12 @@
             <br> Participe do nosso
             <b>Processo Seletivo!</b>
           </p>
-          <a class='btn btn-primary' (click)='goToMembership()'> Inscreva-se </a>
+          <a class='btn btn-primary' (click)='goToMembership()' *ngIf="this.actualPage != 'membresia'"> Inscreva-se </a>
         </div>
       </div>
     </div>
   </section>
-  <section class='host animated faster fadeIn' [ngClass]='{"fadeIn": !slider, "fadeContentOut": slider}'>
+  <section class='host animated faster' [ngClass]='{"fadeIn": !slider, "fadeContentOut": slider}'>
     <div class='bg-host'></div>
     <div class='container'>
       <div class='row'>
