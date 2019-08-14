@@ -37,31 +37,6 @@ export class FormMembershipComponent implements OnInit {
     utm_term: '',
     utm_content: ''
   }
-
-  experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language' },
-    { name: 'Marketing', value: 'marketing' },
-    { name: 'Tecnologia da Informação', value: 'information_technology' },
-    { name: 'Gestão', value: 'management' },
-  ];
-
-  scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
-  ];
-
-  englishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
-    { id: '1', name: 'Básico' },
-    { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
-  ];
-
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
