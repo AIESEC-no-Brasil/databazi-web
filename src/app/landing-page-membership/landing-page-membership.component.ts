@@ -239,4 +239,9 @@ export class LandingPageMembershipComponent implements OnInit {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
+  scrollTo(el: HTMLElement){
+    console.log('they see me scrolling', el);
+    el.scrollIntoView();
+  }
+
 }

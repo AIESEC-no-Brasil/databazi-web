@@ -47,8 +47,9 @@
     </div>
   </section>
 
+  <div #formMembershipRef></div>
   <!-- Form -->
-  <app-form-membership></app-form-membership>
+  <app-form-membership id="header-talentos-globais"></app-form-membership>
 
   <section class="job-description-session">
     <div class="col-lg-6 col-sm-12 col-md-12 adapt-height">
@@ -207,7 +208,7 @@
     <div class="col-6 adapt-height">
       <h1 class="italic align-left white-header bottom-header">
         Somos mais de <strong>40.000 membros</strong> <br> ao redor de mais de <strong>120 países</strong>! <br> Junte-se ao nosso time! <br>
-        <button type="button" class="btn-primary"><!-- (click)="submit()" -->
+        <button type="button" class="btn-primary" (click)="scrollTo(formMembershipRef)">
           Inscreva-se
         </button>
       </h1>

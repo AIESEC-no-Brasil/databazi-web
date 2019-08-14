@@ -492,6 +492,10 @@ strong {
     padding-left: 0;
 }
 
+.form-row {
+    text-align: center;
+}
+
 /*--------------------------------------------------------------
       Header
   --------------------------------------------------------------*/
@@ -1757,15 +1761,32 @@ label {
 /deep/ p-autoComplete {
     input::-webkit-input-placeholder {
         color: white;
+        text-align: right;
+        padding-right: 60px;
+        font-size: 13px;
+        font-weight: lighter;
+        font-style: italic;
     }
     input:-moz-placeholder {
         color: white;
+        text-align: right;
+        padding-right: 60px;
+        font-weight: lighter;
+        font-style: italic;
     }
     input::-moz-placeholder {
         color: white;
+        text-align: right;
+        padding-right: 60px;
+        font-weight: lighter;
+        font-style: italic;
     }
     input:-ms-input-placeholder {
         color: white;
+        text-align: right;
+        padding-right: 60px;
+        font-weight: lighter;
+        font-style: italic;
     }
 }
 

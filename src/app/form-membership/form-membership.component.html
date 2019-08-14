@@ -279,15 +279,12 @@
             </section>
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
-              <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp(headerGTRef)" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
-              </div>
-              <div class="col text-right">
-                <button type="button" (click)="registerUser(headerGTRef)" class="btn btn-primary" *ngIf="personalData" [disabled]='form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
-                <button type="button" (click)="submit(headerGTRef)" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='unableToSubmit()'>
+              <div class="col">
+                <button type="button" (click)="registerUser(headerGTRef)" class="btn btn-primary" *ngIf="personalData" [disabled]='form.invalid || (!matchDate || invalidEmail)'>Enviar</button>
+                <!-- <button type="button" (click)="submit(headerGTRef)" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>
-                </button>
+                </button> -->
               </div>
             </div>
           </div>

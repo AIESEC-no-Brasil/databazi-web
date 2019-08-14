@@ -792,8 +792,8 @@ drag-scroll {
 .content-swipe-area {
     position: relative;
     ul#position-carousel, ul.position-carousel {
-        position: absolute;
-        bottom: -20px;
+        margin-top: 20px !important;
+        bottom: 20px;
         padding: 0;
         margin: 0;
         display: flex;
@@ -803,7 +803,7 @@ drag-scroll {
         li {
             width: 10px;
             height: 10px;
-            background-color: #fff;
+            background-color: #555;
             border-radius: 50%;
             transition: .2s;
             margin: 0 10px;
