@@ -3,15 +3,13 @@ import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
-import { Http } from '@angular/http';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-form-membership',
@@ -29,7 +27,7 @@ export class FormMembershipComponent implements OnInit {
     birthdate: '',
     email: '',
     local_committee: { id: '' },
-    college_course: { id: '', name: ''},
+    college_course: { id: '', name: '' },
     city: '',
     state: '',
     cellphone_contactable: true,
@@ -41,19 +39,19 @@ export class FormMembershipComponent implements OnInit {
   }
 
   experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language'},
-    { name: 'Marketing', value: 'marketing'},
-    { name: 'Tecnologia da Informação', value: 'information_technology'},
-    { name: 'Gestão', value: 'management'},
+    { name: 'Ensino de Línguas', value: 'language' },
+    { name: 'Marketing', value: 'marketing' },
+    { name: 'Tecnologia da Informação', value: 'information_technology' },
+    { name: 'Gestão', value: 'management' },
   ];
 
   scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+    { id: '0', name: 'Ensino Médio Completo' },
+    { id: '2', name: 'Estudante de Graduação' },
+    { id: '3', name: 'Mestrado ou Pós' },
+    { id: '4', name: 'Graduado em até 1,5 anos' },
+    { id: '5', name: 'Graduado há mais de 2 anos' },
+    { id: '6', name: 'Outro' }
   ];
 
   englishLevelOptions: any = [
@@ -64,25 +62,12 @@ export class FormMembershipComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;  
   filteredCourses: Observable<any[]>;
-  filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
 
-  selectedItems : any = {
-    language: false,
-    marketing: false,
-    information_technology: false,
-    management: false
-  };
-
   msgs: Message[] = [];
-
-  personalData: boolean = true;
-  studyData: boolean = false;
 
   invalidEmail: boolean = false;
   invalidDate: boolean = false;
@@ -90,14 +75,14 @@ export class FormMembershipComponent implements OnInit {
   matchDate: boolean = true;
   loading: boolean = false;
   form: FormGroup;
-  submittedPersonal: boolean = false;
-  submittedStudy: boolean = false;
   completedSignup: boolean = false;
-  modal:boolean = false;
+  modal: boolean = false;
   embeddedForm: boolean = false;
 
   courses: any;
   places: any;
+
+  submitted: boolean = false;
 
   constructor(
     public signupService: SignupService,
@@ -139,9 +124,9 @@ export class FormMembershipComponent implements OnInit {
     this.detectKeypress();
   }
 
-  detectKeypress(){
+  detectKeypress() {
     $(document).keyup((event) => {
-      if (this.modal && event.keyCode == 27){
+      if (this.modal && event.keyCode == 27) {
         this.closeModal()
       }
     })
@@ -149,10 +134,8 @@ export class FormMembershipComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.formedUser){
+    if (this.formedUser) {
       this.user = this.formedUser;
-      this.personalData = false;
-      this.studyData = true;
     }
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
@@ -203,36 +186,16 @@ export class FormMembershipComponent implements OnInit {
     return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
-  onResize(event){
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  addOrRemove(experience){
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
-  }
-
-  cancelSignUp(el: HTMLElement){
-    if(this.formedUser){
-      this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
-        this.submittedPersonal = false;
-        this.submittedStudy = false;
-        this.personalData = true;
-        this.studyData = false;
-        el.scrollIntoView();
-      }else{
-        this.router.navigate(['/']);
-      }
-    }
-  }
-
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
   isValid(field) {
-    return !this.form.controls[field].valid && (this.form.controls[field].dirty || this.submittedPersonal)
+    return !this.form.controls[field].valid && (this.form.controls[field].dirty || this.submitted)
   }
 
   fillCourseSelect() {
@@ -256,13 +219,13 @@ export class FormMembershipComponent implements OnInit {
     })
   }
 
-  
-  unableToSubmit(){
+
+  unableToSubmit() {
     return this.emptyFields()
   }
 
-  emptyFields(){
-    return  !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || !this.user.state;
+  emptyFields() {
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || !this.user.state;
   }
 
   checkDate() {
@@ -278,24 +241,24 @@ export class FormMembershipComponent implements OnInit {
     }
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
+  toggleOverflowHtml() {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
-  
-  checkPhone(){
+
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
@@ -303,27 +266,21 @@ export class FormMembershipComponent implements OnInit {
       this.invalidPhone = false;
     }
   }
-  registerUser(el: HTMLElement) {
-    this.submittedPersonal = true;
-    if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPhone && this.matchDate) {
-      this.personalData = false;
-      this.studyData = true;
-      el.scrollIntoView();
-    }
-  }
 
   submit(el: HTMLElement) {
-    this.submittedStudy = true;
+    this.submitted = true;
 
     let user = {
       gt_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-        email: this.user.email,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
+        email: this.user.email,
         local_committee_id: +this.user.local_committee.id,
-        college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
-        experience: this.selectedItems,
+        college_course_id: +this.user.college_course.id,
+        cellphone_contactable: this.user.cellphone_contactable,
+        city: this.user.city,
+        state: this.user.state,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -332,29 +289,38 @@ export class FormMembershipComponent implements OnInit {
       }
     };
     this.loading = true;
-    this.signupService.addGtParticipant(user)
-      .then((res: any) => {
-        this.loading = false;
-        if (res.status == 'failure') {
-          this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-        }
-        else {
-          this.completedSignup = true;
-          localStorage.removeItem('utm_source');
-          localStorage.removeItem('utm_medium');
-          localStorage.removeItem('utm_campaign');
-          localStorage.removeItem('utm_term');
-          localStorage.removeItem('utm_content');
-          el.scrollIntoView();
-        }
-      },
-        (err) => {
-          this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
-        }
-      )
+
+    // TO DO: REMOVE THIS TIMEOUT
+    setTimeout(() => {
+      console.log('user', user);
+      this.completedSignup = true;
+      this.loading = false;
+    }, 2000);
+
+    // TO DO: CREATE SIGN UP MEMBERSHIP 
+    // this.signupService.addGtParticipant(user)
+    //   .then((res: any) => {
+    //     this.loading = false;
+    //     if (res.status == 'failure') {
+    //       this.msgs = [];
+    //       this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+    //     }
+    //     else {
+    //       this.completedSignup = true;
+    //       localStorage.removeItem('utm_source');
+    //       localStorage.removeItem('utm_medium');
+    //       localStorage.removeItem('utm_campaign');
+    //       localStorage.removeItem('utm_term');
+    //       localStorage.removeItem('utm_content');
+    //       el.scrollIntoView();
+    //     }
+    //   },
+    //     (err) => {
+    //       this.msgs = [];
+    //       this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+    //       this.loading = false;
+    //     }
+    //   )
   }
 
   checkEmail() {
@@ -371,32 +337,24 @@ export class FormMembershipComponent implements OnInit {
     return option ? option.name : undefined;
   }
 
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
-
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
-  searchEnglishLevels(event) {
-    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
-  };
-
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 

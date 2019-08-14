@@ -54,9 +54,6 @@
             justify-content: center;
         }
     }
-    i.autocomplete-clear-btn {
-        top: 0;
-    }
 }
 
 
@@ -842,10 +839,15 @@ label {
     font-size: 20px;
 }
 
-#resultado .col-sm>.row {
-    margin: 55px auto;
-    button {
-        width: auto;
+#success {
+    .col-sm>.row {
+        margin: 55px auto;
+        button {
+            width: auto;
+        }
+    }
+    p {
+        font-size: 16px;
     }
 }
 
@@ -1685,7 +1687,6 @@ label {
 
 .form-talentos-globais .btn-primary:hover,
 .form-talentos-globais .btn-secondary:hover {
-    color: #fff;
     background-color: #fff;
     border-color: #fff;
 }
