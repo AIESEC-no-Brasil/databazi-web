@@ -211,11 +211,7 @@ export class FormGvComponent implements OnInit {
     document.getElementsByName(field).forEach ( x => {
       x.setAttribute(attribute, value)
     })
-  }
-
-  ngAfterViewInit() {
-    this.setAttribute('new-user-pass', 'autocomplete', 'new-user-pass')
-  }
+  }  
 
   ngOnInit() {
     if (this.formedUser) {
