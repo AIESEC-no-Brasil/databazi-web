@@ -511,6 +511,10 @@ font-size: 20px;
     color: #888;
 }
 
+.experiences-session h3 {
+    height: 70px;
+}
+
 .bullet-1 {
     color: #fdc945;
 }
@@ -1035,6 +1039,7 @@ drag-scroll {
     
     #our-stories {
         min-height: 100vh;
+        padding: 10px;
     }
     #our-stories {
         display: flex;
@@ -1045,7 +1050,7 @@ drag-scroll {
     section.our-stories {
         .carousel-container {
             width: 80%;
-            height: 500px;
+            height: 600px;
         }
         .cases {
             height: 250px;
@@ -1122,12 +1127,9 @@ drag-scroll {
             padding: 0;
         }
     }
-    .fas.fa-chevron-right {
-        right: 1.5% !important;
-    }
     .job-description-session {
         .adapt-height {
-            height: 40.0vh;
+            height: 30.0vh;
             display: flex;
             align-items: center;
             justify-content: center;    
@@ -1267,6 +1269,37 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 600px) {
+    .fa-chevron-left {
+        margin-left: 5px;
+        margin-right: 0;
+        left: 0px !important;
+        color: #037ef3 !important;
+    }
+
+    .fa-chevron-right {
+        margin-left: 0;
+        margin-right: 5px;
+        right: 0px !important;
+        color: #037ef3 !important;
+    }
+
+    .carousel-container {
+        width: 80% !important;
+    }
+
+    .footer-carousel-btn-left,
+    .footer-carousel-btn-right {
+        left: 0;
+        right: 0;
+    }
+    .mobile-col {
+        margin: 0;
+        padding: 0;
+        width: 60%;
+    }
+    .col-width {
+        width: 35%;
+    }
     .desktop {
         display: none !important;
     }
@@ -1286,9 +1319,6 @@ select:-webkit-autofill:focus {
     }
     .job-description-session {
         display: block;
-    }
-    .job-description-session  p {
-        text-align: center;
     }
     .job-description-info {
         .row {
@@ -1769,10 +1799,6 @@ label.input-terms-label {
     padding: .375rem .75rem;
     background: #036fd6 !important;
     color: #FFF;
-}
-
-.fas {
-    margin-right: 15px;
 }
 
 .input-group-text {
