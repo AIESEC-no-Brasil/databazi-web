@@ -261,13 +261,6 @@ export class ContactListComponent implements OnInit {
         email: "ricardo.filho2@aiesec.net"
       },
       {
-        id: "36",
-        city: "RIBEIRAO PRETO",
-        name: "Maria Luiza Ribeiro da Cunha",
-        cellphone: "11 95551-1972",
-        email: "marialuiza.cunha@aiesec.net"
-      },
-      {
         id: "37",
         city: "SANTOS",
         name: "Andressa Kelly",
@@ -611,13 +604,6 @@ export class ContactListComponent implements OnInit {
         name: "Danilo Silveira",
         cellphone: "55 67 99155-9149",
         email: "danilo.silveira@aiesec.net"
-      },
-      {
-        id: 37,
-        city: "RIBEIRAO PRETO",
-        name: "João Felipe Denys Pereira",
-        cellphone: "55 16 99797-6097",
-        email: "joaofelipe.denyspereira6@aiesec.net"
       },
       {
         id: 38,
