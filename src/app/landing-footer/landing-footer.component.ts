@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
 import 'hammerjs';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-landing-footer',
@@ -14,6 +15,7 @@ export class LandingFooterComponent implements OnInit {
   sliderPosition: number = 0;
   timer: any;
   window:any = window;
+  year: any = moment().year();
 
   navTo(partnerPage) {
     window.open(partnerPage, '_blank');
