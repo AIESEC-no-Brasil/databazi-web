@@ -347,7 +347,7 @@ export class FormGeComponent implements OnInit {
   }
 
   onResize(event) {
-    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Fecha de nacimiento");
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Los programas de AIESEC son para personas de 18 à 30 años" : this.placeholderBirthdate = "Fecha de nacimiento");
   }
 
   cancelSignUp() {
