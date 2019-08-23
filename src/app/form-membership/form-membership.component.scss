@@ -39,6 +39,37 @@
 }
 
 @media (max-width: 600px) {
+    /deep/ p-autoComplete {
+        input::-webkit-input-placeholder {
+            color: white;
+            text-align: left !important;
+            padding-right: 60px;
+            font-size: 13px;
+            font-weight: lighter;
+            font-style: italic;
+        }
+        input:-moz-placeholder {
+            color: white;
+            text-align: left !important;
+            padding-right: 60px;
+            font-weight: lighter;
+            font-style: italic;
+        }
+        input::-moz-placeholder {
+            color: white;
+            text-align: left !important;
+            padding-right: 60px;
+            font-weight: lighter;
+            font-style: italic;
+        }
+        input:-ms-input-placeholder {
+            color: white;
+            text-align: left !important;
+            padding-right: 60px;
+            font-weight: lighter;
+            font-style: italic;
+        }
+    }
     .desktop {
         display: none !important;
     }
@@ -499,7 +530,6 @@ strong {
   --------------------------------------------------------------*/
 
 section.header h1 {
-    max-width: 60%;
     margin: auto;
 }
 
@@ -1038,6 +1068,7 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
+
     //prime 
     ::ng-deep .p-inputMask input {
         text-align: right;
@@ -1349,6 +1380,7 @@ label {
     .full-screen-embedded {
         align-items: flex-start;
     }
+
 }
 
 @media screen and (min-width: 400px) and (max-width: 600px){
@@ -1408,7 +1440,7 @@ label {
   --------------------------------------------------------------*/
 
 .form-volutario-global .color-icon {
-    color: #fcada0;
+    color: #84c7d0;
 }
 
 /* Forms */
@@ -1835,7 +1867,7 @@ label {
     div.form-talentos-globais {
         &:not(.full-screen) {
             transform: scale(1.175);
-            margin: 15vh 0;
+            margin-bottom: 50px;
         }
     }
 }
