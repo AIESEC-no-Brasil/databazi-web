@@ -113,12 +113,12 @@
     }
 }
 
-.loading-animation-gt {
+.loading-animation-membership {
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/sent-gt.png');
+        background-image: url('/assets/images/sent-membership.png');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/sent-gt.png.webp');
+        background-image: url('/assets/images/sent-membership.png');
     }
     background-size: 50%;
     background-position: center center;
@@ -513,6 +513,7 @@ strong {
 
 .fa-10x {
     margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .form-row>.col,
@@ -872,7 +873,7 @@ label {
 
 #success {
     .col-sm>.row {
-        margin: 55px auto;
+        margin: 0 auto 55px auto;
         button {
             width: auto;
         }
@@ -1621,7 +1622,7 @@ label {
   --------------------------------------------------------------*/
 
 .form-talentos-globais .color-icon {
-    color: #84c7d0
+    color: #fff;
 }
 
 /* Forms */
