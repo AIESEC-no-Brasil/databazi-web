@@ -1192,7 +1192,6 @@ drag-scroll {
     .job-description-session,
     .engage-session,
     #our-stories {
-        min-height: 65vh !important;
         .align-left {
             span {
                 font-size: 1.35em;
@@ -2696,8 +2695,12 @@ section.host-details {
     }
 }
 
-.adapt-height {
-    height: 61.0vh;
+.engage-session .adapt-height {
+    height: 71.0vw;
+}
+
+.job-description-session .adapt-height {
+    height: 35.5vw;
 }
 
 .job-description-info {
