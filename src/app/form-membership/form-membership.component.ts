@@ -18,6 +18,8 @@ import { Observable } from 'rxjs';
 })
 export class FormMembershipComponent implements OnInit {
 
+  window:any = window;
+
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
 
@@ -268,6 +270,8 @@ export class FormMembershipComponent implements OnInit {
     // TO DO: REMOVE THIS TIMEOUT
     setTimeout(() => {
       console.log('user', user);
+      this.window.ga('set', 'page', '/membresia/obrigado');
+      this.window.ga('send', 'pageview');
       this.completedSignup = true;
       this.loading = false;
     }, 2000);
@@ -288,6 +292,8 @@ export class FormMembershipComponent implements OnInit {
     //       localStorage.removeItem('utm_term');
     //       localStorage.removeItem('utm_content');
     //       el.scrollIntoView();
+    //       this.window.ga('set', 'page', '/membresia/obrigado');
+    //       this.window.ga('send', 'pageview');
     //     }
     //   },
     //     (err) => {

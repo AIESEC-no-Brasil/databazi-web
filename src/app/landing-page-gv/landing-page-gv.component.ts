@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 
 export class LandingPageGvComponent implements OnInit {
+
+  window:any = window;
   
   actualPage : string;
   countries: any = [
@@ -84,6 +86,8 @@ export class LandingPageGvComponent implements OnInit {
 
   ngOnInit() {
     this.checkUrl();
+    this.window.ga('set', 'page', '/voluntario-global');
+    this.window.ga('send', 'pageview');
   }
 
   checkUrl(){

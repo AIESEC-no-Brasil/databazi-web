@@ -8,6 +8,8 @@ import * as $ from 'jquery';
 })
 export class LandingPageHostComponent implements OnInit {
 
+  window:any = window;
+
   hostRequirements = [
     {
       icon: 'fas fa-bed',
@@ -41,5 +43,7 @@ export class LandingPageHostComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.window.ga('set', 'page', '/lar-global');
+    this.window.ga('send', 'pageview');
   }
 }
