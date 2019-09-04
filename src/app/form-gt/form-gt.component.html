@@ -4,7 +4,7 @@
 <div id="step1" class="form-talentos-globais" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
   <div class="full-width">
     <!-- Header -->
-    <section class="header" id="header-talentos-globais">
+    <section class="header" id="header-talentos-globais" #headerGTRef>
       <div class="container">
         <div class="row justify-content-center" *ngIf="!embeddedForm">
           <div class="col-sm text-center">
@@ -348,7 +348,7 @@
                   <div class="col-sm">
                     <div class="row justify-content-center">
                       <div class="col-sm-9" id="header-resultado">
-                        <h2>Obrigado por se increver!</h2>
+                        <h2>Obrigado por se inscrever!</h2>
                         <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
                       </div>
                       <div class="col-sm-3">
@@ -372,14 +372,11 @@
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1"
-                  [ngx-scroll-to]="'#header-talentos-globais'">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp(headerGTRef)" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
-                  [ngx-scroll-to]="'#header-talentos-globais'">Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#header-talentos-globais'"
-                  [disabled]='unableToSubmit()'>
+                <button type="button" (click)="registerUser(headerGTRef)" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
+                <button type="button" (click)="submit(headerGTRef)" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>
                 </button>

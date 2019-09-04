@@ -5,7 +5,7 @@
 <div id="step1" class="form-volutario-global relative-form" [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
   <div class="full-width">
     <!-- Header -->
-    <section class="header" id="header-voluntario-global">
+    <section class="header" id="header-voluntario-global" #headerGVRef>
       <div class="container">
         <div class="row justify-content-center" *ngIf="!embeddedForm">
           <div class="col-sm text-center">
@@ -51,7 +51,7 @@
               </p>
             </div>
             <div class="animated fadeIn" *ngIf="personalData && !completedSignup">
-              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser()">
+              <form [formGroup]="step1Form" class="forms gv" (keydown.enter)="registerUser(headerGVRef)">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend desktop">
@@ -310,7 +310,7 @@
                   <div class="col-sm">
                     <div class="row justify-content-center">
                       <div class="col-sm-9" id="header-resultado">
-                        <h2>Obrigado por se increver!</h2>
+                        <h2>Obrigado por se inscrever!</h2>
                         <h3>Fique ligado no seu e-mail que enviaremos informações úteis para você por lá.</h3>
                       </div>
                       <div class="col-sm-3">
@@ -336,10 +336,8 @@
                 <button type="button" class="btn btn-secondary" data-toggle="modal" (click)="cancelSignUp()" data-target="#modalCancelar1">{{formedUser || submittedPersonal ? 'Voltar' : 'Cancelar'}}</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="registerUser()" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'
-                  [ngx-scroll-to]="'#form'">Próximo</button>
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" *ngIf="studyData" [ngx-scroll-to]="'#form'"
-                  [disabled]='unableToSubmit()'>
+                <button type="button" (click)="registerUser(headerGVRef)" class="btn btn-primary" *ngIf="personalData" [disabled]='step1Form.invalid || (!matchDate || invalidEmail)'>Próximo</button>
+                <button type="button" (click)="submit(headerGVRef)" class="btn btn-primary submit-form" *ngIf="studyData" [disabled]='unableToSubmit()'>
                   Enviar
                   <i class="fab fa-telegram-plane"></i>
                 </button>

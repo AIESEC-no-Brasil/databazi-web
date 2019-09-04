@@ -1,0 +1,221 @@
+<link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+<main>
+  <app-landing-page-menu></app-landing-page-menu>
+
+  <app-slider-membership-host></app-slider-membership-host>
+
+
+  <section class="padding-top-and-bottom experiences-session">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="italic align-left">
+            Ser membro da <strong>AIESEC</strong> é...
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-idea"></div>
+          <h3 class="centered experience-idea-header">
+            Ter experiências práticas
+          </h3>
+          <p class="centered">
+            Desenvolver habilidades essenciais, lidando com pessoas e problemas reais!
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-handshake"></div>
+          <h3 class="centered experience-handshake-header">
+            Responsabillidade social
+          </h3>
+          <p class="centered">
+            Sentir que está fazendo algo efetivo para transformar a sua realidade local!
+          </p>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12">
+          <div class="experience-earth"></div>
+          <h3 class="centered experience-earth-header">
+            Ser parte de uma rede 
+            global
+          </h3>
+          <p class="centered">
+            Estar conectado com pessoas e  organizações de diversos países,  que compartilham da crença de  um mundo melhor!
+          </p>
+        </div>        
+      </div>
+    </div>
+  </section>
+
+  <div #formMembershipRef></div>
+  <!-- Form -->
+  <app-form-membership id="header-talentos-globais"></app-form-membership>
+
+  <section class="job-description-session">
+    <div class="col-lg-6 col-sm-4 col-md-4 adapt-height">
+      <h1 class="italic align-left white-header bottom-header">
+        Aprenda trabalhando <br> nas <strong>mais diversas <br> áreas</strong>
+      </h1>
+    </div>
+    <div class="col-lg-6 col-sm-8 col-md-8 job-description-info">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-briefcase"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Vendas para jovens, ONGs e empresas
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-bullhorn"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Marketing virtual e físico B2C e B2B
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-users"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Gestão de Times e processos de Recursos Humanos
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-sitemap"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Operações e trabalho com processos
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-plane"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Entrega das nossas experiências de intercâmbio
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-width">
+            <i class="fas fa-money-bill"></i>
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 mobile-col">
+          <p>
+            Gestao de recursos financeiros e investimentos
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="our-stories">
+    <div id="our-stories-bg"></div>
+    <section class="container align-center our-stories">
+      <h1 class='italic centered'>As nossas histórias</h1>
+      <br>
+      <div class="row content-swipe-area">
+        <div class="col-sm swipe-area">
+            <!-- sliderAnimation -->
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="stopAnimation()" (swiperight)="swipe('right')"
+            (swipeleft)="swipe('left')"></div>
+          <div class="footer-carousel-btn-left">
+            <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
+          </div>
+          <div class="carousel-container">
+            <div class='carousel-wrapper' id='carousel-wrapper'>
+              <div class="each-carousel-item">
+                <div class="cases case-1" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 desktop"></div>
+                  <div class="col-6 brief">
+                    <p>
+                      "Fui de uma menina assustada e metódica para alguém resiliente que sabe gerir tempo, pessoas e informações de formas criativas e eficientes porque todos dias vivo desafios que me desenvolvem de fato — <strong>e não existe nenhum desafio que não possa ser superado quando se é AIESEC</strong>" <br>
+                    </p>
+                    <span><p>Ariadne Alexandra - <strong>AIESEC no Insper</strong></p></span>
+                  </div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-2 float-right" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 brief-left">
+                    <p>
+                      "Minha comunicação e expressividade se mostram muito mais vivas, me ensinando a lidar com prazos, metas e objetivos. Estou aprendendo da melhor forma possível com as pessoas certas o que irei enfrentar numa <strong>futura carreira fora da organização</strong>"<br>
+                    </p>
+                    <span><p>Denyson Morais - <strong>AIESEC em Belém</strong></p></span>
+                  </div>
+                  <div class="col-6 desktop"></div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-3" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 desktop"></div>
+                  <div class="col-6 brief">
+                    <p>
+                      "Quando eu penso em AIESEC, eu penso em ferramentas que proporcionam ondas de mudanças. Hoje vejo na AIESEC uma forma de fazer ainda mais, me unindo a milhares de pessoas que lutam todos os dias por um mundo melhor, como eu, e nos tornando assim uma <strong>onda de mudança sem limites</strong>"<br>
+                    </p>
+                    <span><p>Carine Muller - <strong>AIESEC em Cuiabá</strong></p></span>
+                  </div>
+                </div>
+              </div>
+              <div class="each-carousel-item">
+                <div class="cases case-4 float-right" drag-scroll-item>
+                </div>
+                <div class="showcase-description row">
+                  <div class="col-6 brief-left">
+                    <p>
+                      "A AIESEC me permitiu o contato com pessoas do mundo inteiro e, mais importante que isso, entender das realidades dos outros países e de como temos responsabilidade sobre elas. Por meio da AIESEC, me enxerguei como uma cidadã global ativa, que tem a oportunidade de participar ativamente nas mudanças e melhorias que podemos trazer pro mundo"<br>
+                    </p>
+                    <span><p>Aline d'Avila - <strong>AIESEC em Natal</strong></p></span>
+                  </div>
+                  <div class="col-6 desktop"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-carousel-btn-right">
+            <i (click)="moveRight()" class="fas fa-chevron-right"></i>
+          </div>
+        </div>
+        <ul id='position-carousel'>
+          <li [ngClass]="{'active': sliderPosition == 0}"></li>
+          <li [ngClass]="{'active': sliderPosition == 100}"></li>
+          <li [ngClass]="{'active': sliderPosition == 200}"></li>
+          <li [ngClass]="{'active': sliderPosition == 300}"></li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <section class="engage-session">
+    <div class="col-6 adapt-height">
+      <h1 class="italic align-left white-header bottom-header">
+        Somos mais de <strong>40.000 membros</strong> <br> ao redor de mais de <strong>120 países</strong>! <br> Junte-se ao nosso time! <br>
+        <button type="button" class="btn btn-primary" (click)="scrollTo(formMembershipRef)">
+          Inscreva-se
+        </button>
+      </h1>
+    </div>
+    <div class="col-6"></div>
+  </section>
+
+
+</main>
+<app-landing-footer></app-landing-footer>

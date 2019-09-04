@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
-import * as moment from 'moment'; 
+import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
@@ -96,7 +96,8 @@ export class FormGvComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]),
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
@@ -179,7 +180,7 @@ export class FormGvComponent implements OnInit {
     });
     this.fillPlacesSelect().then(() => {
       this.filteredPlaces = this.places;
-    }); 
+    });
   }
 
   searchScholarity(event) {
@@ -306,7 +307,7 @@ export class FormGvComponent implements OnInit {
     return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyUniversity(){    
+  emptyUniversity(){
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
       if(this.user.university && this.user.university.id){
         return !this.user.university.id
@@ -365,19 +366,21 @@ export class FormGvComponent implements OnInit {
     }
   };
 
-  registerUser() {
+  registerUser(el: HTMLElement) {
     this.submittedPersonal = true;
     this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
+      el.scrollIntoView();
     }
   }
 
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
-  submit() {
+
+  submit(el: HTMLElement) {
     this.submittedStudy = true;
     let user = {
       gv_participant: {
@@ -413,6 +416,7 @@ export class FormGvComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          el.scrollIntoView();
           this.router.navigate(['/voluntario-global/obrigado']);
         }
       },

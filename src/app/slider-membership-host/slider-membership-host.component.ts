@@ -9,14 +9,20 @@ import 'hammerjs';
 })
 export class SliderMembershipHostComponent implements OnInit {
 
-  slider : boolean = false;
+  slider : boolean = true;
+  actualPage : string = '';
   
   constructor(
     public router: Router
   ) { }
 
   ngOnInit() {
-   this.timerSlider();
+    this.checkUrl();
+    console.log('this.actualPage', this.actualPage, this.slider);
+    if(this.actualPage != 'membresia'){
+      console.log('eaee');
+      this.timerSlider();
+    }
   }
 
 
@@ -33,5 +39,9 @@ export class SliderMembershipHostComponent implements OnInit {
   goToMembership(){
     window.open('http://promo.aiesec.org.br/sejamembro/')
   }
+
+  checkUrl(){
+    this.actualPage = this.router.url.replace('/', '');
+  };
 
 }

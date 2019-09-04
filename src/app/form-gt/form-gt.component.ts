@@ -119,7 +119,8 @@ export class FormGtComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]),
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
@@ -236,7 +237,7 @@ export class FormGtComponent implements OnInit {
     (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
   }
 
-  cancelSignUp(){
+  cancelSignUp(el: HTMLElement){
     if(this.formedUser){
       this.onCancelEvent.emit();
     }else{
@@ -245,6 +246,7 @@ export class FormGtComponent implements OnInit {
         this.submittedStudy = false;
         this.personalData = true;
         this.studyData = false;
+        el.scrollIntoView();
       }else{
         this.router.navigate(['/']);
       }
@@ -382,16 +384,17 @@ export class FormGtComponent implements OnInit {
     }
   };
 
-  registerUser() {
+  registerUser(el: HTMLElement) {
     this.submittedPersonal = true;
     this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
+      el.scrollIntoView();
     }
   }
 
-  submit() {
+  submit(el: HTMLElement) {
     this.submittedStudy = true;
 
     let user = {
@@ -430,6 +433,7 @@ export class FormGtComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          el.scrollIntoView();
           this.router.navigate(['/talento-global/obrigado']);
         }
       },

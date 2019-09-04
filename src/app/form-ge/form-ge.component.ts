@@ -120,7 +120,8 @@ export class FormGeComponent implements OnInit {
         Validators.required
       ]),
       email: new FormControl(this.user.email, [
-        Validators.required
+        Validators.required,
+        Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]),
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
@@ -368,16 +369,17 @@ export class FormGeComponent implements OnInit {
     }
   };
 
-  registerUser() {
+  registerUser(el: HTMLElement) {
     this.submittedPersonal = true;
     this.checkPassword();
     if (this.user.fullname && this.user.cellphone && this.user.email && this.user.birthdate && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
       this.personalData = false;
       this.studyData = true;
+      el.scrollIntoView();
     }
   }
 
-  submit() {
+  submit(el: HTMLElement) {
     this.submittedStudy = true;
 
     let user = {
@@ -417,6 +419,7 @@ export class FormGeComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+          el.scrollIntoView();
           this.router.navigate(['/empreendedor-global/obrigado']);
         }
       },
