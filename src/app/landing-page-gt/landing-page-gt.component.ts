@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LandingPageGtComponent implements OnInit {
 
+  window:any = window;
+
   actualPage : string;
   subproducts: any = [
     { name: 'Educacional', description: 'Nessa experiência você irá dar aulas de inglês ou alguma outra matéria. Podendo ser em Universidades, Escolas de línguas ou instituições de ensino. Duração de 3 meses e/ou 1 ano. Durante esse período você receberá bolsa-auxílio!', icon: './assets/images/subproduct-promotion.svg', link: 'https://aiesec.org/search?backgrounds=241,1289,251,252&type=2&sort=relevance' },
@@ -64,6 +66,8 @@ export class LandingPageGtComponent implements OnInit {
 
   ngOnInit() {
     this.checkUrl();
+    this.window.ga('set', 'page', '/talento-global');
+    this.window.ga('send', 'pageview');
   }
 
   checkUrl(){

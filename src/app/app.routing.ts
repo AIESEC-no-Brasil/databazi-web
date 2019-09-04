@@ -36,15 +36,31 @@ export const router : Routes = [
     },
     {
         path: 'jovens/voluntario-global',
-        loadChildren: './landing-page-gv/landing-page-gv.module#LandingPageGvModule'
+        redirectTo: '/voluntario-global'
     },
     {
         path: 'jovens/talentos-globais',
-        loadChildren: './landing-page-gt/landing-page-gt.module#LandingPageGtModule'
+        redirectTo: '/talentos-globais'
     },
     {
         path: 'jovens/empreendedor-global',
-        loadChildren: './landing-page-ge/landing-page-ge.module#LandingPageGeModule'
+        redirectTo: '/empreendedor-global'
+    },
+    {
+        path: 'hospede-um-intercambista',
+        redirectTo: '/lar-global'
+    },
+    {
+        path: 'estudantes/voluntario-global',
+        redirectTo: '/voluntario-global'
+    },
+    {
+        path: 'estudantes/talentos-globais',
+        redirectTo: '/talentos-globais'
+    },
+    {
+        path: 'estudantes/empreendedor-global',
+        redirectTo: '/empreendedor-global'
     },
     {
         path: 'lar-global/obrigado',
@@ -54,7 +70,7 @@ export const router : Routes = [
         path: 'membresia',
         component: LandingPageMembershipComponent
     },
-    { path: '**', component: LandingPageComponent }
+    { path: '**', redirectTo: '/' }
 ]
 
 export const routes : ModuleWithProviders = RouterModule.forRoot(router, { useHash : false });
