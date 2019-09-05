@@ -11,6 +11,8 @@ import 'hammerjs';
 })
 export class LandingPageComponent implements OnInit {
 
+  window:any = window;
+
 	@ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   sliderPosition: number = 0;
   seeMoreGv:boolean = false;
@@ -66,6 +68,8 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     this.sliderAnimation();
     window.scrollTo(0,0);
+    this.window.ga('set', 'page', '/');
+    this.window.ga('send', 'pageview');
   }
 
   sliderAnimation(){
