@@ -17,6 +17,8 @@ import { Http } from '@angular/http';
 })
 export class FormHostComponent implements OnInit {
 
+  window:any = window;
+
   @Input() formedUser: any;
 
   user = {
@@ -233,6 +235,8 @@ export class FormHostComponent implements OnInit {
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
           this.completeSignup = true;
+          this.window.ga('set', 'page', '/lar-global/obrigado');
+          this.window.ga('send', 'pageview');
         }
       },
         (err) => {

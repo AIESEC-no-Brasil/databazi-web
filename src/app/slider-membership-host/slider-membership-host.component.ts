@@ -18,9 +18,7 @@ export class SliderMembershipHostComponent implements OnInit {
 
   ngOnInit() {
     this.checkUrl();
-    console.log('this.actualPage', this.actualPage, this.slider);
     if(this.actualPage != 'membresia'){
-      console.log('eaee');
       this.timerSlider();
     }
   }

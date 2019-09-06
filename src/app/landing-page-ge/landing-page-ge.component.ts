@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./landing-page-ge.component.scss']
 })
 export class LandingPageGeComponent implements OnInit {
+
+  window:any = window;
   
   actualPage : string;
   countries: any = [
@@ -58,6 +60,8 @@ export class LandingPageGeComponent implements OnInit {
 
   ngOnInit() {
     this.checkUrl();
+    this.window.ga('set', 'page', '/empreendedor-global');
+    this.window.ga('send', 'pageview');
   }
 
   checkUrl(){

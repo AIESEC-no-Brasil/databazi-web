@@ -16,6 +16,8 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class LandingPageMembershipComponent implements OnInit {
 
+  window:any = window;
+
 	user = {
     fullname: '',
     cellphone: '',
@@ -120,6 +122,8 @@ export class LandingPageMembershipComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.window.ga('set', 'page', '/membresia');
+    this.window.ga('send', 'pageview');
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;

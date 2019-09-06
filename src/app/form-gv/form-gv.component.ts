@@ -18,6 +18,8 @@ import * as $ from 'jquery';
 })
 export class FormGvComponent implements OnInit {
 
+  window:any = window;
+
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
 
@@ -417,6 +419,8 @@ export class FormGvComponent implements OnInit {
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
           el.scrollIntoView();
+          this.window.ga('set', 'page', '/voluntario-global/obrigado');
+          this.window.ga('send', 'pageview');
           this.router.navigate(['/voluntario-global/obrigado']);
         }
       },

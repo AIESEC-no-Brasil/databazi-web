@@ -1,4 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl : 'https://api.aiesec.org.br'
+  apiUrl : 'https://api.aiesec.org.br',
+  GAid : 'UA-29562174-2',
+  GTMid : 'GTM-K743H5V',
+  HJid : '320699'
 };
