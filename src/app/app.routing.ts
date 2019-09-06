@@ -47,6 +47,18 @@ export const router : Routes = [
         redirectTo: '/empreendedor-global'
     },
     {
+        path: 'jovem/voluntario-global',
+        redirectTo: '/voluntario-global'
+    },
+    {
+        path: 'jovem/talento-global',
+        redirectTo: '/talento-global'
+    },
+    {
+        path: 'jovem/empreendedor-global',
+        redirectTo: '/empreendedor-global'
+    },
+    {
         path: 'hospede-um-intercambista',
         redirectTo: '/lar-global'
     },
