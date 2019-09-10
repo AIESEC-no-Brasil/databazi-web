@@ -244,8 +244,8 @@ export class LandingPageMembershipComponent implements OnInit {
   }
 
   scrollTo(el: HTMLElement){
-    console.log('they see me scrolling', el);
     el.scrollIntoView();
+    window.scrollBy(0, -50);
   }
 
 }
