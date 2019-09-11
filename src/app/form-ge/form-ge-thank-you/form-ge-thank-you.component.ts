@@ -15,6 +15,8 @@ export class FormGeThankYouComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.window.ga('set', 'page', '/empreendedor-global/obrigado');
+    this.window.ga('send', 'pageview');
   }
 
   goToHome() {

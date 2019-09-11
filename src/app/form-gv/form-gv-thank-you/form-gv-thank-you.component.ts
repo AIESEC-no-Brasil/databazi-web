@@ -16,6 +16,8 @@ export class FormGvThankYouComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.window.ga('set', 'page', '/voluntario-global/obrigado');
+    this.window.ga('send', 'pageview');
   }
 
   goToHome() {

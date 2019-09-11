@@ -436,8 +436,6 @@ export class FormGtComponent implements OnInit {
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
           el.scrollIntoView();
-          this.window.ga('set', 'page', '/talento-global/obrigado');
-          this.window.ga('send', 'pageview');
           this.router.navigate(['/talento-global/obrigado']);
         }
       },
