@@ -508,6 +508,13 @@ font-size: 20px;
     }
 }
 
+.engage-session {
+    min-height: 0 !important;
+    h1 {
+        margin-bottom: 100px;
+    }
+}
+
 .experiences-session span {
     color: #888;
 }
@@ -1149,6 +1156,23 @@ drag-scroll {
 }
 
 @media only screen and (min-width: 1440px) {
+
+    .our-stories {
+        .footer-carousel-btn-left,
+        .footer-carousel-btn-right {
+            i {
+                &.fa-chevron-left {
+                    left: 2.5%;
+                    top: 30%;
+                }
+                &.fa-chevron-right {
+                    right: 2.5%;
+                    top: 30%;
+                }
+            }
+        }
+    }
+
     .container {
         max-width: 85%;
     }
@@ -1216,7 +1240,6 @@ drag-scroll {
     .carousel-container {
         min-height: 500px !important;
         .cases {
-            height: 100%;
             .box-case {
                 top: auto;
                 .logo-product {
@@ -1269,6 +1292,10 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 600px) {
+
+    .engage-session .adapt-height {
+        height: auto !important;
+    }
 
     .brief-left p, .brief p {
         font-size: 14px;
@@ -2696,7 +2723,7 @@ section.host-details {
 }
 
 .engage-session .adapt-height {
-    height: 71.0vw;
+    height: 45.0vw;
 }
 
 .job-description-session .adapt-height {
