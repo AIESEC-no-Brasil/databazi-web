@@ -1246,7 +1246,6 @@ drag-scroll {
         }
     }
     .carousel-container {
-        min-height: 500px !important;
         .cases {
             .box-case {
                 top: auto;
@@ -1304,6 +1303,11 @@ select:-webkit-autofill:focus {
 }
 
 @media (max-width: 600px) {
+
+    section.padding-top-and-bottom,
+    section.margin-top-and-bottom {
+        padding: 75px 0 !important
+    }
 
     .engage-session .adapt-height {
         height: 70.0vh !important;
