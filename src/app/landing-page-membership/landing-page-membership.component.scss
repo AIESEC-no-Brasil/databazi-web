@@ -305,7 +305,6 @@ section.experiences-session {
 div#our-stories {
     position: relative;
     padding-bottom: 65px;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -508,11 +507,20 @@ font-size: 20px;
     }
 }
 
-.engage-session {
-    min-height: 0 !important;
+.experiences-session {
+    min-height: 50vh !important;
     h1 {
-        margin-bottom: 100px;
+        margin: 20px auto 65px auto
     }
+}
+
+.job-description-session {
+    min-height: 60vh !important;
+}
+
+.engage-session {
+    height: 30vh !important;
+    min-height: 60vh !important;
 }
 
 .experiences-session span {
@@ -1251,6 +1259,10 @@ drag-scroll {
             }
         }
     }
+    .engage-session {
+        height: 30vh !important;
+        min-height: 50vh !important;
+    }
 }
 
 @media (max-width: 1023px){
@@ -1294,7 +1306,7 @@ select:-webkit-autofill:focus {
 @media (max-width: 600px) {
 
     .engage-session .adapt-height {
-        height: auto !important;
+        height: 70.0vh !important;
     }
 
     .brief-left p, .brief p {
@@ -2723,7 +2735,7 @@ section.host-details {
 }
 
 .engage-session .adapt-height {
-    height: 45.0vw;
+    height: 45.0vh;
 }
 
 .job-description-session .adapt-height {
