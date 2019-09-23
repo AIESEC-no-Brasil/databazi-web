@@ -6,15 +6,16 @@
       <div class="col-md-12 col-sm-12">
         <h1 class="centered italic">Os nossos parceiros premium</h1>
         <div id="footer-carousel">
-          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()" (swiperight)="swipe('right')"
-            (swipeleft)="swipe('left')" [style.touch-action]="'pan-y'"></div>
+          <div class='swipe-animation' (mouseenter)="stopAnimation()" (mouseleave)="sliderAnimation()"
+            (swiperight)="swipe('right')" (swipeleft)="swipe('left')" [style.touch-action]="'pan-y'"></div>
           <div class="buttons-carousel">
             <i (click)="moveLeft()" class="fas fa-chevron-left"></i>
           </div>
           <div class='footer-carousel-partners'>
             <div class="footer-carousel-wrapper">
-              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners" (click)="openUrl(partner.site)"
-                (swiperight)="swipe('right')" (swipeleft)="swipe('left')" [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
+              <div class="footer-each-item" [style.touch-action]="'pan-y'" *ngFor="let partner of partners"
+                (click)="openUrl(partner)" (swiperight)="swipe('right')" (swipeleft)="swipe('left')"
+                [ngStyle]="{'background-image':'url(' + partner.img + ')'}">
                 <span class='animated fadeIn faster'> {{partner.title}} </span>
               </div>
             </div>
@@ -41,23 +42,23 @@
         <p class="centered semibold">Aventure-se nessa nova experiência e alcance o seu potencial!</p>
       </div>
     </div>
-    <hr/>
+    <hr />
     <div class="row bg-footer-group">
       <div class="footer-links col-md-6">
         <div class="row">
           <div class="footer-group-links col-md-4 col-sm-6">
             <p class="semibold footer-link-title">Institucional</p>
             <p>
-              <a href="http://blog.aiesec.org.br/a-aiesec/" target="_blank">A AIESEC</a>
+              <a (click)="goToAiesec()" href="http://blog.aiesec.org.br/a-aiesec/" target="_blank">A AIESEC</a>
             </p>
             <p>
-              <a href="http://blog.aiesec.org.br/faca-parte/" target="_blank">Faça parte</a>
+              <a (click)="goToFcParte()" href="http://blog.aiesec.org.br/faca-parte/" target="_blank">Faça parte</a>
             </p>
             <p>
-              <a href="https://alumnet.aiesec-alumni.org/home" target="_blank">Alummi</a>
+              <a (click)="goToAlummi()" href="https://alumnet.aiesec-alumni.org/home" target="_blank">Alummi</a>
             </p>
             <p>
-              <a href="http://youthspeak.aiesec.org.br/" target="_blank">YouthSpeak</a>
+              <a (click)="goToYouthSpeak()" href="http://youthspeak.aiesec.org.br/" target="_blank">YouthSpeak</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
@@ -78,10 +79,10 @@
           <div class="footer-group-links col-md-4 col-sm-6 desktop">
             <p class="semibold footer-link-title">Seja nosso parceiro</p>
             <p>
-              <a href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
+              <a (click)="goToEmpre()" href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
             </p>
             <p>
-              <a href="http://youthspeak.aiesec.org.br/" target="_blank">Youthspeak</a>
+              <a (click)="goToYouthSpeakParc()" href="http://youthspeak.aiesec.org.br/" target="_blank">Youthspeak</a>
             </p>
           </div>
         </div>
@@ -91,44 +92,50 @@
           <div class="footer-group-links col-md-3 col-sm-6 mobile">
             <p class="semibold footer-link-title">Seja nosso parceiro</p>
             <p>
-              <a href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
+              <a (click)="goToEmpre()" href="http://business.aiesec.org.br/" target="_blank">Empresas</a>
             </p>
             <p>
               <a href="http://youthspeak.aiesec.org.br/" target="_blank">Youthspeak</a>
             </p>
           </div>
           <div class="footer-group-links col-md-4 col-sm-6">
-              <p class="semibold footer-link-title">Planeje sua viagem</p>
-              <p>
-                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">Passagens Aéreas</a>
-              </p>
-              <p>
-                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">Câmbio de Moedas</a>
-              </p>
-              <p>
-                <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">Seguro Viagem</a>
-              </p>
-            </div>
+            <p class="semibold footer-link-title">Planeje sua viagem</p>
+            <p>
+              <a (click)="goToPassagens()"
+                href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower"
+                target="_blank">Passagens Aéreas</a>
+            </p>
+            <p>
+              <a (click)="goToCambio()"
+                href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h"
+                target="_blank">Câmbio de Moedas</a>
+            </p>
+            <p>
+              <a (click)="goToSeguViagem()" href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">Seguro
+                Viagem</a>
+            </p>
+          </div>
           <div class="footer-group-links col-md-3 col-sm-6">
             <p class="semibold footer-link-title">Blog</p>
             <p>
-              <a href="http://business.aiesec.org.br/blog/" target="_blank">Empresas</a>
+              <a (click)="goToBlogEmpresas()" href="http://business.aiesec.org.br/blog/" target="_blank">Empresas</a>
             </p>
             <p>
-              <a href="https://blog.aiesec.org.br/" target="_blank">Estudantes</a>
+              <a (click)="goToBlogEstudantes()" href="https://blog.aiesec.org.br/" target="_blank">Estudantes</a>
             </p>
           </div>
           <div class="footer-social-networks col-md-3 col-sm-6">
-            <a target="_blank" href="https://www.facebook.com/AIESECinBrazil/" rel="noopener">
+            <a (click)="goToFacebook()" target="_blank" href="https://www.facebook.com/AIESECinBrazil/" rel="noopener">
               <i class="fab fa-facebook-square"></i>
             </a>
-            <a target="_blank" href="https://instagram.com/aiesecnobrasil" rel="noopener">
+            <a (click)="goToInstagram()" target="_blank" href="https://instagram.com/aiesecnobrasil" rel="noopener">
               <i class="fab fa-instagram"></i>
             </a>
-            <a target="_blank" href="https://twitter.com/AIESECBrasil" rel="noopener">
+            <a (click)="goToTwitter()" target="_blank" href="https://twitter.com/AIESECBrasil" rel="noopener">
               <i class="fab fa-twitter"></i>
             </a>
-            <a target="_blank" href="https://www.youtube.com/user/AIESECinBrazil/" rel="noopener">
+            <a (click)="goToYoutube()" target="_blank" href="https://www.youtube.com/user/AIESECinBrazil/"
+              rel="noopener">
               <i class="fab fa-youtube"></i>
             </a>
           </div>

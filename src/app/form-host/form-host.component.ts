@@ -9,6 +9,7 @@ import * as $ from 'jquery';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-form-host',
@@ -17,7 +18,7 @@ import { Http } from '@angular/http';
 })
 export class FormHostComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
   @Input() formedUser: any;
 
@@ -59,7 +60,8 @@ export class FormHostComponent implements OnInit {
     public translate: TranslateService,
     public router: Router,
     public urlScrapper: ActivatedRoute,
-    public http: Http
+    public http: Http,
+    public amplitude: AmplitudeService
   ) {
     this.signUp = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -94,9 +96,9 @@ export class FormHostComponent implements OnInit {
     this.detectKeypress();
   }
 
-  detectKeypress(){
+  detectKeypress() {
     $(document).keyup((event) => {
-      if (this.modal && event.keyCode == 27){
+      if (this.modal && event.keyCode == 27) {
         this.closeModal()
       }
     })
@@ -190,7 +192,7 @@ export class FormHostComponent implements OnInit {
       else {
         this.user.neighborhood = '';
         this.user.city = '';
-        this.user.state = ''; 
+        this.user.state = '';
         this.invalidZipcode = true;
         this.hasZipCode = false;
       }
@@ -203,6 +205,7 @@ export class FormHostComponent implements OnInit {
 
   submit() {
     this.submitted = true;
+    this.amplitude.trackingCompletedSignupHost()
     if (this.unableToSubmit()) {
       return;
     }
@@ -247,10 +250,10 @@ export class FormHostComponent implements OnInit {
       )
   }
 
-  redirectToForm(){
+  redirectToForm() {
     $('html, body').animate({
       scrollTop: ($('#host-details-form-area').offset().top)
-    },500);
+    }, 500);
   }
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
@@ -278,17 +281,17 @@ export class FormHostComponent implements OnInit {
     this.user[field] = '';
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
+  toggleOverflowHtml() {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 }

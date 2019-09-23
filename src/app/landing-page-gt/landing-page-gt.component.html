@@ -14,10 +14,13 @@
             Visão geral do programa
           </h2>
           <p>
-            O Talento Global é uma experiência internacional em empresas durante 3 a 12 meses em que o jovem tem a chance de viver o
-            ambiente profissional e corporativo. As grandes áreas de atuação do Talento Global são: Professor(a) de Idiomas/Línguas, Tecnologia
+            O Talento Global é uma experiência internacional em empresas durante 3 a 12 meses em que o jovem tem a
+            chance de viver o
+            ambiente profissional e corporativo. As grandes áreas de atuação do Talento Global são: Professor(a) de
+            Idiomas/Línguas, Tecnologia
             da Informação e áreas de Administração, como finanças, gestão, RH e marketing. Para o processo, é necessário
-            alguns requisitos como: <b>inglês avançado</b> e experiência na área que quer atuar. Nessa experiência, o intercambista
+            alguns requisitos como: <b>inglês avançado</b> e experiência na área que quer atuar. Nessa experiência, o
+            intercambista
             recebe uma <b>bolsa-auxílio</b> para cobrir os custos básicos durante o período de intercâmbio.
         </div>
       </div>
@@ -28,14 +31,16 @@
 
   <!-- Form gt -->
   <app-form-gt id="form"></app-form-gt>
-  
+
   <app-landing-page-countries [countries]='countries'></app-landing-page-countries>
 
   <section class="product-steps">
     <header>
-      <div class='banner' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
-        <div class='circle' [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
-            <i class="fas fa-walking"></i>
+      <div class='banner'
+        [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+        <div class='circle'
+          [ngClass]="{'gv': actualPage == 'voluntario-global', 'ge': actualPage == 'empreendedor-global', 'gt': actualPage == 'talento-global'}">
+          <i class="fas fa-walking"></i>
         </div>
       </div>
       <h1>
@@ -60,7 +65,8 @@
                 Contato com a AIESEC
               </h3>
               <p class="lighter">
-                Se cadastre e a AIESEC mais próxima entrará em contato contigo para fazer uma consultoria e indicar vagas.
+                Se cadastre e a AIESEC mais próxima entrará em contato contigo para fazer uma consultoria e indicar
+                vagas.
               </p>
             </div>
           </div>
@@ -73,7 +79,8 @@
                 Fazer o currículo em inglês
               </h3>
               <p class="lighter">
-                É necessário preparar seu currículo em inglês para enviar para as vagas que você está se candidatando no site! Não se preocupe, estamos aqui para te ajudar!
+                É necessário preparar seu currículo em inglês para enviar para as vagas que você está se candidatando no
+                site! Não se preocupe, estamos aqui para te ajudar!
               </p>
             </div>
           </div>
@@ -86,7 +93,8 @@
                 Fazer entrevistas
               </h3>
               <p class="lighter">
-                Após se aplicar nas vagas que se encaixam no seu perfil, você poderá ser chamado para algumas delas ao longo do processo.
+                Após se aplicar nas vagas que se encaixam no seu perfil, você poderá ser chamado para algumas delas ao
+                longo do processo.
               </p>
             </div>
           </div>
@@ -99,7 +107,8 @@
                 Ser aprovado na vaga
               </h3>
               <p class="lighter">
-                Após as entrevistas, você poderá ser selecionado em alguma dessas vagas, e mediante o pagamento da taxa administrativa da AIESEC, poderá fechar seu intercâmbio!
+                Após as entrevistas, você poderá ser selecionado em alguma dessas vagas, e mediante o pagamento da taxa
+                administrativa da AIESEC, poderá fechar seu intercâmbio!
               </p>
             </div>
           </div>
@@ -112,13 +121,15 @@
                 Viver a experiência
               </h3>
               <p class="lighter">
-                Com o suporte da AIESEC você vai se preparar para o início de sua experiência de desenvolvimento de liderança e terá auxílio durante todo o período do intercâmbio.
+                Com o suporte da AIESEC você vai se preparar para o início de sua experiência de desenvolvimento de
+                liderança e terá auxílio durante todo o período do intercâmbio.
               </p>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <button [ngx-scroll-to]="'#form'" class="with-background bold gt without-border centered">
+              <button (click)="goToInscreva()" [ngx-scroll-to]="'#form'"
+                class="with-background bold gt without-border centered">
                 Inscreva-se já
               </button>
             </div>
@@ -135,12 +146,14 @@
             FAQ - Dúvidas Frequentes
           </h2>
           <div class="row">
-          <div class="col-sm-12">
+            <div class="col-sm-12">
               <h3 class='semibold'>
                 Qual o perfil ideal para fazer um Talento Global?
               </h3>
               <p class='lighter italic'>
-                  Você pode ser graduando, Pós-graduando, mestrando, recém formado ou formado há algum tempo para esse intercâmbio. O necessário é ter 18 a 30 anos, inglês avançado e experiência prévia em alguma dessas áreas: professor de idiomas, gestão, marketing ou tecnologia da informação.
+                Você pode ser graduando, Pós-graduando, mestrando, recém formado ou formado há algum tempo para esse
+                intercâmbio. O necessário é ter 18 a 30 anos, inglês avançado e experiência prévia em alguma dessas
+                áreas: professor de idiomas, gestão, marketing ou tecnologia da informação.
               </p>
             </div>
             <div class="col-sm-12">
@@ -148,7 +161,8 @@
                 Como será meu contato com a AIESEC durante o intercâmbio?
               </h3>
               <p class='lighter italic'>
-                Ele será feito com frequência tanto pela AIESEC de destino quanto pela AIESEC de origem, combinado previamente por vocês.
+                Ele será feito com frequência tanto pela AIESEC de destino quanto pela AIESEC de origem, combinado
+                previamente por vocês.
               </p>
             </div>
             <div class="col-sm-12">
@@ -156,7 +170,8 @@
                 Como é a questão do pagamento?
               </h3>
               <p class='lighter italic'>
-                Você fará o processo todo sem custos, e só após ser aprovado em uma vaga que assinará o contrato com a AIESEC e pagará a
+                Você fará o processo todo sem custos, e só após ser aprovado em uma vaga que assinará o contrato com a
+                AIESEC e pagará a
                 taxa.
               </p>
             </div>
@@ -165,13 +180,16 @@
                 Preciso de seguro saúde para viajar?
               </h3>
               <p class='lighter italic'>
-                Sim, o seguro saúde é obrigatório no seu intercâmbio com a AIESEC, para garantir seu bem-estar durante toda a viagem. Nós
-                recomendamos o seguro Assistcard para nossos intercambistas, mas você pode contratar a seguradora que você
+                Sim, o seguro saúde é obrigatório no seu intercâmbio com a AIESEC, para garantir seu bem-estar durante
+                toda a viagem. Nós
+                recomendamos o seguro Assistcard para nossos intercambistas, mas você pode contratar a seguradora que
+                você
                 preferir.
               </p>
             </div>
             <div class="col-sm-12">
-              <button [ngx-scroll-to]="'#form'" class="centered without-border bold background-white gt">
+              <button (click)="goToFlConosco()" [ngx-scroll-to]="'#form'"
+                class="centered without-border bold background-white gt">
                 Fale conosco
               </button>
             </div>
@@ -199,7 +217,8 @@
                 Auxílio para achar sua vaga
               </h3>
               <p class="lighter">
-                Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa para o seu perfil, tirar todas suas dúvidas
+                Ao se inscrever, um voluntário da AIESEC vai te auxiliar a achar a vaga certa para o seu perfil, tirar
+                todas suas dúvidas
                 e vai te colocar em contato com o escritório para onde você vai viajar.
               </p>
             </div>
@@ -213,7 +232,8 @@
                 Apoio logístico
               </h3>
               <p class="lighter">
-                Antes e durante o intercâmbio, a AIESEC na sua cidade e no seu destino irão te auxiliar com a logística de transporte, acomodação
+                Antes e durante o intercâmbio, a AIESEC na sua cidade e no seu destino irão te auxiliar com a logística
+                de transporte, acomodação
                 e preparo para o seu projeto.
               </p>
             </div>
@@ -227,7 +247,8 @@
                 Descrição de trabalho
               </h3>
               <p class="lighter">
-                Independente do tipo de intercâmbio, nossas oportunidades possuem descrições do projeto que você vai participar, carga horária
+                Independente do tipo de intercâmbio, nossas oportunidades possuem descrições do projeto que você vai
+                participar, carga horária
                 e as suas responsabilidades. Além disso, você pode conversar com a nossa equipe para esclarecer qualquer
                 dúvida.
               </p>
@@ -242,7 +263,8 @@
                 Experiência de Liderança
               </h3>
               <p class="lighter">
-                Ao longo da sua experiência com a AIESEC, serão oferecidos diversos espaços para você refletir e aprimorar as habilidades
+                Ao longo da sua experiência com a AIESEC, serão oferecidos diversos espaços para você refletir e
+                aprimorar as habilidades
                 desenvolvidas no seu intercâmbio, para que você possa retornar e trazer um impacto real para sua cidade.
               </p>
             </div>
@@ -251,7 +273,8 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <button [ngx-scroll-to]="'#form'" class="border-radius centered without-border with-background default">
+          <button (click)="goToFlRepre()" [ngx-scroll-to]="'#form'"
+            class="border-radius centered without-border with-background default">
             Fale com um dos nossos representantes
           </button>
         </div>

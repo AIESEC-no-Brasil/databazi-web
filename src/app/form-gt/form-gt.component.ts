@@ -9,8 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
 
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-form-gt',
@@ -19,7 +20,7 @@ import {Observable} from 'rxjs';
 })
 export class FormGtComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
@@ -31,12 +32,12 @@ export class FormGtComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: ''},
-    university: { id: '', name: ''},
-    college_course: { id: '', name: ''},
+    local_committee: { id: '' },
+    university: { id: '', name: '' },
+    college_course: { id: '', name: '' },
     cellphone_contactable: true,
-    english_level: { id: ''},
-    scholarity: { id: ''},
+    english_level: { id: '' },
+    scholarity: { id: '' },
     experience: [],
     utm_source: '',
     utm_medium: '',
@@ -46,19 +47,19 @@ export class FormGtComponent implements OnInit {
   }
 
   experienceItems = [
-    { name: 'Ensino de Línguas', value: 'language'},
-    { name: 'Marketing', value: 'marketing'},
-    { name: 'Tecnologia da Informação', value: 'information_technology'},
-    { name: 'Gestão', value: 'management'},
+    { name: 'Ensino de Línguas', value: 'language' },
+    { name: 'Marketing', value: 'marketing' },
+    { name: 'Tecnologia da Informação', value: 'information_technology' },
+    { name: 'Gestão', value: 'management' },
   ];
 
   scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+    { id: '0', name: 'Ensino Médio Completo' },
+    { id: '2', name: 'Estudante de Graduação' },
+    { id: '3', name: 'Mestrado ou Pós' },
+    { id: '4', name: 'Graduado em até 1,5 anos' },
+    { id: '5', name: 'Graduado há mais de 2 anos' },
+    { id: '6', name: 'Outro' }
   ];
 
   englishLevelOptions: any = [
@@ -70,14 +71,14 @@ export class FormGtComponent implements OnInit {
   ];
 
   universities: any[];
-  filteredScholarityOptions: Observable<any[]>;  
+  filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
 
-  selectedItems : any = {
+  selectedItems: any = {
     language: false,
     marketing: false,
     information_technology: false,
@@ -100,7 +101,7 @@ export class FormGtComponent implements OnInit {
   submittedPersonal: boolean = false;
   submittedStudy: boolean = false;
   completedSignup: boolean = false;
-  modal:boolean = false;
+  modal: boolean = false;
   embeddedForm: boolean = false;
 
   courses: any;
@@ -110,7 +111,8 @@ export class FormGtComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
+    public urlScrapper: ActivatedRoute,
+    public amplitude: AmplitudeService/*,
     public formOfflineComponent: FormOfflineComponent*/
   ) {
     this.step1Form = new FormGroup({
@@ -158,9 +160,9 @@ export class FormGtComponent implements OnInit {
     this.detectKeypress();
   }
 
-  detectKeypress(){
+  detectKeypress() {
     $(document).keyup((event) => {
-      if (this.modal && event.keyCode == 27){
+      if (this.modal && event.keyCode == 27) {
         this.closeModal()
       }
     })
@@ -168,7 +170,7 @@ export class FormGtComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.formedUser){
+    if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -212,10 +214,10 @@ export class FormGtComponent implements OnInit {
     });
 
     this.filteredEnglishLevelOptions = this.step2Form.controls.english_level.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.englishLevelOptions))
-        );
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value, this.englishLevelOptions))
+      );
 
     this.fillPlacesSelect().then(() => {
       this.filteredPlaces = this.step2Form.controls.local_committee_id.valueChanges
@@ -231,31 +233,32 @@ export class FormGtComponent implements OnInit {
     return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
-  onResize(event){
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  addOrRemove(experience){
+  addOrRemove(experience) {
     (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
   }
 
-  cancelSignUp(el: HTMLElement){
-    if(this.formedUser){
+  cancelSignUp(el: HTMLElement) {
+    this.amplitude.trackingClickCancelGt()
+    if (this.formedUser) {
       this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
+    } else {
+      if (this.submittedPersonal) {
         this.submittedPersonal = false;
         this.submittedStudy = false;
         this.personalData = true;
         this.studyData = false;
         el.scrollIntoView();
-      }else{
+      } else {
         this.router.navigate(['/']);
       }
     }
   }
 
-  accessAiesec(){
+  accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
@@ -304,19 +307,19 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  unableToSubmit() {
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse();
   }
 
-  emptyFields(){
+  emptyFields() {
     return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyUniversity(){    
+  emptyUniversity() {
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
+      if (this.user.university && this.user.university.id) {
         return !this.user.university.id
-      }else{
+      } else {
         return true;
       }
     }
@@ -325,11 +328,11 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  emptyCourse(){
+  emptyCourse() {
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
+      if (this.user.college_course.id) {
         return !this.user.college_course.id
-      }else{
+      } else {
         return true;
       }
     }
@@ -351,24 +354,24 @@ export class FormGtComponent implements OnInit {
     }
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
+  toggleOverflowHtml() {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
-  
-  checkPhone(){
+
+  checkPhone() {
     let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
 
-    if (cellphone.length < 10){
+    if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
     }
@@ -398,6 +401,7 @@ export class FormGtComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
+    this.amplitude.trackingCompletedSignupGt()
 
     let user = {
       gt_participant: {
@@ -466,7 +470,7 @@ export class FormGtComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    if(!event.originalEvent){
+    if (!event.originalEvent) {
       this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
     }
@@ -478,23 +482,23 @@ export class FormGtComponent implements OnInit {
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
   searchEnglishLevels(event) {
-    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
+    this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
   };
 
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 

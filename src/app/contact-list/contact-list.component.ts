@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -1000,6 +1001,7 @@ export class ContactListComponent implements OnInit {
   }
 
   constructor(
+    public amplitude: AmplitudeService,
     private router: Router
   ) { }
 
@@ -1032,6 +1034,7 @@ export class ContactListComponent implements OnInit {
       this.contact = _.find(this.contactList, (contact) => {
         return contact.id == +contactId
       });
+      this.amplitude.trackingListContact(this.contact.city);
     }
     else {
       this.contact = null;

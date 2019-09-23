@@ -7,9 +7,10 @@ import { MessageService } from 'primeng/components/common/messageservice';
 import { TranslateService } from '../../../node_modules/@ngx-translate/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import {map, startWith} from 'rxjs/operators';
-import {Observable} from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import * as $ from 'jquery';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-form-ge',
@@ -18,7 +19,7 @@ import * as $ from 'jquery';
 })
 export class FormGeComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
@@ -30,13 +31,13 @@ export class FormGeComponent implements OnInit {
     birthdate: '',
     password: '',
     repassword: '',
-    local_committee: { id: '', name: ''},
-    university: { id: '', name: ''},
-    college_course: { id: '', name: ''},
+    local_committee: { id: '', name: '' },
+    university: { id: '', name: '' },
+    college_course: { id: '', name: '' },
     cellphone_contactable: true,
-    english_level: { id: '', name: ''},
-    spanish_level: { id: '', name: ''},
-    scholarity: { id: '', name: ''},
+    english_level: { id: '', name: '' },
+    spanish_level: { id: '', name: '' },
+    scholarity: { id: '', name: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -45,12 +46,12 @@ export class FormGeComponent implements OnInit {
   }
 
   scholarityOptions: any = [
-    {id: '0', name: 'Ensino Médio Completo' },
-    {id: '2', name: 'Estudante de Graduação' },
-    {id: '3', name: 'Mestrado ou Pós' },
-    {id: '4', name: 'Graduado em até 1,5 anos' },
-    {id: '5', name: 'Graduado há mais de 2 anos' },
-    {id: '6', name: 'Outro' }
+    { id: '0', name: 'Ensino Médio Completo' },
+    { id: '2', name: 'Estudante de Graduação' },
+    { id: '3', name: 'Mestrado ou Pós' },
+    { id: '4', name: 'Graduado em até 1,5 anos' },
+    { id: '5', name: 'Graduado há mais de 2 anos' },
+    { id: '6', name: 'Outro' }
   ];
 
   englishLevelOptions: any = [
@@ -111,7 +112,8 @@ export class FormGeComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
+    public urlScrapper: ActivatedRoute,
+    public amplitude: AmplitudeService/*,
     public formOfflineComponent: FormOfflineComponent*/
   ) {
     this.step1Form = new FormGroup({
@@ -162,9 +164,9 @@ export class FormGeComponent implements OnInit {
     this.detectKeypress();
   }
 
-  detectKeypress(){
+  detectKeypress() {
     $(document).keyup((event) => {
-      if (this.modal && event.keyCode == 27){
+      if (this.modal && event.keyCode == 27) {
         this.closeModal()
       }
     })
@@ -172,7 +174,7 @@ export class FormGeComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.formedUser){
+    if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -221,20 +223,21 @@ export class FormGeComponent implements OnInit {
     this.filteredSpanishLevelOptions = this.spanishLevelOptions;
   }
 
-  onResize(event){
+  onResize(event) {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
   cancelSignUp() {
-    if(this.formedUser){
+    this.amplitude.trackingClickCancelGe()
+    if (this.formedUser) {
       this.onCancelEvent.emit();
-    }else{
-      if(this.submittedPersonal){
+    } else {
+      if (this.submittedPersonal) {
         this.submittedPersonal = false;
         this.submittedStudy = false;
         this.personalData = true;
         this.studyData = false;
-      }else{
+      } else {
         this.router.navigate(['/']);
       }
     }
@@ -284,24 +287,24 @@ export class FormGeComponent implements OnInit {
 
   changeScholarity(scholarity_level) {
     if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = {id: '', name: ''};
-      this.user.college_course = {id: '', name: ''};
+      this.user.university = { id: '', name: '' };
+      this.user.college_course = { id: '', name: '' };
     }
   }
 
-  unableToSubmit(){
-    return this.emptyFields() || this.emptyUniversity() ||  this.emptyCourse();
+  unableToSubmit() {
+    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse();
   }
 
-  emptyFields(){
+  emptyFields() {
     return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
-  emptyUniversity(){    
+  emptyUniversity() {
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.university && this.user.university.id){
+      if (this.user.university && this.user.university.id) {
         return !this.user.university.id
-      }else{
+      } else {
         return true;
       }
     }
@@ -310,11 +313,11 @@ export class FormGeComponent implements OnInit {
     }
   }
 
-  emptyCourse(){
+  emptyCourse() {
     if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if(this.user.college_course.id){
+      if (this.user.college_course.id) {
         return !this.user.college_course.id
-      }else{
+      } else {
         return true;
       }
     }
@@ -336,17 +339,17 @@ export class FormGeComponent implements OnInit {
     }
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
+  toggleOverflowHtml() {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
@@ -383,6 +386,7 @@ export class FormGeComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
+    this.amplitude.trackingCompletedSignupGe()
 
     let user = {
       ge_participant: {
@@ -448,7 +452,7 @@ export class FormGeComponent implements OnInit {
   };
 
   searchUnivesity(event) {
-    if(!event.originalEvent){
+    if (!event.originalEvent) {
       this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
       return;
     }
@@ -460,27 +464,27 @@ export class FormGeComponent implements OnInit {
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
   searchEnglishLevels(event) {
-    this.filteredEnglishLevelOptions =  this._search(this.englishLevelOptions, event.query);
+    this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
   };
 
   searchSpanishLevels(event) {
-    this.filteredSpanishLevelOptions =  this._search(this.spanishLevelOptions, event.query);
+    this.filteredSpanishLevelOptions = this._search(this.spanishLevelOptions, event.query);
   };
 
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 

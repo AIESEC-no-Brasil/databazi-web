@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as _ from 'lodash';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-landing-page-countries',
@@ -14,6 +15,7 @@ export class LandingPageCountriesComponent implements OnInit {
   country: any;
   actualPage: any;
   constructor(
+    public amplitude: AmplitudeService,
     public router: Router
   ) { }
 
@@ -30,6 +32,7 @@ export class LandingPageCountriesComponent implements OnInit {
     _.forEach(this.countries, (element) => { element.active = false });
     country.active = true;
     this.country = country;
+    this.amplitude.trackingClickCountry(country.name)
     if (window.innerWidth <= 990) {
       setTimeout(() => {
         $('html, body').animate({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AmplitudeService } from 'src/app/amplitude.service';
 
 @Component({
   selector: 'app-form-gt-thank-you',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class FormGtThankYouComponent implements OnInit {
   window: any = window;
   constructor(
+    public amplitude: AmplitudeService,
     public router: Router
   ) {
     this.window.fbq('track', 'Lead');
@@ -21,14 +23,17 @@ export class FormGtThankYouComponent implements OnInit {
 
   goToHome() {
     this.router.navigate(['/']);
+    this.amplitude.trackingSignupThankYouHomeGt()
   }
 
   goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
+    this.amplitude.trackingSignupThankYouAiesecGt()
   }
 
   goToBlog() {
     window.open("https://blog.aiesec.org.br/", "_blank");
+    this.amplitude.trackingSignupThankYouBlogGt()
   }
 
 }

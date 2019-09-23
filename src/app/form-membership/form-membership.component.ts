@@ -10,6 +10,7 @@ import * as $ from 'jquery';
 
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-form-membership',
@@ -18,7 +19,7 @@ import { Observable } from 'rxjs';
 })
 export class FormMembershipComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
@@ -65,7 +66,8 @@ export class FormMembershipComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute
+    public urlScrapper: ActivatedRoute,
+    public amplitude: AmplitudeService
   ) {
     this.form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -245,6 +247,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   submit(el: HTMLElement) {
+    this.amplitude.trackingCompletedSignupMembership()
     this.submitted = true;
 
     let user = {
