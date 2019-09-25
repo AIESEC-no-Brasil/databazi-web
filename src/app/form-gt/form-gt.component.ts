@@ -242,7 +242,7 @@ export class FormGtComponent implements OnInit {
   }
 
   cancelSignUp(el: HTMLElement) {
-    this.amplitude.trackingClickCancelGt()
+    this.amplitude.trackingClickCancelGt();
     if (this.formedUser) {
       this.onCancelEvent.emit();
     } else {
@@ -401,7 +401,7 @@ export class FormGtComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
-    this.amplitude.trackingCompletedSignupGt()
+    this.amplitude.trackingCompletedSignupGt();
 
     let user = {
       gt_participant: {

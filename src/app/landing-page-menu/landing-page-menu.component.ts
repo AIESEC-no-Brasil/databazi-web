@@ -60,7 +60,7 @@ export class LandingPageMenuComponent implements OnInit {
 
   goToGe() {
     this.router.navigate(['/empreendedor-global']);
-    this.amplitude.trackingClickMenuEmpred()
+    this.amplitude.trackingClickMenuEmpred();
   }
 
   goToGt() {

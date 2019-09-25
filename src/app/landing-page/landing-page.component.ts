@@ -3,7 +3,7 @@ import { DragScrollComponent } from 'ngx-drag-scroll';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 import 'hammerjs';
-import { AmplitudeService } from '../amplitude.service'
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -93,7 +93,7 @@ export class LandingPageComponent implements OnInit {
     $('html, body').animate({
       scrollTop: element
     }, 700)
-    this.amplitude.trackingVisualPrograms()
+    this.amplitude.trackingVisualPrograms();
   }
   toggleGv() {
     this.seeMoreGv ? this.seeMoreGv = false : this.seeMoreGv = true;
@@ -109,17 +109,17 @@ export class LandingPageComponent implements OnInit {
 
   goToGv() {
     this.router.navigate(['/voluntario-global']);
-    this.amplitude.trackingSaibaMaisGV()
+    this.amplitude.trackingSaibaMaisGV();
   }
 
   goToGe() {
     this.router.navigate(['/empreendedor-global']);
-    this.amplitude.trackingSaibaMaisGE()
+    this.amplitude.trackingSaibaMaisGE();
   }
 
   goToGt() {
     this.router.navigate(['/talento-global']);
-    this.amplitude.trackingSaibaMaisGT()
+    this.amplitude.trackingSaibaMaisGT();
   }
 
   goToHost() {

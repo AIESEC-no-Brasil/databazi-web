@@ -22,6 +22,6 @@ export class FormHostThankYouComponent implements OnInit {
 
   redirectToHome() {
     this.router.navigate(['/']);
-    this.amplitude.trackingSignupThankYouHomeHost()
+    this.amplitude.trackingSignupThankYouHomeHost();
   }
 }

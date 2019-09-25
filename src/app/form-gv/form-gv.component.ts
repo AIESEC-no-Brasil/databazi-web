@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import * as $ from 'jquery';
-import { AmplitudeService } from '../amplitude.service'
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-form-gv',
@@ -387,7 +387,7 @@ export class FormGvComponent implements OnInit {
   }
 
   submit(el: HTMLElement) {
-    this.amplitude.trackingCompletedSignupGv()
+    this.amplitude.trackingCompletedSignupGv();
     this.submittedStudy = true;
     let user = {
       gv_participant: {

@@ -113,8 +113,7 @@ export class FormGeComponent implements OnInit {
     public translate: TranslateService,
     public router: Router,
     public urlScrapper: ActivatedRoute,
-    public amplitude: AmplitudeService/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public amplitude: AmplitudeService
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -228,7 +227,7 @@ export class FormGeComponent implements OnInit {
   }
 
   cancelSignUp() {
-    this.amplitude.trackingClickCancelGe()
+    this.amplitude.trackingClickCancelGe();
     if (this.formedUser) {
       this.onCancelEvent.emit();
     } else {
@@ -386,7 +385,7 @@ export class FormGeComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
-    this.amplitude.trackingCompletedSignupGe()
+    this.amplitude.trackingCompletedSignupGe();
 
     let user = {
       ge_participant: {

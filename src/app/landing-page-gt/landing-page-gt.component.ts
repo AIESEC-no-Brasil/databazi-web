@@ -77,14 +77,14 @@ export class LandingPageGtComponent implements OnInit {
   }
 
   goToInscreva() {
-    this.amplitude.trackingClickInscrevaGt()
+    this.amplitude.trackingClickInscrevaGt();
   }
 
   goToFlConosco() {
-    this.amplitude.trackingClickFlConoscoGt()
+    this.amplitude.trackingClickFlConoscoGt();
   }
 
   goToFlRepre() {
-    this.amplitude.trackingClickFlrepresentativesGt()
+    this.amplitude.trackingClickFlrepresentativesGt();
   }
 }

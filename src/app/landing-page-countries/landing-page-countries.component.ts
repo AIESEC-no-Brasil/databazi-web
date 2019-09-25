@@ -32,7 +32,7 @@ export class LandingPageCountriesComponent implements OnInit {
     _.forEach(this.countries, (element) => { element.active = false });
     country.active = true;
     this.country = country;
-    this.amplitude.trackingClickCountry(country.name)
+    this.amplitude.trackingClickCountry(country.name);
     if (window.innerWidth <= 990) {
       setTimeout(() => {
         $('html, body').animate({

@@ -34,12 +34,12 @@ export class SliderMembershipHostComponent implements OnInit {
   }
   goToHost() {
     this.router.navigate(['/lar-global']);
-    this.amplitude.trackingClickHosp()
+    this.amplitude.trackingClickHosp();
   }
 
   goToMembership() {
     window.open('http://promo.aiesec.org.br/sejamembro/')
-    this.amplitude.trackingClickGoToMember()
+    this.amplitude.trackingClickGoToMember();
   }
 
   checkUrl() {

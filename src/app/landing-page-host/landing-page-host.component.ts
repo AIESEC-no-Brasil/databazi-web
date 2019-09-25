@@ -42,11 +42,11 @@ export class LandingPageHostComponent implements OnInit {
     $('html, body').animate({
       scrollTop: ($('#host-details-form-area').offset().top)
     }, 500);
-    this.amplitude.trackingClickFlConoscoHost()
+    this.amplitude.trackingClickFlConoscoHost();
   }
 
   goToInscreva() {
-    this.amplitude.trackingClickInscrevaHost()
+    this.amplitude.trackingClickInscrevaHost();
   }
 
   ngOnInit() {

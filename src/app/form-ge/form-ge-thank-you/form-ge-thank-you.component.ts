@@ -23,17 +23,17 @@ export class FormGeThankYouComponent implements OnInit {
 
   goToHome() {
     this.router.navigate(['/']);
-    this.amplitude.trackingSignupThankYouHomeGe()
+    this.amplitude.trackingSignupThankYouHomeGe();
   }
 
   goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
-    this.amplitude.trackingSignupThankYouAiesecGe()
+    this.amplitude.trackingSignupThankYouAiesecGe();
   }
 
   goToBlog() {
     window.open("https://blog.aiesec.org.br/", "_blank");
-    this.amplitude.trackingSignupThankYouBlogGe()
+    this.amplitude.trackingSignupThankYouBlogGe();
   }
 
 }

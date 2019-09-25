@@ -205,7 +205,7 @@ export class FormHostComponent implements OnInit {
 
   submit() {
     this.submitted = true;
-    this.amplitude.trackingCompletedSignupHost()
+    this.amplitude.trackingCompletedSignupHost();
     if (this.unableToSubmit()) {
       return;
     }
