@@ -302,12 +302,21 @@
                       <div class="input-group-text">
                         <i class="fas fa-book-open"></i>Experiências</div>
                     </div>
-                    <div class="label-experience">
+                    <div class="label-experience" *ngIf="!embeddedForm">
                       A escolha das experiências é algo opcional.
                     </div>
-                  </div>
-                  <div class="form-checkbox-select">
 
+                    <div class="dropdown" *ngIf="embeddedForm">
+                      <div class="styled-select select-tag">
+                        <select (change)='addOrRemove($event.target.value)'>
+                          <option value="">Experiências</option>
+                          <option *ngFor="let experience of experienceItems" value="{{experience.value}}">{{experience.name}}</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-checkbox-select" *ngIf="!embeddedForm">
                     <div class="checkbox-item" *ngFor="let experience of experienceItems">
                       <input type="checkbox" id="{{experience.name}}" value="{{experience.value}}" (click)="addOrRemove(experience)">
                       <label for="language" for="{{experience.name}}">
@@ -322,7 +331,7 @@
                     <div class="col-sm-12">
                       <div>
                         <div class='forms-terms-area'>
-                          <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
+                          <label for="inputTermos" class='input-terms-label' *ngIf="!embeddedForm">Termos e Condições</label>
                           <label class='forms-tem-accepted info-mobile-content'>
                             Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
                             <br>

@@ -110,8 +110,7 @@ export class FormGtComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -236,7 +235,11 @@ export class FormGtComponent implements OnInit {
   }
 
   addOrRemove(experience){
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
+    if(this.embeddedForm){
+      (this.selectedItems[experience]) ? this.selectedItems[experience] = false : this.selectedItems[experience] = true;
+    }else{
+      (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
+    }
   }
 
   cancelSignUp(el: HTMLElement){
