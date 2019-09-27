@@ -419,7 +419,7 @@ font-size: 20px;
 .job-description-session,
 .engage-session {
     font-size: 18px;
-    height: 400px;
+    height: 100%;
     padding: 30px 7.5% 0px 7.5%;
     display: flex;
     align-items: center;
@@ -1179,9 +1179,13 @@ drag-scroll {
     .centered{
         font-size: 22px
     }
+    
+    .engage-session {
+        height: 400px;
+    }
 
     .engage-session h1{
-        font-size: 50px
+        font-size: 50px;
     }
 
     .job-description-session {
