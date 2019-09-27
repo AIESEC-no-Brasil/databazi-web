@@ -2,7 +2,7 @@
 
 section.membrasia,
 section.host {
-    position: absolute !important;
+    position: relative !important;
     left: 0;
     top: 0;
     width: 100%;
@@ -201,6 +201,21 @@ section.host {
                 max-width: 80%;
                 width: 80%;
                 font-size: 22px !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    #slider {
+        .container {
+
+            padding-left: 8%;
+
+            p {
+                max-width: 80%;
+                width: 80%;
+                font-size: 50px !important;
             }
         }
     }
