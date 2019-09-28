@@ -107,6 +107,11 @@ export class LandingFooterComponent implements OnInit {
           img: webpSupport ? '../../assets/images/partners/Whirlpoow.png.webp' : '../../assets/images/partners/Whirlpoow.png',
           site: 'https://www.whirlpool.com.br/',
         },
+        {
+          title: 'B3',
+          img: webpSupport ? '../../assets/images/partners/b3.webp' : '../../assets/images/partners/b3.png',
+          site: 'http://www.b3.com.br',
+        }
       ];    
     });
   }
