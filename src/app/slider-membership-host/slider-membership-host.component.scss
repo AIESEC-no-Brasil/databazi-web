@@ -2,7 +2,7 @@
 
 section.membrasia,
 section.host {
-    position: relative !important;
+    position: absolute !important;
     left: 0;
     top: 0;
     width: 100%;
@@ -215,7 +215,7 @@ section.host {
             p {
                 max-width: 80%;
                 width: 80%;
-                font-size: 50px !important;
+                font-size: 42px !important;
             }
         }
     }
