@@ -7,7 +7,7 @@ body,
 main {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;    
+    overflow-x: visible;    
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/pattern1.png');
     }
@@ -305,7 +305,6 @@ section.experiences-session {
 div#our-stories {
     position: relative;
     padding-bottom: 65px;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -420,7 +419,7 @@ font-size: 20px;
 .job-description-session,
 .engage-session {
     font-size: 18px;
-    min-height: 85vh !important;
+    height: 100%;
     padding: 30px 7.5% 0px 7.5%;
     display: flex;
     align-items: center;
@@ -508,11 +507,15 @@ font-size: 20px;
     }
 }
 
-.engage-session {
-    min-height: 0 !important;
+.experiences-session {
+    min-height: 50vh !important;
     h1 {
-        margin-bottom: 100px;
+        margin: 20px auto 65px auto
     }
+}
+
+.job-description-session {
+    min-height: 60vh !important;
 }
 
 .experiences-session span {
@@ -1173,9 +1176,64 @@ drag-scroll {
         }
     }
 
+    .centered{
+        font-size: 22px
+    }
+    
+    .engage-session {
+        height: 400px;
+    }
+
+    .engage-session h1{
+        font-size: 50px;
+    }
+
+    .job-description-session {
+        padding: 50px 100px 50px 100px
+    }
+
+    .job-description-info {
+        padding-top: 50px
+    }
+
+    .adapt-height{
+        margin: 120px 0px 120px 50px;
+    }
+
+    .adapt-height h1{
+        font-size: 60px
+    }
+
+    .mobile-col p{
+        font-size: 28px !important
+    }
+
+    .col-width {
+        flex: 0 0 15% !important;
+    }
+
+    .carousel-wrapper p{
+        font-size: 22px
+    }
+
+    .padding-top-and-bottom {
+        padding: 0 0 20px
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        font-size: 22px !important;
+        font-weight: bold;
+        width: 200px !important;
+        height: 60px !important;
+        line-height: 1em;
+        border-width: 2px;
+    }
+
     .container {
         max-width: 85%;
     }
+
     .experiences-session, .job-description-session, .engage-session {
         .container {
             max-width: 1240px
@@ -1238,7 +1296,6 @@ drag-scroll {
         }
     }
     .carousel-container {
-        min-height: 500px !important;
         .cases {
             .box-case {
                 top: auto;
@@ -1251,6 +1308,9 @@ drag-scroll {
             }
         }
     }
+    .engage-session {
+        height: 100%
+    }
 }
 
 @media (max-width: 1023px){
@@ -1258,7 +1318,6 @@ drag-scroll {
         height: auto;
     }
 }
-
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '~animate.css/animate.min.css';
@@ -1293,8 +1352,13 @@ select:-webkit-autofill:focus {
 
 @media (max-width: 600px) {
 
-    .engage-session .adapt-height {
-        height: auto !important;
+    section.padding-top-and-bottom,
+    section.margin-top-and-bottom {
+        padding: 75px 0 !important
+    }
+
+    .adapt-height {
+        height: 70.0vh !important;
     }
 
     .brief-left p, .brief p {
@@ -1629,7 +1693,6 @@ select:-webkit-autofill:focus {
         text-align: center;
         width: 100%;
         font-size: 22px;
-        // color: #fff;
         margin-top: 20px;
     }
 
@@ -1821,7 +1884,6 @@ label.input-terms-label {
     width: 100%;
     height: 50px;
     font-size: 1rem;
-    line-height: 1.5;
     background-clip: padding-box;
     border-top: none;
     border-left: none;
@@ -2722,10 +2784,6 @@ section.host-details {
     }
 }
 
-.engage-session .adapt-height {
-    height: 45.0vw;
-}
-
 .job-description-session .adapt-height {
     height: 35.5vw;
 }
@@ -2748,10 +2806,10 @@ section.host-details {
             font-size: 18px;
         }
         i {
-            font-size: 30px;
+            font-size: 35px;
             background: #fff;
             color: #037ef3;
-            padding: 15px;
+            padding: 22px;
             border-radius: 50%;
         }
         &:nth-child(1) {

@@ -112,8 +112,7 @@ export class FormGtComponent implements OnInit {
     public translate: TranslateService,
     public router: Router,
     public urlScrapper: ActivatedRoute,
-    public amplitude: AmplitudeService/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public amplitude: AmplitudeService
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
@@ -237,8 +236,12 @@ export class FormGtComponent implements OnInit {
     (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
-  addOrRemove(experience) {
-    (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
+  addOrRemove(experience){
+    if(this.embeddedForm){
+      (this.selectedItems[experience]) ? this.selectedItems[experience] = false : this.selectedItems[experience] = true;
+    }else{
+      (this.selectedItems[experience.value]) ? this.selectedItems[experience.value] = false : this.selectedItems[experience.value] = true;
+    }
   }
 
   cancelSignUp(el: HTMLElement) {

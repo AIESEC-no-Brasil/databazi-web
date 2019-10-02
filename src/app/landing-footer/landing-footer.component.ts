@@ -41,6 +41,11 @@ export class LandingFooterComponent implements OnInit {
           site: 'https://www.assistcard.com/b2c/aiesec-br',
         },
         {
+          title: 'B3',
+          img: webpSupport ? '../../assets/images/partners/b3.webp' : '../../assets/images/partners/b3.png',
+          site: 'http://www.b3.com.br',
+        },
+        {
           title: 'Delivery Much',
           img: webpSupport ? '../../assets/images/partners/delivery_much.png.webp' : '../../assets/images/partners/delivery_much.png',
           site: 'https://www.deliverymuch.com.br/',

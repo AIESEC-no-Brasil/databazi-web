@@ -113,8 +113,7 @@ export class FormGeComponent implements OnInit {
     public translate: TranslateService,
     public router: Router,
     public urlScrapper: ActivatedRoute,
-    public amplitude: AmplitudeService/*,
-    public formOfflineComponent: FormOfflineComponent*/
+    public amplitude: AmplitudeService
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [

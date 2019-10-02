@@ -205,3 +205,23 @@ section.host {
         }
     }
 }
+
+@media (min-width: 1440px) {
+    #slider {
+        .container {
+
+            padding-left: 8%;
+
+            p {
+                max-width: 80%;
+                width: 80%;
+                font-size: 42px !important;
+            }
+        }
+    }
+}
+
+.align-menu {
+    margin-top: 15vh;
+    margin-left: 5vw;
+}
