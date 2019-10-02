@@ -145,6 +145,9 @@ export class FormGvComponent implements OnInit {
 
   ngOnInit() {
     if (this.formedUser) {
+      /*    console.log('this.window._mfq', this.window._mfq, this.router.url);
+      this.window._mfq = this.window._mfq || [];
+      this.window._mfq.push(["newPageView", this.router.url]);*/
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
