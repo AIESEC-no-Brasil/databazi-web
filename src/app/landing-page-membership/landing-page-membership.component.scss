@@ -132,7 +132,7 @@ main {
 
 .column-1,
 .column-2,
-.column-3,{
+.column-3, {
     padding: 10px 5px !important;
     box-sizing: border-box;
 }
@@ -247,6 +247,10 @@ main {
 
 .align-left {
     text-align: left;
+}
+
+.text-align {
+    text-align: center
 }
 
 .global-columns {
@@ -1176,6 +1180,10 @@ drag-scroll {
         }
     }
 
+    .text-padding {
+        padding-top: 30px
+    }
+
     .centered{
         font-size: 22px
     }
@@ -1358,7 +1366,11 @@ select:-webkit-autofill:focus {
     }
 
     .adapt-height {
-        height: 70.0vh !important;
+        height: 300px !important;
+    }
+
+    .align-height {
+        height: 20vh !important;
     }
 
     .brief-left p, .brief p {
@@ -1415,6 +1427,7 @@ select:-webkit-autofill:focus {
     }
     .job-description-session {
         display: block;
+        padding-bottom: 20px;
     }
     .job-description-info {
         .row {
