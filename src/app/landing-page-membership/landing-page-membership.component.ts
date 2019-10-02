@@ -4,10 +4,11 @@ import * as moment from 'moment';
 import { SignupService } from '../services/signup.service';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import * as _ from 'lodash';
 import * as $ from 'jquery';
-import {map, startWith} from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-landing-page-membership',
@@ -16,12 +17,12 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class LandingPageMembershipComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
-	user = {
+  user = {
     fullname: '',
     cellphone: '',
-    local_committee: { id: ''},
+    local_committee: { id: '' },
     email: '',
     cep: '',
     neighborhood: '',
@@ -34,7 +35,7 @@ export class LandingPageMembershipComponent implements OnInit {
     utm_campaign: '',
     utm_term: '',
     utm_content: '',
-    college_course: { id: '', name: ''},
+    college_course: { id: '', name: '' },
   }
 
   invalidEmail: boolean = false;
@@ -45,10 +46,10 @@ export class LandingPageMembershipComponent implements OnInit {
   hasZipCode: boolean = false;
   loading: boolean = false;
   matchDate: boolean = true;
-  modal:boolean = false;
+  modal: boolean = false;
 
   sliderPosition: number = 0;
-  timer : any;
+  timer: any;
 
   placeholderBirthdate: string;
 
@@ -63,9 +64,10 @@ export class LandingPageMembershipComponent implements OnInit {
   msgs: Message[] = [];
 
   constructor(
-      public signupService: SignupService,
-    ) { 
-  	this.signUp = new FormGroup({
+    public amplitude: AmplitudeService,
+    public signupService: SignupService,
+  ) {
+    this.signUp = new FormGroup({
       fullname: new FormControl(this.user.fullname, [
         Validators.required
       ]),
@@ -144,21 +146,21 @@ export class LandingPageMembershipComponent implements OnInit {
     return options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
-  _search(options, search){
+  _search(options, search) {
     return _.filter(options, (option) => {
       return option.name.toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, "")
-      .indexOf(
-        search.toLowerCase()
-          .normalize('NFD')
-          .replace(/[\u0300-\u036f]/g, "")
-      ) > -1;
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, "")
+        .indexOf(
+          search.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "")
+        ) > -1;
     });
   };
 
   searchPlaces(event) {
-    this.filteredPlaces =  this._search(this.places, event.query);
+    this.filteredPlaces = this._search(this.places, event.query);
   };
 
   fillCourseSelect() {
@@ -183,40 +185,40 @@ export class LandingPageMembershipComponent implements OnInit {
   }
 
   moveLeft() {
-    if ((this.sliderPosition - 100) < 0){
+    if ((this.sliderPosition - 100) < 0) {
       this.sliderPosition = 300;
     }
     else {
       this.sliderPosition -= 100;
     }
-    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
     this.sliderAnimation();
   }
 
   moveRight() {
-    if ((this.sliderPosition + 100) > 300){
+    if ((this.sliderPosition + 100) > 300) {
       this.sliderPosition = 0;
-    } 
+    }
     else {
       this.sliderPosition += 100
     }
-    $('#our-stories .carousel-wrapper').animate({left: '-' + this.sliderPosition + '%'});
+    $('#our-stories .carousel-wrapper').animate({ left: '-' + this.sliderPosition + '%' });
     this.sliderAnimation();
   }
 
-  sliderAnimation(){
+  sliderAnimation() {
     this.stopAnimation();
     this.timer = setInterval(() => {
       this.moveRight()
     }, 10000);
   }
 
-  swipe(side:string){
+  swipe(side: string) {
     this.stopAnimation();
     side == 'left' ? this.moveRight() : this.moveLeft();
   }
 
-  stopAnimation(){
+  stopAnimation() {
     clearInterval(this.timer);
   }
 
@@ -229,23 +231,27 @@ export class LandingPageMembershipComponent implements OnInit {
     this.user[field] = '';
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
+  toggleOverflowHtml() {
     this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
   }
 
-  scrollTo(el: HTMLElement){
+  scrollTo(el: HTMLElement) {
     el.scrollIntoView();
     window.scrollBy(0, -50);
+  }
+
+  goToInscreva() {
+    this.amplitude.trackingClickInscrevaMemberShip();
   }
 
 }

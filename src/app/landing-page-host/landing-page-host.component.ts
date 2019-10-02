@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-landing-page-host',
@@ -8,7 +9,7 @@ import * as $ from 'jquery';
 })
 export class LandingPageHostComponent implements OnInit {
 
-  window:any = window;
+  window: any = window;
 
   hostRequirements = [
     {
@@ -33,13 +34,19 @@ export class LandingPageHostComponent implements OnInit {
     }
   ]
   constructor(
-  ) { 
+    public amplitude: AmplitudeService
+  ) {
   }
 
-  redirectToForm(){
+  redirectToForm() {
     $('html, body').animate({
       scrollTop: ($('#host-details-form-area').offset().top)
-    },500);
+    }, 500);
+    this.amplitude.trackingClickFlConoscoHost();
+  }
+
+  goToInscreva() {
+    this.amplitude.trackingClickInscrevaHost();
   }
 
   ngOnInit() {

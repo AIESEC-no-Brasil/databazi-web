@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute  } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as Sentry from '@sentry/browser';
 import { environment } from '../environments/environment';
 
@@ -10,9 +10,9 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
   title = 'app';
-  window:any = window;
+  window: any = window;
   router: Router;
-  cookies_policy : boolean = false;
+  cookies_policy: boolean = false;
 
   public static GAid: string = environment.GAid;
   public static GTMid: string = environment.GTMid;
@@ -20,7 +20,7 @@ export class AppComponent {
 
   constructor(
     public activate: ActivatedRoute
-  ){
+  ) {
     Sentry.init({ dsn: 'https://4478f31a94964381b765142fea1afd5a@sentry.io/1411311' });
     this.appendGA();
     this.appendHotjar();
@@ -33,14 +33,14 @@ export class AppComponent {
   };
 
   ngOnInit() {
-    if(!localStorage.getItem('cookies_policy')){
+    if (!localStorage.getItem('cookies_policy')) {
       this.cookies_policy = true;
     }
   }
 
-  changeOfRoutes(){
+  changeOfRoutes() {
     this.activate.queryParams.subscribe((param: any) => {
-      if (!param['embedded']){
+      if (!param['embedded']) {
         this.window.fbq('init', '531154527045235');
         this.window.fbq('init', '2083757008560964');
         this.window.fbq('track', 'PageView');
@@ -52,7 +52,7 @@ export class AppComponent {
     const script = document.createElement('script');
     script.innerHTML = `
     var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', '`+ AppComponent.GAid +`']);
+    _gaq.push(['_setAccount', '`+ AppComponent.GAid + `']);
     _gaq.push(['_trackPageview']);
 
     (function() {

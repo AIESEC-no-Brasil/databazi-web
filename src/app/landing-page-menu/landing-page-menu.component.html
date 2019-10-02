@@ -1,4 +1,5 @@
-<div id="bg-menu" class="mobile" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu"></div>
+<div id="bg-menu" class="mobile" (click)="toggleResponsiveMenu()" class="animated fadeIn faster" *ngIf="responsiveMenu">
+</div>
 <section class="header-product" id="header-product">
   <div class="header-product-image {{actualPage}}" [ngClass]='{"with-filter": actualPage != "lar-global" }'>
     <div class='bg-header' *ngIf='actualPage == "lar-global"'></div>
@@ -16,7 +17,7 @@
               <i class="far fa-chevron-up favicon-arrow" *ngIf="responsiveMenu"></i>
             </div>
             <a class='aiesec-search' href='https://aiesec.org/search' target="_blank">
-              <button type="button" class="btn btn-primary">Veja nossas oportunidades</button>
+              <button (click)='goToOpor' type="button" class="btn btn-primary">Veja nossas oportunidades</button>
             </a>
           </div>
           <ul id="menu">
@@ -41,12 +42,12 @@
               Seja nosso parceiro
               <ul class="animated fadeIn faster ul-products">
                 <a href="http://business.aiesec.org.br/" target="_blank">
-                  <li>
+                  <li (click)='goToEmp()'>
                     Empresas
                   </li>
                 </a>
                 <a href='http://youthspeak.aiesec.org.br/' target="_blank">
-                  <li>
+                  <li (click)='goToYou()'>
                     Youthspeak
                   </li>
                 </a>
@@ -55,18 +56,20 @@
             <li>
               Planeje sua viagem
               <ul class="animated fadeIn faster ul-travel">
-                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
-                  <li>
+                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower"
+                  target="_blank">
+                  <li (click)='goToPass()'>
                     Passagens Aéreas
                   </li>
                 </a>
-                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
-                  <li>
+                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h"
+                  target="_blank">
+                  <li (click)='goToCamb()'>
                     Câmbio de Moedas
                   </li>
                 </a>
                 <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
-                  <li>
+                  <li (click)='goToSegu()'>
                     Seguro Viagem
                   </li>
                 </a>
@@ -76,106 +79,113 @@
               Blog
               <ul class="animated fadeIn faster ul-blog">
                 <a href="http://business.aiesec.org.br/blog/" target="_blank">
-                  <li>
+                  <li (click)='goToBlogEmp()'>
                     Empresas
                   </li>
                 </a>
                 <a href="https://blog.aiesec.org.br/" target="_blank">
-                  <li>
+                  <li (click)='goToEstu()'>
                     Estudantes
                   </li>
                 </a>
               </ul>
             </li>
-            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank" *ngIf="actualPage == '' || actualPage == 'lar-global'">
-              <li>
+            <a class='aiesec-search' href='https://aiesec.org/search' target="_blank"
+              *ngIf="actualPage == '' || actualPage == 'lar-global'">
+              <li (click)='goToOpor()'>
                 Veja nossas oportunidades
               </li>
             </a>
-            <a class='aiesec-search' href='https://aiesec.org/search?type=2&sort=-duration_min' target="_blank" *ngIf="actualPage == 'talento-global'">
-              <li>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=2&sort=-duration_min' target="_blank"
+              *ngIf="actualPage == 'talento-global'">
+              <li (click)='goToOpor()'>
                 Veja nossas oportunidades
               </li>
             </a>
-            <a class='aiesec-search' href='https://aiesec.org/search?type=5&sort=-duration_min' target="_blank" *ngIf="actualPage == 'empreendedor-global'">
-              <li>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=5&sort=-duration_min' target="_blank"
+              *ngIf="actualPage == 'empreendedor-global'">
+              <li (click)='goToOpor()'>
                 Veja nossas oportunidades
               </li>
             </a>
-            <a class='aiesec-search' href='https://aiesec.org/search?type=1&sort=-duration_min' target="_blank" *ngIf="actualPage == 'voluntario-global'">
-              <li>
+            <a class='aiesec-search' href='https://aiesec.org/search?type=1&sort=-duration_min' target="_blank"
+              *ngIf="actualPage == 'voluntario-global'">
+              <li (click)='goToOpor()'>
                 Veja nossas oportunidades
               </li>
             </a>
           </ul>
 
-          <div class="mobile-dropdown-menu vis animated faster" *ngIf="responsiveMenu" [ngClass]="{fadeIn: responsiveMenu, fadeOut: !responsiveMenu}">
+          <div class="mobile-dropdown-menu vis animated faster" *ngIf="responsiveMenu"
+            [ngClass]="{fadeIn: responsiveMenu, fadeOut: !responsiveMenu}">
             <div class="mobile-dropdown-container">
-                <ul class="mobile-nav-menu">
-                  <span class="menu-header">Faça um intercâmbio</span>
-                  <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
-                    Voluntário Global
+              <ul class="mobile-nav-menu">
+                <span class="menu-header">Faça um intercâmbio</span>
+                <li (click)="goToGv()" [ngx-scroll-to]="'#header-product'">
+                  Voluntário Global
+                </li>
+                <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
+                  Empreendedor Global
+                </li>
+                <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
+                  Talento Global
+                </li>
+              </ul>
+              <hr>
+              <ul class="mobile-nav-menu">
+                <li (click)='goToHost()'>
+                  Lar Global
+                </li>
+              </ul>
+              <hr>
+              <ul class="mobile-nav-menu">
+                <span class="menu-header">Seja nosso parceiro</span>
+                <a href="http://business.aiesec.org.br/" target="_blank">
+                  <li (click)='goToEmp()'>
+                    Empresas
                   </li>
-                  <li (click)="goToGe()" [ngx-scroll-to]="'#header-product'">
-                    Empreendedor Global
+                </a>
+                <a href='http://blog.aiesec.org.br/youthspeak/' target="_blank">
+                  <li (click)='goToYou()'>
+                    Youthspeak
                   </li>
-                  <li (click)="goToGt()" [ngx-scroll-to]="'#header-product'">
-                    Talento Global
+                </a>
+              </ul>
+              <hr>
+              <ul class="mobile-nav-menu">
+                <span class="menu-header">Planeje sua viagem</span>
+                <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower"
+                  target="_blank">
+                  <li (click)='goToPass()'>
+                    Passagens Aéreas
                   </li>
-                </ul>
-                <hr>
-                <ul class="mobile-nav-menu">
-                  <li (click)='goToHost()'>
-                    Lar Global
+                </a>
+                <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h"
+                  target="_blank">
+                  <li (click)='goToCamb()'>
+                    Câmbio de Moedas
                   </li>
-                </ul>
-                <hr>
-                <ul class="mobile-nav-menu">
-                  <span class="menu-header">Seja nosso parceiro</span>
-                  <a href="http://business.aiesec.org.br/" target="_blank">
-                    <li>
-                      Empresas
-                    </li>
-                  </a>
-                  <a href='http://blog.aiesec.org.br/youthspeak/' target="_blank">
-                    <li>
-                      Youthspeak
-                    </li>
-                  </a>
-                </ul>
-                <hr>
-                <ul class="mobile-nav-menu">
-                  <span class="menu-header">Planeje sua viagem</span>
-                  <a href="https://www.maxmilhas.com.br/?utm_source=aiesec&utm_medium=afiliados&utm_campaign=77a6ec5a_paid_lower" target="_blank">
-                    <li>
-                      Passagens Aéreas
-                    </li>
-                  </a>
-                  <a href="https://www.confidencecambio.com.br/ecommerce/?utm_source=barra&utm_medium=home#/home?_k=9twr7h" target="_blank">
-                    <li>
-                      Câmbio de Moedas
-                    </li>
-                  </a>
-                  <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
-                    <li>
-                      Seguro Viagem
-                    </li>
-                  </a>
-                </ul>
-                <hr>
-                <ul class="mobile-nav-menu">
-                  <span class="menu-header">Blog</span>
-                  <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" target="_blank">
-                    <li>
-                      Empresas
-                    </li>
-                  </a>
-                  <a href="https://blog.aiesec.org.br/" target="_blank">
-                    <li>
-                      Estudantes
-                    </li>
-                  </a>
-                </ul>
+                </a>
+                <a href="https://www.assistcard.com/br/b2c/aiesec-br" target="_blank">
+                  <li (click)='goToSegu()'>
+                    Seguro Viagem
+                  </li>
+                </a>
+              </ul>
+              <hr>
+              <ul class="mobile-nav-menu">
+                <span class="menu-header">Blog</span>
+                <a href="http://blog.aiesec.org.br/seja-parceiro/empresas/" target="_blank">
+                  <li (click)='goToBlogEmp()'>
+                    Empresas
+                  </li>
+                </a>
+                <a href="https://blog.aiesec.org.br/" target="_blank">
+                  <li (click)='goToEstu()'>
+                    Estudantes
+                  </li>
+                </a>
+              </ul>
             </div>
           </div>
         </div>

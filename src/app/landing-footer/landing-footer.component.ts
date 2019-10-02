@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import * as $ from 'jquery';
 import 'hammerjs';
 import * as moment from 'moment';
+import { AmplitudeService } from '../amplitude.service';
 
 @Component({
   selector: 'app-landing-footer',
@@ -14,16 +15,19 @@ export class LandingFooterComponent implements OnInit {
   partners: any;
   sliderPosition: number = 0;
   timer: any;
-  window:any = window;
+  window: any = window;
   year: any = moment().year();
 
   navTo(partnerPage) {
     window.open(partnerPage, '_blank');
   }
 
-  constructor(private router: Router) {
+  constructor(
+    public amplitude: AmplitudeService,
+    private router: Router
+  ) {
     this.partners = [];
-    this.window.Modernizr && this.window.Modernizr.on('webp', ( result ) => {
+    this.window.Modernizr && this.window.Modernizr.on('webp', (result) => {
       let webpSupport = false;
 
       if (result) {
@@ -111,8 +115,8 @@ export class LandingFooterComponent implements OnInit {
           title: 'Whirlpool',
           img: webpSupport ? '../../assets/images/partners/Whirlpoow.png.webp' : '../../assets/images/partners/Whirlpoow.png',
           site: 'https://www.whirlpool.com.br/',
-        }
-      ];    
+        },
+      ];
     });
   }
 
@@ -170,23 +174,89 @@ export class LandingFooterComponent implements OnInit {
     clearInterval(this.timer)
   }
 
-  openUrl(site) {
-    window.open(site);
+  openUrl(partner) {
+    window.open(partner.site);
+    console.log(partner)
+    this.amplitude.trackingRoutingParceiros(partner.title);
   }
 
-  goToGv(){
+  goToAiesec() {
+    this.amplitude.trackingClickFooterMenuAiesec();
+  }
+
+  goToFcParte() {
+    this.amplitude.trackingClickFooterMenuFcParte();
+  }
+
+  goToAlummi() {
+    this.amplitude.trackingClickFooterMenuAlummi();
+  }
+
+  goToYouthSpeak() {
+    this.amplitude.trackingClickFooterMenuYouthSpeak();
+  }
+
+  goToGv() {
     this.router.navigate(['/voluntario-global']);
+    this.amplitude.trackingClickFooterMenuGv();
   }
 
-  goToGe(){
+  goToGe() {
     this.router.navigate(['/empreendedor-global']);
+    this.amplitude.trackingClickFooterMenuGe();
   }
 
-  goToGt(){
+  goToGt() {
     this.router.navigate(['/talento-global']);
+    this.amplitude.trackingClickFooterMenuGt();
   }
 
-  goToHost(){
+  goToHost() {
     this.router.navigate(['/lar-global']);
+    this.amplitude.trackingClickFooterMenuLarGlobal();
+  }
+
+  goToEmpre() {
+    this.amplitude.trackingClickFooterMenuEmpresas();
+  }
+
+  goToYouthSpeakParc() {
+    this.amplitude.trackingClickFooterMenuYouSpeakParc();
+  }
+
+  goToPassagens() {
+    this.amplitude.trackingClickFooterMenuPassagens();
+  }
+
+  goToCambio() {
+    this.amplitude.trackingClickFooterMenuCambio();
+  }
+
+  goToSeguViagem() {
+    this.amplitude.trackingClickFooterMenuSeguViagem();
+  }
+
+  goToBlogEmpresas() {
+    this.amplitude.trackingClickFooterMenuBlogEmpresas();
+  }
+
+  goToBlogEstudantes() {
+    this.amplitude.trackingClickFooterMenuBlogEstudantes();
+  }
+
+  goToFacebook() {
+    this.amplitude.trackingClickFooterMenuFacebook();
+  }
+
+  goToInstagram() {
+    this.amplitude.trackingClickFooterMenuInstagram();
+  }
+
+  goToTwitter() {
+    this.amplitude.trackingClickFooterMenuTwitter();
+  }
+
+  goToYoutube() {
+    this.amplitude.trackingClickFooterMenuYoutube();
   }
 }

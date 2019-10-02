@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'https://qa-databazi.aiesec.org.br',
-  GAid : 'UA-29562174-6',
-  GTMid : 'GTM-567W86C',
-  HJid : '1469982'
+  apiUrl: 'https://qa-databazi.aiesec.org.br',
+  GAid: 'UA-29562174-6',
+  GTMid: 'GTM-567W86C',
+  HJid: '1469982',
+  amplitudeKey: 'a9c8051fce0d6bf8a182e08281f0558a'
 };
 
 /*

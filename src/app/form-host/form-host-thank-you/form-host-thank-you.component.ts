@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AmplitudeService } from 'src/app/amplitude.service';
 
 @Component({
   selector: 'app-form-host-thank-you',
@@ -8,18 +9,19 @@ import { Router } from '@angular/router';
 })
 export class FormHostThankYouComponent implements OnInit {
   window: any = window;
-  
+
   constructor(
+    public amplitude: AmplitudeService,
     private router: Router
-  ) { 
+  ) {
     this.window.fbq('track', 'Lead');
   }
 
   ngOnInit() {
   }
 
-  redirectToHome(){
+  redirectToHome() {
     this.router.navigate(['/']);
+    this.amplitude.trackingSignupThankYouHomeHost();
   }
-
 }
