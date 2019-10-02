@@ -227,7 +227,7 @@ export class FormGeComponent implements OnInit {
   }
 
   cancelSignUp() {
-    this.amplitude.trackingClickCancelGe()
+    this.amplitude.trackingClickCancelGe();
     if (this.formedUser) {
       this.onCancelEvent.emit();
     } else {
@@ -385,7 +385,7 @@ export class FormGeComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
-    this.amplitude.trackingCompletedSignupGe()
+    this.amplitude.trackingCompletedSignupGe();
 
     let user = {
       ge_participant: {

@@ -177,86 +177,86 @@ export class LandingFooterComponent implements OnInit {
   openUrl(partner) {
     window.open(partner.site);
     console.log(partner)
-    this.amplitude.trackingRoutingParceiros(partner.title)
+    this.amplitude.trackingRoutingParceiros(partner.title);
   }
 
   goToAiesec() {
-    this.amplitude.trackingClickFooterMenuAiesec()
+    this.amplitude.trackingClickFooterMenuAiesec();
   }
 
   goToFcParte() {
-    this.amplitude.trackingClickFooterMenuFcParte()
+    this.amplitude.trackingClickFooterMenuFcParte();
   }
 
   goToAlummi() {
-    this.amplitude.trackingClickFooterMenuAlummi()
+    this.amplitude.trackingClickFooterMenuAlummi();
   }
 
   goToYouthSpeak() {
-    this.amplitude.trackingClickFooterMenuYouthSpeak()
+    this.amplitude.trackingClickFooterMenuYouthSpeak();
   }
 
   goToGv() {
     this.router.navigate(['/voluntario-global']);
-    this.amplitude.trackingClickFooterMenuGv()
+    this.amplitude.trackingClickFooterMenuGv();
   }
 
   goToGe() {
     this.router.navigate(['/empreendedor-global']);
-    this.amplitude.trackingClickFooterMenuGe()
+    this.amplitude.trackingClickFooterMenuGe();
   }
 
   goToGt() {
     this.router.navigate(['/talento-global']);
-    this.amplitude.trackingClickFooterMenuGt()
+    this.amplitude.trackingClickFooterMenuGt();
   }
 
   goToHost() {
     this.router.navigate(['/lar-global']);
-    this.amplitude.trackingClickFooterMenuLarGlobal()
+    this.amplitude.trackingClickFooterMenuLarGlobal();
   }
 
   goToEmpre() {
-    this.amplitude.trackingClickFooterMenuEmpresas()
+    this.amplitude.trackingClickFooterMenuEmpresas();
   }
 
   goToYouthSpeakParc() {
-    this.amplitude.trackingClickFooterMenuYouSpeakParc()
+    this.amplitude.trackingClickFooterMenuYouSpeakParc();
   }
 
   goToPassagens() {
-    this.amplitude.trackingClickFooterMenuPassagens()
+    this.amplitude.trackingClickFooterMenuPassagens();
   }
 
   goToCambio() {
-    this.amplitude.trackingClickFooterMenuCambio()
+    this.amplitude.trackingClickFooterMenuCambio();
   }
 
   goToSeguViagem() {
-    this.amplitude.trackingClickFooterMenuSeguViagem()
+    this.amplitude.trackingClickFooterMenuSeguViagem();
   }
 
   goToBlogEmpresas() {
-    this.amplitude.trackingClickFooterMenuBlogEmpresas()
+    this.amplitude.trackingClickFooterMenuBlogEmpresas();
   }
 
   goToBlogEstudantes() {
-    this.amplitude.trackingClickFooterMenuBlogEstudantes()
+    this.amplitude.trackingClickFooterMenuBlogEstudantes();
   }
 
   goToFacebook() {
-    this.amplitude.trackingClickFooterMenuFacebook()
+    this.amplitude.trackingClickFooterMenuFacebook();
   }
 
   goToInstagram() {
-    this.amplitude.trackingClickFooterMenuInstagram()
+    this.amplitude.trackingClickFooterMenuInstagram();
   }
 
   goToTwitter() {
-    this.amplitude.trackingClickFooterMenuTwitter()
+    this.amplitude.trackingClickFooterMenuTwitter();
   }
 
   goToYoutube() {
-    this.amplitude.trackingClickFooterMenuYoutube()
+    this.amplitude.trackingClickFooterMenuYoutube();
   }
 }

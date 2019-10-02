@@ -24,16 +24,16 @@ export class FormGvThankYouComponent implements OnInit {
 
   goToHome() {
     this.router.navigate(['/']);
-    this.amplitude.trackingSignupThankYouHomeGv()
+    this.amplitude.trackingSignupThankYouHomeGv();
   }
 
   goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
-    this.amplitude.trackingSignupThankYouAiesecGv()
+    this.amplitude.trackingSignupThankYouAiesecGv();
   }
 
   goToBlog() {
     window.open("https://blog.aiesec.org.br/", "_blank");
-    this.amplitude.trackingSignupThankYouBlogGv()
+    this.amplitude.trackingSignupThankYouBlogGv();
   }
 }

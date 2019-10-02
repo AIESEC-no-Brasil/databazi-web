@@ -247,7 +247,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   submit(el: HTMLElement) {
-    this.amplitude.trackingCompletedSignupMembership()
+    this.amplitude.trackingCompletedSignupMembership();
     this.submitted = true;
 
     let user = {

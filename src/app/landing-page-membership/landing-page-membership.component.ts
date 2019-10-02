@@ -251,7 +251,7 @@ export class LandingPageMembershipComponent implements OnInit {
   }
 
   goToInscreva() {
-    this.amplitude.trackingClickInscrevaMemberShip()
+    this.amplitude.trackingClickInscrevaMemberShip();
   }
 
 }
