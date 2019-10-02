@@ -344,6 +344,7 @@ export class FormMembershipComponent implements OnInit {
 
   selectInput(element) {
     $('.form-group').css('z-index', '-1');
+    $('.form-priority').css('z-index', '20');
     $('.' + element).css('z-index', '10');
   }
 
