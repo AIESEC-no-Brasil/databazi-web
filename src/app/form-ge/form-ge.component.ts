@@ -137,8 +137,6 @@ export class FormGeComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-    });
-    this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
@@ -157,7 +155,7 @@ export class FormGeComponent implements OnInit {
       scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
+      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
     this.detectKeypress();
@@ -251,7 +249,7 @@ export class FormGeComponent implements OnInit {
   }
 
   isValidStudy(field) {
-    return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
+    return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedStudy)
   }
 
   fillUniversitySelect(search?) {

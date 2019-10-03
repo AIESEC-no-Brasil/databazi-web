@@ -17,6 +17,7 @@ export class AppComponent {
   public static GAid: string = environment.GAid;
   public static GTMid: string = environment.GTMid;
   public static HJid: string = environment.HJid;
+  public static MFid: string = environment.MFid;
 
   constructor(
     public activate: ActivatedRoute
@@ -112,7 +113,7 @@ export class AppComponent {
     document.body.appendChild(noscript);
   };
 
-  /*appendMouseflow() {
+  appendMouseflow() {
     console.log('appending mouseflow');
     const script = document.createElement('script');
     script.innerHTML = `
@@ -120,11 +121,11 @@ export class AppComponent {
       (function() {
           var mf = document.createElement("script");
           mf.type = "text/javascript"; mf.async = true;
-          mf.src = "//cdn.mouseflow.com/projects/34c39170-75ff-45df-9481-17ace17579ff.js";
+          mf.src = "//cdn.mouseflow.com/projects/` + AppComponent.MFid + `.js";
           document.getElementsByTagName("head")[0].appendChild(mf);
       })();
     `;
-    document.head.appendChild(script);
-  }*/
+    document.body.appendChild(script);
+  }
 
 }
