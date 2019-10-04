@@ -11,7 +11,7 @@ import { TermsModule } from '../terms/terms.module';
 
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { NgxMaskModule } from 'ngx-mask';
-import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ScrollToModule, ScrollToOffsetMap } from '@nicky-lenaers/ngx-scroll-to';
 
 import { SignupService } from '../services/signup.service';
 
@@ -29,7 +29,7 @@ import { SignupService } from '../services/signup.service';
     AutoCompleteModule,
     NgxMaskModule.forRoot(),
     ScrollToModule.forRoot(),
-    HttpModule
+    HttpModule,
   ],
   exports : [
   	FormMembershipComponent

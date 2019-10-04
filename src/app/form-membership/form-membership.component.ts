@@ -17,6 +17,7 @@ import { AmplitudeService } from '../amplitude.service';
   templateUrl: './form-membership.component.html',
   styleUrls: ['./form-membership.component.scss']
 })
+
 export class FormMembershipComponent implements OnInit {
 
   window: any = window;
@@ -344,7 +345,7 @@ export class FormMembershipComponent implements OnInit {
 
   selectInput(element) {
     $('.form-group').css('z-index', '-1');
-    $('.form-priority').css('z-index', '20');
+    $('.form-priority').css('z-index', '1');
     $('.' + element).css('z-index', '10');
   }
 
