@@ -115,8 +115,6 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-    });
-    this.step2Form = new FormGroup({
       university_id: new FormControl(this.user.university, [
         Validators.required
       ]),
@@ -145,6 +143,9 @@ export class FormGvComponent implements OnInit {
 
   ngOnInit() {
     if (this.formedUser) {
+      /*    console.log('this.window._mfq', this.window._mfq, this.router.url);
+      this.window._mfq = this.window._mfq || [];
+      this.window._mfq.push(["newPageView", this.router.url]);*/
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -265,7 +266,7 @@ export class FormGvComponent implements OnInit {
   }
 
   isValidStudy(field) {
-    return !this.step2Form.controls[field].valid && (this.step2Form.controls[field].dirty || this.submittedStudy)
+    return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedStudy)
   }
 
   fillUniversitySelect(search?) {

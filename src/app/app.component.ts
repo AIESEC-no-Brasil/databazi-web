@@ -17,6 +17,7 @@ export class AppComponent {
   public static GAid: string = environment.GAid;
   public static GTMid: string = environment.GTMid;
   public static HJid: string = environment.HJid;
+  public static MFid: string = environment.MFid;
 
   constructor(
     public activate: ActivatedRoute
@@ -34,6 +35,9 @@ export class AppComponent {
 
   ngOnInit() {
     if (!localStorage.getItem('cookies_policy')) {
+      /*console.log('this.window._mfq', this.window._mfq, this.router.url);
+      this.window._mfq = this.window._mfq || [];
+      this.window._mfq.push(["newPageView", this.router.url]);*/
       this.cookies_policy = true;
     }
   }
@@ -108,5 +112,20 @@ export class AppComponent {
     `;
     document.body.appendChild(noscript);
   };
+
+  appendMouseflow() {
+    console.log('appending mouseflow');
+    const script = document.createElement('script');
+    script.innerHTML = `
+      window._mfq = window._mfq || [];
+      (function() {
+          var mf = document.createElement("script");
+          mf.type = "text/javascript"; mf.async = true;
+          mf.src = "//cdn.mouseflow.com/projects/` + AppComponent.MFid + `.js";
+          document.getElementsByTagName("head")[0].appendChild(mf);
+      })();
+    `;
+    document.body.appendChild(script);
+  }
 
 }
