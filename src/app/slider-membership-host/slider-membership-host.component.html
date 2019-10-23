@@ -7,10 +7,11 @@
           <p>
             Junte-se a nós como
             <b>membro</b> da AIESEC, promovendo experiências de intercâmbio que mudam o mundo!
-            <br> Participe do nosso
-            <b>Processo Seletivo!</b>
+            <br> <span *ngIf="actualPage != 'membresia'">Participe do nosso
+            <b>Processo Seletivo!</b></span>
           </p>
           <a class='btn btn-primary' (click)='goToMembership()' *ngIf="this.actualPage != 'membresia'"> Inscreva-se </a>
+          <a class='btn btn-primary' (click)='goToMembershipForm(formMembershipRef)' *ngIf="this.actualPage == 'membresia'"> Inscreva-se </a>
         </div>
       </div>
     </div>

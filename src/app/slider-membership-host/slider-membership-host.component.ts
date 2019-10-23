@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import 'hammerjs';
 import { AmplitudeService } from '../amplitude.service';
+import * as $ from 'jquery';
 
 
 @Component({
@@ -40,6 +41,13 @@ export class SliderMembershipHostComponent implements OnInit {
   goToMembership() {
     window.open('http://promo.aiesec.org.br/sejamembro/')
     this.amplitude.trackingClickGoToMember();
+  }
+
+  goToMembershipForm() {
+    var element = $('#header-talentos-globais').offset().top-80;
+    $('html, body').animate({
+      scrollTop: element
+    }, 700);
   }
 
   checkUrl() {
