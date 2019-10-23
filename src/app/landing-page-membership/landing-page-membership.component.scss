@@ -291,6 +291,7 @@ section.history-session,
 section.experiences-session {    
     background-position: bottom center;
     background-size: 25%;
+    margin-top: -80px;
     @at-root :host-context(.no-webp) #{&} {
         background-image: url('/assets/images/pattern1.png');
     }

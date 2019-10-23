@@ -17,15 +17,14 @@ section.host {
 .slider-membrasia-host {
     position: relative;
     width: 100%;
-    min-height: 500px;
+    min-height: 450px;
 
     .membrasia {
-        min-height: 500px;
         position: relative;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 30%;
-        padding: 90px 0;
+        padding: 75px 0;
 
         a {
             color: #fff !important;
@@ -215,13 +214,12 @@ section.host {
             p {
                 max-width: 80%;
                 width: 80%;
-                font-size: 42px !important;
             }
         }
     }
 }
 
 .align-menu {
-    margin-top: 15vh;
+    margin-top: 5vh;
     margin-left: 5vw;
 }
