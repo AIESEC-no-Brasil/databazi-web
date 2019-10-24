@@ -219,46 +219,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group scholarity">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-graduation-cap"></i>Escolaridade</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.scholarity" (ngModelChange)="changeScholarity(user.scholarity.id)" [suggestions]="filteredScholarityOptions" (completeMethod)="searchScholarity($event)"
-                            #scholarityAutocomplete (onFocus)="selectInput('scholarity');scholarityAutocomplete.handleDropdownClick()" dropdownMode="current"
-                            field="name" formControlName="scholarity" emptyMessage="Nenhum resultado" placeholder="Qual seu nível de escolaridade?"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('scholarity')"  *ngIf="user.scholarity"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('scholarity')" class='error-message'>
-                      Selecione um nível de escolaridade
-                    </div>
-                  </div>
-                  <div *ngIf="+user.scholarity.id >= 2 && +user.scholarity.id != 6" class="animated fadeIn faster">
-                    <div class="form-group university">
-                      <div class="input-group select-dropdown">
-                        <div class="input-group-prepend">
-                          <div class="input-group-text">
-                            <i class="fas fa-graduation-cap"></i>Universidade</div>
-                        </div>
-                        <div class="dropdown">
-                          <div class="styled-select">
-                            <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities" (completeMethod)="searchUnivesity($event)"
-                              #universityAutocomplete (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick()"
-                              dropdownMode="current" field="name" formControlName="university_id" emptyMessage="Nenhum resultado"
-                              placeholder="Digite aqui onde você estuda"></p-autoComplete>
-                              <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('university')"  *ngIf="user.university"></i>
-                          </div>
-                        </div>
-                      </div>
-                      <div *ngIf="isValidStudy('university_id')" class='error-message'>
-                        Selecione uma universidade.
-                      </div>
-                    </div>
+                  <div class="animated fadeIn faster">
                     <div class="form-group college_course">
                       <div class="input-group select-dropdown">
                         <div class="input-group-prepend">
@@ -298,26 +259,6 @@
                     </div>
                     <div *ngIf="isValidStudy('english_level')" class='error-message'>
                       Selecione um nível de inglês.
-                    </div>
-                  </div>
-                  <div class="form-group spanish_level">
-                    <div class="input-group select-dropdown">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">
-                          <i class="fas fa-book-open"></i>Nível de espanhol</div>
-                      </div>
-                      <div class="dropdown">
-                        <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.spanish_level" [suggestions]="filteredSpanishLevelOptions" (completeMethod)="searchSpanishLevels($event)"
-                            #spanishAutocomplete (onFocus)="selectInput('spanish_level');spanishAutocomplete.handleDropdownClick();"
-                            dropdownMode="current" field="name" formControlName="spanish_level" emptyMessage="Nenhum resultado"
-                            placeholder="Isso nos ajuda a te direcionar para as vagas mais adequadas"></p-autoComplete>
-                            <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('spanish_level')" *ngIf="user.spanish_level"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidStudy('spanish_level')" class='error-message'>
-                      Selecione um nível de espanhol.
                     </div>
                   </div>
 
