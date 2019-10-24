@@ -32,27 +32,15 @@ export class FormGeComponent implements OnInit {
     password: '',
     repassword: '',
     local_committee: { id: '', name: '' },
-    university: { id: '', name: '' },
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
     english_level: { id: '', name: '' },
-    spanish_level: { id: '', name: '' },
-    scholarity: { id: '', name: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
     utm_content: ''
   }
-
-  scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
-  ];
 
   englishLevelOptions: any = [
     { id: '0', name: 'Não tenho' },
@@ -62,19 +50,8 @@ export class FormGeComponent implements OnInit {
     { id: '4', name: 'Fluente' }
   ];
 
-  spanishLevelOptions: any = [
-    { id: '0', name: 'Não tenho' },
-    { id: '1', name: 'Básico' },
-    { id: '2', name: 'Intermediário' },
-    { id: '3', name: 'Avançado' },
-    { id: '4', name: 'Fluente' }
-  ];
-
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
-  filteredSpanishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
   placeholderBirthdate: string;
@@ -137,9 +114,6 @@ export class FormGeComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      university_id: new FormControl(this.user.university, [
-        Validators.required
-      ]),
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
@@ -147,12 +121,6 @@ export class FormGeComponent implements OnInit {
         Validators.required
       ]),
       english_level: new FormControl(this.user.english_level, [
-        Validators.required
-      ]),
-      spanish_level: new FormControl(this.user.spanish_level, [
-        Validators.required
-      ]),
-      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
@@ -203,10 +171,6 @@ export class FormGeComponent implements OnInit {
       }
     });
 
-    this.filteredScholarityOptions = this.scholarityOptions;
-
-    this.fillUniversitySelect();
-
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
     });
@@ -216,8 +180,6 @@ export class FormGeComponent implements OnInit {
     });
 
     this.filteredEnglishLevelOptions = this.englishLevelOptions;
-
-    this.filteredSpanishLevelOptions = this.spanishLevelOptions;
   }
 
   onResize(event) {
@@ -252,15 +214,6 @@ export class FormGeComponent implements OnInit {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
-      this.universities = res;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })
-  }
-
   fillCourseSelect() {
     return this.signupService.getCourses().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
@@ -282,44 +235,19 @@ export class FormGeComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
-      this.user.college_course = { id: '', name: '' };
-    }
-  }
-
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse();
+    return this.emptyFields() || this.emptyCourse();
   }
 
   emptyFields() {
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.english_level && !!this.user.english_level.id) || !(this.user.spanish_level && !!this.user.spanish_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
-  }
-
-  emptyUniversity() {
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if (this.user.university && this.user.university.id) {
-        return !this.user.university.id
-      } else {
-        return true;
-      }
-    }
-    else {
-      return false;
-    }
+    return !(this.user.english_level && !!this.user.english_level.id) || !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
   emptyCourse() {
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if (this.user.college_course.id) {
-        return !this.user.college_course.id
-      } else {
-        return true;
-      }
-    }
-    else {
-      return false;
+    if (this.user.college_course.id) {
+      return !this.user.college_course.id
+    } else {
+      return true;
     }
   }
 
@@ -393,12 +321,9 @@ export class FormGeComponent implements OnInit {
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
         english_level: +this.user.english_level.id,
-        spanish_level: +this.user.spanish_level.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -444,18 +369,6 @@ export class FormGeComponent implements OnInit {
       })
   }
 
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
-
-  searchUnivesity(event) {
-    if (!event.originalEvent) {
-      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
-      return;
-    }
-    this.fillUniversitySelect(event.query);
-  };
-
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
@@ -466,10 +379,6 @@ export class FormGeComponent implements OnInit {
 
   searchEnglishLevels(event) {
     this.filteredEnglishLevelOptions = this._search(this.englishLevelOptions, event.query);
-  };
-
-  searchSpanishLevels(event) {
-    this.filteredSpanishLevelOptions = this._search(this.spanishLevelOptions, event.query);
   };
 
   _search(options, search) {

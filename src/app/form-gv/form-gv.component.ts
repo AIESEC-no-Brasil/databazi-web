@@ -32,10 +32,8 @@ export class FormGvComponent implements OnInit {
     password: '',
     repassword: '',
     local_committee: { id: '' },
-    university: { id: '', name: '' },
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
-    scholarity: { id: '' },
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
@@ -45,17 +43,6 @@ export class FormGvComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  scholarityOptions: any = [
-    { id: '0', name: 'Ensino Médio Completo' },
-    { id: '2', name: 'Estudante de Graduação' },
-    { id: '3', name: 'Mestrado ou Pós' },
-    { id: '4', name: 'Graduado em até 1,5 anos' },
-    { id: '5', name: 'Graduado há mais de 2 anos' },
-    { id: '6', name: 'Outro' }
-  ];
-
-  universities: any[];
-  filteredScholarityOptions: Observable<any[]>;
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
@@ -115,16 +102,10 @@ export class FormGvComponent implements OnInit {
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
       ]),
-      university_id: new FormControl(this.user.university, [
-        Validators.required
-      ]),
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
       local_committee_id: new FormControl(this.user.local_committee, [
-        Validators.required
-      ]),
-      scholarity: new FormControl(this.user.scholarity, [
         Validators.required
       ]),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
@@ -177,10 +158,6 @@ export class FormGvComponent implements OnInit {
       }
     });
 
-    this.filteredScholarityOptions = this.scholarityOptions;
-
-    this.fillUniversitySelect();
-
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.courses;
     });
@@ -188,18 +165,6 @@ export class FormGvComponent implements OnInit {
       this.filteredPlaces = this.places;
     });
   }
-
-  searchScholarity(event) {
-    this.filteredScholarityOptions = this._search(this.scholarityOptions, event.query);
-  };
-
-  searchUnivesity(event) {
-    if (!event.originalEvent) {
-      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
-      return;
-    }
-    this.fillUniversitySelect(event.query);
-  };
 
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
@@ -269,15 +234,6 @@ export class FormGvComponent implements OnInit {
     return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedStudy)
   }
 
-  fillUniversitySelect(search?) {
-    return this.signupService.getUniversities(search).then((res: any) => {
-      this.universities = res;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
-    })
-  }
-
   fillCourseSelect() {
     return this.signupService.getCourses().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
@@ -299,44 +255,19 @@ export class FormGvComponent implements OnInit {
     })
   }
 
-  changeScholarity(scholarity_level) {
-    if (+scholarity_level <= 2 || +scholarity_level == 6) {
-      this.user.university = { id: '', name: '' };
-      this.user.college_course = { id: '', name: '' };
-    }
-  }
-
   unableToSubmit() {
-    return this.emptyFields() || this.emptyUniversity() || this.emptyCourse();
+    return this.emptyFields() || this.emptyCourse();
   }
 
   emptyFields() {
-    return !(this.user.scholarity && !!this.user.scholarity.id) || !(this.user.local_committee && !!this.user.local_committee.id);
-  }
-
-  emptyUniversity() {
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if (this.user.university && this.user.university.id) {
-        return !this.user.university.id
-      } else {
-        return true;
-      }
-    }
-    else {
-      return false;
-    }
+    return !(this.user.local_committee && !!this.user.local_committee.id);
   }
 
   emptyCourse() {
-    if ((+this.user.scholarity.id >= 2 && +this.user.scholarity.id <= 5)) {
-      if (this.user.college_course.id) {
-        return !this.user.college_course.id
-      } else {
-        return true;
-      }
-    }
-    else {
-      return false;
+    if (this.user.college_course.id) {
+      return !this.user.college_course.id
+    } else {
+      return true;
     }
   }
 
@@ -398,10 +329,8 @@ export class FormGvComponent implements OnInit {
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
-        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        scholarity: +this.user.scholarity.id,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
