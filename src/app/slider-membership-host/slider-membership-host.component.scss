@@ -14,12 +14,17 @@ section.host {
     }
 }
 
+.membership-size-adjust {
+    min-height: 0px !important;
+}
+
+
 .slider-membrasia-host {
     position: relative;
     width: 100%;
     min-height: 450px;
-
     .membrasia {
+        min-height: 500px;
         position: relative;
         background-repeat: no-repeat;
         background-size: cover;
