@@ -1,5 +1,5 @@
 <div class='slider-membrasia-host' id='slider'>
-  <section class='membrasia animated faster' [ngClass]='{"fadeIn": slider , "fadeContentOut": !slider}'>
+  <section class='membrasia animated faster' [ngClass]='{"fadeIn": slider , "fadeContentOut": !slider, "membership-size-adjust": actualPage == "membresia" }'>
     <div class='bg-membrasia'></div>
     <div class='container' [ngClass]='{"align-menu": actualPage == "membresia"}'>
       <div class='row'>
