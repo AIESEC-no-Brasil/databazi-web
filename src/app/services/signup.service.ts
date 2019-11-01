@@ -20,7 +20,8 @@ export class SignupService {
 		return new RequestOptions({ headers: headers });
 	}
 
-	addGvParticipant(user){
+	addGvParticipant(user, source?){
+		user.gv_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/gv_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {
@@ -32,7 +33,8 @@ export class SignupService {
 			});
 	}
 
-	addGtParticipant(user){
+	addGtParticipant(user, source?){
+		user.gt_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/gt_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {
@@ -44,7 +46,8 @@ export class SignupService {
 			});
 	}
 
-	addGeParticipant(user){
+	addGeParticipant(user, source?){
+		user.ge_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/ge_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {

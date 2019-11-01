@@ -4,6 +4,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FormHostThankYouComponent } from './form-host/form-host-thank-you/form-host-thank-you.component';
 import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
 
+import { FormProspectComponent } from './form-prospect/form-prospect.component';
+
 export const router : Routes = [
     { path: '', component: LandingPageComponent },
     {
@@ -21,6 +23,10 @@ export const router : Routes = [
     {
         path: 'intercambio',
         loadChildren: './form-offline/form-offline.module#FormOfflineModule'
+    },
+    {
+        path: 'prospect',
+        component: FormProspectComponent
     },
     {
         path: 'formulario-voluntario-global',

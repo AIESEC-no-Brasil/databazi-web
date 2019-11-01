@@ -42,7 +42,8 @@ import { LandingPageCountriesComponent } from './landing-page-countries/landing-
 import { LandingPageCountriesModule } from "./landing-page-countries/landing-page-countries.module";
 import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
 import { FormMembershipModule } from "./form-membership/form-membership.module";
-import { FormProspectModule } from './form-prospect/form-prospect.module';
+/*import { FormProspectModule } from './form-prospect/form-prospect.module';*/
+import { FormProspectComponent } from './form-prospect/form-prospect.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -78,6 +79,7 @@ export class SentryErrorHandler implements ErrorHandler {
     LandingPageHostComponent,
     SliderMembershipHostComponent,
     LandingPageMembershipComponent,
+    FormProspectComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,7 +115,7 @@ export class SentryErrorHandler implements ErrorHandler {
     FormGeEmbeddedModule,
     FormOfflineEmbeddedModule,
     FormMembershipModule,
-    FormProspectModule,
+    /*FormProspectModule,*/
     ContactListModule,
     LandingPageSubproductsModule,
     LandingPageCountriesModule
