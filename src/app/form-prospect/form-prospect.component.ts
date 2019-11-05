@@ -257,19 +257,20 @@ export class FormProspectComponent implements OnInit {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
 
-  submit(el: HTMLElement, resetForm: boolean) {
-    this.amplitude.trackingCompletedSignupGv();
+  submit(el: string, resetForm: boolean) {
     this.submittedStudy = true;
     let user = {},
         method: any;
+    console.log('resetForm', resetForm);
     switch (this.user.program) {
       case '0':
-        method = this.signupService.addGvParticipant;
+        method = 'addGvParticipant';
         user = {
           gv_participant: {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
+            birthdate: '01/01/1996', // to do: remove this
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -282,12 +283,13 @@ export class FormProspectComponent implements OnInit {
         };
         break;
       case '1':
-        method = this.signupService.addGtParticipant;
+        method = 'addGtParticipant';
         user = {
           gt_participant: {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
+            birthdate: '01/01/1996', // to do: remove this
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -300,12 +302,13 @@ export class FormProspectComponent implements OnInit {
         };
         break;
       case '2':
-        method = this.signupService.addGeParticipant;
+        method = 'addGeParticipant';
         user = {
           ge_participant: {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
+            birthdate: '01/01/1996', // to do: remove this
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -318,10 +321,10 @@ export class FormProspectComponent implements OnInit {
         };
         break;
     }
-
-
+    
     this.loading = true;
-    method(user, true)
+  
+    this.signupService[method](user, true)
       .then((res: any) => {
         console.log('res', res);
         this.loading = false;
@@ -329,14 +332,27 @@ export class FormProspectComponent implements OnInit {
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
+        
         else {
+          switch(this.user.program){
+            case '0':
+              this.amplitude.trackingCompletedSignupGv();
+              break;
+            case '1':
+              this.amplitude.trackingCompletedSignupGt();
+              break;
+            case '2':
+              this.amplitude.trackingCompletedSignupGe();
+              break;
+          }
+
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
-          el.scrollIntoView();
           if(resetForm){
+            document.getElementById(el).scrollIntoView();
             this.user = {
               fullname: '',
               cellphone: '',
@@ -351,11 +367,13 @@ export class FormProspectComponent implements OnInit {
               utm_term: '',
               utm_content: ''
             };
+            this.step1Form.reset();
           }else{
             this.completedSignup = true;
             this.router.navigate(['/intercambio/obrigado']);
           }
         }
+        
       },
         (err) => {
           console.log('err', err);

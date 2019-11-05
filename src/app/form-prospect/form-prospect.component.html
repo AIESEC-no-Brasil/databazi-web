@@ -320,10 +320,10 @@
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit(true)">Concluir e adicionar +1</button>
+                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit('form-voluntario-global', true)">Concluir e adicionar +1</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="submit(false)" class="btn btn-primary submit-form" [disabled]='unableToSubmit()'>
+                <button type="button" (click)="submit('form-voluntario-global', false)" class="btn btn-primary submit-form" [disabled]='unableToSubmit()'>
                   Concluir
                 </button>
               </div>
