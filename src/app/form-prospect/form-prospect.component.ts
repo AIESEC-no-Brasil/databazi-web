@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators, FormBuilder, FormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, FormsModule, AbstractControl } from '@angular/forms';
 import * as moment from 'moment';
 import { Message } from 'primeng/components/common/api';
 import { MessageService } from 'primeng/components/common/messageservice';
@@ -257,76 +257,69 @@ export class FormProspectComponent implements OnInit {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
 
+  clearForm(formGroup: FormGroup) {
+    let control: AbstractControl = null;
+    formGroup.reset();
+    formGroup.markAsUntouched();
+    Object.keys(formGroup.controls).forEach((name) => {
+      control = formGroup.controls[name];
+      control.setErrors(null);
+    });
+
+    this.user = {
+      fullname: '',
+      cellphone: '',
+      email: '',
+      local_committee: { id: '' },
+      program: '',
+      college_course: { id: '', name: '' },
+      cellphone_contactable: true,
+      utm_source: '',
+      utm_medium: '',
+      utm_campaign: '',
+      utm_term: '',
+      utm_content: ''
+    };
+  };
+
   submit(el: string, resetForm: boolean) {
     this.submittedStudy = true;
-    let user = {},
+    let property: any,
         method: any;
-    console.log('resetForm', resetForm);
     switch (this.user.program) {
       case '0':
         method = 'addGvParticipant';
-        user = {
-          gv_participant: {
-            fullname: this.user.fullname,
-            cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-            email: this.user.email,
-            birthdate: '01/01/1996', // to do: remove this
-            local_committee_id: +this.user.local_committee.id,
-            college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
-            cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-            utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-            utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-            utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-            utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-            utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
-          }
-        };
+        property = 'gv_participant';
         break;
       case '1':
         method = 'addGtParticipant';
-        user = {
-          gt_participant: {
-            fullname: this.user.fullname,
-            cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-            email: this.user.email,
-            birthdate: '01/01/1996', // to do: remove this
-            local_committee_id: +this.user.local_committee.id,
-            college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
-            cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-            utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-            utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-            utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-            utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-            utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
-          }
-        };
+        property = 'gt_participant';
         break;
       case '2':
         method = 'addGeParticipant';
-        user = {
-          ge_participant: {
-            fullname: this.user.fullname,
-            cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-            email: this.user.email,
-            birthdate: '01/01/1996', // to do: remove this
-            local_committee_id: +this.user.local_committee.id,
-            college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
-            cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-            utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-            utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-            utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-            utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-            utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
-          }
-        };
+        property = 'ge_participant';
         break;
     }
-    
+
+    let user: any = {};
+    user[property] = {
+      fullname: this.user.fullname,
+      cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+      email: this.user.email,
+      local_committee_id: +this.user.local_committee.id,
+      college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
+      cellphone_contactable: (this.user.cellphone_contactable ? true : false),
+      utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
+      utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
+      utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
+      utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
+      utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+    }
+
     this.loading = true;
   
     this.signupService[method](user, true)
       .then((res: any) => {
-        console.log('res', res);
         this.loading = false;
         if (res.status == 'failure') {
           this.msgs = [];
@@ -351,32 +344,18 @@ export class FormProspectComponent implements OnInit {
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
+
+          this.clearForm(this.step1Form);
+
           if(resetForm){
             document.getElementById(el).scrollIntoView();
-            this.user = {
-              fullname: '',
-              cellphone: '',
-              email: '',
-              local_committee: { id: '' },
-              program: '',
-              college_course: { id: '', name: '' },
-              cellphone_contactable: true,
-              utm_source: '',
-              utm_medium: '',
-              utm_campaign: '',
-              utm_term: '',
-              utm_content: ''
-            };
-            this.step1Form.reset();
           }else{
             this.completedSignup = true;
-            this.router.navigate(['/intercambio/obrigado']);
           }
         }
         
       },
         (err) => {
-          console.log('err', err);
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
           this.loading = false;
