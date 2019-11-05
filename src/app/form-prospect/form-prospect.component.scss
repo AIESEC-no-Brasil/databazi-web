@@ -122,10 +122,10 @@
 
 .loading-animation-gv {
     @at-root :host-context(.no-webp) #{&} {
-        background-image: url('/assets/images/sent-gv.png');
+        background-image: url('/assets/images/sent-membership.png');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/sent-gv.png.webp');
+        background-image: url('/assets/images/sent-membership.png');
     }
     background-size: 50%;
     background-position: center center;

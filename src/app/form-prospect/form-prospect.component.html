@@ -158,57 +158,6 @@
                       Preencha com o seu email.
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend desktop">
-                        <div class="input-group-text">
-                          <i class="fas fa-lock"></i>Senha</div>
-                      </div>
-                      <!-- desktop -->
-                      <input type="password" class="form-control desktop" placeholder="É para o seu perfil no aiesec.org"
-                        [(ngModel)]="user.password" formControlName="password" name="password" (keyup)="checkPassword()"
-                        required>
-
-                      <!-- mobile -->
-                      <i class="fas fa-lock mobile mobile-icon"></i>
-                      <input type="password" class="form-control mobile" placeholder="Senha" [(ngModel)]="user.password"
-                        formControlName="password" name="password" (keyup)="checkPassword()" required>
-                      <div class="valid-feedback">
-                        <i class="fas fa-check"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend desktop">
-                        <div class="input-group-text">
-                          <i class="fas fa-lock"></i>Confirmar Senha</div>
-                      </div>
-                      <!-- desktop -->
-                      <input type="password" class="form-control desktop" placeholder="" [(ngModel)]="user.repassword"
-                        formControlName="repassword" name="repassword" (keyup)="checkPassword()" required>
-
-                      <!-- mobile -->
-                      <i class="fas fa-lock mobile mobile-icon"></i>
-                      <input type="password" class="form-control mobile" [(ngModel)]="user.repassword"
-                        formControlName="repassword" name="repassword" required placeholder="Confirmar senha"
-                        (keyup)="checkPassword()">
-                      <div class="valid-feedback">
-                        <i class="fas fa-check"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div *ngIf="isValidPersonal('password') || isValidPersonal('repassword')"
-                    class='error-message animated fadeIn'>
-                    Preencha com a sua senha.
-                    <br>
-                    <span>
-                      (Pelo menos um caracter em maiúsculo, minúsculo, ao menos um número e no mínimo, 8 caracteres)
-                    </span>
-                  </div>
-                  <div *ngIf="invalidPassword" class='error-message'>
-                    As senhas não conferem! Digite novamente
-                  </div>
 
                   <div class="form-group local_committee">
                     <div class="input-group select-dropdown">
@@ -371,10 +320,10 @@
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
               <div class="col text-left">
-                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit()">Concluir e adicionar +1</button>
+                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit(true)">Concluir e adicionar +1</button>
               </div>
               <div class="col text-right">
-                <button type="button" (click)="submit()" class="btn btn-primary submit-form" [disabled]='unableToSubmit()'>
+                <button type="button" (click)="submit(false)" class="btn btn-primary submit-form" [disabled]='unableToSubmit()'>
                   Concluir
                 </button>
               </div>

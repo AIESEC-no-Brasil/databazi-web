@@ -28,8 +28,6 @@ export class FormProspectComponent implements OnInit {
     fullname: '',
     cellphone: '',
     email: '',
-    password: '',
-    repassword: '',
     local_committee: { id: '' },
     program: '',
     college_course: { id: '', name: '' },
@@ -50,7 +48,6 @@ export class FormProspectComponent implements OnInit {
   studyData: boolean = false;
 
   invalidEmail: boolean = false;
-  invalidPassword: boolean = false;
   invalidDate: boolean = false;
   invalidPhone: boolean = false;
   matchDate: boolean = true;
@@ -89,14 +86,6 @@ export class FormProspectComponent implements OnInit {
         Validators.required,
         Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
       ]),
-      password: new FormControl(this.user.password, [
-        Validators.required,
-        Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ]),
-      repassword: new FormControl(this.user.repassword, [
-        Validators.required,
-        Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
-      ]),
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
@@ -121,9 +110,6 @@ export class FormProspectComponent implements OnInit {
 
   ngOnInit() {
     if (this.formedUser) {
-      /*    console.log('this.window._mfq', this.window._mfq, this.router.url);
-      this.window._mfq = this.window._mfq || [];
-      this.window._mfq.push(["newPageView", this.router.url]);*/
       this.user = this.formedUser;
       this.personalData = false;
       this.studyData = true;
@@ -253,7 +239,7 @@ export class FormProspectComponent implements OnInit {
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || !(this.user.password) || !(this.user.repassword) || !(this.user.program);
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || !(this.user.program);
   }
 
   checkPhone() {
@@ -267,30 +253,11 @@ export class FormProspectComponent implements OnInit {
     }
   }
 
-  checkPassword() {
-    if (this.user.repassword && this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
-    }
-    else {
-      this.invalidPassword = false;
-    }
-  };
-
-  registerUser(el: HTMLElement) {
-    this.submittedPersonal = true;
-    this.checkPassword();
-    if (this.user.fullname && this.user.cellphone && this.user.email && !this.invalidPassword && !this.invalidPhone && this.matchDate && !this.isValidPersonal('password')) {
-      this.personalData = false;
-      this.studyData = true;
-      el.scrollIntoView();
-    }
-  }
-
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
 
-  submit(el: HTMLElement) {
+  submit(el: HTMLElement, resetForm: boolean) {
     this.amplitude.trackingCompletedSignupGv();
     this.submittedStudy = true;
     let user = {},
@@ -303,7 +270,6 @@ export class FormProspectComponent implements OnInit {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
-            password: this.user.password,
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -322,7 +288,6 @@ export class FormProspectComponent implements OnInit {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
-            password: this.user.password,
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -341,7 +306,6 @@ export class FormProspectComponent implements OnInit {
             fullname: this.user.fullname,
             cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
             email: this.user.email,
-            password: this.user.password,
             local_committee_id: +this.user.local_committee.id,
             college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
             cellphone_contactable: (this.user.cellphone_contactable ? true : false),
@@ -352,7 +316,6 @@ export class FormProspectComponent implements OnInit {
             utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
           }
         };
-
         break;
     }
 
@@ -360,23 +323,42 @@ export class FormProspectComponent implements OnInit {
     this.loading = true;
     method(user, true)
       .then((res: any) => {
+        console.log('res', res);
         this.loading = false;
         if (res.status == 'failure') {
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
         }
         else {
-          this.completedSignup = true;
           localStorage.removeItem('utm_source');
           localStorage.removeItem('utm_medium');
           localStorage.removeItem('utm_campaign');
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
           el.scrollIntoView();
-          this.router.navigate(['/intercambio/obrigado']);
+          if(resetForm){
+            this.user = {
+              fullname: '',
+              cellphone: '',
+              email: '',
+              local_committee: { id: '' },
+              program: '',
+              college_course: { id: '', name: '' },
+              cellphone_contactable: true,
+              utm_source: '',
+              utm_medium: '',
+              utm_campaign: '',
+              utm_term: '',
+              utm_content: ''
+            };
+          }else{
+            this.completedSignup = true;
+            this.router.navigate(['/intercambio/obrigado']);
+          }
         }
       },
         (err) => {
+          console.log('err', err);
           this.msgs = [];
           this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
           this.loading = false;

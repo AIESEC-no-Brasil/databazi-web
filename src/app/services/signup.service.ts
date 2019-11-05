@@ -21,7 +21,8 @@ export class SignupService {
 	}
 
 	addGvParticipant(user, source?){
-		user.gv_participant.signup_source = source ? 1 : 0;
+		console.log('eae gv');
+		//user.gv_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/gv_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {
@@ -34,7 +35,8 @@ export class SignupService {
 	}
 
 	addGtParticipant(user, source?){
-		user.gt_participant.signup_source = source ? 1 : 0;
+		console.log('eae gt');
+		//user.gt_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/gt_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {
@@ -47,7 +49,8 @@ export class SignupService {
 	}
 
 	addGeParticipant(user, source?){
-		user.ge_participant.signup_source = source ? 1 : 0;
+		console.log('eae ge');
+		//user.ge_participant.signup_source = source ? 1 : 0;
 		return this.http.post(SignupService.url + '/ge_participants', user, this.headers())
 			.toPromise()
 			.then((res) => res.json(), (err) => {
