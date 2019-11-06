@@ -36,13 +36,16 @@ export class FormProspectComponent implements OnInit {
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
-    utm_content: ''
+    utm_content: '',
+    birthdate: ''
   };
 
   msgs: Message[] = [];
 
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+
+  placeholderBirthdate: string;
 
   personalData: boolean = true;
   studyData: boolean = false;
@@ -95,9 +98,13 @@ export class FormProspectComponent implements OnInit {
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       program: new FormControl(this.user.program, [
         Validators.required
+      ]),
+      birthdate: new FormControl(this.user.birthdate, [
+        Validators.required
       ])
     });
     this.detectKeypress();
+    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
   }
 
   detectKeypress() {
@@ -106,6 +113,10 @@ export class FormProspectComponent implements OnInit {
         this.closeModal();
       }
     })
+  }
+
+  onResize(event){
+    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
   }
 
   ngOnInit() {
@@ -239,7 +250,7 @@ export class FormProspectComponent implements OnInit {
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || !(this.user.program);
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || !(this.user.program) || !(this.user.birthdate);
   }
 
   checkPhone() {
@@ -253,8 +264,17 @@ export class FormProspectComponent implements OnInit {
     }
   }
 
-  toggleFormGv() {
-    this.formToggle ? this.formToggle = false : this.formToggle = true;
+  checkDate() {
+    let date = moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY').split('/');
+    if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
+      this.invalidDate = false;
+      let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
+      let age = moment().diff(date, 'years', false);
+      (age >= 18 && age <= 30) ? this.matchDate = true : this.matchDate = false
+    }
+    else {
+      this.invalidDate = true;
+    }
   }
 
   clearForm(formGroup: FormGroup) {
@@ -274,6 +294,7 @@ export class FormProspectComponent implements OnInit {
       program: '',
       college_course: { id: '', name: '' },
       cellphone_contactable: true,
+      birthdate: '',
       utm_source: '',
       utm_medium: '',
       utm_campaign: '',
@@ -306,6 +327,7 @@ export class FormProspectComponent implements OnInit {
       fullname: this.user.fullname,
       cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
       email: this.user.email,
+      birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
       local_committee_id: +this.user.local_committee.id,
       college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
       cellphone_contactable: (this.user.cellphone_contactable ? true : false),
