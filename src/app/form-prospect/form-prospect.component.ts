@@ -250,7 +250,7 @@ export class FormProspectComponent implements OnInit {
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || !(this.user.program) || !(this.user.birthdate);
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !(this.user.fullname) || !(this.user.cellphone) || !(this.user.email) || this.invalidEmail || !(this.user.program) || !(this.user.birthdate);
   }
 
   checkPhone() {
