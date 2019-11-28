@@ -1,5 +1,13 @@
 <head>
   <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
+  <!-- BEGIN Podio web form -->
+  <script src="https://podio.com/webforms/16323713/1096164.js"></script>
+  <script type="text/javascript">
+    _podioWebForm.render("1096164")
+  </script>
+  <noscript>
+    <a href="https://podio.com/webforms/16323713/1096164" target="_blank">Please fill out the form</a>
+  </noscript>
 </head>
 <div id="step1" class="form-talentos-globais"
   [ngClass]="{'full-screen': formedUser, 'full-screen-embedded': embeddedForm}">
@@ -21,16 +29,10 @@
         </div>
       </div>
     </section>
-    <!-- BEGIN Podio web form -->
-    <script src="https://podio.com/webforms/16323713/1096164.js"></script>
-    <script type="text/javascript">
-      _podioWebForm.render("1096164")
-    </script>
-    <noscript>
-      <a href="https://podio.com/webforms/16323713/1096164" target="_blank">Please fill out the form</a>
-    </noscript>
     <div class="podio-webform-container">
       A webform by <a href="https://podio.com" class="podio-webform-inner" rel="nofollow">Podio</a>
+      <iframe height="1050" src="https://podio.com/webforms/16323713/1096164" width="100%" style="
+          border: 0;"></iframe>
     </div>
     <!-- END Podio web form -->
     <div class='loading-landing-page' *ngIf="loading">
@@ -38,7 +40,6 @@
     </div>
   </div>
 </div>
-
 <div id='modal' class='animated fadeIn faster' *ngIf="modal">
   <div class='modal-bg' (click)='closeModal()'></div>
   <div class='close-modal-button' (click)='closeModal()'>
