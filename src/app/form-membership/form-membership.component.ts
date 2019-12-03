@@ -270,7 +270,6 @@ export class FormMembershipComponent implements OnInit {
       city: this.user.city,
       state: this.user.state.value
     };
-
     this.loading = true;
 
     this.signupService.addMembership(user)
