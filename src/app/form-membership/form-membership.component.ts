@@ -33,16 +33,49 @@ export class FormMembershipComponent implements OnInit {
     local_committee: { id: '' },
     college_course: { id: '', name: '' },
     city: '',
-    state: '',
+    state: { value: '', name: '' },
     cellphone_contactable: true,
     utm_source: '',
     utm_medium: '',
     utm_campaign: '',
     utm_term: '',
     utm_content: ''
-  }
+  };
+
+
+  states = [
+    {"name": "Acre", "value": "AC"},
+    {"name": "Alagoas", "value": "AL"},
+    {"name": "Amapá", "value": "AP"},
+    {"name": "Amazonas", "value": "AM"},
+    {"name": "Bahia", "value": "BA"},
+    {"name": "Ceará", "value": "CE"},
+    {"name": "Distrito Federal", "value": "DF"},
+    {"name": "Espírito Santo", "value": "ES"},
+    {"name": "Goiás", "value": "GO"},
+    {"name": "Maranhão", "value": "MA"},
+    {"name": "Mato Grosso", "value": "MT"},
+    {"name": "Mato Grosso do Sul", "value": "MS"},
+    {"name": "Minas Gerais", "value": "MG"},
+    {"name": "Pará", "value": "PA"},
+    {"name": "Paraíba", "value": "PB"},
+    {"name": "Paraná", "value": "PR"},
+    {"name": "Pernambuco", "value": "PE"},
+    {"name": "Piauí", "value": "PI"},
+    {"name": "Rio de Janeiro", "value": "RJ"},
+    {"name": "Rio Grande do Norte", "value": "RN"},
+    {"name": "Rio Grande do Sul", "value": "RS"},
+    {"name": "Rondônia", "value": "RO"},
+    {"name": "Roraima", "value": "RR"},
+    {"name": "Santa Catarina", "value": "SC"},
+    {"name": "São Paulo", "value": "SP"},
+    {"name": "Sergipe", "value": "SE"},
+    {"name": "Tocantins", "value": "TO"}
+  ];
+
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+  filteredStates: Observable<any[]>;
 
   placeholderBirthdate: string;
 
@@ -159,6 +192,12 @@ export class FormMembershipComponent implements OnInit {
           map(value => this._filter(value, this.places))
         );
     });
+
+    this.filteredStates = this.form.controls.state.valueChanges
+        .pipe(
+          startWith(''),
+          map(value => this._filter(value, this.states))
+        );
   }
 
   private _filter(value: string, options: any): any[] {
@@ -261,7 +300,7 @@ export class FormMembershipComponent implements OnInit {
         college_course_id: +this.user.college_course.id,
         cellphone_contactable: this.user.cellphone_contactable,
         city: this.user.city,
-        state: this.user.state,
+        state: this.user.state.value,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
         utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
@@ -325,6 +364,10 @@ export class FormMembershipComponent implements OnInit {
   searchCourses(event) {
     this.filteredCourses = this._search(this.courses, event.query);
   };
+
+  searchStates(event) {
+    this.filteredStates = this._search(this.states, event.query);
+  }
 
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);

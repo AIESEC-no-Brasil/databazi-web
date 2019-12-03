@@ -165,28 +165,32 @@
                     Preencha o nome da cidade
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="input-group">
+
+                <div class="form-group state">
+                  <div class="input-group select-dropdown">
                     <div class="input-group-prepend desktop">
                       <div class="input-group-text">
                         <i class="fas fa-map-marker-alt"></i>Estado</div>
                     </div>
-                    <!-- desktop -->
-                    <input type="text" class="form-control desktop" placeholder="Qual o seu estado?"
-                      [(ngModel)]="user.state" formControlName="state" name="state" required>
-
-                    <!-- mobile -->
-                    <i class="fas fa-map-marked-alt mobile mobile-icon"></i>
-                    <input type="text" class="form-control mobile" placeholder="Estado" [(ngModel)]="user.state"
-                      formControlName="state" name="state" required>
-                    <div class="valid-feedback">
-                      <i class="fas fa-check"></i>
+                    <i class="fas fa-map-marker-alt mobile mobile-icon"></i>
+                    <div class="dropdown">
+                      <div class="styled-select">
+                        <p-autoComplete [(ngModel)]="user.state" [suggestions]="filteredStates"
+                          (completeMethod)="searchStates($event)" #stateAutocomplete
+                          (onFocus)="selectInput('state');stateAutocomplete.handleDropdownClick();"
+                          dropdownMode="current" field="name" formControlName="state"
+                          emptyMessage="Nenhum resultado" placeholder="Insira seu estado">
+                        </p-autoComplete>
+                        <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('state')"
+                          *ngIf="user.state"></i>
+                      </div>
                     </div>
                   </div>
-                  <div *ngIf="isValid('state')" class='error-message'>
-                    Preencha o nome do estado
+                  <div *ngIf="isValid('college_course_id')" class='error-message'>
+                    Selecione uma das opções
                   </div>
                 </div>
+
                 <div class="form-group college_course">
                   <div class="input-group select-dropdown">
                     <div class="input-group-prepend desktop">
