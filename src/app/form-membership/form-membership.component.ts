@@ -34,13 +34,9 @@ export class FormMembershipComponent implements OnInit {
     college_course: { id: '', name: '' },
     city: '',
     state: '',
-    cellphone_contactable: true,
-    utm_source: '',
-    utm_medium: '',
-    utm_campaign: '',
-    utm_term: '',
-    utm_content: ''
+    cellphone_contactable: true
   }
+
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
 
@@ -117,32 +113,6 @@ export class FormMembershipComponent implements OnInit {
     if (this.formedUser) {
       this.user = this.formedUser;
     }
-
-    this.urlScrapper.queryParams.subscribe((param: any) => {
-      if (param['utm_source']) {
-        localStorage.setItem('utm_source', param['utm_source'])
-      }
-
-      if (param['utm_medium']) {
-        localStorage.setItem('utm_medium', param['utm_medium'])
-      }
-
-      if (param['utm_campaign']) {
-        localStorage.setItem('utm_campaign', param['utm_campaign'])
-      }
-
-      if (param['utm_term']) {
-        localStorage.setItem('utm_term', param['utm_term'])
-      }
-
-      if (param['utm_content']) {
-        localStorage.setItem('utm_content', param['utm_content'])
-      }
-
-      if (param['embedded']) {
-        this.embeddedForm = true;
-      }
-    });
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.form.controls.college_course_id.valueChanges
@@ -252,60 +222,39 @@ export class FormMembershipComponent implements OnInit {
     this.submitted = true;
 
     let user = {
-      gt_participant: {
-        fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
-        birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
-        email: this.user.email,
-        local_committee_id: +this.user.local_committee.id,
-        college_course_id: +this.user.college_course.id,
-        cellphone_contactable: this.user.cellphone_contactable,
-        city: this.user.city,
-        state: this.user.state,
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
-      }
+      fullname: this.user.fullname,
+      cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+      birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
+      email: this.user.email,
+      local_committee_id: +this.user.local_committee.id,
+      college_course_id: +this.user.college_course.id,
+      cellphone_contactable: this.user.cellphone_contactable,
+      city: this.user.city,
+      state: this.user.state
     };
+
     this.loading = true;
 
-    // TO DO: REMOVE THIS TIMEOUT
-    setTimeout(() => {
-      console.log('user', user);
-      this.window.ga('set', 'page', '/membresia/obrigado');
-      this.window.ga('send', 'pageview');
-      this.completedSignup = true;
-      this.loading = false;
-    }, 2000);
-
-    // TO DO: CREATE SIGN UP MEMBERSHIP 
-    // this.signupService.addGtParticipant(user)
-    //   .then((res: any) => {
-    //     this.loading = false;
-    //     if (res.status == 'failure') {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //     }
-    //     else {
-    //       this.completedSignup = true;
-    //       localStorage.removeItem('utm_source');
-    //       localStorage.removeItem('utm_medium');
-    //       localStorage.removeItem('utm_campaign');
-    //       localStorage.removeItem('utm_term');
-    //       localStorage.removeItem('utm_content');
-    //       el.scrollIntoView();
-    //       this.window.ga('set', 'page', '/membresia/obrigado');
-    //       this.window.ga('send', 'pageview');
-    //     }
-    //   },
-    //     (err) => {
-    //       this.msgs = [];
-    //       this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-    //       this.loading = false;
-    //     }
-    //   )
+    this.signupService.addMembership(user)
+      .then((res: any) => {
+        this.loading = false;
+        if (res.status == 'failure') {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+        }
+        else {
+          this.completedSignup = true;
+          el.scrollIntoView();
+          this.window.ga('set', 'page', '/membresia/obrigado');
+          this.window.ga('send', 'pageview');
+        }
+      },
+        (err) => {
+          this.msgs = [];
+          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
+          this.loading = false;
+        }
+      )
   }
 
   checkEmail() {
