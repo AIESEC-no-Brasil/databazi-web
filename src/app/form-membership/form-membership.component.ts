@@ -76,7 +76,6 @@ export class FormMembershipComponent implements OnInit {
 
   msgs: Message[] = [];
 
-  invalidEmail: boolean = false;
   invalidDate: boolean = false;
   invalidPhone: boolean = false;
   matchDate: boolean = true;
@@ -213,7 +212,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   emptyFields() {
-    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || !this.user.state;
+    return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || (!this.user.state.value && !this.user.state.name) ;
   }
 
   checkDate() {
@@ -292,16 +291,6 @@ export class FormMembershipComponent implements OnInit {
           this.loading = false;
         }
       )
-  }
-
-  checkEmail() {
-    this.signupService.checkValidEmail(this.user.email)
-      .then((res: any) => {
-        res.email_exists ? this.invalidEmail = true : this.invalidEmail = false;
-      }, (err) => {
-        this.msgs = [];
-        this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
-      })
   }
 
   display(option) {

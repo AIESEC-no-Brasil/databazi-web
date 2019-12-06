@@ -39,6 +39,16 @@
 }
 
 @media (max-width: 600px) {
+
+    /deep/ .ui-autocomplete-input {
+        width: 100%;
+        height: 50px;
+        background-color: transparent;
+        border: none;
+        color: white;
+        text-align: left !important;
+        padding-right: 40px;
+    }
     /deep/ p-autoComplete {
         input::-webkit-input-placeholder {
             color: white;
@@ -263,7 +273,6 @@ body {
 
 .styled-select,
 .styled-select select {
-    padding-left: 30px !important;
     width: 100%;
     color: #fff !important;
     option {
@@ -344,7 +353,7 @@ _:-o-prefocus,
 */
 
 ::ng-deep .p-inputMask {
-    padding-right: 30px !important;
+    padding-right: 40px !important;
 }
 
 ::ng-deep .p-inputMask input {
@@ -616,7 +625,7 @@ input::-webkit-input-placeholder {
     font-size: 13px;
     font-weight: lighter;
     text-align: right;
-    padding-right: 30px;
+    padding-right: 40px;
     font-size: 13px !important;
     color: #fff;
     font-style: italic;
@@ -626,7 +635,7 @@ input:-moz-placeholder {
     /* Firefox 18- */
     font-weight: lighter;
     text-align: right;
-    padding-right: 30px;
+    padding-right: 40px;
     font-size: 13px !important;
     color: #fff;
     font-style: italic;
@@ -637,7 +646,7 @@ input::-moz-placeholder {
     font-size: 16px;
     font-weight: lighter;
     text-align: right;
-    padding-right: 30px;
+    padding-right: 40px;
     font-size: 13px !important;
     color: #fff;
     font-style: italic;
@@ -647,7 +656,7 @@ input:-ms-input-placeholder {
     font-size: 16px;
     font-weight: lighter;
     text-align: right;
-    padding-right: 30px;
+    padding-right: 40px;
     font-size: 13px !important;
     color: #fff;
     font-style: italic;
@@ -659,7 +668,7 @@ input[type=email],
 input[type=tel] {
     font-size: 16px;
     font-weight: lighter;
-    padding-right: 30px;
+    padding-right: 40px;
     text-align: right;
 }
 
@@ -1793,13 +1802,15 @@ label {
     background-color: transparent;
     border: none;
     color: white;
+    text-align: right;
+    padding-right: 40px;
 }
 
 /deep/ p-autoComplete {
     input::-webkit-input-placeholder {
         color: white;
         text-align: right;
-        padding-right: 60px;
+        padding-right: 40px;
         font-size: 13px;
         font-weight: lighter;
         font-style: italic;
@@ -1807,21 +1818,21 @@ label {
     input:-moz-placeholder {
         color: white;
         text-align: right;
-        padding-right: 60px;
+        padding-right: 40px;
         font-weight: lighter;
         font-style: italic;
     }
     input::-moz-placeholder {
         color: white;
         text-align: right;
-        padding-right: 60px;
+        padding-right: 40px;
         font-weight: lighter;
         font-style: italic;
     }
     input:-ms-input-placeholder {
         color: white;
         text-align: right;
-        padding-right: 60px;
+        padding-right: 40px;
         font-weight: lighter;
         font-style: italic;
     }
@@ -1859,7 +1870,7 @@ label {
 .autocomplete-clear-btn {
     position: absolute;
     right: 0;
-    top: 15px;
+    top: 18px;
 }
 
 .full-width {

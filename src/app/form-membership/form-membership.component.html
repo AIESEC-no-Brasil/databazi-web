@@ -32,15 +32,6 @@
 
             <!-- Content -->
             <!-- Alert -->
-            <div class="alert alert-warning alert-dismissible fade show animated fadeIn" role="alert"
-              *ngIf="invalidEmail">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <i class="far fa-times-circle fa-lg"></i>
-              </button>
-              <p>Já existe um usuário com esse endereço de email!
-                <strong>Gostaria de acessar a plataforma?</strong>
-              </p>
-            </div>
             <div class="animated fadeIn" *ngIf="!completedSignup">
               <form [formGroup]="form" class="forms gv" (keydown.enter)="registerUser()">
                 <div class="form-group">
@@ -125,16 +116,11 @@
                     </div>
                     <!-- desktop -->
                     <input type="email" class="form-control desktop"
-                      placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email"
-                      (blur)="checkEmail()" formControlName="email" name="email" email required>
+                      placeholder="Relaxa, nós também não gostamos de spam" [(ngModel)]="user.email" formControlName="email" name="email" email required>
 
                     <!-- mobile -->
                     <i class="fas fa-envelope mobile-icon mobile"></i>
-                    <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email"
-                      (blur)="checkEmail()" formControlName="email" name="email" email required>
-                    <div class="valid-feedback" *ngIf="!invalidEmail">
-                      <i class="fa fa-check"></i>
-                    </div>
+                    <input type="email" class="form-control mobile" placeholder="Email" [(ngModel)]="user.email" formControlName="email" name="email" email required>
                     <div class="invalid-feedback">Campo obrigatório
                       <i class="fas fa-times"></i>
                     </div>
@@ -182,7 +168,7 @@
                           emptyMessage="Nenhum resultado" placeholder="Insira seu estado">
                         </p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('state')"
-                          *ngIf="user.state"></i>
+                          *ngIf="user.state.value"></i>
                       </div>
                     </div>
                   </div>
@@ -293,7 +279,7 @@
               <div class="col">
                 <button type="button" (click)="submit()" class="btn btn-primary" [ngx-scroll-to]="'#header-talentos-globais'" 
                 [ngx-scroll-to-offset]="-120"
-                [disabled]='form.invalid || (!matchDate || invalidEmail || unableToSubmit())'>Enviar</button>
+                [disabled]='form.invalid || (!matchDate || unableToSubmit())'>Enviar</button>
               </div>
             </div>
           </div>
