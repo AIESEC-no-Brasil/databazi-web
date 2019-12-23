@@ -68,9 +68,9 @@ export class FormMembershipComponent implements OnInit {
     {"name": "Tocantins", "value": "TO"}
   ];
 
-  filteredCourses: Observable<any[]>;
-  filteredPlaces: Observable<any[]>;
-  filteredStates: Observable<any[]>;
+  filteredCourses: any;
+  filteredPlaces: any;
+  filteredStates: any;
 
   placeholderBirthdate: string;
 
@@ -78,6 +78,9 @@ export class FormMembershipComponent implements OnInit {
 
   invalidDate: boolean = false;
   invalidPhone: boolean = false;
+  invalidState : boolean = false;
+  invalidCollegeCourse : boolean = false;
+  invalidPlace : boolean = false;
   matchDate: boolean = true;
   loading: boolean = false;
   form: FormGroup;
@@ -208,11 +211,15 @@ export class FormMembershipComponent implements OnInit {
 
 
   unableToSubmit() {
-    return this.emptyFields()
+    return this.emptyFields() || this.invalidFields()
   }
 
   emptyFields() {
     return !(this.user.local_committee && !!this.user.local_committee.id) || !this.user.fullname || !this.user.cellphone || !this.user.birthdate || !this.user.email || !this.user.college_course.id || !this.user.city || (!this.user.state.value && !this.user.state.name) ;
+  }
+
+  invalidFields(){
+    return this.invalidCollegeCourse || this.invalidState || this.invalidPlace
   }
 
   checkDate() {
@@ -326,6 +333,38 @@ export class FormMembershipComponent implements OnInit {
     $('.form-group').css('z-index', '-1');
     $('.form-priority').css('z-index', '1');
     $('.' + element).css('z-index', '10');
+  }
+
+  validateSelectedItem(filter, data) {
+    if (!this.user[data]){
+      return ;
+    }
+
+    if (_.find(this[filter], (option) => { option.name == this.user[data] }) || this[filter].length == 1) {
+      this.user[data] = this[filter][0];
+      this.validateOrInvalidateValues(data, false);
+    }
+    else if (!_.find(this[filter], (option) => { option.name == this.user[data]  }) || this[filter].length == 0) {
+      this.validateOrInvalidateValues(data, true) ;
+    }
+  }
+
+  validateOrInvalidateValues(context: string, invalid: boolean) {
+    invalid ? this.clearField(context) : false;
+    switch (context) {
+      case 'state':
+        this.invalidState = invalid;
+        break;
+      case 'college_course':
+        this.invalidCollegeCourse = invalid;
+        break;
+      case 'local_committee':
+        this.invalidPlace = invalid;
+    }
+  }
+
+  selectItem(context){
+    this.validateOrInvalidateValues(context, false); 
   }
 
   clearField(field) {

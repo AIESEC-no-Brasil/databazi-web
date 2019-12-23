@@ -163,8 +163,9 @@
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.state" [suggestions]="filteredStates"
                           (completeMethod)="searchStates($event)" #stateAutocomplete
+                          (onSelect)='selectItem("state")'
                           (onFocus)="selectInput('state');stateAutocomplete.handleDropdownClick();"
-                          dropdownMode="current" field="name" formControlName="state"
+                          dropdownMode="current" field="name" (onBlur)='validateSelectedItem("filteredStates", "state")' formControlName="state"
                           emptyMessage="Nenhum resultado" placeholder="Insira seu estado">
                         </p-autoComplete>
                         <i class="fas fa-times autocomplete-clear-btn" (click)="clearField('state')"
@@ -172,8 +173,8 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValid('state')" class='error-message'>
-                    Selecione uma das opções
+                  <div *ngIf="isValid('state') || invalidState" class='error-message'>
+                    Por favor, selecione uma das opções disponíveis
                   </div>
                 </div>
 
@@ -187,7 +188,8 @@
                     <div class="dropdown">
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.college_course" [suggestions]="filteredCourses"
-                          (completeMethod)="searchCourses($event)" #coursesAutocomplete
+                        (onSelect)='selectItem("college_course")'
+                          (completeMethod)="searchCourses($event)" #coursesAutocomplete (onBlur)='validateSelectedItem("filteredCourses", "college_course")'
                           (onFocus)="selectInput('college_course');coursesAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="college_course_id"
                           emptyMessage="Nenhum resultado" placeholder="Insira seu curso">
@@ -197,8 +199,8 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValid('college_course_id')" class='error-message'>
-                    Selecione uma das opções
+                  <div *ngIf="isValid('college_course_id') || invalidCollegeCourse" class='error-message'>
+                    Por favor, selecione uma das opções disponíveis
                   </div>
                 </div>
                 <div class="form-group local_committee">
@@ -211,7 +213,8 @@
                     <div class="dropdown">
                       <div class="styled-select">
                         <p-autoComplete [(ngModel)]="user.local_committee" [suggestions]="filteredPlaces"
-                          (completeMethod)="searchPlaces($event)" #placesAutocomplete
+                        (onSelect)='selectItem("local_committee")'
+                          (completeMethod)="searchPlaces($event)" #placesAutocomplete (onBlur)='validateSelectedItem("filteredPlaces", "local_committee")'
                           (onFocus)="selectInput('local_committee');placesAutocomplete.handleDropdownClick();"
                           dropdownMode="current" field="name" formControlName="local_committee_id"
                           emptyMessage="Nenhum resultado" placeholder="Esse é o escritório que vai cuidar de você!">
@@ -221,8 +224,8 @@
                       </div>
                     </div>
                   </div>
-                  <div *ngIf="isValid('local_committee_id')" class='error-message'>
-                    Selecione uma das opções
+                  <div *ngIf="isValid('local_committee_id') || invalidPlace" class='error-message'>
+                    Por favor, selecione uma das opções disponíveis
                   </div>
                 </div>
                 <div id="content-terms" style='width: 100%;'>
