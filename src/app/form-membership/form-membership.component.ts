@@ -344,13 +344,13 @@ export class FormMembershipComponent implements OnInit {
       this.user[data] = this[filter][0];
       this.validateOrInvalidateValues(data, false);
     }
-    else if (!_.find(this[filter], (option) => { option.name == this.user[data]  }) || this[filter].length == 0) {
+    else if ((!_.find(this[filter], (option) => { option.name == this.user[data]}) || this[filter].length == 0) && !this.user[data].name){
       this.validateOrInvalidateValues(data, true) ;
     }
   }
 
   validateOrInvalidateValues(context: string, invalid: boolean) {
-    invalid ? this.clearField(context) : false;
+    invalid ? this.clearField(context) : false; 
     switch (context) {
       case 'state':
         this.invalidState = invalid;
