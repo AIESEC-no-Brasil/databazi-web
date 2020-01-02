@@ -39,7 +39,7 @@ export class SliderMembershipHostComponent implements OnInit {
   }
 
   goToMembership() {
-    window.open('http://promo.aiesec.org.br/sejamembro/')
+    this.router.navigate(['/membresia']);
     this.amplitude.trackingClickGoToMember();
   }
 

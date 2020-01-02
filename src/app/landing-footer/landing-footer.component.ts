@@ -176,7 +176,6 @@ export class LandingFooterComponent implements OnInit {
 
   openUrl(partner) {
     window.open(partner.site);
-    console.log(partner)
     this.amplitude.trackingRoutingParceiros(partner.title);
   }
 
@@ -185,6 +184,7 @@ export class LandingFooterComponent implements OnInit {
   }
 
   goToFcParte() {
+    this.router.navigate(['/membresia'])
     this.amplitude.trackingClickFooterMenuFcParte();
   }
 
