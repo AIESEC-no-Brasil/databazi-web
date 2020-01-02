@@ -156,13 +156,7 @@ export class FormMembershipComponent implements OnInit {
         );
     });
 
-    this.fillPlacesSelect().then(() => {
-      this.filteredPlaces = this.form.controls.local_committee_id.valueChanges
-        .pipe(
-          startWith(''),
-          map(value => this._filter(value, this.places))
-        );
-    });
+    this.fillPlacesSelect();
 
     this.filteredStates = this.form.controls.state.valueChanges
         .pipe(
@@ -200,13 +194,60 @@ export class FormMembershipComponent implements OnInit {
   }
 
   fillPlacesSelect() {
-    return this.signupService.getLocalCommittees().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'], ['asc']);
-      this.places = orderedList;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
-    })
+    let places = [
+      { id: 1, name: 'ABC' },
+      { id: 2, name: 'Aracaju' },
+      { id: 3, name: 'Balneário Camboriú' },
+      { id: 4, name: 'Bauru' },
+      { id: 5, name: 'Belém' },
+      { id: 6, name: 'Belo Horizonte' },
+      { id: 7, name: 'Blumenau' },
+      { id: 8, name: 'Brasilia' },
+      { id: 9, name: 'Campo Grande' },
+      { id: 13, name: 'ESPM' },
+      { id: 18, name: 'Fundação Getúlio Vargas' },
+      { id: 19, name: 'Insper' },
+      { id: 26, name: 'Mackenzie' },
+      { id: 45, name: 'USP' },
+      { id: 10, name: 'Chapecó' },
+      { id: 11, name: 'Cuiabá' },
+      { id: 12, name: 'Curitiba' },
+      { id: 14, name: 'Florianópolis' },
+      { id: 15, name: 'Fortaleza' },
+      { id: 16, name: 'Franca' },
+      { id: 17, name: 'Goiânia' },
+      { id: 20, name: 'Itajubá' },
+      { id: 21, name: 'João Pessoa' },
+      { id: 22, name: 'Joinville' },
+      { id: 23, name: 'Limeira' },
+      { id: 24, name: 'Londrina' },
+      { id: 25, name: 'Maceió' },
+      { id: 27, name: 'Manaus' },
+      { id: 28, name: 'Maringá' },
+      { id: 29, name: 'Natal' },
+      { id: 51, name: 'Palmas' },
+      { id: 30, name: 'Pelotas' },
+      { id: 31, name: 'Porto Alegre' },
+      { id: 32, name: 'Recife' },
+      { id: 33, name: 'Ribeirão Preto' },
+      { id: 34, name: 'Rio de Janeiro' },
+      { id: 35, name: 'Salvador' },
+      { id: 36, name: 'Santa Maria' },
+      { id: 37, name: 'Santarém' },
+      { id: 38, name: 'Santos' },
+      { id: 39, name: 'São Carlos' },
+      { id: 40, name: 'São José do Rio Preto' },
+      { id: 41, name: 'São Luís' },
+      { id: 42, name: 'Sorocaba' },
+      { id: 43, name: 'Teresina' },
+      { id: 44, name: 'Uberlândia' },
+      { id: 46, name: 'Vale do Paraíba' },
+      { id: 47, name: 'Vale do São Francisco' },
+      { id: 48, name: 'Viçosa' },
+      { id: 49, name: 'Vitória' },
+      { id: 50, name: 'Volta Redonda' }
+    ];
+    this.places = _.orderBy(places, ['name'], ['asc']);  
   }
 
 
@@ -270,7 +311,7 @@ export class FormMembershipComponent implements OnInit {
       cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
       birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
       email: this.user.email,
-      local_committee_id: +this.user.local_committee.id,
+      nearest_committee: +this.user.local_committee.id,
       college_course_id: +this.user.college_course.id,
       cellphone_contactable: this.user.cellphone_contactable,
       city: this.user.city,
