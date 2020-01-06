@@ -304,6 +304,10 @@ export class FormProspectComponent implements OnInit {
   };
 
   submit(el: string, resetForm: boolean) {
+    
+    let oldProgram = this.user.program,
+    oldLocalCommittee = this.user.local_committee;
+
     this.submittedStudy = true;
     let property: any,
         method: any;
@@ -370,6 +374,8 @@ export class FormProspectComponent implements OnInit {
           this.clearForm(this.step1Form);
 
           if(resetForm){
+            this.user.program = oldProgram;
+            this.user.local_committee = oldLocalCommittee;
             document.getElementById(el).scrollIntoView();
           }else{
             this.completedSignup = true;
