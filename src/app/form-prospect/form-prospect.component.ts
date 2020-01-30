@@ -66,6 +66,7 @@ export class FormProspectComponent implements OnInit {
   modal: any = false;
 
   myControl = new FormControl();
+  signupSuccess: boolean = false;
 
   constructor(
     public signupService: SignupService,
@@ -346,6 +347,7 @@ export class FormProspectComponent implements OnInit {
           localStorage.removeItem('utm_content');
 
           this.clearForm(this.step1Form);
+          this.showToast();
 
           if(resetForm){
             this.user.program = oldProgram;
@@ -364,6 +366,14 @@ export class FormProspectComponent implements OnInit {
         }
       )
   }
+
+  showToast() {
+    this.signupSuccess = true;
+    setTimeout(() => {
+      this.signupSuccess = false;
+    }, 3000);
+  };
+
 
   checkEmail() {
     this.signupService.checkValidEmail(this.user.email)

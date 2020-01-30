@@ -1860,3 +1860,40 @@ label.input-terms-label {
     width: 100%;
     font-size: 22px;
 }
+
+.toast-container {
+    padding: 10px 20px 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    animation: toast ease-in-out 3s;
+    animation-fill-mode: forwards;
+    .toast-content {
+      font-size: 16px;
+      text-align: center;
+      color: #037ef3;
+      margin: 0;
+      span {
+          margin-right: 10px;
+      }
+    }
+  }
+  @keyframes toast {
+    0% {
+      top: 30px;
+      opacity: 0;
+    }
+    10% {
+      top: 10px;
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
