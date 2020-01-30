@@ -33,7 +33,7 @@
 
     <!-- Form -->
     <section class="forms" id="form-voluntario-global" class='animated fadeIn' *ngIf="!loading"
-      [ngClass]="{formB : formToggle}" (window:resize)="onResize($event)">
+      [ngClass]="{formB : formToggle}">
       <div class="container">
         <div class="row justify-content-center">
 
@@ -70,7 +70,7 @@
                           </select>
                         </div>
                       </div>
-                    
+
                       <i class="fas mobile mobile-icon">A</i>
                       <div class="dropdown mobile">
                         <div class="styled-select">
@@ -159,31 +159,6 @@
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <div class="input-group">
-                      <div class="input-group-prepend desktop">
-                        <div class="input-group-text">
-                          <i class="fas fa-gift"></i>Data de Nascimento</div>
-                      </div>
-                      
-                      <i class="fas fa-gift mobile mobile-icon"></i>
-                      <input class="form-control p-inputMask gv" id="inputDatadeNascimento" (blur)="checkDate()" placeholder="{{ placeholderBirthdate }}" 
-                      [(ngModel)]="user.birthdate" formControlName="birthdate" name="birthdate" mask="00/00/0000"/>
-                      <div class="valid-feedback">
-                        <i class="fas fa-check"></i>
-                      </div>
-                    </div>
-                    <div *ngIf="isValidPersonal('birthdate')" class='error-message'>
-                      Preencha com a sua data de nascimento.
-                    </div>
-                    <div *ngIf="invalidDate" class='error-message'>
-                      Por favor, preencha com uma data válida
-                    </div>
-                    <div *ngIf="!matchDate" class='error-message'>
-                      Desculpe, nossos programas são direcionados para pessoas entre 18 e 30 anos.
-                    </div>
-                  </div>
-
                   <div class="form-group local_committee">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
@@ -208,21 +183,6 @@
                     </div>
                   </div>
 
-                  <div class="row justify-content-center forms-term autocomplete-negative-index2">
-                    <div class="col-sm-12">
-                      <div>
-                        <div class='forms-terms-area'>
-                          <label for="inputTermos" class='input-terms-label'>Termos e Condições</label>
-                          <label class='forms-tem-accepted info-mobile-content'>
-                            Ao se cadastrar, você está concordando com os termos e condições da AIESEC Brasil.
-                            <br>
-                            <span style='text-decoration: underline; cursor: pointer;' (click)='openModal()'> Para ler os
-                              termos, basta clicar aqui. </span>
-                          </label>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                   <div class="form-group form-check text-center checkbox">
                     <input type="checkbox" class="form-check-input" [checked]="user.cellphone_contactable"
                       id="aceitoTermos" [(ngModel)]="user.cellphone_contactable" formControlName="cellphone_contactable"
@@ -230,7 +190,6 @@
                     <label class="form-check-label" for="aceitoTermos"> Gostaria de ser contatado por ligação ou mensagens
                       no meu número de celular.</label>
                   </div>
-
                 </div>
 
                 <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
@@ -344,13 +303,8 @@
             </section>
 
             <div class="form-row buttons" *ngIf="!completedSignup" id="row-with-buttons">
-              <div class="col text-left">
-                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit('form-voluntario-global', true)">Concluir e adicionar +1</button>
-              </div>
               <div class="col text-right">
-                <button type="button" (click)="submit('form-voluntario-global', false)" class="btn btn-primary submit-form" [disabled]='unableToSubmit()'>
-                  Concluir
-                </button>
+                <button type="button" class="btn btn-secondary" [disabled]='unableToSubmit()' (click)="submit('form-voluntario-global', true)">Concluir e adicionar +1</button>
               </div>
             </div>
           </div>
