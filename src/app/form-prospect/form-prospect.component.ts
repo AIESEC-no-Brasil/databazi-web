@@ -93,7 +93,6 @@ export class FormProspectComponent implements OnInit {
       local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, []),
       program: new FormControl(this.user.program, [
         Validators.required
       ])
@@ -309,7 +308,7 @@ export class FormProspectComponent implements OnInit {
       email: this.user.email,
       local_committee_id: +this.user.local_committee.id,
       college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
-      cellphone_contactable: (this.user.cellphone_contactable ? true : false),
+      cellphone_contactable: true,
       utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
       utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
       utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
