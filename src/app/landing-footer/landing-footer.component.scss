@@ -9,7 +9,7 @@ $break-sm: 576px;
     display: block;
 }
 
-.partners {    
+.partners {
     @at-root :host-context(.no-webp) #{&} {
         background-image: url("/assets/images/pattern1.png");
     }
@@ -37,7 +37,7 @@ $break-sm: 576px;
         top: -45px;
         background-size: cover;
         background-position: center center;
-        background-repeat: no-repeat;        
+        background-repeat: no-repeat;
         @at-root :host-context(.no-webp) #{&} {
             background-image: url('../../assets/images/icon-handshake.png');
         }
@@ -197,6 +197,16 @@ footer {
         position: relative;
         p {
             text-align: center;
+        }
+
+        .text-cookies {
+          display: flex;
+          justify-content: center;
+
+          a {
+            cursor: pointer;
+            font-weight: 600;
+          }
         }
     }
     &.bg-footer {
