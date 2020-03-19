@@ -1,5 +1,25 @@
 <router-outlet (activate)="changeOfRoutes()"></router-outlet>
 
+<div id='content-snackbar-top' class='animated faster' [ngClass]="{fadeIn: cookies_covid_19, fadeOut: !cookies_covid_19}">
+  <div id="snackbar">
+    <div class="box-info">
+      <p>COVID-19: Informações atuais de segurança</p>
+      <span class="show-message-mobile">Antes de fazer planos com a AIESEC, informe-se sobre o COVID-19</span>
+      <span class="show-message">Sua segurança sempre vem em primeiro lugar. Com o atual surto do novo
+      Coronavirus (COVID-19), aconselhamos que você esteja ciente de todas as informações mais
+      recentes publicadas pela OMS ou pela secretaria de saúde do seu estado antes de fazer qualquer plano de viagem com a
+      AIESEC. Atualmente não estamos oferecendo nenhuma vaga de intercâmbio iniciando antes de 01 de junho de 2020. Estamos
+      disponiveis para lhe ajudar a saber mais sobre o contexto atual e suas oportunidades de viajar no futuro,</span>
+    </div>
+    <div class="box-href">
+      <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" target="_blank">Saiba Mais <span class="responsive-text">(OMS)</span></a>
+    </div>
+    <div class="box-close">
+      <i (click)="hideSnackBarTop()" class="fas fa-times icon-close"></i>
+    </div>
+  </div>
+</div>
+
 <div id='content-snackbar' class='animated faster' [ngClass]="{fadeIn: cookies_policy, fadeOut: !cookies_policy}">
   <div id="snackbar">
     Este site usa cookies para assegurar que você tenha uma ótima experiência online.

@@ -11,6 +11,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -92,7 +93,7 @@ export class SentryErrorHandler implements ErrorHandler {
     TranslateModule,
     HttpClientModule,
     TermsModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     AutoCompleteModule,
     ScrollToModule.forRoot(),
@@ -116,7 +117,8 @@ export class SentryErrorHandler implements ErrorHandler {
     FormMembershipModule,
     ContactListModule,
     LandingPageSubproductsModule,
-    LandingPageCountriesModule
+    LandingPageCountriesModule,
+    MatIconModule
   ],
   providers: [
     {

@@ -13,6 +13,7 @@ export class AppComponent {
   window: any = window;
   router: Router;
   cookies_policy: boolean = false;
+  cookies_covid_19: boolean = false;
 
   public static GAid: string = environment.GAid;
   public static GTMid: string = environment.GTMid;
@@ -33,12 +34,24 @@ export class AppComponent {
     this.cookies_policy = false;
   };
 
+  hideSnackBarTop() {
+    localStorage.setItem('cookies_covid_19', 'true');
+    this.cookies_covid_19 = false;
+  };
+
   ngOnInit() {
     if (!localStorage.getItem('cookies_policy')) {
       /*console.log('this.window._mfq', this.window._mfq, this.router.url);
       this.window._mfq = this.window._mfq || [];
       this.window._mfq.push(["newPageView", this.router.url]);*/
       this.cookies_policy = true;
+    }
+
+    if (!localStorage.getItem('cookies_covid_19')) {
+      /*console.log('this.window._mfq', this.window._mfq, this.router.url);
+      this.window._mfq = this.window._mfq || [];
+      this.window._mfq.push(["newPageView", this.router.url]);*/
+      this.cookies_covid_19 = true;
     }
   }
 
