@@ -223,6 +223,47 @@
     width: 56%;
   }
 
+  .box-href {
+    font-size: 12px;
+  }
+
+    #content-snackbar {
+        #snackbar {
+            display: block;
+            padding: 10px;
+
+            button {
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+  .show-message-mobile {
+    display: inline;
+  }
+
+  .show-message {
+    display: none;
+  }
+
+  #content-snackbar-top{
+    #snackbar {
+      padding: 5px 5px;
+
+      .box-info {
+        width: 56%;
+      }
+
+      .box-href {
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
     #content-snackbar {
         #snackbar {
             display: block;
