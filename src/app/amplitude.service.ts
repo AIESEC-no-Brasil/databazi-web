@@ -72,6 +72,10 @@ export class AmplitudeService {
     this.trackingEvent('Menu Top: Blog Estudante');
   }
 
+  trackingClickMenuCOVID() {
+    this.trackingEvent('Menu Top: COVID');
+  }
+
   trackingClickMenuOportu() {
     this.trackingEvent('Menu Top: Oportunidades');
   }

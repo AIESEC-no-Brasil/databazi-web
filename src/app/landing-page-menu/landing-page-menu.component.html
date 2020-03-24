@@ -6,10 +6,10 @@
   </div>
   <div class="container">
     <div class="row header-menu fixedMenu" id="fixedMenu">
-      <div class="col-sm-3" (click)="returnHome()">
+      <div class="col-sm-2" (click)="returnHome()">
         <div class='logo-aiesec'></div>
       </div>
-      <div class="menu-product col-sm-9">
+      <div class="menu-product col-sm-10">
         <div class="responsive-menu">
           <div class='menu-icon'>
             <div class="aiesec-favicon" (click)="toggleResponsiveMenu()">
@@ -90,6 +90,11 @@
                 </a>
               </ul>
             </li>
+            <a class='aiesec-search button-covid' href='https://informe.aiesec.org.br/nota-corona/' target="_blank">
+              <li (click)='goToCOVID()'>
+                AIESEC e COVID-19
+              </li>
+            </a>
             <a class='aiesec-search' href='https://aiesec.org/search' target="_blank"
               *ngIf="actualPage == '' || actualPage == 'lar-global'">
               <li (click)='goToOpor()'>
@@ -186,6 +191,12 @@
                   </li>
                 </a>
               </ul>
+              <hr>
+              <a class='aiesec-search button-covid' href='https://informe.aiesec.org.br/nota-corona/' target="_blank">
+                <div (click)='goToCOVID()'>
+                  AIESEC e COVID-19
+                </div>
+              </a>
             </div>
           </div>
         </div>

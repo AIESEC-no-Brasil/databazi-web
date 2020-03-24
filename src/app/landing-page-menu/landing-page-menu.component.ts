@@ -104,4 +104,8 @@ export class LandingPageMenuComponent implements OnInit {
   goToOpor() {
     this.amplitude.trackingClickMenuOportu();
   }
+
+  goToCOVID() {
+    this.amplitude.trackingClickMenuCOVID();
+  }
 }
