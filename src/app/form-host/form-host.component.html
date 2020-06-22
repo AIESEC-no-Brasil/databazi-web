@@ -1,7 +1,7 @@
-<div>
+<div [ngClass]='{ "only-form": onlyForm }'>
   <div *ngIf='!completeSignup'>
     <form *ngIf='!loading' [formGroup]='signUp' (keydown.enter)='submit()' class='forms'>
-      <div class='row' id='signUp'>
+      <div class='row' id='signUp' [ngClass]='{ "only-form-signup": onlyForm }'>
         <div class="col-sm">
           <h1>
             Inscreva-se:

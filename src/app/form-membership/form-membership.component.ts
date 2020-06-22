@@ -87,6 +87,7 @@ export class FormMembershipComponent implements OnInit {
   completedSignup: boolean = false;
   modal: boolean = false;
   embeddedForm: boolean = false;
+  onlyForm: boolean = false;
 
   courses: any;
   places: any;
@@ -143,6 +144,10 @@ export class FormMembershipComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (this.router.url == '/formulario-membresia') {
+      this.onlyForm = true;
+    }
 
     if (this.formedUser) {
       this.user = this.formedUser;
@@ -247,7 +252,7 @@ export class FormMembershipComponent implements OnInit {
       { id: 49, name: 'Vitória' },
       { id: 50, name: 'Volta Redonda' }
     ];
-    this.places = _.orderBy(places, ['name'], ['asc']);  
+    this.places = _.orderBy(places, ['name'], ['asc']);
   }
 
 
@@ -391,7 +396,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   validateOrInvalidateValues(context: string, invalid: boolean) {
-    invalid ? this.clearField(context) : false; 
+    invalid ? this.clearField(context) : false;
     switch (context) {
       case 'state':
         this.invalidState = invalid;
@@ -405,7 +410,7 @@ export class FormMembershipComponent implements OnInit {
   }
 
   selectItem(context){
-    this.validateOrInvalidateValues(context, false); 
+    this.validateOrInvalidateValues(context, false);
   }
 
   clearField(field) {
