@@ -16,7 +16,7 @@ input, input.mobile, .border-bottom {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -183,6 +183,18 @@ select:-webkit-autofill:focus {
         text-align: left;
         color: #fff;
     }
+}
+
+.only-form {
+  background-color: #f1c40f !important;
+  color: #674e13 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.only-form-signup {
+  width: auto !important;
 }
 
 .select-autocomplete {
@@ -372,7 +384,7 @@ select:-webkit-autofill:focus {
         left: 0;
         top: 0;
         z-index: 2;
-    }    
+    }
     .close-modal-button {
         width: 30px;
         height: 30px;
@@ -843,7 +855,7 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 767px) {
-    //prime 
+    //prime
     ::ng-deep .p-inputMask input {
         text-align: right;
         margin: 0;
@@ -945,7 +957,7 @@ label {
   --------------------------------------------------------------*/
 
 @media (max-width: 600px) {
-     //prime 
+     //prime
     p-autoComplete {
         font-size: 3.2vw !important
     }
@@ -1117,7 +1129,7 @@ label {
     border: none;
     color: white;
     text-overflow: ellipsis;
-    overflow: hidden;  
+    overflow: hidden;
     white-space: nowrap;
 }
 

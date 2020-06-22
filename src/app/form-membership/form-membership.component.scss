@@ -344,7 +344,7 @@ _:-o-prefocus,
     }
 }
 
-// TODO: ::ng-deep / /deep/ 
+// TODO: ::ng-deep / /deep/
 // Seems to be a form of selection that will be abolished in the future, an alternative form of editing of this component should be found without the use of these selectors.
 /*
     Links de referência:
@@ -1080,7 +1080,7 @@ label {
 
 @media (max-width: 767px) {
 
-    //prime 
+    //prime
     ::ng-deep .p-inputMask input {
         text-align: right;
         margin: 0;
@@ -1208,7 +1208,7 @@ label {
 @media (max-width: 600px) {
     #inputDatadeNascimento {
         text-align: left;
-    } //prime 
+    } //prime
     p-autoComplete {
         font-size: 3.2vw !important
     }
@@ -1878,6 +1878,9 @@ label {
 }
 
 @media (min-width: 1440px) {
+  .only-form {
+    transform: none !important;
+  }
     div.form-talentos-globais {
         &:not(.full-screen) {
             transform: scale(1.175);
@@ -1911,7 +1914,7 @@ label {
         left: 0;
         top: 0;
         z-index: 2;
-    }    
+    }
     .close-modal-button {
         width: 30px;
         height: 30px;

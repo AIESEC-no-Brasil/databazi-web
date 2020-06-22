@@ -41,6 +41,14 @@ export const router : Routes = [
         loadChildren: './form-ge/form-ge.module#FormGeModule'
     },
     {
+        path: 'formulario-membresia',
+        loadChildren: './form-membership/form-membership.module#FormMembershipModule'
+    },
+    {
+        path: 'formulario-lar-global',
+        loadChildren: './form-host/form-host.module#FormHostModule'
+    },
+    {
         path: 'jovens/voluntario-global',
         redirectTo: '/voluntario-global'
     },

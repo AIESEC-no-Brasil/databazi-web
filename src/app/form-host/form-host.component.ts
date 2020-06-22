@@ -54,6 +54,7 @@ export class FormHostComponent implements OnInit {
   msgs: Message[] = [];
   submitted: boolean = false;
   completeSignup: boolean = false;
+  onlyForm: boolean = false;
 
   constructor(
     public signupService: SignupService,
@@ -105,6 +106,11 @@ export class FormHostComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if (this.router.url == '/formulario-lar-global') {
+      this.onlyForm = true;
+    }
+
     this.urlScrapper.queryParams.subscribe((param: any) => {
       if (param['utm_source']) {
         localStorage.setItem('utm_source', param['utm_source'])
