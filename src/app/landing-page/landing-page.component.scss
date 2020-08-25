@@ -2,1137 +2,1145 @@
 html,
 body,
 main {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/pattern1.png");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/pattern1.png.webp");
-  }
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;    
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/pattern1.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/pattern1.png.webp');
+    }
 }
 #fullpage {
-  width: 100%;
-  height: 100%;
-  .section {
     width: 100%;
-    height: 100vh;
-    border: 1px solid black;
-  }
+    height: 100%;
+    .section {
+        width: 100%;
+        height: 100vh;
+        border: 1px solid black
+    }
 }
 
 main {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .row {
-  margin-left: 0;
-  margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .col-xl-12 {
-  padding: 0 !important;
+    padding: 0 !important;
 }
 
 .fas {
-  &.fa-angle-down,
-  &.fa-angle-up {
-    display: inline-block;
-    margin-left: 5px;
-  }
+    &.fa-angle-down,
+    &.fa-angle-up {
+        display: inline-block;
+        margin-left: 5px;
+    }
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .header {
-  padding: 0px;
-  margin-bottom: 10px;
-  height: 450px;
-  position: relative;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/header.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/header.jpg.webp");
-  }
+    padding: 0px;
+    margin-bottom: 10px;
+    height: 450px;
+    position: relative;    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;    
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/header.jpg');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/header.jpg.webp');
+    }
 }
 
 .bg-header-responsive {
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background-color: rgba(67, 122, 190, 0.75);
-}
-
-.header h1,
-.header p {
-  color: white;
-  font-size: 18px;
-}
-
-.header h1 {
-  font-size: 42px;
-}
-
-.header button {
-  margin-top: 40px;
-}
-
-.product-description {
-  display: flex;
-  align-items: center;
-  min-height: 400px;
-  background-position: center center;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/header.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/header.jpg.webp");
-  }
-
-  .description {
-    h2 {
-      color: #333;
-      margin: 10px 0;
-    }
-    p {
-      font-size: 17px;
-      font-weight: lighter;
-      color: #555;
-      line-height: 28px;
-    }
-  }
-  .logo-product {
-    background-size: 80%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    min-height: 200px;
-    &.ge {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/products/ge/ge-logo.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/products/ge/ge-logo.png.webp");
-      }
-    }
-  }
-}
-
-.column-1,
-.column-2,
-.column-3 {
-  padding: 10px 5px !important;
-  box-sizing: border-box;
-}
-
-.column-1 {
-  background-color: #ef4132;
-  color: white;
-}
-
-.column-2 {
-  background-color: #0cb9c1;
-  color: white;
-}
-
-.column-3 {
-  background-color: #f48924;
-  color: white;
-}
-
-.margin {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.desktop {
-  display: block;
-  margin: auto;
-}
-
-.mobile {
-  display: none !important;
-}
-
-.product-items {
-  padding: 10px 0;
-  .row {
-    margin: 10px 0;
-  }
-  .col-3 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-size: auto 30px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    &.mobile-1 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-1.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-1.png.webp");
-      }
-    }
-    &.mobile-2 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-2.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-2.png.webp");
-      }
-    }
-    &.mobile-3 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-3.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-3.png.webp");
-      }
-    }
-    &.mobile-4 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-4.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-4.png.webp");
-      }
-    }
-    &.mobile-5 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-5.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-5.png.webp");
-      }
-    }
-    &.mobile-6 {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/images/mobile-6.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/images/mobile-6.png.webp");
-      }
-    }
-  }
-  .col-9 {
-    text-align: left;
-    p {
-      margin: auto;
-      display: flex;
-      align-items: center;
-    }
-  }
-}
-
-.padding {
-  padding: 30px;
-}
-
-.menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  font-size: 10px;
-  color: white;
-}
-
-.menu a {
-  color: #fff;
-}
-
-.menu li {
-  float: left;
-  margin: 5px;
-  cursor: pointer;
-  :hover {
-    text-decoration: underline;
-  }
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 35px;
-  padding: 0;
-  overflow: hidden;
-}
-
-.menu .content {
-  margin-left: 45px;
-}
-
-.aiesec-logo {
-  width: 165px;
-  height: 25px;
-  margin-right: 45px;
-}
-
-.no-margin {
-  margin: 0px;
-}
-
-.align-left {
-  text-align: left;
-}
-
-.align-center {
-  text-align: center;
-}
-
-.align-left {
-  text-align: left;
-}
-
-.global-columns {
-  .logo-aiesec {
-    width: 100%;
-    height: 140px;
-    background-image: url(../../assets/images/aiesec-logo.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-  img {
-    width: 190px;
-    height: 140px;
-    margin-top: -20px;
-  }
-  p {
-    color: white;
-    font-size: 16px;
-  }
-  button {
-    margin-top: 20px;
-  }
-}
-
-.logo-empreendedor-global {
-  background-size: cover;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/logo-voluntario-global.png");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/logo-voluntario-global.png.webp");
-  }
-}
-
-section.history-session,
-section.experiences-session {
-  background-position: bottom center;
-  background-size: 25%;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/pattern1.png");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/pattern1.png.webp");
-  }
-}
-
-#aiesec-info {
-  min-height: calc(100vh - 75px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-div#our-stories {
-  position: relative;
-  padding-bottom: 65px;
-  background-color: $default;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  #our-stories-bg {
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
-    position: absolute;
-    opacity: 1;
-    filter: brightness(102%);
-    background-size: 350px;
-    background-position: top center;
-    opacity: 0.125;
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/pattern4.png");
-    }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/pattern4.png.webp");
-    }
-  }
-  section.our-stories {
-    background-image: none;
-    h1 {
-      color: rgba(67, 122, 190, 1);
-      padding-bottom: 20px;
-      position: relative;
-      color: #fff;
-    }
-  }
+    background-color: rgba(67, 122, 190, .75);
 }
 
-.history-session .container > .row {
-  justify-content: space-between;
+.header h1,
+.header p {
+    color: white;
+    font-size: 18px
+}
+
+.header h1 {
+    font-size: 42px;
+}
+
+.header button {
+    margin-top: 40px;
+}
+
+.product-description {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    background-position: center center;
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/header.jpg');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/header.jpg.webp');
+    }
+
+    .description {
+        h2 {
+            color: #333;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 17px;
+            font-weight: lighter;
+            color: #555;
+            line-height: 28px;
+        }
+    }
+    .logo-product {
+        background-size: 80%;
+        background-position: center center;
+        background-repeat: no-repeat;   
+        min-height: 200px;
+        &.ge {
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('/assets/products/ge/ge-logo.png');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('/assets/products/ge/ge-logo.png.webp');
+            }
+        }
+    }
+}
+
+.column-1,
+.column-2,
+.column-3,{
+    padding: 10px 5px !important;
+    box-sizing: border-box;
+}
+
+.column-1 {
+    background-color: #ef4132;
+    color: white;
+}
+
+.column-2 {
+    background-color: #34bc9b;
+    color: white;
+}
+
+.column-3 {
+    background-color: #1790a1;
+    color: white;
+}
+
+
+.margin {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.desktop {
+    display: block;
+    margin: auto;
+}
+
+.mobile {
+    display: none !important
+}
+
+.product-items {
+    padding: 10px 0;
+    .row {
+        margin: 10px 0;
+    }
+    .col-3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: auto 30px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        &.mobile-1 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-1.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-1.png.webp');
+            }
+
+        }
+        &.mobile-2 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-2.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-2.png.webp');
+            }
+
+        }
+        &.mobile-3 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-3.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-3.png.webp');
+            }
+
+        }
+        &.mobile-4 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-4.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-4.png.webp');
+            }
+
+        }
+        &.mobile-5 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-5.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-5.png.webp');
+            }
+
+        }
+        &.mobile-6 {            
+            @at-root :host-context(.no-webp) #{&}{
+                background-image: url('/assets/images/mobile-6.png');
+            }
+            @at-root :host-context(.webp) #{&}{
+                background-image: url('/assets/images/mobile-6.png.webp');
+            }
+
+        }
+    }
+    .col-9 {
+        text-align: left;
+        p {
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.padding {
+    padding: 30px;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    font-size: 10px;
+    color: white;
+}
+
+.menu a {
+    color: #fff;
+}
+
+.menu li {
+    float: left;
+    margin: 5px;
+    cursor: pointer;
+    :hover {
+        text-decoration: underline;
+    }
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 35px;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu .content {
+    margin-left: 45px;
+}
+
+.aiesec-logo {
+    width: 165px;
+    height: 25px;
+    margin-right: 45px;
+}
+
+.no-margin {
+    margin: 0px;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.global-columns {
+    .logo-aiesec {
+        width: 100%;
+        height: 140px;
+        background-image: url(../../assets/images/aiesec-logo.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    img {
+        width: 190px;
+        height: 140px;
+        margin-top: -20px;
+    }
+    p {
+        color: white;
+        margin-top: -30px;
+        font-size: 16px;
+    }
+    button {
+        margin-top: 20px;
+    }
+}
+
+.logo-empreendedor-global {    
+    background-size: cover;
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/logo-voluntario-global.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/logo-voluntario-global.png.webp');
+    }
+}
+
+section.history-session,
+section.experiences-session {    
+    background-position: bottom center;
+    background-size: 25%;
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/pattern1.png');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/pattern1.png.webp');
+    }
+}
+
+#aiesec-info {
+    min-height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#our-stories {
+    position: relative;
+    padding-bottom: 65px;
+    background-color: $default;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    #our-stories-bg {
+        width: 100%;
+        height: 100%;        
+        left: 0;
+        top: 0;
+        position: absolute;
+        opacity: 1;
+        filter: brightness(102%);
+        background-size: 350px;
+        background-position: top center;
+        opacity: .125;
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/pattern4.png');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/pattern4.png.webp');
+        }
+    }
+    section.our-stories {
+        background-image: none;
+        h1 {
+            color: rgba(67, 122, 190, 1);
+            padding-bottom: 20px;
+            position: relative;
+            color: #fff;
+        }
+    }
+}
+
+.history-session .container>.row {
+    justify-content: space-between;
 }
 
 .history-session h1 {
-  text-align: center;
-  font-weight: bold;
-  margin-bottom: 37.5px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 37.5px;
 }
 
-.history-session-image {
-  background-size: cover;
-  min-height: 300px;
-  position: relative;
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/party.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/party.jpg.webp");
-  }
-  .round {
-    right: -37.5px;
-    background-size: 60%;
+.history-session-image {    
+    background-size: cover;
+    min-height: 300px;
+    position: relative;
     @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/icon-highlight.png");
+        background-image: url('/assets/images/party.jpg');
     }
     @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/icon-highlight.png.webp");
+        background-image: url('/assets/images/party.jpg.webp');
     }
-  }
+    .round {
+        right: -37.5px;        
+        background-size: 60%;
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/icon-highlight.png');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/icon-highlight.png.webp');
+        }
+    }
 }
 
 .history-session span {
-  color: #b9b9b9;
+    color: #b9b9b9;
 }
 
 .history-session .sub-title {
-  text-align: left;
-  font-size: 20px;
+    text-align: left;
+font-size: 20px;
 }
 
 .history-session .coin {
-  height: 50px;
-  width: 50px;
+    height: 50px;
+    width: 50px;
 }
 
 .history-session .coin-text {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .experiences-session {
-  font-size: 18px;
-  min-height: 75vh !important;
-  padding: 0 !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  h1 {
-    margin: 20px auto 40px auto;
-  }
-  .secundary-text {
-    text-align: center;
-    margin: 20px 0;
-  }
-  .secundary-text button {
-    height: 60px;
-  }
-  h2 {
-    margin: 25px 0;
-  }
-  .LDM {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/hexa.png");
+    font-size: 18px;
+    min-height: 75vh !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1 {
+        margin: 20px auto 40px auto
     }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/hexa.png.webp");
+    .secundary-text  {
+        text-align: center;
+        margin: 20px 0;
     }
-    min-height: 300px;
-    transform: scale(1.1);
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-    li {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
+    .secundary-text button {
+        height: 60px;
     }
-    span {
-      padding: 0 0 0 20px;
-      text-align: left !important;
+    h2 {
+        margin: 25px 0;
     }
-    .bullet-icon {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      flex: none;
-      margin: 0;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center center;
-      &.icon-1 {
+    .LDM {        
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
         @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/images/hexa-4.png");
+            background-image: url('/assets/images/hexa.png');
         }
         @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/images/hexa-4.png.webp");
+            background-image: url('/assets/images/hexa.png.webp');
         }
-      }
-      &.icon-2 {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/images/hexa-3.png");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/images/hexa-3.png.webp");
-        }
-      }
-      &.icon-3 {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/images/hexa-1.png");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/images/hexa-1.png.webp");
-        }
-      }
-      &.icon-4 {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/images/hexa-2.png");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/images/hexa-2.png.webp");
-        }
-      }
+        min-height: 300px;
+        transform: scale(1.1)
     }
-  }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        span {
+            padding: 0 0 0 20px;
+            text-align: left !important;
+        }
+        .bullet-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            flex: none;
+            margin: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+            &.icon-1 {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/hexa-4.png');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/hexa-4.png.webp');
+                }
+            }
+            &.icon-2 {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/hexa-3.png');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/hexa-3.png.webp');
+                }
+            }
+            &.icon-3 {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/hexa-1.png');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/hexa-1.png.webp');
+                }
+            }
+            &.icon-4 {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/images/hexa-2.png');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/images/hexa-2.png.webp');
+                }
+            }
+        }
+    }
 }
 
 .experiences-session span {
-  color: #888;
+    color: #888;
 }
 
 .bullet-1 {
-  color: #fdc945;
+    color: #fdc945;
 }
 
 .bullet-2 {
-  color: #0cb89a;
+    color: #0cb89a;
 }
 
 .bullet-3 {
-  color: #f15b45;
+    color: #f15b45;
 }
 
 .bullet-4 {
-  color: #965ba5;
+    color: #965ba5;
 }
 
 .round {
-  position: absolute;
-  top: 50%;
-  background-size: 65%;
-  margin-top: -37.5px;
-  background-color: #fcb215;
+    position: absolute;
+    top: 50%;
+    background-size: 65%;
+    margin-top: -37.5px;
+    background-color: #fcb215;
 }
 
 .our-stories {
-  .col-sm {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-  }
-  h1 {
-    padding-bottom: 40px;
-  }
-  .footer-carousel {
-    min-width: 90%;
-  }
-  .footer-carousel-btn-left,
-  .footer-carousel-btn-right {
-    align-items: center;
-    display: flex;
-    color: $default;
-    box-sizing: border-box;
-    z-index: 100;
-    font-size: 40px;
-    z-index: 4;
-    i {
-      position: absolute;
-      cursor: pointer;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      transition: 0.3s;
-      &:hover {
-        transform: scale(1.05);
-      }
-      &.fa-chevron-left {
-        left: 2.5%;
-      }
-      &.fa-chevron-right {
-        right: 2.5%;
-      }
+    .col-sm {
+        display: flex;
+        justify-content: center;
+        align-content: center;
     }
-  }
-  .carousel-container {
-    width: 100%;
-    min-height: 350px;
-    position: relative;
-    overflow: hidden;
-    .carousel-wrapper {
-      height: 100%;
-      width: 300%;
-      position: absolute;
-      left: 0;
-      top: 0;
-      .each-carousel-item {
-        width: 33%;
-        height: 100%;
+    h1 {
+        padding-bottom: 40px;
+    }
+    .footer-carousel {
+        min-width: 90%;
+    }
+    .footer-carousel-btn-left,
+    .footer-carousel-btn-right {
+        align-items: center;
+        display: flex;
+        color: $default;
         box-sizing: border-box;
-        position: Relative;
-        margin: 0 0.15%;
-        float: left;
-        cursor: pointer;
-      }
+        z-index: 100;
+        font-size: 40px;
+        z-index: 4;
+        i {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            transition: .3s;
+            &:hover {
+                transform: scale(1.05);
+            }
+            &.fa-chevron-left {
+                left: 2.5%;
+            }
+            &.fa-chevron-right {
+                right: 2.5%;
+            }
+        }
     }
-  }
+    .carousel-container {
+        width: 100%;
+        min-height: 350px;
+        position: relative;
+        overflow: hidden;
+        .carousel-wrapper {
+            height: 100%;
+            width: 300%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            .each-carousel-item {
+                width: 33%;
+                height: 100%;
+                box-sizing: border-box;
+                position: Relative;
+                margin: 0 .15%;
+                float: left;
+                cursor: pointer;
+            }
+        }
+    }
 }
 
 .carousel {
-  background-color: #ffffff;
+    background-color: #FFFFFF;
 }
 
 .case-1,
 .case-2,
 .case-3 {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex !important;
-  align-items: center;
-  height: 350px;
-  width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex !important;
+    align-items: center;
+    height: 350px;
+    width: 100%;
 }
 
 .case-1 {
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/case1.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/case1.jpg.webp");
-  }
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/case1.jpg');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/case1.jpg.webp');
+    }
 }
 
-.case-2 {
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/case2.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/case2.jpg.webp");
-  }
+.case-2 {    
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/case2.jpg');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/case2.jpg.webp');
+    }
 }
 
-.case-3 {
-  @at-root :host-context(.no-webp) #{&} {
-    background-image: url("/assets/images/case3.jpg");
-  }
-  @at-root :host-context(.webp) #{&} {
-    background-image: url("/assets/images/case3.jpg.webp");
-  }
+.case-3 {    
+    @at-root :host-context(.no-webp) #{&} {
+        background-image: url('/assets/images/case3.jpg');
+    }
+    @at-root :host-context(.webp) #{&} {
+        background-image: url('/assets/images/case3.jpg.webp');
+    }
 }
 
 .drag-scroll-wrapper,
 .drag-scroll-content,
 drag-scroll {
-  height: 300px !important;
-  a {
-    display: flex;
-    transition: 0.3s;
-    position: relative;
-  }
+    height: 300px !important;
+    a {
+        display: flex;
+        transition: .3s;
+        position: relative;
+    }
 }
 
 .box-case-bg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: rgba(67, 122, 190, 0.35);
-  height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(67, 122, 190, .35);
+    height: 100%;
 }
 
 .box-case {
-  width: 30%;
-  min-height: 200px;
-  position: absolute;
-  left: 5%;
-  background-color: #fff;
-  box-shadow: 0 0 5px #c3c3c3;
-  box-sizing: border-box;
-  padding: 1% 3%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-  z-index: 2;
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  .logo-product {
-    width: 100%;
-    height: 60px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 75%;
-    &.gv {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/products/gv/gv-logo.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/products/gv/gv-logo.png.webp");
-      }
-    }
-    &.gt {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/products/gt/gt-logo.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/products/gt/gt-logo.png.webp");
-      }
-    }
-    &.ge {
-      @at-root :host-context(.no-webp) #{&} {
-        background-image: url("/assets/products/ge/ge-logo.png");
-      }
-      @at-root :host-context(.webp) #{&} {
-        background-image: url("/assets/products/ge/ge-logo.png.webp");
-      }
-    }
-  }
-  p {
-    font-size: 13.5px;
-    white-space: normal;
-    font-weight: lighter;
-    margin: 5px auto 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-  }
-  span {
-    display: block;
-    margin: 0px auto 5px auto;
-    font-style: italic;
-    font-weight: 500;
-    color: #333;
-    font-size: 1.1em;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
     width: 30%;
-    justify-content: space-around;
-    li {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.3);
-      &.active {
-        background-color: $default;
-      }
+    min-height: 200px;
+    position: absolute;
+    left: 5%;
+    background-color: #fff;
+    box-shadow: 0 0 5px #c3c3c3;
+    box-sizing: border-box;
+    padding: 1% 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: 2;
+    ::-webkit-scrollbar {
+        width: 5px;
     }
-  }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .logo-product {
+        width: 100%;
+        height: 60px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: 75%;
+        &.gv {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('/assets/products/gv/gv-logo.png');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('/assets/products/gv/gv-logo.png.webp');
+            }
+        }
+        &.gt {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('/assets/products/gt/gt-logo.png');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('/assets/products/gt/gt-logo.png.webp');
+            }
+        }
+        &.ge {            
+            @at-root :host-context(.no-webp) #{&} {
+                background-image: url('/assets/products/ge/ge-logo.png');
+            }
+            @at-root :host-context(.webp) #{&} {
+                background-image: url('/assets/products/ge/ge-logo.png.webp');
+            }
+        }
+    }
+    p {
+        font-size: 13.5px;
+        white-space: normal;
+        font-weight: lighter;
+        margin: 5px auto 0 auto;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    span {
+        display: block;
+        margin: 0px auto 5px auto;
+        font-style: italic;
+        font-weight: 500;
+        color: #333;
+        font-size: 1.1em;
+    }
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        width: 30%;
+        justify-content: space-around;
+        li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, .3);
+            &.active {
+                background-color: $default;
+            }
+        }
+    }
 }
 
 .swipe-animation {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  margin: auto;
-  z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  touch-action: pan-y;
-}
-
-.content-swipe-area {
-  position: relative;
-  ul#position-carousel,
-  ul.position-carousel {
     position: absolute;
-    bottom: -20px;
-    padding: 0;
-    margin: 0;
-    display: flex;
     width: 100%;
-    justify-content: center;
-    list-style: none;
-    li {
-      width: 10px;
-      height: 10px;
-      background-color: #fff;
-      border-radius: 50%;
-      transition: 0.2s;
-      margin: 0 10px;
-      opacity: 0.4;
-      &.active {
-        opacity: 1;
-      }
-    }
-  }
-}
-
-@keyframes swipeAnimation {
-  0% {
-    margin-left: -5%;
-  }
-  49% {
-    margin-left: -5%;
-  }
-  99% {
-    margin-right: -5%;
-  }
-  100% {
-    margin-right: -5%;
-  }
-}
-
-@media (min-width: 991px) {
-  .case-1 {
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/case1-original.jpg");
-    }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/case1-original.jpg");
-    }
-  }
-
-  .case-2 {
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/case2-original.jpg");
-    }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/case2-original.jpg");
-    }
-  }
-
-  .case-3 {
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/case3-original.jpg");
-    }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/case3-original.jpg");
-    }
-  }
-  .history-session-image {
-    @at-root :host-context(.no-webp) #{&} {
-      background-image: url("/assets/images/party.jpg");
-    }
-    @at-root :host-context(.webp) #{&} {
-      background-image: url("/assets/images/party.jpg");
-    }
-  }
-  #carousel-wrapper {
-    .box-case {
-      height: 93.5%;
-      min-height: auto;
-    }
-  }
-  #global {
-    > div {
-      height: 40vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-}
-
-@media (max-width: 990px) {
-  .product-description .description {
-    text-align: center;
-  }
-  .desktop {
-    display: none;
-  }
-  .mobile {
-    display: block !important;
-  }
-  section.padding-top-and-bottom,
-  section.margin-top-and-bottom {
-    padding: 27.5px 0 !important;
-  }
-  .col-sm-12,
-  .col-md-12 {
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-  }
-  .row {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-  .container {
-    padding-left: 0;
-    padding-right: 0;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .header-top-triangle,
-  .header-bottom-triangle {
-    display: none;
-  }
-  .our-stories .footer-carousel-btn-left i.fa-chevron-left {
-    left: 5%;
-  }
-  .our-stories .footer-carousel-btn-right i.fa-chevron-right {
-    right: 5%;
-  }
-  .history-session-image {
-    margin-bottom: 45px;
-    width: 100%;
-    .round {
-      bottom: -37.5px;
-      top: auto;
-      left: 50%;
-      margin-left: -37.5px;
-    }
-  }
-  .history-session-content {
-    padding: 0 10%;
-    .row.margin {
-      .col-sm {
-        width: 50%;
-        margin: 10px 0;
-      }
-    }
-  }
-  .experiences-session {
-    .LDM {
-      transform: scale(1);
-    }
-    h1 {
-      padding: 0 25px;
-      margin: 0;
-    }
-    .align-left {
-      padding: 0 35px;
-    }
-    ul {
-      .bullet-icon {
-        width: 60px;
-        height: 60px;
-      }
-    }
-  }
-  .global-columns {
-    > div {
-      position: relative;
-      background-position: top center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      .bg-color {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 2;
-      }
-      .bg-content {
-        z-index: 3;
-        position: relative;
-      }
-      &:nth-child(1) {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/products/gv/gv-intro.jpg");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/products/gv/gv-intro.jpg.webp");
-        }
-        .bg-color {
-          background-color: rgba(239, 66, 49, 0.9);
-        }
-      }
-      &:nth-child(2) {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/products/ge/ge-intro.jpg");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/products/ge/ge-intro.jpg.webp");
-        }
-        .bg-color {
-          background-color: rgba(65, 187, 155, 0.9);
-        }
-      }
-      &:nth-child(3) {
-        @at-root :host-context(.no-webp) #{&} {
-          background-image: url("/assets/products/gt/gt-intro.jpg");
-        }
-        @at-root :host-context(.webp) #{&} {
-          background-image: url("/assets/products/gt/gt-intro.jpg.webp");
-        }
-        .bg-color {
-          background-color: rgba(11, 142, 160, 0.9);
-        }
-      }
-    }
-    p.mobile {
-      height: auto;
-      font-size: 1.4em;
-    }
-  }
-
-  #our-stories {
-    min-height: 100vh;
-  }
-  #our-stories {
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-  }
-  section.our-stories {
-    .carousel-container {
-      width: 80%;
-      height: 500px;
+    cursor: pointer;
+    touch-action: pan-y
+}
+
+.content-swipe-area {
+    position: relative;
+    ul#position-carousel, ul.position-carousel {
+        position: absolute;
+        bottom: -20px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        list-style: none;
+        li {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: .2s;
+            margin: 0 10px;
+            opacity: .4;
+            &.active {
+                opacity: 1
+            }
+        }
     }
-    .cases {
-      height: 250px;
+}
+
+@keyframes swipeAnimation {
+    0% {
+        margin-left: -5%;
     }
-    .box-case {
-      left: 0;
-      width: 100%;
-      bottom: 0;
-      height: auto;
-      top: auto;
-      min-height: 250px;
-      .logo-product {
-        background-size: 50%;
-      }
+    49% {
+        margin-left: -5%;
     }
-  }
+    99% {
+        margin-right: -5%
+    }
+    100% {
+        margin-right: -5%;
+    }
+}
+
+@media (min-width: 991px) {    
+    
+    .case-1 {
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case1-original.jpg');
+        }
+    }
+
+    .case-2 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case2-original.jpg');
+        }
+    }
+
+    .case-3 {    
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/case3-original.jpg');
+        }
+    }
+    .history-session-image{
+        @at-root :host-context(.no-webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+        @at-root :host-context(.webp) #{&} {
+            background-image: url('/assets/images/party.jpg');
+        }
+    }
+    #carousel-wrapper {
+        .box-case {
+            height: 93.5%;
+            min-height: auto;
+        }
+    }
+    #global {
+        >div {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media(max-width: 990px) {
+    .product-description .description {
+        text-align: center;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block !important;
+    }
+    section.padding-top-and-bottom,
+    section.margin-top-and-bottom {
+        padding: 27.5px 0 !important
+    }
+    .col-sm-12,
+    .col-md-12 {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        box-sizing: border-box
+    }
+    .header-top-triangle,
+    .header-bottom-triangle {
+        display: none;
+    }
+    .our-stories .footer-carousel-btn-left i.fa-chevron-left {
+        left: 5%
+    }
+    .our-stories .footer-carousel-btn-right i.fa-chevron-right {
+        right: 5%;
+    }
+    .history-session-image {
+        margin-bottom: 45px;
+        width: 100%;
+        .round {
+            bottom: -37.5px;
+            top: auto;
+            left: 50%;
+            margin-left: -37.5px;
+        }
+    }
+    .history-session-content {
+        padding: 0 10%;
+        .row.margin {
+            .col-sm {
+                width: 50%;
+                margin: 10px 0;
+            }
+        }
+    }
+    .experiences-session {
+        .LDM {
+            transform: scale(1)
+        }
+        h1 {
+            padding: 0 25px;
+            margin: 0;
+        }
+        .align-left {
+            padding: 0 35px;
+        }
+        ul {
+            .bullet-icon {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    }
+    .global-columns {
+        >div {
+            position: relative;
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            .bg-color {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+            }
+            .bg-content {
+                z-index: 3;
+                position: relative;
+            }
+            &:nth-child(1) {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/products/gv/gv-intro.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/products/gv/gv-intro.jpg.webp');
+                }
+                .bg-color {
+                    background-color: rgba(239, 66, 49, .9)
+                }
+            }
+            &:nth-child(2) {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/products/ge/ge-intro.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/products/ge/ge-intro.jpg.webp');
+                }
+                .bg-color {
+                    background-color: rgba(65, 187, 155, .9)
+                }
+            }
+            &:nth-child(3) {                
+                @at-root :host-context(.no-webp) #{&} {
+                    background-image: url('/assets/products/gt/gt-intro.jpg');
+                }
+                @at-root :host-context(.webp) #{&} {
+                    background-image: url('/assets/products/gt/gt-intro.jpg.webp');
+                }
+                .bg-color {
+                    background-color: rgba(11, 142, 160, .9)
+                }
+            }
+        }
+        p.mobile {
+            height: auto;
+            font-size: 1.4em;
+        }
+    }
+    
+    #our-stories {
+        min-height: 100vh;
+    }
+    #our-stories {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    section.our-stories {
+        .carousel-container {
+            width: 80%;
+            height: 500px;
+        }
+        .cases {
+            height: 250px;
+        }
+        .box-case {
+            left: 0;
+            width: 100%;
+            bottom: 0;
+            height: auto;
+            top: auto;
+            min-height: 250px;
+            .logo-product {
+                background-size: 50%;
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: 1440px) {
-  .container {
-    max-width: 85%;
-  }
-  .experiences-session {
     .container {
-      max-width: 1240px;
+        max-width: 85%;
     }
-  }
-  main {
-    > section,
-    > div {
-      h1 {
-        font-size: 2.5 !important;
-      }
-    }
-  }
-  #global {
-    > div {
-      img {
-        transform: scale(1.45);
-        margin-bottom: 25px;
-      }
-      p {
-        font-size: 1.25em;
-      }
-      button {
-        font-size: 1.15em;
-      }
-    }
-  }
-  .history-session-content {
-    h2 {
-      font-size: 1.85em !important;
-    }
-    p {
-      font-size: 1.45em !important;
-    }
-  }
-  #aiesec-info,
-  .experiences-session,
-  #our-stories {
-    min-height: 65vh !important;
-    .align-left {
-      span {
-        font-size: 1.35em;
-      }
-      .bullet-icon {
-        width: 3vw;
-        height: 3vw;
-      }
-    }
-  }
-  #aiesec-info {
-    .col-lg-5 {
-      max-width: 33.33%;
-      flex: 0 0 33.33%;
-    }
-    .col-lg-6 {
-      max-width: 66.66%;
-      flex: 0 0 66.66%;
-      padding-left: 5%;
-    }
-  }
-  .carousel-container {
-    min-height: 500px !important;
-    .cases {
-      height: 100%;
-      .box-case {
-        top: auto;
-        .logo-product {
-          min-height: 100px;
+    .experiences-session {
+        .container {
+            max-width: 1240px
         }
-        p.product-story-info {
-          font-size: 1.2em !important;
-        }
-      }
     }
-  }
+    main {
+        >section,
+        >div {
+            h1 {
+                font-size: 2.5 !important;
+            }
+        }
+    }
+    #global {
+        >div {
+            img {
+                transform: scale(1.45);
+                margin-bottom: 25px;
+            }
+            p {
+                font-size: 1.25em;
+            }
+            button {
+                font-size: 1.15em;
+            }
+        }
+    }
+    .history-session-content {
+        h2 {
+            font-size: 1.85em !important;
+        }
+        p {
+            font-size: 1.45em !important;
+        }
+    }
+    #aiesec-info,
+    .experiences-session,
+    #our-stories {
+        min-height: 65vh !important;
+        .align-left {
+            span {
+                font-size: 1.35em;
+            }
+            .bullet-icon {
+                width: 3vw;
+                height: 3vw;
+            }
+        }
+    }
+    #aiesec-info {
+        .col-lg-5 {
+            max-width: 33.33%;
+            flex: 0 0 33.33%;
+        }
+        .col-lg-6 {
+            max-width: 66.66%;
+            flex: 0 0 66.66%;
+            padding-left: 5%;
+        }
+    }
+    .carousel-container {
+        min-height: 500px !important;
+        .cases {
+            height: 100%;
+            .box-case {
+                top: auto;
+                .logo-product {
+                    min-height: 100px;
+                }
+                p.product-story-info {
+                    font-size: 1.2em !important
+                }
+            }
+        }
+    }
 }
 
-@media (max-width: 1023px) {
-  .global-columns p {
-    height: auto;
-  }
+@media (max-width: 1023px){
+    .global-columns p {
+        height: auto;
+    }
 }

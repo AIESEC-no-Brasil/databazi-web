@@ -120,7 +120,7 @@ export class FormGtEmbeddedComponent implements OnInit {
     });
     window.innerWidth > 600
       ? (this.placeholderBirthdate =
-          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+          "Os programas da AIESEC são para pessoas de 18 à 30 anos")
       : (this.placeholderBirthdate = "Data de Nascimento");
     this.detectKeypress();
   }
@@ -191,7 +191,7 @@ export class FormGtEmbeddedComponent implements OnInit {
   onResize(event) {
     event.target.innerWidth > 600
       ? (this.placeholderBirthdate =
-          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+          "Os programas da AIESEC são para pessoas de 18 à 30 anos")
       : (this.placeholderBirthdate = "Data de nascimento");
   }
 

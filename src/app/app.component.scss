@@ -1,205 +1,206 @@
 #content-snackbar-top {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  background-color: #000;
-  &.fadeOut {
-    display: none !important;
-  }
-  &.fadeIn {
-    display: flex !important;
-  }
-
-  #snackbar {
-    /* Hidden by default. Visible on click */
     width: 100%;
-    /* Set a default minimum width */
-    margin: auto;
-    /* Black background color */
-    color: #fff;
-    /* White text color */
-    /* Centered text */
-    border-radius: 0.25rem;
-    /* Rounded borders */
-    padding: 5px 15px;
-    /* Padding */
-    position: relative;
-    /* Sit on top of the screen */
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-
-    .box-info {
-      font-size: 12px;
-      font-style: italic !important;
-      margin-right: 6px;
-
-      p {
-        font-size: 12px;
-        color: #037ef3;
-        margin-bottom: 0;
-        font-style: unset;
-        white-space: nowrap;
-      }
+    z-index: 99999;
+    background-color: #000;
+    &.fadeOut {
+        display: none !important;
+    }
+    &.fadeIn {
+        display: flex !important;
     }
 
-    .box-close {
-      margin-right: 2%;
-      margin-left: 2%;
-      width: 2%;
-      font-size: 12px;
-      justify-content: end;
-    }
-
-    .box-href {
-      white-space: nowrap;
-      font-size: 14px;
-      text-align: center;
-      padding: 1px;
-      border-bottom: 1px solid #037ef3;
-
-      a {
-        margin: 0;
+    #snackbar {
+        /* Hidden by default. Visible on click */
+        width: 100%;
+        /* Set a default minimum width */
+        margin: auto;
+        /* Black background color */
         color: #fff;
-      }
-    }
+        /* White text color */
+        /* Centered text */
+        border-radius: 0.25rem;
+        /* Rounded borders */
+        padding: 5px 15px;
+        /* Padding */
+        position: relative;
+        /* Sit on top of the screen */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
 
-    .icon-close {
-      color: #fff;
-      cursor: pointer;
-      margin-top: 2px;
-      font-size: 20px;
-    }
+        .box-info {
+          font-size: 12px;
+          font-style: italic !important;
+          margin-right: 6px;
 
-    /* Add a z-index if needed */
-    &.show {
-      /* Show the snackbar */
-      /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+          p {
+          font-size: 12px;
+          color: #037ef3;
+          margin-bottom: 0;
+          font-style: unset;
+          white-space: nowrap;
+          }
+        }
+
+        .box-close {
+          margin-right: 2%;
+          margin-left: 2%;
+          width: 2%;
+          font-size: 12px;
+          justify-content: end;
+        }
+
+        .box-href {
+          white-space: nowrap;
+          font-size: 14px;
+          text-align: center;
+          padding: 1px;
+          border-bottom: 1px solid #037ef3;
+
+          a {
+            margin: 0;
+            color: #fff
+          }
+        }
+
+        .icon-close {
+          color: #fff;
+          cursor: pointer;
+          margin-top: 2px;
+          font-size: 20px;
+        }
+
+        /* Add a z-index if needed */
+        &.show {
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
       However, delay the fade out process for 2.5 seconds */
-      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
 
-    button {
-      margin-left: 20px;
-      padding: 5px 15px;
-      font-size: 12px;
-      line-height: 15px;
-    }
+        button {
+            margin-left: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            line-height: 15px;
+        }
 
-    a {
-      margin-left: 10px;
+        a {
+            margin-left: 10px;
+        }
     }
-  }
 }
 
 #content-snackbar {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-  &.fadeOut {
-    display: none !important;
-  }
-  &.fadeIn {
-    display: flex !important;
-  }
-
-  #snackbar {
-    /* Hidden by default. Visible on click */
-    min-width: 250px;
-    /* Set a default minimum width */
-    margin: auto;
-    background-color: #333;
-    /* Black background color */
-    color: #fff;
-    /* White text color */
-    text-align: center;
-    /* Centered text */
-    border-radius: 0.25rem;
-    /* Rounded borders */
-    padding: 5px 15px;
-    /* Padding */
-    position: relative;
-    /* Sit on top of the screen */
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    z-index: 99999;
+    &.fadeOut {
+        display: none !important;
+    }
+    &.fadeIn {
+        display: flex !important;
+    }
 
-    /* Add a z-index if needed */
-    &.show {
-      /* Show the snackbar */
-      /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    #snackbar {
+        /* Hidden by default. Visible on click */
+        min-width: 250px;
+        /* Set a default minimum width */
+        margin: auto;
+        background-color: #333;
+        /* Black background color */
+        color: #fff;
+        /* White text color */
+        text-align: center;
+        /* Centered text */
+        border-radius: 0.25rem;
+        /* Rounded borders */
+        padding: 5px 15px;
+        /* Padding */
+        position: relative;
+        /* Sit on top of the screen */
+        display: flex;
+        align-items: center;
+
+        /* Add a z-index if needed */
+        &.show {
+            /* Show the snackbar */
+            /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
       However, delay the fade out process for 2.5 seconds */
-      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
 
-    button {
-      margin-left: 20px;
-      padding: 5px 15px;
-      font-size: 12px;
-      line-height: 15px;
-    }
+        button {
+            margin-left: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            line-height: 15px;
+        }
 
-    a {
-      margin-left: 10px;
+        a {
+            margin-left: 10px;
+        }
     }
-  }
 }
 
 /* Animations to fade the snackbar in and out */
 @-webkit-keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
-  }
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+
+        opacity: 1;
+    }
 }
 
 @keyframes fadein {
-  from {
-    bottom: 0;
-    opacity: 0;
-  }
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
 
-  to {
-    opacity: 1;
-  }
+    to {
+        opacity: 1;
+    }
 }
 
 @-webkit-keyframes fadeout {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 @keyframes fadeout {
-  from {
-    opacity: 1;
-  }
+    from {
+        opacity: 1;
+    }
 
-  to {
-    bottom: 0;
-    opacity: 0;
-  }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 .show-message-mobile {
@@ -227,16 +228,16 @@
     font-size: 12px;
   }
 
-  #content-snackbar {
-    #snackbar {
-      display: block;
-      padding: 10px;
+    #content-snackbar {
+        #snackbar {
+            display: block;
+            padding: 10px;
 
-      button {
-        margin-top: 10px;
-      }
+            button {
+                margin-top: 10px;
+            }
+        }
     }
-  }
 }
 
 @media screen and (max-width: 400px) {
@@ -248,7 +249,7 @@
     display: none;
   }
 
-  #content-snackbar-top {
+  #content-snackbar-top{
     #snackbar {
       padding: 5px 5px;
 
@@ -264,14 +265,14 @@
     }
   }
 
-  #content-snackbar {
-    #snackbar {
-      display: block;
-      padding: 10px;
+    #content-snackbar {
+        #snackbar {
+            display: block;
+            padding: 10px;
 
-      button {
-        margin-top: 10px;
-      }
+            button {
+                margin-top: 10px;
+            }
+        }
     }
-  }
 }
