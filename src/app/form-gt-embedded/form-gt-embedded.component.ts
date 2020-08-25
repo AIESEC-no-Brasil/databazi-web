@@ -1,8 +1,14 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { SignupService } from "../services/signup.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from "@angular/forms";
 import * as moment from "moment";
 import { Message } from "primeng/components/common/api";
+import { MessageService } from "primeng/components/common/messageservice";
 import { TranslateService } from "../../../node_modules/@ngx-translate/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import * as _ from "lodash";
@@ -10,13 +16,16 @@ import * as $ from "jquery";
 
 import { map, startWith } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { AmplitudeService } from "../amplitude.service";
 
 @Component({
   selector: "app-form-gt",
-  templateUrl: "./form-gt-embedded.component.html",
-  styleUrls: ["./form-gt-embedded.component.scss"],
+  templateUrl: "./form-gt.component.html",
+  styleUrls: ["./form-gt.component.scss"],
 })
-export class FormGtEmbeddedComponent implements OnInit {
+export class FormGtComponent implements OnInit {
+  window: any = window;
+
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
 
@@ -28,16 +37,54 @@ export class FormGtEmbeddedComponent implements OnInit {
     password: "",
     repassword: "",
     local_committee: { id: "" },
+    college_course: { id: "", name: "" },
     cellphone_contactable: true,
     english_level: { id: "" },
-    college_course: { id: "" },
     experience: [],
     utm_source: "",
     utm_medium: "",
     utm_campaign: "",
     utm_term: "",
     utm_content: "",
+    programDuration: 0,
+    teachingExperience: 0,
   };
+
+  chosenDuration: any = 0;
+  chosenExperience: any = 0;
+
+  programDuration: any = [
+    {
+      id: "0",
+      name:
+        "6 a 8 semanas - Programa para quem está começando a carreira e quer ter uma experiência internacional!",
+      value: "0",
+    },
+    {
+      id: "1",
+      name:
+        "3 a 18 meses - Programa remunerado para quem tem experiência e quer um oportunidade no mercado internacional!",
+      value: "1",
+    },
+  ];
+
+  teachingExperience: any = [
+    {
+      id: "0",
+      name: "Ainda não",
+      value: "0",
+    },
+    {
+      id: "1",
+      name: "Sim, trabalho há 1 ano na área",
+      value: "1",
+    },
+    {
+      id: "2",
+      name: "Sim, trabalho há mais de 1 ano na área",
+      value: "2",
+    },
+  ];
 
   experienceItems = [
     { name: "Ensino de Línguas", value: "language" },
@@ -53,10 +100,13 @@ export class FormGtEmbeddedComponent implements OnInit {
     { id: "3", name: "Avançado" },
     { id: "4", name: "Fluente" },
   ];
+
   filteredCourses: Observable<any[]>;
   filteredEnglishLevelOptions: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
+
   placeholderBirthdate: string;
+
   selectedItems: any = {
     language: false,
     marketing: false,
@@ -67,6 +117,8 @@ export class FormGtEmbeddedComponent implements OnInit {
   msgs: Message[] = [];
 
   personalData: boolean = true;
+  studyData: boolean = false;
+
   invalidEmail: boolean = false;
   invalidPassword: boolean = false;
   invalidDate: boolean = false;
@@ -74,9 +126,13 @@ export class FormGtEmbeddedComponent implements OnInit {
   matchDate: boolean = true;
   loading: boolean = false;
   step1Form: FormGroup;
+  step2Form: FormGroup;
   submittedPersonal: boolean = false;
+  submittedStudy: boolean = false;
   completedSignup: boolean = false;
   modal: boolean = false;
+  embeddedForm: boolean = false;
+
   courses: any;
   places: any;
 
@@ -84,7 +140,8 @@ export class FormGtEmbeddedComponent implements OnInit {
     public signupService: SignupService,
     public translate: TranslateService,
     public router: Router,
-    public urlScrapper: ActivatedRoute
+    public urlScrapper: ActivatedRoute,
+    public amplitude: AmplitudeService
   ) {
     this.step1Form = new FormGroup({
       fullname: new FormControl(this.user.fullname, [Validators.required]),
@@ -107,10 +164,10 @@ export class FormGtEmbeddedComponent implements OnInit {
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required,
       ]),
-      english_level: new FormControl(this.user.english_level, [
+      local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required,
       ]),
-      local_committee_id: new FormControl(this.user.local_committee, [
+      english_level: new FormControl(this.user.english_level, [
         Validators.required,
       ]),
       cellphone_contactable: new FormControl(
@@ -120,7 +177,7 @@ export class FormGtEmbeddedComponent implements OnInit {
     });
     window.innerWidth > 600
       ? (this.placeholderBirthdate =
-          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+          "Os programas da AIESEC são para pessoas de 18 à 30 anos")
       : (this.placeholderBirthdate = "Data de Nascimento");
     this.detectKeypress();
   }
@@ -134,9 +191,11 @@ export class FormGtEmbeddedComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("oiee");
     if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
+      this.studyData = true;
     }
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
@@ -158,6 +217,10 @@ export class FormGtEmbeddedComponent implements OnInit {
 
       if (param["utm_content"]) {
         localStorage.setItem("utm_content", param["utm_content"]);
+      }
+
+      if (param["embedded"]) {
+        this.embeddedForm = true;
       }
     });
 
@@ -191,24 +254,54 @@ export class FormGtEmbeddedComponent implements OnInit {
   onResize(event) {
     event.target.innerWidth > 600
       ? (this.placeholderBirthdate =
-          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+          "Os programas da AIESEC são para pessoas de 18 à 30 anos")
       : (this.placeholderBirthdate = "Data de nascimento");
   }
 
   addOrRemove(experience) {
-    this.selectedItems[experience.value]
-      ? (this.selectedItems[experience.value] = false)
-      : (this.selectedItems[experience.value] = true);
+    if (this.embeddedForm) {
+      this.selectedItems[experience]
+        ? (this.selectedItems[experience] = false)
+        : (this.selectedItems[experience] = true);
+    } else {
+      this.selectedItems[experience.value]
+        ? (this.selectedItems[experience.value] = false)
+        : (this.selectedItems[experience.value] = true);
+    }
+  }
+
+  cancelSignUp(el: HTMLElement) {
+    this.amplitude.trackingClickCancelGt();
+    if (this.formedUser) {
+      this.onCancelEvent.emit();
+    } else {
+      if (this.submittedPersonal) {
+        this.submittedPersonal = false;
+        this.submittedStudy = false;
+        this.personalData = true;
+        this.studyData = false;
+        el.scrollIntoView();
+      } else {
+        this.router.navigate(["/"]);
+      }
+    }
   }
 
   accessAiesec() {
     window.open("https://aiesec.org/", "_blank");
   }
 
-  isValid(field) {
+  isValidPersonal(field) {
     return (
       !this.step1Form.controls[field].valid &&
       (this.step1Form.controls[field].dirty || this.submittedPersonal)
+    );
+  }
+
+  isValidStudy(field) {
+    return (
+      !this.step1Form.controls[field].valid &&
+      (this.step1Form.controls[field].dirty || this.submittedStudy)
     );
   }
 
@@ -248,7 +341,7 @@ export class FormGtEmbeddedComponent implements OnInit {
   }
 
   unableToSubmit() {
-    return this.emptyFields() || this.emptyCourse() || this.invalidPassword;
+    return this.emptyFields() || this.emptyCourse();
   }
 
   emptyFields() {
@@ -259,14 +352,10 @@ export class FormGtEmbeddedComponent implements OnInit {
   }
 
   emptyCourse() {
-    return !this.user.college_course.id;
-  }
-
-  checkPassword() {
-    if (this.user.password != this.user.repassword) {
-      this.invalidPassword = true;
+    if (this.user.college_course.id) {
+      return !this.user.college_course.id;
     } else {
-      this.invalidPassword = false;
+      return true;
     }
   }
 
@@ -320,8 +409,37 @@ export class FormGtEmbeddedComponent implements OnInit {
     }
   }
 
-  submit() {
+  checkPassword() {
+    if (this.user.repassword && this.user.password != this.user.repassword) {
+      this.invalidPassword = true;
+    } else {
+      this.invalidPassword = false;
+    }
+  }
+
+  registerUser(el: HTMLElement) {
     this.submittedPersonal = true;
+    this.checkPassword();
+    if (
+      this.user.fullname &&
+      this.user.cellphone &&
+      this.user.email &&
+      this.user.birthdate &&
+      !this.invalidPassword &&
+      !this.invalidPhone &&
+      this.matchDate &&
+      !this.isValidPersonal("password")
+    ) {
+      this.personalData = false;
+      this.studyData = true;
+      el.scrollIntoView();
+    }
+  }
+
+  submit(el: HTMLElement) {
+    this.submittedStudy = true;
+    this.amplitude.trackingCompletedSignupGt();
+
     let user = {
       gt_participant: {
         fullname: this.user.fullname,
@@ -352,13 +470,16 @@ export class FormGtEmbeddedComponent implements OnInit {
         utm_content: localStorage.getItem("utm_content")
           ? localStorage.getItem("utm_content")
           : null,
+        program_duration: Number(this.chosenDuration),
+        work_experience: Number(this.chosenExperience),
       },
     };
     this.loading = true;
+
     this.signupService.addGtParticipant(user).then(
       (res: any) => {
+        this.loading = false;
         if (res.status == "failure") {
-          this.loading = false;
           this.msgs = [];
           this.msgs.push({
             severity: "error",
@@ -366,16 +487,17 @@ export class FormGtEmbeddedComponent implements OnInit {
             detail: "Não foi possível salvar, tente novamente mais tarde.",
           });
         } else {
+          this.completedSignup = true;
           localStorage.removeItem("utm_source");
           localStorage.removeItem("utm_medium");
           localStorage.removeItem("utm_campaign");
           localStorage.removeItem("utm_term");
           localStorage.removeItem("utm_content");
+          el.scrollIntoView();
           this.router.navigate(["/talento-global/obrigado"]);
         }
       },
       (err) => {
-        this.loading = false;
         this.msgs = [];
         this.msgs.push({
           severity: "error",
@@ -403,6 +525,10 @@ export class FormGtEmbeddedComponent implements OnInit {
         });
       }
     );
+  }
+
+  display(option) {
+    return option ? option.name : undefined;
   }
 
   searchCourses(event) {
@@ -444,5 +570,15 @@ export class FormGtEmbeddedComponent implements OnInit {
 
   clearField(field) {
     this.user[field] = "";
+  }
+
+  onChangeDuration(value) {
+    this.chosenDuration = value;
+    console.log(value);
+  }
+
+  onChangeExperience(value) {
+    this.chosenExperience = value;
+    console.log(value);
   }
 }
