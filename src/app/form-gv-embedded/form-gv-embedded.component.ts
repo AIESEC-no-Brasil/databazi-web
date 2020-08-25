@@ -1,39 +1,38 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { SignupService } from '../services/signup.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import * as moment from 'moment';
-import { Message } from 'primeng/components/common/api';
-import { TranslateService } from '../../../node_modules/@ngx-translate/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import * as _ from 'lodash';
-import { Observable } from 'rxjs';
-import * as $ from 'jquery';
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
+import { SignupService } from "../services/signup.service";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import * as moment from "moment";
+import { Message } from "primeng/components/common/api";
+import { TranslateService } from "../../../node_modules/@ngx-translate/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import * as _ from "lodash";
+import { Observable } from "rxjs";
+import * as $ from "jquery";
 
 @Component({
-  selector: 'app-form-gv',
-  templateUrl: './form-gv-embedded.component.html',
-  styleUrls: ['./form-gv-embedded.component.scss']
+  selector: "app-form-gv",
+  templateUrl: "./form-gv-embedded.component.html",
+  styleUrls: ["./form-gv-embedded.component.scss"],
 })
 export class FormGvEmbeddedComponent implements OnInit {
-
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
 
   user = {
-    fullname: '',
-    cellphone: '',
-    email: '',
-    birthdate: '',
-    password: '',
-    repassword: '',
+    fullname: "",
+    cellphone: "",
+    email: "",
+    birthdate: "",
+    password: "",
+    repassword: "",
     local_committee: { id: 1 },
     cellphone_contactable: true,
-    utm_source: '',
-    utm_medium: '',
-    utm_campaign: '',
-    utm_term: '',
-    utm_content: ''
-  }
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  };
   msgs: Message[] = [];
   filteredPlaces: Observable<any[]>;
   placeholderBirthdate: string;
@@ -58,65 +57,67 @@ export class FormGvEmbeddedComponent implements OnInit {
     public urlScrapper: ActivatedRoute
   ) {
     this.step1Form = new FormGroup({
-      fullname: new FormControl(this.user.fullname, [
-        Validators.required
-      ]),
-      cellphone: new FormControl(this.user.cellphone, [
-        Validators.required
-      ]),
+      fullname: new FormControl(this.user.fullname, [Validators.required]),
+      cellphone: new FormControl(this.user.cellphone, [Validators.required]),
       email: new FormControl(this.user.email, [
         Validators.required,
-        Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        Validators.pattern(
+          /^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        ),
       ]),
-      birthdate: new FormControl(this.user.birthdate, [
-        Validators.required
-      ]),
+      birthdate: new FormControl(this.user.birthdate, [Validators.required]),
       password: new FormControl(this.user.password, [
         Validators.required,
-        Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
+        Validators.pattern("^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$"),
       ]),
       repassword: new FormControl(this.user.repassword, [
         Validators.required,
-        Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
+        Validators.pattern("^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$"),
       ]),
       local_committee_id: new FormControl(this.user.local_committee, [
-        Validators.required
+        Validators.required,
       ]),
-      cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
+      cellphone_contactable: new FormControl(
+        this.user.cellphone_contactable,
+        []
+      ),
     });
     this.detectKeypress();
   }
 
-  detectKeypress(){
+  detectKeypress() {
     $(document).keyup((event) => {
-      if (this.modal && event.keyCode == 27){
+      if (this.modal && event.keyCode == 27) {
         this.closeModal();
       }
-    })
+    });
   }
 
   ngOnInit() {
-    window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
+    window.innerWidth > 600
+      ? (this.placeholderBirthdate =
+          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+      : (this.placeholderBirthdate = "Data de Nascimento");
 
     this.urlScrapper.queryParams.subscribe((param: any) => {
-      if (param['utm_source']) {
-        localStorage.setItem('utm_source', param['utm_source'])
+      if (param["utm_source"]) {
+        localStorage.setItem("utm_source", param["utm_source"]);
       }
 
-      if (param['utm_medium']) {
-        localStorage.setItem('utm_medium', param['utm_medium'])
+      if (param["utm_medium"]) {
+        localStorage.setItem("utm_medium", param["utm_medium"]);
       }
 
-      if (param['utm_campaign']) {
-        localStorage.setItem('utm_campaign', param['utm_campaign'])
+      if (param["utm_campaign"]) {
+        localStorage.setItem("utm_campaign", param["utm_campaign"]);
       }
 
-      if (param['utm_term']) {
-        localStorage.setItem('utm_term', param['utm_term'])
+      if (param["utm_term"]) {
+        localStorage.setItem("utm_term", param["utm_term"]);
       }
 
-      if (param['utm_content']) {
-        localStorage.setItem('utm_content', param['utm_content'])
+      if (param["utm_content"]) {
+        localStorage.setItem("utm_content", param["utm_content"]);
       }
     });
 
@@ -125,38 +126,47 @@ export class FormGvEmbeddedComponent implements OnInit {
     });
   }
 
-  openModal(){
+  openModal() {
     this.modal = true;
     this.toggleOverflowHtml();
   }
 
-  closeModal(){
+  closeModal() {
     this.modal = false;
     this.toggleOverflowHtml();
   }
 
-  toggleOverflowHtml(){
-    this.modal ? $('html').css('overflow', 'hidden') : $('html').css('overflow', 'auto');
+  toggleOverflowHtml() {
+    this.modal
+      ? $("html").css("overflow", "hidden")
+      : $("html").css("overflow", "auto");
   }
   searchPlaces(event) {
     this.filteredPlaces = this._search(this.places, event.query);
-  };
+  }
 
   _search(options, search) {
     return _.filter(options, (option) => {
-      return option.name.toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, "")
-        .indexOf(
-          search.toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, "")
-        ) > -1;
+      return (
+        option.name
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .indexOf(
+            search
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          ) > -1
+      );
     });
-  };
+  }
 
   onResize(event) {
-    (event.target.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de nascimento");
+    event.target.innerWidth > 600
+      ? (this.placeholderBirthdate =
+          "Os programas da AIESEC são para pessoas de 18 a 30 anos")
+      : (this.placeholderBirthdate = "Data de nascimento");
   }
 
   accessAiesec() {
@@ -164,47 +174,73 @@ export class FormGvEmbeddedComponent implements OnInit {
   }
 
   isValid(field) {
-    return !this.step1Form.controls[field].valid && (this.step1Form.controls[field].dirty || this.submittedPersonal)
+    return (
+      !this.step1Form.controls[field].valid &&
+      (this.step1Form.controls[field].dirty || this.submittedPersonal)
+    );
   }
 
   fillPlacesSelect() {
-    return this.signupService.getLocalCommittees().then((res: any) => {
-      let orderedList = _.orderBy(res, ['name'], ['asc']);
-      this.places = orderedList;
-    }, (err) => {
-      this.msgs = [];
-      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
-    })
+    return this.signupService.getLocalCommittees().then(
+      (res: any) => {
+        let orderedList = _.orderBy(res, ["name"], ["asc"]);
+        this.places = orderedList;
+      },
+      (err) => {
+        this.msgs = [];
+        this.msgs.push({
+          severity: "error",
+          summary: "FALHA EM RECUPERAR DADOS!",
+          detail: "Não foi possível recuperar os dados das AIESEC disponíveis.",
+        });
+      }
+    );
   }
 
   unableToSubmit() {
-    return this.emptyFields()
+    return this.emptyFields();
   }
 
   emptyFields() {
-    return !this.user.fullname || !this.user.cellphone || !this.user.email || !this.user.birthdate || this.invalidPassword || !(this.user.local_committee && !!this.user.local_committee.id);
+    return (
+      !this.user.fullname ||
+      !this.user.cellphone ||
+      !this.user.email ||
+      !this.user.birthdate ||
+      this.invalidPassword ||
+      !(this.user.local_committee && !!this.user.local_committee.id)
+    );
   }
 
   checkDate() {
-    let date = moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY').split('/');
-    if ((+date[0] > 0 && +date[0] <= 31) && (+date[1] > 0 && +date[1] <= 12) && (+date[2] > 1900 && +date[2] < moment().year())) {
+    let date = moment(this.user.birthdate, "DDMMYYYY")
+      .format("DD/MM/YYYY")
+      .split("/");
+    if (
+      +date[0] > 0 &&
+      +date[0] <= 31 &&
+      +date[1] > 0 &&
+      +date[1] <= 12 &&
+      +date[2] > 1900 &&
+      +date[2] < moment().year()
+    ) {
       this.invalidDate = false;
-      let date = moment(this.user.birthdate, 'DD/MM/YYYY').format('YYYY-MM-DD');
-      let age = moment().diff(date, 'years', false);
-      (age >= 18 && age <= 30) ? this.matchDate = true : this.matchDate = false
-    }
-    else {
+      let date = moment(this.user.birthdate, "DD/MM/YYYY").format("YYYY-MM-DD");
+      let age = moment().diff(date, "years", false);
+      age >= 18 && age <= 30
+        ? (this.matchDate = true)
+        : (this.matchDate = false);
+    } else {
       this.invalidDate = true;
     }
   }
 
   checkPhone() {
-    let cellphone = this.user.cellphone.replace(/[()_-]/g, '');
+    let cellphone = this.user.cellphone.replace(/[()_-]/g, "");
     if (cellphone.length < 10) {
       this.invalidPhone = true;
       return;
-    }
-    else {
+    } else {
       this.invalidPhone = false;
     }
   }
@@ -213,61 +249,86 @@ export class FormGvEmbeddedComponent implements OnInit {
     let user = {
       gv_participant: {
         fullname: this.user.fullname,
-        cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
+        cellphone: this.user.cellphone.replace(/[()_-]/g, ""),
         email: this.user.email,
         password: this.user.password,
-        birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
+        birthdate: moment(this.user.birthdate, "DDMMYYYY").format("DD/MM/YYYY"),
         local_committee_id: +this.user.local_committee.id,
-        cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
-      }
+        cellphone_contactable: this.user.cellphone_contactable ? true : false,
+        utm_source: localStorage.getItem("utm_source")
+          ? localStorage.getItem("utm_source")
+          : null,
+        utm_medium: localStorage.getItem("utm_medium")
+          ? localStorage.getItem("utm_medium")
+          : null,
+        utm_campaign: localStorage.getItem("utm_campaign")
+          ? localStorage.getItem("utm_campaign")
+          : null,
+        utm_term: localStorage.getItem("utm_term")
+          ? localStorage.getItem("utm_term")
+          : null,
+        utm_content: localStorage.getItem("utm_content")
+          ? localStorage.getItem("utm_content")
+          : null,
+      },
     };
     this.loading = true;
-    this.signupService.addGvParticipant(user)
-      .then((res: any) => {
-        if (res.status == 'failure') {
+    this.signupService.addGvParticipant(user).then(
+      (res: any) => {
+        if (res.status == "failure") {
           this.loading = false;
           this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'FALHA AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-        }
-        else {
-          localStorage.removeItem('utm_source');
-          localStorage.removeItem('utm_medium');
-          localStorage.removeItem('utm_campaign');
-          localStorage.removeItem('utm_term');
-          localStorage.removeItem('utm_content');
-          this.router.navigate(['/voluntario-global/obrigado']);
+          this.msgs.push({
+            severity: "error",
+            summary: "FALHA AO SALVAR!",
+            detail: "Não foi possível salvar, tente novamente mais tarde.",
+          });
+        } else {
+          localStorage.removeItem("utm_source");
+          localStorage.removeItem("utm_medium");
+          localStorage.removeItem("utm_campaign");
+          localStorage.removeItem("utm_term");
+          localStorage.removeItem("utm_content");
+          this.router.navigate(["/voluntario-global/obrigado"]);
         }
       },
-        (err) => {
-          this.loading = false;
-          this.msgs = [];
-          this.msgs.push({ severity: 'error', summary: 'ERRO AO SALVAR!', detail: 'Não foi possível salvar, tente novamente mais tarde.' });
-          this.loading = false;
-        }
-      )
+      (err) => {
+        this.loading = false;
+        this.msgs = [];
+        this.msgs.push({
+          severity: "error",
+          summary: "ERRO AO SALVAR!",
+          detail: "Não foi possível salvar, tente novamente mais tarde.",
+        });
+        this.loading = false;
+      }
+    );
   }
 
   checkEmail() {
-    this.signupService.checkValidEmail(this.user.email)
-      .then((res: any) => {
-        res.email_exists ? this.invalidEmail = true : this.invalidEmail = false;
-      }, (err) => {
+    this.signupService.checkValidEmail(this.user.email).then(
+      (res: any) => {
+        res.email_exists
+          ? (this.invalidEmail = true)
+          : (this.invalidEmail = false);
+      },
+      (err) => {
         this.msgs = [];
-        this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar dados deste email.' });
-      })
+        this.msgs.push({
+          severity: "error",
+          summary: "FALHA EM RECUPERAR DADOS!",
+          detail: "Não foi possível recuperar dados deste email.",
+        });
+      }
+    );
   }
 
   selectInput(element) {
-    $('.form-group').css('z-index', '-1');
-    $('.' + element).css('z-index', '10');
+    $(".form-group").css("z-index", "-1");
+    $("." + element).css("z-index", "10");
   }
 
   clearField(field) {
-    this.user[field] = '';
+    this.user[field] = "";
   }
 }
