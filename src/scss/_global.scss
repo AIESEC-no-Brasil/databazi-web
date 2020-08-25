@@ -1,25 +1,25 @@
 // File unyfing the stylization of the project.
 // imports
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import '~animate.css/animate.min.css';
-// reset 
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~animate.css/animate.min.css";
+// reset
 * {
-    font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
 }
 
 // colors
 $default: #037ef3;
 $primary-gv: #ef4231;
 $primary-ge: #41bb9b;
-$primary-gt: #0b8ea0;
+$primary-gt: #f48924;
 $white: #fff;
 $highlight: #fcb215;
 $primary-host: #f1c40f;
@@ -28,283 +28,285 @@ h1,
 h2,
 h3,
 p {
-    color: #555;
-    margin: 5px 0;
-    &.color-white {
-        color: #fff;
-    }
-    &.bold {
-        font-weight: 700;
-    }
-    &.semibold {
-        font-weight: 600;
-    }
-    &.lighter {
-        font-weight: 400;
-    }
-    &.italic {
-        font-style: italic;
-    }
-    &.centered {
-        text-align: center;
-    }
-    &.uppercase {
-        text-transform: uppercase
-    }
-    &.highlight {
-        font-size: 1.3rem;
-    }
-    &.line-height-lower {
-        line-height: 20px
-    }
-    &.darker {
-        color: #333;
-    }
-    &.brighter {
-        color: #888;
-    }
-    &.lower {
-        font-size: .85rem;
-    }
-    *.bigger {
-        font-size: 1.15rem;
-    }
+  color: #555;
+  margin: 5px 0;
+  &.color-white {
+    color: #fff;
+  }
+  &.bold {
+    font-weight: 700;
+  }
+  &.semibold {
+    font-weight: 600;
+  }
+  &.lighter {
+    font-weight: 400;
+  }
+  &.italic {
+    font-style: italic;
+  }
+  &.centered {
+    text-align: center;
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.highlight {
+    font-size: 1.3rem;
+  }
+  &.line-height-lower {
+    line-height: 20px;
+  }
+  &.darker {
+    color: #333;
+  }
+  &.brighter {
+    color: #888;
+  }
+  &.lower {
+    font-size: 0.85rem;
+  }
+  *.bigger {
+    font-size: 1.15rem;
+  }
 }
 
 .product-info h1 {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 h1 {
-    font-size: 30px;
-    &.intro {
-        font-size:25px;
-    }
+  font-size: 30px;
+  &.intro {
+    font-size: 25px;
+  }
 }
 
 h2 {
-    font-size: 25px;
-    &.intro {
-        font-size: 20px;
-    }
+  font-size: 25px;
+  &.intro {
+    font-size: 20px;
+  }
 }
 
 h3 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 p {
-    color: #6d6d6d;
-    font-size: 16px;
+  color: #6d6d6d;
+  font-size: 16px;
 }
 
 // buttons
 button {
-    min-width: 80px;
-    text-align: center;
-    padding: 10px 25px;
-    cursor: pointer;
-    transition: .2s;
-    &.border-radius {
-        border-radius: 5px;
+  min-width: 80px;
+  text-align: center;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: 0.2s;
+  &.border-radius {
+    border-radius: 5px;
+  }
+  &.border {
+    &.border-white {
+      border: 3px solid #fff;
     }
-    &.border {
-        &.border-white {
-            border: 3px solid #fff;
-        }
+  }
+  &.bold {
+    font-weight: 600;
+  }
+  &:hover {
+    transform: scale(1.025);
+  }
+  &.centered {
+    display: block;
+    margin: auto;
+  }
+  &.without-border {
+    border: 0;
+  }
+  &.without-background {
+    background-color: transparent;
+    &.color-white {
+      color: #fff;
     }
-    &.bold {
-        font-weight: 600;
+  }
+  &.with-background {
+    color: #fff;
+    &.default {
+      background-color: $default;
     }
-    &:hover {
-        transform: scale(1.025);
+    &.gv {
+      background-color: $primary-gv;
     }
-    &.centered {
-        display: block;
-        margin: auto;
+    &.ge {
+      background-color: $primary-ge;
     }
-    &.without-border {
-        border: 0;
+    &.gt {
+      background-color: $primary-gt;
     }
-    &.without-background {
-        background-color: transparent;
-        &.color-white {
-            color: #fff;
-        }
+    &.host {
+      background-color: $primary-host;
     }
-    &.with-background {
-        color: #fff;
-        &.default {
-            background-color: $default;
-        }
-        &.gv {
-            background-color: $primary-gv;
-        }
-        &.ge {
-            background-color: $primary-ge;
-        }
-        &.gt {
-            background-color: $primary-gt;
-        }
-        &.host{
-            background-color: $primary-host
-        }
+  }
+  &.background-white {
+    background-color: #fff;
+    &.gv {
+      color: $primary-gv;
     }
-    &.background-white {
-        background-color: #fff;
-        &.gv {
-            color: $primary-gv;
-        }
-        &.ge {
-            color: $primary-ge;
-        }
-        &.gt {
-            color: $primary-gt;
-        }
-        &.default {
-            color: $default;
-        }
-        &.host{
-            background: $primary-host
-        }
+    &.ge {
+      color: $primary-ge;
     }
-    &.uppercase {
-        text-transform: uppercase;
+    &.gt {
+      color: $primary-gt;
     }
-    &.margin{
-        margin: 10px 0;
+    &.default {
+      color: $default;
     }
+    &.host {
+      background: $primary-host;
+    }
+  }
+  &.uppercase {
+    text-transform: uppercase;
+  }
+  &.margin {
+    margin: 10px 0;
+  }
 }
 
 // structure
 .round {
-    border-radius: 50%;
-    background-color: $default;
-    &.circle {
-        width: 75px;
-        height: 75px;
-        &.lower {
-            transform: scale(.75);
-        }
+  border-radius: 50%;
+  background-color: $default;
+  &.circle {
+    width: 75px;
+    height: 75px;
+    &.lower {
+      transform: scale(0.75);
     }
-    &.icon {
-        background-size: 40%;
-        background-repeat: no-repeat;
-        background-position: center center;
+  }
+  &.icon {
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &.without-background {
+    background-color: transparent;
+  }
+  &.with-border {
+    border: 3px solid transparent;
+    &.default {
+      border-color: $default;
     }
-    &.without-background {
-        background-color: transparent;
+    &.gv {
+      border-color: $primary-gv;
     }
-    &.with-border {
-        border: 3px solid transparent;
-        &.default {
-            border-color: $default;
-        }
-        &.gv {
-            border-color: $primary-gv;
-        }
-        &.gt {
-            border-color: $primary-gt;
-        }
-        &.ge {
-            border-color: $primary-ge;
-        }
+    &.gt {
+      border-color: $primary-gt;
     }
+    &.ge {
+      border-color: $primary-ge;
+    }
+  }
 }
 
 .background-default {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 div {
-    &.centered {
-        text-align: center;
-        margin: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
+  &.centered {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 // sections
-section, footer, div {
-    &.margin-top-and-bottom {
-        margin: 75px 0 !important;
+section,
+footer,
+div {
+  &.margin-top-and-bottom {
+    margin: 75px 0 !important;
+  }
+  &.padding-top-and-bottom {
+    padding: 0 0 75px 0 !important;
+  }
+  &.margin-top-and-bottom-host {
+    margin: 35px 0 !important;
+  }
+  &.padding-top-and-bottom-host {
+    padding: 35px 0 !important;
+  }
+  &.with-background {
+    h1,
+    h2,
+    h3,
+    p {
+      color: #fff !important;
     }
-    &.padding-top-and-bottom {
-        padding: 0 0 75px 0 !important
+    &.default {
+      background-color: $default;
     }
-    &.margin-top-and-bottom-host {
-        margin: 35px 0 !important;
+    &.gv {
+      background-color: $primary-gv;
     }
-    &.padding-top-and-bottom-host {
-        padding: 35px 0 !important
+    &.ge {
+      background-color: $primary-ge;
     }
-    &.with-background {
-        h1,
-        h2,
-        h3,
-        p {
-            color: #fff !important;
-        }
-        &.default {
-            background-color: $default;
-        }
-        &.gv {
-            background-color: $primary-gv;
-        }
-        &.ge {
-            background-color: $primary-ge
-        }
-        &.gt {
-            background-color: $primary-gt;
-        }
-        &.default {
-            background-color: $default;
-        }
-        &.host {
-            background-color: $primary-host;
-        }
+    &.gt {
+      background-color: $primary-gt;
     }
+    &.default {
+      background-color: $default;
+    }
+    &.host {
+      background-color: $primary-host;
+    }
+  }
 }
 
 //gotoTop
 .goToTop {
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $default;
-    color: $white;
-    border-radius: 50%;
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    cursor: pointer;
-    transition: .3s;
-    z-index: 1000;
-    &:hover {
-        transform: scale(1.05);
-    }
-    .fas {
-        margin-top: 5px;
-    }
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $default;
+  color: $white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 1000;
+  &:hover {
+    transform: scale(1.05);
+  }
+  .fas {
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 990px) {
-    h1 {
-        &.intro {
-            font-size:5vw;
-        }
+  h1 {
+    &.intro {
+      font-size: 5vw;
     }
-    
-    h2 {
-        &.intro {
-            font-size: 4vw;
-        }
+  }
+
+  h2 {
+    &.intro {
+      font-size: 4vw;
     }
+  }
 }
