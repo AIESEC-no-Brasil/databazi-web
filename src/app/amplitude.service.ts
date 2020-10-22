@@ -195,6 +195,40 @@ export class AmplitudeService {
     this.trackingEvent('Page GT: Fale com um representante');
   }
 
+  //    - Form GE
+
+  trackingClickCancelGp() {
+    this.trackingEvent('Cadastro Cancelado: Professor Global');
+  }
+
+  trackingCompletedSignupGp() {
+    this.trackingEvent('Cadastro completo: Voluntario Professor');
+  }
+
+  trackingSignupThankYouHomeGp() {
+    this.trackingEvent('Obrigado GP: Home');
+  }
+
+  trackingSignupThankYouAiesecGp() {
+    this.trackingEvent('Obrigado GP: AIESEC');
+  }
+
+  trackingSignupThankYouBlogGp() {
+    this.trackingEvent('Obrigado GP: Blog');
+  }
+
+  trackingClickInscrevaGp() {
+    this.trackingEvent('Page GP: Inscreva-se');
+  }
+
+  trackingClickFlConoscoGp() {
+    this.trackingEvent('Page GP: Fale Conosco');
+  }
+
+  trackingClickFlrepresentativesGp() {
+    this.trackingEvent('Page GP: Fale com um representante');
+  }
+
   //    - Form Host
 
   trackingCompletedSignupHost() {

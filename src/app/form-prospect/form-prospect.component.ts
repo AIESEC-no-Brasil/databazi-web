@@ -30,6 +30,7 @@ export class FormProspectComponent implements OnInit {
     email: '',
     local_committee: { id: '' },
     program: '',
+    duration: '',
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
     utm_source: '',
@@ -86,6 +87,8 @@ export class FormProspectComponent implements OnInit {
       email: new FormControl(this.user.email, [
         Validators.required,
         Validators.pattern(/^(([^*?<>().,;:\s@]+(\.[^*?<>().,;:\s@]+)*))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+      ]),
+      duration: new FormControl(this.user.duration, [
       ]),
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
@@ -268,6 +271,7 @@ export class FormProspectComponent implements OnInit {
       email: '',
       local_committee: { id: '' },
       program: '',
+      duration: '', 
       college_course: { id: '', name: '' },
       cellphone_contactable: true,
       utm_source: '',
@@ -296,8 +300,8 @@ export class FormProspectComponent implements OnInit {
         property = 'gt_participant';
         break;
       case '2':
-        method = 'addGeParticipant';
-        property = 'ge_participant';
+        method = 'addGpParticipant';
+        property = 'gp_participant';
         break;
     }
 
@@ -306,6 +310,7 @@ export class FormProspectComponent implements OnInit {
       fullname: this.user.fullname,
       cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
       email: this.user.email,
+      duration: this.user.duration,
       local_committee_id: +this.user.local_committee.id,
       college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
       cellphone_contactable: true,
@@ -317,7 +322,6 @@ export class FormProspectComponent implements OnInit {
     }
 
     this.loading = true;
-
     this.signupService[method](user, true)
       .then((res: any) => {
         this.loading = false;
@@ -335,7 +339,7 @@ export class FormProspectComponent implements OnInit {
               this.amplitude.trackingCompletedSignupGt();
               break;
             case '2':
-              this.amplitude.trackingCompletedSignupGe();
+              this.amplitude.trackingClickCancelGp();
               break;
           }
 
