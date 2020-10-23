@@ -36,6 +36,8 @@ export class FormGtComponent implements OnInit {
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
     english_level: { id: '' },
+    area: '', 
+    educational_experience_id: '',
     experience: [],
     utm_source: '',
     utm_medium: '',
@@ -44,11 +46,26 @@ export class FormGtComponent implements OnInit {
     utm_content: ''
   }
 
-  experienceItems = [
+  experienceItems: any = [
     { name: 'Ensino de Línguas', value: 'language' },
     { name: 'Marketing', value: 'marketing' },
     { name: 'Tecnologia da Informação', value: 'information_technology' },
     { name: 'Gestão', value: 'management' },
+  ];
+
+  areas: any = [
+    { name: 'Não tenho', value: '' },
+    { name: 'Marketing', value: 'marketing' },
+    { name: 'Tecnologia da Informação', value: 'information_technology' },
+    { name: 'Gestão', value: 'management' },
+    { name: 'Engenharia', value: 'engineering'},
+    { name: 'Finanças', value: 'finance'}
+  ];
+  
+  educationalExperienceItems: any = [
+    { id: '0', name: 'Não tenho' },
+    { id: '1', name: 'Sim, menos de 1 ano na área' },
+    { id: '2', name: 'Sim, mais de 1 ano na área' },
   ];
 
   englishLevelOptions: any = [
@@ -126,12 +143,15 @@ export class FormGtComponent implements OnInit {
       college_course_id: new FormControl(this.user.college_course, [
         Validators.required
       ]),
+
       local_committee_id: new FormControl(this.user.local_committee, [
         Validators.required
       ]),
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
+      educational_experience_id: new FormControl(this.user.educational_experience_id),
+      area: new FormControl(this.user.area),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
@@ -359,6 +379,8 @@ export class FormGtComponent implements OnInit {
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
+        area: this.user.area,
+        educational_experience_id: +this.user.educational_experience_id,
         experience: this.selectedItems,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),

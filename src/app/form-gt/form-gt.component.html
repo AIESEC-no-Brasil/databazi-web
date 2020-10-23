@@ -257,6 +257,55 @@
                       Selecione um nível de inglês.
                     </div>
                   </div>
+                  <div class="form-group area">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Área de Atuação</div>
+                      </div>
+                      <div class="dropdown desktop">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.area" formControlName="area" name="area" dir="rtl">
+                            <option *ngFor="let area of areas" value="{{area.value}}">{{area.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <i class="fas mobile mobile-icon">A</i>
+                      <div class="dropdown mobile">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.area" formControlName="area" name="area">
+                            <option *ngFor="let area of areas" value="{{area.value}}">{{area.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group educational_experience">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Você já tem experiência na área de educação?
+                        </div>
+                      </div>
+                      <div class="dropdown desktop">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.educational_experience_id" formControlName="educational_experience_id" name="educational_experience_id" dir="rtl">
+                            <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <i class="fas mobile mobile-icon">A</i>
+                      <div class="dropdown mobile">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.educational_experience_id" formControlName="educational_experience_id" name="educational_experience_id" dir="rtl">
+                            <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="form-group experiences-input">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
