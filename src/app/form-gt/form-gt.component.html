@@ -257,6 +257,33 @@
                       Selecione um nível de inglês.
                     </div>
                   </div>
+                  <div class="form-group program_duration">
+                    <div class="input-group select-dropdown">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fas fa-book-open"></i>Duração do projeto?
+                        </div>
+                      </div>
+                      <div class="dropdown desktop">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.program_duration" formControlName="program_duration" name="program_duration" >
+                            <option value="0">6 a 8 semanas - Programa para quem está começando a carreira e quer ter uma experiência internacional!</option>
+                            <option value="1">3 a 18 meses - Programa remunerado para quem tem experiência e quer uma oportunidade no mercado internacional!</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <i class="fas mobile mobile-icon">A</i>
+                      <div class="dropdown mobile">
+                        <div class="styled-select">
+                          <select [(ngModel)]="user.program_duration" formControlName="program_duration" name="program_duration" >
+                            <option value="0">Duração de 6 a 8 semanas - Programa para quem está começando a carreira e quer ter uma experiência internacional!</option>
+                            <option value="1">Duração de 3 a 18 meses - Programa remunerado para quem tem experiência e quer uma oportunidade no mercado internacional!</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="form-group area">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
@@ -306,7 +333,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group experiences-input">
+                  <!-- <div class="form-group experiences-input">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -335,7 +362,7 @@
                         </label>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   
                   <div class="row justify-content-center forms-term autocomplete-negative-index2">
                       <div class="col-sm-12">

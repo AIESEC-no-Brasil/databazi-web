@@ -37,7 +37,8 @@ export class FormGtComponent implements OnInit {
     cellphone_contactable: true,
     english_level: { id: '' },
     area: '', 
-    educational_experience_id: '',
+    educational_experience_id: '0',
+    program_duration: 0,
     experience: [],
     utm_source: '',
     utm_medium: '',
@@ -152,6 +153,7 @@ export class FormGtComponent implements OnInit {
       ]),
       educational_experience_id: new FormControl(this.user.educational_experience_id),
       area: new FormControl(this.user.area),
+      program_duration: new FormControl(this.user.program_duration),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
@@ -381,6 +383,7 @@ export class FormGtComponent implements OnInit {
         english_level: +this.user.english_level.id,
         area: this.user.area,
         educational_experience_id: +this.user.educational_experience_id,
+        program_duration: +this.user.program_duration,
         experience: this.selectedItems,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
         utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
