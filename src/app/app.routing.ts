@@ -34,7 +34,7 @@ export const router : Routes = [
     },
     {
         path: 'formulario-talento-global',
-        loadChildren: './form-gt/form-gt.module#FormGtModule'
+        loadChildren: './form-gp/form-gp.module#FormGpModule'
     },
     {
         path: 'formulario-empreendedor-global',
