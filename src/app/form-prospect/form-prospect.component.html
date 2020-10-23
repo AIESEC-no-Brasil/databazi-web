@@ -66,7 +66,7 @@
                             <option value="">Qual programa deseja ingressar</option>
                             <option value="0">Voluntário Global</option>
                             <option value="1">Talento Global</option>
-                            <option value="2">Empreendedor Global</option>
+                            <option value="2">Professor Global</option>
                           </select>
                         </div>
                       </div>
@@ -78,7 +78,7 @@
                             <option value="">Programa</option>
                             <option value="0">Voluntário Global</option>
                             <option value="1">Talento Global</option>
-                            <option value="2">Empreendedor Global</option>
+                            <option value="2">Professor Global</option>
                           </select>
                         </div>
                       </div>
@@ -182,6 +182,37 @@
                       Selecione a AIESEC mais próxima.
                     </div>
                   </div>
+                  <div class="animated fadeIn faster">
+                    <div class="form-group duration">
+                      <div class="input-group select-dropdown">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <i class="fas fa-book-open"></i>Se o produto for GTa ou GTe, qual o tempo de duração?</div>
+                        </div>
+                        <div class="dropdown desktop">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.duration" formControlName="duration" name="duration" dir="rtl">
+                              <option value=""></option>
+                              <option value="0">Duração de 6 a 8 semanas</option>
+                              <option value="1">Duração de 3 a 18 meses</option>
+                            </select>
+                          </div>
+                        </div>
+  
+                        <i class="fas mobile mobile-icon">A</i>
+                        <div class="dropdown mobile">
+                          <div class="styled-select">
+                            <select [(ngModel)]="user.duration" formControlName="duration" name="duration">
+                              <option value=""></option>
+                              <option value="0">Duração de 6 a 8 semanas</option>
+                              <option value="1">Duração de 3 a 18 meses</option>
+                            </select>
+                          </div>
+                        </div>
+  
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="animated fadeIn" *ngIf="studyData && !completedSignup">
@@ -232,6 +263,8 @@
                       </div>
                     </div>
                   </div>
+
+
 
                   <!-- Terms -->
                   <div class="row justify-content-center forms-term autocomplete-negative-index2">
