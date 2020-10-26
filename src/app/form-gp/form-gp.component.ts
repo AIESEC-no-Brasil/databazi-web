@@ -26,12 +26,12 @@ export class FormGpComponent implements OnInit {
   @Output() onCancelEvent = new EventEmitter<boolean>();
 
   user = {
-    fullname: 'asdasd',
+    fullname: '',
     cellphone: '',
-    email: 'asdcd@asd.com',
+    email: '',
     birthdate: '',
-    password: 'Victor2112',
-    repassword: 'Victor2112',
+    password: '',
+    repassword: '',
     local_committee: { id: '' },
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
