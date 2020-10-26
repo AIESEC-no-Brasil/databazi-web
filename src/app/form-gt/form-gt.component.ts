@@ -37,7 +37,7 @@ export class FormGtComponent implements OnInit {
     cellphone_contactable: true,
     english_level: { id: '' },
     area: '', 
-    educational_experience_id: '0',
+    work_experience_id: '0',
     program_duration: 0,
     experience: [],
     utm_source: '',
@@ -151,7 +151,7 @@ export class FormGtComponent implements OnInit {
       english_level: new FormControl(this.user.english_level, [
         Validators.required
       ]),
-      educational_experience_id: new FormControl(this.user.educational_experience_id),
+      work_experience_id: new FormControl(this.user.work_experience_id),
       area: new FormControl(this.user.area),
       program_duration: new FormControl(this.user.program_duration),
       cellphone_contactable: new FormControl(this.user.cellphone_contactable, [])
@@ -382,7 +382,7 @@ export class FormGtComponent implements OnInit {
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
         english_level: +this.user.english_level.id,
         area: this.user.area,
-        educational_experience_id: +this.user.educational_experience_id,
+        work_experience: +this.user.work_experience_id,
         program_duration: +this.user.program_duration,
         experience: this.selectedItems,
         utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),

@@ -308,7 +308,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group educational_experience">
+                  <div class="form-group work_experience">
                     <div class="input-group select-dropdown">
                       <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -317,7 +317,7 @@
                       </div>
                       <div class="dropdown desktop">
                         <div class="styled-select">
-                          <select [(ngModel)]="user.educational_experience_id" formControlName="educational_experience_id" name="educational_experience_id" dir="rtl">
+                          <select [(ngModel)]="user.work_experience_id" formControlName="work_experience_id" name="work_experience_id" dir="rtl">
                             <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
                           </select>
                         </div>
@@ -326,7 +326,7 @@
                       <i class="fas mobile mobile-icon">A</i>
                       <div class="dropdown mobile">
                         <div class="styled-select">
-                          <select [(ngModel)]="user.educational_experience_id" formControlName="educational_experience_id" name="educational_experience_id" dir="rtl">
+                          <select [(ngModel)]="user.work_experience_id" formControlName="work_experience_id" name="work_experience_id" dir="rtl">
                             <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
                           </select>
                         </div>
