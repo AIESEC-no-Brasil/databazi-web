@@ -10,7 +10,7 @@ describe('FormGpComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ FormGpComponent ]
     })
-    .compileComponents();
+    .compileComponents();''
   }));
 
   beforeEach(() => {

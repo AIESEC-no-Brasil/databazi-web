@@ -44,7 +44,7 @@
             display: flex !important;
             margin-right: 0;
             align-items: center;
-            background: #0a8191;
+            background: #cc6504;
             padding: 0 10px;
             border-bottom: 2px solid #84bfc7;
             min-width: 35px;
@@ -268,7 +268,7 @@ select:focus {
 .select-dropdown {
     justify-content: space-between;
     flex-wrap: wrap !important;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-bottom: 2px solid rgba(255, 255, 255, .5);
     padding-right: 10px;
     position: relative;
@@ -1230,7 +1230,7 @@ label {
     input[type=password]:focus,
     input[type=email],
     input[type=tel] {
-        background-color: #0a8191;
+        background-color: #cc6504;
         color: #fff;
     }
     /* Step3 */
@@ -1308,7 +1308,7 @@ label {
     input[type=password]:focus,
     input[type=email],
     input[type=tel] {
-        background-color: #0a8191;
+        background-color: #cc6504;
         color: #fff;
     }
     /* Placeholder Dropdown */
@@ -1413,19 +1413,19 @@ label {
 
 .form-volutario-global .form-control {
     color: #fff;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-bottom: 2px solid #84bfc7;
 }
 
 .form-volutario-global .input-group-text {
     color: #f5d3cd;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-bottom: 2px solid #84bfc7;
 }
 
 .form-volutario-global .form-control:disabled,
 .form-volutario-global .form-control[readonly] {
-    background-color: #0a8191;
+    background-color: #cc6504;
     color: #ffffff;
 }
 
@@ -1462,7 +1462,7 @@ label {
 .form-volutario-global input[type=password]:focus,
 .form-volutario-globalinput[type=email],
 .form-volutario-globalinput[type=tel] {
-    background-color: #0a8191;
+    background-color: #cc6504;
     color: #fff;
     border-bottom: 2px solid #84bfc7;
 }
@@ -1514,8 +1514,8 @@ label {
 
 .form-volutario-global .btn-info {
     color: #fff;
-    background-color: #0a8191;
-    border-color: #0a8191;
+    background-color: #cc6504;
+    border-color: #cc6504;
     border-bottom: 2px solid #84bfc7;
     border-right: transparent;
     border-left: transparent;
@@ -1523,8 +1523,8 @@ label {
 
 .form-volutario-global .btn-info:hover {
     color: #fff;
-    background-color: #0a8191;
-    border-color: #0a8191;
+    background-color: #cc6504;
+    border-color: #cc6504;
     border-bottom: 2px solid #84bfc7;
 }
 
@@ -1532,7 +1532,7 @@ label {
 .form-volutario-global .btn-info:not(:disabled):not(.disabled):active,
 .form-volutario-global .show>.btn-info.dropdown-toggle {
     color: #fff;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-color: transparent;
     border-bottom: 2px solid #84bfc7;
 }
@@ -1587,21 +1587,21 @@ label {
 /* Forms */
 
 .form-talentos-globais {
-    background: #0a8ea0;
+    background: #f48924;
     font-family: 'Lato', sans-serif;
     color: #ffffff;
 }
 
 .form-talentos-globais .form-control {
     color: #fff;
-    background-color: #0a8191;
-    border-bottom: 2px solid #0a8ea0;
+    background-color: #cc6504;
+    border-bottom: 2px solid #f48924;
 }
 
 .form-talentos-globais .input-group-text {
     color: #ffffff;
-    background-color: #0a8191;
-    border-bottom: 2px solid #0a8ea0;
+    background-color: #cc6504;
+    border-bottom: 2px solid #f48924;
 }
 
 .form-talentos-globais .form-control:disabled,
@@ -1639,20 +1639,20 @@ label {
 
 .form-talentos-globais input[type=text]:focus,
 .form-talentos-globais input[type=password]:focus {
-    background-color: #0a8191;
+    background-color: #cc6504;
     color: #fff;
-    border-bottom: 2px solid #0a8ea0;
+    border-bottom: 2px solid #f48924;
 }
 
 .form-talentos-globais .alert-warning {
-    color: #0a8ea0;
+    color: #f48924;
     background-color: #ffffff;
     border-color: #ffffff;
 }
 
 .form-talentos-globais .dropdown-item {
     color: #fff;
-    border-bottom: 1px solid #0a8ea0;
+    border-bottom: 1px solid #f48924;
 }
 
 .form-talentos-globais .dropdown-item:last-child {
@@ -1667,14 +1667,14 @@ label {
 /* Buttons */
 
 .form-talentos-globais .btn-primary {
-    color: #0a8ea0;
+    color: #f48924;
     background-color: #ffffff;
     border-color: #ffffff;
 }
 
 .form-talentos-globais .btn-secondary {
     color: #ffffff;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-color: #ffffff;
 }
 
@@ -1698,28 +1698,28 @@ label {
 
 .form-talentos-globais .btn-info {
     color: #fff;
-    background-color: #0a8191;
-    border-color: #0a8ea0;
-    border-bottom: 2px solid #0a8ea0;
+    background-color: #cc6504;
+    border-color: #f48924;
+    border-bottom: 2px solid #f48924;
     border-right: transparent;
     border-left: transparent;
 }
 
 .form-talentos-globais .btn-info:hover {
     color: #fff;
-    background-color: #0a8191;
-    border-color: #0a8ea0;
-    border-bottom: 2px solid #0a8ea0;
+    background-color: #cc6504;
+    border-color: #f48924;
+    border-bottom: 2px solid #f48924;
 }
 
 .form-talentos-globais .btn-info:not(:disabled):not(.disabled).active,
 .form-talentos-globais .btn-info:not(:disabled):not(.disabled):active,
 .form-talentos-globais .show>.btn-info.dropdown-toggle {
     color: #fff;
-    background-color: #0a8191;
+    background-color: #cc6504;
     border-color: transparent;
     border-bottom-color: transparent;
-    border-bottom: 2px solid #0a8ea0;
+    border-bottom: 2px solid #f48924;
 }
 
 .submit-form {
@@ -1740,7 +1740,7 @@ label {
         background-image: url('/assets/images/logo-talentos-globais.png');
     }
     @at-root :host-context(.webp) #{&} {
-        background-image: url('/assets/images/logo-talentos-globais.png.webp');
+        background-image: url('/assets/images/logo-professor-globais.png.webapp');
     }
     margin: auto
 }

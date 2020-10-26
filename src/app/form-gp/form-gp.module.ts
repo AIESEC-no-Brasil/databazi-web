@@ -4,10 +4,10 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FormGpComponent } from './form-gp.component';
-// import { FormGtThankYouComponent } from './form-gt-thank-you/form-gt-thank-you.component';
+import { FormGtThankYouComponent } from './form-gp-thank-you/form-gt-thank-you.component';
 
-import { TermsModule } from '../terms/terms.module';
 import { FormGpRoutingModule } from './form-gp-routing.module';
+import { TermsModule } from '../terms/terms.module';
 
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { NgxMaskModule } from 'ngx-mask';
@@ -18,7 +18,7 @@ import { SignupService } from '../services/signup.service';
 @NgModule({
   declarations: [
   	FormGpComponent,
-    // FormGtThankYouComponent
+    FormGtThankYouComponent
   ],
   imports: [
     CommonModule,

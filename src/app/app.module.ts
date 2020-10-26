@@ -46,6 +46,7 @@ import { FormMembershipModule } from "./form-membership/form-membership.module";
 import { FormProspectComponent } from './form-prospect/form-prospect.component';
 import { FormGpComponent } from './form-gp/form-gp.component';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -81,7 +82,7 @@ export class SentryErrorHandler implements ErrorHandler {
     SliderMembershipHostComponent,
     LandingPageMembershipComponent,
     FormProspectComponent,
-    FormGpComponent,
+    FormGpComponent
   ],
   imports: [
     BrowserModule,
