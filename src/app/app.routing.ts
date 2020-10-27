@@ -5,6 +5,8 @@ import { FormHostThankYouComponent } from './form-host/form-host-thank-you/form-
 import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
 
 import { FormProspectComponent } from './form-prospect/form-prospect.component';
+import { FormGpComponent } from './form-gp/form-gp.component';
+
 
 export const router : Routes = [
     { path: '', component: LandingPageComponent },
@@ -34,7 +36,7 @@ export const router : Routes = [
     },
     {
         path: 'formulario-talento-global',
-        loadChildren: './form-gt/form-gt.module#FormGtModule'
+        component: FormGpComponent
     },
     {
         path: 'formulario-empreendedor-global',
