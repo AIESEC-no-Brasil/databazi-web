@@ -23,12 +23,12 @@ export class FormGvComponent implements OnInit {
 
   @Input() formedUser: any;
   @Output() onCancelEvent = new EventEmitter<boolean>();
-
   user = {
     fullname: '',
     cellphone: '',
     email: '',
     birthdate: '',
+    university: { id: '', name: '' },
     password: '',
     repassword: '',
     local_committee: { id: '' },
@@ -42,6 +42,8 @@ export class FormGvComponent implements OnInit {
   }
 
   msgs: Message[] = [];
+
+  universities: any[];
 
   filteredCourses: Observable<any[]>;
   filteredPlaces: Observable<any[]>;
@@ -94,6 +96,9 @@ export class FormGvComponent implements OnInit {
       birthdate: new FormControl(this.user.birthdate, [
         Validators.required
       ]),
+      university_id: new FormControl(this.user.university, [
+        Validators.required
+      ]),
       password: new FormControl(this.user.password, [
         Validators.required,
         Validators.pattern('^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z]).{8,}$')
@@ -112,6 +117,8 @@ export class FormGvComponent implements OnInit {
     });
     window.innerWidth > 600 ? this.placeholderBirthdate = "Os programas da AIESEC são para pessoas de 18 à 30 anos" : this.placeholderBirthdate = "Data de Nascimento";
     this.detectKeypress();
+    this.fillUniversitySelect();
+
   }
 
   detectKeypress() {
@@ -314,6 +321,23 @@ export class FormGvComponent implements OnInit {
     }
   }
 
+  fillUniversitySelect(search?) {
+    return this.signupService.getUniversities(search).then((res: any) => {
+      this.universities = res;
+    }, (err) => {
+      this.msgs = [];
+      this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das faculdades disponíveis.' });
+    })
+  }
+
+  searchUnivesity(event) {
+    if (!event.originalEvent) {
+      this.universities = this.universities.slice(); //fixing autocomplete first load that wasn't showing the suggestions
+      return;
+    }
+    this.fillUniversitySelect(event.query);
+  };
+
   toggleFormGv() {
     this.formToggle ? this.formToggle = false : this.formToggle = true;
   }
@@ -326,6 +350,7 @@ export class FormGvComponent implements OnInit {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
+        university_id: (this.user.university.id == '' ? null : +this.user.university.id),
         password: this.user.password,
         birthdate: moment(this.user.birthdate, 'DDMMYYYY').format('DD/MM/YYYY'),
         local_committee_id: +this.user.local_committee.id,
