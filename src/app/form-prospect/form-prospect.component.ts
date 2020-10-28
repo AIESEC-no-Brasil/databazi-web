@@ -271,7 +271,7 @@ export class FormProspectComponent implements OnInit {
       email: '',
       local_committee: { id: '' },
       program: '',
-      duration: '', 
+      duration: '',
       college_course: { id: '', name: '' },
       cellphone_contactable: true,
       utm_source: '',
@@ -300,8 +300,8 @@ export class FormProspectComponent implements OnInit {
         property = 'gt_participant';
         break;
       case '2':
-        method = 'addGpParticipant';
-        property = 'gp_participant';
+        method = 'addGeParticipant';
+        property = 'ge_participant';
         break;
     }
 
@@ -310,7 +310,7 @@ export class FormProspectComponent implements OnInit {
       fullname: this.user.fullname,
       cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
       email: this.user.email,
-      duration: this.user.duration,
+      program_duration: this.user.duration,
       local_committee_id: +this.user.local_committee.id,
       college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
       cellphone_contactable: true,

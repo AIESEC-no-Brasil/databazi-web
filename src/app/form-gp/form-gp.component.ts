@@ -364,7 +364,7 @@ export class FormGpComponent implements OnInit {
       }
     };
     this.loading = true;
-    this.signupService.addGtParticipant(user)
+    this.signupService.addGeParticipant(user)
       .then((res: any) => {
         this.loading = false;
         if (res.status == 'failure') {
