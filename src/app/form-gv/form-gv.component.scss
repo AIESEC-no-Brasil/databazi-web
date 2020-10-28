@@ -1789,6 +1789,10 @@ label {
     top: 15px;
 }
 
+.univesity-input {
+    direction: rtl;
+}
+
 @media (min-width: 1440px) {
     div.form-volutario-global {
         &:not(.full-screen) {

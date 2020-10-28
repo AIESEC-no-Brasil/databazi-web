@@ -160,7 +160,7 @@
                       </div>
                       <div class="dropdown">
                         <div class="styled-select">
-                          <p-autoComplete [(ngModel)]="user.university" [suggestions]="universities"
+                          <p-autoComplete class='univesity-input' style="padding-right: 30px;" [(ngModel)]="user.university" [suggestions]="universities"
                             (completeMethod)="searchUnivesity($event)" #universityAutocomplete
                             (onFocus)="selectInput('university');universityAutocomplete.handleDropdownClick();"
                             dropdownMode="current" field="name" formControlName="university_id"

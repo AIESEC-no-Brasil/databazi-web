@@ -149,7 +149,6 @@ export class FormGpComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('entrou')
     if (this.formedUser) {
       this.user = this.formedUser;
       this.personalData = false;
@@ -216,7 +215,7 @@ export class FormGpComponent implements OnInit {
 
 
   cancelSignUp(el: HTMLElement) {
-    this.amplitude.trackingClickCancelGt();
+    this.amplitude.trackingClickCancelGp();
     if (this.formedUser) {
       this.onCancelEvent.emit();
     } else {
@@ -341,10 +340,10 @@ export class FormGpComponent implements OnInit {
 
   submit(el: HTMLElement) {
     this.submittedStudy = true;
-    this.amplitude.trackingCompletedSignupGt();
+    this.amplitude.trackingCompletedSignupGp();
 
     let user = {
-      gt_participant: {
+      ge_participant: {
         fullname: this.user.fullname,
         cellphone: this.user.cellphone.replace(/[()_-]/g, ''),
         email: this.user.email,
