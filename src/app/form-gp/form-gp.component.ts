@@ -378,7 +378,7 @@ export class FormGpComponent implements OnInit {
           localStorage.removeItem('utm_term');
           localStorage.removeItem('utm_content');
           el.scrollIntoView();
-          this.router.navigate(['/talento-global/obrigado']);
+          this.router.navigate(['/formulario-professor-global/obrigado']);
         }
       },
         (err) => {

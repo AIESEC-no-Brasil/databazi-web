@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AmplitudeService } from 'src/app/amplitude.service';
 
 @Component({
-  selector: 'app-form-gt-thank-you',
-  templateUrl: './form-gt-thank-you.component.html',
-  styleUrls: ['./form-gt-thank-you.component.scss']
+  selector: 'app-form-gp-thank-you',
+  templateUrl: './form-gp-thank-you.component.html',
+  styleUrls: ['./form-gp-thank-you.component.scss']
 })
-export class FormGtThankYouComponent implements OnInit {
+export class FormGpThankYouComponent implements OnInit {
   window: any = window;
   constructor(
     public amplitude: AmplitudeService,
@@ -23,17 +23,17 @@ export class FormGtThankYouComponent implements OnInit {
 
   goToHome() {
     this.router.navigate(['/']);
-    this.amplitude.trackingSignupThankYouHomeGt()
+    this.amplitude.trackingSignupThankYouHomeGp()
   }
 
   goToAiesec() {
     window.open("https://aiesec.org/", "_blank");
-    this.amplitude.trackingSignupThankYouAiesecGt()
+    this.amplitude.trackingSignupThankYouAiesecGp()
   }
 
   goToBlog() {
     window.open("https://blog.aiesec.org.br/", "_blank");
-    this.amplitude.trackingSignupThankYouBlogGt()
+    this.amplitude.trackingSignupThankYouBlogGp()
   }
 
 }

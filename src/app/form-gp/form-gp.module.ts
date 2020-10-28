@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { FormGpComponent } from './form-gp.component';
-import { FormGtThankYouComponent } from './form-gp-thank-you/form-gt-thank-you.component';
+import { FormGpThankYouComponent } from './form-gp-thank-you/form-gp-thank-you.component';
 
 import { FormGpRoutingModule } from './form-gp-routing.module';
 import { TermsModule } from '../terms/terms.module';
@@ -18,7 +18,7 @@ import { SignupService } from '../services/signup.service';
 @NgModule({
   declarations: [
   	FormGpComponent,
-    FormGtThankYouComponent
+    FormGpThankYouComponent
   ],
   imports: [
     CommonModule,
