@@ -6,7 +6,7 @@ import { FormGtThankYouComponent } from './form-gt-thank-you/form-gt-thank-you.c
 
 const routes: Routes = [
 	{
-    path: 'formulario-empreendedor-global',
+    path: '',
     component: FormGtComponent
   },
   {

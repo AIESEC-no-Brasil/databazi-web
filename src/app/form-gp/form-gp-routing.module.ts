@@ -5,7 +5,7 @@ import { FormGpComponent } from './form-gp.component';
 
 const routes: Routes = [
 	{
-    path: 'formulario-talento-global',
+    path: '',
     component: FormGpComponent
   },
 

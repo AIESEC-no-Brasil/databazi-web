@@ -35,8 +35,12 @@ export const router : Routes = [
         loadChildren: './form-gv/form-gv.module#FormGvModule'
     },
     {
+        path: 'formulario-professor-global',
+        loadChildren: './form-gp/form-gp.module#FormGpModule'
+    },
+    {
         path: 'formulario-talento-global',
-        component: FormGpComponent
+        loadChildren: './form-gt/form-gt.module#FormGtModule'
     },
     {
         path: 'formulario-empreendedor-global',

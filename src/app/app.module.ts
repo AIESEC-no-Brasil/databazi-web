@@ -44,7 +44,6 @@ import { LandingPageCountriesModule } from "./landing-page-countries/landing-pag
 import { LandingPageMembershipComponent } from './landing-page-membership/landing-page-membership.component';
 import { FormMembershipModule } from "./form-membership/form-membership.module";
 import { FormProspectComponent } from './form-prospect/form-prospect.component';
-import { FormGpComponent } from './form-gp/form-gp.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -81,8 +80,7 @@ export class SentryErrorHandler implements ErrorHandler {
     LandingPageHostComponent,
     SliderMembershipHostComponent,
     LandingPageMembershipComponent,
-    FormProspectComponent,
-    FormGpComponent
+    FormProspectComponent
   ],
   imports: [
     BrowserModule,
