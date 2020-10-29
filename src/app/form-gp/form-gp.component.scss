@@ -1816,7 +1816,10 @@ label {
     }
 }
 
-
+.direction-rtl {
+    direction: rtl;
+    padding-right: 35px;
+}
 
 .info-mobile-content {
     text-align: left;
