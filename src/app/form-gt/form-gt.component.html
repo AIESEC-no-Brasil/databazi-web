@@ -265,7 +265,7 @@
                         </div>
                       </div>
                       <div class="dropdown desktop">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.program_duration" formControlName="program_duration" name="program_duration" >
                             <option value="0">Duração de 6 a 8 semanas - Programa para quem está começando a carreira e quer ter uma experiência internacional</option>
                             <option value="1">Duração de 3 a 18 meses - Programa remunerado para quem tem experiência e quer uma oportunidade no mercado internacional</option>
@@ -275,7 +275,7 @@
 
                       <i class="fas mobile mobile-icon">A</i>
                       <div class="dropdown mobile">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.program_duration" formControlName="program_duration" name="program_duration" >
                             <option value="0">Duração de 6 a 8 semanas - Programa para quem está começando a carreira e quer ter uma experiência internacional!</option>
                             <option value="1">Duração de 3 a 18 meses - Programa remunerado para quem tem experiência e quer uma oportunidade no mercado internacional!</option>
@@ -291,7 +291,7 @@
                           <i class="fas fa-book-open"></i>Área de Atuação</div>
                       </div>
                       <div class="dropdown desktop">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.area" formControlName="area" name="area" dir="rtl">
                             <option *ngFor="let area of areas" value="{{area.value}}">{{area.name}}</option>
                           </select>
@@ -300,7 +300,7 @@
 
                       <i class="fas mobile mobile-icon">A</i>
                       <div class="dropdown mobile">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.area" formControlName="area" name="area">
                             <option *ngFor="let area of areas" value="{{area.value}}">{{area.name}}</option>
                           </select>
@@ -316,7 +316,7 @@
                         </div>
                       </div>
                       <div class="dropdown desktop">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.work_experience_id" formControlName="work_experience_id" name="work_experience_id" dir="rtl">
                             <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
                           </select>
@@ -325,7 +325,7 @@
 
                       <i class="fas mobile mobile-icon">A</i>
                       <div class="dropdown mobile">
-                        <div class="styled-select direction-rtl">
+                        <div class="styled-select" style="padding-right: 15px;">
                           <select [(ngModel)]="user.work_experience_id" formControlName="work_experience_id" name="work_experience_id" dir="rtl">
                             <option *ngFor="let item of educationalExperienceItems" value="{{item.id}}">{{item.name}}</option>
                           </select>
