@@ -130,5 +130,16 @@ export class SignupService {
 	        console.error('sentry', e);
 	      }
 			});
-	}
+  }
+
+  emitScreenHeight(){
+    setTimeout(() =>{
+      console.log("document.body.scrollHeight - ", document.body.scrollHeight);
+      if((<any>window).top && (<any>window).top.postMessage){
+        (<any>window).top.postMessage({
+          'scrollHeight' : document.body.scrollHeight
+        }, '*');
+      }
+    }, 1000)
+  }
 }

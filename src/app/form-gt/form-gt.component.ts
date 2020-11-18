@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -18,7 +18,7 @@ import { AmplitudeService } from '../amplitude.service';
   templateUrl: './form-gt.component.html',
   styleUrls: ['./form-gt.component.scss']
 })
-export class FormGtComponent implements OnInit {
+export class FormGtComponent implements OnInit, AfterViewInit {
 
   window: any = window;
 
@@ -36,7 +36,7 @@ export class FormGtComponent implements OnInit {
     college_course: { id: '', name: '' },
     cellphone_contactable: true,
     english_level: { id: '' },
-    area: '', 
+    area: '',
     work_experience_id: '0',
     program_duration: 0,
     experience: [],
@@ -62,7 +62,7 @@ export class FormGtComponent implements OnInit {
     { name: 'Engenharia', value: 'engineering'},
     { name: 'Finanças', value: 'finance'}
   ];
-  
+
   educationalExperienceItems: any = [
     { id: '0', name: 'Não tenho' },
     { id: '1', name: 'Sim, menos de 1 ano na área' },
@@ -166,6 +166,10 @@ export class FormGtComponent implements OnInit {
         this.closeModal()
       }
     })
+  }
+
+  ngAfterViewInit(): void {
+    this.signupService.emitScreenHeight();
   }
 
   ngOnInit() {
@@ -364,6 +368,7 @@ export class FormGtComponent implements OnInit {
       this.studyData = true;
       el.scrollIntoView();
     }
+    this.signupService.emitScreenHeight();
   }
 
   submit(el: HTMLElement) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, AfterViewInit } from '@angular/core';
 import { SignupService } from '../services/signup.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import * as moment from 'moment';
@@ -18,7 +18,7 @@ import { AmplitudeService } from '../amplitude.service';
   templateUrl: './form-gp.component.html',
   styleUrls: ['./form-gp.component.scss']
 })
-export class FormGpComponent implements OnInit {
+export class FormGpComponent implements OnInit, AfterViewInit {
 
   window: any = window;
 
@@ -146,6 +146,10 @@ export class FormGpComponent implements OnInit {
         this.closeModal()
       }
     })
+  }
+
+  ngAfterViewInit(): void {
+    this.signupService.emitScreenHeight();
   }
 
   ngOnInit() {
@@ -336,6 +340,7 @@ export class FormGpComponent implements OnInit {
       this.studyData = true;
       el.scrollIntoView();
     }
+    this.signupService.emitScreenHeight();
   }
 
   submit(el: HTMLElement) {
