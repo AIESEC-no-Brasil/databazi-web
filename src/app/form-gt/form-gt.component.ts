@@ -390,11 +390,11 @@ export class FormGtComponent implements OnInit, AfterViewInit {
         work_experience: +this.user.work_experience_id,
         program_duration: +this.user.program_duration,
         experience: this.selectedItems,
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : 'google'),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : 'post'),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : 'trafego_organico_aiesecnobrasil'),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : 'bazi'),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : 'gta')
       }
     };
     this.loading = true;
