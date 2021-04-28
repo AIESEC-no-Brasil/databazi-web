@@ -361,11 +361,11 @@ export class FormGvComponent implements OnInit, AfterViewInit {
         local_committee_id: +this.user.local_committee.id,
         college_course_id: (this.user.college_course.id == '' ? null : +this.user.college_course.id),
         cellphone_contactable: (this.user.cellphone_contactable ? true : false),
-        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : null),
-        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : null),
-        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : null),
-        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : null),
-        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : null)
+        utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : 'google'),
+        utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : 'post'),
+        utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : 'trafego_organico_aiesecnobrasil'),
+        utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : 'bazi'),
+        utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : 'gv')
       }
     };
     this.loading = true;
