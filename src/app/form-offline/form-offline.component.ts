@@ -193,7 +193,7 @@ export class FormOfflineComponent implements OnInit {
   fillPlacesSelect() {
     this.signupService.getLocalCommittees().then((res: any) => {
       let orderedList = _.orderBy(res, ['name'], ['asc']);
-      this.places = orderedList;
+      this.places = orderedList.filter(comite => comite.id != 31)
     }, (err) => {
       this.msgs = [];
       this.msgs.push({ severity: 'error', summary: 'FALHA EM RECUPERAR DADOS!', detail: 'Não foi possível recuperar os dados das AIESEC disponíveis.' });
