@@ -35,6 +35,11 @@ export class FormMembershipComponent implements OnInit {
     city: '',
     state: { value: '', name: '' },
     cellphone_contactable: true,
+    utm_source: '',
+    utm_medium: '',
+    utm_campaign: '',
+    utm_term: '',
+    utm_content: ''
   };
 
 
@@ -152,6 +157,29 @@ export class FormMembershipComponent implements OnInit {
     if (this.formedUser) {
       this.user = this.formedUser;
     }
+
+    this.urlScrapper.queryParams.subscribe((param: any) => {
+      if (param['utm_source']) {
+        localStorage.setItem('utm_source', param['utm_source'])
+      }
+
+      if (param['utm_medium']) {
+        localStorage.setItem('utm_medium', param['utm_medium'])
+      }
+
+      if (param['utm_campaign']) {
+        localStorage.setItem('utm_campaign', param['utm_campaign'])
+      }
+
+      if (param['utm_term']) {
+        localStorage.setItem('utm_term', param['utm_term'])
+      }
+
+      if (param['utm_content']) {
+        localStorage.setItem('utm_content', param['utm_content'])
+      }
+
+    });
 
     this.fillCourseSelect().then(() => {
       this.filteredCourses = this.form.controls.college_course_id.valueChanges
@@ -311,7 +339,12 @@ export class FormMembershipComponent implements OnInit {
       college_course_id: +this.user.college_course.id,
       cellphone_contactable: this.user.cellphone_contactable,
       city: this.user.city,
-      state: this.user.state.value
+      state: this.user.state.value,
+      utm_source: (localStorage.getItem('utm_source') ? localStorage.getItem('utm_source') : 'google'),
+      utm_medium: (localStorage.getItem('utm_medium') ? localStorage.getItem('utm_medium') : 'post'),
+      utm_campaign: (localStorage.getItem('utm_campaign') ? localStorage.getItem('utm_campaign') : 'trafego_organico_aiesecnobrasil'),
+      utm_term: (localStorage.getItem('utm_term') ? localStorage.getItem('utm_term') : 'bazi'),
+      utm_content: (localStorage.getItem('utm_content') ? localStorage.getItem('utm_content') : 'membresia')
     };
     this.loading = true;
 
@@ -324,6 +357,11 @@ export class FormMembershipComponent implements OnInit {
         }
         else {
           this.completedSignup = true;
+          localStorage.removeItem('utm_source');
+          localStorage.removeItem('utm_medium');
+          localStorage.removeItem('utm_campaign');
+          localStorage.removeItem('utm_term');
+          localStorage.removeItem('utm_content');
           el.scrollIntoView();
           this.window.ga('set', 'page', '/membresia/obrigado');
           this.window.ga('send', 'pageview');
